@@ -4205,29 +4205,29 @@ Dialog.open();
 		break;
 	}
 	return isFinite(obj) &amp;amp;&amp;amp; !isNaN(obj);
-};</tw-passagedata><tw-passagedata pid="69" name="dailyConsumables" tags="nobr" position="100,0" size="100,100">&lt;&lt;for _i to 0; _i &lt; $gymStoreSupplies.length; _i ++&gt;&gt;
-		&lt;&lt;capture _i&gt;&gt;	
-		&lt;&lt;if $gymStoreSupplies[_i].takeDaily &gt; 0&gt;&gt;
+};</tw-passagedata><tw-passagedata pid="69" name="dailyConsumables" tags="nobr" position="100,0" size="100,100">&lt;&lt;for _igymStoreSupply to 0; _igymStoreSupply &lt; $gymStoreSupplies.length; _igymStoreSupply ++&gt;&gt;
+		&lt;&lt;capture _igymStoreSupply&gt;&gt;	
+		&lt;&lt;if $gymStoreSupplies[_igymStoreSupply].takeDaily &gt; 0&gt;&gt;
 		
-		&lt;&lt;set $gymStoreSupplies[_i].effectStore *= 0.5&gt;&gt;
-		&lt;&lt;set $gymStoreSupplies[_i].effectStore to Math.round($gymStoreSupplies[_i].effectStore)&gt;&gt;
+		&lt;&lt;set $gymStoreSupplies[_igymStoreSupply].effectStore *= 0.5&gt;&gt;
+		&lt;&lt;set $gymStoreSupplies[_igymStoreSupply].effectStore to Math.round($gymStoreSupplies[_igymStoreSupply].effectStore)&gt;&gt;
 		
-		&lt;&lt;if $gymStoreSupplies[_i].takeDaily * 3 &gt;= $gymStoreSupplies[_i].amount&gt;&gt;
-			&lt;&lt;set _warningString to &quot;You only have &lt;&lt;print $gymStoreSupplies[_i].amount&gt;&gt; doses left of &lt;&lt;print $gymStoreSupplies[_i].name&gt;&gt; so you might run out soon.&quot;&gt;&gt;
+		&lt;&lt;if $gymStoreSupplies[_igymStoreSupply].takeDaily * 3 &gt;= $gymStoreSupplies[_igymStoreSupply].amount&gt;&gt;
+			&lt;&lt;set _warningString to &quot;You only have &quot; +  $gymStoreSupplies[_igymStoreSupply].amount +  &quot; doses left of &quot; + $gymStoreSupplies[_igymStoreSupply].name + &quot; so you might run out soon.&quot;&gt;&gt;
 			&lt;&lt;addToLog _warningString&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
 		
-		&lt;&lt;if $gymStoreSupplies[_i].takeDaily &lt;= $gymStoreSupplies[_i].amount&gt;&gt;
-			&lt;&lt;set _amountTaken to $gymStoreSupplies[_i].takeDaily&gt;&gt;	
+		&lt;&lt;if $gymStoreSupplies[_igymStoreSupply].takeDaily &lt;= $gymStoreSupplies[_igymStoreSupply].amount&gt;&gt;
+			&lt;&lt;set _amountTaken to $gymStoreSupplies[_igymStoreSupply].takeDaily&gt;&gt;	
 		&lt;&lt;else&gt;&gt;
-			&lt;&lt;set _amountTaken to $gymStoreSupplies[_i].amount&gt;&gt;
-			&lt;&lt;set _ranOutLog to &quot;You&#39;re clean out of &quot; + $gymStoreSupplies[_i].name + &quot;.&quot;&gt;&gt;
+			&lt;&lt;set _amountTaken to $gymStoreSupplies[_igymStoreSupply].amount&gt;&gt;
+			&lt;&lt;set _ranOutLog to &quot;You&#39;re clean out of &quot; + $gymStoreSupplies[_igymStoreSupply].name + &quot;.&quot;&gt;&gt;
 			&lt;&lt;addToLog _ranOutLog&gt;&gt;
-			&lt;&lt;set $gymStoreSupplies[_i].takeDaily to 0&gt;&gt;
+			&lt;&lt;set $gymStoreSupplies[_igymStoreSupply].takeDaily to 0&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
 		
-		&lt;&lt;set $gymStoreSupplies[_i].amount -= _amountTaken&gt;&gt;
-		&lt;&lt;set _X to _amountTaken + $gymStoreSupplies[_i].effectStore&gt;&gt;
+		&lt;&lt;set $gymStoreSupplies[_igymStoreSupply].amount -= _amountTaken&gt;&gt;
+		&lt;&lt;set _X to _amountTaken + $gymStoreSupplies[_igymStoreSupply].effectStore&gt;&gt;
 		&lt;&lt;set _Y to 0&gt;&gt;
 		&lt;&lt;if $growthMod is 0.5&gt;&gt;
 			&lt;&lt;set _Y to (0.25 + (0.5 / (-1.5 * _X)))&gt;&gt;
@@ -4239,15 +4239,20 @@ Dialog.open();
 			&lt;&lt;addToLog &quot;ERROR IN GROWTHMOD DAILYCONSUMABLES&quot;&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
 		
-		&lt;&lt;if $gymStoreSupplies[_i].effect is &quot;lowerExhaustion&quot;&gt;&gt;	
+		&lt;&lt;if $gymStoreSupplies[_igymStoreSupply].effect is &quot;lowerExhaustion&quot;&gt;&gt;	
 			&lt;&lt;set $exhaustionWorkoutMod to (_Y * 0.2)&gt;&gt;
-		&lt;&lt;elseif $gymStoreSupplies[_i].effect is &quot;raiseMax&quot;&gt;&gt;
+		&lt;&lt;elseif $gymStoreSupplies[_igymStoreSupply].effect is &quot;raiseMax&quot;&gt;&gt;
 			&lt;&lt;set $muscleGrowthMaxTemp to _Y&gt;&gt;
-		&lt;&lt;elseif $gymStoreSupplies[_i].effect is &quot;raiseEfficiency&quot;&gt;&gt;
+		&lt;&lt;elseif $gymStoreSupplies[_igymStoreSupply].effect is &quot;raiseEfficiency&quot;&gt;&gt;
 			&lt;&lt;set $muscleGrowthMod to _Y&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
-		
+	&lt;&lt;script&gt;&gt;
+	console.log(State.variables.gymStoreSupplies);
+	&lt;&lt;/script&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
+			&lt;&lt;script&gt;&gt;
+	console.log(State.temporary.igymStoreSupply);
+	&lt;&lt;/script&gt;&gt;
 		&lt;&lt;/capture&gt;&gt;
 &lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="changeDiet" tags="" position="600,700" size="100,100">You&#39;re currently on a &lt;&lt;print $currentDiet.name&gt;&gt;.
 &lt;&lt;nobr&gt;&gt;
