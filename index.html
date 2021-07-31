@@ -2091,7 +2091,7 @@ The goal of the game is to keep up with your growing body and get the best out o
 		&lt;tr&gt;
 		&lt;td&gt;skills&lt;/td&gt;
 		  &lt;td&gt;&lt;&lt;link &quot;working out&quot; &quot;Cheats&quot;&gt;&gt;&lt;&lt;skillIncrease &quot;Working out&quot; 100&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
-		  &lt;td&gt;&lt;&lt;link &quot;Get the office job&quot; &quot;Cheats&quot;&gt;&gt;&lt;&lt;set $job to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;link &quot;Go home&quot; &quot;Home&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
+		  &lt;td&gt;&lt;&lt;link &quot;book keeping&quot; &quot;Cheats&quot;&gt;&gt;&lt;&lt;skillIncrease &quot;Book keeping&quot; 100&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
 		  &lt;td&gt;&lt;&lt;link &quot;refreshClothes&quot; &quot;Cheats&quot;&gt;&gt;&lt;&lt;display &quot;InitializeClothes&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
 		  &lt;td&gt;&lt;/td&gt;
 		&lt;/tr&gt;
@@ -4732,7 +4732,11 @@ Unfortunatly, you&#39;re just too tired to clean.
 	&lt;&lt;addExhaustion -20&gt;&gt;
 	&lt;&lt;set $shyConfident += 1&gt;&gt;
 	&lt;&lt;display $quests[$getJobI].finishedDialogue&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="streaming" tags="nobr noReturn" position="1000,900" size="100,100">&lt;&lt;for _i to 0; _i &lt; $skills.length; _i ++&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;script&gt;&gt;
+console.log(State.variables.quests);
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="streaming" tags="nobr noReturn" position="1000,900" size="100,100">&lt;&lt;for _i to 0; _i &lt; $skills.length; _i ++&gt;&gt;
 &lt;&lt;capture _i&gt;&gt;
 	&lt;&lt;if $skills[_i].name is &quot;gaming&quot;&gt;&gt;
 		&lt;&lt;set _gamingSkillI to _i&gt;&gt;
