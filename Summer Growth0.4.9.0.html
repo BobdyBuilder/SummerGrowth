@@ -2888,7 +2888,7 @@ You&#39;re not tired enough to sleep.
   &lt;td&gt;
   $&lt;span class=&quot;selected&quot;&gt;&lt;&lt;print _clothingSelection[_iClothingStore].price&gt;&gt;&lt;/span&gt;
   &lt;&lt;timed 0s&gt;&gt;&lt;&lt;script&gt;&gt;
-	var boxes = $(&quot;.macro-listbox#listbox--newclothes-isize&quot;);
+	var boxes = $(&quot;.macro-listbox#listbox--newclothes-iclothingstoresize&quot;);
 	boxes.value = State.temporary.sizes[State.temporary.listBoxStartValue];
 	console.log(State.temporary.listBoxStartValue);
     boxes.on(&quot;change&quot;, function () {		
