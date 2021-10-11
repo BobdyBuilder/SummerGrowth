@@ -98,7 +98,14 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="health experiment" startnode="1" creator="Twine" creator-version="2.3.14" ifid="E45F7844-F138-458A-ACF4-1B9977D64BB2" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.logo { 
+	<tw-storydata name="health experiment" startnode="1" creator="Twine" creator-version="2.3.14" ifid="E45F7844-F138-458A-ACF4-1B9977D64BB2" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+[hidden] {
+  display: none;
+}
+
+
+.logo { 
   width:auto; 
   text-align:center; 
 } 
@@ -112,6 +119,7 @@ img#logoImage{
   width: 100%; 
   height: 100%; 
   object-fit: contain; 
+  visibility: hidden;
 } 
 
 #ui-bar-body {
@@ -130,6 +138,9 @@ img#logoImage{
     right: 0px;
     bottom: 0px;
 }
+
+#motivationExhaustionTable th { height: 100%; }
+
 
 .barContainer{
   position: relative;
@@ -215,7 +226,35 @@ background-image: linear-gradient(45deg, #c71434 25%, #8f1d1d 25%, #8f1d1d 50%, 
 
 .bar#motivation{
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), radial-gradient( circle at bottom right, #0c0, #00cc0085 60% );
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">Macro.add('healthCheck', {
+	tags     : null,
+	handler  : function () {
+		var Container = document; 
+	
+	var maxMotivation = State.variables.maxMotivation;
+	var motivation = State.variables.motivation;
+	
+	var maxExhaustion = State.variables.maxExhaustion;
+	var minimumExhauation = State.variables.minimumExhaustion;
+	var exhaustion = State.variables.exhaustion;
+	
+	var motivationPercent = parseInt((motivation / maxMotivation) * 100).clamp(0, 100);
+	
+	var motivationBarElement = $(Container).find("#motivation");
+	console.log(motivationBarElement);
+	motivationBarElement.css({ height: motivationPercent + "%" });
+	
+	var exhaustionFloor = parseInt((minimumExhauation / maxExhaustion) * 100).clamp(0, 100);
+	
+	var exhaustionFloorElement = $(Container).find("#exhaustionBarFloor");
+	exhaustionFloorElement.css({ height: exhaustionFloor + "%" });
+	
+	var exhaustion = parseInt((exhaustion / maxExhaustion) * 100).clamp(0, 100);
+	
+	var exhaustionElement = $(Container).find("#exhaustion");
+	exhaustionElement.css({ height: exhaustion + "%" });
+	}
+});
 
 </script><tw-passagedata pid="1" name="Untitled Passage" tags="" position="861,367.5" size="100,100">&lt;&lt;set $maxExhaustion to 100&gt;&gt;
 &lt;&lt;set $exhaustion to 60&gt;&gt;
@@ -239,7 +278,7 @@ function mouseOut() {
     document.getElementById(&quot;motivation&quot;).style.height = &quot;80%&quot;;
   document.getElementById(&quot;exhaustionChange&quot;).style.visibility = &quot;collapse&quot;;
 }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="header nobr" position="970,369.5" size="100,100">
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="header nobr" position="970,368.5" size="100,100">
 &lt;table id=&quot;motivationExhaustionTable&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;
@@ -258,34 +297,8 @@ function mouseOut() {
   &lt;/tr&gt; 
 &lt;/table&gt;
   
-&lt;&lt;script&gt;&gt;
-	var Container = document; 
-	
-	var maxMotivation = State.variables.maxMotivation;
-	var motivation = State.variables.motivation;
-	
-	var maxExhaustion = State.variables.maxExhaustion;
-	var minimumExhauation = State.variables.minimumExhaustion;
-	var exhaustion = State.variables.exhaustion;
-	
-	var motivationPercent = parseInt((motivation / maxMotivation) * 100).clamp(0, 100);
-	
-	var motivationBarElement = $(Container).find(&quot;#motivation&quot;);
-	console.log(motivationBarElement);
-	motivationBarElement.css({ height: motivationPercent + &quot;%&quot; });
-	
-	var exhaustionFloor = parseInt((minimumExhauation / maxExhaustion) * 100).clamp(0, 100);
-	
-	var exhaustionFloorElement = $(Container).find(&quot;#exhaustionBarFloor&quot;);
-	exhaustionFloorElement.css({ height: exhaustionFloor + &quot;%&quot; });
-	
-	var exhaustion = parseInt((exhaustion / maxExhaustion) * 100).clamp(0, 100);
-	
-	var exhaustionElement = $(Container).find(&quot;#exhaustion&quot;);
-	exhaustionElement.css({ height: exhaustion + &quot;%&quot; });
-	
-/* Health Bar code - End */
-&lt;&lt;/script&gt;&gt;
+&lt;&lt;healthCheck&gt;&gt;&lt;&lt;/healthCheck&gt;&gt;
+
 
 
  
