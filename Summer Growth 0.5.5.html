@@ -8171,24 +8171,7 @@ console.log(setup.ElenaShyImmediates);
 
 &lt;&lt;/widget&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="140" name="TODO" tags="TODO TODO2" position="500,475" size="100,100">Must haves:
--add post sleep descriptions -DONE
--add post sleep events - 
--Implement cooking skills - DONE
--Rebalance working out - DONE 
--rebalance potions - DONE 
--rebalance jobs - DONE
-	-Promotions DONE
--rebalance prices (DONE)
--rebalance activities (DONE)
--Art assets soviet  
--adding it to the game
-
-Should haves: 
--add more ways to gain personality (Done-ish)
--Add more options to post-sleep
--new dates/dialogs (Ryan)
--bugfixing
-	-sewing not working
+-fix negative time values
 </tw-passagedata><tw-passagedata pid="141" name="clothingSize" tags="widget nobr" position="2575,150" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;clothingSize&quot;&gt;&gt;
 &lt;&lt;set _size to parseInt($args[0])&gt;&gt;
@@ -14871,7 +14854,7 @@ if (State.variables.dickActive == false) {
     ballsURL = [&quot;https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png&quot;];
 }
 
-var ballsI = Math.floor(ballsURL.length * (State.variables.balls / 100));
+var ballsI = Math.floor(ballsURL.length * ((State.variables.dick + State.variables.balls) / 100));
 
 if (ballsI &lt; 0) {
     ballsI = 0
