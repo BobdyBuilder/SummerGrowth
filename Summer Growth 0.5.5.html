@@ -1398,6 +1398,18 @@ Macro.add(['limitedNumberbox'], {
             }))
         .on('keypress.macros', this.createShadowWrapper(function (ev) {
                 // If Return/Enter is pressed, set the variable and, optionally, forward to another passage.
+				if (Number(this.value) > maximum)
+				{
+					ev.preventDefault();
+                    State.setVar(varName, Number(maximum));
+					this.value = maximum;
+				}
+				else if(Number(this.value) < minimum)
+				{
+					ev.preventDefault();
+                    State.setVar(varName, Number(minimum));
+					this.value = minimum;
+				}
                 if (ev.which === 13) { // 13 is Return/Enter
                     ev.preventDefault();
                     State.setVar(varName, Number(this.value));
@@ -11984,7 +11996,7 @@ Johan reluctantly reaches and retrieves the picture of his puzzle, a wistful loo
 &lt;&lt;Dialogue &quot;Johanr&quot; &quot;Johan&quot;&gt;&gt;
 &quot;So, then, in that case... Let&#39;s just say that your character sticks it through and with some effort, she solves the puzzle. The door loses its glow and rolls out of the way, revealing a dark passageway on the other side.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-[[Let&#39;s see what&#39;s inside.-&gt;Final Boss]]</tw-passagedata><tw-passagedata pid="202" name="Excited Puzzle" tags="" position="550,2975" size="100,100">&lt;&lt;if $carefreeCarefull &gt; 0&gt;&gt;&lt;&lt;set $DateSuccess += 1&gt;&gt;
+[[Let&#39;s see what&#39;s inside.-&gt;Final Boss]]</tw-passagedata><tw-passagedata pid="202" name="Excited Puzzle" tags="" position="550,2975" size="100,100">&lt;&lt;if $carefreeCarefull &gt; 0&gt;&gt;&lt;&lt;set $DateSuccess += 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 You can&#39;t help but gasp at the prospect.
 
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt;
@@ -12054,7 +12066,7 @@ The two of you dive into the challenge together. With you slowly plucking away a
 You dutifully toss your die across the table. It&#39;s a 20!
 
 &lt;&lt;Dialogue &quot;Johan&quot; &quot;Johan&quot;&gt;&gt;
-&quot;Wow. Well, when the dice what something to happen, it&#39;s hard to argue with them. You charge at the door, leaping into a kung-fu action pose, and &lt;&lt;if $dndCharacter.class is wizard&quot; || $dndCharacter.class is &quot;warlock&quot; || $dndCharacter.class is &quot;cleric&quot; || $dndCharacter.class is &quot;rogue&quot;&gt;&gt;despite all odds, &lt;&lt;/if&gt;&gt;you crash straight through the door, landing dramatically on the other side.&quot;&lt;&lt;/Dialogue&gt;&gt;
+&quot;Wow. Well, when the dice what something to happen, it&#39;s hard to argue with them. You charge at the door, leaping into a kung-fu action pose, and &lt;&lt;if $dndCharacter.class is &quot;wizard&quot; || $dndCharacter.class is &quot;warlock&quot; || $dndCharacter.class is &quot;cleric&quot; || $dndCharacter.class is &quot;rogue&quot;&gt;&gt;despite all odds, &lt;&lt;/if&gt;&gt;you crash straight through the door, landing dramatically on the other side.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 0&gt;&gt;You give a quiet fist pump, filled with pride.
 
@@ -12444,25 +12456,32 @@ This seems like a good moment to begin a new thread.</tw-passagedata><tw-passage
 &lt;&lt;timed 0s&gt;&gt;&lt;&lt;script&gt;&gt;
 const timeBox = document.getElementById(&quot;wakeUpTime&quot;);
 timeBox.addEventListener(&#39;change&#39;, (event) =&gt; {
-  const result = timeBox.value;
+	if(timeBox.value &lt; 4)
+	{
+		timeBox.value = 4;
+	}
+	else if (timeBox.value &gt; 24)
+	{
+		timeBox.value = 24;
+	}
 
-  var hours = parseInt(timeBox.value);
+    const result = timeBox.value;
 
-  	State.temporary.hoursOfSleep = hours;
+    var hours = parseInt(timeBox.value);
 
-  
-  State.temporary.sleepTime = State.temporary.hoursOfSleep * 60;
-  State.temporary.sleepMinimumExhaustionGain = State.temporary.hoursOfSleep * -10;
-  $(document).trigger(&quot;:liveupdate&quot;);
-  var confirmButton = document.getElementById(&quot;confirmButton&quot;);
-  if(State.temporary.hoursOfSleep &lt; 4){
-    confirmShortSleepButton.style.display = &#39;inline&#39;;
-	confirmLongSleepButton.style.display = &#39;none&#39;;
-  }
-  else {
-  confirmLongSleepButton.style.display = &#39;inline&#39;;
-  confirmShortSleepButton.style.display = &#39;none&#39;;
-  }
+    State.temporary.hoursOfSleep = hours;
+
+    State.temporary.sleepTime = State.temporary.hoursOfSleep * 60;
+    State.temporary.sleepMinimumExhaustionGain = State.temporary.hoursOfSleep * -10;
+    $(document).trigger(&quot;:liveupdate&quot;);
+    var confirmButton = document.getElementById(&quot;confirmButton&quot;);
+    if (State.temporary.hoursOfSleep &lt; 4) {
+        confirmShortSleepButton.style.display = &#39;inline&#39;;
+        confirmLongSleepButton.style.display = &#39;none&#39;;
+    } else {
+        confirmLongSleepButton.style.display = &#39;inline&#39;;
+        confirmShortSleepButton.style.display = &#39;none&#39;;
+    }
 });
 &lt;&lt;/script&gt;&gt;&lt;&lt;/timed&gt;&gt;
 
@@ -12497,6 +12516,8 @@ timeBox.addEventListener(&#39;change&#39;, (event) =&gt; {
 }&gt;&gt;	
 
 </tw-passagedata><tw-passagedata pid="215" name="postSleep" tags="" position="1125,600" size="100,100">&lt;&lt;nobr&gt;&gt;
+
+&lt;&lt;set $foodTimeMod to (1 + (($muscle - 20) * 0.025) + ($heightMod - 1) + (($fat - 20) * 0.025))&gt;&gt;
 
 Decide how you start your day. It takes atleast 15 minutes to get ready.
 
@@ -12590,7 +12611,7 @@ var boxes = $(&quot;select#listbox-currentdietname&quot;);
 &lt;&lt;timed 0s&gt;&gt;
 &lt;&lt;script&gt;&gt;
 var boxes = $(&quot;.macro-limitedNumberbox&quot;);
-    boxes.on(&quot;change&quot;, function () {
+    boxes.on(&quot;change&quot;, function () {	
 	$(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
 	});
 &lt;&lt;/script&gt;&gt;
@@ -14195,7 +14216,7 @@ She gently rubs her hand across the top of yours. You stand there for a moment, 
 “Of course it is! Why didn’t you say so earlier?&lt;&lt;/Dialogue&gt;&gt;
 
 &lt;&lt;Dialogue &quot;Elena&quot; &quot;Elena&quot;&gt;&gt;
-“I thought it would be… como se dice… imposing? I thought you would find it boring. Maybe.&lt;&lt;/Dialogue&gt;&gt;
+“I thought it would be… come se dice… imposing? I thought you would find it boring. Maybe.&lt;&lt;/Dialogue&gt;&gt;
 
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt;
 “Hey. Don’t sweat it. If you’re going to enjoy it, I definitely don’t mind spending some time there myself.&lt;&lt;/Dialogue&gt;&gt;
