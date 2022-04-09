@@ -15581,7 +15581,7 @@ The words sound almost labored as she says them. You stay quiet for a moment, un
 She leaves it at that, hands folded on her desk, looking at you for an answer. Can you devote your evening to some more work? Do you want to?
 
 [[I&#39;d be happy to help!|Date Accept]]
-[[I&#39;m sorry, but I don&#39;t think I can...|Date Decline]]</tw-passagedata><tw-passagedata pid="255" name="Date Accept" tags="" position="750,3500" size="100,100">&lt;&lt;addMinutes 600&gt;&gt;A look of relief washes over Emma&#39;s face as you say yes.
+[[I&#39;m sorry, but I don&#39;t think I can...|Date Decline]]</tw-passagedata><tw-passagedata pid="255" name="Date Accept" tags="" position="750,3500" size="100,100">&lt;&lt;addMinutes 600&gt;&gt;&lt;&lt;set $emmaDateProgress to 0&gt;&gt;&lt;&lt;set $emmaDateFlirty to 0&gt;&gt;&lt;&lt;set $emmaDateProfessional to 0&gt;&gt;&lt;&lt;set $emmaDateFriendly to 0&gt;&gt;A look of relief washes over Emma&#39;s face as you say yes.
 
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Thank goodness.&quot;&lt;&lt;/Dialogue&gt;&gt;
 She turns her attention back to her computer, clicking on a few things and tapping away at the keyboard.
@@ -15790,7 +15790,7 @@ That earns a chuckle from Emma.
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;I can stick with &#96;super cool&#39; if that&#39;s unprofessional to you.&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;No, no. That&#39;s how I know you&#39;re serious about it.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="266" name="Work Flirty" tags="" position="450,3825" size="100,100">&lt;&lt;set $emmaDateFlirty += 1&gt;&gt;
 
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;.Well, if you work hard like I did, I&#39;m sure you&#39;ll work your way up.&quot;&lt;&lt;/Dialogue&gt;&gt;
@@ -15803,7 +15803,7 @@ She stays silent, staring you down across the table as she takes a very long sip
 
 
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="267" name="Work Professional" tags="" position="550,3825" size="100,100">&lt;&lt;set $emmaDateProfessional +=1&gt;&gt;
 Emma seems a bit taken off guard by that comment.
 
@@ -15815,7 +15815,7 @@ Emma seems a bit taken off guard by that comment.
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;So.&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Let&#39;s just say that if it&#39;s really what you want, I&#39;d be happy to have you start working under me. And I genuinely hope you learn something in the process.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="268" name="Hobby Professional" tags="" position="950,3825" size="100,100">&lt;&lt;set $emmaDateProfessional += 1&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Oh, please. As if anyone in the office cares about how the coffee tastes as long as it&#39;s free.&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;Maybe, maybe not. But I bet you have hook-ups for suppliers.&quot;&lt;&lt;/Dialogue&gt;&gt;
@@ -15827,7 +15827,7 @@ Emma raises her glass to you in a mock toast.
 
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;And an intuitive knowledge of playing the game. You&#39;re a clever person, even if you haven&#39;t realized it yet.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="269" name="Hobby Friendly" tags="" position="1050,3825" size="100,100">&lt;&lt;set $emmaDateFriendly += 1&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Is that so? Tell me a little more. What&#39;s your usual order?&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;Uh.&quot;&lt;&lt;/Dialogue&gt;&gt;
@@ -15842,7 +15842,7 @@ You hear the slightest chuckle from Emma, before she manages to stop herself.
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;That just means you&#39;ve got to share some of your good stuff with me in the future.&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;More than fair. Perhaps I&#39;ll buy an extra bag for you as a thank you gift on Monday.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="270" name="Hobby Flirty" tags="" position="1150,3825" size="100,100">&lt;&lt;set $emmaDateFlirty += 1&gt;&gt;
 Somehow, you managed to catch even Emma off guard. She had gone for a sip of water right as you chose to speak, and she just barely manages to avoid choking on her drink. She quickly makes her best attempt to recover.
 
@@ -15856,7 +15856,7 @@ She does her best attempt at maintaining her stoic, all-business facade, but she
 You grin back at her, having a much harder time hiding your glee.
 
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="271" name="Fitness Friendly" tags="" position="650,3825" size="100,100">&lt;&lt;set $emmaDateFriendly += 1&gt;&gt;
 Emma&#39;s eyes widen as you speak. She&#39;s clearly taken aback at that reaction.
 
@@ -15868,7 +15868,7 @@ Thanks to that mental image, a snicker escapes from your mouth before you can ca
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;So you do have a sense of humor!&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Don&#39;t tell the others around the office. It will ruin my reputation.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="272" name="Fitness Flirty" tags="" position="750,3825" size="100,100">&lt;&lt;set $emmaDateFlirty += 1&gt;&gt;
 A blush rises to Emma&#39;s face, though she does an admirable job of maintaining her poker face aside from that.
 
@@ -15881,7 +15881,7 @@ The flush of red stays prominent across Emma&#39;s face. Her body is still rigid
 You can actually see a hint of a smirk on her face. She slumps the tiniest bit in her posture as she seems to relax a bit. Score!
 
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="273" name="Fitness Professional" tags="" position="850,3825" size="100,100">&lt;&lt;set $emmaDateProfessional += 1&gt;&gt;
 Emma nods to herself, visibly relaxing in her seat.
 
@@ -15895,7 +15895,7 @@ A smile crosses Emma&#39;s face. She looks warmer than you&#39;ve ever seen her 
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;I mean it!&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;As do I. It means more than you think to hear that.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $emmaDateProgress == 1&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $emmaDateProgress != 2&gt;&gt;[[The evening progresses...|Date Midpoint]]&lt;&lt;set $emmaDateProgress to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $emmaDateProgress == 2&gt;&gt;[[The evening progresses...|Date Finale]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="274" name="Flirty Ending" tags="" position="650,4175" size="100,100">&lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;You know, I was thinking. Maybe we could do this again some time?&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Okay. by which, you mean.&quot;&lt;&lt;/Dialogue&gt;&gt;
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt; &quot;You know, this. Go out, have some dinner, maybe we&#39;ll have a drink or two even. We both had fun tonight, right?&quot;&lt;&lt;/Dialogue&gt;&gt;
