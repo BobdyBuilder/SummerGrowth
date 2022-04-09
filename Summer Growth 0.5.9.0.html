@@ -12563,7 +12563,7 @@ timeBox.addEventListener(&#39;change&#39;, (event) =&gt; {
 	/* money */
 	baseMoneyPerDay: 100,
 	baseStreamingPerStream: 10,
-	moneyPerBoxShifted: 1
+	moneyPerBoxShifted: 3
 }&gt;&gt;	
 
 </tw-passagedata><tw-passagedata pid="211" name="postSleep" tags="" position="1125,600" size="100,100">&lt;&lt;nobr&gt;&gt;
@@ -15495,10 +15495,9 @@ Emma gave you a suprisingly reassuring smile, making sure you know your decision
 &lt;&lt;gameLink &quot;Take a break&quot; &quot;jobWarehouse&quot; time:20 exhaustion:-10&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 
 &lt;br&gt;
-
-&lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 5 &lt; 100&gt;&gt;
 &lt;&lt;if $muscle &gt; 75&gt;&gt;&gt;
-&lt;&lt;gameLink &quot;Shift the boxes one at a time&quot; &quot;jobWarehouseResult&quot; time:10 exhaustion:5&gt;&gt;&lt;&lt;set $boxesShifted += 20&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
+&lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 5 &lt; 100&gt;&gt;
+&lt;&lt;gameLink &quot;Shift the boxes one at a time&quot; &quot;ShiftBoxes&quot; time:10 exhaustion:5&gt;&gt;&lt;&lt;set $boxesShifted += 20&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Yeah, you&#39;ll need a small break before you can lift boxes again.
 &lt;&lt;/if&gt;&gt;
@@ -15506,29 +15505,29 @@ Yeah, you&#39;ll need a small break before you can lift boxes again.
 &lt;br&gt;
 
 &lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 10 &lt; 100&gt;&gt;
-&lt;&lt;gameLink &quot;Move entire pallets at a time&quot; &quot;jobWarehouseResult&quot; time:15 minexhaustion:1 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 30&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
+&lt;&lt;gameLink &quot;Move entire pallets at a time&quot; &quot;ShiftPallette&quot; time:15 minexhaustion:1 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 30&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 &lt;&lt;else&gt;&gt;
-Those pallets are a bit too big to shift. Maybe a small break, or lift something smaller.
+Those pallets are a bit too big to shift with how tired you are. Maybe a small break, or lift something smaller.
 &lt;&lt;/if&gt;&gt;
 &lt;br&gt;
 
 &lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 20 &lt; 100&gt;&gt;
-&lt;&lt;gameLink &quot;Shift whole stacks at a time&quot; &quot;jobWarehouseResult&quot; time:20 minexhaustion:5 exhaustion:20&gt;&gt;&lt;&lt;set $boxesShifted += 50&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
+&lt;&lt;gameLink &quot;Shift whole stacks at a time&quot; &quot;ShiftStacks&quot; time:20 minexhaustion:5 exhaustion:20&gt;&gt;&lt;&lt;set $boxesShifted += 50&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 &lt;&lt;else&gt;&gt;
-Those stacks are a bit too big to shift. Maybe a small break, or lift something smaller.
+Those stacks are a bit too big to shift, with how tired you are. Maybe a small break, or lift something smaller.
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;elseif $muscle &gt; 50&gt;&gt;
 
 &lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 10 &lt; 100&gt;&gt;
-&lt;&lt;gameLink &quot;Shift the boxes one at a time&quot; &quot;jobWarehouseResult&quot; time:20 minexhaustion:2 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 10&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
+&lt;&lt;gameLink &quot;Shift the boxes one at a time&quot; &quot;ShiftBoxes&quot; time:20 minexhaustion:2 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 10&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Yeah, you&#39;ll need a small break before you can lift boxes again.
 &lt;&lt;/if&gt;&gt;
 &lt;br&gt;
 
 &lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 30 &lt; 100&gt;&gt;
-&lt;&lt;gameLink &quot;Move entire pallets at a time&quot; &quot;jobWarehouseResult&quot; time:15 minexhaustion:1 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 30&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
+&lt;&lt;gameLink &quot;Move entire pallets at a time&quot; &quot;ShiftPallette&quot; time:15 minexhaustion:1 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 30&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Those stacks are a bit too big to shift. Maybe a small break, or lift something smaller.
 &lt;&lt;/if&gt;&gt;
@@ -15536,7 +15535,7 @@ Those stacks are a bit too big to shift. Maybe a small break, or lift something 
 &lt;&lt;elseif $muscle &gt; 20&gt;&gt;
 
 &lt;&lt;if $exhaustionPercentage &lt; $motivationPercentage &amp;&amp; $exhaustion + 10 &lt; 100&gt;&gt;
-&lt;&lt;gameLink &quot;Shift the boxes one at a time&quot; &quot;jobWarehouseResult&quot; time:20 minexhaustion:2 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 10&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
+&lt;&lt;gameLink &quot;Shift the boxes one at a time&quot; &quot;ShiftBoxes&quot; time:20 minexhaustion:2 exhaustion:10&gt;&gt;&lt;&lt;set $boxesShifted += 10&gt;&gt;&lt;&lt;/gameLink&gt;&gt;
 &lt;&lt;else&gt;&gt;
 Yeah, you&#39;ll need a small break before you can lift boxes again.
 &lt;&lt;/if&gt;&gt;
@@ -15948,129 +15947,128 @@ She gives your shoulder another friendly shake before letting herself into the b
 &lt;&lt;Dialogue &quot;Emma&quot; &quot;Emma&quot;&gt;&gt; &quot;Keep up the good work, &lt;&lt;print $playerFirstName&gt;&gt;. I&#39;m impressed.&quot;&lt;&lt;/Dialogue&gt;&gt;
 With Emma safely escorted, you decide to make your way back home, your mind reeling with what she has in mind for you in the future.
 
-&lt;&lt;link &quot;Continue&quot; &quot;Home&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="277" name="jobWarehouseResult" tags="" position="1250,1700" size="100,100">&lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="278" name="ShiftBoxes" tags="" position="1150,1800" size="100,100">&lt;&lt;set _officeEvents to [
+&lt;&lt;link &quot;Continue&quot; &quot;Home&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="277" name="jobWarehouseResult" tags="" position="1250,1700" size="100,100">&lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="278" name="ShiftBoxes" tags="nobr" position="1150,1800" size="100,100">&lt;&lt;set _warehouseEvents to [
 ]&gt;&gt;
 
 &lt;&lt;if $height &gt;= 250&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One of the advantages of working in a warehouse is that you finally have some room to stretch and move again. Gone are the tight doorways and ceilings, hello big warehouse where you fit inside!&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Its kinda funny how at your height some of these boxes you can just carry with one hand. One of the advantages of being so tall!&quot;})&gt;&gt;   	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $height &gt;= 200&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;At your height carrying the boxes takes less time. Longer legs means less walking means more money means good! You think. The math checks out.&quot;})&gt;&gt;    	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $height &lt;= 170&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Urgh, the boxes are SO light for you but you to your small height they&#39;re just awkward to grab. They&#39;re like those old-timey monitors; not THAT heavy, but you just got no surface to grip them.&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Urhg, this walking is annoying. If you had longer legs it&#39;d be no problem but now you can easily carry all these boxes, but you just spend so much time walking between the stacks all the time!&quot;})&gt;&gt;   	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $dick &gt; 10&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One BIG advantage of working in the warehouse is that you&#39;re mostly alone here. Just you, a lot of boxes to ship, and nobody around to see you if you have a wardrobe accident or a... &#39;expansion&#39; in certain private parts. At your desk this&#39;d be awkward, but here nobody notices!&quot;})&gt;&gt;   
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $dick &gt; 20&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;During your shift you feel a strirring in your bulge. Now, normally this&#39;d be a major problem in case people see. Now? Now you don&#39;t mind at all! You&#39;re in your own warehouse, happily moving boxes to and fro!&quot;})&gt;&gt;   
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $breasts &gt;= 75&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Right, this is a bit of a problem. Your chest is so huge that its next to impossible to hold the boxes in front of you. Under the arms they go, or in your hands.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $breasts &gt;= 50&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Heh, your chest is a bit cropped up on top of some of the boxes. You&#39;re glad there arn&#39;t any co-workers around because man is this a silly sight at times.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 0&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the boxes it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the box below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 1&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the boxes it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the box below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 2&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the boxes it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the box below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $muscle &gt; 75&gt;&gt;
-    &lt;&lt;set _officeEvents.push(
+    &lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;You wonder why you shift the boxes one at a time. You could easily carry entire stacks at a time, but here you are. It might be boring, but atleast you&#39;re not risking anything getting broken.&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Well thats another few boxes on the stack. Man these are so light you could easily bounce them on your pecs, or biceps, or whatever. Heh, man Emma sure gave you the easy job!&quot;})&gt;&gt;  
 	
 &lt;&lt;elseif $muscle &gt; 50&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Well moving boxes like this might not be the most exiting, but you do manage it without breaking much of a sweat. And while it may be boring, you&#39;re actually making money with your body for once!&quot;})&gt;&gt;  
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Another few palettes moved. You&#39;re not quite sure whats in the boxes and all, but there seem to be documents, all kind of heavy stuff in some, and... just blocks of iron? Odd, but you don&#39;t mind. You&#39;re making money for once doing something your new body is suited for.&quot;})&gt;&gt;  
 	
 &lt;&lt;else&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Man some of these boxes are HEAVY! You don&#39;t know whats in them; solid stacks of papers and books, filing stuff, or solid steel in some of them! But lifting these is proven to be quite the workout at times.&quot;})&gt;&gt;  
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;A few more boxes moved, a few more dollars made. heh, quite a simple job! Some of them are pretty heavy, but who cares? Its decent pay for little work!&quot;})&gt;&gt;  
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set _warehouseEvent to _warehouseEvents[_eventI].message&gt;&gt;
-
-&lt;&lt;if _warehouseEvents[_eventI].warning and $difficulty != &quot;sandbox&quot;&gt;&gt;
-	&lt;&lt;set $officeWarning += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;print _warehouseEvent&gt;&gt;
+&lt;&lt;set _eventI to random(0, (_warehouseEvents.length - 1))&gt;&gt;
+&lt;&lt;set _warehouseEvent to _warehouseEvents[_eventI]&gt;&gt;
 
 
-&lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="279" name="ShiftPallette" tags="" position="1150,1900" size="100,100">&lt;&lt;set _officeEvents to [
+&lt;&lt;print _warehouseEvent.message&gt;&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="279" name="ShiftPallette" tags="nobr" position="1150,1900" size="100,100">&lt;&lt;set _warehouseEvents to [
 ]&gt;&gt;
 
 &lt;&lt;if $height &gt;= 250&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One of the advantages of working in a warehouse is that you finally have some room to stretch and move again. Gone are the tight doorways and ceilings, hello big warehouse where you fit inside!&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One adventage of being so tall is that you got WAY better grip on these palletes! You can reach around a bit, properly grip them... perfect!&quot;})&gt;&gt;   	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $height &gt;= 200&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;At your height carrying the pallets takes less time. Proper grip, long limbs, quick walking... heh, yeah, this IS a good workout!&quot;})&gt;&gt;    	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $height &lt;= 170&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;It took a bit of adapting, managing to lift entire palletes at your height But turns out that when you can just lift them overheard, it&#39;s pretty doable!&quot;})&gt;&gt;   
 	&lt;&lt;set _officeEvents.push(
@@ -16079,94 +16077,93 @@ With Emma safely escorted, you decide to make your way back home, your mind reel
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $dick &gt; 10&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One BIG advantage of working in the warehouse is that you&#39;re mostly alone here. Just you, a lot of boxes to ship, and nobody around to see you if you have a wardrobe accident or a... &#39;expansion&#39; in certain private parts. At your desk this&#39;d be awkward, but here nobody notices!&quot;})&gt;&gt;   
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $dick &gt; 20&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;During your shift you feel a strirring in your bulge. Now, normally this&#39;d be a major problem in case people see. Now? Now you don&#39;t mind at all! You&#39;re in your own warehouse, happily moving boxes to and fro!&quot;})&gt;&gt;   
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $breasts &gt;= 75&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Right, this is a bit of a problem. Your chest is so huge that its next to impossible to hold the boxes in front of you. Under the arms they go, or in your hands.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $breasts &gt;= 50&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Right, when you lift an entire pallete your tits are squashed against the huge stack in your hands. Its good you&#39;re mostly alone in this warehouse because otherwise it&#39;d look more than a bit weird.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 0&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the pallete it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the entire pallete cascading over the floor and several boxes below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 1&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the pallete it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the entire pallete cascading over the floor and several boxes below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 2&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the pallete it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the entire pallete cascading over the floor and several boxes below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $muscle &gt; 75&gt;&gt;
-    &lt;&lt;set _officeEvents.push(
+    &lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Yeah, this is the real work. Not just shifting a few boxes, but entire palletes at the same time. Still, you could lift a stack of them, if you wanted.&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;You&#39;d think palletes would be a real challenge for your strenght. Well, it seems you were wrong. You lift entire palletes of the boxes like its nothing!&quot;})&gt;&gt;  
 	
 &lt;&lt;elseif $muscle &gt; 50&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Well moving boxes like this might not be the most exiting, but you do manage it without breaking much of a sweat. And while it may be boring, you&#39;re actually making money with your body for once!&quot;})&gt;&gt;  
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Another few boxes moved. You&#39;re not quite sure whats in them all, but there seem to be documents, all kind of heavy stuff in some, and... just blocks of iron? Odd, but you don&#39;t mind. You&#39;re making money for once doing something your new body is suited for.&quot;})&gt;&gt;  
 	
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set _warehouseEvent to _warehouseEvents[_eventI].message&gt;&gt;
-
-&lt;&lt;if _warehouseEvents[_eventI].warning and $difficulty != &quot;sandbox&quot;&gt;&gt;
-	&lt;&lt;set $officeWarning += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;print _warehouseEvent&gt;&gt;
+&lt;&lt;set _eventI to random(0, (_warehouseEvents.length - 1))&gt;&gt;
+&lt;&lt;set _warehouseEvent to _warehouseEvents[_eventI]&gt;&gt;
 
 
-&lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="280" name="ShiftStacks" tags="" position="1150,2000" size="100,100">&lt;&lt;set _officeEvents to [
+&lt;&lt;print _warehouseEvent.message&gt;&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="280" name="ShiftStacks" tags="nobr" position="1150,2000" size="100,100">&lt;&lt;set _warehouseEvents to [
 ]&gt;&gt;
 
 &lt;&lt;if $height &gt;= 250&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One of the advantages of working in a warehouse is that you finally have some room to stretch and move again. Gone are the tight doorways and ceilings, hello big warehouse where you fit inside! And not only that, you can still carry the whole stacks with ease!&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One adventage of being so tall is that you got WAY better grip on these stacks of palletes! You can reach around a bit, properly grip them... perfect!&quot;})&gt;&gt;   	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $height &gt;= 200&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;At your height carrying the stacks of palletes takes less time. Proper grip, long limbs, quick walking... heh, yeah, this IS a good workout!&quot;})&gt;&gt;    	
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $height &lt;= 170&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;It took a bit of adapting, managing to lift entire stacks of palletes at your height But turns out that when you can just lift them overheard, it&#39;s pretty doable!&quot;})&gt;&gt;   
 	&lt;&lt;set _officeEvents.push(
@@ -16175,73 +16172,72 @@ With Emma safely escorted, you decide to make your way back home, your mind reel
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $dick &gt; 10&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;One BIG advantage of working in the warehouse is that you&#39;re mostly alone here. Just you, a lot of boxes to ship, and nobody around to see you if you have a wardrobe accident or a... &#39;expansion&#39; in certain private parts. At your desk this&#39;d be awkward, but here nobody notices!&quot;})&gt;&gt;   
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $dick &gt; 20&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;During your shift you feel a strirring in your bulge. Now, normally this&#39;d be a major problem in case people see. Now? Now you don&#39;t mind at all! You&#39;re in your own warehouse, happily moving boxes to and fro!&quot;})&gt;&gt;   
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $breasts &gt;= 75&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Right, this is a bit of a problem. Your chest is so huge that its next to impossible to hold the stacks of palletes in front of you. Under the arms they go, or in your hands.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $breasts &gt;= 50&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Right, when you lift an entire stacks of palletes your tits are squashed against the huge stack in your hands. Its good you&#39;re mostly alone in this warehouse because otherwise it&#39;d look more than a bit weird.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 0&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the pallete it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the entire pallete cascading over the floor and several boxes below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 1&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the pallete it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the entire pallete cascading over the floor and several boxes below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $carefreeCarefull &lt; 2&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;As you shift the pallete it seems you&#39;re not careful enough. As you mindlessly walk back and fro you accidentally trip over a cable or something! Before you know it you&#39;re on the floor, the entire pallete cascading over the floor and several boxes below you badly flattened. Shit... well that&#39;ll be deducted from your pay.&quot;})&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $muscle &gt; 75&gt;&gt;
-    &lt;&lt;set _officeEvents.push(
+    &lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Yeah, this is the real work. Not just shifting a few boxes, but entire stacks of palletes at the same time. Still, you could lift a stack of them, if you wanted.&quot;})&gt;&gt;   
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;You&#39;d think stacks of palletes would be a real challenge for your strenght. Well, it seems you were wrong. You lift entire palletes of the boxes like its nothing!&quot;})&gt;&gt;  
 	
 &lt;&lt;elseif $muscle &gt; 50&gt;&gt;
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Well moving stacks of palletes like this might not be the most exiting, but you do manage it without breaking much of a sweat. And while it may be boring, you&#39;re actually making money with your body for once!&quot;})&gt;&gt;  
-	&lt;&lt;set _officeEvents.push(
+	&lt;&lt;set _warehouseEvents.push(
     {warning: false,
     message: &quot;Another few stacks of palletes moved. You&#39;re not quite sure whats in them all, but there seem to be documents, all kind of heavy stuff in some, and... just blocks of iron? Odd, but you don&#39;t mind. You&#39;re making money for once doing something your new body is suited for.&quot;})&gt;&gt;  
 	
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set _warehouseEvent to _warehouseEvents[_eventI].message&gt;&gt;
+&lt;&lt;set _eventI to random(0, (_warehouseEvents.length - 1))&gt;&gt;
+&lt;&lt;set _warehouseEvent to _warehouseEvents[_eventI]&gt;&gt;
 
-&lt;&lt;if _warehouseEvents[_eventI].warning and $difficulty != &quot;sandbox&quot;&gt;&gt;
-	&lt;&lt;set $officeWarning += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;
 
-&lt;&lt;print _warehouseEvent&gt;&gt;
+&lt;&lt;print _warehouseEvent.message&gt;&gt;
 
+&lt;br&gt;&lt;br&gt;
 
 &lt;&lt;link &quot;Continue with work&quot; &quot;jobWarehouse&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="281" name="muscleWorship" tags="" position="2375,3125" size="100,100">The two of you head over to Kris’ place, where she immediately begins taking off her clothes. &lt;&lt;if $shyConfident &gt; 1&gt;&gt;&lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt;&quot;Heh, can’t wait to get right to the point, huh?&quot;&lt;&lt;/Dialogue&gt;&gt;
 
