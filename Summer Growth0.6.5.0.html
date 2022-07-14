@@ -2264,7 +2264,7 @@ document.documentElement.style.setProperty(&#39;--randoIcon&#39;, &#39;URL(&quot
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;script&gt;&gt;
-    if (!tags().includes(&#39;noReturn&#39;)) {
+    if (!tags().includes(&#39;noReturn&#39;) &amp;&amp; State.history[0] != undefined) {
  
         State.variables.currentScene = State.history[0].title;
     }
