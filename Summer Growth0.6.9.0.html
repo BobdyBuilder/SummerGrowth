@@ -2115,7 +2115,20 @@ You&#39;re too tired to go anywhere.
 &lt;br&gt;&lt;br&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $furniture.includes(&quot;bathroom scale&quot;)&gt;&gt;
+/* fixed mirror or a random furniture is disappeared - waffle */
+&lt;&lt;if $furniture.includes(&quot;heavy duty bathroom scale&quot;)&gt;&gt;
+    &lt;&lt;linkreplace &quot;Weigh yourself on your bathroom scale&quot;&gt;&gt;
+	&lt;span class=&quot;hidden&quot;&gt;&lt;&lt;getMeasurement &quot;weight&quot;&gt;&gt;&lt;/span&gt;
+	&lt;&lt;set _weight to $weight&gt;&gt;
+	&lt;&lt;if _weight &lt; 300&gt;&gt;		
+		Stepping on the scale, it takes a while to get to the final weight. &lt;&lt;if _weight &gt; 250&gt;&gt; It groans and sputters under you, the metal and plastic bending here and there. &lt;&lt;/if&gt;&gt; When it stops it indicates you weigh &lt;&lt;getMeasurement &quot;weight&quot;&gt;&gt;.
+	&lt;&lt;else&gt;&gt;
+		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up the only thing it says is on the display is &#39;error&#39; before the device is crushed under your weight. Seems you&#39;ll have to buy a new one...
+        &lt;&lt;set $furniture to $furniture.filter(item =&gt; ![&quot;bathroom scale&quot;, &quot;heavy duty bathroom scale&quot;].includes(item))&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/linkreplace&gt;&gt;
+    &lt;br&gt;&lt;br&gt;
+&lt;&lt;elseif $furniture.includes(&quot;bathroom scale&quot;)&gt;&gt;
 	&lt;&lt;linkreplace &quot;Weigh yourself on your bathroom scale&quot;&gt;&gt;
 	&lt;span class=&quot;hidden&quot;&gt;&lt;&lt;getMeasurement &quot;weight&quot; false&gt;&gt;&lt;/span&gt;
 	&lt;&lt;set _weight to $weight&gt;&gt;
@@ -2123,22 +2136,10 @@ You&#39;re too tired to go anywhere.
 		Stepping on the scale, it takes a while to get to the final weight. &lt;&lt;if _weight &gt; 90&gt;&gt; It groans and sputters under you, the metal and plastic bending here and there. &lt;&lt;/if&gt;&gt; When it stops it indicates you weigh &lt;&lt;getMeasurement &quot;weight&quot;&gt;&gt;.
 	&lt;&lt;else&gt;&gt;
 		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up the only thing it says is on the display is &#39;error&#39; before the device is crushed under your weight. Seems you&#39;ll have to buy a new one...
-		&lt;&lt;run $furniture.deleteAt($furniture.indexOf(&quot;bathroom scale&quot;))&gt;&gt;
+        &lt;&lt;set $furniture to $furniture.filter(item =&gt; item !== &quot;bathroom scale&quot;)&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/linkreplace&gt;&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;&lt;elseif $furniture.includes(&quot;heavy duty bathroom scale&quot;)&gt;&gt;
-&lt;&lt;linkreplace &quot;Weigh yourself on your bathroom scale&quot;&gt;&gt;
-	&lt;span class=&quot;hidden&quot;&gt;&lt;&lt;getMeasurement &quot;weight&quot;&gt;&gt;&lt;/span&gt;
-	&lt;&lt;set _weight to $weight&gt;&gt;
-	&lt;&lt;if _weight &lt; 300&gt;&gt;		
-		Stepping on the scale, it takes a while to get to the final weight. &lt;&lt;if _weight &gt; 250&gt;&gt; It groans and sputters under you, the metal and plastic bending here and there. &lt;&lt;/if&gt;&gt; When it stops it indicates you weigh &lt;&lt;getMeasurement &quot;weight&quot;&gt;&gt;.
-	&lt;&lt;else&gt;&gt;
-		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up the only thing it says is on the display is &#39;error&#39; before the device is crushed under your weight. Seems you&#39;ll have to buy a new one...
-		&lt;&lt;run $furniture.deleteAt($furniture.indexOf(&quot;bathroom scale&quot;))&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-	&lt;&lt;/linkreplace&gt;&gt;
-&lt;br&gt;&lt;br&gt;
+    &lt;br&gt;&lt;br&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;link &quot;Check your medicine cabinet&quot; &quot;ConsumableInventory&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -11214,25 +11215,6 @@ You&#39;re not wearing any underwear. Maybe you should wear some, before people 
 		price: 30
 	},
 	{
-		name: &quot;skorts&quot;,
-		size: &quot;&quot;,
-		fit: [],
-		colors: [&quot;black&quot;, &quot;grey&quot;, &quot;white&quot;, &quot;blue&quot;],
-		color: &quot;&quot;,
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: &quot;bottom&quot;,
-		archetype: [&quot;standard&quot;],
-		traits: [&quot;&quot;],
-		price: 60
-	},
-	{
 		name: &quot;yoga pants&quot;,
 		size: &quot;&quot;,
 		fit: [],
@@ -15041,26 +15023,26 @@ var boxes = $(&quot;.macro-limitedNumberbox&quot;);
     locationTags: [&#39;postSleep&#39;],
     conditions: [
    		() =&gt; State.variables.lactationUnlocked,
-        () =&gt; State.variables.postSleepLactationDialog1
+        () =&gt; !State.variables.postSleepLactationDialog1
     ],
     repeatable: false,
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: &#39;Today, it only takes a few seconds after waking up for you to notice that something feels… off. There’s a peculiar tightness in your chest, though not the kind you can chalk up to muscle tightness or an odd sleep position. Rubbing your breasts, you find that they feel noticeably warmer than usual, and quite a bit more sensitive, as well. The fabric of your bed sheet brushing against your chest as you pull it off is enough to make your nipples stiffen. Going into the bathroom, you check your breasts to see what the problem is, but nothing seems out of the ordinary besides this sensation. Well, that and some swelling. You make sure that they don\&#39;t feel too weird, your hands massaging them a bit. Yeah, they just feel tighter and... maybe a bit bigger? That\&#39;s not too bad, as nothing worse had happened. At least, for now…&#39;
+    content: &#39;Today, it only takes a few seconds after waking up for you to notice that something feels… off. There’s a peculiar tightness in your chest, though not the kind you can chalk up to muscle tightness or an odd sleep position. Rubbing your breasts, you find that they feel noticeably warmer than usual, and quite a bit more sensitive, as well. The fabric of your bed sheet brushing against your chest as you pull it off is enough to make your nipples stiffen. Going into the bathroom, you check your breasts to see what the problem is, but nothing seems out of the ordinary besides this sensation. Well, that and some swelling. You make sure that they don\&#39;t feel too weird, your hands massaging them a bit. Yeah, they just feel tighter and... maybe a bit bigger? That\&#39;s not too bad, as nothing worse had happened. At least, for now…&lt;&lt;set $postSleepLactationDialog1 to true&gt;&gt;&#39;
 }, {
     name: &#39;PostSleepLactation2&#39;,
     locationTags: [&#39;postSleep&#39;],
     conditions: [
         () =&gt; State.variables.lactationUnlocked,
         () =&gt; State.variables.postSleepLactationDialog1,
-        () =&gt; State.variables.postSleepLactationDialog2
+        () =&gt; !State.variables.postSleepLactationDialog2
     ],
     repeatable: false,
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: &#39;You wake up with an intense heat and fullness in your chest that nearly startles you as you open your eyes. Something is very wrong with your breasts this morning, and it makes itself known almost immediately. You rush into the bathroom and inspect your chest, trying to discern what the matter is. Upon looking closer, you see that your breasts are noticeably swollen, with their size slightly over what you’ve gotten accustomed to, lately. Your nipples are extremely hard, and appear to have gotten larger as well. Grabbing and pulling on one makes you moan instantly, and upon doing this, a dribble of a suspicious white fluid pours out of your nipple. Your knees feel weak and you slide across the wall behind you, falling to the floor as your mind goes blank. Your entire body now feels this heat, treveling from your breasts into your torso, and then your limbs.`Your hands are still massaging your nipples and creamy milk leaks from it. There\&#39;s no doubt now; you\&#39;re lactating. With a shivering hand you bring something to your mouth, gently licking it up and... yeah. Milk. Sweet, creamy, and it tastes far better than you\&#39;d have imagined. You have no idea how long it has taken you before you can think straight again, but you were sitting on the floor, your clothing drenched,`and you heavily panting. That was incredibly intense, and as you look around, you wonder what is wrong with you. Well, you know what is wrong with you. Those fucking drinks or bottles or whatever. It seems they had some side effects you didn\&#39;t count on. Slowly you get up, taking stock. Well, your breasts feel less swollen, so that is good. You\&#39;re also sure they\&#39;re not as sensative anymore. But this is something you\&#39;ll have to take into account now, because if something like this happens in public you\&#39;ll get a LOT of weird looks.&lt;&lt;set $milkStored to 0&gt;&gt;&#39;
+    content: &#39;You wake up with an intense heat and fullness in your chest that nearly startles you as you open your eyes. Something is very wrong with your breasts this morning, and it makes itself known almost immediately. You rush into the bathroom and inspect your chest, trying to discern what the matter is. Upon looking closer, you see that your breasts are noticeably swollen, with their size slightly over what you’ve gotten accustomed to, lately. Your nipples are extremely hard, and appear to have gotten larger as well. Grabbing and pulling on one makes you moan instantly, and upon doing this, a dribble of a suspicious white fluid pours out of your nipple. Your knees feel weak and you slide across the wall behind you, falling to the floor as your mind goes blank. Your entire body now feels this heat, treveling from your breasts into your torso, and then your limbs.`Your hands are still massaging your nipples and creamy milk leaks from it. There\&#39;s no doubt now; you\&#39;re lactating. With a shivering hand you bring something to your mouth, gently licking it up and... yeah. Milk. Sweet, creamy, and it tastes far better than you\&#39;d have imagined. You have no idea how long it has taken you before you can think straight again, but you were sitting on the floor, your clothing drenched,`and you heavily panting. That was incredibly intense, and as you look around, you wonder what is wrong with you. Well, you know what is wrong with you. Those fucking drinks or bottles or whatever. It seems they had some side effects you didn\&#39;t count on. Slowly you get up, taking stock. Well, your breasts feel less swollen, so that is good. You\&#39;re also sure they\&#39;re not as sensative anymore. But this is something you\&#39;ll have to take into account now, because if something like this happens in public you\&#39;ll get a LOT of weird looks.&lt;&lt;set $milkStored to 0&gt;&gt;&lt;&lt;set $postSleepLactationDialog2 to true&gt;&gt;&#39;
 }, {
     name: &#39;PostSleepLactation3&#39;,
     locationTags: [&#39;postSleep&#39;],
@@ -15068,13 +15050,13 @@ var boxes = $(&quot;.macro-limitedNumberbox&quot;);
         () =&gt; State.variables.lactationUnlocked,
         () =&gt; State.variables.postSleepLactationDialog1,
         () =&gt; State.variables.postSleepLactationDialog2,
-        () =&gt; State.variables.postSleepLactationDialog3
+        () =&gt; !State.variables.postSleepLactationDialog3
     ],
     repeatable: false,
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: &#39;The sensation of wet sheets on your chest makes you feel uncomfortable while waking up. As it regains consciousness, your mind first assumes that there might be a leak in your ceiling, but the warmth of the wetness in your sheets quickly disproves that. As you lift it up, the source is made clear. Your breasts, bloated and swollen with milk once more, overstepped their own limits in the middle of the night, causing milk to flow freely out of your nipples while you slept. Before it was just them being overfull, and you had to actually massage them to let the pressure go. Now, it just came out by itself. While you had no idea how long this had been occurring, it was clear from the tightness in your breasts that they still hadn’t managed to fully empty themselves. Getting out of bed, you head into the bathroom and lean over the sink, letting your udders loom over the drain. Stifling back moans, you tug on your nipples and squeeze out jet after jet of ivory fluid, until the fullness you feel subsides to a more manageable level. What the fuck had happened to your life... imagine if classes began again. Or you were hanging out with friends. Would you need to leave for the bahtroom to empty your chest? And they have visibly swollen, what would they even say!? Hell, even combined with the rest of your changes, what would they say? Until now, the changes had been... well, you could take them in stride. But this was present. This forced you to spend time literally emptying your tits. This was perhaps not the best.&lt;&lt;set $milkStored to 0&gt;&gt;&#39;
+    content: &#39;The sensation of wet sheets on your chest makes you feel uncomfortable while waking up. As it regains consciousness, your mind first assumes that there might be a leak in your ceiling, but the warmth of the wetness in your sheets quickly disproves that. As you lift it up, the source is made clear. Your breasts, bloated and swollen with milk once more, overstepped their own limits in the middle of the night, causing milk to flow freely out of your nipples while you slept. Before it was just them being overfull, and you had to actually massage them to let the pressure go. Now, it just came out by itself. While you had no idea how long this had been occurring, it was clear from the tightness in your breasts that they still hadn’t managed to fully empty themselves. Getting out of bed, you head into the bathroom and lean over the sink, letting your udders loom over the drain. Stifling back moans, you tug on your nipples and squeeze out jet after jet of ivory fluid, until the fullness you feel subsides to a more manageable level. What the fuck had happened to your life... imagine if classes began again. Or you were hanging out with friends. Would you need to leave for the bahtroom to empty your chest? And they have visibly swollen, what would they even say!? Hell, even combined with the rest of your changes, what would they say? Until now, the changes had been... well, you could take them in stride. But this was present. This forced you to spend time literally emptying your tits. This was perhaps not the best.&lt;&lt;set $milkStored to 0&gt;&gt;&lt;&lt;set $postSleepLactationDialog3 to true&gt;&gt;&#39;
 }, {
     name: &#39;PostSleepLactation4&#39;,
     locationTags: [&#39;postSleep&#39;],
@@ -15083,13 +15065,13 @@ var boxes = $(&quot;.macro-limitedNumberbox&quot;);
         () =&gt; State.variables.postSleepLactationDialog1,
         () =&gt; State.variables.postSleepLactationDialog2,
         () =&gt; State.variables.postSleepLactationDialog3,
-        () =&gt; State.variables.postSleepLactationDialog4
+        () =&gt; !State.variables.postSleepLactationDialog4
     ],
     repeatable: false,
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: &#39;Once more you wake up, with your bed wet with milk. It doesn\&#39;t smell bad, it doesn\&#39;t stain, but it does make you wake up in a puddle of your own milk. Pulling your sheets off to be washed and dried once again, you stumble out of bed and into the bathroom, leaving a dripping trail the entire way. You grumble a bit while your chest throbs a bit, still full. Once you make it to the sink, you start squeezing, forcing out a torrent of warm, creamy fluid. Each tug on your engorged nipples causes a gush of milk to fill the sink, draining slowly. The annoying part is, it doesn\&#39;t even feel that good anymore. You keep grumbling and squeezing your breasts, trying to get them somewhat empty before you start your day. Nice. You might actually have to add this to your morning routine from now on, emptying your tits above the sink. What the fuck happened to your life...&lt;&lt;set $lactationMorningRoutine to true&gt;&gt;&#39;
+    content: &#39;Once more you wake up, with your bed wet with milk. It doesn\&#39;t smell bad, it doesn\&#39;t stain, but it does make you wake up in a puddle of your own milk. Pulling your sheets off to be washed and dried once again, you stumble out of bed and into the bathroom, leaving a dripping trail the entire way. You grumble a bit while your chest throbs a bit, still full. Once you make it to the sink, you start squeezing, forcing out a torrent of warm, creamy fluid. Each tug on your engorged nipples causes a gush of milk to fill the sink, draining slowly. The annoying part is, it doesn\&#39;t even feel that good anymore. You keep grumbling and squeezing your breasts, trying to get them somewhat empty before you start your day. Nice. You might actually have to add this to your morning routine from now on, emptying your tits above the sink. What the fuck happened to your life...&lt;&lt;set $lactationMorningRoutine to true&gt;&gt;&lt;&lt;set $postSleepLactationDialog4 to true&gt;&gt;&#39;
 }, {
     name: &#39;PostSleepLactation5&#39;,
     locationTags: [&#39;postSleep&#39;],
@@ -15099,13 +15081,13 @@ var boxes = $(&quot;.macro-limitedNumberbox&quot;);
         () =&gt; State.variables.postSleepLactationDialog2,
         () =&gt; State.variables.postSleepLactationDialog3,
         () =&gt; State.variables.postSleepLactationDialog4,
-        () =&gt; State.variables.postSleepLactationDialog5
+        () =&gt; !State.variables.postSleepLactationDialog5
     ],
     repeatable: false,
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: &#39;Another morning of waking up, your bed drenched in milk, and you getting up with an annoyed sigh. Once more to the sink, once more emptying your fucking tits... what a waste. You stop, mid-way to the bathroom. What a waste. These days food has gotten a LOT more expensive and well, here you got something that SMELLS amazing. But come on, this is gross, or fucked up, or not healthy right? It HAS to be! But... it smells good... and creamy... With a lot of hesitation you lift up your breast, bringing the &lt;&lt;if $breasts &gt; 100&gt;&gt;humongous&lt;&lt;elseif $breasts &gt;= 75&gt;&gt;overly-large&lt;&lt;elseif $breasts &gt;= 50&gt;&gt;huge&lt;&lt;elseif $breasts &gt;= 25&gt;&gt;large&lt;&lt;/if&gt;&gt; nipple to your mouth. Milk is streaming from it and... yeah, it smells pretty good. Hesitantely you let your &lt;&lt;if $tongue &gt;= 6&gt;&gt;appendage-lenght&gt;&gt;&lt;&lt;elseif $tongue &gt;=5&gt;&gt;ridiculously long&lt;&lt;elseif $tongue &gt;= 3&gt;&gt;very long&lt;&lt;elseif $tongue &gt;= 1&gt;&gt;long&lt;&lt;/if&gt;&gt; travel over the hard nipple.&#39;
+    content: &#39;Another morning of waking up, your bed drenched in milk, and you getting up with an annoyed sigh. Once more to the sink, once more emptying your fucking tits... what a waste. You stop, mid-way to the bathroom. What a waste. These days food has gotten a LOT more expensive and well, here you got something that SMELLS amazing. But come on, this is gross, or fucked up, or not healthy right? It HAS to be! But... it smells good... and creamy... With a lot of hesitation you lift up your breast, bringing the &lt;&lt;if $breasts &gt; 100&gt;&gt;humongous&lt;&lt;elseif $breasts &gt;= 75&gt;&gt;overly-large&lt;&lt;elseif $breasts &gt;= 50&gt;&gt;huge&lt;&lt;elseif $breasts &gt;= 25&gt;&gt;large&lt;&lt;/if&gt;&gt; nipple to your mouth. Milk is streaming from it and... yeah, it smells pretty good. Hesitantely you let your &lt;&lt;if $tongue &gt;= 6&gt;&gt;appendage-lenght&gt;&gt;&lt;&lt;elseif $tongue &gt;=5&gt;&gt;ridiculously long&lt;&lt;elseif $tongue &gt;= 3&gt;&gt;very long&lt;&lt;elseif $tongue &gt;= 1&gt;&gt;long&lt;&lt;/if&gt;&gt; travel over the hard nipple.&lt;&lt;set $postSleepLactationDialog5 to true&gt;&gt;&#39;
 })&gt;&gt;</tw-passagedata><tw-passagedata pid="214" name="PostSleepResponses" tags="nobr" position="1800,2325" size="100,100">&lt;&lt;set setup.events.push({
 		name: &#39;PostSleepMuscleRepeat1&#39;,
 		locationTags: [&#39;postSleep&#39;],
@@ -17856,15 +17838,33 @@ You wave goodbye as Elena turns to leave. You&#39;re left alone on the quiet bac
                 let breastsUrl = getCurrentBreastsUrl(currentBody);
                 if (isBreastsUrlOverridden(breastsUrl)) {
                     breastImage = new Image();
-                    breastImage.src = breastsUrl;
+                    if ([&#39;overflowing&#39;, &#39;full&#39;].includes(State.variables.breastsFullness)) {
+                        breastImage.src = breastsUrl.replace(/(\.[\w\d_-]+)$/i, &#39;_lac$1&#39;);
+                    }
+                    else {
+                        breastImage.src = breastsUrl;
+                    }
+                    
                     images.push(breastImage.decode());
                 } else {
                     rightBreast = new Image();
-                    rightBreast.src = breastsUrl.right;
+                    if ([&#39;overflowing&#39;, &#39;full&#39;].includes(State.variables.breastsFullness)) {
+                        rightBreast.src = breastsUrl.right.replace(/(\.[\w\d_-]+)$/i, &#39;_lac$1&#39;);
+                    }
+                    else {
+                        rightBreast.src = breastsUrl.right;
+                    }
+                    
                     images.push(rightBreast.decode());
             
                     leftBreast = new Image();
-                    leftBreast.src = breastsUrl.left;
+                    if ([&#39;overflowing&#39;, &#39;full&#39;].includes(State.variables.breastsFullness)) {
+                        leftBreast.src = breastsUrl.left.replace(/(\.[\w\d_-]+)$/i, &#39;_lac$1&#39;);
+                    }
+                    else {
+                        leftBreast.src = breastsUrl.left;
+                    }
+                    
                     images.push(leftBreast.decode());
                 }
             
@@ -17913,6 +17913,7 @@ You wave goodbye as Elena turns to leave. You&#39;re left alone on the quiet bac
             }
             
             loadImages();
+
         &lt;&lt;/script&gt;&gt;
             &lt;&lt;/timed&gt;&gt;
             &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="242" name="EventCenter" tags="" position="3200,1300" size="100,100">&lt;&lt;if $evenCenterVisited != true&gt;&gt;&quot;You walk towards the vast convention hall, seeing the advert for a bodybuilding competition going on. You approached the wide double doors&lt;&lt;if $fat &gt;= 80 | | $breasts &gt;= 80 || $height &gt;= 250 | | $muscle &gt;= 80&gt;&gt;, trying to enter by squeezing yourself through. Man, if only you could make the door bigger on the fly&lt;&lt;/if&gt;&gt;. 
@@ -21381,7 +21382,7 @@ Okay, okay, so some of the Gene-unlockers got lost. This is bad. I really start 
 The problem was too that this was a more refined version; it was a gene-unlocker, with several distilations, all in one. It was meant to be diluted, and now a full bottle of that is out there, somewhere! Unless someone had drinked it already. Urhg, I havn&#39;t even had a chance to test this myself, and now it might hurt someone!
 &lt;&lt;/Dialogue&gt;&gt;
 
-&lt;&lt;if $elenaOpinion &gt;= 10&gt;&gt;Wait. Cute, shy, italian girl... oh god... Elena?!&lt;&lt;else&gt;&gt;Well, that doesn&#39;t help much...
+&lt;&lt;if $elenaOpinion &gt;= 10&gt;&gt;Wait. Cute, shy, italian girl... oh god... Elena?!&lt;&lt;else&gt;&gt;Well, that doesn&#39;t help much...&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;link &quot;Continue with this later&quot; &quot;pcUsbHacking&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
