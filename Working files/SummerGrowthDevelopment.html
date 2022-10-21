@@ -1471,7 +1471,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="Done" color="green"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -3679,6 +3679,34 @@ for (let i = 0; i &lt; boxes.length; i++) {
     }
 }&gt;&gt;
 
+/* Predefined clothing bonuses */
+&lt;&lt;set setup.clothingBonuses to {
+	stretchy: {
+    	name: &quot;Stretchy&quot;,
+        description: &quot;This piece of clothing does not break when it&#39;s too small. People might find it inappropriate however&quot;,
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		}
+    },
+    hideLactation: {
+    	name: &quot;Hide Lactation&quot;,
+        description: &quot;Lactation no longer shows when your breasts are overflowing.&quot;,
+    	lactatingEffect: function () {
+            
+       		}
+    },
+    workoutClothes: {
+    	name: &quot;Workout Clothes&quot;,
+        description: &quot;Workouts cost 10% less motivation&quot;,
+    	workoutEffect: function () {
+            
+       		}
+    }
+}&gt;&gt;
+
 /* Starting wardrobe object. */
 &lt;&lt;set $wardrobe to [
 	{
@@ -4072,34 +4100,6 @@ for (let i = 0; i &lt; boxes.length; i++) {
     &#39;L&#39;,
     &#39;XL&#39;,
 ]&gt;&gt;
-
-/* Predefined clothing bonuses */
-&lt;&lt;set setup.clothingBonuses to {
-	stretchy: {
-    	name: &quot;Stretchy&quot;,
-        description: &quot;This piece of clothing does not break when it&#39;s too small. People might find it inappropriate however&quot;,
-        tightEffect: function () {
-            
-       		},
-        breakEffect: function () {
-            
-       		}
-    },
-    hideLactation: {
-    	name: &quot;Hide Lactation&quot;,
-        description: &quot;Lactation no longer shows when your breasts are overflowing.&quot;,
-    	lactatingEffect: function () {
-            
-       		}
-    },
-    workoutClothes: {
-    	name: &quot;Workout Clothes&quot;,
-        description: &quot;Workouts cost 10% less motivation&quot;,
-    	workoutEffect: function () {
-            
-       		}
-    }
-}&gt;&gt;
 
 /* Only the biggest size determines which clothing fits. This method determines that. */
 &lt;&lt;set setup.biggestPlayerSize to function (slot) {

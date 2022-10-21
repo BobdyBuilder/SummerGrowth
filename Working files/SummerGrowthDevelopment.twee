@@ -3774,6 +3774,34 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     }
 }>>
 
+/* Predefined clothing bonuses */
+<<set setup.clothingBonuses to {
+	stretchy: {
+    	name: "Stretchy",
+        description: "This piece of clothing does not break when it's too small. People might find it inappropriate however",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		}
+    },
+    hideLactation: {
+    	name: "Hide Lactation",
+        description: "Lactation no longer shows when your breasts are overflowing.",
+    	lactatingEffect: function () {
+            
+       		}
+    },
+    workoutClothes: {
+    	name: "Workout Clothes",
+        description: "Workouts cost 10% less motivation",
+    	workoutEffect: function () {
+            
+       		}
+    }
+}>>
+
 /* Starting wardrobe object. */
 <<set $wardrobe to [
 	{
@@ -4167,34 +4195,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     'L',
     'XL',
 ]>>
-
-/* Predefined clothing bonuses */
-<<set setup.clothingBonuses to {
-	stretchy: {
-    	name: "Stretchy",
-        description: "This piece of clothing does not break when it's too small. People might find it inappropriate however",
-        tightEffect: function () {
-            
-       		},
-        breakEffect: function () {
-            
-       		}
-    },
-    hideLactation: {
-    	name: "Hide Lactation",
-        description: "Lactation no longer shows when your breasts are overflowing.",
-    	lactatingEffect: function () {
-            
-       		}
-    },
-    workoutClothes: {
-    	name: "Workout Clothes",
-        description: "Workouts cost 10% less motivation",
-    	workoutEffect: function () {
-            
-       		}
-    }
-}>>
 
 /* Only the biggest size determines which clothing fits. This method determines that. */
 <<set setup.biggestPlayerSize to function (slot) {
