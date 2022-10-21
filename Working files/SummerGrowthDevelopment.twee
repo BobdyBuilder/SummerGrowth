@@ -3706,44 +3706,45 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     top: function () {
         return State.variables.wardrobe.find(item => item.id == this.topId);
     },
-        bottomId: 2,
-            bottom: function () {
-                return State.variables.wardrobe.find(item => item.id == this.bottomId);
-            },
+    bottomId: 2,
+    bottom: function () {
+        return State.variables.wardrobe.find(item => item.id == this.bottomId);
+    },
     braId: 4,
-        bra: function () {
-            return State.variables.wardrobe.find(item => item.id == this.braId);
-        },
+    bra: function () {
+        return State.variables.wardrobe.find(item => item.id == this.braId);
+    },
     underwearId: 3,
-        underwear: function () {
-            return State.variables.wardrobe.find(item => item.id == this.underwearId);
-        },
+    underwear: function () {
+        return State.variables.wardrobe.find(item => item.id == this.underwearId);
+    },
     overwearId: 5,
-        overwear: function () {
-            return State.variables.wardrobe.find(item => item.id == this.overwearId);
-        },
+    overwear: function () {
+        return State.variables.wardrobe.find(item => item.id == this.overwearId);
+    },
     shoesId: 6,
-        shoes: function () {
-            return State.variables.wardrobe.find(item => item.id == this.shoesId);
-        },
+    shoes: function () {
+        return State.variables.wardrobe.find(item => item.id == this.shoesId);
+    },
     style: function () {
-		
-        if(this.top() == undefined && this.bottom() == undefined && this.overwear() == undefined && this.bra() == undefined && this.bottom() == undefined && this.underwear() == undefined && this.shoes() == undefined){
-        	return undefined;
+
+        if (this.top() == undefined && this.bottom() == undefined && this.overwear() == undefined && this.bra() == undefined && this.bottom() == undefined && this.underwear() == undefined && this.shoes() == undefined) {
+            return undefined;
         }
-        
-        //find most common object
+
+        /*find most common object*/
         function mode(arr) {
             return arr.sort((a, b) =>
                 arr.filter(v => v === a).length
                 - arr.filter(v => v === b).length
             ).pop();
         }
-        //setup objects
+
+        /*setup objects*/
         var retval = [];
         var presentArchetypes = [];
 
-        //add all the archetypes of the clothing to a single heap
+        /*add all the archetypes of the clothing to a single heap*/
         if (this.top() != undefined && this.top().archetypes != undefined) {
             presentArchetypes.push(this.top().archetypes);
         }
@@ -3764,7 +3765,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         }
 
         presentArchetypes = mode(presentArchetypes);
-        //get how many times each different archetype is present
+        /*get how many times each different archetype is present*/
         return presentArchetypes[0];
     },
     fit: function () {
