@@ -1,0 +1,135 @@
+sugarcube-2:
+  macros:
+    clothingFitDescription:
+      name: clothingFitDescription
+    addMinutes:
+      name: addMinutes
+    update:
+      name: update
+    outfitDescription:
+      name: outfitDescription
+    liveblock:
+      name: liveblock
+      container: true
+    live:
+      name: live
+    BreastSizeDescription:
+      name: BreastSizeDescription
+    breastCupDescriptors:
+      name: breastCupDescriptors
+    BreastsWeightDescription:
+      name: BreastsWeightDescription
+    cleaning:
+      name: cleaning
+    workoutLink:
+      name: workoutLink
+    gameLink:
+      name: gameLink
+      container: true
+    getMeasurement:
+      name: getMeasurement
+    fullBody:
+      name: fullBody
+    bodyDescription:
+      name: bodyDescription
+    DayUpdate:
+      name: DayUpdate
+    heighNumeral:
+      name: heighNumeral
+    BodyTypeDescription:
+      name: BodyTypeDescription
+    bodyHairDescription:
+      name: bodyHairDescription
+    heightDescription:
+      name: heightDescription
+    headDescription:
+      name: headDescription
+    numeralConversion:
+      name: numeralConversion
+    skillIncrease:
+      name: skillIncrease
+    lowerBodyDescription:
+      name: lowerBodyDescription
+    upperBodyDescription:
+      name: upperBodyDescription
+    lipsDescription:
+      name: lipsDescription
+    tongueDescription:
+      name: tongueDescription
+    addTrigger:
+      name: addTrigger
+    ClothingStoreWidget:
+      name: ClothingStoreWidget
+    BreastsDescription:
+      name: BreastsDescription
+    hipDescription:
+      name: hipDescription
+    assDescription:
+      name: assDescription
+    dickDescription:
+      name: dickDescription
+    addToLog:
+      name: addToLog
+    radarChart:
+      name: radarChart
+    PersonalityCheck:
+      name: PersonalityCheck
+      container: true
+    Dialogue:
+      name: Dialogue
+      container: true
+    Failed:
+      name: Failed
+    legLenghtDescription:
+      name: legLenghtDescription
+    addQuestProgress:
+      name: addQuestProgress
+    addBreastsSlow:
+      name: addBreastsSlow
+    addHeightSlow:
+      name: addHeightSlow
+    addQuest:
+      name: addQuest
+    addMuscleSlow:
+      name: addMuscleSlow
+    ConsumablePopup:
+      name: ConsumablePopup
+    addFatSlow:
+      name: addFatSlow
+    personalityIncrease:
+      name: personalityIncrease
+    streamingViewerIncomeCalc:
+      name: streamingViewerIncomeCalc
+    updateNPCLastSeen:
+      name: updateNPCLastSeen
+    addTriggerInternal:
+      name: addTriggerInternal
+      container: true
+    sizeCalc:
+      name: sizeCalc
+    weightConversion:
+      name: weightConversion
+    addDickSlow:
+      name: addDickSlow
+    clothingSize:
+      name: clothingSize
+    TailorWidget:
+      name: TailorWidget
+    sewingTailoringWidget:
+      name: sewingTailoringWidget
+    sewingProjectsWidget:
+      name: sewingProjectsWidget
+    skillCheck:
+      name: skillCheck
+    clothingCraftingWidget:
+      name: clothingCraftingWidget
+    limitedNumberbox:
+      name: limitedNumberbox
+    dailyConsumables:
+      name: dailyConsumables
+    sleepUpdate:
+      name: sleepUpdate
+    addMotivation:
+      name: addMotivation
+    addMinimumExhaustion:
+      name: addMinimumExhaustion

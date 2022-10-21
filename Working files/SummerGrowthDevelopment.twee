@@ -1,3 +1,7 @@
+:: StoryTitle
+Summer Growth
+
+
 :: StoryData
 {
 	"ifid": "117D85AB-CE68-497C-87FA-CCDDD8A2517E",
@@ -581,6 +585,7 @@ h1#story-title {
 
 
 :: Story JavaScript [script]
+/* twine-user-script #1: "Story JavaScript" */
 $(document.head).append("<link rel='icon' href='https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/favicon-32x32.png'>")
 
 predisplay["Menu Return"] = function (taskName) {
@@ -1385,6 +1390,19 @@ Macro.add(['limitedNumberbox'], {
 
     }
 });
+/* twine-user-script #2: "isNumberic" */
+window.isNumeric = function (obj) {
+	switch (typeof obj) {
+	case "boolean":
+		/* FALL-THROUGH */
+	case "object":
+		return false;
+	case "string":
+		obj = Number(obj);
+		break;
+	}
+	return isFinite(obj) && !isNaN(obj);
+};
 
 
 :: DisplayGenderName [widget] {"position":"2375,50","size":"100,100"}
@@ -1571,14 +1589,14 @@ Money: $<<live Math.round($money)>>
 
 <<set $returnVal to 0>>
 
-<<display "InitializeClothes">>
-<<display "initBody">>
-<<display "initInstantConsumables">>
-<<display "initQuests">>
-<<display "dialogInit">>
-<<display "initSkill">>
-<<display "initNPCData">>
-<<display "initBodyDialogFlags">>
+<<include "InitializeClothes">>
+<<include "initBody">>
+<<include "initInstantConsumables">>
+<<include "initQuests">>
+<<include "dialogInit">>
+<<include "initSkill">>
+<<include "initNPCData">>
+<<include "initBodyDialogFlags">>
 
 /* Event setup */
 <<set $indexesOfEventsUsed to []>>
@@ -1747,7 +1765,7 @@ Money: $<<live Math.round($money)>>
 <<set $history to 5>>
 <<run Config.history.maxStates = 1;>>
 <<run Config.history.controls = false;>>
-<<display "StoreRefresh">>
+<<include "StoreRefresh">>
 
 <<set $workingOutBonus to setup.balance.muscleAllowancePerDay>>
 
@@ -2131,7 +2149,7 @@ When you open your mouth you take a look at your ridiculously long tongue. It sn
 
 
 :: Mirror {"position":"1125,1100","size":"100,100"}
-<<nobr>><<display BodyTypeUpgrade>><</nobr>>
+<<nobr>><<include BodyTypeUpgrade>><</nobr>>
 
 <<fullBody>>
 
@@ -2190,11 +2208,9 @@ When you open your mouth you take a look at your ridiculously long tongue. It sn
 
 
 :: FrameUpdate [nobr] {"position":"900,100","size":"100,100"}
-<<display BodyTypeUpgrade>> 
-<<display questCompleteChecks>> 
-<<display logFlavorMessages>>
-<<setPlayerSizeNeeded>>
-<<ClothingFitCalculator false>>
+<<include BodyTypeUpgrade>> 
+<<include questCompleteChecks>> 
+<<include logFlavorMessages>>
 <<include NpcFrameUpdate>>
 
 /* Randomized generic NPC */
@@ -2220,25 +2236,25 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
 		<<if $skills[_i].experience >= 50>>
 			<<if $skills[_i].level < 1>>
 				<<set $skillIndexGained to _i>>
-				<<display "skillLevelGained">>
+				<<include "skillLevelGained">>
 			<</if>>
 		<</if>>
 		<<if $skills[_i].experience >= 150>>
 			<<if $skills[_i].level < 2>>
 				<<set $skillIndexGained to _i>>
-				<<display "skillLevelGained">>
+				<<include "skillLevelGained">>
 			<</if>>
 		<</if>>
 		<<if $skills[_i].experience >= 350>>
 			<<if $skills[_i].level < 3>>
 				<<set $skillIndexGained to _i>>
-				<<display "skillLevelGained">>
+				<<include "skillLevelGained">>
 			<</if>>
 		<</if>>
 		<<if $skills[_i].experience >= 600>>
 			<<if $skills[_i].level < 4>>
 				<<set $skillIndexGained to _i>>
-				<<display "skillLevelGained">>
+				<<include "skillLevelGained">>
 			<</if>>
 		<</if>>
 	<</capture>>
@@ -2480,7 +2496,7 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 <<nobr>>
 <<widget "bodyDescription">>
 
-<<BodyTypeDescription>> <<bodyHairDescription>> <<heightDescription>><<display "clothingDesc">>
+<<BodyTypeDescription>> <<bodyHairDescription>> <<heightDescription>><<include "outfitDescription">>
 <br><br>
 <<headDescription>>
 <br><br>
@@ -2987,7 +3003,7 @@ The goal of the game is to keep up with your growing body and get the best out o
 		<td>skills</td>
 		  <td><<link "working out" "Cheats">><<skillIncrease "Working out" 100>><</link>></td>
 		  <td><<link "book keeping" "Cheats">><<skillIncrease "Book keeping" 100>><</link>></td>
-		  <td><<link "refreshClothes" "Cheats">><<display "InitializeClothes">><</link>></td>
+		  <td><<link "refreshClothes" "Cheats">><<include "InitializeClothes">><</link>></td>
 		  <td></td>
 		</tr>
 		<tr>
@@ -2998,9 +3014,9 @@ The goal of the game is to keep up with your growing body and get the best out o
 		  <td><<link "Elena first date" "ElenaDateStart">><</link>></td>
 		</tr>
 		<td>General</td>
-		  <td><<link "Reset stores" "Cheats">><<display "StoreRefresh">><</link>></td>
+		  <td><<link "Reset stores" "Cheats">><<include "StoreRefresh">><</link>></td>
 		  <td><<link "Get the office job" "Cheats">><<set $job to true>><</link>><<link "Go home" "Home">><</link>></td>
-		  <td><<link "refreshClothes" "Cheats">><<display "InitializeClothes">><</link>></td>
+		  <td><<link "refreshClothes" "Cheats">><<include "InitializeClothes">><</link>></td>
 		  <td></td>
  		<tr>
 		<td>personality</td>
@@ -3281,22 +3297,264 @@ The one place in your home that's 100% you; neatly arranged and well decorated i
 
 
 :: Closet {"position":"1225,800","size":"100,100"}
-<<addMinutes 10>><<ClothingFitCalculator true>><<display "clothingDesc">>
+<<liveblock>>
+<<nobr>>
+<<addMinutes 10>>
 
-<<link "Change top" "ClosetTops">>
-<</link>>
-<<link "Change bra" "ClosetBra">>
-<</link>>
-<<link "Change overwear" "ClosetOverwear">>
-<</link>>
-<<link "Change bottom wear" "ClosetBottoms">>
-<</link>>
-<<link "Change underwear" "ClosetUnderwear">>
-<</link>>
+<span class="important">An outfit needs to have the same bonus on two pieces of clothing to apply. Clothing fit is determined by it's size, but some body features can also make clothing with the right size not fit; very big breasts, for example. The icon after the size indicates whether it fits you. green is a perfect fit, orange a tight fit, and red means it's too big or too small.</span>
+
+<span id="outfitTable">
+<table id="store">
+  <tr>
+    <th>Type</th>
+    <th>Current item</th>
+	<th>Size needed</th>
+    <th>Bonusses</th>
+    <th>Fit</th>
+    <th>Style</th>
+  </tr>  
+  <tr>
+    <td>Top</td>
+	<td>
+    	<<if $outfit.top() == undefined>>
+        	<<set _topName to '-'>>
+		<<else>>
+        	<<set _topName to $outfit.top().name>>
+		<</if>>
+    	<<link _topName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose top - Size needed: " + setup.playerSizeNeeded('top'));
+          new Wikifier(dialog, "<<clothingSelection 'top'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('top')>></td>
+    <td class="clothingBonuses">
+        	<<print setup.getReadableBonusFromClothing($outfit.top())>>
+    </td>
+        <td>
+        	<<print setup.getReadableFitFromClothing($outfit.top())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.top())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Bottom</td>
+		<td>
+        <<if $outfit.bottom() == undefined>>
+        	<<set _bottomName to '-'>>
+		<<else>>
+        	<<set _bottomName to $outfit.bottom().name>>
+		<</if>>
+    	<<link _bottomName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose bottom - Size needed: " + setup.playerSizeNeeded('bottom'));
+          new Wikifier(dialog, "<<clothingSelection 'bottom'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>    	
+    </td>
+    <td><<print setup.playerSizeNeeded('bottom')>></td>
+    <td class="clothingBonuses">
+        	<<print setup.getReadableBonusFromClothing($outfit.bottom())>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.bottom())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.bottom())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Underwear</td>
+		<td>
+        <<if $outfit.underwear() == undefined>>
+        	<<set _underwearName to '-'>>
+		<<else>>
+        	<<set _underwearName to $outfit.underwear().name>>
+		<</if>>
+    	<<link _underwearName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose underwear - Size needed: " + setup.playerSizeNeeded('underwear'));
+          new Wikifier(dialog, "<<clothingSelection 'underwear'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('underwear')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.underwear())>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.underwear())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.underwear())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Bra</td>
+		<td>
+    	<<if $outfit.bra() == undefined>>
+        	<<set _braName to '-'>>
+		<<else>>
+        	<<set _braName to $outfit.bra().name>>
+		<</if>>
+    	<<link _braName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose bra - Size needed: " + setup.playerSizeNeeded('bra'));
+          new Wikifier(dialog, "<<clothingSelection 'bra'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('bra')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.bra())>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.bra())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.bra())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Overwear</td>
+		<td>
+    	<<if $outfit.overwear() == undefined>>
+        	<<set _overwearName to '-'>>
+		<<else>>
+        	<<set _overwearName to $outfit.overwear().name>>
+		<</if>>
+    	<<link _overwearName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose overwear - Size needed: " + setup.playerSizeNeeded('overwear'));
+          new Wikifier(dialog, "<<clothingSelection 'overwear'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('overwear')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.overwear())>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.overwear())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.overwear())>>
+    </td>
+  </tr>
+  <tr>
+    <td>Shoes</td>
+		<td>
+    	<<if $outfit.shoes() == undefined>>
+        	<<set _shoesName to '-'>>
+		<<else>>
+        	<<set _shoesName to $outfit.shoes().name>>
+		<</if>>
+    	<<link _shoesName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose footwear - Size needed: " + setup.playerSizeNeeded('shoes'));
+          new Wikifier(dialog, "<<clothingSelection 'shoes'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('shoes')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.shoes())>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.shoes())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.shoes())>>
+    </td>
+  </tr>
+  </table>
+</span>
+
+<<outfitDescription>>
+
+<br><br>
+
+ Your current bonuses are:
+<br><span id="appliedBonuses"></span>
+
+<<timed 0s>>
+<<script>>
+		function mode(arr) {
+            return arr.sort((a, b) =>
+                arr.filter(v => v === a).length
+                - arr.filter(v => v === b).length
+            ).pop();
+        }
+    var toFindDuplicates = function toFindDuplicates(arry) {
+    const uniqueElements = new Set(arry);
+    const filteredElements = arry.filter(item => {
+        if (uniqueElements.has(item)) {
+            uniqueElements.delete(item);
+        } else {
+            return item;
+        }
+    });
+
+    return [...new Set(uniqueElements)]
+};
+
+	var boxes = $("td.clothingBonuses");
+    var bonuses = [];
+    for (let i = 0; i < boxes.length; i++) {
+      if(boxes[i].textContent.trim()  != "-")
+      {
+      	bonuses.push(boxes[i].textContent.trim());
+      }
+    }
+    const set = new Set(bonuses);
+    bonuses = bonuses.filter(item => {
+    if (set.has(item)) {
+        set.delete(item);
+    } else {
+        return item;
+    }
+});
+
+var bonusText = $("span#appliedBonuses");
+console.log(bonusText);
+for (let i = 0; i < boxes.length; i++) {
+      if(bonuses.includes(boxes[i].textContent.trim()))
+      {
+      	if(!bonusText[0].innerHTML.includes(boxes[i].innerHTML)){
+			bonusText[0].innerHTML += '<br>' +  boxes[i].innerHTML;
+        }
+      }
+      else {
+      		boxes[i].style.opacity = "25%"
+      }
+    }
+<</script>>
+<</timed>>
+
+<</nobr>>
+<</liveblock>>
 
 <<link "Back" "Bedroom">><</link>>
-
-<<script>> console.log(State.variables.wardrobe);<</script>>
 
 
 :: ShoppingCenter [outOfHouse outside mall] {"position":"2300,1525","size":"100,100"}
@@ -3345,8 +3603,8 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 <<nobr>>
 <<widget "DayUpdate">>
 <<set $daysPlayed += 1>>
-<<display "StoreRefresh">>
-<<display "NPCDialogRefresh">>
+<<include "StoreRefresh">>
+<<include "NPCDialogRefresh">>
 
 <<set $storeOnlineBought to $storeOnlineBoughtDelay>>
 <<set $storeOnlineBoughtDelay to []>>
@@ -3441,301 +3699,661 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 
 <<set $sewingProjects to []>>
 
-<<set $topWear to 
-	{
-		name: "t-shirt",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: ["no sleeves"],
-		price: 20
-	}>>
-<<set $bra to 
-	{
-		name: "t-shirt bra",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	}>>
-<<set $overWear to 
-	{
-		name: "hoodie",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "black",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 50
-	}>>
-<<set $bottomWear to 
-	{
-		name: "jeans",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "blue",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				ass: 1,
-				hips: 1,
-				dick: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	}>>
-<<set $underWear to 
-	{
-		name: "boy-shorts",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				ass: 1,
-				hips: 1,
-				dick: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	}>>
+/* The base outfit container. The only acces point by which the clothing logic may */
+/* be approached.*/
+<<set $outfit to {
+    topId: 1,
+    top: function () {
+        return State.variables.wardrobe.find(item => item.id == this.topId);
+    },
+        bottomId: 2,
+            bottom: function () {
+                return State.variables.wardrobe.find(item => item.id == this.bottomId);
+            },
+    braId: 4,
+        bra: function () {
+            return State.variables.wardrobe.find(item => item.id == this.braId);
+        },
+    underwearId: 3,
+        underwear: function () {
+            return State.variables.wardrobe.find(item => item.id == this.underwearId);
+        },
+    overwearId: 5,
+        overwear: function () {
+            return State.variables.wardrobe.find(item => item.id == this.overwearId);
+        },
+    shoesId: 6,
+        shoes: function () {
+            return State.variables.wardrobe.find(item => item.id == this.shoesId);
+        },
+    style: function () {
+		
+        if(this.top() == undefined && this.bottom() == undefined && this.overwear() == undefined && this.bra() == undefined && this.bottom() == undefined && this.underwear() == undefined && this.shoes() == undefined){
+        	return undefined;
+        }
+        
+        //find most common object
+        function mode(arr) {
+            return arr.sort((a, b) =>
+                arr.filter(v => v === a).length
+                - arr.filter(v => v === b).length
+            ).pop();
+        }
+        //setup objects
+        var retval = [];
+        var presentArchetypes = [];
 
+        //add all the archetypes of the clothing to a single heap
+        if (this.top() != undefined && this.top().archetypes != undefined) {
+            presentArchetypes.push(this.top().archetypes);
+        }
+        if (this.bottom() != undefined && this.bottom().archetypes != undefined) {
+            presentArchetypes.push(this.bottom().archetypes);
+        }
+        if (this.underwear() != undefined && this.underwear().archetypes != undefined) {
+            presentArchetypes.push(this.underwear().archetypes);
+        }
+        if (this.bra() != undefined && this.bra().archetypes != undefined) {
+            presentArchetypes.push(this.bra().archetypes);
+        }
+        if (this.overwear() != undefined && this.overwear().archetypes != undefined) {
+            presentArchetypes.push(this.overwear().archetypes);
+        }
+        if (this.shoes() != undefined && this.shoes().archetypes != undefined) {
+            presentArchetypes.push(this.shoes().archetypes);
+        }
+
+        presentArchetypes = mode(presentArchetypes);
+        //get how many times each different archetype is present
+        return presentArchetypes[0];
+    },
+    fit: function () {
+    },
+    bonusses: function () {
+    }
+}>>
+
+/* Starting wardrobe object. */
 <<set $wardrobe to [
 	{
-		name: "t-shirt",
-		size: 2,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "grey",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: ["no sleeves"],
-		price: 20
-	},
-	{
-		name: "t-shirt",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: ["no sleeves"],
-		price: 20
-	},
-	{
-		name: "t-shirt bra",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "bra",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "old",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "sports- bra",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "blue black",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "hoodie",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "old",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 50
-	},
-	{
-		name: "jeans",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "torn",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "jeans",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "black",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "boy-shorts",
-		size: 1,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "boy-shorts",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "white",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "boy-shorts",
-		size: 0,
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "old",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	}
+        	id: 1,
+            name: 'punk T-shirt',
+            tolerance: 1.3,
+            archetypes: ['casual', 'punk'],
+            bonuses: [
+            		setup.clothingBonuses.stretchy
+            	],
+            size: 2,
+            slot: 'top'
+        },
+        {
+        	id: 2,
+            name: 'simple jeans',
+            tolerance: 1.2,
+            archetypes: ['casual', 'goth', 'punk'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'bottom'
+        },
+        {
+        	id: 3,
+            name: 'briefs',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            		setup.clothingBonuses.stretchy
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+        {
+        	id: 4,
+            name: 'simple cotton bra',
+            tolerance: 1,
+            archetypes: ['casual', 'basic'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'bra'
+        },
+        {
+        	id: 5,
+            name: 'black hoodie',
+            tolerance: 1.25,
+            archetypes: ['casual', 'punk', 'goth'],
+            bonuses: [
+            		setup.clothingBonuses.hideLactation
+            	],
+            size: 1,
+            slot: 'overwear'
+        },
+        {
+        	id: 6,
+            name: 'runners',
+            tolerance: 1.25,
+            archetypes: ['casual', 'gym'],
+            bonuses:  [
+            		setup.clothingBonuses.workoutClothes
+            	],
+            size: 1,
+            slot: 'shoes'
+        },
+        {
+        	id: 7,
+            name: 'gym shorts',
+            tolerance: 1.1,
+            archetypes: ['gym', 'casual', 'exposed'],
+            bonuses: [
+            		setup.clothingBonuses.workoutClothes
+            	],
+            size: 1,
+            slot: 'bottom'
+        },
+        {
+        	id: 8,
+            name: 'boybriefs',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+       	{
+        	id: 9,
+            name: 'sports bra',
+            tolerance: 1.1,
+            archetypes: ['gym'],
+            bonuses: [
+            		setup.clothingBonuses.workoutClothes
+            	],
+            size: 0,
+            slot: 'bra'
+        },
+   		 {
+         	id: 10,
+            name: 'geeky shirt',
+            tolerance: 1.2,
+            archetypes: ['casual', 'geek'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'top'
+        },
+        {	
+        	id: 11,
+            name: 'old jeans',
+            tolerance: 1.2,
+            archetypes: ['casual', 'goth', 'punk'],
+            bonuses: [
+            		setup.clothingBonuses.stretchy
+            	],
+            size: 0,
+            slot: 'bottom'
+        },
+        {
+        	id: 12,
+            name: 'bikini',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            		setup.clothingBonuses.stretchy
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+        {
+        	id: 13,
+            name: 'padded bra',
+            tolerance: 1,
+            archetypes: ['casual', 'basic'],
+            bonuses: [
+            		setup.clothingBonuses.hideLactation
+            	],
+            size: 1,
+            slot: 'bra'
+        },
+        {
+        	id: 14,
+            name: 'black worn trenchcoat',
+            tolerance: 1.25,
+            archetypes: ['punk', 'goth'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'overwear'
+        },
+        {
+        	id: 15,
+            name: 'boyshorts',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+        {
+        	id: 16,
+            name: 'old bra',
+            tolerance: 1.1,
+            archetypes: ['casual', 'basic'],
+            bonuses: [
+            	],
+            size: 0,
+            slot: 'bra'
+        },
+        {
+        	id: 17,
+            name: 'combat boots',
+            tolerance: 1,
+            archetypes: ['goth', 'punk'],
+            bonuses: [
+            	],
+            size: 3,
+            slot: 'shoes'
+        }
+]>>
+
+/* The predefined sizes in the game. */
+<<set setup.sizeDatabase to [
+	{	
+    	muscleMin: 0,
+        muscleMax: 20,
+        fatMin: 0,
+        fatMax: 20,
+        heightMin: 0,
+        heightMax: 150,
+        breastsMin: 0,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 2,
+        assMin: 0,
+        AssMax: 2,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 15,
+        muscleMax: 25,
+        fatMin: 15,
+        fatMax: 25,
+        heightMin: 140,
+        heightMax: 160,
+        breastsMin: 5,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 3,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 20,
+        muscleMax: 30,
+        fatMin: 20,
+        fatMax: 30,
+        heightMin: 150,
+        heightMax: 170,
+        breastsMin: 10,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 25,
+        muscleMax: 35,
+        fatMin: 25,
+        fatMax: 35,
+        heightMin: 160,
+        heightMax: 180,
+        breastsMin: 15,
+        breastsMax: 20,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 30,
+        muscleMax: 40,
+        fatMin: 30,
+        fatMax: 40,
+        heightMin: 170,
+        heightMax: 180,
+        breastsMin: 20,
+        breastsMax: 25,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 35,
+        muscleMax: 45,
+        fatMin: 35,
+        fatMax: 45,
+        heightMin: 180,
+        heightMax: 190,
+        breastsMin: 25,
+        breastsMax: 30,
+        thighsMin: 0,
+        thighsMax: 5,
+        assMin: 0,
+        AssMax: 4,
+        dickMin: 0,
+        dickMax: 4,
+        ballsMin: 0,
+        ballsMax: 4        
+    },
+    {	
+    	muscleMin: 40,
+        muscleMax: 50,
+        fatMin: 40,
+        fatMax: 50,
+        heightMin: 190,
+        heightMax: 200,
+        breastsMin: 30,
+        breastsMax: 35,
+        thighsMin: 0,
+        thighsMax: 6,
+        assMin: 0,
+        AssMax: 5,
+        dickMin: 0,
+        dickMax: 5,
+        ballsMin: 0,
+        ballsMax: 5        
+    },
+    {	
+    	muscleMin: 45,
+        muscleMax: 55,
+        fatMin: 45,
+        fatMax: 55,
+        heightMin: 200,
+        heightMax: 210,
+        breastsMin: 35,
+        breastsMax: 40,
+        thighsMin: 0,
+        thighsMax: 7,
+        assMin: 0,
+        AssMax: 6,
+        dickMin: 0,
+        dickMax: 6,
+        ballsMin: 0,
+        ballsMax: 6        
+    },
+    {	
+    	muscleMin: 50,
+        muscleMax: 60,
+        fatMin: 50,
+        fatMax: 60,
+        heightMin: 210,
+        heightMax: 220,
+        breastsMin: 40,
+        breastsMax: 45,
+        thighsMin: 0,
+        thighsMax: 8,
+        assMin: 0,
+        AssMax: 7,
+        dickMin: 0,
+        dickMax: 7,
+        ballsMin: 0,
+        ballsMax: 7        
+    },
+    {	
+    	muscleMin: 55,
+        muscleMax: 65,
+        fatMin: 55,
+        fatMax: 65,
+        heightMin: 220,
+        heightMax: 230,
+        breastsMin: 45,
+        breastsMax: 50,
+        thighsMin: 0,
+        thighsMax: 8,
+        assMin: 0,
+        AssMax: 8,
+        dickMin: 0,
+        dickMax: 8,
+        ballsMin: 0,
+        ballsMax: 8        
+    },
+    {	
+    	muscleMin: 60,
+        muscleMax: 70,
+        fatMin: 60,
+        fatMax: 70,
+        heightMin: 230,
+        heightMax: 240,
+        breastsMin: 50,
+        breastsMax: 55,
+        thighsMin: 0,
+        thighsMax: 9,
+        assMin: 0,
+        AssMax: 9,
+        dickMin: 0,
+        dickMax: 9,
+        ballsMin: 0,
+        ballsMax: 9        
+    }
+]>>
+
+/* The names for the sizes listed in setup.sizeDatabase*/
+<<set setup.sizeStrings to [
+	'XS',
+    'S',
+    'M',
+    'L',
+    'XL',
+]>>
+
+/* Predefined clothing bonuses */
+<<set setup.clothingBonuses to {
+	stretchy: {
+    	name: "Stretchy",
+        description: "This piece of clothing does not break when it's too small. People might find it inappropriate however",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		}
+    },
+    hideLactation: {
+    	name: "Hide Lactation",
+        description: "Lactation no longer shows when your breasts are overflowing.",
+    	lactatingEffect: function () {
+            
+       		}
+    },
+    workoutClothes: {
+    	name: "Workout Clothes",
+        description: "Workouts cost 10% less motivation",
+    	workoutEffect: function () {
+            
+       		}
+    }
+}>>
+
+/* Only the biggest size determines which clothing fits. This method determines that. */
+<<set setup.biggestPlayerSize to function (slot) {
+	var statsToCheck = [];
+     var sizes = [];
+	if(slot == undefined){
+    	statsToCheck = ['muscle', 'fat', 'height', 'breasts', 'ass', 'thighs', 'dick', 'balls'];
+    	sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
+    }
+    else if(slot == 'top' || slot == 'overwear'){
+    	statsToCheck = ['muscle', 'fat', 'height', 'breasts'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10];        
+    }
+    else if(slot == 'bra'){
+    	statsToCheck = ['muscle', 'fat', 'breasts'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.breasts - 10];        
+    }
+    else if(slot == 'bottom' || slot == 'underwear'){
+    	statsToCheck =  ['muscle', 'fat', 'height', 'ass', 'thighs', 'dick', 'balls'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
+    }
+    else if(slot == 'shoes') {
+    	return 'height';
+    }
+    else{
+    	throw 'unknown slot found in setup.biggestPlayerSize.';
+    }
+    
+    var max = Math.max(...sizes);
+
+	var index = sizes.indexOf(max);
+    
+    return statsToCheck[index];
+}>>
+
+/* Gets which predefined size from setup.sizeDatabase the player can fit in */
+<<set setup.playerSizeNeeded to function (slot) {
+    var statsToCheck = setup.biggestPlayerSize(slot);
+    var size = 0;
+    var fits = [];
+    var fit = '';
+    for (let i = 0; i < setup.sizeDatabase.length; i++) {
+        fit = 'fits';
+        var lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
+        var upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
+		
+        console.log('Size '+ i + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
+        
+        if (State.variables[statsToCheck] < lowerBound) {
+        fit = 'too big';
+        }
+        else if (State.variables[statsToCheck] >= upperBound && fit != 'too big') {
+        fit = 'too small';
+        }
+        else if (fit != 'too big' && fit != 'too small') {
+        fit = 'fits';
+        }
+        if(fit == 'fits'){
+        	fits.push(true);    	
+        }
+        else{
+        	fits.push(false);
+        }       
+    }
+    return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)]; 
+}>>
+
+/* Gets the human readable bonuses from the clothing. */
+ <<set setup.getReadableBonusFromClothing = function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+    if (clothingItem.bonuses.length > 0)
+    {
+        var text = '';
+        for (let i = 0; i < clothingItem.bonuses.length; i++) {
+            text += '<b> ●' + clothingItem.bonuses[i].name + '</b><br>' + clothingItem.bonuses[i].description
+        }
+        return text;
+    }
+    else {
+        return '-'
+    };
+}>>
+
+/* Gets the human readable archetypes from the clothing. */
+<<set setup.getReadableArchetypesFromClothing to function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+    if (clothingItem.archetypes.length > 0)
+    {
+        var text = '';
+        for (let i = 0; i < clothingItem.archetypes.length; i++) {
+            text += ' ●' + clothingItem.archetypes[i] + '<br>'
+        }
+        return text;
+    }
+    else {
+        return '-'
+    };
+}>>
+
+/* Retrieves boolean fit/doesn't fit. */
+<<set setup.getFitFromClothing = function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+	var fits = setup.getReadableFitFromClothing(clothingItem);
+    if(fits.includes('✅')){
+    	return true;
+    }
+    else if (fits.includes('❌')){
+    	return false;
+    }
+    else {
+    	return true;
+    }
+}>>
+
+/* retrieves human readable fit from the clothing. */
+<<set setup.getReadableFitFromClothing = function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+    
+	var clothingFit = setup.sizeDatabase[clothingItem.size];
+    
+    var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
+    
+    var fit = 'fits';
+    
+
+    var lowerBound = clothingFit[statsToCheck + 'Min'];
+    var upperBound = clothingFit[statsToCheck + 'Max'];
+
+    if(State.variables[statsToCheck] < lowerBound){
+    	fit = 'too big';
+    }
+    else if (State.variables[statsToCheck] >= upperBound * clothingItem.tolerance)		{
+    	fit = 'too small';
+    }
+    else if (State.variables[statsToCheck] >= upperBound){
+    	fit = 'tight';
+    }
+    	else if(fit != 'tight') {
+    }
+    
+    
+    if(fit == 'fits'){
+    	return setup.sizeStrings[clothingItem.size] + '✅';
+    }
+    else if (fit == 'too small' || fit == 'too big'){
+    	return setup.sizeStrings[clothingItem.size] + '❌';
+    }
+    else {
+    	return setup.sizeStrings[clothingItem.size] + '🔶';
+    }
 	
-	]>>
+}>>
 
 
 :: ClothingStoreWidget [widget nobr] {"position":"2500,1525","size":"100,100"}
@@ -6093,21 +6711,6 @@ Dialog.open();
 <</nobr>>
 
 
-:: isNumberic [script] {"position":"2000,0","size":"100,100"}
-window.isNumeric = function (obj) {
-	switch (typeof obj) {
-	case "boolean":
-		/* FALL-THROUGH */
-	case "object":
-		return false;
-	case "string":
-		obj = Number(obj);
-		break;
-	}
-	return isFinite(obj) && !isNaN(obj);
-};
-
-
 :: changeDiet {"position":"925,900","size":"100,100"}
 You're currently on a <<print $currentDiet.name>>.
 <<nobr>>
@@ -6730,7 +7333,7 @@ Unfortunatly, you're just too tired to clean.
 	<<set $quests[$cleanHouseI].progress to 1>>
 	
 	
-	<<display $quests[$cleanHouseI].finishedDialogue>>
+	<<include $quests[$cleanHouseI].finishedDialogue>>
 <</if>>
 
 <<if $job is true and $quests[$getJobI].started is true and $quests[$getJobI].completed is false>>
@@ -6739,7 +7342,7 @@ Unfortunatly, you're just too tired to clean.
 	
 	
 	<<set $shyConfident += 1>>
-	<<display $quests[$getJobI].finishedDialogue>>
+	<<include $quests[$getJobI].finishedDialogue>>
 <</if>>
 
 
@@ -6812,8 +7415,8 @@ As one of the bigger streamers on the site your chat is immediately filled to th
 	With your skills you get into the top ranked matches, your stream almost an E-sports hub. With your performance you're sure you'll draw in a LOT of extra viewers!
 <</if>>
 
-<<display "streamingBodyDescr">>
-<<display "streamingEvents">>
+<<include "streamingBodyDescr">>
+<<include "streamingEvents">>
 
 <<if $streamingViewers <= 1000000>>
 
@@ -6859,8 +7462,8 @@ Opening up the app you turn on the app, just hanging out online and chatting wit
 As one of the bigger streamers on the site your chat is immediately filled to the brim and goes way too fast to read anymore. It's a huge rush, so many people watching you but you give them what they want!
 <</if>>
 
-<<display "streamingBodyDescr">>
-<<display "streamingEvents">>
+<<include "streamingBodyDescr">>
+<<include "streamingEvents">>
 
 <<if $streamingViewers <= 1000000>>
 
@@ -7249,7 +7852,7 @@ Looking over at your program, you suddenly get a red message. SHIT! Seems like w
 
 
 :: startSettings [nobr intro] {"position":"100,800","size":"100,100"}
-<<display "Init">>
+<<include "Init">>
 
 Before we start the game there are some global settings that determine how easy or hard the game is. These can be changed at any time in the 'Settings' menu on the left.
 <br><br>
@@ -7408,11 +8011,11 @@ Determines the measurement system used in the game.
 
 
 :: dialogInit [nobr] {"position":"125,1950","size":"100,100"}
-<<display "JohanTriggers">>
-<<display "ElenaTriggers">>
-<<display "EmmaTriggers">>
-<<display "KrisTriggers">>
-<<display "PostSleepTriggers">>
+<<include "JohanTriggers">>
+<<include "ElenaTriggers">>
+<<include "EmmaTriggers">>
+<<include "KrisTriggers">>
+<<include "PostSleepTriggers">>
 
 
 :: JohanTriggers [nobr] {"position":"1300,2125","size":"100,100"}
@@ -8351,249 +8954,73 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <</widget>>
 
 
-:: changeClothing [widget nobr noReturn] {"position":"1225,700","size":"100,100"}
-<<widget "changeClothing">>
+:: clothingSelection [widget nobr noReturn] {"position":"1225,700","size":"100,100"}
+<<widget "clothingSelection">>
 
-<<set _sizeNeeded to $playerBiggestSize>>
+<<set _slot to $args[0]>>
 
-<<display "clothingDesc">>
-<<ClothingFitCalculator true>>
-
-<br><br>
-
-<<clothingFitDescription $args[0]>>
-
-<<set _filtered to []>>
-<<for _iFilteredClothing to 0; _iFilteredClothing < $wardrobe.length; _iFilteredClothing ++>>
-		<<capture _iFilteredClothing>>	
-		<<if $wardrobe[_iFilteredClothing].slot is $args[0]>>
-		<<set _filtered.push(
-			{
-				int: _iFilteredClothing,
-				clothing: $wardrobe[_iFilteredClothing],
-				remove: false
-			})>>
-		<</if>>
-		<</capture>>
-<</for>>
-
+<span id="outfitTable">
 <table id="store">
   <tr>
     <th>Name</th>
-    <th>size</th>
-	<th>fit</th>
-	<th>Throw away</th>
-  </tr>
-  <<script>>console.log("Filtered: ");
-  console.log(State.temporary.filtered)
-  <</script>>
-<<for _iFilteredClothing to 0; _iFilteredClothing < _filtered.length; _iFilteredClothing ++>>
-		<<capture _iFilteredClothing>>
-		<tr @data-num="_iFilteredClothing">
-    		<td>
-			<<set _name to _filtered[_iFilteredClothing].clothing.color + " " + _filtered[_iFilteredClothing].clothing.name>>
-			<<link _name>>
-			
-				<<if _filtered[_iFilteredClothing].clothing.size >= _sizeNeeded + 5>>
-					<<script>>
-						if (Dialog.isOpen() == false) {
-						var dialog = Dialog.setup("Too big");
-						new Wikifier(dialog, "Yeah this is so big it looks ridiculous on you.");
-						Dialog.open();
-						}
-					<</script>>					
-					<<set _changeClothing to false>>
-				<<elseif _filtered[_iFilteredClothing].clothing.fit.includesAny( "muscleNotFit", "heightNotFit", "breastsNotFit", "dickNotFit", "assNotFit", "hipsNotFit")>>
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("muscleNotFit")>>
-						<<set _message to "Yeah there is NO way this is going to fit your bulk! Trying to put it on took you long enough, and the slighest movement will just utterly destroy it! You'll have to wear something else.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("heightNotFit")>>
-						<<set _message to "Yeah there is NO way this is going to fit your height! Trying to put it on took you long enough, and the slighest movement will just utterly destroy it! You'll have to wear something else.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("breastsNotFit")>>
-						<<set _message to "Yeah there is NO way this is going to fit your boobs! Trying to put it on took you long enough, and the slighest movement will just utterly destroy it! You'll have to wear something else.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("dickNotFit")>>
-						<<set _message to "Yeah there is NO way this is going to fit your dick! Trying to put it on took you long enough, and the slighest movement will just utterly destroy it! You'll have to wear something else.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("assNotFit")>>
-						<<set _message to "Yeah there is NO way this is going to fit your ass! Trying to put it on took you long enough, and the slighest movement will just utterly destroy it! You'll have to wear something else.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("hipsNotFit")>>
-						<<set _message to "Yeah there is NO way this is going to fit your hips! Trying to put it on took you long enough, and the slighest movement will just utterly destroy it! You'll have to wear something else.">>
-					<<else>>
-							<<set _message to "Error in changeClothing, unknown state">>
-					<</if>>
-					
-					<<script>>
-					if (Dialog.isOpen() == false) {
-					var dialog = Dialog.setup("impossible fit");
-					new Wikifier(dialog, State.temporary.message);
-					Dialog.open();
-					}
-					<</script>>	
-					<<set _changeClothing to false>>
-					
-				<<elseif _filtered[_iFilteredClothing].clothing.fit.includesAny( "muscleTooSmall", "heightTooSmall", "breastsTooSmall", "dickTooSmall", "assTooSmall", "hipsTooSMall", "muscleTight", "heightTight", "breastsTight", "dickTight", "assTight", "hipsTight")>>
-				
-					<<set _message to "It takes some effort, but finally you manage to get it on.">>
-					
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("muscleTooSmall")>>
-						<<set _message += " Your bulk is just too much, giving you some real trouble getting it on.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("muscleTight")>>			
-						<<set _message += " Your bulk is giving you some trouble, though thats not the biggest problem.">>
-					<</if>>
-					
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("heightTooSmall")>>
-						<<set _message += " While you try to stretch the fabric it doesn't help much; it just doesn't fit you.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("heightTight")>>	
-						<<set _message += " Hmmm, it looks kinda too short for you. You might need something new.">>
-					<</if>>
-					
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("breastsTooSmall")>>
-						<<set _message += " Damn you knew your breasts were growing but this... is kinda a lot. You can barely fit it over them!">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("breastsTight")>>	
-						<<set _message += " It barely fits over your chest too. Its not painful, but comfortable is something else.">>
-					<</if>>
-					
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("dickTooSmall")>>
-						<<set _message += " Jesus getting your dick in this was a trial. You'd expect putting on some clothes wouldn't be so hard!">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("dickTight")>>		
-						<<set _message += " You wouldn't think a tight bulge was something you'd have to worry about, yet here you are.">>
-					<</if>>
-					
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("assTooSmall")>>
-						<<set _message += " Plus point of having a huge ass: it looks good. Downside; these clothes!">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("assTight")>>	
-						<<set _message += " Its a bit too tight around the ass too.">>
-					<</if>>
-					
-					<<if _filtered[_iFilteredClothing].clothing.fit.includes("hipsTooSMall")>>
-						<<set _message += " Its really tight around the hip.">>
-					<<elseif _filtered[_iFilteredClothing].clothing.fit.includes("hipsTight")>>			
-						<<set _message += " Bit tight around the hip, but thats not the worst.">>
-					<</if>>
-					
-					<<script>>
-					if (Dialog.isOpen() == false) {
-					var dialog = Dialog.setup("Difficult fit");
-					new Wikifier(dialog, State.temporary.message);
-					Dialog.open();
-					}
-					<</script>>					
-					<<set _changeClothing to true>>
-					
-				<<else>>
-					<<script>>
-					if (Dialog.isOpen() == false) {
-					var dialog = Dialog.setup("Perfect fit");
-					new Wikifier(dialog, "Putting it on it fits snug like a rug!");
-					Dialog.open();
-					}
-					<</script>>					
-					<<set _changeClothing to true>>
-				<</if>>			
-				
-				<<if _changeClothing>>
-					<<if $wardrobe[_filtered[_iFilteredClothing].int].traits.indexOf("homeTailored") != -1>>
-					<<set $homeTailoredClothing to true>>
-                    <<set $changedOutfit to true>>
-					<</if>>
-				
-					<<if $args[0] is "top">>
-						<<set _oldClothingTemp to $topWear>>
-						<<set $topWear to  $wardrobe[_filtered[_iFilteredClothing].int]>>
-						<<run $wardrobe.deleteAt(_filtered[_iFilteredClothing].int)>>
-						<<if _oldClothingTemp != "">>
-							<<set $wardrobe.push(_oldClothingTemp)>>
-						<</if>>
-					<<elseif $args[0] is "overwear">>
-						<<set _oldClothingTemp to $overWear>>
-						<<set $overWear to  $wardrobe[_filtered[_iFilteredClothing].int]>>
-						<<run $wardrobe.deleteAt(_filtered[_iFilteredClothing].int)>>
-						<<if _oldClothingTemp != "">>
-							<<set $wardrobe.push(_oldClothingTemp)>>
-						<</if>>
-					<<elseif $args[0] is "bra">>
-						<<set _oldClothingTemp to $bra>>
-						<<set $bra to  $wardrobe[_filtered[_iFilteredClothing].int]>>
-						<<run $wardrobe.deleteAt(_filtered[_iFilteredClothing].int)>>
-						<<if _oldClothingTemp != "">>
-							<<set $wardrobe.push(_oldClothingTemp)>>
-						<</if>>
-					<<elseif $args[0] is "bottom">>
-						<<set _oldClothingTemp to $bottomWear>>
-						<<set $bottomWear to  $wardrobe[_filtered[_iFilteredClothing].int]>>
-						<<run $wardrobe.deleteAt(_filtered[_iFilteredClothing].int)>>
-						<<if _oldClothingTemp != "">>
-							<<set $wardrobe.push(_oldClothingTemp)>>
-						<</if>>
-					<<elseif $args[0] is "underwear">>
-						<<set _oldClothingTemp to $underWear>>
-						<<set $underWear to  $wardrobe[_filtered[_iFilteredClothing].int]>>
-						<<run $wardrobe.deleteAt(_filtered[_iFilteredClothing].int)>>
-						<<if _oldClothingTemp != "">>
-							<<set $wardrobe.push(_oldClothingTemp)>>
-						<</if>>
-					<</if>>
-				<</if>>
-				
-				<<goto $return>>
-			<</link>>			
-			
-			</td>
-    		<td>
-			<<clothingSize _filtered[_iFilteredClothing].clothing.size>>
-			
-			</td>
-	    	<td>
-
-				<<if _filtered[_iFilteredClothing].clothing.size >= _sizeNeeded + 5>>
-					Far too big
-				<<elseif _filtered[_iFilteredClothing].clothing.size >= _sizeNeeded + 2>>
-					Bit too big
-				<<elseif _filtered[_iFilteredClothing].clothing.fit.includesAny("muscleNotFit","heightNotFit","breastsNotFit","dickNotFit","assNotFit","hipsNotFit")>> 
-					Far too small to wear
-				<<elseif _filtered[_iFilteredClothing].clothing.fit.includesAny("hipsTight", "hipsTooSMall","assTooSmall","assTight","dickTight","dickTooSmall","breastsTight","breastsTooSmall","heightTight","heightTooSmall","muscleTight","muscleTooSmall")>>
-					very tight
-				<<else>>
-					Perfect fit!
-				<</if>>
-	
-			</td>
-			<td>
-				<<set _removeString to "_filtered[" + _iFilteredClothing + "].remove">>
-				<<checkbox _removeString false true autocheck>>
-			</td>
-  		</tr>
-		<</capture>>
+    <th>Bonusses</th>
+    <th>Fit</th>
+    <th>Style</th>
+  </tr>  
+  
+ <tr>
+    <td>
+    	<input type="radio" class="clothingItemRadiobutton" name="slotItem" value='-1'>
+		<label> Nothing </label>        
+    </td>
+    <td> - </td>
+    <td> - </td>
+    <td> - </td>
+  </tr>  
+  
+  <<for _i to 0; _i < $wardrobe.length; _i ++>>
+	<<capture _i>>
+    	<<if $wardrobe[_i].slot == _slot>>
+        	  <tr>
+                <td>
+                <<if setup.getFitFromClothing($wardrobe[_i])>>
+                	<input type="radio" class="clothingItemRadiobutton" name="slotItem" @value=$wardrobe[_i].id>
+					<label for=$wardrobe[_i].name> $wardrobe[_i].name</label>                
+               <<else>>
+					❌ <<print $wardrobe[_i].name>>
+                <</if>>
+                </td>
+                <td><<print setup.getReadableBonusFromClothing($wardrobe[_i])>></td>
+                <td>
+                <<print setup.getReadableFitFromClothing($wardrobe[_i])>></td>
+                <td>
+                	<<print $wardrobe[_i].archetypes>>
+                </td>
+              </tr>  
+        <</if>>
+    <</capture>>
 <</for>>
-<tr>
-	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	  <<link "Remove all checked items">>
-		  <<script>>
-		  console.log(State.temporary.filtered);
-		  <</script>>
-		  <<set _toRemove to []>>
-		  <<for _j to 0; _j < _filtered.length; _j ++>>
-				  <<capture _j>>
-					<<if _filtered[_j].remove>>
-						<<set _toRemove.push(_filtered[_j].int)>>
-					<</if>>
-				  <</capture>>
-		  <</for>>
 
-	<<if _toRemove.length > 0>>
-	  <<set $wardrobe.deleteAt(_toRemove)>>
-	  <<goto $return>>
-	  <</if>><</link>>
-	</td>
-</tr>
+<<timed 0s>>
+<<script>>
+    var boxes = $("input.clothingItemRadiobutton");
+        boxes.on("change", function () {	  
+        		var id = parseInt(document.querySelector('input[name="slotItem"]:checked').value);
+                
+                State.variables.outfit[State.temporary.slot + 'Id'] = id;
+                                
+                $(".macro-live").trigger(":liveupdateinternal");
+				$(document).trigger(":liveupdate");
+                
+            	if (Dialog.isOpen() == true) {
+                    Dialog.close();
+                    }
+        });
+<</script>>  
+<</timed>>
 
-</table>
-
-
+  </table>
+</span>
 <</widget>>
 
 
@@ -9225,7 +9652,7 @@ As you walk in you find a tiny office where a small but suprisingly professional
 <<Dialogue "Emma" "Emma">>"ANYWAY! T-That was a lot of talking on my part but I'd like to hear why YOU think you're qualified for this position. "
 <</Dialogue>>
 
-<<display "jobInterviewQuestions">>
+<<include "jobInterviewQuestions">>
 <</if>>
 
 
@@ -10378,256 +10805,22 @@ And with your hips its best to buy them a bit bigger, atleast <<clothingSize $pl
 <</nobr>>
 
 
-:: setPlayerSizeNeeded [widget nobr] {"position":"2475,250","size":"100,100"}
+:: outfitDescription [widget, nobr] {"position":"1425,700","size":"100,100"}
 <<nobr>>
-<<widget "setPlayerSizeNeeded">>
-
-<<set _clothing to $args[0]>>
-
-<<if $lactationUnlocked>>
-	<<set _lactationSizeIncrease to (($milkStored / $milkCapacity) /2) + 1>>
-<<else>>
-	<<set _lactationSizeIncrease to 1>>
+<<widget "outfitDescription">>
+​
+<<if $outfit.style() != undefined>>The best way to describe your outfit is '<<print $outfit.style()>>'.<</if>> <<if $outfit.top() != undefined>>You're wearing a nice <<print $outfit.top().name>> with under it <<if $outfit.bra() != undefined>>a <<print $outfit.bra().name>> <<else>> nothing<</if>>.<<else>>You're not wearing a top, <<if $outfit.bra() != undefined>> your <<print $outfit.bra().name>> on full display. It might work in a gym, but it wouldn't be appropriate in many other places.<<else>>and no bra. Yeah, this wouldn't work for going outside.<</if>><</if>>
+​
+​
+<<if $outfit.bottom() != undefined>>The <<print $outfit.bottom().name>> you're wearing is a nice addition to it <<if $outfit.underwear() == undefined>>. You're not wearing any underwear though, and it's not the most comfortable, if you're honest. But you're sure nobody will notice. You hope. <<else>> and your <<print $outfit.underwear().name>> brings some nice comfort.<</if>><<else>> You're not wearing any pants or something, <<if $outfit.underwear() != undefined>>Leaving your underwear on full display. Unless you're going swimming, you can't go out like this. <<else>> and neither are you wearing any underwear. You should put something on. <</if>>
+​
 <</if>>
-
-<<set $playerHeightSize to Math.round(($height - 150) / 5)>>
-<<set $playerBulkSize to Math.round(($muscle + $fat - 40) / 5)>>
-<<set $playerBreastsSize to Math.round(($breasts -10) /10) * _lactationSizeIncrease>>
-<<set $playerDickSize to ($dick * 0.25)>>
-<<set $playerAssSize to $ass>> 
-<<set $playerHipsSize to $hips>>
-
-<<set _sizesTop to [$playerHeightSize, $playerBulkSize, $playerBreastsSize]>>
-
-<<set _init to -100>>
-<<for _i to 0; _i < _sizesTop.length; _i ++>>
-<<capture _i>>
-	<<if _sizesTop[_i] > _init>>
-		<<set _init to _sizesTop[_i]>>
-		<<set $playerBiggestSizeTop to _sizesTop[_i]>>
-		<<if _i is 0>>
-			<<set $playerBiggestSizeTopName to "height">>
-		<<elseif _i is 1>>
-			<<set $playerBiggestSizeTopName to "bulk">>
-		<<elseif _i is 2>>
-			<<set $playerBiggestSizeTopName to "breasts">>
-		<</if>>
-	<</if>>
-<</capture>>
-<</for>>
-
-<<set _sizesBottom to [$playerHeightSize, $playerBulkSize, $playerDickSize, $playerAssSize, $playerHipsSize]>>
-
-<<set _init to -100>>
-<<for _j to 0; _j < _sizesBottom.length; _j ++>>
-<<capture _j>>
-	<<if _sizesBottom[_j] > _init>>
-		<<set _init to _sizesBottom[_j]>>
-		<<set $playerBiggestSizeBottom to _sizesBottom[_j]>>
-		<<if _j is 0>>
-			<<set $playerBiggestSizeBottomName to "height">>
-		<<elseif _j is 1>>
-			<<set $playerBiggestSizeBottomName to "bulk">>
-		<<elseif _j is 2>>
-			<<set $playerBiggestSizeBottomName to "dick">>
-		<<elseif _j is 3>>
-			<<set $playerBiggestSizeBottomName to "ass">>
-		<<elseif _j is 4>>
-			<<set $playerBiggestSizeBottomName to "hips">>
-		<</if>>
-	<</if>>
-<</capture>>
-<</for>>
-
-<<if $playerBiggestSizeBottom >= $playerBiggestSizeTop>>
-	<<set $playerBiggestSize to $playerBiggestSizeBottom>>
-
-<<else>>
-	<<set $playerBiggestSize to $playerBiggestSizeTop>>
-<</if>>
-
+​
+<<if $outfit.shoes() != undefined>>Your <<print $outfit.shoes().name>> look good on you too!<<else>> You're not wearing any shoes though; might be comfortable if you do that, should you go outside.<</if>>
+​
+​
 <</widget>>
 <</nobr>>
-
-
-:: ClosetTops {"position":"1325,700","size":"100,100"}
-<<changeClothing "top">>
-
-<<link "Back" "Closet">><</link>>
-
-
-:: ClosetBottoms {"position":"1325,600","size":"100,100"}
-<<changeClothing "bottom">>
-
-<<link "Back" "Closet">><</link>>
-
-
-:: clothingDesc [nobr] {"position":"1425,700","size":"100,100"}
-<<if $topWear != "">>
-Your top is a nice <<print $topWear.color + " " + $topWear.name>>. 
-
-<<if $topWear.size >= $playerBiggestSize + 5>>
- Generally it's far too big for you, which isn't a good look on you.
-<<elseif $topWear.size >= $playerBiggestSize + 2>>
-generally its a bit too big, but that's not the worst.
-<<else>>
-It suits you very nicely, generally speaking.
-<</if>>
-
-<<if $topWear.fit.includes("muscleTooSmall")>>
-One 'problem' though is it looks almost painted on! All your muslces are clearly visible through it, hiding very little. Not that its a bad thing, but still!
-<<elseif $topWear.fit.includes("muscleTight")>>
-Its rather tight though, especially around the chest and arms. You can even see some of your muscles through it!
-<</if>>
-<<if $topWear.fit.includes("heightTooSmall")>>
-You need to pull it down a lot though to make it fit. It seems like it's just too short for you.
-<<elseif $topWear.fit.includes("heightTight")>>
-You get the feeling though the fit could be better, as it rides up anytime you stretch or reach for something. 
-<</if>>
-<<if $topWear.fit.includes("breastsTooSmall")>>
-One problem though is your chest; its just too big for it, always showing too much cleavage!
-<<elseif $topWear.fit.includes("breastsTight")>>
-One problem though are your boobs; they're just a hint too big for it, always showing just a little bit more than you want. 
-<</if>>
-<<else>>
-You're not wearing a top right now, which while liberating is not best suited for going outside.
-<</if>>
-
-
-
-<<if $overWear != "">>
-Over it you're wearing a <<print $overWear.color + " " + $overWear.name>>. 
-
-<<if $overWear.size >= $playerBiggestSize + 5>>
-It has a look thats beyond baggy, just looking to big on you.
-<<elseif $overWear.size >= $playerBiggestSize + 2>>
-Its nice and baggy, which suits you suprisingly well!
-<<else>>
-<</if>>
-
-<<if $overWear.fit.includes("muscleTooSmall")>>
-One thing about it though is... well, just how much your bulk shows through it! It almost looks painted on!
-<<elseif $overWear.fit.includes("MuscleTight")>>
-Your bulks almost looks painted on though, thats how tightly it fits you!
-<</if>>
-<<if $overWear.fit.includes("heightTooSmall")>>
-It's also pretty frustrating that you're just too tall for it; it keeps riding up and just fits very poorly.
-<<elseif $overWear.fit.includes("heightTight")>>
-Maybe you should've bought something a bit bigger though, as it often rides up. It's just that little bit too short for you.
-<</if>>
-<<if $overWear.fit.includes("breastsTooSmall")>>
-Man this this should fit better but your tits... they're pushed out way too much, either showing far too much cleavage or just not fitting at all!
-<<elseif $overWear.fit.includes("breastsTight")>>
-Its a shame though how tight it is around your tits. Showing off a bit is nice; this might be a bit too much. 
-<</if>>
-<<else>>
-<</if>>
-
-<<if $bra != "">>
-To support your chest you're wearing a <<print $bra.color + " " + $bra.name>>. 
-
-<<if $bra.size >= $playerBiggestSize + 5>>
-You wonder why you bought such a huge bra, given that it barely fits you but whatever.
-<<elseif $bra.size >= $playerBiggestSize + 2>>
-Its a bit too big though; next time you should pay more attention when buying them.
-<<else>>
-<</if>>
-
-<<if $bra.fit.includes("muscleTooSmall")>>
-Your bulk keeps digging into the straps, its almost painful!
-<<elseif $bra.fit.includes("muscleTight")>>
-Your bulk keeps digging into the straps, its almost painful.
-<</if>>
-<<if $bra.fit.includes("heightTooSmall")>>
-And its just not fitting well though. It seems you're just too tall for it? The straps keep digging into your shoulders!
-<<elseif $bra.fit.includes("heightTight")>>
-Next time you should buy a size bigger, the straps keep digging into your skin. 
-<</if>>
-<<if $bra.fit.includes("breastsTooSmall")>>
-Your bra is way too tight, that's just a fact. Every movement is almost painful and you're overflowing it at every point. 
-<<elseif $bra.fit.includes("breastsTight")>>
-Its really tight though. You should keep your eyes open for a bigger one as you're almost spilling out of this one.
-<</if>>
-<<else>>
-You're not wearing a bra underneath. While its liberating it might just be a bit too revealing.
-<</if>>
-
-<br><br>
-
-<<if $bottomWear != "">>
-Under that you're wearing a <<print $bottomWear.color + " " + $bottomWear.name>>. 
-
-<<if $bottomWear.size >= $playerBiggestSize + 5>>
-The fit is... well, just way too big, in general. This is well beyond baggy, instead just looking ridiculous on you.
-<<elseif $bottomWear.size >= $playerBiggestSize + 2>>
-Its nice and baggy, which is comfortable enough!
-<<else>>
-<</if>>
-
-<<if $bottomWear.fit.includes("muscleTooSmall")>>
-Your calves and tighs are almost bursting out of it though. You really should buy something more suited to your mass!
-<<elseif $bottomWear.fit.includes("muscleTight")>>
-Your calves and tighs are almost bursting out of it though. You really should buy something more suited to your mass!
-<</if>>
-<<if $bottomWear.fit.includes("heightTooSmall")>>
-Shame its soo small for you though. You really should buy something your size.
-<<elseif $bottomWear.fit.includes("heightTight")>>
-Shame its soo small for you though. You really should buy something your size.
-<</if>>
-<<if $bottomWear.fit.includes("assTooSmall")>>
-Though you could do with a bigger size or some tailored clothes if only to give your ass some more breathing space. Damn this thing is tight!
-<<elseif $bottomWear.fit.includes("assTight")>>
-Though you could do with a bigger size or some tailored clothes if only to give your ass some more breathing space. Damn this thing is tight!
-<</if>>
-<<if $bottomWear.fit.includes("dickTooSmall")>>
-Its almost painfully tight around your groin though, making you whinch everyime you sit down. Who thought you'd get a dick too big for clothes!
-<<elseif $bottomWear.fit.includes("dickTight")>>
-Its pretty tight around your groin though, making you whinch everyime you sit down. Besides that its just a bit too revealing for your taste!
-<</if>>
-<<if $bottomWear.fit.includes("hipsTooSMall")>>
-Heh, nice hips are a good addition to your figure but it makes buying the right pants a bit of a hassle... these are pretty much too small for you.
-<<elseif $bottomWear.fit.includes("hipsTight")>>
-Heh, nice hips are a good addition to your figure but it makes buying the right pants a bit of a hassle... these are pretty much too small for you.
-<</if>>
-<<else>>
-Not wearing anything on your legs, while comfortable at home, isn't the best if you want to go outside.
-<</if>>
-
-<<if $underWear != "">>
-You're also wearing a <<print $underWear.color + " " + $underWear.name>>. 
-
-<<if $underWear.size >= $playerBiggestSize + 5>>
-It feels odd when its this big, but hey its not the worst thing. But comfortable its not!
-<<elseif $underWear.size >= $playerBiggestSize + 2>>
-Next time you should get something that fits better, it just feels off when its this big!
-<<elseif $underWear.fit.includes("muscleTooSmall")>>
-Next time you should get something that fits better, it just feels awkward when its this small!
-<<elseif $underWear.fit.includes("muscleTight")>>
-Next time you should get something that fits better, it just feels awkward when its this small!
-<<elseif $underWear.fit.includes("heightTooSmall")>>
-Next time you should get something that fits better, it just feels awkward when its this small!
-<<elseif $underWear.fit.includes("heightTight")>>
-Next time you should get something that fits better, it just feels awkward when its this small!
-<</if>>
-
-<<if $underWear.fit.includes("assTooSmall")>>
-Plus of having a nice ass; you got a nice ass. Downside: This thing barely fits! You'll have to get something bigger!
-<<elseif $underWear.fit.includes("assTight")>>
-Plus of having a nice ass; you got a nice ass. Downside: This thing barely fits! You'll have to get something bigger!
-<</if>>
-<<if $underWear.fit.includes("dickTooSmall")>>
-It feels really wierd, having a dick too big for your clothing but... here we are. Its almost painfully tight and you keep having to tug at it to give it some room to breath!
-<<elseif $underWear.fit.includes("dickTight")>>
-It feels really wierd, having a dick too big for your clothing but... here we are. Its almost painfully tight and you keep having to tug at it to give it some room to breath!
-<</if>>
-<<if $underWear.fit.includes("hipsTooSMall")>>
-Trying to get this thing past your hip was a huge chore, jesus! You knew you were 'thicc' but this thicc...
-<<elseif $underWear.fit.includes("hipsTight")>>
-Trying to get this thing past your hip was a huge chore, jesus! You knew you were 'thicc' but this thicc...
-<</if>>
-<<else>>
-You're not wearing any underwear. Maybe you should wear some, before people notice.
-<</if>>
 
 
 :: Tailor [outOfHouse mall] {"position":"2700,1625","size":"100,100"}
@@ -10752,289 +10945,6 @@ You're not wearing any underwear. Maybe you should wear some, before people noti
 <</for>>
 </table>
 <</widget>>
-
-
-:: ClothingFitCalculator [widget] {"position":"900,0","size":"100,100"}
-<<nobr>>
-<<widget "ClothingFitCalculator">>
-
-/* Sets the array looped through. ADD for wardrobe */
-<<set _outfit to []>>
-
-<<set _warning to false>>
-<<set _nudeWarning to false>>
-
-<<if $args[0] is false>>
-	<<set _outfit.push($topWear)>>
-	<<set _outfit.push($bottomWear)>>
-	<<set _outfit.push($overWear)>>
-	<<set _outfit.push($bra)>>
-	<<set _outfit.push($underWear)>>
-<<else>>
- 	<<set _outfit to $wardrobe>>
-<</if>>
-
-<<for _i to 0; _i < _outfit.length; _i ++>>
-<<capture _i>>	
-
-<<if _outfit[_i] != "">>
-
-<<set _messages to []>>
-<<set _fits to true>>
-/* Sets the initial sizes for all the outfits to the standard */
-<<set _bulkMaxSize to parseInt(_outfit[_i].size)>>
-<<set _heightMaxSize to parseInt(_outfit[_i].size)>>
-<<set _breastsMaxSize to parseInt(_outfit[_i].size)>>
-<<set _dickMaxSize to parseInt(_outfit[_i].size)>>
-<<set _assMaxSize to parseInt(_outfit[_i].size)>>
-<<set _hipMaxSize to parseInt(_outfit[_i].size)>>
-
-/* Checks for special tolerances and applies those. */
-<<if _outfit[_i].tolerances.hasOwnProperty("bulk")>>
-	<<set _bulkMaxSize *= _outfit[_i].tolerances.bulk>>	
-	<<set _outfit[_i].fit to []>>
-	
-	<<if _bulkMaxSize + 3< ($playerBulkSize)>>
-		<<set _outfit[_i].fit.pushUnique("muscleNotFit")>>
-		<<set _warning to true>>
-		<<set _fits to false>>
-		<<if $args[0] is false>>
-		  <<script>>
-			  if (!Dialog.isOpen()){
-			  var dialog = Dialog.setup("Clothing broke!");
-			  new Wikifier(dialog, "You knew some of your clothing was getting tight, but THIS you didn't expect. It just feels incredibly constraining around you, your bulk pressed together while even the smallest movement makes the clothing audibly strain. Slowly tears start forming, your body simply squeezing through. Slowly but certainly you're watching it change into nothing more but rags clinging to your body.");
-			  Dialog.open();}
-		  <</script>>
-		<</if>>
-	<<elseif _bulkMaxSize < ($playerBulkSize - 1)>>
-		<<set _outfit[_i].fit.pushUnique("muscleTooSmall")>>
-		<<set _messages.push("This " +_outfit[_i].name + " is just getting a bit too tight, it barely fits!")>>
-		<<set _warning to true>>
-	<<elseif _bulkMaxSize < $playerBulkSize>>
-		<<set _outfit[_i].fit.pushUnique("muscleTight")>>
-		<<set _messages.push("Your " +_outfit[_i].name + " is just getting a bit tight, you might need to replace it soon.")>>
-		<<set _warning to true>>
-	<</if>>
-<</if>>
-
-<<if _outfit[_i].tolerances.hasOwnProperty("height")>>
-	<<set _heightMaxSize *= _outfit[_i].tolerances.height>>
-	
-	<<if _heightMaxSize < ($playerHeightSize - 3)>>
-		<<set _outfit[_i].fit.pushUnique("heightNotFit")>>
-		<<set _warning to true>>
-		<<set _fits to false>>
-		<<if $args[0] is false>>
-		  <<script>>
-			  if (!Dialog.isOpen()){
-			  var dialog = Dialog.setup("Clothing broke!");
-			  new Wikifier(dialog, "It has been clear to you for a while now that these clothes don't fit, but wearing them makes it clear just how poorly they fit. You keep having to tug them down as they're just embarrasingly short on you, revealing way too much. You have no choice but to discard them.");
-			  Dialog.open();}
-		  <</script>>
-		<</if>>
-	<<elseif _heightMaxSize < $playerHeightSize -1>>
-		<<set _outfit[_i].fit.pushUnique("heightTooSmall")>>
-		<<set _messages.push("Your " +_outfit[_i].name + " doesn't really fit anymore, you keep having to pull it down! Time to get an replacement.")>>
-		<<set _warning to true>>
-	<<elseif _heightMaxSize < $playerHeightSize>>
-		<<set _outfit[_i].fit.pushUnique("heightTight")>>
-		<<set _messages.push("Your " +_outfit[_i].name + " is getting too short for you. Time to get something bigger!")>>
-		<<set _warning to true>>
-	<</if>>
-<</if>>
-<<if _outfit[_i].tolerances.hasOwnProperty("breasts")>>
-	<<set _breastsMaxSize *= _outfit[_i].tolerances.breasts>>
-	
-	<<if _breastsMaxSize < $playerBreastsSize - 3>>
-		<<set _outfit[_i].fit.pushUnique("breastsNotFit")>>
-		<<set _warning to true>>
-		<<set _fits to false>>
-		<<if $args[0] is false>>
-		  <<script>>
-			  if (!Dialog.isOpen()){
-			  var dialog = Dialog.setup("Clothing broke!");
-			  new Wikifier(dialog, "Fuck its almost impossible to breath in these clothes! You had trouble enough getting them on, especially getting your breasts to fit in, but now its only worse! You try to take short, shallow breasts but it doesn't help; with a loud tearing noise you just feel it tear and snap, a wave of relief washing over you as you can finally breath. But you're left with ruined clothes, and your tits out...");
-			  Dialog.open();}
-		  <</script>>
-		<</if>>
-	<<elseif _breastsMaxSize < $playerBreastsSize -1>>
-		<<set _outfit[_i].fit.pushUnique("breastsTooSmall")>>
-		<<set _messages.push("This " +_outfit[_i].name + " is just far too tight against your breasts, barely leaving you room to breath!")>>
-		<<set _warning to true>>
-	<<elseif _breastsMaxSize < $playerBreastsSize>>
-		<<set _outfit[_i].fit.pushUnique("breastsTight")>>
-		<<set _messages.push("Your " +_outfit[_i].name + " is getting a bit too tight around the chest, its really uncomfortable!")>>
-		<<set _warning to true>>
-	<</if>>
-<</if>>
-
-<<if _outfit[_i].tolerances.hasOwnProperty("dick")>>
-	<<set _dickMaxSize *= _outfit[_i].tolerances.dick>>
-	
-	<<if _dickMaxSize < $playerDickSize -3 >>
-		<<set _outfit[_i].fit.pushUnique("dickNotFit") -1>>
-		<<set _warning to true>>
-		<<set _fits to false>>
-		<<if $args[0] is false>>
-		  <<script>>
-			  if (!Dialog.isOpen()){
-			  var dialog = Dialog.setup("Clothing broke!");
-			  new Wikifier(dialog, "Its almost unbearable how tight your bulge is. Several times you've tried to adjust it but its just too small, your junk compacted by the way too small clothing. Its no suprise that with one wrong move it just bursts open, leaving tattered remains and your junk completely visible!");
-			  Dialog.open();}
-		  <</script>>
-		<</if>>
-	<<elseif _dickMaxSize < $playerDickSize - 1>>
-		<<set _outfit[_i].fit.pushUnique("dickTooSmall")>>
-		<<set _messages.push("You're showing a WAY too detailed bulge in your " +_outfit[_i].name + ", you should get something new ASAP!")>>
-		<<set _warning to true>>
-	<<elseif _dickMaxSize < $playerDickSize>>
-		<<set _outfit[_i].fit.pushUnique("dickTight")>>
-		<<set _messages.push("You're sure your " +_outfit[_i].name + " is getting a bit too tight around the groin.")>>
-		<<set _warning to true>>
-	<</if>>
-<</if>>
-
-<<if _outfit[_i].tolerances.hasOwnProperty("ass")>>
-	<<set _assMaxSize *= _outfit[_i].tolerances.ass>>
-	
-	<<if _assMaxSize < $playerAssSize - 3>>
-		<<set _outfit[_i].fit.pushUnique("assNotFit")>>
-		<<set _warning to true>>
-		<<set _fits to false>>
-		<<if $args[0] is false>>
-		  <<script>>
-			  if (!Dialog.isOpen()){
-			  var dialog = Dialog.setup("Clothing broke!");
-			  new Wikifier(dialog, "These clothes have been painfully tight around your ass for some time now, but with one wrong move they finally tear. With a loud ripping sound they split open, your ass simply spilling out!");
-			  Dialog.open();}			
-		  <</script>>
-		<</if>>
-	<<elseif _assMaxSize < $playerAssSize - 1>>
-		<<set _outfit[_i].fit.pushUnique("assTooSmall")>>
-		<<set _messages.push("There is showing off your ass and then there is your " +_outfit[_i].name + " getting so tight its almost painful!")>>
-		<<set _warning to true>>
-	<<elseif _assMaxSize < $playerAssSize>>
-		<<set _outfit[_i].fit.pushUnique("assTight")>>
-		<<set _messages.push("You really should get something better fitting than this " +_outfit[_i].name + ", it got so tight around your ass its getting uncomfortable.")>>
-		<<set _warning to true>>
-	<</if>>
-<</if>>
-
-<<if _outfit[_i].tolerances.hasOwnProperty("hips")>>
-	<<set _hipMaxSize *= _outfit[_i].tolerances.hips>>
-	
-	<<if _hipMaxSize < $playerHipsSize - 3>>
-		<<set _outfit[_i].fit.pushUnique("hipsNotFit")>>
-		<<set _warning to true>>	
-		<<set _fits to false>>
-		<<if $args[0] is false>>
-		  <<script>>
-			  if (!Dialog.isOpen()){
-			  var dialog = Dialog.setup("Clothing broke!");
-			  new Wikifier(dialog, "It almost felt like your circulation was being cut off, thats how tight these clothes felt around your hips! They dug painfully in your skin, but as you make one wrong movement and straight the fabric a bit too much they almost explode from your body, only tattered remains clinging to your body!");
-			  Dialog.open();}
-		  <</script>>
-		<</if>>
-	<<elseif _hipMaxSize < $playerHipsSize - 1>>
-		<<set _outfit[_i].fit.pushUnique("hipsTooSMall")>>
-		<<set _messages.push("You really should get something better fitting than this " +_outfit[_i].name + ", it got so tight around your hips its getting uncomfortable.")>>		
-		<<set _warning to true>>
-	<<elseif _hipMaxSize < $playerHipsSize>>
-		<<set _outfit[_i].fit.pushUnique("hipsTight")>>
-		<<set _messages.push("This " +_outfit[_i].name + " might just be a bit TOO tight around the thighs.")>>
-		<<set _warning to true>>
-	<</if>>
-<</if>>
-
-<<set _rand to random(0,20)>>
-<<if _messages.length > 0 and _rand > 18>>
-	<<addToLog _messages.pluck()>>
-<</if>>
-
-<<if $args[0] is false>>
-	<<if _i is 0>>
-		<<if _fits>>
-			<<set $topWear to _outfit[0]>>
-		<<else>>
-			<<set $topWear to "">>
-			<<set _nudeWarning to true>>
-		<</if>>
-	<<elseif _i is 1>>
-		<<if _fits>>
-			<<set $bottomWear to _outfit[1]>>
-		<<else>>
-			<<set $bottomWear to "">>
-			<<set _nudeWarning to true>>
-		<</if>>
-	<<elseif _i is 2>>
-		<<if _fits>>
-			<<set $overWear to _outfit[2]>>
-		<<else>>
-			<<set $overWear to "">>
-			<<set _nudeWarning to true>>
-		<</if>>
-	<<elseif _i is 3>>
-		<<if _fits>>
-			<<set $bra to _outfit[3]>>
-		<<else>>
-			<<set $bra to "">>
-			<<set _nudeWarning to true>>
-		<</if>>
-	<<elseif _i is 4>>
-		<<if _fits>>
-			<<set $underWear to _outfit[4]>>
-		<<else>>
-			<<set $underWear to "">>
-			<<set _nudeWarning to true>>
-		<</if>>
-	<</if>>
-<<else>>
- 	<<set $wardrobe to _outfit>>
-<</if>>
-
-<<else>>
-<<set _nudeWarning to true>>
-<</if>>
-
-<</capture>>
-<</for>>
-
-<<if _warning>>
-	<<set $outfitWarning to true>>
-<<else>>
-	<<set $outfitWarning to false>>
-<</if>>
-
-<<if $bottomWear is "">>
-	<<set $outfitNudeWarning to true>>
-<<else>>
-	<<set $outfitNudeWarning to false>>
-<</if>>
-<<if $overWear is "" and $topwear is "">>
-	<<set $outfitNudeWarning to true>>
-<</if>>
-
-<</widget>>
-<</nobr>>
-
-
-:: ClosetOverwear {"position":"1525,600","size":"100,100"}
-<<changeClothing "overwear">>
-
-<<link "Back" "Closet">><</link>>
-
-
-:: ClosetBra {"position":"1525,700","size":"100,100"}
-<<changeClothing "bra">>
-
-<<link "Back" "Closet">><</link>>
-
-
-:: ClosetUnderwear {"position":"1425,600","size":"100,100"}
-<<changeClothing "underwear">>
-
-<<link "Back" "Closet">><</link>>
-
 
 :: InitializeAllClothes [nobr] {"position":"0,600","size":"100,100"}
 <<set setup.allClothes to [
@@ -13242,7 +13152,7 @@ Well, he's as direct as ever. His directness doesn't seem as any kind of derisio
 	
 	
 	<<set $carefreeCarefull += 1>>
-	<<display $quests[$sewingTutotial].finishedDialogue>>
+	<<include $quests[$sewingTutotial].finishedDialogue>>
 	<<addMinutes 60>>
 <</link>>
 
@@ -16723,8 +16633,8 @@ You just can't bring yourself to work out right now, you're just too exhausted.
 	
 <</if>>
 
-<<display "jobEvents">>
-<<display "jobBodyDescr">>
+<<include "jobEvents">>
+<<include "jobBodyDescr">>
 
 <br><br>
 
@@ -18665,7 +18575,7 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
 
 
 :: EventCenter {"position":"3200,1300","size":"100,100"}
-<<if $evenCenterVisited != true>>"You walk towards the vast convention hall, seeing the advert for a bodybuilding competition going on. You approached the wide double doors<<if $fat >= 80 | | $breasts >= 80 || $height >= 250 | | $muscle >= 80>>, trying to enter by squeezing yourself through. Man, if only you could make the door bigger on the fly<</if>>. 
+<<if $evenCenterVisited != true>><</if>>"You walk towards the vast convention hall, seeing the advert for a bodybuilding competition going on. You approached the wide double doors<<if $fat >= 80 | | $breasts >= 80 || $height >= 250 | | $muscle >= 80>>, trying to enter by squeezing yourself through. Man, if only you could make the door bigger on the fly<</if>>. 
 
 ‘Anything less than strong’
 Sure, you don’t exactly have much muscle mass to speak of, but surely it couldn’t hurt to peek? Hell, maybe you could even consider entering! Once you’re inside the hall however… oh… oh god no… the reality smacked you right in the face. Women and men with gigantic bodies, arms that seemed as wide as your lanky legs. Just as quickly as you walked in, you exited, face flush in pure embarrassment that such a silly idea could even cross your mind"
@@ -21860,10 +21770,6 @@ Dialog.open();
         npc: ['kris'],
         content: 'Ah, caffeine. Sometimes it feels like the only thing that keeps you going these days. You feel quite adventurous today, and think about trying something different (look at you!).<br><br>You wait in line, and look at the complicated menu full of unnecessary Italian words<<if $elenaOpinion > 20>> (you kinda wish Elena was there to translate some of those for you - you always get the cup sizes mixed up when ordering…)<</if>>. But you soldier on, mumbling words to yourself while you try to decide what you will have. Soon, you are at the front of the line, still looking distractedly at the chalkboard and its artful list of options.<br><br><<if $carefulCarefree <= -1>>But as you get there, your attentive eyes immediately notice that Kris is running the cashier, so you brace yourself for some inappropriate behavior. Instead, however, you are surprised to see she’s… well… mostly behaved. <<else>>You keep scanning the menu casually, trying not to hold the line too long. But by the time you lower your eyes, you find Kris, being unusually quiet and behaved. Well, mostly.<</if>> She is licking her lips, staring at you… not your eyes… a little further down. <<if $shyConfident <= -1>>It makes you quite uncomfortable, and you end up avoiding eye contact entirely. <<elseif $submissiveDominant > 1>>You snap your fingers right in front of her nose, looking her straight in her eyes. Other than breathing a little deeper, and biting her lips harder to the point you can see her piercing them, bleeding a bit, she seems undeterred by your intervention. <elseif>>You just ignore her, it’s just Kris being Kris after all… <</if>><<Dialogue "player" "You">>"I will have the… uhh… I guess the… dulce de leche espresso… grande…"<</Dialogue>><br><br>Her naughty grin persists unabashed, and she’s still not giving establishing eye contact.<br><br><<Dialogue "Kris" "Kris">>"Would you like some milk with that?"<</Dialogue>><br><br><<Dialogue "player" "You">>"I mean, it’s an espresso, I would have ordered a latte otherwise… though, that doesn’t sound like a bad idea. Yeah, you can add milk."<</Dialogue>><br><br><<Dialogue "Kris" "Kris">>"Of course… the house’s…"<</Dialogue>><br><br>Her grin grows to scary proportions, as she completes the thought in an even more provocative and louder tone:<br><br><<Dialogue "Kris" "Kris">>"... or YOURS?!?"<</Dialogue>><br><br>Confused, you try to process what she means… OH! You look down, <<if $breasts >= 45>>staring at your rather inflated top,<</if>> only to find that your clothes are rather damp with your leaking breasts.<br><br><<if $shyConfident <= -1>>You cover your little lactorrhea mishap, blushing at Kris and her rather loud announcement - you scan around you, but thankfully the other patrons seem to discount it as… well, just another “Krishap”.<<else>><<Dialogue "player" "You">>"Ugh, not again!"<</Dialogue>><br><br><</if>>Kris starts tilting her head sideways, and approaching your breasts slowly over the counter, her mouth slowly opening as she approaches your moistened nipple.<br><br><<if $submissiveDominant > 1>>You lift your hand, placing it firmly against her shoulder. She just keeps pushing against it, rather unsuccessfully, undiscouraged.<br><br><<Dialogue "player" "You">>"Alright, hand over your apron, Kris."<</Dialogue>><br><br>You order her, with a very demanding tone. Her eyes widen, and she stands back down, taking the apron off and handing it over with a very solemn answer:<br><br><<Dialogue "Kris" "Kris">>"Yes, miss <<print $playerLastName>>!"<</Dialogue>><br><br>Huh. Who would’ve thought this would work? You cover yourself with the thick (and thankfully waterproof) apron.<<else>><<Dialogue "player" "You">>"Can… can we not do this, Kris? Please?"<</Dialogue>><br><br>You say, as you pinch the bridge of your nose and close your eyes, annoyed.<br><br><<Dialogue "Kris" "Kris">>"What? Am I not entitled to some milk as well?"<</Dialogue>><br><br>She replies, in a begging tone, as her tongue lashes out towards you.<br><br>You roll your eyes, and just give up.<</if>><br><br><<Dialogue "player" "You">>"So… can I have my espresso?"<</Dialogue>><br><br>Kris goes back to prepare your order, as another employee takes over the cashier. You wait for a bit, looking at your phone to pass the time.<br><br><<Dialogue "Kris" "Kris">>"Yoo-hoo… <<print $playerFirstName>>..."<</Dialogue>><br><br>She is at the end of the counter, shaking a cup with your name written on it. And the grin is still there. You walk over, and grab the cup, but it takes a small tug for her to let go. You walk out, taking a sip… wait a minute. You open the paper container, to find it’s just steamed milk.<br><br>You look back at her, and she’s winking at you, and mouthing what seems to be a “mooooo.”<br><br>You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>'
     })>>
-
-
-:: StoryTitle [StoryTitle] {"position":"400,900","size":"100,100"}
-Summer Growth
 
 
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
