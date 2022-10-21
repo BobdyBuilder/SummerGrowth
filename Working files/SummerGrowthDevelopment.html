@@ -1471,7 +1471,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="Done" color="green"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -3611,44 +3611,45 @@ for (let i = 0; i &lt; boxes.length; i++) {
     top: function () {
         return State.variables.wardrobe.find(item =&gt; item.id == this.topId);
     },
-        bottomId: 2,
-            bottom: function () {
-                return State.variables.wardrobe.find(item =&gt; item.id == this.bottomId);
-            },
+    bottomId: 2,
+    bottom: function () {
+        return State.variables.wardrobe.find(item =&gt; item.id == this.bottomId);
+    },
     braId: 4,
-        bra: function () {
-            return State.variables.wardrobe.find(item =&gt; item.id == this.braId);
-        },
+    bra: function () {
+        return State.variables.wardrobe.find(item =&gt; item.id == this.braId);
+    },
     underwearId: 3,
-        underwear: function () {
-            return State.variables.wardrobe.find(item =&gt; item.id == this.underwearId);
-        },
+    underwear: function () {
+        return State.variables.wardrobe.find(item =&gt; item.id == this.underwearId);
+    },
     overwearId: 5,
-        overwear: function () {
-            return State.variables.wardrobe.find(item =&gt; item.id == this.overwearId);
-        },
+    overwear: function () {
+        return State.variables.wardrobe.find(item =&gt; item.id == this.overwearId);
+    },
     shoesId: 6,
-        shoes: function () {
-            return State.variables.wardrobe.find(item =&gt; item.id == this.shoesId);
-        },
+    shoes: function () {
+        return State.variables.wardrobe.find(item =&gt; item.id == this.shoesId);
+    },
     style: function () {
-		
-        if(this.top() == undefined &amp;&amp; this.bottom() == undefined &amp;&amp; this.overwear() == undefined &amp;&amp; this.bra() == undefined &amp;&amp; this.bottom() == undefined &amp;&amp; this.underwear() == undefined &amp;&amp; this.shoes() == undefined){
-        	return undefined;
+
+        if (this.top() == undefined &amp;&amp; this.bottom() == undefined &amp;&amp; this.overwear() == undefined &amp;&amp; this.bra() == undefined &amp;&amp; this.bottom() == undefined &amp;&amp; this.underwear() == undefined &amp;&amp; this.shoes() == undefined) {
+            return undefined;
         }
-        
-        //find most common object
+
+        /*find most common object*/
         function mode(arr) {
             return arr.sort((a, b) =&gt;
                 arr.filter(v =&gt; v === a).length
                 - arr.filter(v =&gt; v === b).length
             ).pop();
         }
-        //setup objects
+
+        /*setup objects*/
         var retval = [];
         var presentArchetypes = [];
 
-        //add all the archetypes of the clothing to a single heap
+        /*add all the archetypes of the clothing to a single heap*/
         if (this.top() != undefined &amp;&amp; this.top().archetypes != undefined) {
             presentArchetypes.push(this.top().archetypes);
         }
@@ -3669,7 +3670,7 @@ for (let i = 0; i &lt; boxes.length; i++) {
         }
 
         presentArchetypes = mode(presentArchetypes);
-        //get how many times each different archetype is present
+        /*get how many times each different archetype is present*/
         return presentArchetypes[0];
     },
     fit: function () {
