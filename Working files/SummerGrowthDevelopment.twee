@@ -2496,7 +2496,7 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 <<nobr>>
 <<widget "bodyDescription">>
 
-<<BodyTypeDescription>> <<bodyHairDescription>> <<heightDescription>><<include "outfitDescription">>
+<<BodyTypeDescription>> <<bodyHairDescription>> <<heightDescription>><<outfitDescription>>
 <br><br>
 <<headDescription>>
 <br><br>
@@ -3574,8 +3574,6 @@ In the middle of town is a decent shopping center, various shops in the old buil
 :: ClothingStore [storage clothingStore outOfHouse mall] {"position":"2400,1525","size":"100,100"}
 This is Allison's Apparel, one of the few remaining clothing stores here that's not part of a big brand. And good thing too, because the selection is top-notch and Allison is always there to help. Row after row of packed racks make up most of the store, and you get the idea it'd take days to browse all there is here. Luckily everything is neatly labeled, so you should be able to find something here.
 
-<<clothingFitDescription>>
-
 <<linkreplace "shop for tops">>
 <<ClothingStoreWidget "normal" "tops">>
 <</linkreplace>>
@@ -4184,6 +4182,24 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         dickMax: 9,
         ballsMin: 0,
         ballsMax: 9        
+    },
+    {	
+    	muscleMin: 65,
+        muscleMax: 75,
+        fatMin: 65,
+        fatMax: 75,
+        heightMin: 240,
+        heightMax: 250,
+        breastsMin: 55,
+        breastsMax: 60,
+        thighsMin: 0,
+        thighsMax: 10,
+        assMin: 0,
+        AssMax: 10,
+        dickMin: 0,
+        dickMax: 10,
+        ballsMin: 0,
+        ballsMax: 10        
     }
 ]>>
 
@@ -4359,8 +4375,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 
 :: ClothingStoreWidget [widget nobr] {"position":"2500,1525","size":"100,100"}
 <<widget "ClothingStoreWidget">>
-
-<<clothingFitDescription $args[1]>>
 
 <<if $args[0] is "normal">>
 	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL"]>>
@@ -5310,7 +5324,7 @@ Urgh, you're just way too tired to look for a job.<br><br>
 <<linkreplace "Shop for clothes online - 00:30 🕛">><<addMinutes 30>>
 Luckily enough it's easy to find clothing online. It'll be delivered the next day at 9AM, even if you're not at home. <br>
 
-<<clothingFitDescription>><<update>><br>
+<<update>><br>
 
 <<linkreplace "shop for tops">>
 <<ClothingStoreWidget "online" "tops">>
@@ -9263,9 +9277,6 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 			<<set _triggerName to _name + "Height">>
 			<<addTrigger _triggerName false false>>
 		<</if>>
-		
-		
-
 		<</capture>>
 <</for>>
 
@@ -9276,8 +9287,6 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 
 :: BigTallStore [outOfHouse mall] {"position":"2800,1625","size":"100,100"}
 The town's Big & Tall store is suprisingly small, though the selection they offer for 'bigger' customers is pretty good. The clothes are more expansive, but atleast they fit bigger people decently. 
-
-<<clothingFitDescription>>
 
 <<linkreplace "shop for tops">>
 <<ClothingStoreWidget "big" "tops">>
@@ -10765,48 +10774,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 <</nobr>>
 
 
-:: clothingFitDescription [widget nobr] {"position":"2575,250","size":"100,100"}
-<<nobr>>
-<<widget "clothingFitDescription">>
-
-<<if $args[0] is "tops" or $args[0] is "overwear" or $args[0] is "bra" >>
-<<set _playerHeightSizeUpper to $playerBiggestSizeTop + 1>>
-<<else>>
-<<set _playerHeightSizeUpper to $playerBiggestSizeBottom + 1>>
-<</if>>
-
-<<if $playerHeightSize >= $playerBulkSize>>
-Looking in the mirror you estimate you'd need between size <<clothingSize $playerHeightSize>> and <<clothingSize _playerHeightSizeUpper>> to make sure your clothes fits properly. 
-
-<<elseif $playerHeightSize < $playerBulkSize>>
-While you'd need normally need <<clothingSize $playerHeightSize>> for your height you need atleast <<clothingSize $playerBulkSize>> due to your bulk! If you don't get clothing tailored they'll just appear to long for you, but what else can you do?
-
-<</if>>
-
-<<if $args[0] is "tops" or $args[0] is "overwear" or $args[0] is "bra" >>
-<<if $playerBiggestSizeTopName is "breasts">>
-Given the size of your breasts you'll have to take them into account when buying tops. You'll need like a size <<clothingSize $playerBreastsSize>>, atleast. Or something tailored for it.
-
-<</if>>
-
-<<elseif $args[0] is "bottom"  or $args[0] is "underwear">>
-
-<<if $playerBiggestSizeBottomName is "dick">>
-Its a bit emberrassing, but if you don't want your bulge showing you'll need to get atleast <<clothingSize $playerDickSize>> to conceal it or something tailored for it.
-
-<<elseif $playerBiggestSizeBottomName is "ass">>
-Given the size of your ass you'll need atleast <<clothingSize $playerAssSize>> or something tailored for it.
-
-<<elseif $playerBiggestSizeBottomName is "hips">>
-And with your hips its best to buy them a bit bigger, atleast <<clothingSize $playerHipsSize>> or something tailored for it.
-<</if>>
-<</if>>
-
-<</widget>>
-<</nobr>>
-
-
-:: outfitDescription [widget, nobr] {"position":"1425,700","size":"100,100"}
+:: outfitDescription [widget nobr] {"position":"1425,700","size":"100,100"}
 <<nobr>>
 <<widget "outfitDescription">>
 ​
@@ -10828,8 +10796,6 @@ And with your hips its best to buy them a bit bigger, atleast <<clothingSize $pl
 <<if $simonOpinion is 0>><<goto "SimonIntroduction">><<elseif $simonOpinion >= 10 && $sewingUnlocked != true>><<goto "tailorUnlock">><<elseif $sewingUnlocked && $fabric > 0 && $quests[$sewingTutotial].started is true && $quests[$sewingTutotial].completed is false>><<goto "sewingTutorial">><</if>>Tucked into a tiny corner of the mall is a tailor. The signage is minimalist to the point of non-existance, and inside the shop isn't much different. Bare walls and hard concrete floors with rack upon rack of clothes in every size imaginable, from absolutely tiny to so big they must be a joke of some sorts. And in the middle of it all sits a huge man working the sowing machine with thick, muscular arms. He barely speaks, only nodding to show he heard you. Few know anything about him, but if the derelict sign outside is any indication this is Simon, of Simon Sewing & Tailoring.
 
 <<if $sewingUnlocked && $furniture.indexOf("sewing machine") is -1>><<if $money >= 100>><<link "Buy sewing machine ($100)" "Tailor">><<set $furniture.push("sewing machine")>><<set $money -= 100>><</link>><<else>> Buy sewing machine ($100) - you can't afford it.<</if>><</if>>
-
-<<clothingFitDescription>>
 
 <<TailorWidget>>
 
@@ -10948,851 +10914,544 @@ And with your hips its best to buy them a bit bigger, atleast <<clothingSize $pl
 <</widget>>
 
 :: InitializeAllClothes [nobr] {"position":"0,600","size":"100,100"}
+<<set setup.allStyles to [
+    'casual',
+    'nerdy',
+    'punk',
+    'gymrat',
+    'stylish',
+    'professional',
+    'goth',
+    'tomboyish'
+]>>
+
+/* Central list of all clothing in the game. From this objects will be
+added to the stores. Divided by catagory. undefined values are intended,
+and will be filled in when they enter the stores. */
 <<set setup.allClothes to [
 /* Tops */
-	{
-		name: "t-shirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: ["no sleeves"],
-		price: 20
-	},
-	{
-		name: "wife-beater",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: ["no sleeves"],
-		price: 20
-	},
-	{
-		name: "tanktop",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: ["no sleeves"],
-		price: 20
-	},
-	{
-		name: "blouse",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 40
-	},
-	{
-		name: "keyhole top",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 60
-	},
-	{
-		name: "shirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 20
-	},
-	{
-		name: "polo",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 30
-	},
-	{
-		name: "military shirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow", "camouflage", "striped"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 40
-	},
-	{
-		name: "tube top",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 50
-	},
-	{
-		name: "draped top",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 80
-	},
-	{
-		name: "wrap-top",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 40
-	},
-	{
-		name: "henley-top",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 40
-	},
-	{
-		name: "crop-top",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "orange", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "top",
-		archetype: ["standard"],
-		traits: [],
-		price: 40
-	},
+    {
+        id: undefined,
+        name: 'plain t-shirt',
+        tolerance: 1.3,
+        archetypes: ['casual', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'geeky t-shirt',
+        tolerance: 1.3,
+        archetypes: ['casual', 'tomboyish', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'button down shirt',
+        tolerance: 1.3,
+        archetypes: ['casual', 'stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'Dress shirt',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    }.
+    {
+        id: undefined,
+        name: 'Dress shirt',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'torn shirt',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'black halter top',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'crop top',
+        tolerance: 1.3,
+        archetypes: ['punk', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'tank top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'halter top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'stylish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'fish-net top',
+        tolerance: 1.3,
+        archetypes: ['goth', 'punk'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'top'
+    },
 /* Overwear */
-	{
-		name: "hoodie",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "purple"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 50
-	},
-	{
-		name: "turtle neck",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "purple"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 90
-	},
-	{
-		name: "sweater",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "purple"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 40
-	},
-	{
-		name: "sweatshirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "purple"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 30
-	},
-	{
-		name: "cardigan",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "purple"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "overwear",
-		archetype: ["standard"],
-		traits: ["overwear"],
-		price: 49
-	},
+    {
+        id: undefined,
+        name: 'hoodie',
+        tolerance: 1.3,
+        archetypes: ['casual', 'tomboyish', 'punk', 'gymrat'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'black trenchcoat',
+        tolerance: 1.3,
+        archetypes: ['tomboyish', 'punk'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'tailored jacket',
+        tolerance: 1.3,
+        archetypes: ['professional', 'stylish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'leather jacket',
+        tolerance: 1.3,
+        archetypes: ['punk'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'vest',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'sweater',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'cat ear hoodie',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'track top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'track top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'gothic vest',
+        tolerance: 1.3,
+        archetypes: ['goth'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'spiked jacket',
+        tolerance: 1.3,
+        archetypes: ['goth'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'overwear'
+    },
 /* Bras */
-	{
-		name: "bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "bralette",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "lace", "burgundy"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 60
-	},
-	{
-		name: "demi-bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 50
-	},
-	{
-		name: "T-shirt bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 35
-	},
-	{
-		name: "push-up bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "full-cup bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 60
-	},
-	{
-		name: "strapless bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "maternity bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green", "biege"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "sports- bra",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "red", "blue", "green"],
-		color: "blue black",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				breasts: 1		
-			},
-		slot: "bra",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
+    {
+        id: undefined,
+        name: 'sports bra',
+        tolerance: 1.3,
+        archetypes: ['gymrat'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bra'
+    },
+    {
+        id: undefined,
+        name: 'push-up bra',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bra'
+    },
+    {
+        id: undefined,
+        name: 'lace bra',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'goth', 'punk'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bra'
+    },
+    {
+        id: undefined,
+        name: 'maternity bra',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bra'
+    },
 /* bottoms */
 	{
-		name: "jeans",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "skinny fit jeans",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 50
-	},
-	{
-		name: "flared pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 70
-	},
-	{
-		name: "boot-cut pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "wide-leg pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 80
-	},
-	{
-		name: "cargo pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn", "Camouflage", "striped"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 50
-	},
-	{
-		name: "hot pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "torn"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 40
-	},
-	{
-		name: "skorts",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 30
-	},
-	{
-		name: "yoga pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 50
-	},
-	{
-		name: "sweat pants",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 30
-	},
-	{
-		name: "mini skirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 70
-	},
-	{
-		name: "pencil skirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "orange", "yellow", "biege"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 45
-	},
-	{
-		name: "skirt",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "orange", "yellow", "biege"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "bottom",
-		archetype: ["standard"],
-		traits: [""],
-		price: 45
-	},
+        id: undefined,
+        name: 'checkered skirt',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'dress pants',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'torn jeans',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'casual', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'black skirt',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'jeans',
+        tolerance: 1.3,
+        archetypes: ['casual', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'jogging pants',
+        tolerance: 1.3,
+        archetypes: ['casual', 'gymrat'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'yoga pants',
+        tolerance: 1.3,
+        archetypes: ['gymrat'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'shorts',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'baggy pants',
+        tolerance: 1.3,
+        archetypes: ['casual', 'nerdy', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'bottom'
+    },
 /* underWear */
-	{
-		name: "boy-shorts",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 10
-	},
-	{
-		name: "G-string",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green", "purple", "yellow", "dark red"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 30
-	},
-	{
-		name: "thong",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 25
-	},
-	{
-		name: "hi-waisted",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green", "red", "purple"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 50
-	},
-	{
-		name: "boy-brief",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green", "red", "biege", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 10
-	},
-	{
-		name: "bikini",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green", "yellow"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 45
-	},
-	{
-		name: "hipsters",
-		size: "",
-		fit: [],
-		colors: ["black", "grey", "white", "blue", "green"],
-		color: "",
-		tolerances: 
-			{
-				bulk: 1,
-				height: 1,
-				dick: 1,	
-				ass: 1,
-				hips: 1
-			},
-		slot: "underwear",
-		archetype: ["standard"],
-		traits: [""],
-		price: 35
-	}
+    {
+        id: undefined,
+        name: 'boyshorts',
+        tolerance: 1.3,
+        archetypes: ['tomboyish', 'casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'underwear'
+    },
+    {
+        id: undefined,
+        name: 'briefs',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'underwear'
+    },
+    {
+        id: undefined,
+        name: 'hipster shorts',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'underwear'
+    },
+/* Shoes */
+    {
+        id: undefined,
+        name: 'sneakers',
+        tolerance: 1.3,
+        archetypes: ['casual', 'gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'runners',
+        tolerance: 1.3,
+        archetypes: ['casual', 'gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'combat boots',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'platform boots',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'lace up boots',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'heels',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'flip flops',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'casual'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'ankle boots',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional', 'goth', 'punk'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'stilleto heels',
+        tolerance: 1.3,
+        archetypes: ['stylish'],
+        bonuses: [
+                
+            ],
+        size: undefined,
+        slot: 'shoes'
+    }
 ] >>
 
 
@@ -13290,8 +12949,6 @@ Well, he's as direct as ever. His directness doesn't seem as any kind of derisio
 
 :: sewing {"position":"1425,900","size":"100,100"}
 Next to the sewing machine you have all the projects you're currently working on. You could either decide to tailor something with the <<print $fabric>> bolts of fabric you got, or to scrap one of the projects. Scrapping a project refunds <<print $fabricScrapPercentage * 100>>% of the fabric, rounded down.
-
-<<clothingFitDescription>>
 
 <<sewingProjectsWidget>>
 

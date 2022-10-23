@@ -1471,7 +1471,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -2493,7 +2493,7 @@ At &lt;&lt;heighNumeral&gt;&gt; tall you&#39;re bigger than the main characters 
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="bodyDescription" tags="widget" position="3150,425" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;bodyDescription&quot;&gt;&gt;
 
-&lt;&lt;BodyTypeDescription&gt;&gt; &lt;&lt;bodyHairDescription&gt;&gt; &lt;&lt;heightDescription&gt;&gt;&lt;&lt;include &quot;outfitDescription&quot;&gt;&gt;
+&lt;&lt;BodyTypeDescription&gt;&gt; &lt;&lt;bodyHairDescription&gt;&gt; &lt;&lt;heightDescription&gt;&gt;&lt;&lt;outfitDescription&gt;&gt;
 &lt;br&gt;&lt;br&gt;
 &lt;&lt;headDescription&gt;&gt;
 &lt;br&gt;&lt;br&gt;
@@ -10312,7 +10312,7 @@ And with your hips its best to buy them a bit bigger, atleast &lt;&lt;clothingSi
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;/widget&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="142" name="outfitDescription" tags="widget, nobr" position="1425,700" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="142" name="outfitDescription" tags="widget nobr" position="1425,700" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;outfitDescription&quot;&gt;&gt;
 ​
 &lt;&lt;if $outfit.style() != undefined&gt;&gt;The best way to describe your outfit is &#39;&lt;&lt;print $outfit.style()&gt;&gt;&#39;.&lt;&lt;/if&gt;&gt; &lt;&lt;if $outfit.top() != undefined&gt;&gt;You&#39;re wearing a nice &lt;&lt;print $outfit.top().name&gt;&gt; with under it &lt;&lt;if $outfit.bra() != undefined&gt;&gt;a &lt;&lt;print $outfit.bra().name&gt;&gt; &lt;&lt;else&gt;&gt; nothing&lt;&lt;/if&gt;&gt;.&lt;&lt;else&gt;&gt;You&#39;re not wearing a top, &lt;&lt;if $outfit.bra() != undefined&gt;&gt; your &lt;&lt;print $outfit.bra().name&gt;&gt; on full display. It might work in a gym, but it wouldn&#39;t be appropriate in many other places.&lt;&lt;else&gt;&gt;and no bra. Yeah, this wouldn&#39;t work for going outside.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
