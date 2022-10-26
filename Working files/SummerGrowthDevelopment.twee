@@ -2524,7 +2524,7 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 <<elseif $lips <= 4>>sensual
 <<elseif $lips <= 5>>thick
 <<elseif $lips <= 6>>incredibly full
-<<elseif $lips <= 7>>guge
+<<else>>huge
 <</if>>
 
 
