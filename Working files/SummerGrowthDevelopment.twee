@@ -3959,6 +3959,8 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 :: ClothingStoreWidget [widget nobr] {"position":"2500,1525","size":"100,100"}
 <<widget "ClothingStoreWidget">>
 
+<<set _filteredStoreClothes to setup.allClothes>>
+
 <span id="outfitTable">
 <table id="store">
     <tr>
@@ -3970,23 +3972,36 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         </td>
         <td>
             Show only with style:<br>
+            <<set _stylesCopy to [...setup.allStyles]>>
+            <<set _stylesCopy.unshift('All styles')>>
             <<listbox "$shoppingStyle" autoselect>>
-                <<optionsfrom setup.allStyles>>
+                <<optionsfrom _stylesCopy>>
             <</listbox>>
         </td>
         <td>
-            <<checkbox "$pieBlueberry" false true autocheck>> Show only affordable
+            <<checkbox "$shoppingAffordable" false true autocheck>> Show only affordable
         </td>
     </tr>
         <tr>
         <td>
             Show only with bonus:<br>
-            <<listbox "$shoppingStyle" autoselect>>
-                <<optionsfrom ['placeholder bonus', 'placeholder bonus','placeholder bonus','placeholder bonus']>>
+            <<set _bonusCopy to function () {
+                var arr = ['-'];
+
+                for (var prop in setup.clothingBonuses) {
+                    if (setup.clothingBonuses.hasOwnProperty(prop)) {
+                        var innerObj = {};
+                        innerObj[prop] = setup.clothingBonuses[prop];
+                        arr.push(Object.values(innerObj)[0].name);
+                    }
+                }   
+                return arr;
+            }>>
+            <<listbox "$shoppingBonuses" autoselect>>
+                <<optionsfrom _bonusCopy()>>
             <</listbox>>
         </td>
         <td>
-            Show only with style:<br>
             
         </td>
         <td>
@@ -3996,24 +4011,76 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
   </table>
 </span>
 
+<<timed 0s>>
+<<script>>
+var inputs = $("#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable");
+
+var setTable = function () {	
+		var slotFilter = ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes'][$('#listbox-shoppingslot').children(":selected").val()];
+        var stylesFilter = setup.allStyles[parseInt($('#listbox-shoppingstyle').children(":selected").val()) - 1];
+        var bonusesFilter = parseInt($('#listbox-shoppingbonuses').children(":selected").val()) -1;
+        var affordableFilter = $('#checkbox-shoppingaffordable')[0].checked;
+        console.log(slotFilter);
+        console.log(stylesFilter);
+        console.log(bonusesFilter);
+        console.log(affordableFilter);
+
+        var filteredClothes = [];
+
+        for (let i = 0; i < setup.allClothes.length; i++) {
+            if(slotFilter != '-'){
+                if(setup.allClothes[i].slot != slotFilter){
+                    continue;
+                }
+            }
+            if(stylesFilter != undefined){
+                if(!setup.allClothes[i].archetypes.includes(stylesFilter)){
+                    continue;
+                }
+            }
+            if(bonusesFilter != -1){
+                if(!setup.allClothes[i].bonuses.includes(Object.values(setup.clothingBonuses)[bonusesFilter])){
+                    continue;
+                }
+            }
+            filteredClothes.size = 2;
+            filteredClothes.push(setup.allClothes[i]);
+        }
+
+
+        State.temporary.filteredStoreClothes = filteredClothes;
+        console.log(State.temporary.filteredStoreClothes);
+        $(".macro-live").trigger(":liveupdateinternal");
+		$(document).trigger(":liveupdate");
+    };
+
+inputs.on("change", setTable);
+
+setTable();
+
+<</script>>
+<</timed>>
+
 <<liveblock>>
 <span id="outfitTable">
 <table id="store">
   <tr>
-    <th>Clothing piece & price</th>
+    <th>Clothing piece</th>
+    <th>Price</th>
 	<th>Size</th>
     <th>Bonusses</th>
     <th>Fit</th>
     <th>Style</th>
   </tr>    
-    <<for _i to 0; _i < setup.allClothes.length; _i ++>>
+    <<for _i to 0; _i < _filteredStoreClothes.length; _i ++>>
         <<capture _i>>
             <tr>
-                <td><<print setup.allClothes[_i].name>> - $50</td>
-                <td>-</td>
-                <td><<print setup.getReadableBonusFromClothing(setup.allClothes[_i])>></td>
-                <td>-</td>
-                <td><<print  setup.getReadableArchetypesFromClothing(setup.allClothes[_i])>></td>
+                <td><<print _filteredStoreClothes[_i].name>></td>
+                <td><<print setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<print setup.sizeStrings[_filteredStoreClothes[_i].size]>></td>
+                <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<print setup.getReadableFitFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
             </tr>   
         <</capture>>
     <</for>>
@@ -10441,524 +10508,6 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
     'tomboyish'
 ]>>
 
-/* Central list of all clothing in the game. From this objects will be
-added to the stores. Divided by catagory. undefined values are intended,
-and will be filled in when they enter the stores. */
-<<set setup.allClothes to [
-/* Tops */
-    {
-        id: undefined,
-        name: 'plain t-shirt',
-        tolerance: 1.3,
-        archetypes: ['casual', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'geeky t-shirt',
-        tolerance: 1.3,
-        archetypes: ['casual', 'tomboyish', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'button down shirt',
-        tolerance: 1.3,
-        archetypes: ['casual', 'stylish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'Dress shirt',
-        tolerance: 1.3,
-        archetypes: ['nerdy', 'stylish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'torn shirt',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'black halter top',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth', 'tomboyish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'crop top',
-        tolerance: 1.3,
-        archetypes: ['punk', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'tank top',
-        tolerance: 1.3,
-        archetypes: ['gymrat', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'halter top',
-        tolerance: 1.3,
-        archetypes: ['gymrat', 'stylish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-    {
-        id: undefined,
-        name: 'fish-net top',
-        tolerance: 1.3,
-        archetypes: ['goth', 'punk'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    },
-/* Overwear */
-    {
-        id: undefined,
-        name: 'hoodie',
-        tolerance: 1.3,
-        archetypes: ['casual', 'tomboyish', 'punk', 'gymrat'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'black trenchcoat',
-        tolerance: 1.3,
-        archetypes: ['tomboyish', 'punk'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'tailored jacket',
-        tolerance: 1.3,
-        archetypes: ['professional', 'stylish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'leather jacket',
-        tolerance: 1.3,
-        archetypes: ['punk'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'vest',
-        tolerance: 1.3,
-        archetypes: ['stylish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'sweater',
-        tolerance: 1.3,
-        archetypes: ['casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'cat ear hoodie',
-        tolerance: 1.3,
-        archetypes: ['nerdy', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'track top',
-        tolerance: 1.3,
-        archetypes: ['gymrat', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'track top',
-        tolerance: 1.3,
-        archetypes: ['gymrat', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'gothic vest',
-        tolerance: 1.3,
-        archetypes: ['goth'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'spiked jacket',
-        tolerance: 1.3,
-        archetypes: ['goth'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'overwear'
-    },
-/* Bras */
-    {
-        id: undefined,
-        name: 'sports bra',
-        tolerance: 1.3,
-        archetypes: ['gymrat'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bra'
-    },
-    {
-        id: undefined,
-        name: 'push-up bra',
-        tolerance: 1.3,
-        archetypes: ['casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bra'
-    },
-    {
-        id: undefined,
-        name: 'lace bra',
-        tolerance: 1.3,
-        archetypes: ['stylish', 'goth', 'punk'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bra'
-    },
-    {
-        id: undefined,
-        name: 'maternity bra',
-        tolerance: 1.3,
-        archetypes: ['casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bra'
-    },
-/* bottoms */
-	{
-        id: undefined,
-        name: 'checkered skirt',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'dress pants',
-        tolerance: 1.3,
-        archetypes: ['stylish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'torn jeans',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth', 'casual', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'black skirt',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth', 'stylish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'jeans',
-        tolerance: 1.3,
-        archetypes: ['casual', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'jogging pants',
-        tolerance: 1.3,
-        archetypes: ['casual', 'gymrat'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'yoga pants',
-        tolerance: 1.3,
-        archetypes: ['gymrat'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'shorts',
-        tolerance: 1.3,
-        archetypes: ['gymrat', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-    {
-        id: undefined,
-        name: 'baggy pants',
-        tolerance: 1.3,
-        archetypes: ['casual', 'nerdy', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'bottom'
-    },
-/* underWear */
-    {
-        id: undefined,
-        name: 'boyshorts',
-        tolerance: 1.3,
-        archetypes: ['tomboyish', 'casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'underwear'
-    },
-    {
-        id: undefined,
-        name: 'briefs',
-        tolerance: 1.3,
-        archetypes: ['casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'underwear'
-    },
-    {
-        id: undefined,
-        name: 'hipster shorts',
-        tolerance: 1.3,
-        archetypes: ['stylish', 'casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'underwear'
-    },
-/* Shoes */
-    {
-        id: undefined,
-        name: 'sneakers',
-        tolerance: 1.3,
-        archetypes: ['casual', 'gymrat', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'runners',
-        tolerance: 1.3,
-        archetypes: ['casual', 'gymrat', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'combat boots',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'platform boots',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth', 'tomboyish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'lace up boots',
-        tolerance: 1.3,
-        archetypes: ['punk', 'goth'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'heels',
-        tolerance: 1.3,
-        archetypes: ['stylish', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'flip flops',
-        tolerance: 1.3,
-        archetypes: ['nerdy', 'casual'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'ankle boots',
-        tolerance: 1.3,
-        archetypes: ['stylish', 'professional', 'goth', 'punk'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    },
-    {
-        id: undefined,
-        name: 'stilleto heels',
-        tolerance: 1.3,
-        archetypes: ['stylish'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'shoes'
-    }
-]>>
-
 /* Predefined clothing bonuses */
 <<set setup.clothingBonuses to {
 	stretchy: {
@@ -11216,6 +10765,570 @@ and will be filled in when they enter the stores. */
     'XL',
 ]>>
 
+/* Central list of all clothing in the game. From this objects will be
+added to the stores. Divided by catagory. undefined values are intended,
+and will be filled in when they enter the stores. */
+<<set setup.allClothes to [
+/* Tops */
+    {
+        id: undefined,
+        name: 'plain t-shirt',
+        tolerance: 1.3,
+        archetypes: ['casual', 'tomboyish'],
+        bonuses: [
+                setup.clothingBonuses.stretchy
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'geeky t-shirt',
+        tolerance: 1.3,
+        archetypes: ['casual', 'tomboyish', 'nerdy'],
+        bonuses: [
+                setup.clothingBonuses.stretchy
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'button down shirt',
+        tolerance: 1.3,
+        archetypes: ['casual', 'stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'Dress shirt',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'torn shirt',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'black halter top',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'crop top',
+        tolerance: 1.3,
+        archetypes: ['punk', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'tank top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'tomboyish'],
+        bonuses: [
+                setup.clothingBonuses.stretchy
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'halter top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'stylish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+    {
+        id: undefined,
+        name: 'fish-net top',
+        tolerance: 1.3,
+        archetypes: ['goth', 'punk'],
+        bonuses: [
+                setup.clothingBonuses.stretchy
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'top'
+    },
+/* Overwear */
+    {
+        id: undefined,
+        name: 'hoodie',
+        tolerance: 1.3,
+        archetypes: ['casual', 'tomboyish', 'punk', 'gymrat'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'black trenchcoat',
+        tolerance: 1.3,
+        archetypes: ['tomboyish', 'punk'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'tailored jacket',
+        tolerance: 1.3,
+        archetypes: ['professional', 'stylish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'leather jacket',
+        tolerance: 1.3,
+        archetypes: ['punk'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'vest',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'sweater',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'cat ear hoodie',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'track top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'track top',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'gothic vest',
+        tolerance: 1.3,
+        archetypes: ['goth'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+    {
+        id: undefined,
+        name: 'spiked jacket',
+        tolerance: 1.3,
+        archetypes: ['goth'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'overwear'
+    },
+/* Bras */
+    {
+        id: undefined,
+        name: 'sports bra',
+        tolerance: 1.3,
+        archetypes: ['gymrat'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bra'
+    },
+    {
+        id: undefined,
+        name: 'push-up bra',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bra'
+    },
+    {
+        id: undefined,
+        name: 'lace bra',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'goth', 'punk'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bra'
+    },
+    {
+        id: undefined,
+        name: 'maternity bra',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bra'
+    },
+/* bottoms */
+	{
+        id: undefined,
+        name: 'checkered skirt',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'dress pants',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'torn jeans',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'casual', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'black skirt',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'jeans',
+        tolerance: 1.3,
+        archetypes: ['casual', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'jogging pants',
+        tolerance: 1.3,
+        archetypes: ['casual', 'gymrat'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'yoga pants',
+        tolerance: 1.3,
+        archetypes: ['gymrat'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'shorts',
+        tolerance: 1.3,
+        archetypes: ['gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+    {
+        id: undefined,
+        name: 'baggy pants',
+        tolerance: 1.3,
+        archetypes: ['casual', 'nerdy', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'bottom'
+    },
+/* underWear */
+    {
+        id: undefined,
+        name: 'boyshorts',
+        tolerance: 1.3,
+        archetypes: ['tomboyish', 'casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'underwear'
+    },
+    {
+        id: undefined,
+        name: 'briefs',
+        tolerance: 1.3,
+        archetypes: ['casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'underwear'
+    },
+    {
+        id: undefined,
+        name: 'hipster shorts',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'underwear'
+    },
+/* Shoes */
+    {
+        id: undefined,
+        name: 'sneakers',
+        tolerance: 1.3,
+        archetypes: ['casual', 'gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'runners',
+        tolerance: 1.3,
+        archetypes: ['casual', 'gymrat', 'nerdy'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'combat boots',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'platform boots',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth', 'tomboyish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'lace up boots',
+        tolerance: 1.3,
+        archetypes: ['punk', 'goth'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'heels',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'flip flops',
+        tolerance: 1.3,
+        archetypes: ['nerdy', 'casual'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'ankle boots',
+        tolerance: 1.3,
+        archetypes: ['stylish', 'professional', 'goth', 'punk'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    },
+    {
+        id: undefined,
+        name: 'stilleto heels',
+        tolerance: 1.3,
+        archetypes: ['stylish'],
+        bonuses: [
+                
+            ],
+        size: 0,
+        baseCost: 50,
+        slot: 'shoes'
+    }
+]>>
+
 /* Only the biggest size determines which clothing fits. This method determines that. */
 <<set setup.biggestPlayerSize to function (slot) {
 	var statsToCheck = [];
@@ -11300,6 +11413,15 @@ and will be filled in when they enter the stores. */
     };
 }>>
 
+/* The single method that describes the price of clothing */
+ <<set setup.getPriceFromClothing = function (clothingItem, size) {
+	if(clothingItem == undefined){
+        throw "undefined clothingitem in getPriceFromClothing";
+    	return 0;
+    }
+    return parseInt(clothingItem.baseCost) * parseInt(clothingItem.size);
+}>>
+
 /* Gets the human readable archetypes from the clothing. */
 <<set setup.getReadableArchetypesFromClothing to function (clothingItem) {
 	if(clothingItem == undefined){
@@ -11341,6 +11463,7 @@ and will be filled in when they enter the stores. */
     	return '-';
     }
     
+    console.log(clothingItem);
 	var clothingFit = setup.sizeDatabase[clothingItem.size];
     
     var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
