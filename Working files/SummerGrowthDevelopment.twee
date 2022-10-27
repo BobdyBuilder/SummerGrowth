@@ -17539,7 +17539,7 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                     return 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/cutour.png';
                 }
             }
-            
+
             /**
              *
              * @return {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
@@ -17833,21 +17833,21 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                     ]
                 }
                 ];
-            
+
                 let muscleI = body.map(value => value.name)
                     .findIndex(name => name === State.variables.bodyType);
                 if (muscleI === -1) {
                     throw new Error(`'${State.variables.bodyType}' body was not found`);
                 }
-            
+
                 return body[muscleI];
             }
-            
+
             /**
-             *
-             * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
-             * @return {{left: string, right: string}|string}
-             */
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {{left: string, right: string}|string}
+            */
             function getCurrentBreastsUrl(currentBody) {
                 let breastsUrls;
                 if ('breastsOverrides' in currentBody) {
@@ -17878,32 +17878,32 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                     }
                     ];
                 }
-            
+
                 let breastsI = Math.floor(breastsUrls.length * (State.variables.breasts / 100));
                 if (breastsI < 0) {
                     breastsI = 0;
                 } else if (breastsI > breastsUrls.length - 1) {
                     breastsI = breastsUrls.length - 1;
                 }
-            
+
                 return breastsUrls[breastsI];
             }
-            
+
             /**
-             *
-             * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
-             * @return {string[]}
-             */
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string[]}
+            */
             function _getBallsUrls(currentBody) {
                 if (!State.variables.dickActive) {
                     return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'];
                 }
-            
+
                 if ('ballsOverrides' in currentBody) {
                     console.log('Used balls override');
                     return currentBody.ballsOverrides;
                 }
-            
+
                 return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_1.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_2.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_3.png',
@@ -17911,14 +17911,14 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_5.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_6.png'];
             }
-            
+
             /**
-             * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
-             * @return {string}
-             */
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string}
+            */
             function getCurrentBallUrl(currentBody) {
                 let ballsUrls = _getBallsUrls(currentBody);
-            
+
                 let ballsI = Math.floor(ballsUrls.length * ((State.variables.dick + State.variables.balls) / 100));
 
                 if (ballsI < 0) {
@@ -17926,25 +17926,25 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                 } else if (ballsI > ballsUrls.length - 1) {
                     ballsI = ballsUrls.length - 1;
                 }
-            
+
                 return ballsUrls[ballsI];
             }
-            
+
             /**
-             *
-             * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
-             * @return {string[]}
-             */
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string[]}
+            */
             function _getPenisUrls(currentBody) {
                 if (!State.variables.dickActive) {
                     return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'];
                 }
-            
+
                 if ('dickOverrides' in currentBody) {
                     console.log('Used dick override');
                     return currentBody.dickOverrides;
                 }
-            
+
                 return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_1.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_2.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_3.png',
@@ -17952,15 +17952,15 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_5.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_6.png'];
             }
-            
+
             /**
-             *
-             * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
-             * @return {string}
-             */
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string}
+            */
             function getCurrentPenisUrl(currentBody) {
                 let penisUrls = _getPenisUrls(currentBody);
-            
+
                 let penisI = Math.floor(penisUrls.length * (State.variables.dick / 100));
 
                 if (penisI < 0) {
@@ -17970,12 +17970,12 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                 }
                 return penisUrls[penisI];
             }
-            
+
             /**
-             *
-             * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
-             * @return {string}
-             */
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string}
+            */
             function getCurrentLipsUrl(currentBody) {
                 const lipsUrls = ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_1.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_2.png',
@@ -17983,7 +17983,7 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_4.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_5.png'
                 ];
-            
+
                 let lipsI = Math.floor(lipsUrls.length * (State.variables.lips / 7));
 
                 if (lipsI < 0) {
@@ -17991,16 +17991,16 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                 } else if (lipsI > lipsUrls.length - 1) {
                     lipsI = lipsUrls.length - 1;
                 }
-            
+
                 return lipsUrls[lipsI];
             }
-            
+
             /**
-             *
-             * @return {string}
-             */
+            *
+            * @return {string}
+            */
             function getCurrentBackgroundUrl() {
-                let  backgroundUrls = ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_1.png',
+                let backgroundUrls = ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_1.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_2.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_3.png',
                     'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_4.png',
@@ -18015,7 +18015,7 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                         'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_5_k.png'
                     ];
                 }
-            
+
                 let backGroundI = Math.floor(backgroundUrls.length * ((State.variables.height - 150) / 100));
 
                 if (backGroundI < 0) {
@@ -18023,132 +18023,101 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
                 } else if (backGroundI > backgroundUrls.length - 1) {
                     backGroundI = backgroundUrls.length - 1;
                 }
-            
+
                 return backgroundUrls[backGroundI];
             }
-            
+
             /**
-             * @param breastsUrl {string|Object}
-             * @return {boolean}
-             */
+            * @param breastsUrl {string|Object}
+            * @return {boolean}
+            */
             function isBreastsUrlOverridden(breastsUrl) {
                 if (breastsUrl == null) {
                     throw new Error('breastsUrl required');
                 }
                 return typeof breastsUrl === 'string';
             }
-            
-            function loadImages() {
-                const images = [];
-            
+
+            async function loadImages() {
+                /**
+                *
+                * @param {String} src
+                * @param {Number} offsetX
+                * @param {Number} offsetY
+                * @return {{offsetX, offsetY, src, width, height}}
+                */
+                function generateBodyPart(src, offsetX, offsetY) {
+                    return {
+                        img: new Image(),
+                        src: src,
+                        offsetX: offsetX,
+                        offsetY: offsetY
+                    };
+                }
+
+                const myCanvas = document.getElementById('canvas');
+                const myContext = myCanvas.getContext('2d');
+
+                const bodyParts = [];
+
                 /* set images to load */
-                const background = new Image();
-                background.src = getCurrentBackgroundUrl();
-                images.push(background.decode());
-            
-                const hair = new Image();
-                hair.src = 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/hair.png';
-                images.push(hair.decode());
-            
+                bodyParts.push(generateBodyPart(getCurrentBackgroundUrl(), 0, 0));
+                bodyParts.push(generateBodyPart('https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/hair.png', 0, 0));
+
                 const currentBody = getCurrentBody();
-                const bodyImage = new Image();
-                bodyImage.src = currentBody.URL;
-                images.push(bodyImage.decode());
-            
-                const penis = new Image();
-                penis.src = getCurrentPenisUrl(currentBody);
-                images.push(penis.decode());
-            
-                const balls = new Image();
-                balls.src = getCurrentBallUrl(currentBody);
-                images.push(balls.decode());
-            
-                const leg = new Image();
-                leg.src = currentBody.legURL;
-                images.push(leg.decode());
-            
-                let breastImage;
-                let rightBreast;
-                let leftBreast;
+                bodyParts.push(generateBodyPart(currentBody.URL, 0, 0));
+                bodyParts.push(generateBodyPart(getCurrentPenisUrl(currentBody), currentBody.genitalOffsetX, currentBody.genitalOffsetY));
+                bodyParts.push(generateBodyPart(getCurrentBallUrl(currentBody), currentBody.genitalOffsetX, currentBody.genitalOffsetY));
+                bodyParts.push(generateBodyPart(currentBody.legURL, 0, 0));
+
                 let breastsUrl = getCurrentBreastsUrl(currentBody);
                 if (isBreastsUrlOverridden(breastsUrl)) {
-                    breastImage = new Image();
-                    if (['overflowing', 'full'].includes(State.variables.breastsFullness)) {
-                        breastImage.src = breastsUrl.replace(/(\.[\w\d_-]+)$/i, '_lac$1');
-                    }
-                    else {
-                        breastImage.src = breastsUrl;
-                    }
-                    
-                    images.push(breastImage.decode());
+                    let breastsSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl;
+                    bodyParts.push(generateBodyPart(breastsSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
                 } else {
-                    rightBreast = new Image();
-                    if (['overflowing', 'full'].includes(State.variables.breastsFullness)) {
-                        rightBreast.src = breastsUrl.right.replace(/(\.[\w\d_-]+)$/i, '_lac$1');
-                    }
-                    else {
-                        rightBreast.src = breastsUrl.right;
-                    }
-                    
-                    images.push(rightBreast.decode());
-            
-                    leftBreast = new Image();
-                    if (['overflowing', 'full'].includes(State.variables.breastsFullness)) {
-                        leftBreast.src = breastsUrl.left.replace(/(\.[\w\d_-]+)$/i, '_lac$1');
-                    }
-                    else {
-                        leftBreast.src = breastsUrl.left;
-                    }
-                    
-                    images.push(leftBreast.decode());
-                }
-            
-                const head = new Image();
-                head.src = 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/head.png';
-                images.push(head.decode());
-            
-                const lips = new Image();
-                lips.src = getCurrentLipsUrl(currentBody);
-                images.push(lips.decode());
-            
-                const cutout = new Image();
-                cutout.src = getCurrentCutoutUrl();
-                images.push(cutout.decode());
-            
-                /* load images asynchronously */
-                Promise.all(images).then(
-                    () => {
-                        const myCanvas = document.getElementById('canvas');
-                        const myContext = myCanvas.getContext('2d');
-            
-                        /* draw images after all images are loaded */
-                        myContext.drawImage(background, 0, 0, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(hair, 0, 0, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(bodyImage, 0, 0, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(penis, currentBody.genitalOffsetX, currentBody.genitalOffsetY, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(balls, currentBody.genitalOffsetX, currentBody.genitalOffsetY, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(leg, 0, 0, myCanvas.width, myCanvas.height);
-                        if (isBreastsUrlOverridden(breastsUrl)) {
-                            myContext.drawImage(breastImage, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY, myCanvas.width, myCanvas.height);
-                        } else {
-                            myContext.drawImage(rightBreast, currentBody.rightBreastOffsetX, currentBody.rightBreastOffsetY, myCanvas.width, myCanvas.height);
-                            myContext.drawImage(leftBreast, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY, myCanvas.width, myCanvas.height);
-                        }
-                        myContext.drawImage(head, 50, 0, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(lips, 0, 0, myCanvas.width, myCanvas.height);
-                        myContext.drawImage(cutout, 0, 0, myCanvas.width, myCanvas.height);
-            
-                        /* mirror fadein */
-                        $('.loader').fadeOut(2000);
-                        setTimeout(() => {
-                            $('#canvas').fadeIn();
-                        }, 2000);
-                    }
-                );
-            }
-            
-            loadImages();
+                    /* left breast */
+                    let leftBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.left.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.left;
+                    bodyParts.push(generateBodyPart(leftBreastSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
 
+                    /* right breast */
+                    let rightBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.right.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.right;
+                    bodyParts.push(generateBodyPart(rightBreastSrc, currentBody.rightBreastOffsetX, currentBody.rightBreastOffsetY));
+                }
+
+                bodyParts.push(generateBodyPart('https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/head.png', 50, 0));
+                bodyParts.push(generateBodyPart(getCurrentLipsUrl(currentBody), 0, 0));
+                bodyParts.push(generateBodyPart(getCurrentCutoutUrl(), 0, 0));
+
+                /* load images asynchronously */
+                const imageLoadBatchSize = Number.MAX_VALUE;
+                for (let i = 0; i < bodyParts.length; i += imageLoadBatchSize) {
+                    let chunk = bodyParts.slice(i, i + imageLoadBatchSize)
+                        .map(bodyPart => {
+                            return new Promise((resolve) => {
+                                bodyPart.img.addEventListener('load', () => resolve(bodyPart.img));
+                                bodyPart.img.src = bodyPart.src;
+                            });
+                        });
+                    await Promise.all(chunk);
+                }
+
+                /* draw images after all images are loaded */
+                for (const bodyPart of bodyParts) {
+                    myContext.drawImage(bodyPart.img, bodyPart.offsetX, bodyPart.offsetY, myCanvas.width, myCanvas.height);
+                }
+
+                /* mirror fadein */
+                $('.loader').fadeOut(2000);
+                setTimeout(() => {
+                    $('#canvas').fadeIn();
+                }, 2000);
+
+            }
+
+            loadImages();
         <</script>>
             <</timed>>
             <</widget>>
