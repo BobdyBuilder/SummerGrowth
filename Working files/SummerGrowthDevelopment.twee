@@ -1442,7 +1442,7 @@ window.isNumeric = function (obj) {
 <<set $tags to tags()>>
 
 <<if $outfitWarning>>
-<<set _outfitWarning to "The following you wear is too tight:">>
+<<set _outfitWarning to "These clothes are too tight:">>
 
 <<if $topWear != "">>
 <<if $topWear.fit.includesAny("muscleNotFit","heightNotFit","breastsNotFit","dickNotFit","assNotFit","hipsNotFit", "hipsTight", "hipsTooSMall","assTooSmall","assTight","dickTight","dickTooSmall","breastsTight","breastsTooSmall","heightTight","heightTooSmall","muscleTight","muscleTooSmall")>>
@@ -1672,7 +1672,7 @@ Money: $<<live Math.round($money)>>
 	time: 30,
 	happinessGain: 0, 
 	minimumExhaustion: 0,
-	description: "It's not so much a diet as its just eating what you want. It won't make you fat, it won't make you lean, and it's not that fun or fast. Just middle of the road."},
+	description: "It's not so much a diet as just eating whatever you want. It won't make you fat, it won't make you lean, and it's not that fun or fast. Just a middle of the road option."},
 	{ name: "Save time", 
 	level: 1, 
 	muscleGain: setup.balance.muscleAllowancePerDay * -0.5, 
@@ -1681,7 +1681,7 @@ Money: $<<live Math.round($money)>>
 	time: 5,
 	happinessGain: -20, 
 	minimumExhaustion: 20,
-	description: "Skip breakfast, instant meals, maybe a frozen pizza. You don't have the time today and while it's murder on your mood it'll atleast help you save time."},
+	description: "Skip breakfast. Rely on instant meals, maybe have a frozen pizza. You don't have the time today and while it is murder on your mood, it will at least help you save time."},
 	{ name: "Cheat day!",
 	level: 1,
 	muscleGain: setup.balance.muscleAllowancePerDay * 0.1,
@@ -1690,7 +1690,7 @@ Money: $<<live Math.round($money)>>
 	time: 45,
 	happinessGain: 20,
 	minimumExhaustion: -5,
-	description: "Spoil yourself a bit, you earned it! Sure, it isn't the healthiest or quickest but it's good for your mood."},
+	description: "Spoil yourself a bit, you earned it! Sure, it isn't the healthiest or quickest, but it helps your mood quite a bit."},
 	{ name: "Balance day", 
 	level: 1,
 	muscleGain: setup.balance.muscleAllowancePerDay * -0.5, 
@@ -1699,7 +1699,7 @@ Money: $<<live Math.round($money)>>
 	happinessGain: -10,
 	minimumExhaustion: 10,
 	time: 60,
-	description: "Right, you've been eating a bit too much lately. Time to cut back and eat healthy for a day or two. It isn't the most fun, but it'll make sure you loose some weight."}
+	description: "Right, you've been eating a bit too much lately. Time to cut back and eat healthy for a day or two. It isn't as delicious or filling, but it'll make sure you lose some weight."}
 ]>>
 <<set $currentDiet to $diets[0]>>
 
@@ -1736,7 +1736,7 @@ Money: $<<live Math.round($money)>>
 	"pink",
 	"yellow",
 	"orange",
-	"burdundy",
+	"burgundy",
 	"brown",
 	"purple"
 ]>>
@@ -1806,14 +1806,14 @@ Money: $<<live Math.round($money)>>
 <<elseif $_breastsRandomized <= 56>>head sized
 <<elseif $_breastsRandomized <= 58>>gigantic
 <<elseif $_breastsRandomized <= 60>>smothering
-<<elseif $_breastsRandomized <= 62>>belly-button obscuring
-<<elseif $_breastsRandomized <= 64>>extremly hefty
+<<elseif $_breastsRandomized <= 62>>bellybutton obscuring
+<<elseif $_breastsRandomized <= 64>>extremely hefty
 <<elseif $_breastsRandomized <= 66>>backbreaking
 <<elseif $_breastsRandomized <= 68>>porn star worthy
 <<elseif $_breastsRandomized <= 70>>utterly gigantic
-<<elseif $_breastsRandomized <= 72>>obscenly large
+<<elseif $_breastsRandomized <= 72>>obscenely large
 <<elseif $_breastsRandomized <= 74>>unmistakingly gigantic
-<<elseif $_breastsRandomized <= 76>>immensly heavy
+<<elseif $_breastsRandomized <= 76>>immensely heavy
 <<elseif $_breastsRandomized <= 78>>unprecedented
 <<elseif $_breastsRandomized <= 80>>thigh obscuring
 <<elseif $_breastsRandomized <= 82>>thigh-slapping
@@ -1821,7 +1821,7 @@ Money: $<<live Math.round($money)>>
 <<elseif $_breastsRandomized <= 86>>gargantuan
 <<elseif $_breastsRandomized <= 88>>almost unliftable
 <<elseif $_breastsRandomized <= 90>>Beanbag sized
-<<elseif $_breastsRandomized <= 92>>unrealisticly huge
+<<elseif $_breastsRandomized <= 92>>unrealistically huge
 <<elseif $_breastsRandomized <= 94>>floor dusting
 <<elseif $_breastsRandomized <= 96>>body obscuring
 <<elseif $_breastsRandomized <= 98>>person sized
@@ -1855,23 +1855,23 @@ Money: $<<live Math.round($money)>>
 
 <<elseif $_breastsRandomized <= 60>>Your <<BreastSizeDescription>><<breastCupDescriptors>> breasts catch a lot of attention. You have a lot of difficulty finding bras that fit in normal stores, and you're resigned to custom-made ones. They're also incredibly heavy and sway hypnotically from the smallest amount of movement. <<BreastsWeightDescription>>
 
-<<elseif $_breastsRandomized <= 80>>You have a pair of <<BreastSizeDescription>> breasts. Though you can barely find bras anymore you think your bust would be an unheard of <<breastCupDescriptors>>. Finding clothes that fit is nearly impossible and the weight and momentum behind  these massive mamaries is unimaginable. <<BreastsWeightDescription>>
+<<elseif $_breastsRandomized <= 80>>You have a pair of <<BreastSizeDescription>> breasts. Though you can barely find bras anymore you think your bust would be an unheard of <<breastCupDescriptors>>. Finding clothes that fit is nearly impossible and the weight and momentum behind these massive mammaries is unimaginable. <<BreastsWeightDescription>>
 
-<<elseif $_breastsRandomized <= 100>>Your appearance  is dominated by your <<BreastSizeDescription>> breasts. They have gotten so large that you're pretty sure no bras exist at this size. You're now resigned to wearing custom-made clothes as no shop carries anything that can manage boobs of this size. Even the smallest movement sends them jiggling, despite the gigantic weight of them. <<BreastsWeightDescription>>
+<<elseif $_breastsRandomized <= 100>>Your appearance is dominated by your <<BreastSizeDescription>> breasts. They have gotten so large that you're pretty sure no bras exist at this size. You're now resigned to wearing custom-made clothes as no shop carries anything that can manage boobs of this size. Even the smallest movement sends them jiggling, despite their gigantic weight. <<BreastsWeightDescription>>
 
-<<else>>Your appearance  is dominated by your <<BreastSizeDescription>> breasts. They have gotten so large that you're pretty sure no bras exist at this size. You're now resigned to wearing custom-made clothes as no shop carries anything that can manage boobs of this size. Even the smallest movement sends them jiggling, despite the gigantic weight of them. <<BreastsWeightDescription>>
+<<else>>Your appearance is dominated by your <<BreastSizeDescription>> breasts. They have gotten so large that you're pretty sure no bras exist at this size. You're now resigned to wearing custom-made clothes as no shop carries anything that can manage boobs of this magnitude. Even the smallest movement sends them jiggling, despite their gigantic weight. <<BreastsWeightDescription>>
 <</if>>
 
 <<if $breastsFullness is "overflowing">>
-	Putting their size to the side, your breasts are painfully full. Not just uncomfortably full but actively hurting with how much they need release. They look way bigger and a few blue veins even are visible under the skin, with your nipples puffed up. You're quite certain that at this point you're close to bursting.
+	Size aside, your breasts are painfully full. Not just uncomfortably full but actively hurting with how much they need release. They look way bigger, a few blue veins are even visible under the skin, with your nipples puffed up. You're quite certain that at this point you are close to bursting.
 <<elseif $breastsFullness is "full">>
-	Putting the size aside, they feel REALLY full. It isn't painful yet, but it'll quickly become just that if you don't empty them. Emptying your tits... that still is a weird thought. How full they are is clearly visible too, as they look much more pronounced than normal.
+	Size aside, they feel REALLY full. It isn't quite painful yet, but it'll quickly become just that if you don't empty them. Emptying your tits... that still is a weird thought. How full they are is clearly visible too, as they look much more pronounced than normal.
 <<elseif $breastsFullness is "filling">>
-	Putting the size aside, the effect of your lactation are getting visible again. Your breasts are noticeably bigger, and more sensitive too. You wonder how long it'll take for them to fully swell up and require a milking, though that'll probably take some time.  
+	Size aside, the effect of your lactation is getting visible again. Your breasts are noticeably bigger, and more sensitive too. You wonder how long it'll take for them to completely fill up and require milking, though that'll probably take some time.  
 <<elseif $breastsFullness is "drained">>
-	Putting their size to the side for a moment, they're now comfortably drained. It doesn't happen that often since you started lactating, but for now your breasts are pretty much drained.
+	Size aside, they're now comfortably drained. It doesn't happen that often since you started lactating, but for now your breasts are pretty much drained.
 <<elseif $breastsFullness is "empty">>
-	Putting their size to the side for a moment, they're now completely drained. It doesn't happen that often since you started lactating, but for now your breasts are totally empty.
+	Size aside, they're now completely drained. It doesn't happen that often since you started lactating, but for now your breasts are totally empty.
 <<else>>
 <</if>>
 
@@ -1880,14 +1880,14 @@ Money: $<<live Math.round($money)>>
 
 
 :: Home [nobr home] {"position":"1125,900","size":"100,100"}
-Though comfortable, this apartment has seen better days. It's clear that the previous owners hadn't put in the effort to maintain it and despite the fact that you have tried to do so the cracks show here and there. But despite all of this, it's still your home. 
+Though comfortable, this apartment has seen better days. It's clear that the previous owners hadn't put in the effort to maintain it and, despite the fact that you have tried to do so, the cracks show here and there. Despite that, it's still home. 
 
 <<if $furniture.includes("excellent weight set")>>
-In the corner of the room is a massive pile of weights; its a good thing you're in the basement because you're not quite sure the floor could even handle the weights normally!
+In the corner of the room is a massive pile of weights; it's a good thing you're in the basement because you're not quite sure the floor could even handle such weights!
 <<elseif $furniture.includes("decent weight set")>>
-In the corner of the room are your weights, more than enough to keep you active at home. It might not rival a gym but it sure helps you get in shape!
+You keep your weight in the corner of the room, more than enough to keep you active at home. It might not rival a gym, but it sure helps you get in shape!
 <<elseif $furniture.includes("starter weightset")>>
-In the corner of the room are your dumbells and workout matt. It's not much but it sure is enough to get some workouts in.
+In the corner of the room, you see your dumbbells and workout mat. It's not much, but it sure is enough to get some workouts in.
 <</if>>
 
 <<set _room to passage()>>
@@ -1910,7 +1910,7 @@ In the corner of the room are your dumbells and workout matt. It's not much but 
 <<link "Go to the bedroom" "Bedroom">><<addMinutes 1>><</link>>
 <br>
 <<if $outfitNudeWarning && $debug != "true">>
-You can't travel outside while not wearing proper clothes!<br>
+You can't travel outside until you are properly dressed!<br>
 <<elseif $exhaustion <= $maxExhaustion * 0.95>>
 <<link "Go somewhere" "travel">><</link>>
 <br>
@@ -1947,7 +1947,7 @@ You're too tired to go anywhere.
 
 
 :: Bathroom [nobr home storage] {"position":"1125,1000","size":"100,100"}
-Cramped at the best of time and almost constantly in need of mold remover it's still your bathroom. Some of your stuff is still in boxes here, as you just hadn't had the time to pack it all away.
+Cramped at the best of times, and almost constantly in need of mold remover, it's still your bathroom. Some of your stuff is still in boxes here, since you didn't take the time to pack it all away.
 
 <<set _room to passage()>>
 <<cleaning _room>>
@@ -1955,7 +1955,7 @@ Cramped at the best of time and almost constantly in need of mold remover it's s
 
 <<if $furniture.includes("measuring tape")>>
 	<<linkreplace "Measure your body with the measuring tape">>
-		Carefully, you measure your body and get the following statistics;
+		Carefully, you measure your body and get the following statistics.
 		<br>
 		<table id="store">
 		  <tr>
@@ -2013,7 +2013,7 @@ Cramped at the best of time and almost constantly in need of mold remover it's s
 		</table>
         <br>
         <<if $carefreeCarefull <= 0>>
-        	You decide to take careful note of them, so you can review your progress later on your PC.
+        	You decide to take careful note of them, so you can review your progress later using your PC.
             
             <<script>>
                 function checkDate(log) {
@@ -2077,9 +2077,9 @@ Cramped at the best of time and almost constantly in need of mold remover it's s
 	<span class="hidden"><<getMeasurement "weight">></span>
 	<<set _weight to $weight>>
 	<<if _weight < 300>>		
-		Stepping on the scale, it takes a while to get to the final weight. <<if _weight > 250>> It groans and sputters under you, the metal and plastic bending here and there. <</if>> When it stops it indicates you weigh <<getMeasurement "weight">>.
+		Stepping on the scale, it takes a while to get to the final weight. <<if _weight > 250>> It groans and sputters under you, the metal and plastic bending here and there. <</if>> When it stops, it indicates you weigh <<getMeasurement "weight">>.
 	<<else>>
-		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up the only thing it says is on the display is 'error' before the device is crushed under your weight. Seems you'll have to buy a new one...
+		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up, the only thing it says on the display is 'error' before the device is crushed under your weight. Seems you'll have to buy a new one...
         <<set $furniture to $furniture.filter(item => !["bathroom scale", "heavy duty bathroom scale"].includes(item))>>
 	<</if>>
 	<</linkreplace>>
@@ -2089,9 +2089,9 @@ Cramped at the best of time and almost constantly in need of mold remover it's s
 	<span class="hidden"><<getMeasurement "weight" false>></span>
 	<<set _weight to $weight>>
 	<<if _weight < 120>>		
-		Stepping on the scale, it takes a while to get to the final weight. <<if _weight > 90>> It groans and sputters under you, the metal and plastic bending here and there. <</if>> When it stops it indicates you weigh <<getMeasurement "weight">>.
+		Stepping on the scale, it takes a while to get to the final weight. <<if _weight > 90>> It groans and sputters under you, the metal and plastic bending here and there. <</if>> When it stops it indicates your weigh <<getMeasurement "weight">>.
 	<<else>>
-		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up the only thing it says is on the display is 'error' before the device is crushed under your weight. Seems you'll have to buy a new one...
+		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up, the only thing it says on the display is 'error' before the device is crushed under your weight. Seems like you will have to buy a new one...
         <<set $furniture to $furniture.filter(item => item !== "bathroom scale")>>
 	<</if>>
 	<</linkreplace>>
@@ -2129,19 +2129,19 @@ Cramped at the best of time and almost constantly in need of mold remover it's s
 
 <<if $tongueLenght <= 0>>
 <<elseif $tongueLenght <= 1>>
-When you open your mouth you take a look at your longer than average tongue. You estimate it to be around <<numeralConversion $tempTongueLower>> long. You might be able to touch your nose with it!
+When you open your mouth, you take a look at your longer than average tongue. You estimate it to be around <<numeralConversion $tempTongueLower>> long. You might be able to touch your nose with it!
 
 <<elseif $tongueLenght <= 2>>
-When you open your mouth you take a look at your long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long. You're easily able to touch your nose and chin with it!
+When you open your mouth, you take a look at your long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long. You are easily able to touch your nose and chin with it!
 
 <<elseif $tongueLenght <= 4>>
-When you open your mouth you take a look at your incredibly long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long. You can easily reach your eyebrows with it and the bottom of a jar of peanut butter. Not that you would ever do that....
+When you open your mouth, you take a look at your incredibly long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long. You can easily reach your eyebrows with it, as well as the bottom of a jar of peanut butter. Not that you would ever do that...
 
 <<elseif $tongueLenght <= 6>>
-When you open your mouth you take a look at your inhumanly long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long!! You have no idea how it fits in your mouth or how you can still speak normally with it, but why not enjoy it! There's plenty of things you can imagine doing with a tongue this long. You do have to watch out that it doesn't roll out of your mouth and freaks others out when you yawn though, fun as it might be.
+When you open your mouth, you take a look at your inhumanly long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long! You have no idea how it fits in your mouth or how you can still speak normally with it, but why not enjoy it? There's plenty of things you can imagine doing with a tongue this long. You do have to watch out that it doesn't roll out of your mouth and freaks others out when you yawn, though, fun as it might be.
 
 <<else>>
-When you open your mouth you take a look at your ridiculously long tongue. It snakes out of your mouth, ending between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long! There's so much you can do with a tongue this long and sensitive, you'd wish everyone had one! You do have to watch out that it doesn't roll out of your mouth and freaks others out when you yawn though...
+When you open your mouth, you take a look at your ridiculously long tongue. It snakes out of your mouth, ending between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long! There's so much you can do with a tongue this long and sensitive, you'd wish everyone had one! You do have to watch out that it doesn't roll out of your mouth and freaks others out when you yawn, though...
 <</if>>
 
 <</widget>>
@@ -2195,11 +2195,11 @@ When you open your mouth you take a look at your ridiculously long tongue. It sn
 
 <<widget "BreastsWeightDescription">>
 
-<<if $_breastsRandomized >= ($muscle + 20 * $strengthMod)>>Your gigantic breasts have gotten so large you're completely immobilized by them...
+<<if $_breastsRandomized >= ($muscle + 20 * $strengthMod)>>Your gigantic breasts have gotten so large you are completely immobilized by them...
 <<elseif $_breastsRandomized >= ($muscle + 40 * $strengthMod)>>You're barely able to carry the weight of your breast! They're gotten so incredibly heavy that soon you won't be able to walk around with them anymore!
-<<elseif $_breastsRandomized >= ($muscle + 10 * $strengthMod)>>The weight of your breasts is almost constantly on your mind as they feel incredibly heavy! You try to rest them on something whenever you can, happy to have that relieve if only for a moment.
+<<elseif $_breastsRandomized >= ($muscle + 10 * $strengthMod)>>The weight of your breasts is almost constantly on your mind as they feel incredibly heavy! You try to rest them on something whenever you can, happy to have that relief, if only momentarily.
 <<elseif $_breastsRandomized >= ($muscle + 5 * $strengthMod)>>Your breasts weight quite a lot, and you're happy when you can give your back some rest at the end of the day. Maybe some exercises could help strengthen your back?
-<<elseif $_breastsRandomized >= ($muscle * $strengthMod)>> You do feel the weight of your breasts from time to time, especially when you're physically active. Nothing a bit of care can't fix!
+<<elseif $_breastsRandomized >= ($muscle * $strengthMod)>> You do feel the weight of your breasts from time to time, especially when you are physically active. Nothing a bit of care can't fix!
 <</if>>
 
 <</widget>>
@@ -2289,7 +2289,7 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
 	<<script>>
 	if (Dialog.isOpen() == false) {
 		  var dialog = Dialog.setup("What the hell?!");
-		  new Wikifier(dialog, "While you're a bit tired you idly scratch the bulge in your pants when your eyes go wide open. BULGE?! Shocked you reach in, finding something new there taking space. Something long and thick and squishy. Hesitantly you pull down your underwear and are greeted with a new, suprising sight. A penis. You now have a penis. Just to see if its real you reach out, touching it. It almost twitches in response, proving to you its all too real! It seems you might've taken a few too many 'special' potions. But while it does feel weird... well maybe you could get used to this...?");
+		  new Wikifier(dialog, "While you're a bit tired you idly scratch the bulge in your pants. Your eyes go wide open. BULGE?! Shocked, you reach in, finding something new there taking space. Something long and thick and squishy. Hesitantly, you pull down your underwear and are greeted with a new, surprising sight. A penis. You now have a penis. Just to make sure, you reach out, touching it. It almost twitches in response, proving to you it's all too real! It seems you might've taken a few too many 'special' potions. While it does feel weird... well, maybe you could just get used to this...?");
 		  Dialog.open();
 		  State.setVar("$dickDialog", false);
 		  State.setVar("$dickDialogFollowUp", true);
@@ -2335,35 +2335,35 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
 <<widget "BodyTypeDescription">>
 
 	<<if $bodyType is "skinny">>
-Your body is incredibly skinny with no definition to speak of. Some people say you could be a model with this, but it almost looks unhealthy.
+Your body is incredibly skinny, with no definition to speak of. Some people say you could be a model with this, but it almost looks unhealthy.
 	<<elseif $bodyType is "average">>
-Your body is really average, not skinny not fat. Just average. It doesn't catch much attention, but at least you know you're healthy.	
+Your body is really average, not skinny nor fat. Just average. It doesn't attract much attention, but at least you know you're healthy.	
 	<<elseif $bodyType is "thick">>
-Your body is amazingly voluptuous with some nice curves that are sure to attract attention. A bit thick, but with a still small waist, you got some weight in all the right places!
+Your body is amazingly voluptuous, with some nice curves that are sure to attract attention. A bit thick, but still with a small waist, you got some heft in all the right places!
 	<<elseif $bodyType is "obese">>
-You've gotten an incredibly full-figured body. Some might call it obese, but you just got some extra weight that gives you a nice rounded figure. And hey, it makes you look damn good!
+You have an incredibly full-figured body. Some might call it obese, but you just got some extra weight that gives you a nice, rounded figure. And hey, it makes you look damn good!
 	<<elseif $bodyType is "thin">>
-You've got the body of a swimmer, with some nice definition in the right places and little to no fat. With your abs outlined and even some definition in your shoulders you certainly look fit!
+You've got the body of a swimmer, with some nice definition in the right places, and little to no fat. With your abs outlined and even some definition in your shoulders, you certainly look fit!
 	<<elseif $bodyType is "athletic">>
-You've got the body you'd expect of a male fitness model, with big, defined muscles and beautiful curves giving you a body that many would kill for! Pumped biceps, good wide shoulders, strong legs and even a vein running here and there! Your body just screams 'I lift'.
+You've got the body you would expect from a male fitness model, with big, defined muscles and beautiful curves, a physique that many would kill for! Pumped biceps, good wide shoulders, strong legs, and even the occasional vein running here and there! Your body just screams 'I lift'.
 	<<elseif $bodyType is "strong">>
-Your body looks incredibly strong due to the large muscles on display, giving you a big, strong look! Big muscles covered with some flab which only adds to the size gives you that powerlifter physique. Not bad!
+Your body looks incredibly strong due to the large muscles on display, giving you a big, strong look! Big muscles, covered with some flab, their added size granting you a powerlifter physique. Not bad!
 	<<elseif $bodyType is "heavy">>
-Your body looks incredibly strong, like an off-season bodybuilder! Both your huge muscles and soft layer of fat make you look incredibly strong. Whenever you flex your thick arms you can't help but be proud!
+Your body looks incredibly strong, like an off-season bodybuilder! Both your huge muscles and soft layer of fat make you look incredibly strong. You can't help but be proud whenever you flex your thick arms!
 	<<elseif $bodyType is "bodybuilder">>
-If you'd compete in a bodybuilding show you'd have a good chance of winning. A thick neck, wide shoulders and huge arms makes your torso look big and defined. The relatively thin waist is only a bonus, not to speak of the defined 6-pack you got going!
+If you competed in a bodybuilding show, you'd have a good chance of winning. A thick neck, wide shoulders and huge arms make your torso look big and defined. The relatively thin waist is only a bonus, not to speak of the defined 6-pack you got going!
 	<<elseif $bodyType is "heroic">>
-You have the body of a male superhero! Thick arms and legs and a massive barrel-chest just make you look massive. Buying shirts will be impossible, at least ones that fit your torso. And don't forget your massive legs, the tree-trunks you call legs are not small either.
+You have the body of a male superhero! Thick arms,legs and a massive barrel-chest just make you look massive. Buying off-the-rack shirts will be impossible, at least ones that fit your torso. And don't forget your massive lower body, these tree-trunks you call legs are impossible to ignore.
 	<<elseif $bodyType is "strongman">>
-You've got the body of a champion weightlifter, with your incredible strength obvious from both your huge muscles and the thick softness you still have. Though your waist might be a lot thicker than for example bodybuilders, the huge girth gives you plenty of support and means you can lift far more than people expect!
+You've got the body of a champion weightlifter, with your incredible strength obvious from both your huge muscles and the thick softness you still have. Though your waist might be a lot thicker than your average bodybuilder, the huge girth gives you plenty of support and means you can lift far more than people expect!
 	<<elseif $bodyType is "sumowrestler">>
-Despite the huge amount of flab on your body you are still insanely strong, all thanks to the gigantic muscles under there. They might not be for show, but that doesn't mean you don't know how to use them! With your girth you sometimes have trouble getting through doors, and let's not forget your legs are thicker than some people. But under that flab it's all strength!
+Despite the huge amount of flab on your body, you are still insanely strong, all thanks to the gigantic muscles under there. They might not be at full display, but that doesn't mean you don't know how to use them! With your girth, you sometimes have trouble getting through doors, and let's not ignore the fact your legs are thicker than some people. But under all that flab is amazing strength!
 	<<elseif $bodyType is "hulk">>
-When you look in the mirror you see a gigantic body, bloated by gigantic muscles that'd make the hulk look small. Biceps the size of your head, shoulders that wouldn't fit through a door and a torso so muscular you feel like you could stop a cruise missile with the thick slabs covering you! And hell, you've seen trees thinner than your legs. Yet there is not an ounce of fat on there, every vein and striation clearly visible.
+When you look in the mirror, you see a gigantic body, bloated by gigantic muscles that would make even the biggest superhero look small. Biceps the size of your head, shoulders that wouldn't fit through a door and a torso so muscular you feel like you could stop a cruise missile, thick slabs flanking every side! And hell, you've seen full-grown trees thinner than your legs. And yet, there is not an ounce of fat to be seen, every vein and striation clearly displayed in their full glory.
 	<<elseif $bodyType is "gigantic">>
-Your body is inhumanly massive, with muscles that shatter every world record. It barely fits in the mirror, or through doors, but even at a glance it's clear how gigantic you are. From your shelf like pecs to your thunderous legs, every part of you screams 'gigantic'.
+Your body is inhumanly massive, with muscles that shatter every world record. It barely fits in the mirror, or through doors for that matter. But even at a glance, it's clear how gigantic you've become. From your shelf-like pecs to your thundering legs, every part of you screams 'gigantic'.
 	<<elseif $bodyType is "monstrous">>
-Your body is so incredibly gigantic it hard to imagine your size! Person sized arms, legs that could shame trees and a chest that makes seeing your toes impossible! Beyond that your gut might be gigantic, but it only adds to your strength. Sure, doors might be impossible but with your size and strength you can just barge through them.
+Your body is so incredibly gigantic it's hard to even conceive of your size! Arms as big as a grown man, legs that could shame trees, and a chest that makes seeing your toes a challenge! Beyond that, your gut might be gigantic, but it only adds to your powerful frame. Sure, doors might be a daunting challenge to cross without causing destruction, but with your size and strength, you can just barge through walls.
 <</if>>
 
 <</widget>>
@@ -2374,11 +2374,11 @@ Your body is so incredibly gigantic it hard to imagine your size! Person sized a
 <<nobr>>
 <<widget "bodyHairDescription">>
 
-<<if $bodyHairMod >=10>> Over your entire body is a thick layer of coarse, curly fur that someone could easily lose their hands in! Any clothing you wear is puffed up from this thick layer and sometimes a strand of it escape your clothing. Especially your arms and chests are completely covered in this <<print $hairColor>> fur.
-<<elseif $bodyHairMod >= 8>> Almost all if you is covered in a thick layer of coarse, <<print $hairColor>> hair. It makes you look very hairy and someone could easily stroke it, especially on your stomach and arms.
-<<elseif $bodyHairMod >= 6>> A dense layer of body hair covers your skin. Its course and <<print $hairColor>> and covers most of your arms, legs, torso and private area. It gives you a really wild look!
-<<elseif $bodyHairMod >= 4>> An average amount of body hair covers your body. It can look a bit unkempt if you don't maintain it, but it's never too bad.
-<<elseif $bodyHairMod >= 2>> A thin dusting of body hair covers your body, though it's easily missed. An advantage of this is that you barely have to shave, should you want to appear clean shaven.
+<<if $bodyHairMod >=10>> Covering your entire body is a thick layer of coarse, curly fur that someone could easily lose their hands in! Any clothing you wear is puffed up from this thick layer, and sometimes a strand of it shows through. Your arms and chests in particular are completely covered in this <<print $hairColor>> fur.
+<<elseif $bodyHairMod >= 8>> Almost all if your body is covered in a thick layer of coarse, <<print $hairColor>> hair. It makes you look very hairy, and anyone could easily stroke it, especially on your stomach and arms.
+<<elseif $bodyHairMod >= 6>> A dense layer of body hair covers your skin. Its course and <<print $hairColor>>, covering most of your arms, legs, torso and genitals. It gives you a really wild look!
+<<elseif $bodyHairMod >= 4>> An average amount of body hair covers your body. It can look a bit unkempt if you don't maintain it, but it's never too bothersome.
+<<elseif $bodyHairMod >= 2>> A thin dusting of body hair covers your body, though it's easily missed. An advantage of this is that you barely have to trim it, should you want to appear clean shaven.
 <<else>>
 <</if>>
 
@@ -2391,52 +2391,52 @@ Your body is so incredibly gigantic it hard to imagine your size! Person sized a
 <<widget "heightDescription">>
 
 <<if $height <= 150>>
-At <<heighNumeral>> tall you're really short! People can just look straight over your head and a surprising amount of stuff is out of reach. Buying clothes is also a hassle, since sometimes you've got more luck looking in the children section!
+At <<heighNumeral>> tall, you are really short! People can just look straight over your head and a almost everything is out of reach. Buying clothes is also a hassle, since sometimes you've got more luck looking in the children's section!
 
 <<elseif $height <= 165>>
-At <<heighNumeral>> tall you're pretty short. Often you're the shortest in the room, or at least one of the shortest. Buying clothes is also a hassle, though most stores will have something your size.
+At <<heighNumeral>> tall, you are pretty short. You are used to being the shortest in the room, or at least one of the shortest. Buying clothes is also a hassle, though most stores will have something your size.
 
 <<elseif $height <= 175>>
-At <<heighNumeral>> tall you're pretty average. It brings no real problems and no real advantages with it.
+At <<heighNumeral>> tall, you are pretty average. It brings no issues to your daily life, but no advantages either.
 
 <<elseif $height <= 185>>
-At <<heighNumeral>> tall you're pretty tall. You often find yourself having to look down a bit to talk to people, but nothing too bad. 
+At <<heighNumeral>> tall, you are pretty tall. You often find yourself having to look down a bit to talk to people, but nothing out of the ordinary. 
 
 <<elseif $height <= 200>>
-At <<heighNumeral>> tall you're really tall! Most of the time you're the tallest in the room and people have to look up at you a bit to talk to you. Buying clothes is a hassle though, since few stores carry your size. 
+At <<heighNumeral>> tall, you are really tall! Most of the time you're the tallest in the room, and people are forced to look up a bit so they can talk to you. Buying clothes is a hassle, however, since few stores carry size that fit you properly. 
 
 <<elseif $height <= 230>>
-At <<heighNumeral>> tall you're incredibly tall! You're always the tallest person in the room and people have to look up at you to even talk to you! At this height doorways are giving you some problems as you now have to duck to go through them. Buying clothes is also hassle, since only a few online stores carry your size. 
+At <<heighNumeral>> tall, you are incredibly tall! You are always the tallest person in the room and people have to crane their necks to even talk to you! At this height, doorways are a constant risk to your forehead. Buying clothes is also a hassle, since only a few online stores even carry decent sizes for your build. 
 
 <<elseif $height <= 250>>
-At <<heighNumeral>> tall you're gigantic! You're always easily the tallest person in the room and people have to look up at you to even talk to you! At this height doorways are giving you problems as you have to duck to go through them. And that is when you can even stand up straight in a room! Buying clothes is also hassle, since only a few online stores carry your size. 
+At <<heighNumeral>> tall, you are gigantic! You are always easily the tallest person in the room and people have to take a step back to even talk to you! At this height, doorways are a constant issue, as you are forced to duck in order to cross them. And that is when you can even stand up straight in a room! Buying clothes is a major issue, since very few online stores carry anything that will fit. 
 
 <<elseif $height <= 300>>
-At <<heighNumeral>> tall you're gigantic! While you're not certain you might be the tallest living person, if not the tallest person ever. You're always easily the tallest person in the room, with some other barely reaching your stomach! Indoors are a massive hassle as you can rarely stand up straight and you basically have to crawl to get through doors. All your clothing now has to be custom-made, which is far more expansive!
+At <<heighNumeral>> tall, you are gigantic! You might just be the tallest living person, if not the tallest person ever. You are always easily the tallest person in the room, with some other barely reaching your stomach! Being indoors is a massive hassle as you can rarely stand up straight, and you basically have to crawl to get through doors. All your clothing now has to be custom-made to even have a chance of fitting!
 
 <<elseif $height <= 350>>
-At <<heighNumeral>> tall you're a true giant! There's no doubt you're the tallest person ever as you tower over everyone wherever you go. Outside you're always the center of attention as people want to take pictures of you or just stand in awe of your stature. Some of them don't even reach your hip! Indoors are a massive hassle as you can never stand up straight, and you basically have to crawl to get through doors. All your clothing now has to be custom-made, which is incredibly expansive!
+At <<heighNumeral>> tall, you are a true giant! There's no doubt you're the tallest person ever as you tower over everyone, wherever you go. Outside, you are always the center of attention. People want to take pictures of you or just stand in awe of your stature. Some of them don't even reach your hip! Indoors are a massive hassle as you can never stand up straight, and you basically are forced to crawl through doors. All your clothing now must be custom-made, at unprecedented sizes!
 
 <<elseif $height <= 450>>
-At <<heighNumeral>> tall you're a towering giant! Your height is utterly unprecedented, and you're always sure to be the center of attention. When you go outside people stand in awe of you, not sure whether to ask for a picture or to hide. At this point even ordinary "tall" people barely stand taller than your thighs! Indoors are next to impossible now as you can never stand up straight and you basically have to crawl to get through doors. All your clothing now has to be custom-made, which is incredibly expansive!
+At <<heighNumeral>> tall, you are a towering giant! Your height is utterly unprecedented, and you are always sure to be the center of attention even at a distance. When you go outside, people stand in awe of you, not sure whether to ask for a picture or hide. At this point, even ordinary "tall" people barely stand taller than your thighs! Being indoors is next to impossible at this juncture, as you can never stand up straight and you have no option but crawl to get through doors. All your clothing now has to be custom-made, and can hardly be recognized as something a person would wear!
 
 <<elseif $height <= 650>>
-At <<heighNumeral>> tall you're a taller than some buildings! Your height is utterly unprecedented, and you're always sure to be the center of attention wherever you go. Ordinary people look at you in awe, having to crane their neck to even look at you. At this point they barely reach your knees! You can't go inside anymore as you simply won't fit in them anymore. Still, being able to tower over the buildings nicely compensates for that...
+At <<heighNumeral>> tall, you are a taller than some buildings! Your height is utterly unprecedented, and you're always sure to be the center of attention wherever you go... and its adjacent areas. Ordinary people look at you in awe, having to crane their necks to even understand how tall you are. At this point, they barely reach your knees! You can't go inside anymore as you simply won't fit in constructions anymore. Still, being able to tower over buildings is somewhat of a compensation for that...
 
 <<elseif $height <= 1000>>
-At <<heighNumeral>> you tower over everything near you! You've noticed that people even started to travel to see you, with only the bravest of them daring to ask you for a picture! Ordinary people are now barely bigger than your head. You could easily hold one in your hand, if you wanted to! With your towering size you do have to be careful though; you wouldn't want to accidentally damage some buildings, right?
+At <<heighNumeral>> tall, you tower over everything around! You've been told that people even travel from abroad to see you, with only the bravest of them daring to ask you for a picture! Ordinary people are now barely bigger than your head. You could easily hold one in your hand, if you wanted to! With your towering size you do have to be careful though; you wouldn't want to accidentally damage some buildings, right?
 
 <<elseif $height <= 1500>>
-At <<heighNumeral>> tall you're a taller than most of the buildings in town! Whenever you stroll across the town you see the average people hide with only the bravest daring to look at you. Most of them are not longer than one of your fingers! Even your normal footsteps make buildings shake, and you leave footprints wherever you go, but everyone got to enjoy a stroll now and then right?
+At <<heighNumeral>> tall, you're taller than most buildings in town! Whenever you stroll across the town you see the people running and hiding, with only the bravest daring to get closer. Most of them are not even as tall as your fingers! Even your normal footsteps make buildings shake, and you leave footprints wherever you go, but hey, you still have to enjoy a stroll every now and then, right?
 
 <<elseif $height <= 2000>>
-At <<heighNumeral>> tall you're a true giant of old! People travel from across the world to see the 8th wonder of the world that you've become, though barely anyone dares to come to close to you. They barely come up to your ankles and considering how much force a single step of your gigantic feet deliver you kinda understand why they tend to hide. Still, a bit of damage to some property to worth having you around right?
+At <<heighNumeral>> tall, you're a true giant of legends! People come from all continents to see the 8th wonder of the world that you've become, though barely anyone dares to come too close. They barely come up to your ankles, and considering how much force a single step of your gigantic feet delivers, you kind of understand why they tend to hide. Still, a bit of damage to some property is worth having you around, right?
 
 <<elseif $height <= 5000>>
-At <<heighNumeral>> tall you're bigger than the main characters of those cheesy sci-fi movies from the 50s! The entire town has become your playground as most people have either moved away or moved in to gawk at the miracle that you are. Nobody even reaches your ankle anymore, yet some of them still approach you despite the fact that your feet could level buildings without you even noticing! After all it's kinda hard to notice all of that when you're THIS tall.
+At <<heighNumeral>> tall, you are bigger than the protagonists of those cheesy sci-fi movies from the 50s! The entire town has become your playground as most people have either moved away or moved in to gawk at your miraculous height. Nobody even reaches your ankle anymore, yet some of them still approach you, even though your feet could level buildings without you even noticing! After all, it's a bit hard to notice small things like stadiums of that when you are THIS tall.
 
 <<else>>
-At <<heighNumeral>> tall you're bigger than the main characters of those cheesy sci-fi movies from the 50s! The entire town has become your playground as most people have either moved away or moved in to gawk at the miracle that you are. Nobody even reaches your ankle anymore, yet some of them still approach you despite the fact that your feet could level buildings without you even noticing! After all it's kinda hard to notice all of that when you're THIS tall.
+At <<heighNumeral>> tall, your height no longer makes any sense! You can walk out of the town and not even notice. It feels kind of lonely, actually, as people are no more than ants at this point! Completely detached from your former reality, survival has become somewhat of an issue since your mere nourishment can cause environmental imbalance on a whim. But hey, at least you get a nice massage from lightning when it rains.
 <</if>>
 
 <</widget>>
@@ -2514,13 +2514,13 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 
 <<if $gender <= 10>>Your face is extremely feminine with sharp, beautiful curves. Piercing <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips make you look only more amazing. 
 <<elseif $gender <= 20>>Your face is very feminine with soft, beautiful curves. Bright <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips complete the look.
-<<elseif $gender <= 30>>Your face is very pretty and feminine with nice curves and nice proportions. Nice <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips complete the look.
-<<elseif $gender <= 40>>Your tomboyish face gives you a confident look. Bright <<print $eyeColor>> eyes with decent eyelashes and <<lipsDescription>> lips make you look feminine, while the overall build and curves of your head make you look a bit masculine.
-<<elseif $gender <= 50>>Your tomboyish face is always nice to see. Bright <<print $eyeColor>> eyes with decent eyelashes and <<lipsDescription>> lips make you look feminine, while the overall build and curves of your head make you look more masculine.
+<<elseif $gender <= 30>>Your face is very pretty and feminine, with nice curves and nice proportions. Nice <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips complete the look.
+<<elseif $gender <= 40>>Your tomboyish face gives you a confident look. Bright <<print $eyeColor>> eyes with decent eyelashes and <<lipsDescription>> lips make you look feminine, while the overall contours of your head make you look a bit masculine.
+<<elseif $gender <= 50>>Your tomboyish face is always nice to see. Bright <<print $eyeColor>> eyes with decent eyelashes and <<lipsDescription>> lips make you look feminine, while the overall contours of your head make you look more masculine.
 <<elseif $gender <= 60>>Your boyish face is masculine, but with a clear feminine touch to it. Sharp <<print $eyeColor>> eyes and a decent jawline contrast with your softer nose and <<lipsDescription>> lips.
 <<elseif $gender <= 70>>You have a manly face with a sharp jawline and clear <<print $eyeColor>> eyes. A full nose and <<lipsDescription>> lips compliment your overall look. 
 <<elseif $gender <= 80>>Your very masculine face wouldn't be misplaced on a magazine cover. Radiating, <<print $eyeColor>> eyes draw a lot of looks and your broad, sharp jaw make a lot of people jealous. Even when you shave you seem to have a bit of a stubble and even your <<lipsDescription>> lips compliment your overall look.
-<<else>>Your extremely masculine face is the epitome of manliness; radiating, <<print $eyeColor>> eyes draw a lot of looks and your broad, sharp jaw make a lot of people jealous. Even when you shave you seem to have a bit of a stubble and even your <<lipsDescription>> lips compliment your overall look.
+<<else>>Your extremely masculine face is the epitome of manliness; radiating, <<print $eyeColor>> eyes draw a lot of looks and your broad, sharp jaw make a lot of people jealous. Even when you shave you seem to have a bit of a stubble and your <<lipsDescription>> lips compliment your overall look.
 <</if>> <<tongueDescription>>
 
 <</widget>>
@@ -2560,7 +2560,7 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 <<elseif $hips <= 3>>curvy
 <<elseif $hips <= 4>>girly
 <<elseif $hips <= 5>>womanly
-<<elseif $hips <= 6>>child-bearing
+<<elseif $hips <= 6>>childbearing
 <<elseif $hips <= 7>>impossibly wide
 <<elseif $hips <= 8>>brood-mother
 <<else>>door-straining
@@ -2581,10 +2581,10 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 <<elseif $ass <= 1>>compact
 <<elseif $ass <= 2>>average
 <<elseif $ass <= 3>>shapely
-<<elseif $ass <= 4>>Heart-Shaped
+<<elseif $ass <= 4>>heart-shaped
 <<elseif $ass <= 5>>voluminous
 <<elseif $ass <= 6>>huge
-<<elseif $ass <= 7>>pants-Straining
+<<elseif $ass <= 7>>pants-straining
 <<else>>gigantic
 <</if>>
 
@@ -2623,11 +2623,11 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
   <<if $gameDate.getHours() <= 15 and $gameDate.getHours() >= 13>>
   	  <<link "Go to the office for your job interview" "office">><</link>><br><br>
   <<else>>
-  	You know where your job application will be in a few days. You think its best to leave somewhere between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
+  	You know where your job interview will be in a few days. It's probably best to leave between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
 	<br><br>
   <</if>>
   <<else>>
-  You know where your job application will be in a few days. You think its best to leave somewhere between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
+  You know where your job interview will be in a few days. It's probably best to leave between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
   <br><br>
   <</if>>
 <<elseif $job is true and $officeFired is false>>
@@ -2645,11 +2645,11 @@ At <<heighNumeral>> tall you're bigger than the main characters of those cheesy 
 
 
 :: gym [outOfHouse nobr gym] {"position":"2100,900","size":"100,100"}
-This place was clearly built with a purpose in mind. Brick walls and a concrete floor are illuminated by some small windows at the top of the walls and humming fluorescent lights above.
-The large single room that comprises most of the building is lined with rows and rows of weightlifting equipment. Squat cages stand against the back wall. A dumbbell rack lines another, ranging from five-pounders to some truly absurd sizes. Throughout the center are a variety of benches, weight racks, and a variety of other fitness equipment. Leg press machines, pull-up bars, and some angled apparatuses designed for core workouts and such. The gym is mostly empty at the moment. A small handful of people are working through their own routines, headphones in, minding their own business.
+This place was clearly built with a purpose in mind. Brick walls and a concrete floor are littered with some small windows at the top, and fluorescent lights humming above.
+The large single room that comprises most of the building is lined with rows and rows of weightlifting equipment. Squat cages stand against one wall. A dumbbell rack lines another, ranging from five-pounders to some truly gawk-inducing sizes. Throughout the middle are a variety of benches, weight racks, and many other exercise devices. Among them are leg press machines, pull-up bars, and some angled benches designed for core workouts. The gym is mostly empty at the moment. A small handful of people are working through their own routines, headphones in, minding their own business.
 
 <br><br>
-The gym offers several offers; you can either work out one time for a set fee, get a weekly subscription, or get some protein shakes at the bar.
+The gym offers several options; you can either get a one-time workout for a set fee, pay for a weekly subscription, or have a protein shake at the bar.
 <br><br>
 
 <<workoutLink "gym">>
@@ -2657,7 +2657,7 @@ The gym offers several offers; you can either work out one time for a set fee, g
 
 <<if $money > 5>>
 <<linkreplace "Get a shake at the bar ($5) - 00:10 🕛">>
-At the bar you order a protein-supplement-deluxe shake, though you'd be forgiven for thinking its solid concrete. Still they assure you it contains everything you need to optimize your workouts and results.
+At the bar, you order the ProTein Supplement Deluxe shake™, though you'd be forgiven for thinking someone dumped solid concrete in the cup. Still, they assure you it contains everything you need to optimize your workouts and gains (or GAINZ!!!, as the cup states). 
 	
 <<set $exhaustionWorkoutMod -= 0.1>>
 <<set $muscleGrowthMaxTemp += 0.35>>
@@ -2763,94 +2763,94 @@ Your penis looks incredibly small, at only <<numeralConversion $tempDick>> long 
 
 <<elseif ($dick * $heightMod) <=8>>
 
-Your penis looks suprisingly small, at only <<numeralConversion $tempDick>> long when flaccid. 
+Your penis looks surprisingly small, at only <<numeralConversion $tempDick>> long when flaccid. 
 
 <<elseif $dick <=10>>
 You have a decent penis at <<numeralConversion $tempDick>> long when flaccid. 
 
 <<elseif $dick <=14>>
-You have a pretty big penis, at <<numeralConversion $tempDick>> long when flaccid! When you're erect it shows a bit of a bulge which you have to be mindful of. 
+You have a pretty big penis, at <<numeralConversion $tempDick>> long when flaccid! When it is erect, it shows a bit of a bulge - which you have to be mindful of. 
 
 <<elseif $dick <=18>>
-Your <<numeralConversion $tempDick>> long flaccid penis feels pretty hefty to you. If you're not mindful of the clothes you buy its shows a pretty clear bulge, though that's not always wrong right?
+Your <<numeralConversion $tempDick>> long flaccid penis feels pretty hefty to you. If you're not mindful of the clothes you buy, it can result in a pretty clear bulge, though that's not really an issue, right?
 
 <<elseif $dick <=22>>
-Your <<numeralConversion $tempDick>> long flaccid penis looks gigantic on you! No matter the clothing you buy you'll show a gigantic bulge that leaves nothing to the imagination.
+Your <<numeralConversion $tempDick>> long flaccid penis looks gigantic on you! No matter the clothing you buy, there will always be a significant bulge that leaves nothing to the imagination.
 
 <<elseif $dick <=35>>
-Your <<numeralConversion $tempDick>> long flaccid penis looks more like it belongs on an animal than on you! No matter the clothing you buy you'll show a gigantic bulge that leaves nothing to the imagination, even if you find clothing that can fit this piece of meat.
+Your <<numeralConversion $tempDick>> long flaccid penis looks more like it belongs on a horse than on you! No matter what you wear, an enormous bulge that leaves nothing to the imagination will be on display, even if you find clothing that can accommodate your considerable meat.
 
 <<elseif $dick <=50>>
-Your <<numeralConversion $tempDick>> long flaccid penis easily creeps past your knees! No matter the clothing you buy you'll show a gigantic bulge that leaves nothing to the imagination, even if you find clothing that can fit this piece of meat.
+Your <<numeralConversion $tempDick>> long flaccid penis easily dangles past your knees! No matter what you wear, that gigantic bulge will leave nothing to the imagination, even if you find clothing that can accommodate your sizeable meat.
 
 <<elseif $dick <=80>>
-Your <<numeralConversion $tempDick>> long flaccid penis almost reaches the ground and looks completely inhumane to you! It's useless trying to buy clothing for it now, since it simply won't fit any clothing you're able to buy.
+Your <<numeralConversion $tempDick>> long flaccid penis almost reaches the ground and looks completely inhumane to you! It's useless trying to buy clothing for it now, since it simply won't fit any article you are able to buy.
 
 <<else>>
-Your <<numeralConversion $tempDick>> long flaccid penis now constantly drags across the ground if you don't lift if up constantly. Normally you'd buy underwear for this, but you're not sure underwear like this even exists!
+Your <<numeralConversion $tempDick>> long flaccid penis now constantly drags across the ground if you don't actively lift if up. Normally, you'd buy underwear for this, but you're not sure it would even be practical!
 <</if>>
 
 <<if $dickErectionMod <= 1.4>>
-When your penis gets erect it becomes <<numeralConversion $tempDickErect>> long; it's clear you're a shower, not a grower.
+When your penis gets erect, it becomes <<numeralConversion $tempDickErect>> long; it's clear you're a shower, not a grower.
 <<elseif $dickErectionMod <= 1.6>>
 When your penis gets erect it becomes <<numeralConversion $tempDickErect>> long.
 <<elseif $dickErectionMod <= 1.8>>
-When your penis gets erect it becomes a pretty impressive <<numeralConversion $tempDickErect>> long; it's clear you're a shower!
+When your penis gets erect, it becomes a pretty impressive <<numeralConversion $tempDickErect>> long; it's clear you're a shower!
 <<elseif $dickErectionMod <= 2>>
-When your penis gets erect it just keeps becoming bigger, not stopping until it reaches well over <<numeralConversion $tempDickErect>> long. It's hard to believe an erection can pump it so big!
+When your penis gets erect, it just keeps getting bigger, not stopping until it reaches well over <<numeralConversion $tempDickErect>> long. It's hard to believe an erection can pump it so big!
 <<else>>
-When your penis gets erect it just keeps becoming bigger, not stopping until it reaches an unbelievable <<numeralConversion $tempDickErect>> long! It's visibly pumping, every pump forcing it to raise higher and higher!
+When your penis gets erect, it just keeps going and going, not stopping until it reaches an unbelievable <<numeralConversion $tempDickErect>> long! It's incredibly veiny, every pump making it rise higher and higher!
 <</if>>
 
 <<if $dickGirthMod <= 0.8>>
-It's surprisingly thin though with a girth of <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard.
+It's surprisingly thin, though, with a girth of <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard.
 <<elseif $dickGirthMod <= 0.9>>
-Its girth is average at <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard, which is good enough.
+Its girth is average at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, which is pretty good.
 <<elseif $dickGirthMod <= 1>>
-Its girth is pretty impressive at <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard, making it thicker than most dicks at this size.
+Its girth is fairly impressive at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, making it thicker than most dicks this size.
 <<elseif $dickGirthMod <= 1.5>>
-Its girth is incredible at <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard, making it an incredibly thick log!
+Its girth is incredible at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, making it an incredibly thick log!
 <<else>>
-Its girth is humongous at <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard, making it look almost disproportionate!
+Its girth is humongous at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, making it look almost disproportional!
 <</if>>
 
 <<if $tempDickErect <= 25>> 
 <<elseif $tempDickErect <= 30>> 
-With your length you might need to watch out a bit with your partners, as you're certainly on the bigger side.
+With your length, you might need to watch out a bit with your partners, as you're certainly on the bigger side.
 <<elseif $tempDickErect <= 35>> 
-With your length you need to watch out a bit with your partners, as your huge length could easily be too much for people!
+With your length, you need to watch out a bit with your partners, as your huge rod could easily be too much for some people!
 <<elseif $tempDickErect <= 40>> 
-Finding partners that can take your entire huge length will almost be impossible, and even then it'll take a huge amount of foreplay and care from you to not hurt them!
+Finding partners that can take your entire length will be almost impossible, and even then it'll take a huge amount of foreplay and care from you to not hurt them!
 <<else>>
 Finding a partner that can take this entire dick will be completely impossible!
 <</if>>
 
 <<if $tempDickGirthErect <= 20>> 
 <<elseif $tempDickGirthErect <= 25>> 
-Though with your girth you might have to work a little extra to get it into someone; all the more rewarding when it is in there!
+Though with your girth it might take a little extra work to get it in... it will surely be more rewarding in the end!
 <<elseif $tempDickGirthErect <= 30>> 
-Though with your girth you will have to work a lot harder to get it into someone; some people might not even be able to take you!
+Though with your girth it might take a little extra work to get it in... some people might actually be concerned at first sight!
 <<elseif $tempDickGirthErect <= 35>> 
-Though with your girth you will have to do a huge amount of work to get this dick into even the biggest size-lovers! It's simply too thick for almost anyone to take!
+Your girth you will require considerable work to make it into even the biggest size-lovers! It's simply too thick for almost anyone!
 <<elseif $tempDickGirthErect <= 75>> 
-Though with your girth it'll be impossible to find anyone that can properly take you, as its just too thick!
+With your girth it'll be impossible to find anyone that can properly take you in, as it is literally too thick!
 <<else>>
-Though with your girth it'll be impossible to find anyone that can properly take you, as its just too thick! Hell, the head is bigger than people's actual head!
+With your oversized girth, it'll be impossible to find anyone that can properly accommodate you, as it is just too thick! Hell, your glans is bigger than people's heads!
 <</if>>
 <</if>>
 
 <<if $dick + $balls  < 4>>
 Below your dick are two tiny testicles. They're almost lost beneath your dick, yet they're there.
 <<elseif $dick + $balls  < 10>>
-Below your dick are a few of fairly average testicles. While its still odd they're there you atleast got two nice ones!
+Below your dick are a few of fairly average testicles. While their presence still confuses you, at least they make a nice pair!
 <<elseif $dick + $balls  < 15>>
-Below your dick are two big balls, there is just no other way of putting it. They got some real heft to them and push your dick out, making your bulge only more noticable.
+Below your dick are two big balls, no other way of putting it. They got some real heft to them, lifting your dick a bit, making your bulge even more noticeable.
 <<elseif $dick + $balls  < 20>>
-Below your dick are two VERY big, hefty balls, there is just no other way of putting it. They move and sway with every step and push your dick out a lot, giving you a BIG bulge. And they're sensative too!
+There is no denying: below your dick are two VERY big and hefty balls. They move and sway with every step and push your dick out a lot, giving you a humongous bulge. And they're sensitive too!
 <<elseif $dick + $balls  < 30>>
-Below your dick are huge, heavy balls. They move and sway with every step and push your dick out a lot, giving you a BIG bulge. Its almost impossible to hide them, and with how sensative they are...
+Below your dick are huge, heavy balls. They move and sway with every step, and push your dick out a lot, giving you a gigantic bulge. It's almost impossible to hide them, and given how sensitive they are...
 <<elseif $dick + $balls  < 40>>
-Below your dick are gigantic, heavy balls fighting for space. They move and sway with every step and push your dick out a lot, giving you a BIG bulge. Every time you move your legs they push them out, almost like you're showing them off. Its almost impossible to hide them, and with how sensative they are...
+Below your dick are gigantic bowling balls, fighting for space. They move and sway with every step, and push your dick out a lot, giving you a ridiculous bulge. Every time you move your legs, they get pushed out, almost like you're showing off. It's almost impossible to hide them, and given how sensitive they are...
 <<elseif $dick + $balls  < 50>>
 Below your dick are two monstrous testicles fighting for space. With every step they are pushed aside only to come swinging back. Veins cover them and they churn constantly, seemingly always in movement. Its almost hypnotic! Its impossible to hide them, and with how sensative they are...
 <<elseif $dick + $balls  < 60>>
