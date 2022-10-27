@@ -4043,7 +4043,7 @@ var setTable = function () {
                     continue;
                 }
             }
-            filteredClothes.size = 2;
+            setup.allClothes[i].size = setup.getSmallestPlayerSizeNeeded(setup.allClothes[i]);
             filteredClothes.push(setup.allClothes[i]);
         }
 
@@ -4062,6 +4062,7 @@ setTable();
 <</timed>>
 
 <<liveblock>>
+You estimate you need size <<print setup.playerSizeNeeded()>>
 <span id="outfitTable">
 <table id="store">
   <tr>
@@ -11393,6 +11394,37 @@ and will be filled in when they enter the stores. */
         }       
     }
     return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)]; 
+}>>
+
+<<set setup.getSmallestPlayerSizeNeeded to function (slot) {
+    var statsToCheck = setup.biggestPlayerSize(slot);
+    var size = 0;
+    var fits = [];
+    var fit = '';
+    for (let i = 0; i < setup.sizeDatabase.length; i++) {
+        fit = 'fits';
+        var lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
+        var upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
+		
+        console.log('Size '+ i + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
+        
+        if (State.variables[statsToCheck] < lowerBound) {
+        fit = 'too big';
+        }
+        else if (State.variables[statsToCheck] >= upperBound && fit != 'too big') {
+        fit = 'too small';
+        }
+        else if (fit != 'too big' && fit != 'too small') {
+        fit = 'fits';
+        }
+        if(fit == 'fits'){
+        	fits.push(true);    	
+        }
+        else{
+        	fits.push(false);
+        }       
+    }
+    return fits.indexOf(true); 
 }>>
 
 /* Gets the human readable bonuses from the clothing. */

@@ -1471,7 +1471,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="Done" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -3944,7 +3944,7 @@ var setTable = function () {
                     continue;
                 }
             }
-            filteredClothes.size = 2;
+            setup.allClothes[i].size = setup.getSmallestPlayerSizeNeeded(setup.allClothes[i]);
             filteredClothes.push(setup.allClothes[i]);
         }
 
@@ -3963,6 +3963,7 @@ setTable();
 &lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;liveblock&gt;&gt;
+You estimate you need size &lt;&lt;print setup.playerSizeNeeded()&gt;&gt;
 &lt;span id=&quot;outfitTable&quot;&gt;
 &lt;table id=&quot;store&quot;&gt;
   &lt;tr&gt;
@@ -10891,6 +10892,37 @@ and will be filled in when they enter the stores. */
         }       
     }
     return setup.sizeStrings[fits.indexOf(true)] + &#39; - &#39; + setup.sizeStrings[fits.lastIndexOf(true)]; 
+}&gt;&gt;
+
+&lt;&lt;set setup.getSmallestPlayerSizeNeeded to function (slot) {
+    var statsToCheck = setup.biggestPlayerSize(slot);
+    var size = 0;
+    var fits = [];
+    var fit = &#39;&#39;;
+    for (let i = 0; i &lt; setup.sizeDatabase.length; i++) {
+        fit = &#39;fits&#39;;
+        var lowerBound = setup.sizeDatabase[i][statsToCheck + &#39;Min&#39;];
+        var upperBound = setup.sizeDatabase[i][statsToCheck + &#39;Max&#39;];
+		
+        console.log(&#39;Size &#39;+ i + &#39;, lowerBound: &#39; + lowerBound + &#39;, upperBound: &#39; + upperBound);
+        
+        if (State.variables[statsToCheck] &lt; lowerBound) {
+        fit = &#39;too big&#39;;
+        }
+        else if (State.variables[statsToCheck] &gt;= upperBound &amp;&amp; fit != &#39;too big&#39;) {
+        fit = &#39;too small&#39;;
+        }
+        else if (fit != &#39;too big&#39; &amp;&amp; fit != &#39;too small&#39;) {
+        fit = &#39;fits&#39;;
+        }
+        if(fit == &#39;fits&#39;){
+        	fits.push(true);    	
+        }
+        else{
+        	fits.push(false);
+        }       
+    }
+    return fits.indexOf(true); 
 }&gt;&gt;
 
 /* Gets the human readable bonuses from the clothing. */
