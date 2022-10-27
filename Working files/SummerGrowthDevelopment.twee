@@ -3772,34 +3772,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     }
 }>>
 
-/* Predefined clothing bonuses */
-<<set setup.clothingBonuses to {
-	stretchy: {
-    	name: "Stretchy",
-        description: "This piece of clothing does not break when it's too small. People might find it inappropriate however",
-        tightEffect: function () {
-            
-       		},
-        breakEffect: function () {
-            
-       		}
-    },
-    hideLactation: {
-    	name: "Hide Lactation",
-        description: "Lactation no longer shows when your breasts are overflowing.",
-    	lactatingEffect: function () {
-            
-       		}
-    },
-    workoutClothes: {
-    	name: "Workout Clothes",
-        description: "Workouts cost 10% less motivation",
-    	workoutEffect: function () {
-            
-       		}
-    }
-}>>
-
 /* Starting wardrobe object. */
 <<set $wardrobe to [
 	{
@@ -3983,529 +3955,71 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         }
 ]>>
 
-/* The predefined sizes in the game. */
-<<set setup.sizeDatabase to [
-	{	
-    	muscleMin: 0,
-        muscleMax: 20,
-        fatMin: 0,
-        fatMax: 20,
-        heightMin: 0,
-        heightMax: 150,
-        breastsMin: 0,
-        breastsMax: 15,
-        thighsMin: 0,
-        thighsMax: 2,
-        assMin: 0,
-        AssMax: 2,
-        dickMin: 0,
-        dickMax: 3,
-        ballsMin: 0,
-        ballsMax: 3        
-    },
-    {	
-    	muscleMin: 15,
-        muscleMax: 25,
-        fatMin: 15,
-        fatMax: 25,
-        heightMin: 140,
-        heightMax: 160,
-        breastsMin: 5,
-        breastsMax: 15,
-        thighsMin: 0,
-        thighsMax: 3,
-        assMin: 0,
-        AssMax: 3,
-        dickMin: 0,
-        dickMax: 3,
-        ballsMin: 0,
-        ballsMax: 3        
-    },
-    {	
-    	muscleMin: 20,
-        muscleMax: 30,
-        fatMin: 20,
-        fatMax: 30,
-        heightMin: 150,
-        heightMax: 170,
-        breastsMin: 10,
-        breastsMax: 15,
-        thighsMin: 0,
-        thighsMax: 4,
-        assMin: 0,
-        AssMax: 3,
-        dickMin: 0,
-        dickMax: 3,
-        ballsMin: 0,
-        ballsMax: 3        
-    },
-    {	
-    	muscleMin: 25,
-        muscleMax: 35,
-        fatMin: 25,
-        fatMax: 35,
-        heightMin: 160,
-        heightMax: 180,
-        breastsMin: 15,
-        breastsMax: 20,
-        thighsMin: 0,
-        thighsMax: 4,
-        assMin: 0,
-        AssMax: 3,
-        dickMin: 0,
-        dickMax: 3,
-        ballsMin: 0,
-        ballsMax: 3        
-    },
-    {	
-    	muscleMin: 30,
-        muscleMax: 40,
-        fatMin: 30,
-        fatMax: 40,
-        heightMin: 170,
-        heightMax: 180,
-        breastsMin: 20,
-        breastsMax: 25,
-        thighsMin: 0,
-        thighsMax: 4,
-        assMin: 0,
-        AssMax: 3,
-        dickMin: 0,
-        dickMax: 3,
-        ballsMin: 0,
-        ballsMax: 3        
-    },
-    {	
-    	muscleMin: 35,
-        muscleMax: 45,
-        fatMin: 35,
-        fatMax: 45,
-        heightMin: 180,
-        heightMax: 190,
-        breastsMin: 25,
-        breastsMax: 30,
-        thighsMin: 0,
-        thighsMax: 5,
-        assMin: 0,
-        AssMax: 4,
-        dickMin: 0,
-        dickMax: 4,
-        ballsMin: 0,
-        ballsMax: 4        
-    },
-    {	
-    	muscleMin: 40,
-        muscleMax: 50,
-        fatMin: 40,
-        fatMax: 50,
-        heightMin: 190,
-        heightMax: 200,
-        breastsMin: 30,
-        breastsMax: 35,
-        thighsMin: 0,
-        thighsMax: 6,
-        assMin: 0,
-        AssMax: 5,
-        dickMin: 0,
-        dickMax: 5,
-        ballsMin: 0,
-        ballsMax: 5        
-    },
-    {	
-    	muscleMin: 45,
-        muscleMax: 55,
-        fatMin: 45,
-        fatMax: 55,
-        heightMin: 200,
-        heightMax: 210,
-        breastsMin: 35,
-        breastsMax: 40,
-        thighsMin: 0,
-        thighsMax: 7,
-        assMin: 0,
-        AssMax: 6,
-        dickMin: 0,
-        dickMax: 6,
-        ballsMin: 0,
-        ballsMax: 6        
-    },
-    {	
-    	muscleMin: 50,
-        muscleMax: 60,
-        fatMin: 50,
-        fatMax: 60,
-        heightMin: 210,
-        heightMax: 220,
-        breastsMin: 40,
-        breastsMax: 45,
-        thighsMin: 0,
-        thighsMax: 8,
-        assMin: 0,
-        AssMax: 7,
-        dickMin: 0,
-        dickMax: 7,
-        ballsMin: 0,
-        ballsMax: 7        
-    },
-    {	
-    	muscleMin: 55,
-        muscleMax: 65,
-        fatMin: 55,
-        fatMax: 65,
-        heightMin: 220,
-        heightMax: 230,
-        breastsMin: 45,
-        breastsMax: 50,
-        thighsMin: 0,
-        thighsMax: 8,
-        assMin: 0,
-        AssMax: 8,
-        dickMin: 0,
-        dickMax: 8,
-        ballsMin: 0,
-        ballsMax: 8        
-    },
-    {	
-    	muscleMin: 60,
-        muscleMax: 70,
-        fatMin: 60,
-        fatMax: 70,
-        heightMin: 230,
-        heightMax: 240,
-        breastsMin: 50,
-        breastsMax: 55,
-        thighsMin: 0,
-        thighsMax: 9,
-        assMin: 0,
-        AssMax: 9,
-        dickMin: 0,
-        dickMax: 9,
-        ballsMin: 0,
-        ballsMax: 9        
-    },
-    {	
-    	muscleMin: 65,
-        muscleMax: 75,
-        fatMin: 65,
-        fatMax: 75,
-        heightMin: 240,
-        heightMax: 250,
-        breastsMin: 55,
-        breastsMax: 60,
-        thighsMin: 0,
-        thighsMax: 10,
-        assMin: 0,
-        AssMax: 10,
-        dickMin: 0,
-        dickMax: 10,
-        ballsMin: 0,
-        ballsMax: 10        
-    }
-]>>
-
-/* The names for the sizes listed in setup.sizeDatabase*/
-<<set setup.sizeStrings to [
-	'XS',
-    'S',
-    'M',
-    'L',
-    'XL',
-]>>
-
-/* Only the biggest size determines which clothing fits. This method determines that. */
-<<set setup.biggestPlayerSize to function (slot) {
-	var statsToCheck = [];
-     var sizes = [];
-	if(slot == undefined){
-    	statsToCheck = ['muscle', 'fat', 'height', 'breasts', 'ass', 'thighs', 'dick', 'balls'];
-    	sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
-    }
-    else if(slot == 'top' || slot == 'overwear'){
-    	statsToCheck = ['muscle', 'fat', 'height', 'breasts'];
-        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10];        
-    }
-    else if(slot == 'bra'){
-    	statsToCheck = ['muscle', 'fat', 'breasts'];
-        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.breasts - 10];        
-    }
-    else if(slot == 'bottom' || slot == 'underwear'){
-    	statsToCheck =  ['muscle', 'fat', 'height', 'ass', 'thighs', 'dick', 'balls'];
-        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
-    }
-    else if(slot == 'shoes') {
-    	return 'height';
-    }
-    else{
-    	throw 'unknown slot found in setup.biggestPlayerSize.';
-    }
-    
-    var max = Math.max(...sizes);
-
-	var index = sizes.indexOf(max);
-    
-    return statsToCheck[index];
-}>>
-
-/* Gets which predefined size from setup.sizeDatabase the player can fit in */
-<<set setup.playerSizeNeeded to function (slot) {
-    var statsToCheck = setup.biggestPlayerSize(slot);
-    var size = 0;
-    var fits = [];
-    var fit = '';
-    for (let i = 0; i < setup.sizeDatabase.length; i++) {
-        fit = 'fits';
-        var lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
-        var upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
-		
-        console.log('Size '+ i + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
-        
-        if (State.variables[statsToCheck] < lowerBound) {
-        fit = 'too big';
-        }
-        else if (State.variables[statsToCheck] >= upperBound && fit != 'too big') {
-        fit = 'too small';
-        }
-        else if (fit != 'too big' && fit != 'too small') {
-        fit = 'fits';
-        }
-        if(fit == 'fits'){
-        	fits.push(true);    	
-        }
-        else{
-        	fits.push(false);
-        }       
-    }
-    return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)]; 
-}>>
-
-/* Gets the human readable bonuses from the clothing. */
- <<set setup.getReadableBonusFromClothing = function (clothingItem) {
-	if(clothingItem == undefined){
-    	return '-';
-    }
-    if (clothingItem.bonuses.length > 0)
-    {
-        var text = '';
-        for (let i = 0; i < clothingItem.bonuses.length; i++) {
-            text += '<b> ●' + clothingItem.bonuses[i].name + '</b><br>' + clothingItem.bonuses[i].description
-        }
-        return text;
-    }
-    else {
-        return '-'
-    };
-}>>
-
-/* Gets the human readable archetypes from the clothing. */
-<<set setup.getReadableArchetypesFromClothing to function (clothingItem) {
-	if(clothingItem == undefined){
-    	return '-';
-    }
-    if (clothingItem.archetypes.length > 0)
-    {
-        var text = '';
-        for (let i = 0; i < clothingItem.archetypes.length; i++) {
-            text += ' ●' + clothingItem.archetypes[i] + '<br>'
-        }
-        return text;
-    }
-    else {
-        return '-'
-    };
-}>>
-
-/* Retrieves boolean fit/doesn't fit. */
-<<set setup.getFitFromClothing = function (clothingItem) {
-	if(clothingItem == undefined){
-    	return '-';
-    }
-	var fits = setup.getReadableFitFromClothing(clothingItem);
-    if(fits.includes('✅')){
-    	return true;
-    }
-    else if (fits.includes('❌')){
-    	return false;
-    }
-    else {
-    	return true;
-    }
-}>>
-
-/* retrieves human readable fit from the clothing. */
-<<set setup.getReadableFitFromClothing = function (clothingItem) {
-	if(clothingItem == undefined){
-    	return '-';
-    }
-    
-	var clothingFit = setup.sizeDatabase[clothingItem.size];
-    
-    var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
-    
-    var fit = 'fits';
-    
-
-    var lowerBound = clothingFit[statsToCheck + 'Min'];
-    var upperBound = clothingFit[statsToCheck + 'Max'];
-
-    if(State.variables[statsToCheck] < lowerBound){
-    	fit = 'too big';
-    }
-    else if (State.variables[statsToCheck] >= upperBound * clothingItem.tolerance)		{
-    	fit = 'too small';
-    }
-    else if (State.variables[statsToCheck] >= upperBound){
-    	fit = 'tight';
-    }
-    	else if(fit != 'tight') {
-    }
-    
-    
-    if(fit == 'fits'){
-    	return setup.sizeStrings[clothingItem.size] + '✅';
-    }
-    else if (fit == 'too small' || fit == 'too big'){
-    	return setup.sizeStrings[clothingItem.size] + '❌';
-    }
-    else {
-    	return setup.sizeStrings[clothingItem.size] + '🔶';
-    }
-	
-}>>
-
 
 :: ClothingStoreWidget [widget nobr] {"position":"2500,1525","size":"100,100"}
 <<widget "ClothingStoreWidget">>
 
-<<if $args[0] is "normal">>
-	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL"]>>
-<<elseif $args[0] is "big">>
-	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL", "XXXXXL"]>>
-<<elseif $args[0] is "online">>
-	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL", "5XL", "6XL", "7XL", "8XL", "9XL", "10XL", "11XL", "12XL", "13XL", "14XL", "15XL", "16XL", "17XL", "18XL", "19XL", "20XL", "21XL", "22XL", "23XL", "24XL", "25XL", "26XL", "27XL", "28XL", "29XL", "30XL", "31XL", "32XL", "33XL", "34XL", "35XL", "36XL", "37XL", "38XL", "39XL", "40XL", "41XL", "42XL", "43XL", "44XL", "45XL", "46XL", "47XL", "48XL", "49XL", "50XL", "51XL", "52XL", "53XL", "54XL", "55XL"]>>	
-<</if>>
+<span id="outfitTable">
+<table id="store">
+    <tr>
+        <td>
+            Show slot:<br>
+            <<listbox "$shoppingSlot" autoselect>>
+                <<optionsfrom ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes']>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with style:<br>
+            <<listbox "$shoppingStyle" autoselect>>
+                <<optionsfrom setup.allStyles>>
+            <</listbox>>
+        </td>
+        <td>
+            <<checkbox "$pieBlueberry" false true autocheck>> Show only affordable
+        </td>
+    </tr>
+        <tr>
+        <td>
+            Show only with bonus:<br>
+            <<listbox "$shoppingStyle" autoselect>>
+                <<optionsfrom ['placeholder bonus', 'placeholder bonus','placeholder bonus','placeholder bonus']>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with style:<br>
+            
+        </td>
+        <td>
+            
+        </td>
+    </tr>
+  </table>
+</span>
 
-<<if $args[1] is "tops">>
-	<<set _listBoxStartValue to 0>>
-	<<if $playerBiggestSizeTop <= _sizes.length>>
-		<<set _listBoxStartValue to $playerBiggestSizeTop>>
-	<</if>>
-	<<set _filter to "top">>
-<<elseif $args[1] is "overwear">>
-	<<set _listBoxStartValue to 0>>
-	<<if $playerBiggestSizeTop <= _sizes.length>>
-		<<set _listBoxStartValue to $playerBiggestSizeTop>>
-	<</if>>
-	<<set _filter to "overwear">>
-<<elseif $args[1] is "bra">>
-	<<set _listBoxStartValue to 0>>
-	<<if $playerBiggestSizeTop <= _sizes.length>>
-		<<set _listBoxStartValue to $playerBiggestSizeTop>>
-	<</if>>
-	<<set _filter to "bra">>
-<<elseif $args[1] is "bottom">>
-	<<set _listBoxStartValue to 0>>
-	<<if $playerBiggestSizeBottom <= _sizes.length>>
-		<<set _listBoxStartValue to $playerBiggestSizeBottom>>
-	<</if>>
-	<<set _filter to "bottom">>
-<<elseif $args[1] is "underwear">>
-	<<set _listBoxStartValue to 0>>
-	<<if $playerBiggestSizeBottom <= _sizes.length>>
-		<<set _listBoxStartValue to $playerBiggestSizeBottom>>
-	<</if>>
-	<<set _filter to "underwear">>
-<<else>>
-	<<set _filter to "all">>
-<</if>>
-
-<<set _clothingSelection to []>>
-
-<<set _newClothes to [] >>
-
-<<for _iClothingStored to 0; _iClothingStored < setup.allClothes.length; _iClothingStored ++>>
-<<capture _iClothingStored>>
-	<<if _filter is "all" or setup.allClothes[_iClothingStored].slot is _filter>>
-		<<set _clothingSelection.push(setup.allClothes[_iClothingStored])>>
-	<</if>>
-<</capture>>
-<</for>>
-
+<<liveblock>>
+<span id="outfitTable">
 <table id="store">
   <tr>
-    <th>Name</th>
+    <th>Clothing piece & price</th>
 	<th>Size</th>
+    <th>Bonusses</th>
+    <th>Fit</th>
     <th>Style</th>
-	<th>Price</th>
-	<th>Buy</th>
-  </tr>
-
-<<for _iClothingStore to 0; _iClothingStore < _clothingSelection.length; _iClothingStore ++>>
-<<capture _iClothingStore>>
-
-<<set _newClothes.push({color: "", size: "", price: 0})>>
-
-<tr id="row" @data-num="_iClothingStore">
-  <td><<print _clothingSelection[_iClothingStore].name>></td>
-  <td>
-	<<listbox "_newClothes[_iClothingStore].size">>
-	<<optionsfrom _sizes>>
-	<</listbox>>
-  </td>
-  <td>
-	<<listbox "_newClothes[_iClothingStore].color">>
-	<<optionsfrom _clothingSelection[_iClothingStore].colors>>
-	<</listbox>>
-  </td>
-  <td>
-  $<span class="selected"><<print _clothingSelection[_iClothingStore].price>></span>
-  <<timed 0s>><<script>>
-	var boxes = $(".macro-listbox#listbox--newclothes-iclothingstoresize");
-	boxes.value = State.temporary.sizes[State.temporary.listBoxStartValue];
-	console.log(State.temporary.listBoxStartValue);
-    boxes.on("change", function () {		
-		var mod = $(this).children(":selected").val();
-        $(this).parents("#row").find(".selected").fadeOut(250, function () {
-			var rowInxed = Number($(this).parents("#row").attr("data-num"));
-			var price = State.temporary.clothingSelection[rowInxed].price;
-			var value = Math.round(price * (1 + ((mod/3) * (mod/3))));
-            $(this).text(value).fadeIn(250);
-			console.log(rowInxed);
-			State.temporary.newClothes[rowInxed].price = value;
-			State.temporary.newClothes[rowInxed].size = mod;
-        });
-    });
-	<</script>><</timed>>
-	</td>
-	<td>
-		<<linkreplace "buy - 00:05 🕛">>
-			<<if $money < _newClothes[_iClothingStore].price>>
-				You can't afford this
-			<<else>>
-				Bought!
-				<<addMinutes 5>>
-				<<set _newClothing to _clothingSelection[_iClothingStore]>>
-				<<set _newClothing.color to _newClothes[_iClothingStore].color>>
-				<<if _newClothes[_iClothingStore].size is "XXS">>
-					<<set _newClothes[_iClothingStore].size to 0>>
-				<</if>>
-				<<if _newClothes[_iClothingStore].price is 0>>
-					<<set _newClothes[_iClothingStore].price to _clothingSelection[_iClothingStore].price>>
-				<</if>>
-				<<set _newClothing.size to parseInt(_newClothes[_iClothingStore].size)>>
-				<<if $args[0] != "online">>
-					<<set $wardrobe.push(_newClothing)>>
-				<<else>>
-					<<set $storeOnlineBoughtDelay.push(_newClothing)>>
-				<</if>>
-				<<set $money -= _newClothes[_iClothingStore].price>>
-				<<update>>
-			<</if>>
-		<</linkreplace>>
-  </td>
-</tr>
-<</capture>>
-<</for>>
-</table>
+  </tr>    
+    <<for _i to 0; _i < setup.allClothes.length; _i ++>>
+        <<capture _i>>
+            <tr>
+                <td><<print setup.allClothes[_i].name>> - $50</td>
+                <td>-</td>
+                <td><<print setup.getReadableBonusFromClothing(setup.allClothes[_i])>></td>
+                <td>-</td>
+                <td><<print  setup.getReadableArchetypesFromClothing(setup.allClothes[_i])>></td>
+            </tr>   
+        <</capture>>
+    <</for>>
+  </table>
+</span>
+<</liveblock>>
 <</widget>>
 
 
@@ -7084,6 +6598,8 @@ Summer Growth
 :: StoryShare [noEventTrigger] {"position":"400,800","size":"100,100"}
 <a href="https://discord.gg/SJmZFewbPK" target="_blank" rel="noopener noreferrer">Discord</a>
 <a href="https://www.deviantart.com/bobdybuilder" target="_blank" rel="noopener noreferrer">Deviantart</a>
+<a href="https://twitter.com/SummerGrowthDev" target="_blank" rel="noopener noreferrer">Follow me on twitter</a>
+<a href="https://www.patreon.com/SummerGrowth" target="_blank" rel="noopener noreferrer">Support me on Patreon</a>
 <a href="https://ko-fi.com/bobdybuilder/posts" target="_blank" rel="noopener noreferrer">Support me on Ko-fi</a>
 
 
@@ -10967,17 +10483,6 @@ and will be filled in when they enter the stores. */
         id: undefined,
         name: 'Dress shirt',
         tolerance: 1.3,
-        archetypes: ['nerdy', 'professional'],
-        bonuses: [
-                
-            ],
-        size: undefined,
-        slot: 'top'
-    }.
-    {
-        id: undefined,
-        name: 'Dress shirt',
-        tolerance: 1.3,
         archetypes: ['nerdy', 'stylish', 'professional'],
         bonuses: [
                 
@@ -11452,7 +10957,424 @@ and will be filled in when they enter the stores. */
         size: undefined,
         slot: 'shoes'
     }
-] >>
+]>>
+
+/* Predefined clothing bonuses */
+<<set setup.clothingBonuses to {
+	stretchy: {
+    	name: "Stretchy",
+        description: "This piece of clothing does not break when it's too small. People might find it inappropriate however",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		}
+    },
+    hideLactation: {
+    	name: "Hide Lactation",
+        description: "Lactation no longer shows when your breasts are overflowing.",
+    	lactatingEffect: function () {
+            
+       		}
+    },
+    workoutClothes: {
+    	name: "Workout Clothes",
+        description: "Workouts cost 10% less motivation",
+    	workoutEffect: function () {
+            
+       		}
+    }
+}>>
+
+/* The predefined sizes in the game. */
+<<set setup.sizeDatabase to [
+	{	
+    	muscleMin: 0,
+        muscleMax: 20,
+        fatMin: 0,
+        fatMax: 20,
+        heightMin: 0,
+        heightMax: 150,
+        breastsMin: 0,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 2,
+        assMin: 0,
+        AssMax: 2,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 15,
+        muscleMax: 25,
+        fatMin: 15,
+        fatMax: 25,
+        heightMin: 140,
+        heightMax: 160,
+        breastsMin: 5,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 3,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 20,
+        muscleMax: 30,
+        fatMin: 20,
+        fatMax: 30,
+        heightMin: 150,
+        heightMax: 170,
+        breastsMin: 10,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 25,
+        muscleMax: 35,
+        fatMin: 25,
+        fatMax: 35,
+        heightMin: 160,
+        heightMax: 180,
+        breastsMin: 15,
+        breastsMax: 20,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 30,
+        muscleMax: 40,
+        fatMin: 30,
+        fatMax: 40,
+        heightMin: 170,
+        heightMax: 180,
+        breastsMin: 20,
+        breastsMax: 25,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 0,
+        AssMax: 3,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 35,
+        muscleMax: 45,
+        fatMin: 35,
+        fatMax: 45,
+        heightMin: 180,
+        heightMax: 190,
+        breastsMin: 25,
+        breastsMax: 30,
+        thighsMin: 0,
+        thighsMax: 5,
+        assMin: 0,
+        AssMax: 4,
+        dickMin: 0,
+        dickMax: 4,
+        ballsMin: 0,
+        ballsMax: 4        
+    },
+    {	
+    	muscleMin: 40,
+        muscleMax: 50,
+        fatMin: 40,
+        fatMax: 50,
+        heightMin: 190,
+        heightMax: 200,
+        breastsMin: 30,
+        breastsMax: 35,
+        thighsMin: 0,
+        thighsMax: 6,
+        assMin: 0,
+        AssMax: 5,
+        dickMin: 0,
+        dickMax: 5,
+        ballsMin: 0,
+        ballsMax: 5        
+    },
+    {	
+    	muscleMin: 45,
+        muscleMax: 55,
+        fatMin: 45,
+        fatMax: 55,
+        heightMin: 200,
+        heightMax: 210,
+        breastsMin: 35,
+        breastsMax: 40,
+        thighsMin: 0,
+        thighsMax: 7,
+        assMin: 0,
+        AssMax: 6,
+        dickMin: 0,
+        dickMax: 6,
+        ballsMin: 0,
+        ballsMax: 6        
+    },
+    {	
+    	muscleMin: 50,
+        muscleMax: 60,
+        fatMin: 50,
+        fatMax: 60,
+        heightMin: 210,
+        heightMax: 220,
+        breastsMin: 40,
+        breastsMax: 45,
+        thighsMin: 0,
+        thighsMax: 8,
+        assMin: 0,
+        AssMax: 7,
+        dickMin: 0,
+        dickMax: 7,
+        ballsMin: 0,
+        ballsMax: 7        
+    },
+    {	
+    	muscleMin: 55,
+        muscleMax: 65,
+        fatMin: 55,
+        fatMax: 65,
+        heightMin: 220,
+        heightMax: 230,
+        breastsMin: 45,
+        breastsMax: 50,
+        thighsMin: 0,
+        thighsMax: 8,
+        assMin: 0,
+        AssMax: 8,
+        dickMin: 0,
+        dickMax: 8,
+        ballsMin: 0,
+        ballsMax: 8        
+    },
+    {	
+    	muscleMin: 60,
+        muscleMax: 70,
+        fatMin: 60,
+        fatMax: 70,
+        heightMin: 230,
+        heightMax: 240,
+        breastsMin: 50,
+        breastsMax: 55,
+        thighsMin: 0,
+        thighsMax: 9,
+        assMin: 0,
+        AssMax: 9,
+        dickMin: 0,
+        dickMax: 9,
+        ballsMin: 0,
+        ballsMax: 9        
+    },
+    {	
+    	muscleMin: 65,
+        muscleMax: 75,
+        fatMin: 65,
+        fatMax: 75,
+        heightMin: 240,
+        heightMax: 250,
+        breastsMin: 55,
+        breastsMax: 60,
+        thighsMin: 0,
+        thighsMax: 10,
+        assMin: 0,
+        AssMax: 10,
+        dickMin: 0,
+        dickMax: 10,
+        ballsMin: 0,
+        ballsMax: 10        
+    }
+]>>
+
+/* The names for the sizes listed in setup.sizeDatabase*/
+<<set setup.sizeStrings to [
+	'XS',
+    'S',
+    'M',
+    'L',
+    'XL',
+]>>
+
+/* Only the biggest size determines which clothing fits. This method determines that. */
+<<set setup.biggestPlayerSize to function (slot) {
+	var statsToCheck = [];
+     var sizes = [];
+	if(slot == undefined){
+    	statsToCheck = ['muscle', 'fat', 'height', 'breasts', 'ass', 'thighs', 'dick', 'balls'];
+    	sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
+    }
+    else if(slot == 'top' || slot == 'overwear'){
+    	statsToCheck = ['muscle', 'fat', 'height', 'breasts'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10];        
+    }
+    else if(slot == 'bra'){
+    	statsToCheck = ['muscle', 'fat', 'breasts'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.breasts - 10];        
+    }
+    else if(slot == 'bottom' || slot == 'underwear'){
+    	statsToCheck =  ['muscle', 'fat', 'height', 'ass', 'thighs', 'dick', 'balls'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
+    }
+    else if(slot == 'shoes') {
+    	return 'height';
+    }
+    else{
+    	throw 'unknown slot found in setup.biggestPlayerSize.';
+    }
+    
+    var max = Math.max(...sizes);
+
+	var index = sizes.indexOf(max);
+    
+    return statsToCheck[index];
+}>>
+
+/* Gets which predefined size from setup.sizeDatabase the player can fit in */
+<<set setup.playerSizeNeeded to function (slot) {
+    var statsToCheck = setup.biggestPlayerSize(slot);
+    var size = 0;
+    var fits = [];
+    var fit = '';
+    for (let i = 0; i < setup.sizeDatabase.length; i++) {
+        fit = 'fits';
+        var lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
+        var upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
+		
+        console.log('Size '+ i + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
+        
+        if (State.variables[statsToCheck] < lowerBound) {
+        fit = 'too big';
+        }
+        else if (State.variables[statsToCheck] >= upperBound && fit != 'too big') {
+        fit = 'too small';
+        }
+        else if (fit != 'too big' && fit != 'too small') {
+        fit = 'fits';
+        }
+        if(fit == 'fits'){
+        	fits.push(true);    	
+        }
+        else{
+        	fits.push(false);
+        }       
+    }
+    return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)]; 
+}>>
+
+/* Gets the human readable bonuses from the clothing. */
+ <<set setup.getReadableBonusFromClothing = function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+    if (clothingItem.bonuses.length > 0)
+    {
+        var text = '';
+        for (let i = 0; i < clothingItem.bonuses.length; i++) {
+            text += '<b> ●' + clothingItem.bonuses[i].name + '</b><br>' + clothingItem.bonuses[i].description
+        }
+        return text;
+    }
+    else {
+        return '-'
+    };
+}>>
+
+/* Gets the human readable archetypes from the clothing. */
+<<set setup.getReadableArchetypesFromClothing to function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+    if (clothingItem.archetypes.length > 0)
+    {
+        var text = '';
+        for (let i = 0; i < clothingItem.archetypes.length; i++) {
+            text += ' ●' + clothingItem.archetypes[i] + '<br>'
+        }
+        return text;
+    }
+    else {
+        return '-'
+    };
+}>>
+
+/* Retrieves boolean fit/doesn't fit. */
+<<set setup.getFitFromClothing = function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+	var fits = setup.getReadableFitFromClothing(clothingItem);
+    if(fits.includes('✅')){
+    	return true;
+    }
+    else if (fits.includes('❌')){
+    	return false;
+    }
+    else {
+    	return true;
+    }
+}>>
+
+/* retrieves human readable fit from the clothing. */
+<<set setup.getReadableFitFromClothing = function (clothingItem) {
+	if(clothingItem == undefined){
+    	return '-';
+    }
+    
+	var clothingFit = setup.sizeDatabase[clothingItem.size];
+    
+    var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
+    
+    var fit = 'fits';
+    
+
+    var lowerBound = clothingFit[statsToCheck + 'Min'];
+    var upperBound = clothingFit[statsToCheck + 'Max'];
+
+    if(State.variables[statsToCheck] < lowerBound){
+    	fit = 'too big';
+    }
+    else if (State.variables[statsToCheck] >= upperBound * clothingItem.tolerance)		{
+    	fit = 'too small';
+    }
+    else if (State.variables[statsToCheck] >= upperBound){
+    	fit = 'tight';
+    }
+    	else if(fit != 'tight') {
+    }
+    
+    
+    if(fit == 'fits'){
+    	return setup.sizeStrings[clothingItem.size] + '✅';
+    }
+    else if (fit == 'too small' || fit == 'too big'){
+    	return setup.sizeStrings[clothingItem.size] + '❌';
+    }
+    else {
+    	return setup.sizeStrings[clothingItem.size] + '🔶';
+    }
+	
+}>>
 
 
 :: StoryInit {"position":"0,300","size":"100,100"}
