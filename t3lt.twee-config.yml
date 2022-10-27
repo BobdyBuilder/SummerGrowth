@@ -1,135 +1,301 @@
 sugarcube-2:
   macros:
-    clothingFitDescription:
-      name: clothingFitDescription
-    addMinutes:
-      name: addMinutes
-    update:
-      name: update
-    outfitDescription:
-      name: outfitDescription
-    liveblock:
-      name: liveblock
-      container: true
-    live:
-      name: live
-    BreastSizeDescription:
-      name: BreastSizeDescription
-    breastCupDescriptors:
-      name: breastCupDescriptors
-    BreastsWeightDescription:
-      name: BreastsWeightDescription
-    cleaning:
-      name: cleaning
-    workoutLink:
-      name: workoutLink
-    gameLink:
-      name: gameLink
-      container: true
-    getMeasurement:
-      name: getMeasurement
-    fullBody:
-      name: fullBody
-    bodyDescription:
-      name: bodyDescription
-    DayUpdate:
-      name: DayUpdate
-    heighNumeral:
-      name: heighNumeral
-    BodyTypeDescription:
-      name: BodyTypeDescription
-    bodyHairDescription:
-      name: bodyHairDescription
-    heightDescription:
-      name: heightDescription
-    headDescription:
-      name: headDescription
-    numeralConversion:
-      name: numeralConversion
-    skillIncrease:
-      name: skillIncrease
-    lowerBodyDescription:
-      name: lowerBodyDescription
-    upperBodyDescription:
-      name: upperBodyDescription
-    lipsDescription:
-      name: lipsDescription
-    tongueDescription:
-      name: tongueDescription
-    addTrigger:
-      name: addTrigger
-    ClothingStoreWidget:
-      name: ClothingStoreWidget
-    BreastsDescription:
-      name: BreastsDescription
-    hipDescription:
-      name: hipDescription
-    assDescription:
-      name: assDescription
-    dickDescription:
-      name: dickDescription
-    addToLog:
-      name: addToLog
-    radarChart:
-      name: radarChart
-    PersonalityCheck:
-      name: PersonalityCheck
-      container: true
     Dialogue:
       name: Dialogue
       container: true
-    Failed:
-      name: Failed
-    legLenghtDescription:
-      name: legLenghtDescription
-    addQuestProgress:
-      name: addQuestProgress
-    addBreastsSlow:
-      name: addBreastsSlow
-    addHeightSlow:
-      name: addHeightSlow
+      parameters:
+        - "'player' &+ 'You'"
+        - "'Tasha' &+ 'Tasha'"
+        - "'Simon' &+ 'Simon'"
+        - "'Kris'|'KrisCasualObsessed'|'KrisCasual'|'KrisObsessed' &+ 'Kris'"
+        - "'Johan' &+ 'Johan'"
+        - "'Elena'|'ElenaHappy' &+ 'Elena'"
+        - "'Emma'|'EmmaFitness' &+ 'Emma'"
+        - "'Nathan' &+ 'Nathan'"
+        - "'Natalie' &+ 'Natalie'"
+        - "'toshiUnknown' &+ 'Toshi'"
+        - "'randomPerson' &+ 'Random guy'"
+        - "'???' &+ '???'"
+        - "'quest' &+ '_line'|'New Goal'"
+    PersonalityCheck:
+      name: PersonalityCheck
+      container: true
+      parameters:
+        - bareword &+ ('<'|'>'|'<='|'>='|'=='|'==='|'eq'|'is'|'transition'|'t8n') &+ number &+ string
     addQuest:
       name: addQuest
+      parameters:
+        - string
+    gameLink:
+      name: gameLink
+      container: true
+      parameters:
+        - string &+ string &+ (...bareword|string)
+    addBreastsSlow:
+      name: addBreastsSlow
+      parameters:
+        - number
+    addQuestProgress:
+      name: addQuestProgress
+      parameters:
+        - string &+ number
+    addTrigger:
+      name: addTrigger
+      parameters:
+        - string &+ bool &+ bool
+        - string
+    addMinutes:
+      name: addMinutes
+      parameters:
+        - number
+    addToLog:
+      name: addToLog
+      parameters:
+        - string
+    update:
+      name: update
+      parameters:
+        - ''
+    clothingFitDescription:
+      name: clothingFitDescription
+      parameters:
+        - ''
+        - string
+    ClothingStoreWidget:
+      name: ClothingStoreWidget
+      parameters:
+        - "'online'|'big'|'normal' &+ 'tops'|'bra'|'bottom'|'overwear'|'underwear'"
+    skillIncrease:
+      name: skillIncrease
+      parameters:
+        - "'gaming'|'Working out'|'Book keeping'|'Sewing'|'Cooking' &+ number"
+    Failed:
+      name: Failed
+      parameters:
+        - ''
+    addHeightSlow:
+      name: addHeightSlow
+      parameters:
+        - number
     addMuscleSlow:
       name: addMuscleSlow
-    ConsumablePopup:
-      name: ConsumablePopup
+      parameters:
+        - number
+    heighNumeral:
+      name: heighNumeral
+      parameters:
+        - ''
+    live:
+      name: live
+      parameters:
+        - ...text
     addFatSlow:
       name: addFatSlow
+      parameters:
+        - number
     personalityIncrease:
       name: personalityIncrease
+      parameters:
+        - string &+ number
+    BreastSizeDescription:
+      name: BreastSizeDescription
+      parameters:
+        - ''
+    breastCupDescriptors:
+      name: breastCupDescriptors
+      parameters:
+        - ''
+    BreastsWeightDescription:
+      name: BreastsWeightDescription
+      parameters:
+        - ''
+    cleaning:
+      name: cleaning
+      parameters:
+        - string
+    workoutLink:
+      name: workoutLink
+      parameters:
+        - " 'home'|'gym' "
+    getMeasurement:
+      name: getMeasurement
+      parameters:
+        - " 'thigh'|'calve'|'chest'|'waist'|'hips'|'neck'|'upperArm'|'lowerArm'|'wrist'|'knee'|'ankle'|'weight' |+ bool "
+    numeralConversion:
+      name: numeralConversion
+      parameters:
+        - number |+ bool
+    fullBody:
+      name: fullBody
+      parameters:
+        - ''
+    bodyDescription:
+      name: bodyDescription
+      parameters:
+        - ''
+    ClothingFitCalculator:
+      name: ClothingFitCalculator
+      parameters:
+        - bool
+    setPlayerSizeNeeded:
+      name: setPlayerSizeNeeded
+      parameters:
+        - ''
+    DayUpdate:
+      name: DayUpdate
+      parameters:
+        - ''
+    BodyTypeDescription:
+      name: BodyTypeDescription
+      parameters:
+        - ''
+    bodyHairDescription:
+      name: bodyHairDescription
+      parameters:
+        - ''
+    heightDescription:
+      name: heightDescription
+      parameters:
+        - ''
+    headDescription:
+      name: headDescription
+      parameters:
+        - ''
+    upperBodyDescription:
+      name: upperBodyDescription
+      parameters:
+        - ''
+    lowerBodyDescription:
+      name: lowerBodyDescription
+      parameters:
+        - ''
+    lipsDescription:
+      name: lipsDescription
+      parameters:
+        - ''
+    tongueDescription:
+      name: tongueDescription
+      parameters:
+        - ''
+    limitedNumberbox:
+      name: limitedNumberbox
+      parameters:
+        - string &+ number &+ number &+ number
+    liveblock:
+      name: liveblock
+      container: true
+      parameters:
+        - ''
+    BreastsDescription:
+      name: BreastsDescription
+      parameters:
+        - ''
+    hipDescription:
+      name: hipDescription
+      parameters:
+        - ''
+    assDescription:
+      name: assDescription
+      parameters:
+        - ''
+    legLenghtDescription:
+      name: legLenghtDescription
+      parameters:
+        - ''
+    dickDescription:
+      name: dickDescription
+      parameters:
+        - ''
+    radarChart:
+      name: radarChart
+      parameters:
+        - ''
     streamingViewerIncomeCalc:
       name: streamingViewerIncomeCalc
+      parameters:
+        - " 'gaming'|'talking' "
+    dialogPicker:
+      name: dialogPicker
+      parameters:
+        - " 'Johan'|'Emma'|'Elena'|'ElenaShy'|'KrisObsessed'|'PostSleep'|'Kris' "
     updateNPCLastSeen:
       name: updateNPCLastSeen
+      parameters:
+        - string
     addTriggerInternal:
       name: addTriggerInternal
       container: true
+      parameters:
+        - string &+ bool &+ bool
     sizeCalc:
       name: sizeCalc
+      parameters:
+        - number &+ number &+ number &+ '$weight'|'$chestSize'|'$waistSize'|'$hipsSize'|'$neckSize'|'$upperArmSize'|'$lowerArmSize'|'$wristSize'|'$thighsSize'|'$kneeSize'|'$calveSize'|'$ankleSize'
     weightConversion:
       name: weightConversion
-    addDickSlow:
-      name: addDickSlow
+      parameters:
+        - number
     clothingSize:
       name: clothingSize
-    TailorWidget:
-      name: TailorWidget
-    sewingTailoringWidget:
-      name: sewingTailoringWidget
-    sewingProjectsWidget:
-      name: sewingProjectsWidget
-    skillCheck:
-      name: skillCheck
-    clothingCraftingWidget:
-      name: clothingCraftingWidget
-    limitedNumberbox:
-      name: limitedNumberbox
-    dailyConsumables:
-      name: dailyConsumables
+      parameters:
+        - number
+    addDickSlow:
+      name: addDickSlow
+      parameters:
+        - number
     sleepUpdate:
       name: sleepUpdate
+      parameters:
+        - ''
+    dailyConsumables:
+      name: dailyConsumables
+      parameters:
+        - ''
+    clothingCraftingWidget:
+      name: clothingCraftingWidget
+      parameters:
+        - ''
+    skillCheck:
+      name: skillCheck
+      parameters:
+        - " 'Sewing' &+ number "
+    changeClothing:
+      name: changeClothing
+      parameters:
+        - " 'top'|'bra'|'bottom'|'overwear'|'underwear' "
+    TailorWidget:
+      name: TailorWidget
+      parameters:
+        - ''
+    sewingProjectsWidget:
+      name: sewingProjectsWidget
+      parameters:
+        - ''
+    sewingTailoringWidget:
+      name: sewingTailoringWidget
+      parameters:
+        - ''
+    postSleepDietDescription:
+      name: postSleepDietDescription
+      parameters:
+        - ''
+    krisGift:
+      name: krisGift
+      parameters:
+        - " 'potion' "
     addMotivation:
       name: addMotivation
+      parameters:
+        - number
     addMinimumExhaustion:
       name: addMinimumExhaustion
+      parameters:
+        - number
+    ConsumablePopup:
+      name: ConsumablePopup
+      parameters:
+        - number
+    removeTrigger:
+      name: removeTrigger
+      parameters:
+        - string &+ string
