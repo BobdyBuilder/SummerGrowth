@@ -3574,25 +3574,7 @@ There is a decent shopping center downtown, with various shops in the old buildi
 :: ClothingStore [storage clothingStore outOfHouse mall] {"position":"2400,1525","size":"100,100"}
 This is Allison's Apparel, one of the few remaining clothing stores here that's not part of a big chain. And that's for the best, because the selection is top-notch, and Allison is always there to help clients herself. Row after row of packed racks make up most of the store, and you get the idea it would take DAYS to browse all that is there. Luckily, everything is neatly organized and labeled, so you should be able to find just about anything you want.
 
-<<linkreplace "Shop for tops">>
-<<ClothingStoreWidget "normal" "tops">>
-<</linkreplace>>
-
-<<linkreplace "Shop for bras">>
-<<ClothingStoreWidget "normal" "bra">>
-<</linkreplace>>
-
-<<linkreplace "Shop for overwear">>
-<<ClothingStoreWidget "normal" "overwear">>
-<</linkreplace>>
-
-<<linkreplace "Shop for bottom wear">>
-<<ClothingStoreWidget "normal" "bottom">>
-<</linkreplace>>
-
-<<linkreplace "Shop for underwear">>
-<<ClothingStoreWidget "normal" "underwear">>
-<</linkreplace>>
+<<ClothingStoreWidget>>
 
 <<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
 
@@ -3960,6 +3942,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 <<widget "ClothingStoreWidget">>
 
 <<set _filteredStoreClothes to setup.allClothes>>
+<<set _range to 10>>
 
 <span id="outfitTable">
 <table id="store">
@@ -4020,10 +4003,6 @@ var setTable = function () {
         var stylesFilter = setup.allStyles[parseInt($('#listbox-shoppingstyle').children(":selected").val()) - 1];
         var bonusesFilter = parseInt($('#listbox-shoppingbonuses').children(":selected").val()) -1;
         var affordableFilter = $('#checkbox-shoppingaffordable')[0].checked;
-        console.log(slotFilter);
-        console.log(stylesFilter);
-        console.log(bonusesFilter);
-        console.log(affordableFilter);
 
         var filteredClothes = [];
 
@@ -4043,13 +4022,12 @@ var setTable = function () {
                     continue;
                 }
             }
-            setup.allClothes[i].size = setup.getSmallestPlayerSizeNeeded(setup.allClothes[i]);
+            setup.allClothes[i].size = setup.getSmallestPlayerSizeNeeded(setup.allClothes[i].slot);
             filteredClothes.push(setup.allClothes[i]);
         }
 
 
         State.temporary.filteredStoreClothes = filteredClothes;
-        console.log(State.temporary.filteredStoreClothes);
         $(".macro-live").trigger(":liveupdateinternal");
 		$(document).trigger(":liveupdate");
     };
@@ -4062,7 +4040,6 @@ setTable();
 <</timed>>
 
 <<liveblock>>
-You estimate you need size <<print setup.playerSizeNeeded()>>
 <span id="outfitTable">
 <table id="store">
   <tr>
@@ -4070,23 +4047,50 @@ You estimate you need size <<print setup.playerSizeNeeded()>>
     <th>Price</th>
 	<th>Size</th>
     <th>Bonusses</th>
-    <th>Fit</th>
     <th>Style</th>
   </tr>    
     <<for _i to 0; _i < _filteredStoreClothes.length; _i ++>>
         <<capture _i>>
-            <tr>
+            <tr  @data-num="_i">
                 <td><<print _filteredStoreClothes[_i].name>></td>
-                <td><<print setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
-                <td><<print setup.sizeStrings[_filteredStoreClothes[_i].size]>></td>
+                <td><<live setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
+                <<set _rowString to '_clothingSizeSelected' + _i>>
+                <<set _rowDisplaySize to function () {
+                    var arr = [];
+                    var startSize = State.temporary.filteredStoreClothes[State.temporary.i].size;
+                    for (let i = 0; i < setup.sizeStrings.slice(0, State.temporary.range).length; i++) {
+                        State.temporary.filteredStoreClothes[State.temporary.i].size = i;
+                        arr.push(setup.getReadableFitFromClothing(_filteredStoreClothes[_i]));
+                    }
+
+                    State.temporary.filteredStoreClothes[State.temporary.i].size = startSize;
+                    return arr;
+                }>>
+                <td><<listbox _rowString autoselect>>
+                        <<optionsfrom _rowDisplaySize()>>
+                    <</listbox>></td>
                 <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
-                <td><<print setup.getReadableFitFromClothing(_filteredStoreClothes[_i])>></td>
                 <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
             </tr>   
         <</capture>>
     <</for>>
   </table>
 </span>
+
+<<timed 0s>>
+<<script>>
+var inputs = $("[name^='listbox--clothingsizeselected']");
+inputs.on("change", function () {	
+		var mod = $(this).children(":selected").val();
+
+        var rowIndex = Number($(this).closest('tr').attr("data-num"));		
+        
+        State.temporary.filteredStoreClothes[rowIndex].size = mod;
+        $(".macro-live").trigger(":liveupdateinternal");
+    });
+<</script>>
+<</timed>>
+
 <</liveblock>>
 <</widget>>
 
@@ -10823,6 +10827,19 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
     'M',
     'L',
     'XL',
+    'XXL',
+    'XXXL',
+    '4XL',
+    '5XL',
+    '6XL',
+    '7XL',
+    '8XL',
+    '9XL',
+    '10XL',
+    '11XL',
+    '13XL',
+    '14XL',
+    '15XL'
 ]>>
 
 /* Central list of all clothing in the game. From this objects will be
@@ -11554,7 +11571,6 @@ and will be filled in when they enter the stores. */
     	return '-';
     }
     
-    console.log(clothingItem);
 	var clothingFit = setup.sizeDatabase[clothingItem.size];
     
     var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
