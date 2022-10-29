@@ -5063,7 +5063,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             },
             {
                 code: () => "<<set $lips += 1>>",
-                description: () => " You make a puckering motion as you realize something's wrong; your lips just feels... fuller! It only lasts for a second, but you're sure something feels different!",
+                description: () => " You make a puckering motion as you realize something's wrong; your lips just feel... fuller! It only lasts for a second, but you're sure something feels different!",
                 shortDescription: () => "Thickens lips",
                 chance: 0.5,
                 discovered: false
