@@ -299,3 +299,5 @@ sugarcube-2:
       name: removeTrigger
       parameters:
         - string &+ string
+    outfitDescription:
+      name: outfitDescription
