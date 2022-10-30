@@ -225,10 +225,6 @@ background-image: linear-gradient(45deg, #c71434 25%, #8f1d1d 25%, #8f1d1d 50%, 
   padding: 8px;
 }
 
-
-
-#store tr:hover {background-color: DarkGray;}
-
 #store th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -3962,11 +3958,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             <</listbox>>
         </td>
         <td>
-            <<checkbox "$shoppingAffordable" false true autocheck>> Show only affordable
-        </td>
-    </tr>
-        <tr>
-        <td>
             Show only with bonus:<br>
             <<set _bonusCopy to function () {
                 var arr = ['-'];
@@ -3984,12 +3975,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
                 <<optionsfrom _bonusCopy()>>
             <</listbox>>
         </td>
-        <td>
-            
-        </td>
-        <td>
-            
-        </td>
     </tr>
   </table>
 </span>
@@ -4002,7 +3987,6 @@ var setTable = function () {
 		var slotFilter = ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes'][$('#listbox-shoppingslot').children(":selected").val()];
         var stylesFilter = setup.allStyles[parseInt($('#listbox-shoppingstyle').children(":selected").val()) - 1];
         var bonusesFilter = parseInt($('#listbox-shoppingbonuses').children(":selected").val()) -1;
-        var affordableFilter = $('#checkbox-shoppingaffordable')[0].checked;
 
         var filteredClothes = [];
 
@@ -4052,18 +4036,34 @@ setTable();
     <<for _i to 0; _i < _filteredStoreClothes.length; _i ++>>
         <<capture _i>>
             <tr  @data-num="_i">
-                <td><<print _filteredStoreClothes[_i].name>></td>
+                <td>
+                    <<if setup.getPriceFromClothing(_filteredStoreClothes[_i]) <= $money>>
+                        <<link _filteredStoreClothes[_i].name>>
+                                <<set _filteredStoreClothes[_i].id to Date.now()>>
+                            	<<set $wardrobe.push(_filteredStoreClothes[_i])>>
+                                <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>
+                                <<script>>
+                                    console.log("User bought: ");
+                                    console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
+                                    if (Dialog.isOpen() == false) {
+                                    var dialog = Dialog.setup("Item bought");
+                                    new Wikifier(dialog, "You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe");
+                                    Dialog.open();
+                                    }
+                                <</script>>
+                                <<<<update>>
+                        <</link>>
+                    <<else>>
+                        <<print _filteredStoreClothes[_i].name>>
+                    <</if>>
+                </td>
                 <td><<live setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
                 <<set _rowString to '_clothingSizeSelected' + _i>>
                 <<set _rowDisplaySize to function () {
                     var arr = [];
-                    var startSize = State.temporary.filteredStoreClothes[State.temporary.i].size;
                     for (let i = 0; i < setup.sizeStrings.slice(0, State.temporary.range).length; i++) {
-                        State.temporary.filteredStoreClothes[State.temporary.i].size = i;
-                        arr.push(setup.getReadableFitFromClothing(_filteredStoreClothes[_i]));
+                        arr.push(setup.getReadableFitFromSize(i, State.temporary.filteredStoreClothes[State.temporary.i].slot, State.temporary.filteredStoreClothes[State.temporary.i].tolerance));
                     }
-
-                    State.temporary.filteredStoreClothes[State.temporary.i].size = startSize;
                     return arr;
                 }>>
                 <td><<listbox _rowString autoselect>>
@@ -8628,6 +8628,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
     <th>Bonusses</th>
     <th>Fit</th>
     <th>Style</th>
+    <th>Actions</th>
   </tr>  
   
  <tr>
@@ -8635,6 +8636,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
     	<input type="radio" class="clothingItemRadiobutton" name="slotItem" value='-1'>
 		<label> Nothing </label>        
     </td>
+    <td> - </td>
     <td> - </td>
     <td> - </td>
     <td> - </td>
@@ -8657,6 +8659,22 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
                 <<print setup.getReadableFitFromClothing($wardrobe[_i])>></td>
                 <td>
                 	<<print $wardrobe[_i].archetypes>>
+                </td>
+                <td>
+                	<<link "Throw away">>
+                        <<if $outfit[$wardrobe[_i].slot]().id == $wardrobe[_i].id>>
+                            <<set $outfit[$wardrobe[_i].slot]().id to undefined>>
+                        <</if>>
+                        <<set $wardrobe.splice(_i, 1)>> 
+                        <<script>>
+                            $(".macro-live").trigger(":liveupdateinternal");
+                            $(document).trigger(":liveupdate");
+                            
+                            if (Dialog.isOpen() == true) {
+                                Dialog.close();
+                                }
+                        <</script>>
+                    <</link>>
                 </td>
               </tr>  
         <</if>>
@@ -11450,8 +11468,6 @@ and will be filled in when they enter the stores. */
         fit = 'fits';
         var lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
         var upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
-		
-        console.log('Size '+ i + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
         
         if (State.variables[statsToCheck] < lowerBound) {
         fit = 'too big';
@@ -11602,6 +11618,43 @@ and will be filled in when they enter the stores. */
     }
     else {
     	return setup.sizeStrings[clothingItem.size] + '🔶';
+    }
+	
+}>>
+
+/* retrieves human readable fit from size, slot and tolerance. */
+<<set setup.getReadableFitFromSize = function (size, slot, tolerance) {   
+	var clothingFit = setup.sizeDatabase[size];
+    
+    var statsToCheck = setup.biggestPlayerSize(slot);
+    
+    var fit = 'fits';
+    
+
+    var lowerBound = clothingFit[statsToCheck + 'Min'];
+    var upperBound = clothingFit[statsToCheck + 'Max'];
+
+    if(State.variables[statsToCheck] < lowerBound){
+    	fit = 'too big';
+    }
+    else if (State.variables[statsToCheck] >= upperBound * tolerance)		{
+    	fit = 'too small';
+    }
+    else if (State.variables[statsToCheck] >= upperBound){
+    	fit = 'tight';
+    }
+    	else if(fit != 'tight') {
+    }
+    
+    
+    if(fit == 'fits'){
+    	return setup.sizeStrings[size] + '✅';
+    }
+    else if (fit == 'too small' || fit == 'too big'){
+    	return setup.sizeStrings[size] + '❌';
+    }
+    else {
+    	return setup.sizeStrings[size] + '🔶';
     }
 	
 }>>
