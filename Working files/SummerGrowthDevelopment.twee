@@ -4032,13 +4032,31 @@ setTable();
 	<th>Size</th>
     <th>Bonusses</th>
     <th>Style</th>
+    <th></th>
   </tr>    
     <<for _i to 0; _i < _filteredStoreClothes.length; _i ++>>
         <<capture _i>>
             <tr  @data-num="_i">
                 <td>
+                    <<print _filteredStoreClothes[_i].name>>                    
+                </td>
+                <td>$<<live setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
+                <<set _rowString to '_clothingSizeSelected' + _i>>
+                <<set _rowDisplaySize to function () {
+                    var arr = [];
+                    for (let i = 0; i < setup.sizeStrings.slice(0, State.temporary.range).length; i++) {
+                        arr.push(setup.getReadableFitFromSize(i, State.temporary.filteredStoreClothes[State.temporary.i].slot, State.temporary.filteredStoreClothes[State.temporary.i].tolerance));
+                    }
+                    return arr;
+                }>>
+                <td><<listbox _rowString autoselect>>
+                        <<optionsfrom _rowDisplaySize()>>
+                    <</listbox>></td>
+                <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
+                <td>
                     <<if setup.getPriceFromClothing(_filteredStoreClothes[_i]) <= $money>>
-                        <<link _filteredStoreClothes[_i].name>>
+                        <<link 'buy'>>
                                 <<set _filteredStoreClothes[_i].id to Date.now()>>
                             	<<set $wardrobe.push(_filteredStoreClothes[_i])>>
                                 <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>
@@ -4054,23 +4072,9 @@ setTable();
                                 <<<<update>>
                         <</link>>
                     <<else>>
-                        <<print _filteredStoreClothes[_i].name>>
+                        Too expensive
                     <</if>>
                 </td>
-                <td><<live setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
-                <<set _rowString to '_clothingSizeSelected' + _i>>
-                <<set _rowDisplaySize to function () {
-                    var arr = [];
-                    for (let i = 0; i < setup.sizeStrings.slice(0, State.temporary.range).length; i++) {
-                        arr.push(setup.getReadableFitFromSize(i, State.temporary.filteredStoreClothes[State.temporary.i].slot, State.temporary.filteredStoreClothes[State.temporary.i].tolerance));
-                    }
-                    return arr;
-                }>>
-                <td><<listbox _rowString autoselect>>
-                        <<optionsfrom _rowDisplaySize()>>
-                    <</listbox>></td>
-                <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
-                <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
             </tr>   
         <</capture>>
     <</for>>
@@ -10492,39 +10496,34 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 <<capture _iTailoredList>>
 
 <tr id="row" @data-num="_iTailoredList">
-  <td><<print $wardrobe[_iTailoredList].color + " " + $wardrobe[_iTailoredList].name>></td>
+  <td><<print $wardrobe[_iTailoredList].name>></td>
   <td>
-  	<<clothingSize $wardrobe[_iTailoredList].size>>
+  	<<print setup.sizeStrings[$wardrobe[_iTailoredList].size]>>
   </td>
   <td>
-	<<listbox "_newClothes[_iTailoredList].size">>
-	<<optionsfrom _sizes>>
+	<<listbox "_newClothes[_iTailoredList].size" autoselect>>
+	<<optionsfrom setup.sizeStrings>>
 	<</listbox>>
   </td>
   <td>
   <span class="selected">Select a new size first</span>
   <<timed 0s>><<script>>
+
+    /* Refactor this, it's a mess - to bob */
 	var boxes = $(".macro-listbox#listbox--newclothes-itailoredlistsize");
     boxes.on("change", function () {	
-		var mod = $(this).children(":selected").val();
+		var selectedSize = $(this).children(":selected").val();
         $(this).parents("#row").find(".selected").fadeOut(250, function () {
 			var rowIndex = Number($(this).parents("#row").attr("data-num"));
-			console.log("Row found with index:" + rowIndex);
 			var price = State.variables.wardrobe[rowIndex].price;
-			console.log("Price of row :" + price);
 			var sizeMod = State.variables.wardrobe[rowIndex].size;
-			console.log("Starting size of row :" + sizeMod);
-			console.log("New size of row :" + mod);
-			var difference = Math.abs(mod - sizeMod);
-			console.log("Difference of row :" + difference);
+			var difference = Math.abs(selectedSize - sizeMod);			
 			
-			
+            /* Extract this -  Bob */
 			var value = Math.round((20 * (0.5 * (State.variables.wardrobe[rowIndex].size + 1))) * (1 + ((difference/3) * (difference/3))));
             $(this).text("$" + value).fadeIn(250);
-			State.temporary.newClothes[rowIndex].size = parseInt(mod);
+			State.temporary.newClothes[rowIndex].size = parseInt(selectedSize);
 			State.temporary.newClothes[rowIndex].price = value;
-			console.log("New clothing:");
-			console.log(State.temporary.newClothes[rowIndex]);
         });
     });
 	<</script>><</timed>>
@@ -10539,38 +10538,9 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 				<<set $simonOpinion += 1>>
 				Tailored!
 				<<set $wardrobe[_iTailoredList] to _newClothes[_iTailoredList]>>
-				
-				<<script>>
-				console.log(State.temporary.newClothes[State.temporary.iTailoredList]);
-				<</script>>
-				
-				<<if _newClothes[_iTailoredList].size is "XXS">>
-					<<set $wardrobe[_iTailoredList].size to 0>>
-				<</if>>
-				<<if $wardrobe[_iTailoredList].tolerances.hasOwnProperty("bulk")>>
-					<<set $wardrobe[_iTailoredList].tolerances.bulk to 1>>
-				<</if>>
-				<<if $wardrobe[_iTailoredList].tolerances.hasOwnProperty("height")>>
-					<<set $wardrobe[_iTailoredList].tolerances.height to 1>>
-				<</if>>
-				<<if $wardrobe[_iTailoredList].tolerances.hasOwnProperty("breasts")>>
-					<<set $wardrobe[_iTailoredList].tolerances.breasts to 1>>
-				<</if>>
-				<<if $wardrobe[_iTailoredList].tolerances.hasOwnProperty("dick")>>
-					<<set $wardrobe[_iTailoredList].tolerances.dick to 1>>
-				<</if>>
-				<<if $wardrobe[_iTailoredList].tolerances.hasOwnProperty("ass")>>
-					<<set $wardrobe[_iTailoredList].tolerances.ass to 1>>
-				<</if>>
-				<<if $wardrobe[_iTailoredList].tolerances.hasOwnProperty("hips")>>
-					<<set $wardrobe[_iTailoredList].tolerances.hips to 1>>
-				<</if>>
-				
-				<<set $wardrobe[_iTailoredList].fit to []>>
 				<<set $money -= _newClothes[_iTailoredList].price>>
 				<<addMinutes 5>>
-				<<update>>
-				<<set $wardrobe[_iTailoredList].traits.push("tailored")>>			
+				<<update>>	
 			<</if>>
 		<</linkreplace>>
   </td>
