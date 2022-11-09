@@ -18140,15 +18140,15 @@ You wave goodbye as Elena turns to leave. You're left alone with your thoughts o
                         breastsUrl.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl;
                     bodyParts.push(generateBodyPart(breastsSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
                 } else {
-                    /* left breast */
-                    let leftBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
-                        breastsUrl.left.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.left;
-                    bodyParts.push(generateBodyPart(leftBreastSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
-
                     /* right breast */
                     let rightBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
                         breastsUrl.right.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.right;
                     bodyParts.push(generateBodyPart(rightBreastSrc, currentBody.rightBreastOffsetX, currentBody.rightBreastOffsetY));
+                    
+                    /* left breast */
+                    let leftBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.left.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.left;
+                    bodyParts.push(generateBodyPart(leftBreastSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
                 }
 
                 bodyParts.push(generateBodyPart('https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/head.png', 50, 0));
