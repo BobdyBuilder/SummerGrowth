@@ -18678,7 +18678,7 @@ You wrap things up as quickly as you can and head back to Emma's office, knockin
 She sets her coffee down and gestures to the seat opposite her before pushing her keyboard away a bit and massaging the bridge of her nose.
 
 <<Dialogue "Emma" "Emma">> "Thank you for coming to see me, <<print $playerFirstName>>. I have something very urgent and important that I need to discuss with you."<</Dialogue>>
-<<if $muscle>=90||$breasts>=100>$fat>=70||$height>=400>>You take a look at the wooden chair that looks comically small next to your frame, and you decide better than to sit in it. You stand in place, waiting anxiously to hear what Emma has to say.>><<elseif $muscle>=50||$fat>=50||$breasts>=80||$height>=300>>You obediently take your seat, though the sound it makes as you do doesn't do anything to make you less worried.>><<else>>You quickly take the seat and wait with bated breath to hear what Emma has to say.<</if>>You're still not sure if you were being hauled in here to be reprimanded.
+<<if $muscle>=90||$breasts>=100>$fat>=70||$height>=400>>You take a look at the wooden chair that looks comically small next to your frame, and you decide better than to sit in it. You stand in place, waiting anxiously to hear what Emma has to say.>><<elseif $muscle>=50||$fat>=50||$breasts>=80||$height>=300>>You obediently take your seat, though the sound it makes as you do doesn't do anything to make you less worried.<<else>>You quickly take the seat and wait with bated breath to hear what Emma has to say.<</if>>You're still not sure if you were being hauled in here to be reprimanded.
 
 <<Dialogue "player" "You">> "Uh. Of course. Whatever it is, I'm happy to help?"<</Dialogue>>
 Emma sighs and her shoulders slump a bit, but her serious expression remains unchanged.
