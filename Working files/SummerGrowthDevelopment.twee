@@ -10846,7 +10846,7 @@ and will be filled in when they enter the stores. */
                 setup.clothingBonuses.stretchy
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 20,
         slot: 'top'
     },
     {
@@ -10858,7 +10858,7 @@ and will be filled in when they enter the stores. */
                 setup.clothingBonuses.stretchy
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 35,
         slot: 'top'
     },
     {
@@ -10870,7 +10870,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 35,
         slot: 'top'
     },
     {
@@ -10894,7 +10894,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 15,
         slot: 'top'
     },
     {
@@ -10906,7 +10906,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 85,
         slot: 'top'
     },
     {
@@ -10918,7 +10918,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 65,
         slot: 'top'
     },
     {
@@ -10930,7 +10930,7 @@ and will be filled in when they enter the stores. */
                 setup.clothingBonuses.stretchy
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 20,
         slot: 'top'
     },
     {
@@ -10942,7 +10942,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 25,
         slot: 'top'
     },
     {
@@ -10954,7 +10954,7 @@ and will be filled in when they enter the stores. */
                 setup.clothingBonuses.stretchy
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 85,
         slot: 'top'
     },
 /* Overwear */
@@ -10979,7 +10979,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 120,
         slot: 'overwear'
     },
     {
@@ -10991,7 +10991,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 200,
         slot: 'overwear'
     },
     {
@@ -11003,7 +11003,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 95,
         slot: 'overwear'
     },
     {
@@ -11027,7 +11027,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 35,
         slot: 'overwear'
     },
     {
@@ -11051,19 +11051,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
-        slot: 'overwear'
-    },
-    {
-        id: undefined,
-        name: 'track top',
-        tolerance: 1.3,
-        archetypes: ['gymrat', 'nerdy'],
-        bonuses: [
-                
-            ],
-        size: 0,
-        baseCost: 50,
+        baseCost: 65,
         slot: 'overwear'
     },
     {
@@ -11075,7 +11063,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 75,
         slot: 'overwear'
     },
     {
@@ -11087,7 +11075,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 75,
         slot: 'overwear'
     },
 /* Bras */
@@ -11112,7 +11100,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 60,
         slot: 'bra'
     },
     {
@@ -11124,7 +11112,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 80,
         slot: 'bra'
     },
     {
@@ -11149,7 +11137,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 60,
         slot: 'bottom'
     },
     {
@@ -11161,7 +11149,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 100,
         slot: 'bottom'
     },
     {
@@ -11173,7 +11161,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 40,
         slot: 'bottom'
     },
     {
@@ -11197,7 +11185,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 30,
         slot: 'bottom'
     },
     {
@@ -11209,7 +11197,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 30,
         slot: 'bottom'
     },
     {
@@ -11221,7 +11209,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 40,
         slot: 'bottom'
     },
     {
@@ -11245,7 +11233,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 40,
         slot: 'bottom'
     },
 /* underWear */
@@ -11258,7 +11246,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 20,
         slot: 'underwear'
     },
     {
@@ -11270,7 +11258,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 25,
         slot: 'underwear'
     },
     {
@@ -11282,7 +11270,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 35,
         slot: 'underwear'
     },
 /* Shoes */
@@ -11295,7 +11283,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 60,
         slot: 'shoes'
     },
     {
@@ -11307,7 +11295,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 75,
         slot: 'shoes'
     },
     {
@@ -11319,7 +11307,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 100,
         slot: 'shoes'
     },
     {
@@ -11331,7 +11319,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 80,
         slot: 'shoes'
     },
     {
@@ -11343,7 +11331,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 120,
         slot: 'shoes'
     },
     {
@@ -11355,7 +11343,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 75,
         slot: 'shoes'
     },
     {
@@ -11367,7 +11355,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 10,
         slot: 'shoes'
     },
     {
@@ -11379,7 +11367,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 120,
         slot: 'shoes'
     },
     {
@@ -11391,7 +11379,7 @@ and will be filled in when they enter the stores. */
                 
             ],
         size: 0,
-        baseCost: 50,
+        baseCost: 175,
         slot: 'shoes'
     }
 ]>>
@@ -11509,13 +11497,13 @@ and will be filled in when they enter the stores. */
     };
 }>>
 
-/* The single method that describes the price of clothing */
+/* The single method that describes the price of clothing. For balancing, adjust this. For now it's done linearly, to make sure that the progression isn't too hard. */
  <<set setup.getPriceFromClothing = function (clothingItem, size) {
 	if(clothingItem == undefined){
         throw "undefined clothingitem in getPriceFromClothing";
     	return 0;
     }
-    return parseInt(clothingItem.baseCost) * parseInt(clothingItem.size);
+    return parseInt(clothingItem.baseCost) + (parseInt(clothingItem.baseCost) * parseInt(clothingItem.size));
 }>>
 
 /* Gets the human readable archetypes from the clothing. */
@@ -14994,7 +14982,79 @@ var boxes = $(".macro-limitedNumberbox");
 
 <<set _timeTaken to Math.round(_timeTaken)>>
 
-<<gameLink "Get ready for the day" "postSleepDescription" motivation:_motivationChange minexhaustion:_minimumExhaustionChange time:_timeTaken>><<dailyConsumables>><<skillIncrease "Cooking" _cookingXPGain>><<sleepUpdate>><<if _useMealPrep>><<set $mealsPrepped.deleteAt($mealsPrepped.length - 1)>><</if>><<if $lactationMorningRoutineEmptying>><<set $milkStored to 0>><</if>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
+<<gameLink "Get ready for the day" "postSleepDescription" motivation:_motivationChange minexhaustion:_minimumExhaustionChange time:_timeTaken>>
+    <<dailyConsumables>>
+    <<skillIncrease "Cooking" _cookingXPGain>>
+    <<sleepUpdate>>
+    <<if _useMealPrep>>
+        <<set $mealsPrepped.deleteAt($mealsPrepped.length - 1)>>
+    <</if>>
+    <<if $lactationMorningRoutineEmptying>>
+        <<set $milkStored to 0>>
+    <</if>>
+    <<set $eventCounter to setup.balance.eventTresshold + 1>>
+    
+/* Post sleep clothing update. As this is the place where the player has grown, a popup will appear telling the player their size after sleep IF it's relevant. 
+This block can be easily cut and pasted to other places. Also, maybe make to a method? Cleaner. - just try it out. Bob. */
+    <<script>>
+        var postSleepOutfitDescription = '';
+
+        if (setup.getReadableFitFromClothing(State.variables.outfit.bra()).includes('❌')){
+            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today you just can't get it to fit without it being hella painful! You don't think this will fit you anymore, you'll have to get something new for sure. `;
+            State.variables.outfit.braId = undefined;
+        }
+        else if (setup.getReadableFitFromClothing(State.variables.outfit.bra()).includes('🔶')){
+            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today it takes some more effort. You'll have to replace it soon. `;
+        }
+
+        if (setup.getReadableFitFromClothing(State.variables.outfit.underwear()).includes('❌')){
+            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is painfully tight. It feels like it's cutting off circulation! Yeah, this has to go. `;
+            State.variables.outfit.underwearId = undefined;
+        }
+        else if (setup.getReadableFitFromClothing(State.variables.outfit.underwear()).includes('🔶')){
+            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is pretty tight. It's pretty close to uncomfortable. Yeah, this maybe has to go. `;
+        }
+
+        if (setup.getReadableFitFromClothing(State.variables.outfit.top()).includes('❌')){
+            postSleepOutfitDescription += `As you put on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} just doesn't fit anymore! You try a few times, but yeah this is not going to work. `;
+            State.variables.outfit.topId = undefined;
+        }
+        else if (setup.getReadableFitFromClothing(State.variables.outfit.top()).includes('🔶')){
+            postSleepOutfitDescription += `As you put on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} is way tighter than you remember! You try it a few times, but you'd do well to get something else. `;
+        }
+
+        if (setup.getReadableFitFromClothing(State.variables.outfit.bottom()).includes('❌')){
+            postSleepOutfitDescription += `Putting on your  ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that, yeah this no longer fits. Shame. `;
+            State.variables.outfit.bottomId = undefined;
+        }
+        else if (setup.getReadableFitFromClothing(State.variables.outfit.bottom()).includes('🔶')){
+            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that, yeah this barely longer fits. Well, time to get something new. `;;
+        }
+
+        if (setup.getReadableFitFromClothing(State.variables.outfit.shoes()).includes('❌')){
+            postSleepOutfitDescription += `When you put ony our ${State.variables.outfit.shoes().name} you try to get them on but yeah, this ain't happening. Seems you outgrew them? `;
+            State.variables.outfit.shoesId = undefined;
+        }
+        else if (setup.getReadableFitFromClothing(State.variables.outfit.shoes()).includes('🔶')){
+            postSleepOutfitDescription += `When you put ony our ${State.variables.outfit.shoes().name} you try to get them on but yeah, they're pretty tight. Seems you're outgrowing them?`;
+        }
+
+        if (setup.getReadableFitFromClothing(State.variables.outfit.overwear()).includes('❌')){
+            postSleepOutfitDescription += `Finally you put your ${State.variables.outfit.overwear().name} on. Or atleast, you try! Why doesn't it fit?! Yeah, you can't wear this anymore.`;
+            State.variables.outfit.overwearId = undefined;
+        }
+        else if (setup.getReadableFitFromClothing(State.variables.outfit.overwear()).includes('🔶')){
+            postSleepOutfitDescription += `Finally you put your ${State.variables.outfit.overwear().name} on. It takes a few tries though, as it's pretty tight.`;
+        }        
+
+        if (Dialog.isOpen() == false && postSleepOutfitDescription != '') {
+            var dialog = Dialog.setup('wardrobe malfunction!');
+            new Wikifier(dialog, postSleepOutfitDescription);
+            Dialog.open();
+        }
+    <</script>>
+
+    <</gameLink>>
 <</liveblock>>
 
 <</nobr>>
