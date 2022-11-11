@@ -18719,7 +18719,13 @@ Only as you finish saying this, your tummy rumbles, and you realize how hungry y
 <<Dialogue "player" "You">> "Well, we both busted our ass to get this finished. Why don't we celebrate? We could go out and grab some dinner together, maybe?"<</Dialogue>>
 She cocks an eyebrow at you, her face quickly adopting a familiar stern expression.
 
-<<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>, I hope this isn't some harebrained attempt at romancing me. While I am immensely grateful for the help you gave me today, I should hope you understand why interoffice relationships are a bad idea."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>, you would do well to remember that fraternizing with your superiors is frowned upon, for obvious reasons. While I am immensely grateful for the help you gave me today, I should hope you aren't entertaining any silly ideas."<</Dialogue>>
+
+<<Dialogue "player" "You">> "Who said anything about fraternizing? I just want to spend some quality time with my awesome boss!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">> "Let me be perfectly clear here: I take my commitment to this job very seriously, and courtship with other employees is not something I am willing to entertain - it would compromise my responsibilities in a way I am not at all comfortable with."<</Dialogue>>
+
+You get the impression Emma is speaking from experience - there was a bitter edge when she said that. It gives you an uneasy sense of dread, but at the same time, it also stirs something inside of you, wanting to reach out for the person you feel she is shielding inside.
 
 [[No, not at all! This is just dinner among coworkers. You could consider it a bonding activity.|Professional Start]]
 [[Why does it have to be romantic? I consider you a friend by now. I just wanted to get a chance to know you better.|Friendly Start]]
