@@ -10847,7 +10847,8 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 20,
-        slot: 'top'
+        slot: 'top',
+        stores: ['']
     },
     {
         id: undefined,
@@ -12988,16 +12989,102 @@ Well, he's not once to mince words. His directness doesn't feel like derision. I
 :: sewingTailoringWidget [widget nobr] {"position":"2700,2025","size":"100,100"}
 <<widget "sewingTailoringWidget">>
 
-	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL", "5XL", "6XL", "7XL", "8XL", "9XL", "10XL", "11XL", "12XL", "13XL", "14XL", "15XL", "16XL", "17XL", "18XL", "19XL", "20XL", "21XL", "22XL", "23XL", "24XL", "25XL", "26XL", "27XL", "28XL", "29XL", "30XL", "31XL", "32XL", "33XL", "34XL", "35XL", "36XL", "37XL", "38XL", "39XL", "40XL", "41XL", "42XL", "43XL", "44XL", "45XL", "46XL", "47XL", "48XL", "49XL", "50XL"]>>
+<<set _filteredWardrobeClothes to $wardrobe>>
+<<set _range to 10>>
 
-<<set _newClothes to clone($wardrobe)>>
+<span id="outfitTable">
+<table id="store">
+    <tr>
+        <td>
+            Show slot:<br>
+            <<listbox "$shoppingSlot" autoselect>>
+                <<optionsfrom ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes']>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with style:<br>
+            <<set _stylesCopy to [...setup.allStyles]>>
+            <<set _stylesCopy.unshift('All styles')>>
+            <<listbox "$shoppingStyle" autoselect>>
+                <<optionsfrom _stylesCopy>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with bonus:<br>
+            <<set _bonusCopy to function () {
+                var arr = ['-'];
+
+                for (var prop in setup.clothingBonuses) {
+                    if (setup.clothingBonuses.hasOwnProperty(prop)) {
+                        var innerObj = {};
+                        innerObj[prop] = setup.clothingBonuses[prop];
+                        arr.push(Object.values(innerObj)[0].name);
+                    }
+                }   
+                return arr;
+            }>>
+            <<listbox "$shoppingBonuses" autoselect>>
+                <<optionsfrom _bonusCopy()>>
+            <</listbox>>
+        </td>
+    </tr>
+  </table>
+</span>
+
+<<timed 0s>>
+<<script>>
+var inputs = $("#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable");
+
+var setTable = function () {	
+
+        var clothingSet = State.variables.wardrobe;
+		var slotFilter = ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes'][$('#listbox-shoppingslot').children(":selected").val()];
+        var stylesFilter = setup.allStyles[parseInt($('#listbox-shoppingstyle').children(":selected").val()) - 1];
+        var bonusesFilter = parseInt($('#listbox-shoppingbonuses').children(":selected").val()) -1;
+
+        var filteredClothes = [];
+
+        for (let i = 0; i < clothingSet.length; i++) {
+            if(slotFilter != '-'){
+                if(clothingSet[i].slot != slotFilter){
+                    continue;
+                }
+            }
+            if(stylesFilter != undefined){
+                if(!clothingSet[i].archetypes.includes(stylesFilter)){
+                    continue;
+                }
+            }
+            if(bonusesFilter != -1){
+                if(!clothingSet[i].bonuses.includes(Object.values(setup.clothingBonuses)[bonusesFilter])){
+                    continue;
+                }
+            }
+            filteredClothes.push(clothingSet[i]);
+        }
+
+
+        State.temporary.filteredWardrobeClothes = filteredClothes;
+        $(".macro-live").trigger(":liveupdateinternal");
+		$(document).trigger(":liveupdate");
+    };
+
+inputs.on("change", setTable);
+
+setTable();
+
+<</script>>
+<</timed>>
+
+<<liveblock>>
+<<set _newClothes to clone(_filteredWardrobeClothes)>>
 
 <<set _wardRobeCopy to []>>
-<<for _i to 0; _i < $wardrobe.length; _i ++>>
+<<for _i to 0; _i < _filteredWardrobeClothes.length; _i ++>>
 <<capture _i>>
 	<<set _wardRobeCopy.push(
 		{
-			clothing: $wardrobe[_i],
+			clothing: _newClothes[_i],
 			fabric: 0,
 			timeNeeded: 0,
 			timeSpend: 0,
@@ -13021,22 +13108,23 @@ Well, he's not once to mince words. His directness doesn't feel like derision. I
 <<capture _i>>
 
 <tr id="row" @data-num="_i">
-  <td><<print _wardRobeCopy[_i].clothing.color + " " + _wardRobeCopy[_i].clothing.name>></td>
+  <td><<print _wardRobeCopy[_i].clothing.name>></td>
   <td>
-  	<<clothingSize _wardRobeCopy[_i].clothing.size>>
+  	<<print setup.sizeStrings[_wardRobeCopy[_i].clothing.size]>>
   </td>
   <td>
-	<<listbox "_newClothes[_i].size">>
-	<<optionsfrom _sizes>>
+	<<listbox "_wardRobeCopy[_i].size">>
+	<<optionsfrom setup.sizeStrings>>
 	<</listbox>>
   </td>
   <td>
   <span class="selected">0</span>
   <<timed 0s>><<script>>
-	var boxes = $(".macro-listbox#listbox--newclothes-isize");
+	var boxes = $(".macro-listbox#listbox--wardrobecopy-isize");
     boxes.on("change", function () {	
 		var mod = $(this).children(":selected").val();
-        $(this).parents("#row").find(".selected").fadeOut(250, function () {
+        console.log("mod: " + mod);
+        $(this).parents("#row").find(".selected, .selectedFabric").fadeOut(250, function () {
 			var rowInxed = Number($(this).parents("#row").attr("data-num"));
 			var sizeMod = State.temporary.wardRobeCopy[rowInxed].clothing.size;
 			
@@ -13046,40 +13134,23 @@ Well, he's not once to mince words. His directness doesn't feel like derision. I
 			
 			State.temporary.wardRobeCopy[rowInxed].timeNeeded = value;
 			
-			State.temporary.newClothes[rowInxed].size = parseInt(mod);
-			console.log("got here");
-			console.log(State.temporary.newClothes[rowInxed]);
-            $(this).text(value).fadeIn(250);
+			State.temporary.wardRobeCopy[rowInxed].newSize = parseInt(mod);
+            console.log(mod);
+            State.temporary.wardRobeCopy[rowInxed].fabric = parseInt(difference);
+            
+            $(this).parents("#row").find(".selected").text(value).fadeIn(250);
+            $(this).parents("#row").find(".selectedFabric").text(difference).fadeIn(250);
         });
     });
 	<</script>><</timed>>
 	</td>
 	<td>
   <span class="selectedFabric">0</span>
-  <<timed 0s>><<script>>
-	var boxes = $(".macro-listbox#listbox--newclothes-isize");
-    boxes.on("change", function () {	
-		var mod = $(this).children(":selected").val();
-        $(this).parents("#row").find(".selectedFabric").fadeOut(250, function () {
-			var rowInxed = Number($(this).parents("#row").attr("data-num"));
-			var sizeMod = State.temporary.wardRobeCopy[rowInxed].clothing.size;
-			
-			var difference = Math.abs(mod - sizeMod);			
-			
-			var value = difference;
-			
-			State.temporary.wardRobeCopy[rowInxed].fabric = value;
-			
-            $(this).text(value).fadeIn(250);
-        });
-    });
-	<</script>><</timed>>
   	</td>
 	<td>
 		<<linkreplace "Add to projects">>
 			<<if $fabric > 0 && $fabric >= _wardRobeCopy[_i].fabric && _wardRobeCopy[_i].timeNeeded != 0>>
-			  <<set _wardRobeCopy[_i].newSize to _newClothes[_i].size>>
-			  <<set _wardRobeCopy[_i].clothing.size to _newClothes[_i].size>>
+			  <<set _wardRobeCopy[_i].clothing.size to _wardRobeCopy[_i].newSize>>
 			  <<set $sewingProjects.push(_wardRobeCopy[_i])>>
 			  <<set $fabric -= _wardRobeCopy[_i].fabric>>
 			  <<set $wardrobe.deleteAt(_i)>>
@@ -13095,6 +13166,7 @@ Well, he's not once to mince words. His directness doesn't feel like derision. I
 <</capture>>
 <</for>>
 </table>
+<</liveblock>>
 <</widget>>
 
 
@@ -13145,13 +13217,17 @@ Next to the sewing machine you have all the projects you're currently working on
 <<for _iSewingProject to 0; _iSewingProject < $sewingProjects.length; _iSewingProject ++>>
 <<capture _iSewingProject>>
 
+<<script>>
+    console.log(State.variable)
+<</script>>
+
 <tr id="row" @data-num="_iSewingProject">
-  <td><<print $sewingProjects[_iSewingProject].clothing.color + " " + $sewingProjects[_iSewingProject].clothing.name>></td>
+  <td><<print $sewingProjects[_iSewingProject].clothing.name>></td>
   <td>
 <<print $sewingProjects[_iSewingProject].timeNeeded>>
   </td>
       <td>
-  	<<clothingSize $sewingProjects[_iSewingProject].clothing.size>>
+  	<<print setup.sizeStrings[$sewingProjects[_iSewingProject].newSize]>>
   </td>
 	<td><<if $motivationPercentage >= $exhaustionPercentage and $exhaustion +20 <= $maxExhaustion>>
 	<<skillCheck "Sewing" 2>>
@@ -13169,8 +13245,7 @@ Next to the sewing machine you have all the projects you're currently working on
 			
 			<<if $sewingProjects[_iSewingProject].timeNeeded is 0 || 
 				$sewingProjects[_iSewingProject].timeNeeded < 0>>
-				<<set $sewingProjects[_iSewingProject].clothing.size to 								$sewingProjects[_iSewingProject].newSize>>
-				<<set $sewingProjects[_iSewingProject].clothing.traits.push("homeTailored")>>
+				<<set $sewingProjects[_iSewingProject].clothing.size to $sewingProjects[_iSewingProject].newSize>>
 				<<set $wardrobe.push($sewingProjects[_iSewingProject].clothing)>>
 				<<set $sewingProjects.deleteAt(_iSewingProject)>>
 				<<script>>
@@ -13205,9 +13280,6 @@ Next to the sewing machine you have all the projects you're currently working on
 :: clothingCraftingWidget [widget nobr] {"position":"2900,2025","size":"100,100"}
 <<widget "clothingCraftingWidget">>
 
-
-	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL", "5XL", "6XL", "7XL", "8XL", "9XL", "10XL", "11XL", "12XL", "13XL", "14XL", "15XL", "16XL", "17XL", "18XL", "19XL", "20XL", "21XL", "22XL", "23XL", "24XL", "25XL", "26XL", "27XL", "28XL", "29XL", "30XL", "31XL", "32XL", "33XL", "34XL", "35XL", "36XL", "37XL", "38XL", "39XL", "40XL", "41XL", "42XL", "43XL", "44XL", "45XL", "46XL", "47XL", "48XL", "49XL", "50XL"]>>
-
 <<set _allClothes to clone(setup.allClothes)>>
 <<set _allClothesTypes to []>>
 <<set _emptyList to [""]>>
@@ -13234,7 +13306,6 @@ Next to the sewing machine you have all the projects you're currently working on
 <table id="store">
   <tr>
     <th>Type</th>
-	<th>Color/style</th>
 	<th>Size</th>
 	<th>Time to make in minutes</th>
 	<th>Fabric needed</th>
@@ -13247,41 +13318,10 @@ Next to the sewing machine you have all the projects you're currently working on
 	<<optionsfrom _allClothesTypes>>
 	<</listbox>>
   </td>
-  <td>
-  <span class="selected">
-  	<select id="listbox--newStyle" name="style">
-	  <option value="0"></option>
-	</select>
-	 </span>
-	 
-  	<<timed 0s>><<script>>
-	var box = $(".macro-listbox#listbox--newprojectname");
-    box.on("change", function () {	
-		var mod = $(this).children(":selected").val();
-        $(this).parents("#row").find(".selected").fadeOut(250, function () {		
-		
-			State.temporary.newProject.i = mod;
-			var styleBox = document.getElementById("listbox--newStyle");
-			var selectOptions = styleBox.options;
-			
-			styleBox.options.length=0;
-			
-			
-			 for (let i = 0; i < State.temporary.allClothes[mod].colors.length; i++) 				{
-				let newOption = new Option(State.temporary.allClothes[mod].colors[i],i);
-				styleBox.add(newOption,undefined);
-				}
-		
-			$(this).fadeIn(250);
-			console.log(State.temporary.newProject);
-        });
-    });
-	
-	<</script>><</timed>>
-  </td>
+
   <td>
   	<<listbox "_newProject.dump">>
-	<<optionsfrom _sizes>>
+	<<optionsfrom setup.sizeStrings>>
 	<</listbox>>
   </td>
   <td>
@@ -13292,7 +13332,7 @@ Next to the sewing machine you have all the projects you're currently working on
     <<timed 0s>><<script>>
 	State.temporary.newProject.fabric = 1;
 	State.temporary.newProject.timeNeeded = 60;
-	var boxes = $(".macro-listbox#listbox--newprojectdump");
+	var boxes = $(".macro-listbox#listbox--newprojectdump, .macro-listbox#listbox--newprojectname");
     boxes.on("change", function () {	
 		var mod = $(this).children(":selected").val();
 		State.temporary.newProject.newSize = mod;
@@ -13315,14 +13355,7 @@ Next to the sewing machine you have all the projects you're currently working on
   </td>
     <td>
   <<link "craft" "sewing">>
-  	<<if $fabric >= _newProject.fabric>>
-  	<<script>>
-	var boxes = $("#listbox--newStyle");
-		var mod = $('#listbox--newStyle option:selected').val();
-			State.temporary.newProject.style = setup.allClothes[State.temporary.newProject.i].colors[mod];
-			console.log(State.temporary.newProject.style);
-	<</script>>
-	
+  	<<if $fabric >= _newProject.fabric>>	
   	<<set _newCraftingProject to {
 			clothing: setup.allClothes[_newProject.i],
 			fabric: _newProject.fabric,
@@ -13330,7 +13363,6 @@ Next to the sewing machine you have all the projects you're currently working on
 			timeSpend: 0,
 			newSize: _newProject.newSize
 		}>>
-	<<set _newCraftingProject.clothing.color to _newProject.style>>
 	<<set _newCraftingProject.clothing.size to _newProject.newSize>>
   	<<set $sewingProjects.push(_newCraftingProject)>>
 	<<set $fabric -= _newProject.fabric>>
@@ -15000,7 +15032,7 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
         var postSleepOutfitDescription = '';
 
         if (setup.getReadableFitFromClothing(State.variables.outfit.bra()).includes('❌')){
-            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today you just can't get it to fit without it being hella painful! You don't think this will fit you anymore, you'll have to get something new for sure. `;
+            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today you just can't get it to fit without it being hella painful. You don't think this will fit you anymore, you'll have to get something new for sure. `;
             State.variables.outfit.braId = undefined;
         }
         else if (setup.getReadableFitFromClothing(State.variables.outfit.bra()).includes('🔶')){
@@ -15008,27 +15040,27 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
         }
 
         if (setup.getReadableFitFromClothing(State.variables.outfit.underwear()).includes('❌')){
-            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is painfully tight. It feels like it's cutting off circulation! Yeah, this has to go. `;
+            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is painfully tight. It feels like it's cutting off circulation, so you have little choice but to throw it away. Shame, it used to fit well. `;
             State.variables.outfit.underwearId = undefined;
         }
         else if (setup.getReadableFitFromClothing(State.variables.outfit.underwear()).includes('🔶')){
-            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is pretty tight. It's pretty close to uncomfortable. Yeah, this maybe has to go. `;
+            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is pretty tight. It's pretty close to uncomfortable, so something new will be needed soon. `;
         }
 
         if (setup.getReadableFitFromClothing(State.variables.outfit.top()).includes('❌')){
-            postSleepOutfitDescription += `As you put on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} just doesn't fit anymore! You try a few times, but yeah this is not going to work. `;
+            postSleepOutfitDescription += ` And putting on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} just doesn't fit anymore! You try a few times, but this is not going to work and you have no choice but to try something else. `;
             State.variables.outfit.topId = undefined;
         }
         else if (setup.getReadableFitFromClothing(State.variables.outfit.top()).includes('🔶')){
-            postSleepOutfitDescription += `As you put on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} is way tighter than you remember! You try it a few times, but you'd do well to get something else. `;
+            postSleepOutfitDescription += `And putting on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} is way tighter than you remember! You try it a few times, but you'd do well to get something else. `;
         }
 
         if (setup.getReadableFitFromClothing(State.variables.outfit.bottom()).includes('❌')){
-            postSleepOutfitDescription += `Putting on your  ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that, yeah this no longer fits. Shame. `;
+            postSleepOutfitDescription += `Finally, Putting on your  ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that this no longer fits. Shame. `;
             State.variables.outfit.bottomId = undefined;
         }
         else if (setup.getReadableFitFromClothing(State.variables.outfit.bottom()).includes('🔶')){
-            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that, yeah this barely longer fits. Well, time to get something new. `;;
+            postSleepOutfitDescription += `finally, Putting on your ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that this barely longer fits. Well, time to get something new. `;;
         }
 
         if (setup.getReadableFitFromClothing(State.variables.outfit.shoes()).includes('❌')){
