@@ -13246,6 +13246,7 @@ Next to the sewing machine you have all the projects you're currently working on
 			<<if $sewingProjects[_iSewingProject].timeNeeded is 0 || 
 				$sewingProjects[_iSewingProject].timeNeeded < 0>>
 				<<set $sewingProjects[_iSewingProject].clothing.size to $sewingProjects[_iSewingProject].newSize>>
+                <<set $sewingProjects[_iSewingProject].clothing.id to Date.now()>>
 				<<set $wardrobe.push($sewingProjects[_iSewingProject].clothing)>>
 				<<set $sewingProjects.deleteAt(_iSewingProject)>>
 				<<script>>
@@ -13334,10 +13335,13 @@ Next to the sewing machine you have all the projects you're currently working on
 	State.temporary.newProject.timeNeeded = 60;
 	var boxes = $(".macro-listbox#listbox--newprojectdump, .macro-listbox#listbox--newprojectname");
     boxes.on("change", function () {	
-		var mod = $(this).children(":selected").val();
+		var mod = $(".macro-listbox#listbox--newprojectdump").children(":selected").val();
+        var index = $(".macro-listbox#listbox--newprojectname").children(":selected").val();
+        console.log(mod);
+        console.log(index);
 		State.temporary.newProject.newSize = mod;
-        $(this).parents("#row").find(".time").fadeOut(250, function () {
-		
+        State.temporary.newProject.i = index;
+        $(this).parents("#row").find(".time").fadeOut(250, function () {	
 			
 			var value = (parseInt(mod) + parseInt(1)) * 60;
 			State.temporary.newProject.timeNeeded = value;

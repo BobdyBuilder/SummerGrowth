@@ -1467,7 +1467,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -12699,12 +12699,15 @@ setTable();
     &lt;&lt;timed 0s&gt;&gt;&lt;&lt;script&gt;&gt;
 	State.temporary.newProject.fabric = 1;
 	State.temporary.newProject.timeNeeded = 60;
-	var boxes = $(&quot;.macro-listbox#listbox--newprojectdump&quot;);
+	var boxes = $(&quot;.macro-listbox#listbox--newprojectdump, .macro-listbox#listbox--newprojectname&quot;);
     boxes.on(&quot;change&quot;, function () {	
-		var mod = $(this).children(&quot;:selected&quot;).val();
+		var mod = $(&quot;.macro-listbox#listbox--newprojectdump&quot;).children(&quot;:selected&quot;).val();
+        var index = $(&quot;.macro-listbox#listbox--newprojectname&quot;).children(&quot;:selected&quot;).val();
+        console.log(mod);
+        console.log(index);
 		State.temporary.newProject.newSize = mod;
-        $(this).parents(&quot;#row&quot;).find(&quot;.time&quot;).fadeOut(250, function () {
-		
+        State.temporary.newProject.i = index;
+        $(this).parents(&quot;#row&quot;).find(&quot;.time&quot;).fadeOut(250, function () {	
 			
 			var value = (parseInt(mod) + parseInt(1)) * 60;
 			State.temporary.newProject.timeNeeded = value;
