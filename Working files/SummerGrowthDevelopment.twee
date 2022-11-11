@@ -2289,7 +2289,7 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
 	<<script>>
 	if (Dialog.isOpen() == false) {
 		  var dialog = Dialog.setup("What the hell?!");
-		  new Wikifier(dialog, "While you're a bit tired you idly scratch the bulge in your pants when your eyes go wide open. BULGE?! Shocked you reach in, finding something new there taking space. Something long and thick and squishy. Hesitantly you pull down your underwear and are greeted with a new, suprising sight. A penis. You now have a penis. Just to see if its real you reach out, touching it. It almost twitches in response, proving to you its all too real! It seems you might've taken a few too many 'special' potions. But while it does feel weird... well maybe you could get used to this...?");
+		  new Wikifier(dialog, "While you're a bit tired you idly scratch the bulge in your pants when your eyes go wide open. BULGE?! Shocked you reach in, finding something new there taking space. Something long and thick and squishy. Hesitantly you pull down your underwear and are greeted with a new, surprising sight. A penis. You now have a penis. Just to see if its real you reach out, touching it. It almost twitches in response, proving to you its all too real! It seems you might've taken a few too many 'special' potions. But while it does feel weird... well maybe you could get used to this...?");
 		  Dialog.open();
 		  State.setVar("$dickDialog", false);
 		  State.setVar("$dickDialogFollowUp", true);
@@ -2750,7 +2750,7 @@ You can't afford a shake at the bar right now.
 :: dickDescription [widget] {"position":"3550,625","size":"100,100"}
 <<nobr>>
 <<widget "dickDescription">>
-<<if $futa>>
+<<if $futa && $dickActive>>
 <<set $tempDick to $dick * $heightMod>>
 <<set $tempDickGirth to Math.round($dickGirthMod * $tempDick)>>
 <<set $tempDickGirthErect to Math.round($tempDickGirth * (1 + ($dickErectionMod / 4)))>>
@@ -17954,7 +17954,7 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
             * @return {string[]}
             */
             function _getBallsUrls(currentBody) {
-                if (!State.variables.dickActive) {
+                if (!State.variables.futa || !State.variables.dickActive) {
                     return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'];
                 }
 
@@ -17995,7 +17995,7 @@ You wave goodbye as Elena turns to leave. You're left alone on the quiet back st
             * @return {string[]}
             */
             function _getPenisUrls(currentBody) {
-                if (!State.variables.dickActive) {
+                if (!State.variables.futa || !State.variables.dickActive) {
                     return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'];
                 }
 
