@@ -12139,40 +12139,31 @@ and will be filled in when they enter the stores. */
 }>>
 
 /* retrieves human readable fit from size, slot and tolerance. */
-<<set setup.getReadableFitFromSize = function (size, slot, tolerance) {   
-	var clothingFit = setup.sizeDatabase[size];
+<<set setup.getReadableFitFromSize = function (size, slot, tolerance) {
+    const clothingFit = setup.sizeDatabase[size];
+    const statsToCheck = setup.biggestPlayerSize(slot);
     
-    var statsToCheck = setup.biggestPlayerSize(slot);
+    const lowerBound = clothingFit[statsToCheck + 'Min'];
+    const upperBound = clothingFit[statsToCheck + 'Max'];
     
-    var fit = 'fits';
-    
-
-    var lowerBound = clothingFit[statsToCheck + 'Min'];
-    var upperBound = clothingFit[statsToCheck + 'Max'];
-
-    if(State.variables[statsToCheck] < lowerBound){
-    	fit = 'too big';
-    }
-    else if (State.variables[statsToCheck] >= upperBound * tolerance)		{
-    	fit = 'too small';
-    }
-    else if (State.variables[statsToCheck] >= upperBound){
-    	fit = 'tight';
-    }
-    	else if(fit != 'tight') {
+    let fit;
+    if (State.variables[statsToCheck] < lowerBound) {
+        fit = 'too big';
+    } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
+        fit = 'too small';
+    } else if (State.variables[statsToCheck] >= upperBound) {
+        fit = 'tight';
+    } else {
+        fit = 'fits';
     }
     
-    
-    if(fit == 'fits'){
-    	return setup.sizeStrings[size] + '✅';
+    if (fit === 'fits') {
+        return setup.sizeStrings[size] + '✅';
+    } else if (fit === 'too small' || fit === 'too big') {
+        return setup.sizeStrings[size] + '❌';
+    } else {
+        return setup.sizeStrings[size] + '🔶';
     }
-    else if (fit == 'too small' || fit == 'too big'){
-    	return setup.sizeStrings[size] + '❌';
-    }
-    else {
-    	return setup.sizeStrings[size] + '🔶';
-    }
-	
 }>>
 
 /*Populates the stores with clothing from the allclothes list. */
