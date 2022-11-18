@@ -4058,7 +4058,7 @@ setTable();
                                 <<script>>
                                     console.log("User bought: ");
                                     console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
-                                    if (Dialog.isOpen() == false) {
+                                    if (!Dialog.isOpen()) {
                                     var dialog = Dialog.setup("Item bought");
                                     new Wikifier(dialog, "You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe");
                                     Dialog.open();
@@ -8659,7 +8659,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
                             $(".macro-live").trigger(":liveupdateinternal");
                             $(document).trigger(":liveupdate");
                             
-                            if (Dialog.isOpen() == true) {
+                            if (Dialog.isOpen()) {
                                 Dialog.close();
                                 }
                         <</script>>
