@@ -64,7 +64,7 @@ sugarcube-2:
     ClothingStoreWidget:
       name: ClothingStoreWidget
       parameters:
-        - "'online'|'big'|'normal' &+ 'tops'|'bra'|'bottom'|'overwear'|'underwear'"
+        - object
     skillIncrease:
       name: skillIncrease
       parameters:
