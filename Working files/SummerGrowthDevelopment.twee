@@ -3940,7 +3940,8 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 :: ClothingStoreWidget [widget nobr] {"position":"2500,1525","size":"100,100"}
 <<widget "ClothingStoreWidget">>
 
-<<set _filteredStoreClothes to $args[0]>>
+<<set _storeClothes to $args[0].slice()>> /* keeps the shallow copy of original list */
+<<set _filteredStoreClothes to _storeClothes.slice()>>
 <<set _range to 10>>
 
 <<script>>
@@ -3988,45 +3989,29 @@ console.log(State.temporary.filteredStoreClothes);
 
 <<timed 0s>>
 <<script>>
-var inputs = $("#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable");
+const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable');
 
-var setTable = function () {	
-		var slotFilter = ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes'][$('#listbox-shoppingslot').children(":selected").val()];
-        var stylesFilter = setup.allStyles[parseInt($('#listbox-shoppingstyle').children(":selected").val()) - 1];
-        var bonusesFilter = parseInt($('#listbox-shoppingbonuses').children(":selected").val()) -1;
+const setTable = function () {
+    const slotFilter = $('#listbox-shoppingslot').children(':selected').text();
+    const stylesFilter = $('#listbox-shoppingstyle').children(':selected').text();
+    const bonusesFilter = $('#listbox-shoppingbonuses').children(':selected').text();
 
-        var filteredClothes = [];
+    State.temporary.filteredStoreClothes = State.temporary.storeClothes /* from _storeClothes */
+        .filter(clothes => slotFilter === '-' || clothes.slot === slotFilter) /* filter by slotFilter */
+        .filter(clothes => stylesFilter === 'All styles' || clothes.archetypes.includes(stylesFilter)) /* filter by stylesFilter */
+        .filter(clothes => bonusesFilter === '-' || clothes.bonuses.map(bonus => bonus.name).includes(bonusesFilter)) /* filter by bonusesFilter */
+        .map(clothes => ({
+            ...clothes,
+            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add 'size' attribute */
+        }));
 
-        for (let i = 0; i < State.temporary.filteredStoreClothes.length; i++) {
-            if(slotFilter != '-'){
-                if(State.temporary.filteredStoreClothes[i].slot != slotFilter){
-                    continue;
-                }
-            }
-            if(stylesFilter != undefined){
-                if(!State.temporary.filteredStoreClothes[i].archetypes.includes(stylesFilter)){
-                    continue;
-                }
-            }
-            if(bonusesFilter != -1){
-                if(!State.temporary.filteredStoreClothes[i].bonuses.includes(Object.values(setup.clothingBonuses)[bonusesFilter])){
-                    continue;
-                }
-            }
-            State.temporary.filteredStoreClothes[i].size = setup.getSmallestPlayerSizeNeeded(State.temporary.filteredStoreClothes[i].slot);
-            filteredClothes.push(State.temporary.filteredStoreClothes[i]);
-        }
+    $('.macro-live').trigger(':liveupdateinternal');
+    $(document).trigger(':liveupdate');
+};
 
-
-        State.temporary.filteredStoreClothes = filteredClothes;
-        $(".macro-live").trigger(":liveupdateinternal");
-		$(document).trigger(":liveupdate");
-    };
-
-inputs.on("change", setTable);
+inputs.on('change', setTable);
 
 setTable();
-
 <</script>>
 <</timed>>
 
