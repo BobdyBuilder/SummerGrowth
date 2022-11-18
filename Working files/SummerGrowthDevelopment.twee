@@ -4326,6 +4326,10 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 </table>
 <</nobr>>
 
+<<linkreplace "Shop for second hand clothing">>
+    <<ClothingStoreWidget $tashaInventory>>
+<</linkreplace>>
+
 <<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
 
 
@@ -4431,6 +4435,10 @@ The Bulk Barn is almost a legendary spot in town, if only because the owner is s
 <</for>>
 </table>
 <</nobr>>
+
+<<linkreplace "Shop for sports wear">>
+    <<ClothingStoreWidget $bulkBarnInventory>>
+<</linkreplace>>
 
 <<set $bulkBarnVisited to true>>
 
@@ -4926,25 +4934,7 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
 
 <<update>><br>
 
-<<linkreplace "Shop for tops">>
-<<ClothingStoreWidget "online" "tops">>
-<</linkreplace>><br><br>
-
-<<linkreplace "Shop for bras">>
-<<ClothingStoreWidget "online" "bra">>
-<</linkreplace>><br><br>
-
-<<linkreplace "Shop for overwear">>
-<<ClothingStoreWidget "online" "overwear">>
-<</linkreplace>><br><br>
-
-<<linkreplace "Shop for bottom wear">>
-<<ClothingStoreWidget "online" "bottom">>
-<</linkreplace>><br><br>
-
-<<linkreplace "Shop for underwear">>
-<<ClothingStoreWidget "online" "underwear">>
-<</linkreplace>>
+<<ClothingStoreWidget $onlineInventory>>
 
 <</linkreplace>><br><br>
 
@@ -8967,25 +8957,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 :: BigTallStore [outOfHouse mall] {"position":"2800,1625","size":"100,100"}
 The town's Big & Tall Boutique is ironically tiny, though the selection they offer for 'enhanced size' customers is pretty good. The clothes ARE more expensive, but at least they fit bigger folks decently. 
 
-<<linkreplace "shop for tops">>
-<<ClothingStoreWidget "big" "tops">>
-<</linkreplace>>
-
-<<linkreplace "shop for bras">>
-<<ClothingStoreWidget "big" "bra">>
-<</linkreplace>>
-
-<<linkreplace "shop for overwear">>
-<<ClothingStoreWidget "big" "overwear">>
-<</linkreplace>>
-
-<<linkreplace "shop for bottom wear">>
-<<ClothingStoreWidget "big" "bottom">>
-<</linkreplace>>
-
-<<linkreplace "shop for underwear">>
-<<ClothingStoreWidget "big" "underwear">>
-<</linkreplace>>
+<<ClothingStoreWidget $bigTallInventory>>
 
 <<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
 

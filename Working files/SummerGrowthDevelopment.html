@@ -1467,7 +1467,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -4212,6 +4212,10 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 &lt;/table&gt;
 &lt;&lt;/nobr&gt;&gt;
 
+&lt;&lt;linkreplace &quot;Shop for second hand clothing&quot;&gt;&gt;
+    &lt;&lt;ClothingStoreWidget $tashaInventory&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;
+
 &lt;&lt;link &quot;Go back&quot; &quot;ShoppingCenter&quot;&gt;&gt;&lt;&lt;addMinutes 5&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="FitnessStore" tags="outOfHouse mall fitnessStore" position="2500,1625" size="100,100">The Bulk Barn is almost a legendary spot in town, if only because the owner is so LOUD. Stacked to the ceiling with all kinds of supplements and workout gear, between them roams a man you will hear before you seeing, which is an impressive feat given his size. No matter what you need when it comes to lifting, they have it here by the bulk (no pun intended). And whenever you buy something, you just know the owner will talk your ears off and give you PLENTY of advice. 
 &lt;&lt;nobr&gt;&gt;
 
@@ -4313,6 +4317,10 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 &lt;&lt;/for&gt;&gt;
 &lt;/table&gt;
 &lt;&lt;/nobr&gt;&gt;
+
+&lt;&lt;linkreplace &quot;Shop for sports wear&quot;&gt;&gt;
+    &lt;&lt;ClothingStoreWidget $bulkBarnInventory&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;set $bulkBarnVisited to true&gt;&gt;
 
@@ -4772,25 +4780,7 @@ Luckily enough, it&#39;s easy to find clothing online. It&#39;ll be delivered th
 
 &lt;&lt;update&gt;&gt;&lt;br&gt;
 
-&lt;&lt;linkreplace &quot;Shop for tops&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;online&quot; &quot;tops&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;br&gt;&lt;br&gt;
-
-&lt;&lt;linkreplace &quot;Shop for bras&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;online&quot; &quot;bra&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;br&gt;&lt;br&gt;
-
-&lt;&lt;linkreplace &quot;Shop for overwear&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;online&quot; &quot;overwear&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;br&gt;&lt;br&gt;
-
-&lt;&lt;linkreplace &quot;Shop for bottom wear&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;online&quot; &quot;bottom&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;br&gt;&lt;br&gt;
-
-&lt;&lt;linkreplace &quot;Shop for underwear&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;online&quot; &quot;underwear&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;ClothingStoreWidget $onlineInventory&gt;&gt;
 
 &lt;&lt;/linkreplace&gt;&gt;&lt;br&gt;&lt;br&gt;
 
@@ -8591,25 +8581,7 @@ console.log(&quot;Used &quot; + State.temporary.listUsed + &quot; &quot; + State
 		&lt;&lt;/capture&gt;&gt;
 &lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="Barber" tags="" position="2600,1525" size="100,100">&lt;&lt;link &quot;Go back&quot; &quot;ShoppingCenter&quot;&gt;&gt;&lt;&lt;addMinutes 5&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="112" name="BigTallStore" tags="outOfHouse mall" position="2800,1625" size="100,100">The town&#39;s Big &amp; Tall Boutique is ironically tiny, though the selection they offer for &#39;enhanced size&#39; customers is pretty good. The clothes ARE more expensive, but at least they fit bigger folks decently. 
 
-&lt;&lt;linkreplace &quot;shop for tops&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;big&quot; &quot;tops&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;
-
-&lt;&lt;linkreplace &quot;shop for bras&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;big&quot; &quot;bra&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;
-
-&lt;&lt;linkreplace &quot;shop for overwear&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;big&quot; &quot;overwear&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;
-
-&lt;&lt;linkreplace &quot;shop for bottom wear&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;big&quot; &quot;bottom&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;
-
-&lt;&lt;linkreplace &quot;shop for underwear&quot;&gt;&gt;
-&lt;&lt;ClothingStoreWidget &quot;big&quot; &quot;underwear&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;ClothingStoreWidget $bigTallInventory&gt;&gt;
 
 &lt;&lt;link &quot;Go back&quot; &quot;ShoppingCenter&quot;&gt;&gt;&lt;&lt;addMinutes 5&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="113" name="Credits" tags="noReturn noEventTrigger" position="300,1100" size="100,100">&lt;h1&gt; Credits &lt;/h1&gt;
 &lt;h2&gt;Art:&lt;/h2&gt;
@@ -10948,7 +10920,19 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 50,
-        slot: &#39;bra&#39;
+        slot: &#39;bra&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.1,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bulkBarn: {
+                chance: 0.75,
+                availableSizes: [2, 7],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -10960,7 +10944,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 60,
-        slot: &#39;bra&#39;
+        slot: &#39;bra&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.3,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bigTall: {
+                chance: 0.35,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.75,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -10972,7 +10973,14 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 80,
-        slot: &#39;bra&#39;
+        slot: &#39;bra&#39;,
+        storeInfo: {
+            allisonsApparel: {
+                chance: 0.7,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -10984,7 +10992,19 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 50,
-        slot: &#39;bra&#39;
+        slot: &#39;bra&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.1,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            allisonsApparel: {
+                chance: 0.7,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
 /* bottoms */
 	{
@@ -10997,7 +11017,19 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 60,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.2,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            allisonsApparel: {
+                chance: 0.7,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11009,7 +11041,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 100,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.1,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bigTall: {
+                chance: 0.7,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.7,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11021,7 +11070,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 40,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.4,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bigTall: {
+                chance: 0.55,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.4,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11033,7 +11099,19 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 50,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.3,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            allisonsApparel: {
+                chance: 0.6,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11045,7 +11123,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 30,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.4,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bigTall: {
+                chance: 0.75,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.95,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11057,7 +11152,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 30,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.2,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bulkBarn: {
+                chance: 0.95,
+                availableSizes: [2, 7],
+                costModifier: 1
+            },
+            bigTall: {
+                chance: 0.5,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            }
+        }
     },
     {
         id: undefined,
@@ -11069,7 +11181,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 40,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.3,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bulkBarn: {
+                chance: 0.65,
+                availableSizes: [2, 7],
+                costModifier: 1
+            },
+            bigTall: {
+                chance: 0.65,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            }
+        }
     },
     {
         id: undefined,
@@ -11081,7 +11210,29 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 50,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.3,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bulkBarn: {
+                chance: 0.95,
+                availableSizes: [2, 7],
+                costModifier: 1
+            },
+            bigTall: {
+                chance: 0.5,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.65,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11093,7 +11244,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 40,
-        slot: &#39;bottom&#39;
+        slot: &#39;bottom&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.2,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bigTall: {
+                chance: 0.5,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.75,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
 /* underWear */
     {
@@ -11106,7 +11274,29 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 20,
-        slot: &#39;underwear&#39;
+        slot: &#39;underwear&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.1,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bulkBarn: {
+                chance: 0.4,
+                availableSizes: [2, 7],
+                costModifier: 1
+            },
+            bigTall: {
+                chance: 0.4,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.3,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11118,7 +11308,24 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 25,
-        slot: &#39;underwear&#39;
+        slot: &#39;underwear&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.1,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            bigTall: {
+                chance: 0.5,
+                availableSizes: [4, 9],
+                costModifier: 1.2
+            },
+            allisonsApparel: {
+                chance: 0.8,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
     {
         id: undefined,
@@ -11130,7 +11337,19 @@ and will be filled in when they enter the stores. */
             ],
         size: 0,
         baseCost: 35,
-        slot: &#39;underwear&#39;
+        slot: &#39;underwear&#39;,
+        storeInfo: {
+            tasha: {
+                chance: 0.1,
+                availableSizes: [0, 8],
+                costModifier: 0.9
+            },
+            allisonsApparel: {
+                chance: 0.4,
+                availableSizes: [0, 5],
+                costModifier: 1
+            }
+        }
     },
 /* Shoes */
     {
