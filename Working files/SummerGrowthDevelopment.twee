@@ -3990,28 +3990,12 @@ console.log(State.temporary.filteredStoreClothes);
 <<timed 0s>>
 <<script>>
 const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable');
+const clothes = State.temporary.storeClothes;
 
-const setTable = function () {
-    const slotFilter = $('#listbox-shoppingslot').children(':selected').text();
-    const stylesFilter = $('#listbox-shoppingstyle').children(':selected').text();
-    const bonusesFilter = $('#listbox-shoppingbonuses').children(':selected').text();
-
-    State.temporary.filteredStoreClothes = State.temporary.storeClothes /* from _storeClothes */
-        .filter(clothes => slotFilter === '-' || clothes.slot === slotFilter) /* filter by slotFilter */
-        .filter(clothes => stylesFilter === 'All styles' || clothes.archetypes.includes(stylesFilter)) /* filter by stylesFilter */
-        .filter(clothes => bonusesFilter === '-' || clothes.bonuses.map(bonus => bonus.name).includes(bonusesFilter)) /* filter by bonusesFilter */
-        .map(clothes => ({
-            ...clothes,
-            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add 'size' attribute */
-        }));
-
-    $('.macro-live').trigger(':liveupdateinternal');
-    $(document).trigger(':liveupdate');
-};
-
-inputs.on('change', setTable);
-
-setTable();
+inputs.on('change', function () {
+    setup.createTable(clothes);
+});
+setup.createTable(clothes);
 <</script>>
 <</timed>>
 
@@ -12125,6 +12109,25 @@ and will be filled in when they enter the stores. */
     return setup.getReadableFitFromSize(clothingItem.size, clothingItem.slot, clothingItem.tolerance);
 }>>
 
+/* create clothing table for a shop or a wardrobe */
+<<set setup.createTable = function (allClothes) {
+    const slotFilter = $('#listbox-shoppingslot').children(':selected').text();
+    const stylesFilter = $('#listbox-shoppingstyle').children(':selected').text();
+    const bonusesFilter = $('#listbox-shoppingbonuses').children(':selected').text();
+
+    State.temporary.filteredStoreClothes = allClothes /* from a clothes list */
+        .filter(clothes => slotFilter === '-' || clothes.slot === slotFilter) /* filter by slotFilter */
+        .filter(clothes => stylesFilter === 'All styles' || clothes.archetypes.includes(stylesFilter)) /* filter by stylesFilter */
+        .filter(clothes => bonusesFilter === '-' || clothes.bonuses.map(bonus => bonus.name).includes(bonusesFilter)) /* filter by bonusesFilter */
+        .map(clothes => ({
+            ...clothes,
+            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add 'size' attribute */
+        }));
+
+    $('.macro-live').trigger(':liveupdateinternal');
+    $(document).trigger(':liveupdate');
+}>>
+
 /*Populates the stores with clothing from the allclothes list. */
 <<set setup.storePopulator to function () {
     const stores = ['allisonsApparel','bulkBarn','bigTall', 'shoeStore', 'tasha', 'online'];
@@ -13575,46 +13578,13 @@ Well, he's not once to mince words. His directness doesn't feel like derision. I
 
 <<timed 0s>>
 <<script>>
-var inputs = $("#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable");
+const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable');
+const clothes = State.variables.wardrobe;
 
-var setTable = function () {	
-
-        var clothingSet = State.variables.wardrobe;
-		var slotFilter = ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes'][$('#listbox-shoppingslot').children(":selected").val()];
-        var stylesFilter = setup.allStyles[parseInt($('#listbox-shoppingstyle').children(":selected").val()) - 1];
-        var bonusesFilter = parseInt($('#listbox-shoppingbonuses').children(":selected").val()) -1;
-
-        var filteredClothes = [];
-
-        for (let i = 0; i < clothingSet.length; i++) {
-            if(slotFilter != '-'){
-                if(clothingSet[i].slot != slotFilter){
-                    continue;
-                }
-            }
-            if(stylesFilter != undefined){
-                if(!clothingSet[i].archetypes.includes(stylesFilter)){
-                    continue;
-                }
-            }
-            if(bonusesFilter != -1){
-                if(!clothingSet[i].bonuses.includes(Object.values(setup.clothingBonuses)[bonusesFilter])){
-                    continue;
-                }
-            }
-            filteredClothes.push(clothingSet[i]);
-        }
-
-
-        State.temporary.filteredWardrobeClothes = filteredClothes;
-        $(".macro-live").trigger(":liveupdateinternal");
-		$(document).trigger(":liveupdate");
-    };
-
-inputs.on("change", setTable);
-
-setTable();
-
+inputs.on('change', function () {
+    setup.createTable(clothes);
+});
+setup.createTable(clothes);
 <</script>>
 <</timed>>
 
