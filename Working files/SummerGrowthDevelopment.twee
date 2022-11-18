@@ -11982,23 +11982,31 @@ and will be filled in when they enter the stores. */
     return statsToCheck[index];
 }>>
 
+/* Gets a short description of how the given clothing fit for the player */
+<<set setup.getClothingFitForPlayer to function (sizeIndex, slot, tolerance = 1) {
+   const statsToCheck = setup.biggestPlayerSize(slot);
+   const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
+   const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
+
+   let fit;
+   if (State.variables[statsToCheck] < lowerBound) {
+       fit = 'too big';
+   } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
+       fit = 'too small';
+   } else if (State.variables[statsToCheck] >= upperBound) {
+       fit = 'tight';
+   } else {
+       fit = 'fits';
+   }
+
+   return fit;
+}>>
+
 /* Gets which predefined size from setup.sizeDatabase the player can fit in */
 <<set setup.playerSizeNeeded to function (slot) {
-    const statsToCheck = setup.biggestPlayerSize(slot);
     const fits = [];
-    for (let i = 0; i < setup.sizeDatabase.length; i++) {
-        const lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
-        const upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
-    
-        let fit;
-        if (State.variables[statsToCheck] < lowerBound) {
-            fit = 'too big';
-        } else if (State.variables[statsToCheck] >= upperBound) {
-            fit = 'too small';
-        } else {
-            fit = 'fits';
-        }
-    
+    for (let sizeIndex = 0; sizeIndex < setup.sizeDatabase.length; sizeIndex++) {
+        let fit = setup.getClothingFitForPlayer(sizeIndex, slot);
         fits.push(fit === 'fits');
     }
     return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)];
@@ -12140,23 +12148,7 @@ and will be filled in when they enter the stores. */
 
 /* retrieves human readable fit from size, slot and tolerance. */
 <<set setup.getReadableFitFromSize = function (size, slot, tolerance) {
-    const clothingFit = setup.sizeDatabase[size];
-    const statsToCheck = setup.biggestPlayerSize(slot);
-    
-    const lowerBound = clothingFit[statsToCheck + 'Min'];
-    const upperBound = clothingFit[statsToCheck + 'Max'];
-    
-    let fit;
-    if (State.variables[statsToCheck] < lowerBound) {
-        fit = 'too big';
-    } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
-        fit = 'too small';
-    } else if (State.variables[statsToCheck] >= upperBound) {
-        fit = 'tight';
-    } else {
-        fit = 'fits';
-    }
-    
+    let fit = setup.getClothingFitForPlayer(size, slot, tolerance);
     if (fit === 'fits') {
         return setup.sizeStrings[size] + '✅';
     } else if (fit === 'too small' || fit === 'too big') {
