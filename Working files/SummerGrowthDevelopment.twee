@@ -12105,47 +12105,6 @@ and will be filled in when they enter the stores. */
     }
 }>>
 
-/* retrieves human readable fit from the clothing. */
-<<set setup.getReadableFitFromClothing = function (clothingItem) {
-	if(clothingItem == undefined){
-    	return '-';
-    }
-    
-	var clothingFit = setup.sizeDatabase[clothingItem.size];
-    
-    var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
-    
-    var fit = 'fits';
-    
-
-    var lowerBound = clothingFit[statsToCheck + 'Min'];
-    var upperBound = clothingFit[statsToCheck + 'Max'];
-
-    if(State.variables[statsToCheck] < lowerBound){
-    	fit = 'too big';
-    }
-    else if (State.variables[statsToCheck] >= upperBound * clothingItem.tolerance)		{
-    	fit = 'too small';
-    }
-    else if (State.variables[statsToCheck] >= upperBound){
-    	fit = 'tight';
-    }
-    	else if(fit != 'tight') {
-    }
-    
-    
-    if(fit == 'fits'){
-    	return setup.sizeStrings[clothingItem.size] + '✅';
-    }
-    else if (fit == 'too small' || fit == 'too big'){
-    	return setup.sizeStrings[clothingItem.size] + '❌';
-    }
-    else {
-    	return setup.sizeStrings[clothingItem.size] + '🔶';
-    }
-	
-}>>
-
 /* retrieves human readable fit from size, slot and tolerance. */
 <<set setup.getReadableFitFromSize = function (size, slot, tolerance) {
     let fit = setup.getClothingFitForPlayer(size, slot, tolerance);
@@ -12156,6 +12115,14 @@ and will be filled in when they enter the stores. */
     } else {
         return setup.sizeStrings[size] + '🔶';
     }
+}>>
+
+/* retrieves human readable fit from the clothing. */
+<<set setup.getReadableFitFromClothing = function (clothingItem) {
+    if (clothingItem == null) {
+        return '-';
+    }
+    return setup.getReadableFitFromSize(clothingItem.size, clothingItem.slot, clothingItem.tolerance);
 }>>
 
 /*Populates the stores with clothing from the allclothes list. */
