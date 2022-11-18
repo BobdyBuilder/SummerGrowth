@@ -8661,7 +8661,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
                             
                             if (Dialog.isOpen()) {
                                 Dialog.close();
-                                }
+                            }
                         <</script>>
                     <</link>>
                 </td>
@@ -10800,7 +10800,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 ]>>
 
 /* Central list of all clothing in the game. From this objects will be
-added to the stores. Divided by catagory. undefined values are intended,
+added to the stores. Divided by category. undefined values are intended,
 and will be filled in when they enter the stores. */
 <<set setup.allClothes to [
 /* Tops */
