@@ -11984,32 +11984,24 @@ and will be filled in when they enter the stores. */
 
 /* Gets which predefined size from setup.sizeDatabase the player can fit in */
 <<set setup.playerSizeNeeded to function (slot) {
-    var statsToCheck = setup.biggestPlayerSize(slot);
-    var size = 0;
-    var fits = [];
-    var fit = '';
+    const statsToCheck = setup.biggestPlayerSize(slot);
+    const fits = [];
     for (let i = 0; i < setup.sizeDatabase.length; i++) {
-        fit = 'fits';
-        var lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
-        var upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
-        
+        const lowerBound = setup.sizeDatabase[i][statsToCheck + 'Min'];
+        const upperBound = setup.sizeDatabase[i][statsToCheck + 'Max'];
+    
+        let fit;
         if (State.variables[statsToCheck] < lowerBound) {
-        fit = 'too big';
+            fit = 'too big';
+        } else if (State.variables[statsToCheck] >= upperBound) {
+            fit = 'too small';
+        } else {
+            fit = 'fits';
         }
-        else if (State.variables[statsToCheck] >= upperBound && fit != 'too big') {
-        fit = 'too small';
-        }
-        else if (fit != 'too big' && fit != 'too small') {
-        fit = 'fits';
-        }
-        if(fit == 'fits'){
-        	fits.push(true);    	
-        }
-        else{
-        	fits.push(false);
-        }       
+    
+        fits.push(fit === 'fits');
     }
-    return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)]; 
+    return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)];
 }>>
 
 <<set setup.getSmallestPlayerSizeNeeded to function (slot) {
