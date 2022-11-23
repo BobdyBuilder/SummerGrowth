@@ -12046,12 +12046,11 @@ and will be filled in when they enter the stores. */
 }>>
 
 /* The single method that describes the price of clothing. For balancing, adjust this. For now it's done linearly, to make sure that the progression isn't too hard. */
- <<set setup.getPriceFromClothing = function (clothingItem, size) {
-	if(clothingItem == undefined){
-        throw "undefined clothingitem in getPriceFromClothing";
-    	return 0;
+ <<set setup.getPriceFromClothing = function (clothingItem) {
+    if (clothingItem == null) {
+        throw 'undefined clothingitem in getPriceFromClothing';
     }
-    return parseInt(clothingItem.baseCost) + (parseInt(clothingItem.baseCost) * parseInt(clothingItem.size));
+    return parseInt(clothingItem.price) + (parseInt(clothingItem.price) * parseInt(clothingItem.size));
 }>>
 
 /* Gets the human readable archetypes from the clothing. */
@@ -12146,7 +12145,7 @@ and will be filled in when they enter the stores. */
                 var item = setup.allClothes[i];
                 console.log("Adding item " + item.name);
                 /* transfers date */
-                item.price = item.baseCost + item.storeInfo[store].costModifier;                
+                item.price = item.baseCost * item.storeInfo[store].costModifier;                
 
                 /* This adds some daily variance to the sizes available.*/
                 var sizeMod = 2 - Math.floor(randomInt / 3);
