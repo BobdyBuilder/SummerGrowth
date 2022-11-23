@@ -4001,6 +4001,17 @@ setup.createTable(clothes);
 
 <<liveblock>>
 <span id="outfitTable">
+
+<<set _rowDisplaySize to function (rowIndex) {
+    const clothing = State.temporary.filteredStoreClothes[rowIndex];
+
+    const sizes = {};
+    for (let i = 0; i < setup.sizeStrings.slice(clothing.availableSizes[0], clothing.availableSizes[1]).length; i++) {
+        sizes[setup.getReadableFitFromSize(i, clothing.slot, clothing.tolerance)] = i;
+    }
+    return sizes;
+}>>
+
 <table id="store">
   <tr>
     <th>Clothing piece</th>
@@ -4012,24 +4023,14 @@ setup.createTable(clothes);
   </tr>    
     <<for _i to 0; _i < _filteredStoreClothes.length; _i ++>>
         <<capture _i>>
-            <tr  @data-num="_i">
+            <<set _rowDisplaySizes to _rowDisplaySize(_i)>>
+            <tr @data-num="_i">
                 <td>
                     <<print _filteredStoreClothes[_i].name>>                    
                 </td>
-                <td>$<<live setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
-                <<set _rowString to '_clothingSizeSelected' + _i>>
-                <<set _rowDisplaySize to function () {                    
-                    var index = State.temporary.i;
-                    var clothing = State.temporary.filteredStoreClothes[index];
-
-                    var arr = [];
-                    for (let i = 0; i < setup.sizeStrings.slice(clothing.availableSizes[0], clothing.availableSizes[1]).length; i++) {
-                        arr.push(setup.getReadableFitFromSize(i, clothing.slot, clothing.tolerance));
-                    }
-                    return arr;
-                }>>
-                <td><<listbox _rowString autoselect>>
-                        <<optionsfrom _rowDisplaySize()>>
+                <td>$<<print setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<listbox "_filteredStoreClothes[_i].size" autoselect>>
+                        <<optionsfrom _rowDisplaySizes>>
                     <</listbox>></td>
                 <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
                 <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
@@ -4048,7 +4049,6 @@ setup.createTable(clothes);
                                     Dialog.open();
                                     }
                                 <</script>>
-                                <<<<update>>
                         <</link>>
                     <<else>>
                         Too expensive
@@ -4062,15 +4062,16 @@ setup.createTable(clothes);
 
 <<timed 0s>>
 <<script>>
-var inputs = $("[name^='listbox--clothingsizeselected']");
-inputs.on("change", function () {	
-		var mod = $(this).children(":selected").val();
+const inputs = $('[name^=\'listbox--filteredstoreclothes-isize\']');
 
-        var rowIndex = Number($(this).closest('tr').attr("data-num"));		
-        
-        State.temporary.filteredStoreClothes[rowIndex].size = mod;
-        $(".macro-live").trigger(":liveupdateinternal");
-    });
+inputs.on('change', function () {
+    const mod = $(this).children(':selected').val();
+    
+    const rowIndex = Number($(this).closest('tr').attr('data-num'));
+
+    State.temporary.filteredStoreClothes[rowIndex].size = parseInt(mod);
+    $('.macro-live').trigger(':liveupdateinternal');
+});
 <</script>>
 <</timed>>
 
@@ -12002,7 +12003,7 @@ and will be filled in when they enter the stores. */
     for (let size = 0; size < setup.sizeDatabase.length; size++) {
         fits.push(setup.getClothingFitForPlayer(size, slot) === 'fits');
     }
-    return fits.indexOf(true); 
+    return fits.indexOf(true);
 }>>
 
 /* Gets the human readable bonuses from the clothing. */
@@ -12028,7 +12029,7 @@ and will be filled in when they enter the stores. */
     if (clothingItem == null) {
         throw 'undefined clothingitem in getPriceFromClothing';
     }
-    return parseInt(clothingItem.price) + (parseInt(clothingItem.price) * parseInt(clothingItem.size));
+    return parseInt(clothingItem.price + (clothingItem.price * clothingItem.size));
 }>>
 
 /* Gets the human readable archetypes from the clothing. */
@@ -12098,7 +12099,7 @@ and will be filled in when they enter the stores. */
         .filter(clothes => bonusesFilter === '-' || clothes.bonuses.map(bonus => bonus.name).includes(bonusesFilter)) /* filter by bonusesFilter */
         .map(clothes => ({
             ...clothes,
-            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add 'size' attribute */
+            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add 'size' attribute. The pre-selected size */
         }));
 
     $('.macro-live').trigger(':liveupdateinternal');
