@@ -1467,7 +1467,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -3653,7 +3653,7 @@ for (let i = 0; i &lt; boxes.length; i++) {
     },
     fit: function () {
     },
-    bonusses: function () {
+    bonuses: function () {
     }
 }&gt;&gt;
 
@@ -3842,7 +3842,8 @@ for (let i = 0; i &lt; boxes.length; i++) {
 
 &lt;&lt;set setup.storePopulator()&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="ClothingStoreWidget" tags="widget nobr" position="2500,1525" size="100,100">&lt;&lt;widget &quot;ClothingStoreWidget&quot;&gt;&gt;
 
-&lt;&lt;set _filteredStoreClothes to $args[0]&gt;&gt;
+&lt;&lt;set _storeClothes to $args[0].slice()&gt;&gt; /* keeps the shallow copy of original list */
+&lt;&lt;set _filteredStoreClothes to _storeClothes.slice()&gt;&gt;
 &lt;&lt;set _range to 10&gt;&gt;
 
 &lt;&lt;script&gt;&gt;
@@ -3890,45 +3891,13 @@ console.log(State.temporary.filteredStoreClothes);
 
 &lt;&lt;timed 0s&gt;&gt;
 &lt;&lt;script&gt;&gt;
-var inputs = $(&quot;#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable&quot;);
+const inputs = $(&#39;#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable&#39;);
+const clothes = State.temporary.storeClothes;
 
-var setTable = function () {	
-		var slotFilter = [&#39;-&#39;, &#39;top&#39;, &#39;bottom&#39;, &#39;underwear&#39;, &#39;overwear&#39;, &#39;bra&#39;, &#39;shoes&#39;][$(&#39;#listbox-shoppingslot&#39;).children(&quot;:selected&quot;).val()];
-        var stylesFilter = setup.allStyles[parseInt($(&#39;#listbox-shoppingstyle&#39;).children(&quot;:selected&quot;).val()) - 1];
-        var bonusesFilter = parseInt($(&#39;#listbox-shoppingbonuses&#39;).children(&quot;:selected&quot;).val()) -1;
-
-        var filteredClothes = [];
-
-        for (let i = 0; i &lt; State.temporary.filteredStoreClothes.length; i++) {
-            if(slotFilter != &#39;-&#39;){
-                if(State.temporary.filteredStoreClothes[i].slot != slotFilter){
-                    continue;
-                }
-            }
-            if(stylesFilter != undefined){
-                if(!State.temporary.filteredStoreClothes[i].archetypes.includes(stylesFilter)){
-                    continue;
-                }
-            }
-            if(bonusesFilter != -1){
-                if(!State.temporary.filteredStoreClothes[i].bonuses.includes(Object.values(setup.clothingBonuses)[bonusesFilter])){
-                    continue;
-                }
-            }
-            State.temporary.filteredStoreClothes[i].size = setup.getSmallestPlayerSizeNeeded(State.temporary.filteredStoreClothes[i].slot);
-            filteredClothes.push(State.temporary.filteredStoreClothes[i]);
-        }
-
-
-        State.temporary.filteredStoreClothes = filteredClothes;
-        $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
-		$(document).trigger(&quot;:liveupdate&quot;);
-    };
-
-inputs.on(&quot;change&quot;, setTable);
-
-setTable();
-
+inputs.on(&#39;change&#39;, function () {
+    setup.createTable(clothes);
+});
+setup.createTable(clothes);
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
@@ -3939,7 +3908,7 @@ setTable();
     &lt;th&gt;Clothing piece&lt;/th&gt;
     &lt;th&gt;Price&lt;/th&gt;
 	&lt;th&gt;Size&lt;/th&gt;
-    &lt;th&gt;Bonusses&lt;/th&gt;
+    &lt;th&gt;bonuses&lt;/th&gt;
     &lt;th&gt;Style&lt;/th&gt;
     &lt;th&gt;&lt;/th&gt;
   &lt;/tr&gt;    
@@ -3975,7 +3944,7 @@ setTable();
                                 &lt;&lt;script&gt;&gt;
                                     console.log(&quot;User bought: &quot;);
                                     console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
-                                    if (Dialog.isOpen() == false) {
+                                    if (!Dialog.isOpen()) {
                                     var dialog = Dialog.setup(&quot;Item bought&quot;);
                                     new Wikifier(dialog, &quot;You added the &lt;&lt;print _filteredStoreClothes[_i].name&gt;&gt; to your wardrobe&quot;);
                                     Dialog.open();
@@ -8277,7 +8246,7 @@ console.log(&quot;Used &quot; + State.temporary.listUsed + &quot; &quot; + State
 &lt;table id=&quot;store&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;Name&lt;/th&gt;
-    &lt;th&gt;Bonusses&lt;/th&gt;
+    &lt;th&gt;bonuses&lt;/th&gt;
     &lt;th&gt;Fit&lt;/th&gt;
     &lt;th&gt;Style&lt;/th&gt;
     &lt;th&gt;Actions&lt;/th&gt;
@@ -8322,9 +8291,9 @@ console.log(&quot;Used &quot; + State.temporary.listUsed + &quot; &quot; + State
                             $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
                             $(document).trigger(&quot;:liveupdate&quot;);
                             
-                            if (Dialog.isOpen() == true) {
+                            if (Dialog.isOpen()) {
                                 Dialog.close();
-                                }
+                            }
                         &lt;&lt;/script&gt;&gt;
                     &lt;&lt;/link&gt;&gt;
                 &lt;/td&gt;
@@ -10314,7 +10283,7 @@ X&lt;&lt;for _i to 0; _i &lt; _amountX; _i ++&gt;&gt;X&lt;&lt;/for&gt;&gt;L
 ]&gt;&gt;
 
 /* Central list of all clothing in the game. From this objects will be
-added to the stores. Divided by catagory. undefined values are intended,
+added to the stores. Divided by category. undefined values are intended,
 and will be filled in when they enter the stores. */
 &lt;&lt;set setup.allClothes to [
 /* Tops */
@@ -11496,34 +11465,34 @@ and will be filled in when they enter the stores. */
     return statsToCheck[index];
 }&gt;&gt;
 
+/* Gets a short description of how the given clothing fit for the player */
+&lt;&lt;set setup.getClothingFitForPlayer to function (sizeIndex, slot, tolerance = 1) {
+   const statsToCheck = setup.biggestPlayerSize(slot);
+   const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + &#39;Min&#39;];
+   const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + &#39;Max&#39;];
+
+   let fit;
+   if (State.variables[statsToCheck] &lt; lowerBound) {
+       fit = &#39;too big&#39;;
+   } else if (State.variables[statsToCheck] &gt;= upperBound * tolerance) {
+       fit = &#39;too small&#39;;
+   } else if (State.variables[statsToCheck] &gt;= upperBound) {
+       fit = &#39;tight&#39;;
+   } else {
+       fit = &#39;fits&#39;;
+   }
+
+   return fit;
+}&gt;&gt;
+
 /* Gets which predefined size from setup.sizeDatabase the player can fit in */
 &lt;&lt;set setup.playerSizeNeeded to function (slot) {
-    var statsToCheck = setup.biggestPlayerSize(slot);
-    var size = 0;
-    var fits = [];
-    var fit = &#39;&#39;;
-    for (let i = 0; i &lt; setup.sizeDatabase.length; i++) {
-        fit = &#39;fits&#39;;
-        var lowerBound = setup.sizeDatabase[i][statsToCheck + &#39;Min&#39;];
-        var upperBound = setup.sizeDatabase[i][statsToCheck + &#39;Max&#39;];
-        
-        if (State.variables[statsToCheck] &lt; lowerBound) {
-        fit = &#39;too big&#39;;
-        }
-        else if (State.variables[statsToCheck] &gt;= upperBound &amp;&amp; fit != &#39;too big&#39;) {
-        fit = &#39;too small&#39;;
-        }
-        else if (fit != &#39;too big&#39; &amp;&amp; fit != &#39;too small&#39;) {
-        fit = &#39;fits&#39;;
-        }
-        if(fit == &#39;fits&#39;){
-        	fits.push(true);    	
-        }
-        else{
-        	fits.push(false);
-        }       
+    const fits = [];
+    for (let sizeIndex = 0; sizeIndex &lt; setup.sizeDatabase.length; sizeIndex++) {
+        let fit = setup.getClothingFitForPlayer(sizeIndex, slot);
+        fits.push(fit === &#39;fits&#39;);
     }
-    return setup.sizeStrings[fits.indexOf(true)] + &#39; - &#39; + setup.sizeStrings[fits.lastIndexOf(true)]; 
+    return setup.sizeStrings[fits.indexOf(true)] + &#39; - &#39; + setup.sizeStrings[fits.lastIndexOf(true)];
 }&gt;&gt;
 
 &lt;&lt;set setup.getSmallestPlayerSizeNeeded to function (slot) {
@@ -11619,82 +11588,43 @@ and will be filled in when they enter the stores. */
     }
 }&gt;&gt;
 
-/* retrieves human readable fit from the clothing. */
-&lt;&lt;set setup.getReadableFitFromClothing = function (clothingItem) {
-	if(clothingItem == undefined){
-    	return &#39;-&#39;;
+/* retrieves human readable fit from size, slot and tolerance. */
+&lt;&lt;set setup.getReadableFitFromSize = function (size, slot, tolerance) {
+    let fit = setup.getClothingFitForPlayer(size, slot, tolerance);
+    if (fit === &#39;fits&#39;) {
+        return setup.sizeStrings[size] + &#39;✅&#39;;
+    } else if (fit === &#39;too small&#39; || fit === &#39;too big&#39;) {
+        return setup.sizeStrings[size] + &#39;❌&#39;;
+    } else {
+        return setup.sizeStrings[size] + &#39;🔶&#39;;
     }
-    
-	var clothingFit = setup.sizeDatabase[clothingItem.size];
-    
-    var statsToCheck = setup.biggestPlayerSize(clothingItem.slot);
-    
-    var fit = &#39;fits&#39;;
-    
-
-    var lowerBound = clothingFit[statsToCheck + &#39;Min&#39;];
-    var upperBound = clothingFit[statsToCheck + &#39;Max&#39;];
-
-    if(State.variables[statsToCheck] &lt; lowerBound){
-    	fit = &#39;too big&#39;;
-    }
-    else if (State.variables[statsToCheck] &gt;= upperBound * clothingItem.tolerance)		{
-    	fit = &#39;too small&#39;;
-    }
-    else if (State.variables[statsToCheck] &gt;= upperBound){
-    	fit = &#39;tight&#39;;
-    }
-    	else if(fit != &#39;tight&#39;) {
-    }
-    
-    
-    if(fit == &#39;fits&#39;){
-    	return setup.sizeStrings[clothingItem.size] + &#39;✅&#39;;
-    }
-    else if (fit == &#39;too small&#39; || fit == &#39;too big&#39;){
-    	return setup.sizeStrings[clothingItem.size] + &#39;❌&#39;;
-    }
-    else {
-    	return setup.sizeStrings[clothingItem.size] + &#39;🔶&#39;;
-    }
-	
 }&gt;&gt;
 
-/* retrieves human readable fit from size, slot and tolerance. */
-&lt;&lt;set setup.getReadableFitFromSize = function (size, slot, tolerance) {   
-	var clothingFit = setup.sizeDatabase[size];
-    
-    var statsToCheck = setup.biggestPlayerSize(slot);
-    
-    var fit = &#39;fits&#39;;
-    
+/* retrieves human readable fit from the clothing. */
+&lt;&lt;set setup.getReadableFitFromClothing = function (clothingItem) {
+    if (clothingItem == null) {
+        return &#39;-&#39;;
+    }
+    return setup.getReadableFitFromSize(clothingItem.size, clothingItem.slot, clothingItem.tolerance);
+}&gt;&gt;
 
-    var lowerBound = clothingFit[statsToCheck + &#39;Min&#39;];
-    var upperBound = clothingFit[statsToCheck + &#39;Max&#39;];
+/* create clothing table for a shop or a wardrobe */
+&lt;&lt;set setup.createTable = function (allClothes) {
+    const slotFilter = $(&#39;#listbox-shoppingslot&#39;).children(&#39;:selected&#39;).text();
+    const stylesFilter = $(&#39;#listbox-shoppingstyle&#39;).children(&#39;:selected&#39;).text();
+    const bonusesFilter = $(&#39;#listbox-shoppingbonuses&#39;).children(&#39;:selected&#39;).text();
 
-    if(State.variables[statsToCheck] &lt; lowerBound){
-    	fit = &#39;too big&#39;;
-    }
-    else if (State.variables[statsToCheck] &gt;= upperBound * tolerance)		{
-    	fit = &#39;too small&#39;;
-    }
-    else if (State.variables[statsToCheck] &gt;= upperBound){
-    	fit = &#39;tight&#39;;
-    }
-    	else if(fit != &#39;tight&#39;) {
-    }
-    
-    
-    if(fit == &#39;fits&#39;){
-    	return setup.sizeStrings[size] + &#39;✅&#39;;
-    }
-    else if (fit == &#39;too small&#39; || fit == &#39;too big&#39;){
-    	return setup.sizeStrings[size] + &#39;❌&#39;;
-    }
-    else {
-    	return setup.sizeStrings[size] + &#39;🔶&#39;;
-    }
-	
+    State.temporary.filteredStoreClothes = allClothes /* from a clothes list */
+        .filter(clothes =&gt; slotFilter === &#39;-&#39; || clothes.slot === slotFilter) /* filter by slotFilter */
+        .filter(clothes =&gt; stylesFilter === &#39;All styles&#39; || clothes.archetypes.includes(stylesFilter)) /* filter by stylesFilter */
+        .filter(clothes =&gt; bonusesFilter === &#39;-&#39; || clothes.bonuses.map(bonus =&gt; bonus.name).includes(bonusesFilter)) /* filter by bonusesFilter */
+        .map(clothes =&gt; ({
+            ...clothes,
+            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add &#39;size&#39; attribute */
+        }));
+
+    $(&#39;.macro-live&#39;).trigger(&#39;:liveupdateinternal&#39;);
+    $(document).trigger(&#39;:liveupdate&#39;);
 }&gt;&gt;
 
 /*Populates the stores with clothing from the allclothes list. */
@@ -13036,46 +12966,13 @@ Well, he&#39;s not once to mince words. His directness doesn&#39;t feel like der
 
 &lt;&lt;timed 0s&gt;&gt;
 &lt;&lt;script&gt;&gt;
-var inputs = $(&quot;#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable&quot;);
+const inputs = $(&#39;#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable&#39;);
+const clothes = State.variables.wardrobe;
 
-var setTable = function () {	
-
-        var clothingSet = State.variables.wardrobe;
-		var slotFilter = [&#39;-&#39;, &#39;top&#39;, &#39;bottom&#39;, &#39;underwear&#39;, &#39;overwear&#39;, &#39;bra&#39;, &#39;shoes&#39;][$(&#39;#listbox-shoppingslot&#39;).children(&quot;:selected&quot;).val()];
-        var stylesFilter = setup.allStyles[parseInt($(&#39;#listbox-shoppingstyle&#39;).children(&quot;:selected&quot;).val()) - 1];
-        var bonusesFilter = parseInt($(&#39;#listbox-shoppingbonuses&#39;).children(&quot;:selected&quot;).val()) -1;
-
-        var filteredClothes = [];
-
-        for (let i = 0; i &lt; clothingSet.length; i++) {
-            if(slotFilter != &#39;-&#39;){
-                if(clothingSet[i].slot != slotFilter){
-                    continue;
-                }
-            }
-            if(stylesFilter != undefined){
-                if(!clothingSet[i].archetypes.includes(stylesFilter)){
-                    continue;
-                }
-            }
-            if(bonusesFilter != -1){
-                if(!clothingSet[i].bonuses.includes(Object.values(setup.clothingBonuses)[bonusesFilter])){
-                    continue;
-                }
-            }
-            filteredClothes.push(clothingSet[i]);
-        }
-
-
-        State.temporary.filteredWardrobeClothes = filteredClothes;
-        $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
-		$(document).trigger(&quot;:liveupdate&quot;);
-    };
-
-inputs.on(&quot;change&quot;, setTable);
-
-setTable();
-
+inputs.on(&#39;change&#39;, function () {
+    setup.createTable(clothes);
+});
+setup.createTable(clothes);
 &lt;&lt;/script&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
