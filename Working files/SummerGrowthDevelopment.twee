@@ -4041,12 +4041,13 @@ setup.setClothesTable(clothes);
                             	<<set $wardrobe.push(_filteredStoreClothes[_i])>>
                                 <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>
                                 <<script>>
-                                    console.log("User bought: ");
+                                    console.log('User bought: ');
                                     console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
                                     if (!Dialog.isOpen()) {
-                                    var dialog = Dialog.setup("Item bought");
-                                    new Wikifier(dialog, "You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe");
-                                    Dialog.open();
+                                        new Wikifier(Dialog.setup('Item bought'), 'You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe');
+                                        Dialog.open();
+                                        
+                                        $('.macro-live').trigger(':liveupdateinternal'); /* update to refresh money */
                                     }
                                 <</script>>
                         <</link>>
