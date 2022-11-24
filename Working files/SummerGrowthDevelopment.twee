@@ -12125,7 +12125,7 @@ and will be filled in when they enter the stores. */
                 var item = setup.allClothes[i];
                 console.log("Adding item " + item.name);
                 /* transfers date */
-                item.price = item.baseCost * item.storeInfo[store].costModifier;                
+                item.price = parseInt(item.baseCost * item.storeInfo[store].costModifier);                
 
                 /* This adds some daily variance to the sizes available.*/
                 var sizeMod = 2 - Math.floor(randomInt / 3);
