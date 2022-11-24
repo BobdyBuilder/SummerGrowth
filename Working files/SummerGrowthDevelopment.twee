@@ -3993,9 +3993,9 @@ const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppi
 const clothes = State.temporary.storeClothes;
 
 inputs.on('change', function () {
-    setup.createTable(clothes);
+    setup.setClothesTable(clothes);
 });
-setup.createTable(clothes);
+setup.setClothesTable(clothes);
 <</script>>
 <</timed>>
 
@@ -12088,7 +12088,7 @@ and will be filled in when they enter the stores. */
 }>>
 
 /* create clothing table for a shop or a wardrobe */
-<<set setup.createTable = function (allClothes) {
+<<set setup.setClothesTable = function (allClothes) {
     const slotFilter = $('#listbox-shoppingslot').children(':selected').text();
     const stylesFilter = $('#listbox-shoppingstyle').children(':selected').text();
     const bonusesFilter = $('#listbox-shoppingbonuses').children(':selected').text();
@@ -13560,9 +13560,9 @@ const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppi
 const clothes = State.variables.wardrobe;
 
 inputs.on('change', function () {
-    setup.createTable(clothes);
+    setup.setClothesTable(clothes);
 });
-setup.createTable(clothes);
+setup.setClothesTable(clothes);
 <</script>>
 <</timed>>
 
