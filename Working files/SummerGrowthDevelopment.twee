@@ -1473,21 +1473,21 @@ window.isNumeric = function (obj) {
 <</if>>
 
 <<if $outfitNudeWarning>>
-<<set _outfitNudeWarning to "You're practically nude! Get some clothes on! You're missing the following:">>
-<<if $outfit.top() == null>>
-	<<set _outfitNudeWarning += " top">>
-<</if>>
-<<if $outfit.overwear() == null>>
-<<set _outfitNudeWarning += " overwear">>
-<</if>>
-<<if $outfit.bra() == null>>
-<<set _outfitNudeWarning += " bra">>
-<</if>>
-<<if $outfit.bottom() == null>>
-<<set _outfitNudeWarning += " bottom">>
-<</if>>
-<<if $outfit.underwear() == null>>
-<<set _outfitNudeWarning += " underwear">>
+    <<set _outfitNudeWarning to "You're practically nude! Get some clothes on! You're missing the following:">>
+    <<if $outfit.top() == null>>
+        <<set _outfitNudeWarning += " top">>
+    <</if>>
+    <<if $outfit.overwear() == null>>
+    <<set _outfitNudeWarning += " overwear">>
+    <</if>>
+    <<if $outfit.bra() == null>>
+    <<set _outfitNudeWarning += " bra">>
+    <</if>>
+    <<if $outfit.bottom() == null>>
+    <<set _outfitNudeWarning += " bottom">>
+    <</if>>
+    <<if $outfit.underwear() == null>>
+    <<set _outfitNudeWarning += " underwear">>
 <</if>>
 
 
@@ -15525,55 +15525,55 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
     <<script>>
         var postSleepOutfitDescription = '';
 
-        if (setup.getReadableFitFromClothing(State.variables.outfit.bra()).includes('❌')){
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bra()))){
             postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today you just can't get it to fit without it being hella painful. You don't think this will fit you anymore, you'll have to get something new for sure. `;
             State.variables.outfit.braId = undefined;
         }
-        else if (setup.getReadableFitFromClothing(State.variables.outfit.bra()).includes('🔶')){
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bra()))){
             postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today it takes some more effort. You'll have to replace it soon. `;
         }
 
-        if (setup.getReadableFitFromClothing(State.variables.outfit.underwear()).includes('❌')){
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.underwear()))){
             postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is painfully tight. It feels like it's cutting off circulation, so you have little choice but to throw it away. Shame, it used to fit well. `;
             State.variables.outfit.underwearId = undefined;
         }
-        else if (setup.getReadableFitFromClothing(State.variables.outfit.underwear()).includes('🔶')){
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.underwear()))){
             postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is pretty tight. It's pretty close to uncomfortable, so something new will be needed soon. `;
         }
 
-        if (setup.getReadableFitFromClothing(State.variables.outfit.top()).includes('❌')){
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.top()))){
             postSleepOutfitDescription += ` And putting on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} just doesn't fit anymore! You try a few times, but this is not going to work and you have no choice but to try something else. `;
             State.variables.outfit.topId = undefined;
         }
-        else if (setup.getReadableFitFromClothing(State.variables.outfit.top()).includes('🔶')){
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.top()))){
             postSleepOutfitDescription += `And putting on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} is way tighter than you remember! You try it a few times, but you'd do well to get something else. `;
         }
 
-        if (setup.getReadableFitFromClothing(State.variables.outfit.bottom()).includes('❌')){
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))){
             postSleepOutfitDescription += `Finally, Putting on your  ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that this no longer fits. Shame. `;
             State.variables.outfit.bottomId = undefined;
         }
-        else if (setup.getReadableFitFromClothing(State.variables.outfit.bottom()).includes('🔶')){
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))){
             postSleepOutfitDescription += `finally, Putting on your ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that this barely longer fits. Well, time to get something new. `;;
         }
 
-        if (setup.getReadableFitFromClothing(State.variables.outfit.shoes()).includes('❌')){
-            postSleepOutfitDescription += `When you put ony our ${State.variables.outfit.shoes().name} you try to get them on but yeah, this ain't happening. Seems you outgrew them? `;
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.shoes()))){
+            postSleepOutfitDescription += `When you put on your ${State.variables.outfit.shoes().name} you try to get them on but yeah, this ain't happening. Seems you outgrew them? `;
             State.variables.outfit.shoesId = undefined;
         }
-        else if (setup.getReadableFitFromClothing(State.variables.outfit.shoes()).includes('🔶')){
-            postSleepOutfitDescription += `When you put ony our ${State.variables.outfit.shoes().name} you try to get them on but yeah, they're pretty tight. Seems you're outgrowing them?`;
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.shoes()))){
+            postSleepOutfitDescription += `When you put on your ${State.variables.outfit.shoes().name} you try to get them on but yeah, they're pretty tight. Seems you're outgrowing them?`;
         }
 
-        if (setup.getReadableFitFromClothing(State.variables.outfit.overwear()).includes('❌')){
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.overwear()))){
             postSleepOutfitDescription += `Finally you put your ${State.variables.outfit.overwear().name} on. Or atleast, you try! Why doesn't it fit?! Yeah, you can't wear this anymore.`;
             State.variables.outfit.overwearId = undefined;
         }
-        else if (setup.getReadableFitFromClothing(State.variables.outfit.overwear()).includes('🔶')){
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.overwear()))){
             postSleepOutfitDescription += `Finally you put your ${State.variables.outfit.overwear().name} on. It takes a few tries though, as it's pretty tight.`;
         }        
 
-        if (Dialog.isOpen() == false && postSleepOutfitDescription != '') {
+        if (!Dialog.isOpen() && postSleepOutfitDescription != '') {
             var dialog = Dialog.setup('wardrobe malfunction!');
             new Wikifier(dialog, postSleepOutfitDescription);
             Dialog.open();
