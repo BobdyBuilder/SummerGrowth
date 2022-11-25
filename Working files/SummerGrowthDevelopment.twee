@@ -1436,66 +1436,25 @@ window.isNumeric = function (obj) {
 <</if>>
 
 <<set $tags to tags()>>
+<<script>>
+    if (setup.isOutfitTight()) {
+        const tightClothesSlots = setup.getTightOutfitClothesArray().map(clothes => clothes.slot);
+        State.temporary.outfitTightWarning = 'These clothes are too tight: ' + tightClothesSlots.join(' ');
+    }
 
-<<if $outfitWarning>>
-<<set _outfitWarning to "These clothes are too tight:">>
-
-<<if $outfit.top() != null>>
-<<if ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes($outfit.top()))>>
-	<<set _outfitWarning += " top">>
-<</if>>
-<</if>>
-<<if $outfit.overwear() != null>>
-<<if ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes($outfit.overwear()))>>
-	<<set _outfitWarning += " overwear">>
-<</if>>
-<</if>>
-<<if $outfit.bra() != null>>
-<<if ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes($outfit.bra()))>>
-	<<set _outfitWarning += " bra">>
-<</if>>
-<</if>>
-<<if $outfit.bottom() != null>>
-<<if ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes($outfit.bottom()))>>
-	<<set _outfitWarning += " bottom-wear">>
-<</if>>
-<</if>>
-<<if $outfit.underwear() != null>>
-<<if ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes($outfit.underwear()))>>
-	<<set _outfitWarning += " underwear">>
-<</if>>
-<</if>>
+    if (setup.isOutfitNude()) {
+        State.temporary.outfitNudeWarning = `You're practically nude! Get some clothes on! You're missing the following: ` + setup.getNudeOutfitSlots().join(' ');
+    }
+<</script>>
 
 <div class = "warning"> 
-                <p id="warning"><img src="https://i.imgur.com/IIR3hEI.png" @title="_outfitWarning"> 
-            </p> 
-        </div> 
-<</if>>
-
-<<if $outfitNudeWarning>>
-    <<set _outfitNudeWarning to "You're practically nude! Get some clothes on! You're missing the following:">>
-    <<if $outfit.top() == null>>
-        <<set _outfitNudeWarning += " top">>
+    <<if setup.isOutfitTight()>>
+        <img src="https://i.imgur.com/IIR3hEI.png" @title="_outfitTightWarning">
     <</if>>
-    <<if $outfit.overwear() == null>>
-    <<set _outfitNudeWarning += " overwear">>
+    <<if setup.isOutfitNude()>>
+        <img src="https://i.imgur.com/HmBr1GW.png" @title="_outfitNudeWarning"> 
     <</if>>
-    <<if $outfit.bra() == null>>
-    <<set _outfitNudeWarning += " bra">>
-    <</if>>
-    <<if $outfit.bottom() == null>>
-    <<set _outfitNudeWarning += " bottom">>
-    <</if>>
-    <<if $outfit.underwear() == null>>
-    <<set _outfitNudeWarning += " underwear">>
-<</if>>
-
-
-<div class = "warning"> 
-                <p id="warning"><img src="https://i.imgur.com/HmBr1GW.png" @title="_outfitNudeWarning"> 
-            </p> 
-        </div> 
-<</if>>
+</div> 
 
 <<set _lactationWarning to "Your breasts are getting full.">>
 <<if $lactationUnlocked>>
@@ -1905,7 +1864,7 @@ In the corner of the room, you see your dumbbells and workout mat. It's not much
 <br>
 <<link "Go to the bedroom" "Bedroom">><<addMinutes 1>><</link>>
 <br>
-<<if $outfitNudeWarning && $debug != "true">>
+<<if setup.isOutfitNude() && $debug != "true">>
 You can't travel outside until you are properly dressed!<br>
 <<elseif $exhaustion <= $maxExhaustion * 0.95>>
 <<link "Go somewhere" "travel">><</link>>
@@ -3672,9 +3631,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 
 
 :: InitializeClothes [nobr] {"position":"0,500","size":"100,100"}
-<<set $outfitWarning to false>>
-<<set $outfitNudeWarning to false>>
-
 <<set $sewingProjects to []>>
 
 /* The base outfit container. The only acces point by which the clothing logic may */
@@ -4869,7 +4825,7 @@ When this is on, the player may start leaking milk
 Let's see... there is plenty you can do on this thing. <<if $furniture.includes("web cam")>>It has a webcam you could use for streaming, if you wanted to.<</if>>
 <br><br>
 <<if $furniture.includes("web cam")>>
-<<if $outfitNudeWarning && $debug != "true">>Best not to stream while you're barely dressed, or you might just get kicked out of the website real quick.<br><br>
+<<if setup.isOutfitNude() && $debug != "true">>Best not to stream while you're barely dressed, or you might just get kicked out of the website real quick.<br><br>
 <<elseif $motivationPercentage >= $exhaustionPercentage && $exhaustion + $streamingExhaustion < 100>><<gameLink "stream for a bit" "streaming" motivation:10 exhaustion:$streamingExhaustion time:60>><</gameLink>>
 <<else>> You don't feel like streaming<</if>>
 <br><br><</if>>
@@ -9219,7 +9175,7 @@ Arriving at the building, you find your typical office space; a tall building su
 <<set _failed to true>>
 <<link "...I'll see myself out." "Home">><</link>>
 
-<<elseif $dick > 20 or $breasts > 80 or $outfitWarning < $outfitNudeWarning>>
+<<elseif $dick > 20 or $breasts > 80 or setup.isOutfitTight() or setup.isOutfitNude()>>
 
 As you walk in, you find a tiny office where an overly professional woman is waiting. You are immediately struck by her pristine suit, complete with what you believe to be sizable shoulder pads. In contrast, she seems rather unimpressed as she inspects you in silence. You can't help but feel like she's judging you already, and none too impressed with your looks, ESPECIALLY not with your outfit.
 <br><br>
@@ -11981,6 +11937,42 @@ and will be filled in when they enter the stores. */
    return fit;
 }>>
 
+<<set setup.getOutfitClothesArray to function () {
+    return [
+        State.variables.outfit.top(),
+        State.variables.outfit.overwear(),
+        State.variables.outfit.bra(),
+        State.variables.outfit.bottom(),
+        State.variables.outfit.underwear(),
+        State.variables.outfit.shoes()
+    ];
+}>>
+
+<<set setup.getTightOutfitClothesArray to function () {
+    return setup.getOutfitClothesArray()
+        .filter(clothes => ['tight', 'too small'].includes(setup.getFitDescriptionOfClothes(clothes)));
+}>>
+
+<<set setup.isOutfitTight to function () {
+    return setup.getTightOutfitClothesArray().length > 0;
+}>>
+
+<<set setup.getNudeOutfitSlots to function () {
+    const nudeSlots = [];
+    if (State.variables.outfit.top() == null && State.variables.outfit.overwear() == null) {
+        nudeSlots.push('top');
+        nudeSlots.push('overwear');
+    }
+    if (State.variables.outfit.bottom() == null) {
+        nudeSlots.push('bottom');
+    }
+    return nudeSlots;
+}>>
+
+<<set setup.isOutfitNude to function () {
+    return setup.getNudeOutfitSlots().length > 0;
+}>>
+
 <<set setup.getFitDescriptionOfClothes to function (clothes) {
     if (clothes == null) {
         return null;
@@ -12595,7 +12587,7 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
         retriggerable: false,
        priority: 'immediate',
        npc: ['kris'],
-        content: 'Arriving at the Coffee Corner, you find the one and only Kris, as expected. You\'ve come in quite often, and she knows your habits by now, like any good predator. You\'ve even gotten used to that big, toothy grin when you walk up to the counter. You don\'t even need to say anything. As you cross the threshold, <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>already her eyes travel all over your \'unique\' body, positively salivating as she undresses you in her mind.<</if>><<if $outfitWarning>> Not that this requires a lot of imagination, given how tight your clothing is.<</if>> But still, Kris is in a mood. A horny mood.<br><br><<Dialogue "KrisObsessed" "Kris">> "Oh, fuck, you look... you look... BIG today... sit down, babe, I want to hear the chair GROANING under you. I... UNGH!"<</Dialogue>><br><br>Sitting down, <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>the chair groans from all the extra mass on your body. <<elseif $muscle >= 75 || $fat >= 70 || $breasts >= 70 || $height >= 710>>you can feel the wood slowly straining and creaking, until finally it gives way under you, and you fall to the floor.<</if>>. Kris raises herself over the counter, grinning like a maniac and drooling over the scene. But for once, she just keeps staring and staring and...<br><br><<Dialogue "player" "You">> "Um, are you just going to watch..?"<</Dialogue>><br><br>Kris stares at you, rather confused. The drooling stops, and though she\'s still undressing you in her mind, you get the idea that she actually has no idea what she wants to do with you, given your unintentional double-entendre. You could push it, or wait and see how this plays out.<br><br><span id="choice1"><<PersonalityCheck $shyConfident >= 2 "Call her bluff">><<replace "#choice1">><<Dialogue "player" "You">> "... You haven’t actually thought this fantasy of yours through, huh?"<</Dialogue>><br><br>With wild eyes, Kris looks at you, almost accusingly. <br><br><<Dialogue "Kris" "Kris">> "What the FUCK are you talking about?! Of course I got this all planned out, I-"<</Dialogue>><br><br><<Dialogue "player" "You">> "... Okay, then. Do your worst. I’m waiting."<</Dialogue>><br><br>She remains silent as time passes, her breathing becoming deeper every time she inhales. Checkmate. Kris just stares at you with rather intense eyes. She eventually does regain some focus, trying to come up with SOMETHING, anything! Well, it seems you\'ll have to help her along a bit. It’s quite surprising to leave Kris so... befuddled!<br><br><<Dialogue "player" "You">> "... A date. How about we go on a date together?"<</Dialogue>><br><br>Kris looks at you rather stunned. It is clear she wasn’t expecting that? She has been drooling over you for God knows how long now, and she wasn’t ready for you to make a move? Now that you think of it, what does Kris even WANT? Well, time to figure that out! <br><br><<Dialogue "Kris" "Kris">>"S-sure! Where shall we- No, no! I\'m picking the venue! Let\'s see... um... the park... no... the beach? No... um..."<</Dialogue>><br><br><<Dialogue "player" "You">> "Why don’t we keep it simple and go out for dinner somewhere?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">> "Yeah, dinner! I was JUST about to say that! You’re on, tomorrow, 6 PM, I\'ll text you the address, you fucking slab of delicious meat!"<</Dialogue>><br><br><<Dialogue "player" "You">> "... Thanks for the input, Kris. Sounds great. I’ll see you then."<</Dialogue>><br><br><<link "Continue" "BookStore">><</link>><br><</replace>><<Failed>><<replace "#choice1">><<Dialogue "player" "You">> "Wow, you suck at this!"<</Dialogue>><br><br>You tried to sound witty, but it just came off as mean. Kris looks none too pleased, and before you think it out, you just chuckle awkwardly.<br><br><<Dialogue "Kris" "Kris">> "… You think you are so clever? Okay, then, tomorrow, 6 PM, I\'ll text you the address. Dress nicely."<</Dialogue>><br><br>Well, it seems the tables have turned... again. But you also got a date with Kris, which is a plus. Though there is a large spectrum of \'plus\' there.<br><br><<link "Continue" "BookStore">><</link>><</replace>><</PersonalityCheck>><br><br><<link "Wait and see">><<replace "#choice1">>Aaaaand nothing. You called Kris\'s bluff, and she doesn\'t know how to respond. Of course she didn\'t have a next move in mind; she clearly operates exclusively on the present. Sitting down on a broken chair quickly turns awkward, but leaves you with a curious question. What IS Kris\'s actual endgame regarding you?<br><br><<Dialogue "player" "You">> "So... um... how about we go out one of these days? Somewhere else, you know? One can only have so much coffee. Maybe have an actual conversation that doesn’t involve consumption of drinks? And, you know, do something that isn’t just lecherous staring and spouting insinuations...?"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">> "... Are you talking about… a DATE? Um... sure? Why not?"<</Dialogue>><br><br>She doesn\'t sound that enthusiastic, almost like dating somehow didn\'t even cross her mind. What kind of relationship do you two even have?!<br><br><<Dialogue "Kris" "Kris">> "How does tomorrow at 6 PM sound? I\'ll text you the address."<</Dialogue>><br><br><<Dialogue "player" "You">> "um, sure. Sounds... good? I guess I\'ll see you then."<</Dialogue>><br><br><<Dialogue "Kris" "Kris">> "Yeah. See you then."<</Dialogue>><br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>></span><<set $krisDate1 to true>>'
+        content: 'Arriving at the Coffee Corner, you find the one and only Kris, as expected. You\'ve come in quite often, and she knows your habits by now, like any good predator. You\'ve even gotten used to that big, toothy grin when you walk up to the counter. You don\'t even need to say anything. As you cross the threshold, <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>already her eyes travel all over your \'unique\' body, positively salivating as she undresses you in her mind.<</if>><<if setup.isOutfitTight()>> Not that this requires a lot of imagination, given how tight your clothing is.<</if>> But still, Kris is in a mood. A horny mood.<br><br><<Dialogue "KrisObsessed" "Kris">> "Oh, fuck, you look... you look... BIG today... sit down, babe, I want to hear the chair GROANING under you. I... UNGH!"<</Dialogue>><br><br>Sitting down, <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>the chair groans from all the extra mass on your body. <<elseif $muscle >= 75 || $fat >= 70 || $breasts >= 70 || $height >= 710>>you can feel the wood slowly straining and creaking, until finally it gives way under you, and you fall to the floor.<</if>>. Kris raises herself over the counter, grinning like a maniac and drooling over the scene. But for once, she just keeps staring and staring and...<br><br><<Dialogue "player" "You">> "Um, are you just going to watch..?"<</Dialogue>><br><br>Kris stares at you, rather confused. The drooling stops, and though she\'s still undressing you in her mind, you get the idea that she actually has no idea what she wants to do with you, given your unintentional double-entendre. You could push it, or wait and see how this plays out.<br><br><span id="choice1"><<PersonalityCheck $shyConfident >= 2 "Call her bluff">><<replace "#choice1">><<Dialogue "player" "You">> "... You haven’t actually thought this fantasy of yours through, huh?"<</Dialogue>><br><br>With wild eyes, Kris looks at you, almost accusingly. <br><br><<Dialogue "Kris" "Kris">> "What the FUCK are you talking about?! Of course I got this all planned out, I-"<</Dialogue>><br><br><<Dialogue "player" "You">> "... Okay, then. Do your worst. I’m waiting."<</Dialogue>><br><br>She remains silent as time passes, her breathing becoming deeper every time she inhales. Checkmate. Kris just stares at you with rather intense eyes. She eventually does regain some focus, trying to come up with SOMETHING, anything! Well, it seems you\'ll have to help her along a bit. It’s quite surprising to leave Kris so... befuddled!<br><br><<Dialogue "player" "You">> "... A date. How about we go on a date together?"<</Dialogue>><br><br>Kris looks at you rather stunned. It is clear she wasn’t expecting that? She has been drooling over you for God knows how long now, and she wasn’t ready for you to make a move? Now that you think of it, what does Kris even WANT? Well, time to figure that out! <br><br><<Dialogue "Kris" "Kris">>"S-sure! Where shall we- No, no! I\'m picking the venue! Let\'s see... um... the park... no... the beach? No... um..."<</Dialogue>><br><br><<Dialogue "player" "You">> "Why don’t we keep it simple and go out for dinner somewhere?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">> "Yeah, dinner! I was JUST about to say that! You’re on, tomorrow, 6 PM, I\'ll text you the address, you fucking slab of delicious meat!"<</Dialogue>><br><br><<Dialogue "player" "You">> "... Thanks for the input, Kris. Sounds great. I’ll see you then."<</Dialogue>><br><br><<link "Continue" "BookStore">><</link>><br><</replace>><<Failed>><<replace "#choice1">><<Dialogue "player" "You">> "Wow, you suck at this!"<</Dialogue>><br><br>You tried to sound witty, but it just came off as mean. Kris looks none too pleased, and before you think it out, you just chuckle awkwardly.<br><br><<Dialogue "Kris" "Kris">> "… You think you are so clever? Okay, then, tomorrow, 6 PM, I\'ll text you the address. Dress nicely."<</Dialogue>><br><br>Well, it seems the tables have turned... again. But you also got a date with Kris, which is a plus. Though there is a large spectrum of \'plus\' there.<br><br><<link "Continue" "BookStore">><</link>><</replace>><</PersonalityCheck>><br><br><<link "Wait and see">><<replace "#choice1">>Aaaaand nothing. You called Kris\'s bluff, and she doesn\'t know how to respond. Of course she didn\'t have a next move in mind; she clearly operates exclusively on the present. Sitting down on a broken chair quickly turns awkward, but leaves you with a curious question. What IS Kris\'s actual endgame regarding you?<br><br><<Dialogue "player" "You">> "So... um... how about we go out one of these days? Somewhere else, you know? One can only have so much coffee. Maybe have an actual conversation that doesn’t involve consumption of drinks? And, you know, do something that isn’t just lecherous staring and spouting insinuations...?"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">> "... Are you talking about… a DATE? Um... sure? Why not?"<</Dialogue>><br><br>She doesn\'t sound that enthusiastic, almost like dating somehow didn\'t even cross her mind. What kind of relationship do you two even have?!<br><br><<Dialogue "Kris" "Kris">> "How does tomorrow at 6 PM sound? I\'ll text you the address."<</Dialogue>><br><br><<Dialogue "player" "You">> "um, sure. Sounds... good? I guess I\'ll see you then."<</Dialogue>><br><br><<Dialogue "Kris" "Kris">> "Yeah. See you then."<</Dialogue>><br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>></span><<set $krisDate1 to true>>'
     },
     {
         name: 'krisObsessedSecondAttempt',
@@ -13397,7 +13389,7 @@ He raises his chin towards a tall pile of varied articles of clothing. You caref
 <</if>>
 
 
-<</nobr>>Opening the door <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>and squeezing through<</if>><<if $outfitWarning>> with your tattered clothes almost getting ripped<</if>>, you find yourself facing an unfamiliar sight; Johan sits behind a table with a fake beard, wizard's robe and candles on a table littered with oddly shaped dice, tiny figurines and a hexagonal grid map. The moment you enter, his voice booms out, as theatrical as Johan can get;
+<</nobr>>Opening the door <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>and squeezing through<</if>><<if setup.isOutfitTight()>> with your tattered clothes almost getting ripped<</if>>, you find yourself facing an unfamiliar sight; Johan sits behind a table with a fake beard, wizard's robe and candles on a table littered with oddly shaped dice, tiny figurines and a hexagonal grid map. The moment you enter, his voice booms out, as theatrical as Johan can get;
 
 <<Dialogue "Johan" "Johan">>"Welcome, mortal visitor to the plane of - Oh, it's you! Hahaha, I was expecting some other people, but I guess it’s a bit early! Come on in! I'm just having DnD in - oh, about an hour or so. Guess I got set up a too early. I’m kinda anxious, believe it or not!"<</Dialogue>>
 
