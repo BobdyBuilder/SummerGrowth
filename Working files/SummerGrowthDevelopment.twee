@@ -8608,7 +8608,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
         boxes.on("change", function () {	  
         		var id = parseInt(document.querySelector('input[name="slotItem"]:checked').value);
                 
-                State.variables.outfit[State.temporary.slot + 'Id'] = id;
+                State.variables.outfit[State.temporary.slot + 'Id'] = id === -1 ? null : id;
                                 
                 $(".macro-live").trigger(":liveupdateinternal");
 				$(document).trigger(":liveupdate");
