@@ -1430,25 +1430,28 @@ window.isNumeric = function (obj) {
 <</if>>
 
 <<set $tags to tags()>>
-<<script>>
-    if (setup.isOutfitTight()) {
-        const tightClothesSlots = setup.getTightOutfitClothesArray().map(clothes => clothes.slot);
-        State.temporary.outfitTightWarning = 'These clothes are too tight: ' + tightClothesSlots.join(' ');
-    }
 
-    if (setup.isOutfitNude()) {
-        State.temporary.outfitNudeWarning = `You're practically nude! Get some clothes on! You're missing the following: ` + setup.getNudeOutfitSlots().join(' ');
-    }
-<</script>>
-
-<div class = "warning"> 
-    <<if setup.isOutfitTight()>>
-        <img src="https://i.imgur.com/IIR3hEI.png" @title="_outfitTightWarning">
-    <</if>>
-    <<if setup.isOutfitNude()>>
-        <img src="https://i.imgur.com/HmBr1GW.png" @title="_outfitNudeWarning"> 
-    <</if>>
-</div> 
+<<liveblock>>
+    <<script>>
+        if (setup.isOutfitTight()) {
+            const tightClothesSlots = setup.getTightOutfitClothesArray().map(clothes => clothes.slot);
+            State.temporary.outfitTightWarning = 'These clothes are too tight: ' + tightClothesSlots.join(' ');
+        }
+    
+        if (setup.isOutfitNude()) {
+            State.temporary.outfitNudeWarning = `You're practically nude! Get some clothes on! You're missing the following: ` + setup.getNudeOutfitSlots().join(' ');
+        }
+    <</script>>
+    
+    <div class="warning"> 
+        <<if setup.isOutfitTight()>>
+            <img src="https://i.imgur.com/IIR3hEI.png" @title="_outfitTightWarning">
+        <</if>>
+        <<if setup.isOutfitNude()>>
+            <img src="https://i.imgur.com/HmBr1GW.png" @title="_outfitNudeWarning"> 
+        <</if>>
+    </div>
+<</liveblock>>
 
 <<set _lactationWarning to "Your breasts are getting full.">>
 <<if $lactationUnlocked>>
