@@ -12100,38 +12100,39 @@ and will be filled in when they enter the stores. */
 
 /*Populates the stores with clothing from the allclothes list. */
 <<set setup.storePopulator to function () {
-    const stores = ['allisonsApparel','bulkBarn','bigTall', 'shoeStore', 'tasha', 'online'];
-    for (let s = 0; s < stores.length; s++) {
+    const storeNames = ['allisonsApparel', 'bulkBarn', 'bigTall', 'shoeStore', 'tasha', 'online'];
+    for (const storeName of storeNames) {
         /* The diceroll to see what the store has in inventory.*/
-        var randomInt = Math.random();
-        var store = stores[s];
-        State.variables[store + 'Inventory'] = [];
+        const randomInt = Math.random();
+        State.variables[storeName + 'Inventory'] = [];
 
-        console.log("adding items to store: " + store + ', with luck of ' + randomInt);
-        for (let i = 0; i < setup.allClothes.length; i++) {            
+        console.log('adding items to store: ' + storeName + ', with luck of ' + randomInt);
+        for (const setupClothes of setup.allClothes) {
             /* Missing info means not available in this store. Skip. The droprate (chance) must also be met.
             Couldn't use continue due to nested for loop.
             Code smell for sure, but right now prioritizing functionality over clean code. Look into later - Bob */
-            if(setup.allClothes[i].storeInfo != undefined && setup.allClothes[i].storeInfo[store] != undefined && setup.allClothes[i].storeInfo[store].chance >= randomInt){
-                var item = setup.allClothes[i];
-                console.log("Adding item " + item.name);
-                /* transfers date */
-                item.price = parseInt(item.baseCost * item.storeInfo[store].costModifier);                
-
-                /* This adds some daily variance to the sizes available.*/
-                var sizeMod = 2 - Math.floor(randomInt / 3);
-                item.storeInfo[store].availableSizes[1] += sizeMod;
-                item.availableSizes = item.storeInfo[store].availableSizes;
-
-                /* removes unwanted date - turns out that it works by reference, and cloning the array seems overkill.
-                delete item.storeInfo; */
-
-                /* adds data to store. */
-                State.variables[store + 'Inventory'].push(item);
+            if (setupClothes?.storeInfo?.[storeName]?.chance == null || setupClothes?.storeInfo?.[storeName]?.chance < randomInt) {
+                continue;
             }
+
+            /* deep copy an element from setup.allClothes */
+            const clothes = JSON.parse(JSON.stringify(setupClothes));
+            console.log('Adding item ' + clothes.name);
+
+            /* transfers data */
+            clothes.price = Math.floor(clothes.baseCost * clothes.storeInfo[storeName].costModifier);
+
+            /* This adds some daily variance to the sizes available.*/
+            const sizeMod = 2 - Math.floor(randomInt / 3);
+            clothes.storeInfo[storeName].availableSizes[1] += Math.min(sizeMod, setup.sizeDatabase.length - 1);
+            clothes.availableSizes = clothes.storeInfo[storeName].availableSizes;
+
+            /* adds data to store. */
+            State.variables[storeName + 'Inventory'].push(clothes);
         }
-        console.log("Final inventory for " + store + 'Inventory: ');
-        console.log(State.variables[store + 'Inventory']);
+
+        console.log('Final inventory for ' + storeName + 'Inventory: ');
+        console.log(State.variables[storeName + 'Inventory']);
     }
 }>>
 
