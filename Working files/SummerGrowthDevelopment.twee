@@ -3239,7 +3239,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
 
 <<linkreplace "Go to sleep">><<include "Sleep">><</linkreplace>>
 
-<<link "Change your outfit - 00:10 🕛" "Closet">><</link>>
+<<link "Change your outfit - 00:05 🕛" "Closet">><</link>>
 <br><br>
 
 <<link "Spend some time on your PC" "pc">><</link>>
@@ -3251,7 +3251,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
 :: Closet {"position":"1225,800","size":"100,100"}
 <<liveblock>>
 <<nobr>>
-<<addMinutes 10>>
+<<addMinutes 5>>
 
 <span class="important">An outfit needs to have the same bonus on two pieces of clothing to apply. Clothing fit is determined by its size, but some body features can also make certain pieces with the right size not fit; very big breasts, for example. The icon after the size indicates how it fits you. green is a perfect fit, orange a tight fit, and red means it's either too big or too small.</span>
 
