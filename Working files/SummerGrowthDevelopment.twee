@@ -10374,12 +10374,15 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 :: TailorWidget [widget nobr] {"position":"2700,1525","size":"100,100"}
 <<widget "TailorWidget">>
 
+<<set _newClothes to JSON.parse(JSON.stringify($wardrobe))>>
 
-
-	<<set _sizes to ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL", "5XL", "6XL", "7XL", "8XL", "9XL", "10XL", "11XL", "12XL", "13XL", "14XL", "15XL", "16XL", "17XL", "18XL", "19XL", "20XL", "21XL", "22XL", "23XL", "24XL", "25XL", "26XL", "27XL", "28XL", "29XL", "30XL"]>>
-
-
-<<set _newClothes to clone($wardrobe)>>
+<<set _getAllReadableSizes to function (clothes) {
+    const sizes = {};
+    for (let i = 0; i < setup.sizeDatabase.length; i++) {
+        sizes[setup.getReadableFitFromSize(i, clothes.slot, clothes.tolerance)] = i;
+    }
+    return sizes;
+}>>
 
 <table id="store">
   <tr>
@@ -10396,11 +10399,11 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 <tr id="row" @data-num="_iTailoredList">
   <td><<print $wardrobe[_iTailoredList].name>></td>
   <td>
-  	<<print setup.getSizeName($wardrobe[_iTailoredList].size)>>
+  	<<print setup.getReadableFitFromClothing($wardrobe[_iTailoredList])>>
   </td>
   <td>
 	<<listbox "_newClothes[_iTailoredList].size" autoselect>>
-	<<optionsfrom setup.getAllSizeNames()>>
+	<<optionsfrom _getAllReadableSizes(_newClothes[_iTailoredList])>>
 	<</listbox>>
   </td>
   <td>
