@@ -3959,7 +3959,7 @@ setup.setClothesTable(clothes);
     const clothing = State.temporary.filteredStoreClothes[rowIndex];
 
     const sizes = {};
-    for (let i = 0; i < setup.sizeStrings.slice(clothing.availableSizes[0], clothing.availableSizes[1]).length; i++) {
+    for (let i = 0; i < setup.getAllSizeNames().slice(clothing.availableSizes[0], clothing.availableSizes[1]).length; i++) {
         sizes[setup.getReadableFitFromSize(i, clothing.slot, clothing.tolerance)] = i;
     }
     return sizes;
@@ -10396,11 +10396,11 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 <tr id="row" @data-num="_iTailoredList">
   <td><<print $wardrobe[_iTailoredList].name>></td>
   <td>
-  	<<print setup.sizeStrings[$wardrobe[_iTailoredList].size]>>
+  	<<print setup.getSizeName($wardrobe[_iTailoredList].size)>>
   </td>
   <td>
 	<<listbox "_newClothes[_iTailoredList].size" autoselect>>
-	<<optionsfrom setup.sizeStrings>>
+	<<optionsfrom setup.getAllSizeNames()>>
 	<</listbox>>
   </td>
   <td>
@@ -10708,7 +10708,40 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
     }
 ]>>
 
+/* The name for the given size index of setup.sizeDatabase */
+<<set setup.getSizeName to function (sizeIndex) {
+    if (sizeIndex < 0) {
+        throw 'The size index must be 0 or bigger';
+    }
+
+    if (sizeIndex === 0) {
+        return 'XS';
+    } else if (sizeIndex === 1) {
+        return 'S';
+    } else if (sizeIndex === 2) {
+        return 'M';
+    } else if (sizeIndex < 7) {
+        let sizeName = '';
+        for (let i = 0; i < sizeIndex - 3; i++) {
+            sizeName += 'X';
+        }
+        return sizeName + 'L';
+    } else {
+        return sizeIndex - 3 + 'XL';
+    }
+}>>
+
+/* The names for the all sizes listed in setup.sizeDatabase */
+<<set setup.getAllSizeNames to function () {
+    let sizeNames = [];
+    for (let size = 0; size < setup.sizeDatabase.length; size++) {
+        sizeNames.push(setup.getSizeName(size));
+    }
+    return sizeNames;
+}>>
+
 /* The names for the sizes listed in setup.sizeDatabase*/
+/* TODO deprecated. Use setup.getSizeName(sizeIndex) or setup.getAllSizeNames() instead. Remove this when possible - waffle */
 <<set setup.sizeStrings to [
 	'XS',
     'S',
@@ -11987,7 +12020,9 @@ and will be filled in when they enter the stores. */
         let fit = setup.getFitDescription(sizeIndex, slot);
         fits.push(fit === 'fits');
     }
-    return setup.sizeStrings[fits.indexOf(true)] + ' - ' + setup.sizeStrings[fits.lastIndexOf(true)];
+    
+    const allSizeNames = setup.getAllSizeNames();
+    return allSizeNames[fits.indexOf(true)] + ' - ' + allSizeNames[fits.lastIndexOf(true)];
 }>>
 
 <<set setup.getSmallestPlayerSizeNeeded to function (slot) {
@@ -12063,11 +12098,11 @@ and will be filled in when they enter the stores. */
 <<set setup.getReadableFitFromSize = function (size, slot, tolerance) {
     let fit = setup.getFitDescription(size, slot, tolerance);
     if (fit === 'fits') {
-        return setup.sizeStrings[size] + '✅';
+        return setup.getSizeName(size) + '✅';
     } else if (fit === 'too small' || fit === 'too big') {
-        return setup.sizeStrings[size] + '❌';
+        return setup.getSizeName(size) + '❌';
     } else {
-        return setup.sizeStrings[size] + '🔶';
+        return setup.getSizeName(size) + '🔶';
     }
 }>>
 
@@ -13593,11 +13628,11 @@ setup.setClothesTable(clothes);
 <tr id="row" @data-num="_i">
   <td><<print _wardRobeCopy[_i].clothing.name>></td>
   <td>
-  	<<print setup.sizeStrings[_wardRobeCopy[_i].clothing.size]>>
+  	<<print setup.getSizeName(_wardRobeCopy[_i].clothing.size)>>
   </td>
   <td>
 	<<listbox "_wardRobeCopy[_i].size">>
-	<<optionsfrom setup.sizeStrings>>
+	<<optionsfrom setup.getAllSizeNames()>>
 	<</listbox>>
   </td>
   <td>
@@ -13710,7 +13745,7 @@ Next to the sewing machine you have all the projects you're currently working on
 <<print $sewingProjects[_iSewingProject].timeNeeded>>
   </td>
       <td>
-  	<<print setup.sizeStrings[$sewingProjects[_iSewingProject].newSize]>>
+  	<<print setup.getSizeName($sewingProjects[_iSewingProject].newSize)>>
   </td>
 	<td><<if $motivationPercentage >= $exhaustionPercentage and $exhaustion +20 <= $maxExhaustion>>
 	<<skillCheck "Sewing" 2>>
@@ -13805,7 +13840,7 @@ Next to the sewing machine you have all the projects you're currently working on
 
   <td>
   	<<listbox "_newProject.dump">>
-	<<optionsfrom setup.sizeStrings>>
+	<<optionsfrom setup.getAllSizeNames()>>
 	<</listbox>>
   </td>
   <td>
