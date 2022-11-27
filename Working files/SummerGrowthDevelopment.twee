@@ -10408,23 +10408,27 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
   </td>
   <td>
   <span class="selected">Select a new size first</span>
+  <<set _newClothes[_iTailoredList].price to 0>> /* initialize to 0 price */
   <<timed 0s>><<script>>
-
     /* Refactor this, it's a mess - to bob */
-	var boxes = $(".macro-listbox#listbox--newclothes-itailoredlistsize");
-    boxes.on("change", function () {	
-		var selectedSize = $(this).children(":selected").val();
-        $(this).parents("#row").find(".selected").fadeOut(250, function () {
-			var rowIndex = Number($(this).parents("#row").attr("data-num"));
-			var price = State.variables.wardrobe[rowIndex].price;
-			var sizeMod = State.variables.wardrobe[rowIndex].size;
-			var difference = Math.abs(selectedSize - sizeMod);			
-			
+    $('.macro-listbox#listbox--newclothes-itailoredlistsize').on('change', function () {
+        const selectedSize = parseInt($(this).children(':selected').val());
+        $(this).parents('#row').find('.selected').fadeOut(250, function () {
+            const rowIndex = parseInt($(this).parents('#row').attr('data-num'));
+            const sizeMod = State.variables.wardrobe[rowIndex].size;
+            const sizeDifference = Math.abs(selectedSize - sizeMod);
+    
+            if (State.temporary.newClothes[rowIndex].size === State.variables.wardrobe[rowIndex].size) {
+                State.temporary.newClothes[rowIndex].price = 0;
+                $(this).text('Select a new size first').fadeIn(250);
+                return;
+            }
+    
             /* Extract this -  Bob */
-			var value = Math.round((20 * (0.5 * (State.variables.wardrobe[rowIndex].size + 1))) * (1 + ((difference/3) * (difference/3))));
-            $(this).text("$" + value).fadeIn(250);
-			State.temporary.newClothes[rowIndex].size = parseInt(selectedSize);
-			State.temporary.newClothes[rowIndex].price = value;
+            const price = Math.round((20 * (0.5 * (State.variables.wardrobe[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
+            State.temporary.newClothes[rowIndex].price = price;
+    
+            $(this).text('$' + price).fadeIn(250);
         });
     });
 	<</script>><</timed>>
@@ -10434,7 +10438,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 		<<if $money < _newClothes[_iTailoredList].price>>
 				You can't afford this
 			<<elseif _newClothes[_iTailoredList].price is 0>>
-				Select a size.
+				⚠️Select a new size.
 			<<else>>
 				<<set $simonOpinion += 1>>
 				Tailored!
