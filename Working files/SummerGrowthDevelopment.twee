@@ -10403,7 +10403,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
   </td>
   <td>
 	<<listbox "_newClothes[_iTailoredList].size" autoselect>>
-	<<optionsfrom setup.getAllSizeNames()>>
+	<<optionsfrom _getAllReadableSizes(_newClothes[_iTailoredList])>>
 	<</listbox>>
   </td>
   <td>
@@ -10745,7 +10745,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 
 /* The names for the sizes listed in setup.sizeDatabase*/
 /* TODO deprecated. Use setup.getSizeName(sizeIndex) or setup.getAllSizeNames() instead. Remove this when possible - waffle */
-<<set setup.sizeStrings to [
+<<set setup.sizeStrings to [ /**/
 	'XS',
     'S',
     'M',
@@ -11950,7 +11950,7 @@ and will be filled in when they enter the stores. */
 }>>
 
 /* Gets a short description of how the given clothing fit for the player */
-<<set setup.getFitDescription to function (sizeIndex, slot, tolerance = 1) {
+<<set setup.getFitDescription to function (sizeIndex, slot, tolerance = 1) {/**/
    const statsToCheck = setup.biggestPlayerSize(slot);
    const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
    const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
@@ -12098,7 +12098,7 @@ and will be filled in when they enter the stores. */
 }>>
 
 /* retrieves human readable fit from size, slot and tolerance. */
-<<set setup.getReadableFitFromSize = function (size, slot, tolerance) {
+<<set setup.getReadableFitFromSize = function (size, slot, tolerance) {/**/
     let fit = setup.getFitDescription(size, slot, tolerance);
     if (fit === 'fits') {
         return setup.getSizeName(size) + '✅';
@@ -12110,7 +12110,7 @@ and will be filled in when they enter the stores. */
 }>>
 
 /* retrieves human readable fit from the clothing. */
-<<set setup.getReadableFitFromClothing = function (clothingItem) {
+<<set setup.getReadableFitFromClothing = function (clothingItem) {/**/
     if (clothingItem == null) {
         return '-';
     }
