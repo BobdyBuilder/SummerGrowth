@@ -10403,7 +10403,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
   </td>
   <td>
 	<<listbox "_newClothes[_iTailoredList].size" autoselect>>
-	<<optionsfrom _getAllReadableSizes(_newClothes[_iTailoredList])>>
+	<<optionsfrom setup.getAllSizeNames()>>
 	<</listbox>>
   </td>
   <td>
