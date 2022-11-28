@@ -2635,7 +2635,7 @@ At <<heighNumeral>> tall, your height no longer makes any sense! You can walk ou
   You know where your job interview will be in a few days. It's probably best to leave between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
   <br><br>
   <</if>>
-<<elseif $jobOffice is true and $officeFired is false>>
+<<elseif $jobOffice and !$officeFired>>
   <<if $gameDate.getHours() <= 16 and $gameDate.getHours() >= 8>>
 	<<if _day >= 1 and _day <= 4>>
 			<<gameLink "Go to the office" "office" time:20>><</gameLink>><br><br>
@@ -3572,7 +3572,7 @@ There is a decent shopping center downtown, with various shops in the old buildi
 
 <<gameLink "Visit Allison's Apparel" "ClothingStore" time:5>><</gameLink>>
 <<gameLink "Visit Tasha's Thrifts" "SecondHandStore" time:5>><</gameLink>>
-<<gameLink "Visit the Bulk Barn" "FitnessStore" time:5>><<if $eddyIntro != true>><<set $eventCounter to setup.balance.eventTresshold + 1>><</if>><</gameLink>>
+<<gameLink "Visit the Bulk Barn" "FitnessStore" time:5>><<if !$eddyIntro>><<set $eventCounter to setup.balance.eventTresshold + 1>><</if>><</gameLink>>
 <<gameLink "Visit the Coffee Corner" "BookStore" time:5>><</gameLink>>
 <<gameLink "Visit Everything Electronixz" "ElectronicsStore" time:5>><</gameLink>>
 <<gameLink "Visit the Big and Tall Boutique" "BigTallStore" time:5>><</gameLink>>
@@ -4319,7 +4319,7 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 
 :: FitnessStore [outOfHouse mall fitnessStore nobr] {"position":"2500,1625","size":"100,100"}
 <<nobr>>
-<<if $bulkBarnJob == true>>
+<<if $bulkBarnJob>>
     <<if [0, 3, 4, 5, 6].includes($gameDate.getDay())>>
         <<if $gameDate.getHours() <= 12 and $gameDate.getHours() >= 10>>
             <<gameLink "Start your shift" "bulkBarnJob" time:480 exhaustion:30>><<set $eventCounter to setup.balance.eventTresshold + 1>>><</gameLink>><br><br>
@@ -15359,10 +15359,11 @@ timeBox.addEventListener('change', (event) => {
 	/* money */
 	baseMoneyPerDay: 100,
     bulkBarnJobIncome: function () {
-            if(State.variables.skills[0] != undefined){
-                return Math.round(100 + (100 / 3 * State.variables.skills[0].level)+ (100 / 3 * State.variables.skills[1].level)+ (100 / 5 * State.variables.skills[2].level));
-            }              
-       	},
+           if (State.variables.skills[0] == null) {
+               return 0;
+           }
+           return Math.round(100 + (100 / 3 * State.variables.skills[0].level) + (100 / 3 * State.variables.skills[1].level) + (100 / 5 * State.variables.skills[2].level));
+       },
 	baseIncomePerStream: 5,
 	moneyPerBoxShifted: 3,
 	eventTresshold: 10,
@@ -22273,19 +22274,19 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'storeStocking',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'As your shift starts, you notice that some of the shelves are getting a little bare - it’s time to restock them! You head to the back to pick up some full boxes, <<if $muscle >= 50>>your mighty muscles allowing you to easily stack several of them on one hand,<<elseif $muscle >=35 >carrying the big ones with ease,<<else>>struggling a bit to carry them,<</if>> you proceed to bring them to the front in order to replace the missing products on the shelves.<br><br><<if $height >= 190>>Since you are now pretty tall, the whole process is fairly easy - if anything, it’s the lower shelves that are now a bit of hassle!<<elseif $height >= 170>>You can now stock all shelves without needing any stepping surfaces! You replace even the tallest displays with a smile on your face.<<elseif $height >= 150>>You start by restocking the lower shelves, but see yourself forced to grab a stool for the tallest ones.<<else>>You quickly realize you need to go back into the storeroom for the ladder in order to reach some of the shelves. It takes a bit longer, but you manage.<</if>><br><br>You look proudly at the restocked shelves, <<if $carefreeCarefull > 1>>which frankly look impeccably neat, a far cry from Big Eddy’s chaotic “if it isn’t falling, that’s good enough!” system.<<<<if $carefreeCarefull > -1>>which are better looking than Eddy’s system that is in constant risk of toppling and starting a chain reaction.<<else>>which frankly aren’t that much neater-looking than Eddy’s, but at least they are considerably safer in that they are at no risk of falling on someone’s head!<</if>>'
+        content: 'As your shift starts, you notice that some of the shelves are getting a little bare - it’s time to restock them! You head to the back to pick up some full boxes, <<if $muscle >= 50>>your mighty muscles allowing you to easily stack several of them on one hand,<<elseif $muscle >=35 >carrying the big ones with ease,<<else>>struggling a bit to carry them,<</if>> you proceed to bring them to the front in order to replace the missing products on the shelves.<br><br><<if $height >= 190>>Since you are now pretty tall, the whole process is fairly easy - if anything, it’s the lower shelves that are now a bit of hassle!<<elseif $height >= 170>>You can now stock all shelves without needing any stepping surfaces! You replace even the tallest displays with a smile on your face.<<elseif $height >= 150>>You start by restocking the lower shelves, but see yourself forced to grab a stool for the tallest ones.<<else>>You quickly realize you need to go back into the storeroom for the ladder in order to reach some of the shelves. It takes a bit longer, but you manage.<</if>><br><br>You look proudly at the restocked shelves, <<if $carefreeCarefull > 1>>which frankly look impeccably neat, a far cry from Big Eddy’s chaotic “if it isn’t falling, that’s good enough!” system.<<elseif $carefreeCarefull > -1>>which are better looking than Eddy’s system that is in constant risk of toppling and starting a chain reaction.<<else>>which frankly aren’t that much neater-looking than Eddy’s, but at least they are considerably safer in that they are at no risk of falling on someone’s head!<</if>>'
     },
     {
         name: 'helpingClient',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22294,22 +22295,10 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         content: 'You are yawning behind the cashier as a very timid person walks into the store. You tap your fingers idly while you watch this person browse several products, clearly confused and lost. <<if $shyConfident > 1>>Feeling for them, you immediately spring to offer some much-needed help.<<elseif $shyConfident > -1>>You hesitate for a moment, slightly insecure about just approaching the person, but decide to do so in the end.<<else>>You wait as long as possible, hoping the client will figure things out - but it’s quickly clear they are getting more lost by the second, and against all instincts, you shyly look with a smile, opening yourself for the inevitable questions.<</if>><br><br>The customer explains what they want, explaining that they don’t really know much about supplements, and that any help would be welcome. <<if $skills[1].level > 3>>Given your exceptional knowledge of nutrition, you are able to field a couple of questions and before you know it, you are piling bottles on their basket.<<elseif $skills[1].level > 1>>With your basic knowledge of nutrition, you try your best to help them, but with Eddy out at the moment, it leaves some to be desired. Still, you point them to a couple of products, and the customer seems satisfied enough.<<else>>Totally unaware of nutrition, you fumble as you try to answer their questions, and just randomly suggest some products, reading labels to make sure it won’t hurt more than help. Still, while the client doesn’t seem completely satisfied, they at least are thankful for your effort.<</if>><br><br>As you ring up the purchase, <<if $muscle >= 50>>you notice that the person can’t help but look intently at your physique. They end up admitting they were a bit intimidated by the size of your muscles, but it just confirmed that they came to the right place, and will be back again.<<elseif if $muscle >= 35 && $fat <= 25>>you notice the person can’t keep their eyes away from your body, and they confess that you are an inspiration with your super-fit look.<<else>>they once again thank you for the help, and admit that having someone with a normal body makes it a bit less daunting to come to the Bulk Barn for their supplement needs.<</if>><br><br>Otherwise, it’s just another run-of-the-mill day at the store.'
     },
     {
-        name: 'helpingClient',
-        locationTags: ['fitnessStoreJob'],
-        conditions: [			 
-            () => State.variables.bulkBarnJob == true
-        ],
-        repeatable: true,
-        retriggerable: true,
-        priority: 'filler',
-        npc: [],
-        content: 'After ringing a big purchase, you start putting the money in the drawer of the cash register, and you notice that it’s a bit of a mess. Well, more like a big mess. To be totally fair, it’s pure chaos - and that’s still underselling it. Since most clients pay with plastic, you don’t check the cash there very often.<br><br><<Dialogue \"player\" \"You\">>\"Uh, Eddy? When was the last time you did the balance on the cash drawer?\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"What is that? Does it need to be oiled or something?\"<</Dialogue>><br><br><<if $skills[1].level > 2 || $carefreeCarefull > 1>>Oh, boy! I guess it’s up to you then! Since it’s almost the end of your shift, you pull all the cash out and get your phone, and start sorting all the bills by denomination, as you get all the receipts and try to make head or tails of the balance.<br><br>You finally make some sense of the finances, and explain to Eddy that he’ll need to write down the totals at closing time when you aren’t there. He looks at you, pouting like a little boy. You try and explain how important it is, but it apparently just goes into one ear and out the other.<<elseif $skills[1].level > -1 || $carefreeCarefull > -2>>You stare at him, blinking a few times in utter disbelief, then just shrug and decide to at least organize the cash back into the correct slots. You realize that, given his absolute lack of control over the balance, it really would not be that hard to get away with just taking some cash out at any time…<br><br><<else>>Well, if he doesn’t give a fuck, you care even less. You just close the cash drawer just as you found it, a dollar bill slightly sticking out. Not your problem.<br><br><</if>>With your job done, you wrap things up and get ready to close shop.'
-    },
-    {
         name: 'balancingCashRegister',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22321,7 +22310,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'EddyBanter',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22333,7 +22322,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'PuttingINOrders',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22345,7 +22334,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'recievingShipment',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22357,31 +22346,31 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'LookingForNewProducts',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'Eddy may be very big into researching the newest research about nutrition, but you quickly notice he’s not much one to do anything about it. <<if $skills[1].level > 2 || $carefreeCarefull > 1>>But you’ve been keeping mental notes of all the new products he raves about excitedly, and decide to look at what is available locally.<<elseif $skills[1].level > -1 || $carefreeCarefull > -2>>You took the opportunity to write down about the last one he mentioned, and figure it doesn’t hurt to look if it is available locally on the computer.<<else>>But as you are surfing on social media using the work computer when there are no clients around, you actually find the official website of one of the things he brought up not that long ago.<</if><br><br>As you browse the official website of this new supplement, you start wondering if maybe it would be worth a try to order some. <<if $skills[1].level > 2>>Given your knowledge in nutrition, you can guess that your average clientele would probably be very interested in it. <</if>><<if $skills[2].level > 2>>If you were to display it prominently on the window, that alone could probably bring in new clients to the store, given all the publicity this product has been getting lately. And they even have a special promotion for stores placing their first order, which would make this a very low-risk proposition!<</if>> You decide it’s worth asking Big Eddy if he would mind doing a trial run.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Wow, what a great idea, and what a find, <<print $playerFirstName>>! I knew I was right in hiring you!\"<</Dialogue>><br><br>And so you set up the order, hoping this will translate into some sales - and maybe even some new clients! Time will tell…'
+        content: 'Eddy may be very big into researching the newest research about nutrition, but you quickly notice he’s not much one to do anything about it. <<if $skills[1].level > 2 || $carefreeCarefull > 1>>But you’ve been keeping mental notes of all the new products he raves about excitedly, and decide to look at what is available locally.<<elseif $skills[1].level > -1 || $carefreeCarefull > -2>>You took the opportunity to write down about the last one he mentioned, and figure it doesn’t hurt to look if it is available locally on the computer.<<else>>But as you are surfing on social media using the work computer when there are no clients around, you actually find the official website of one of the things he brought up not that long ago.<</if>><br><br>As you browse the official website of this new supplement, you start wondering if maybe it would be worth a try to order some. <<if $skills[1].level > 2>>Given your knowledge in nutrition, you can guess that your average clientele would probably be very interested in it. <</if>><<if $skills[2].level > 2>>If you were to display it prominently on the window, that alone could probably bring in new clients to the store, given all the publicity this product has been getting lately. And they even have a special promotion for stores placing their first order, which would make this a very low-risk proposition!<</if>> You decide it’s worth asking Big Eddy if he would mind doing a trial run.<br><br><<Dialogue "Eddy" "Eddy">>"Wow, what a great idea, and what a find, <<print $playerFirstName>>! I knew I was right in hiring you!"<</Dialogue>><br><br>And so you set up the order, hoping this will translate into some sales - and maybe even some new clients! Time will tell…'
     },
     {
         name: 'CleaningUpStore',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'Ugh! The store is looking a little nasty right now. Big Eddy doesn’t seem to be in habit of doing a lot of cleaning. While the general layout of the store is rather bare, it’s still getting pretty dusty and full of scuff marks - there’s even a bit of gum that you can’t even tell how old it is on the floor.<br><br><<Dialogue \"player\" \"You\">>\"Hey, Eddy, do you have a mop and a bucket somewhere in the back I can use to clean up a bit?\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"I don’t know, actually. Maybe? I think there might be one from the previous tenant there.\"<</Dialogue>><br><br><<if $submissiveDominant > 1>><<Dialogue \"player\" \"You\">>\"Eddy, seriously? When was the last time you did ANY cleaning here?\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Errrr, there was that time the kid got sick here and ba...\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"You know what, never mind, I don’t want to know, but we’re having a conversation about this later, mister!\"<</Dialogue>><br><br><<elseif $submissiveDominant > -1>><<Dialogue \"player\" \"You\">>\"I should have guessed. You are incorrigible, Eddy!\"<</Dialogue>><br><br>He flashes his irresistible smile, knowing he can get away with it. You just roll your eyes.<</else>><<Dialogue \"player\" \"You\">>\"No worries, I’ll take care of it.\"<</Dialogue>><br><br><</if>>You make your way to the labyrinthine stockroom, and you brave the broom closet in the corner - which looks like it hasn’t seen any living soul in YEARS. You rescue the cleaning supplies (from under a thick layer of dust which requires you to clean them before you even start). And you get to cleaning!<br><br>You make quick work of the floor, and improvise a tool to deal with the bubblegum, <<if $muscle >= 40>>which you easily scrape with your remarkable strength.<<else>>which takes quite a while to scrape, repeatedly pulling layers until it’s gone.<</if>> Which leaves the dusting. With a damp cloth, you proceed to work on the shelves, <<if $height >= 180>>all of which you can easily reach.<<elseif $height >= 170>>requiring you to grab a stool to reach some of them.<<else>>and you are forced to grab the ladder to finish tackling the higher ones.<</if>> And now the store feels so much nicer!<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Good job, kiddo! I didn’t even realize how dirty this place was!\"<</Dialogue>><br><br>With a proud smile, you put the cleaning supplies back at their home, hoping that Eddy might be a bit more proactive going forward.'
+        content: 'Ugh! The store is looking a little nasty right now. Big Eddy doesn’t seem to be in habit of doing a lot of cleaning. While the general layout of the store is rather bare, it’s still getting pretty dusty and full of scuff marks - there’s even a bit of gum that you can’t even tell how old it is on the floor.<br><br><<Dialogue "player" "You">>"Hey, Eddy, do you have a mop and a bucket somewhere in the back I can use to clean up a bit?"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"I don’t know, actually. Maybe? I think there might be one from the previous tenant there."<</Dialogue>><br><br><<if $submissiveDominant > 1>><<Dialogue "player" "You">>"Eddy, seriously? When was the last time you did ANY cleaning here?"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"Errrr, there was that time the kid got sick here and ba..."<</Dialogue>><br><br><<Dialogue "player" "You">>"You know what, never mind, I don’t want to know, but we’re having a conversation about this later, mister!"<</Dialogue>><br><br><<elseif $submissiveDominant > -1>><<Dialogue "player" "You">>"I should have guessed. You are incorrigible, Eddy!"<</Dialogue>><br><br>He flashes his irresistible smile, knowing he can get away with it. You just roll your eyes.<<else>><<Dialogue "player" "You">>"No worries, I’ll take care of it."<</Dialogue>><br><br><</if>>You make your way to the labyrinthine stockroom, and you brave the broom closet in the corner - which looks like it hasn’t seen any living soul in YEARS. You rescue the cleaning supplies (from under a thick layer of dust which requires you to clean them before you even start). And you get to cleaning!<br><br>You make quick work of the floor, and improvise a tool to deal with the bubblegum, <<if $muscle >= 40>>which you easily scrape with your remarkable strength.<<else>>which takes quite a while to scrape, repeatedly pulling layers until it’s gone.<</if>> Which leaves the dusting. With a damp cloth, you proceed to work on the shelves, <<if $height >= 180>>all of which you can easily reach.<<elseif $height >= 170>>requiring you to grab a stool to reach some of them.<<else>>and you are forced to grab the ladder to finish tackling the higher ones.<</if>> And now the store feels so much nicer!<br><br><<Dialogue "Eddy" "Eddy">>"Good job, kiddo! I didn’t even realize how dirty this place was!"<</Dialogue>><br><br>With a proud smile, you put the cleaning supplies back at their home, hoping that Eddy might be a bit more proactive going forward.'
     },
     {
         name: 'MusicInStore',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22390,22 +22379,22 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         content: 'Big Eddy is out for an errand today. As you run the register, you notice that lately most customers seem to be people who work out very seriously, with big muscular guys and very toned women making the bulk for the clientele. You wonder if there is any chance you can make the place a bit more inviting by changing the music to something a little more inviting, and maybe switching the video of bodybuilder competitors on the LCD screen to something less… intimidating?<br><br><span id="choice"><<link "How about we try something new-agey?">><<replace "#choice">>You open OurTube and try something a little more zen… some videos of older women doing yoga seem perfect, complete with the appropriate new age music that goes with it.<br><br>Initially, it seems like some women do respond to that, but watching the gymbros look downright mystified as they come in for their supplements was worth the change! When Eddy comes back, he immediately starts vibing to the new song, closing his eyes and humming.<br><br>You ask him if he wants the old media back, but he says he’s cool with it. And so, you leave it like that for the rest of the day. He’s so mellow, it’s nice to see him a little less energetic and a bit more chill for a change.<<link "Continue" "FitnessStore">><</link>><</replace>><</link>><<link "I know, let’s go with some hard rock!">><<replace "#choice">>You immediately check OurTube for some head-banging songs, and set the music videos on the screen and speakers. It’s so energetic that you can’t help but play the air guitar and shake your head to the tunes!<br><br>Your little show attracts the attention of a few metalheads, who come in the store to compliment you. <<if $shyConfident > 1>>You accept it gladly, and take the opportunity to sell them some supplements to help them handle their gruesome touring routine! Everyone wins!<<else>>You are taken aback by their unexpected appearance, and immediately retreat behind the counter, trying to look as serious as possible! They laugh, and give you a thumbs up before they leave.<</if>><br><br>As Eddy comes back, he is initially surprised by the new playlist, freezing in place… before making a horn hand sign, and starts headbanging himself. Left with no other option, you join him! What a day!”<<link "Continue" "FitnessStore">><</link>><</replace>><</link>><<link "Maybe what we need is something that makes the business look more serious!">><<replace "#choice">>You look for some nutritionists on OurTube, and set some instructional lectures about the subject on the screen. That’s going to really excite prospective clients, maybe incentivize to buy even more!<br><br>…<br><br>You are woken up by Big Eddy poking you on the shoulder. Oops. The lecture just put you to sleep. I guess it wasn’t such a great idea after all.<br><br>Big Eddy laughs, and sets the screen back to the original video, and sets the music back to the energetic gym beats. This was very embarrassing…<<link "Continue" "FitnessStore">><</link>><</replace>><</link>></span>'
     },
     {
-        name: 'newproduct',
+        name: 'newProduct',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'As you restock the shelves, you open an unusual box you find in the corner of the storeroom. Huh, you don’t remember seeing these before.<br><br><<if $skills[1].level > 3>>Oh! These are some top-of-the-line supplements that you’ve never seen on the shelves! In fact, you kinda want to try some of them yourself! <<elseif $skills[1].level > 1>>Hmm… these look like very fancy supplements, but that’s about all you can tell about them. <<else>>Nope, never seen anything like that. No idea what these even are.<</if>>Weird, why are they just gathering dust in the back? You bring them to the front, placing them by the counter. <<if $skills[2].level > 2>>You look up the SKU in the system, but it does not seem to be registered at all!<</if>><br><br><<Dialogue \"player\" \"You\">>\"Hey, Eddy! I found these in the back, but I don’t think we usually sell these. I’m a bit confused here.\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"OH! THOSE! Yeah, yeah, I got a friend who works at a distributor, they sent me these samples a couple months ago as a promotional deal. Totally forgot about that!\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Oh. Should I put them up for sale then? Or do you want to take them home or something?\"<</Dialogue>><br><br><<if $muscle >= 35>><<Dialogue \"Eddy\" \"Eddy\">>\"Well, actually, you work out, right?\"<</Dialogue>><br><br><<if $shyConfident > 1>><<Dialogue \"player\" \"You\">>\"What can I say? You don’t get a body like that sitting on the couch!\"<</Dialogue>><br><br><<else>><<if $shyConfident > 1>><<Dialogue \"player\" \"You\">>\"Oh, I dabble, I guess?\"<</Dialogue>><br><br><</if>><<Dialogue \"Eddy\" \"Eddy\">>\"Why don’t you have those? I’m sure you are going to make much better use than I would anyway!\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Are you sure???\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Yeah, go crazy! Least I can do to support my employees, right?\"<</Dialogue>><br><br>You thank him profusely, and put the supplements away, looking forward to using them!”<<else>><<Dialogue \"Eddy\" \"Eddy\">>\"Uh, I suppose I could take them home, maybe?\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Why don’t we make like some sort of contest and give those as a prize for people who spend over $100? Might drum up some extra business!\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Ah! I love the way you think! But I want to draw up the posters! I love painting! I’ll go get some paper in the back!\"<</Dialogue>><br><br>And there he goes, like a little kid. Big Eddy, adorable as usual. You set up a little display of the prize on the counter, and get back to your regular business'
+        content: 'As you restock the shelves, you open an unusual box you find in the corner of the storeroom. Huh, you don’t remember seeing these before.<br><br><<if $skills[1].level > 3>>Oh! These are some top-of-the-line supplements that you’ve never seen on the shelves! In fact, you kinda want to try some of them yourself! <<elseif $skills[1].level > 1>>Hmm… these look like very fancy supplements, but that’s about all you can tell about them. <<else>>Nope, never seen anything like that. No idea what these even are.<</if>>Weird, why are they just gathering dust in the back? You bring them to the front, placing them by the counter. <<if $skills[2].level > 2>>You look up the SKU in the system, but it does not seem to be registered at all!<</if>><br><br><<Dialogue "player" "You">>"Hey, Eddy! I found these in the back, but I don’t think we usually sell these. I’m a bit confused here."<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"OH! THOSE! Yeah, yeah, I got a friend who works at a distributor, they sent me these samples a couple months ago as a promotional deal. Totally forgot about that!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Oh. Should I put them up for sale then? Or do you want to take them home or something?"<</Dialogue>><br><br> <<if $muscle >= 35>> <<Dialogue "Eddy" "Eddy">>"Well, actually, you work out, right?"<</Dialogue>><br><br> <<if $shyConfident > 1>> <<Dialogue "player" "You">>"What can I say? You don’t get a body like that sitting on the couch!"<</Dialogue>><br><br> <<else>> <<Dialogue "player" "You">>"Oh, I dabble, I guess?"<</Dialogue>><br><br> <</if>> <<Dialogue "Eddy" "Eddy">>"Why don’t you have those? I’m sure you are going to make much better use than I would anyway!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Are you sure???"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"Yeah, go crazy! Least I can do to support my employees, right?"<</Dialogue>><br><br>You thank him profusely, and put the supplements away, looking forward to using them! <<else>> <<Dialogue "Eddy" "Eddy">>"Uh, I suppose I could take them home, maybe?"<</Dialogue>><br><br><<Dialogue "player" "You">>"Why don’t we make like some sort of contest and give those as a prize for people who spend over $100? Might drum up some extra business!"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"Ah! I love the way you think! But I want to draw up the posters! I love painting! I’ll go get some paper in the back!"<</Dialogue>><br><br>And there he goes, like a little kid. Big Eddy, adorable as usual. You set up a little display of the prize on the counter, and get back to your regular business<</if>>'
     },
     {
-        name: 'watch peopel',
+        name: 'watchPeople',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22417,7 +22406,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'nutritionLecture',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22429,7 +22418,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'Storeroom',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22441,7 +22430,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'krisStore',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true,
+            () => State.variables.bulkBarnJob,
             () => State.variables.krisOpinion >= 10
         ],
         repeatable: true,
@@ -22454,7 +22443,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'playInStore',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22463,10 +22452,10 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         content: 'You wonder how Big Eddy stays in business, with slow days like these. Completely bored, you start trying to find something to pass the time. Suddenly, you are hit by a naughty idea.<br><br>After taking stock of all the point of purchase displays, you start plotting something in your head, a devious smile on your face. You sketch a little layout on a piece of paper - yes, this might work!<br><br>You set the cardboard cutouts of bodybuilders and fitness models on the two ends of the store, side by side. You grab one of them, and start moving it like a puppet as you say with a funny voice:<br><br><<Dialogue \"player\" \"You\">>\"You won’t get away with this, Gun Show Army! The Figure Liberation Forces will not give up! Pew, pew!\"<</Dialogue>><br><br>You start moving them around in mock fights, and as they defeat one another, you tip the cutouts down to the ground.<br><br>Eddy comes back through the front, looks at you, and without saying a word, just turns around and leaves again.<br><br>You know, now the whole thing with Johan and his painted metal figures makes more sense. This is more fun than you realized.'
     },
     {
-        name: 'storeSizeCOmpare',
+        name: 'storeSizeCompare',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22478,7 +22467,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'strenghtCheckStore',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22487,10 +22476,10 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         content: 'Big Eddy comes back from lunch, and offers to take care of the counter for a bit.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Don’t worry about this, I can handle the clients now. Is there anything you need to do?\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Well, now that you mention it, I tried going through the back and the boxes are all over the place in the storeroom - there’s no way to get to the door!\"<</Dialogue>><br><br>As a client enters, Big Eddy rushes to help them with a huge smirk. Yeah, I think he just wants you to deal with the boxes. Oh, well!<br><br>You head to the back and, WOW! That is a LOT of BIG BOXES all over. You estimate you’ll have to move at least a couple dozen of them in order to clear the path to the door at the back. You give yourself a quick stretch, and get to work.<br><br><<if $skills[2].level > 2 || $carefreeCarefull > 1>>You try to plan ahead, figuring out where to move what, in what order, to try to keep the physical labor to a minimal. It shouldn’t be too hard.<<else>>Anxiously, you just start going for the boxes without much planning, getting whatever you can out of the way and piling it in whichever place you can find - hoping to make your piles a little less precarious than what your boss just did. Safety first!<</if>><br><br><<if $muscle >= 80>>Despite those being some pretty hefty boxes, you are just piling them and moving several at a time. Casually, you just get them out of the way, opening the much needed path in a matter of a few minutes.<<elseif $muscle >=50>>These boxes are pretty hefty, but you have trained your body well. You can lift each with ease, putting them in their new place fairly quickly. It takes you about half an hour to eventually clear the much needed path.<<elseif $muscle >=35>>Those are some heavy boxes! Thankfully, your exercise is paying off, and you can still handle them. You start moving them, making sure you lift with proper form so as to not hurt your back - but it still takes you almost an hour to finally get the path cleared.<<else>>Oh, GOD, THESE ARE HEAVY! You find yourself forced to place the boxes on the ground or on top of others, then leverage your weight to just push them out of the way. Given the lack of space and general difficulty, you lose almost two hours trying to get this taken care of - and that’s not even speaking of the mental fatigue from this boring and arduous task.<</if>><br><br>And with the path clear, you sigh with relief, and walk back to tell Big Eddy the job is done - and that if he keeps leaving the boxes like this, you will quit!'
     },
     {
-        name: 'storeArmWreslting',
+        name: 'storeArmWrestling',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22502,7 +22491,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'storeLightbulb',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22514,19 +22503,19 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'storeCheckStock',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'You sell some glutamine, the last on display, and ring it up for the customer. According to the computer, there should be plenty of it left in stock, but you don’t see any. After raiding the stockroom (which, given the mess, is a long and thankless job), you find none of the 23 bottles that the software told you should be there.<br><br><<Dialogue \"player\" \"You\">>\"Hey, Eddy, the computer says we still have plenty of glutamine, but I can’t find any.\"<</Dialogue>><br><br>He raises his eyes from his magazine, looking surprised.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"You can talk to the computer? That’s neat! Oh, does it know where I saved that picture when I was skiing in a bathing suit? I can’t find it anywhere!\"<</Dialogue>><br><br>You take a second to try and get rid of that mental image (unsuccessfully), before explaining to him how the stock keeping system works.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Oh, so you need to mark down when you sell glutamine there? Well, in that case, we’re probably out, because I sold a bunch without using the computer.\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Look, Eddy, every time you make a sale, you ring it up with the scanner like this... and then the system shows how many we still have. Every time we get new stock, we just use this option and it will always show how much we have of each product. That way, I can come here... and then I know what we need to order. Get it?\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Whoa, that’s pretty neat! So that’s why we have this computer here? I was mostly using it for email, I’m pretty good at math, so I rarely used the scanner to ring up stuff!\"<</Dialogue>><br><br><<if $skills[2].level > 2 || $carefreeCarefull > 1>>You close your eyes and let out a huge sigh. You say you’ll take care of this, after begging him to always use the scanner to ring up items when sold. But right now, it’s time to get this right. You grab the clipboard and pen, and get to work.<br><br>You start by noting down the entire stock out on display in the store - a task which, by itself, takes half an hour. But you know the worst is yet to come... figuring out what is in the back. You tell Eddy to mind the cashier (after a very stern reminder to ring up stuff with the computer) and head to the stockroom.<br><br>OK, <<print $playerFirstName>>, you got this. You make a mental map of the maze of boxes, and come up with a game plan. This will take a while.<br><br>After a good 90 minutes, you have a complete tally of all the products written down. You go back to the front, where you find Eddy casually selling some nitric oxide to a guy, having his usual boastful conversation... and NOT using the computer.!<br><br><<if $submissiveDominant > 1>>You slap his hand, and with an angry face, point to the computer. He apologizes to the customer, and with a nervous smile, rings up the purchase.<<elseif $submissiveDominant > -1>><<Dialogue \"player\" \"You\">>\"EDDY!!! What did I just tell you?\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Oh, yeah, sorry about that.\"<</Dialogue>><br><br>He runs to the computer to ring it up, but he’s so nice and upbeat about it that you can’t even get mad, just rolling your eyes.<br><br><<else>>With another heavy sigh, you make a note on your clipboard for the product he didn’t put in the system.<</if>><br><br><</if>><<elseif $skills[2].level > 0 || $carefreeCarefull > 0>>You look at him, slightly exasperated. There’s no teaching an old dog new tricks, is there? But at least you can try.<br><br><<Dialogue \"player\" \"You\">>\"Look, Eddy, every time you make a sale, you ring it up with the scanner like this... and then the system shows how many we still have. Every time we get new stock, we just use this option and it will always show how much we have of each product. That way, I can come here... and then I know what we need to order. Get it?\"<</Dialogue>><br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Whoa, that’s pretty neat! So that’s why we have this computer here? I was mostly using it for email, I’m pretty good at math, so I rarely used the scanner to ring up stuff!\"<</Dialogue>><br><br>You take a deep breath, smile, and give Eddy a big hug.<br><br><<Dialogue \"player\" \"You\">>\"Never change, old man, never change.\"<</Dialogue>><br><br>Big Eddy smiles, and promises to you he will try to do better in the future. You still doubt it, but it’s kind of impossible to get mad at him.”<<else>>Oh well. I guess there’s no point in using the stock keeping system. You shrug, and wonder how Big Eddy is still in business.”<</if>>'
+        content: 'You sell some glutamine, the last on display, and ring it up for the customer. According to the computer, there should be plenty of it left in stock, but you don’t see any. After raiding the stockroom (which, given the mess, is a long and thankless job), you find none of the 23 bottles that the software told you should be there.<br><br><<Dialogue "player" "You">>"Hey, Eddy, the computer says we still have plenty of glutamine, but I can’t find any."<</Dialogue>><br><br>He raises his eyes from his magazine, looking surprised.<br><br><<Dialogue "Eddy" "Eddy">>"You can talk to the computer? That’s neat! Oh, does it know where I saved that picture when I was skiing in a bathing suit? I can’t find it anywhere!"<</Dialogue>><br><br>You take a second to try and get rid of that mental image (unsuccessfully), before explaining to him how the stock keeping system works.<br><br><<Dialogue "Eddy" "Eddy">>"Oh, so you need to mark down when you sell glutamine there? Well, in that case, we’re probably out, because I sold a bunch without using the computer."<</Dialogue>><br><br><<Dialogue "player" "You">>"Look, Eddy, every time you make a sale, you ring it up with the scanner like this... and then the system shows how many we still have. Every time we get new stock, we just use this option and it will always show how much we have of each product. That way, I can come here... and then I know what we need to order. Get it?"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"Whoa, that’s pretty neat! So that’s why we have this computer here? I was mostly using it for email, I’m pretty good at math, so I rarely used the scanner to ring up stuff!"<</Dialogue>><br><br> <<if $skills[2].level > 2 || $carefreeCarefull > 1>> You close your eyes and let out a huge sigh. You say you’ll take care of this, after begging him to always use the scanner to ring up items when sold. But right now, it’s time to get this right. You grab the clipboard and pen, and get to work.<br><br>You start by noting down the entire stock out on display in the store - a task which, by itself, takes half an hour. But you know the worst is yet to come... figuring out what is in the back. You tell Eddy to mind the cashier (after a very stern reminder to ring up stuff with the computer) and head to the stockroom.<br><br>OK, <<print $playerFirstName>>, you got this. You make a mental map of the maze of boxes, and come up with a game plan. This will take a while.<br><br>After a good 90 minutes, you have a complete tally of all the products written down. You go back to the front, where you find Eddy casually selling some nitric oxide to a guy, having his usual boastful conversation... and NOT using the computer.!<br><br><<if $submissiveDominant > 1>>You slap his hand, and with an angry face, point to the computer. He apologizes to the customer, and with a nervous smile, rings up the purchase.<<elseif $submissiveDominant > -1>><<Dialogue "player" "You">>"EDDY!!! What did I just tell you?"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"Oh, yeah, sorry about that."<</Dialogue>><br><br>He runs to the computer to ring it up, but he’s so nice and upbeat about it that you can’t even get mad, just rolling your eyes.<br><br><<else>>With another heavy sigh, you make a note on your clipboard for the product he didn’t put in the system.<</if>><br><br> <<elseif $skills[2].level > 0 || $carefreeCarefull > 0>> You look at him, slightly exasperated. There’s no teaching an old dog new tricks, is there? But at least you can try.<br><br><<Dialogue "player" "You">>"Look, Eddy, every time you make a sale, you ring it up with the scanner like this... and then the system shows how many we still have. Every time we get new stock, we just use this option and it will always show how much we have of each product. That way, I can come here... and then I know what we need to order. Get it?"<</Dialogue>><br><br><<Dialogue "Eddy" "Eddy">>"Whoa, that’s pretty neat! So that’s why we have this computer here? I was mostly using it for email, I’m pretty good at math, so I rarely used the scanner to ring up stuff!"<</Dialogue>><br><br>You take a deep breath, smile, and give Eddy a big hug.<br><br><<Dialogue "player" "You">>"Never change, old man, never change."<</Dialogue>><br><br>Big Eddy smiles, and promises to you he will try to do better in the future. You still doubt it, but it’s kind of impossible to get mad at him. <<else>> Oh well. I guess there’s no point in using the stock keeping system. You shrug, and wonder how Big Eddy is still in business.<</if>>'
     },
     {
         name: 'supplementTaste',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22538,19 +22527,19 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'posingTraining',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'Not much to do today. Thank God Eddy has Internet on the store’s computer. You start browsing the web, and probably because of his cookies you keep getting banners about supplements on every page.<br><br>As bodybuilder after bodybuilder is paraded on the banners, you start getting a bit curious about all the posing. You end up on an online encyclopedia rabbit hole about posing in competitions. Huh. There’s a surprising amount of things to be learned about the subject.<br><br>You never realized there was so much more to this - like using forced perspective tricks, trying to cover up other opponents, or even forcing them into another pose, throwing off their routine.<br><br>This is weirdly fascinating. You start looking up how the scoring works. The trail leads you into several rulebooks for different competitions, and you eventually find out there are entries for the actual classic poses, and you are once again hooked.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"What are you up to?\"<</Dialogue>><br><br><<if $shyConfident > 1>><<Dialogue \"player\" \"You\">>\"Oh, I’m looking up bodybuilding posing, and it’s kind of amazing stuff.\"<</Dialogue>><br><br>Eddy’s eyes light up... and you know what is about to happen. Better buckle in, because he won’t stop talking for the next two hours...”<<if $shyConfident > -1>><<Dialogue \"player\" \"You\">>\"Ah, nothing, just browsing the web while I wait, nothing major. And you?\"<</Dialogue>><br><br>Eddy goes on about something, but your thoughts are still on the posing, and it all goes in through one ear and out the other for the rest of your shift.”<<else>>Surprised, you slam the monitor down in shame. Except it’s not a laptop, so you just bring the screen down onto the counter. With a nervous smile, you bring it back up and quickly close the browser, making Eddy go into a fit of laughter. Yeah, it’s just one of those days.”<</if>>'
+        content: 'Not much to do today. Thank God Eddy has Internet on the store’s computer. You start browsing the web, and probably because of his cookies you keep getting banners about supplements on every page.<br><br>As bodybuilder after bodybuilder is paraded on the banners, you start getting a bit curious about all the posing. You end up on an online encyclopedia rabbit hole about posing in competitions. Huh. There’s a surprising amount of things to be learned about the subject.<br><br>You never realized there was so much more to this - like using forced perspective tricks, trying to cover up other opponents, or even forcing them into another pose, throwing off their routine.<br><br>This is weirdly fascinating. You start looking up how the scoring works. The trail leads you into several rulebooks for different competitions, and you eventually find out there are entries for the actual classic poses, and you are once again hooked.<br><br><<Dialogue "Eddy" "Eddy">>"What are you up to?"<</Dialogue>><br><br> <<if $shyConfident > 1>><<Dialogue "player" "You">>"Oh, I’m looking up bodybuilding posing, and it’s kind of amazing stuff."<</Dialogue>><br><br>Eddy’s eyes light up... and you know what is about to happen. Better buckle in, because he won’t stop talking for the next two hours...” <<elseif $shyConfident > -1>><<Dialogue "player" "You">>"Ah, nothing, just browsing the web while I wait, nothing major. And you?"<</Dialogue>><br><br>Eddy goes on about something, but your thoughts are still on the posing, and it all goes in through one ear and out the other for the rest of your shift.”<<else>>Surprised, you slam the monitor down in shame. Except it’s not a laptop, so you just bring the screen down onto the counter. With a nervous smile, you bring it back up and quickly close the browser, making Eddy go into a fit of laughter. Yeah, it’s just one of those days.<</if>>'
     },
     {
         name: 'EddyStacking',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22562,31 +22551,19 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'CustomerCompliment',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: '<<Dialogue \"player\" \"You\">>\"So, these are GREAT for post-workout recovery. Big Eddy swears by them, and he knows what he’s talking about - just look at his pipes!\"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Wow, you sure know a lot about this. It makes it a lot easier to come here and get stuff, I’m usually pretty intimidated."<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Oh, Big Eddy may be, well, BIG, but he is the sweetest and nicest guy. I learned a lot from him, he’s very patient and knows his supplements.\"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Yeah, but I mean, talking to YOU was great! You’ve been so helpful!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Awww, it was nothing, really.\"<</Dialogue>><br><br><<if $muscle >= 40><<Dialogue "randomPerson" "Random person">>"And despite you being, CLEARLY, very fit and strong, you are still so easy to talk to!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"...\"<</Dialogue>><br><br><</if><<if $skills[1].level > 2>><<Dialogue "randomPerson" "Random person">>"And clearly there is no denying that you know A LOT about nutrition, you answered my every question so clearly, and added stuff I didn’t even know to ask!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"...\"<</Dialogue>><br><br><</if><<if $skills[0].level > 3>><<Dialogue "randomPerson" "Random person">>"Heck, you even gave me a ton of workout advice on top of that! You’re like a professional personal trainer!!!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"...\"<</Dialogue>><br><br><</if><<Dialogue "randomPerson" "Random person">>"You are, like, literally the BEST person to work in a place like this!"<</Dialogue>><br><br><<if $shyConfident > 1>><<Dialogue \"player\" \"You\">>\"Well, what can I say? Some people just have a life calling... and I answered! It’s great to be the best at what you love, you know?\"<</Dialogue>><br><br><<else>>You blush, unable to respond to such praise. Your eyes dart around as you hold your hands behind your back, hoping the customer will just be done with it and make a purchase.<</if>><br><br>Eventually, they just ring up the purchase and leave, still dropping a last few choice compliments on the way out.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Getting pretty popular, huh? You should be proud, you really are doing great work.\"<</Dialogue>><br><br>With a smile, you nod back at him. Yeah, it’s nice to be recognized.'
-    },
-    {
-        name: 'CustomerCompliment',
-        locationTags: ['fitnessStoreJob'],
-        conditions: [			 
-            () => State.variables.bulkBarnJob == true
-        ],
-        repeatable: true,
-        retriggerable: true,
-        priority: 'filler',
-        npc: [],
-        content: '<<Dialogue \"player\" \"You\">>\"So, these are GREAT for post-workout recovery. Big Eddy swears by them, and he knows what he’s talking about - just look at his pipes!\"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Wow, you sure know a lot about this. It makes it a lot easier to come here and get stuff, I’m usually pretty intimidated."<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Oh, Big Eddy may be, well, BIG, but he is the sweetest and nicest guy. I learned a lot from him, he’s very patient and knows his supplements.\"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Yeah, but I mean, talking to YOU was great! You’ve been so helpful!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Awww, it was nothing, really.\"<</Dialogue>><br><br><<if $muscle >= 40><<Dialogue "randomPerson" "Random person">>"And despite you being, CLEARLY, very fit and strong, you are still so easy to talk to!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"...\"<</Dialogue>><br><br><</if><<if $skills[1].level > 2>><<Dialogue "randomPerson" "Random person">>"And clearly there is no denying that you know A LOT about nutrition, you answered my every question so clearly, and added stuff I didn’t even know to ask!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"...\"<</Dialogue>><br><br><</if><<if $skills[0].level > 3>><<Dialogue "randomPerson" "Random person">>"Heck, you even gave me a ton of workout advice on top of that! You’re like a professional personal trainer!!!"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"...\"<</Dialogue>><br><br><</if><<Dialogue "randomPerson" "Random person">>"You are, like, literally the BEST person to work in a place like this!"<</Dialogue>><br><br><<if $shyConfident > 1>><<Dialogue \"player\" \"You\">>\"Well, what can I say? Some people just have a life calling... and I answered! It’s great to be the best at what you love, you know?\"<</Dialogue>><br><br><<else>>You blush, unable to respond to such praise. Your eyes dart around as you hold your hands behind your back, hoping the customer will just be done with it and make a purchase.<</if>><br><br>Eventually, they just ring up the purchase and leave, still dropping a last few choice compliments on the way out.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Getting pretty popular, huh? You should be proud, you really are doing great work.\"<</Dialogue>><br><br>With a smile, you nod back at him. Yeah, it’s nice to be recognized.'
+        content: '<<Dialogue "player" "You">>"So, these are GREAT for post-workout recovery. Big Eddy swears by them, and he knows what he’s talking about - just look at his pipes!"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Wow, you sure know a lot about this. It makes it a lot easier to come here and get stuff, I’m usually pretty intimidated."<</Dialogue>><br><br><<Dialogue "player" "You">>"Oh, Big Eddy may be, well, BIG, but he is the sweetest and nicest guy. I learned a lot from him, he’s very patient and knows his supplements."<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Yeah, but I mean, talking to YOU was great! You’ve been so helpful!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Awww, it was nothing, really."<</Dialogue>><br><br><<if $muscle >= 40>><<Dialogue "randomPerson" "Random person">>"And despite you being, CLEARLY, very fit and strong, you are still so easy to talk to!"<</Dialogue>><br><br><<Dialogue "player" "You">>"..."<</Dialogue>><br><br><</if>><<if $skills[1].level > 2>><<Dialogue "randomPerson" "Random person">>"And clearly there is no denying that you know A LOT about nutrition, you answered my every question so clearly, and added stuff I didn’t even know to ask!"<</Dialogue>><br><br><<Dialogue "player" "You">>"..."<</Dialogue>><br><br><</if>><<if $skills[0].level > 3>><<Dialogue "randomPerson" "Random person">>"Heck, you even gave me a ton of workout advice on top of that! You’re like a professional personal trainer!!!"<</Dialogue>><br><br><<Dialogue "player" "You">>"..."<</Dialogue>><br><br><</if>><<Dialogue "randomPerson" "Random person">>"You are, like, literally the BEST person to work in a place like this!"<</Dialogue>><br><br><<if $shyConfident > 1>><<Dialogue "player" "You">>"Well, what can I say? Some people just have a life calling... and I answered! It’s great to be the best at what you love, you know?"<</Dialogue>><br><br><<else>>You blush, unable to respond to such praise. Your eyes dart around as you hold your hands behind your back, hoping the customer will just be done with it and make a purchase.<</if>><br><br>Eventually, they just ring up the purchase and leave, still dropping a last few choice compliments on the way out.<br><br><<Dialogue "Eddy" "Eddy">>"Getting pretty popular, huh? You should be proud, you really are doing great work."<</Dialogue>><br><br>With a smile, you nod back at him. Yeah, it’s nice to be recognized.'
     },
     {
         name: 'OrganizingStore',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
@@ -22598,13 +22575,13 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         name: 'helpBodybuilder',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.bulkBarnJob == true
+            () => State.variables.bulkBarnJob
         ],
         repeatable: true,
         retriggerable: true,
         priority: 'filler',
         npc: [],
-        content: 'Despite most clients being average people, the Bulk Barn still gets a lot of serious athletes. And suddenly in comes a very sizable bodybuilder. In some ways, these are the easiest customers to cater to, since they know exactly what they want. But that is not ALWAYS the case.<br><br><<Dialogue "randomPerson" "Random person">>"Hey, uh, can you help me out? I’m looking for something specific."<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Sure, what is it?\"<</Dialogue>><br><br>He grabs his phone, and shows a picture of a very specific brand of BCAA you’ve never seen before. You squint, and ask if you can have a closer look. You scroll through the article, examining the picture of the product, its brand and distributor. Hmmmm.<br><br><<Dialogue \"player\" \"You\">>\"Hey, Eddy, help me out here. Have you ever heard about this?\"<</Dialogue>><br><br>You show him the picture. He seems initially excited:<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Oh, yeah, I heard about it! They just launched this product, and I heard some great things about it! It sounds AWESOME, there’s a lot of scientific literature about the stuff they have done with the proteins in this, really exciting stuff.\"<</Dialogue>><br><br><<Dialogue \"player\" \"You\">>\"Yeah, but my question is more along the lines of ‘how do we get our hands on it?‘\"<</Dialogue>><br><br>Eddy shrugs with his typical ‘I dunno’ face. You roll your eyes, because this is his code for ‘you figure this one out, kiddo.’ Which you proceed to do. Asking the guy for a minute, you head to the computer.<br><br><<if $skills[2].level > 3>>You go through your order history, and try to figure out if any of your suppliers have ties with that distributor. After a few phone calls, you find out someone who gives you their contact. Another phone call and you are informed that it’s still on limited distribution - but you happen to have a good contact with one of the nearby markets that are part of that. It’s a bit convoluted, but you manage to convince a distributor from those parts to send you a couple of boxes of the product as a favor. It should be here in a week!<br><br><<Dialogue "randomPerson" "Random person">>"Wow, you are good, I’ve been to many stores, and called so many others, you were the only ones to even get this far! I’m telling my friends about this place, you guys are great!"<</Dialogue>><br><br>Big Eddy taps your back with his big smile.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"You just don’t know how to let me down, do you, kiddo?\"<</Dialogue>><br><br>You raise your arms, and thank him for the compliment. It feels good to be helpful like this.”<<elseif $skills[1].level > 3>>Eddy’s mention of the studies about the protein remind you of some of your own nutrition research, and how they ran some of those trials. In fact, the local gym was probably part of it. You give them a call, and they hook you up with their contact - one more call, and you have a sample box being delivered within the week as a trial, for FREE, even!<br><br><<Dialogue "randomPerson" "Random person">>"Wow, you are good, I’ve been to many stores, and called so many others, you were the only ones to even get this far! I’m telling my friends about this place, you guys are great!"<</Dialogue>><br><br>Big Eddy taps your back with his big smile.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"You just don’t know how to let me down, do you, kiddo?\"<</Dialogue>><br><br>You raise your arms, and thank him for the compliment. It feels good to be helpful like this.”<<else>>Well, this is tricky. Without much of a place to start, you just make calls to your regular distributors, but to no avail. They all say they haven’t received any of that product, and have no idea when they will. Dang!<br><br><<Dialogue \"player\" \"You\">>\"I’m sorry, I have no idea when we’ll get that in stock. I’ll keep trying, but if you want you can leave your contact and I’ll let you know when we do.‘\"<</Dialogue>><br><br> <<Dialogue "randomPerson" "Random person">>"It’s alright. I’ve already tried several other places, I guess I’ll just have to do without. Thanks for trying, though."<</Dialogue>><br><br>Big Eddy comes and puts an arm around your shoulder.<br><br><<Dialogue \"Eddy\" \"Eddy\">>\"Don’t let it get to you, kiddo. You win some, and lose some. That’s just life.\"<</Dialogue>><br><br>You know he’s right, but it still bugs you, as you wonder if only you were better at it, maybe you could have done something about it?'
+        content: 'Despite most clients being average people, the Bulk Barn still gets a lot of serious athletes. And suddenly in comes a very sizable bodybuilder. In some ways, these are the easiest customers to cater to, since they know exactly what they want. But that is not ALWAYS the case.<br><br><<Dialogue "randomPerson" "Random person">>"Hey, uh, can you help me out? I’m looking for something specific."<</Dialogue>><br><br><<Dialogue "player" "You">>"Sure, what is it?"<</Dialogue>><br><br>He grabs his phone, and shows a picture of a very specific brand of BCAA you’ve never seen before. You squint, and ask if you can have a closer look. You scroll through the article, examining the picture of the product, its brand and distributor. Hmmmm.<br><br><<Dialogue "player" "You">>"Hey, Eddy, help me out here. Have you ever heard about this?"<</Dialogue>><br><br>You show him the picture. He seems initially excited:<br><br><<Dialogue "Eddy" "Eddy">>"Oh, yeah, I heard about it! They just launched this product, and I heard some great things about it! It sounds AWESOME, there’s a lot of scientific literature about the stuff they have done with the proteins in this, really exciting stuff."<</Dialogue>><br><br><<Dialogue "player" "You">>"Yeah, but my question is more along the lines of ‘how do we get our hands on it?‘"<</Dialogue>><br><br>Eddy shrugs with his typical ‘I dunno’ face. You roll your eyes, because this is his code for ‘you figure this one out, kiddo.’ Which you proceed to do. Asking the guy for a minute, you head to the computer.<br><br> <<if $skills[2].level > 3>> You go through your order history, and try to figure out if any of your suppliers have ties with that distributor. After a few phone calls, you find out someone who gives you their contact. Another phone call and you are informed that it’s still on limited distribution - but you happen to have a good contact with one of the nearby markets that are part of that. It’s a bit convoluted, but you manage to convince a distributor from those parts to send you a couple of boxes of the product as a favor. It should be here in a week!<br><br><<Dialogue "randomPerson" "Random person">>"Wow, you are good, I’ve been to many stores, and called so many others, you were the only ones to even get this far! I’m telling my friends about this place, you guys are great!"<</Dialogue>><br><br>Big Eddy taps your back with his big smile.<br><br><<Dialogue "Eddy" "Eddy">>"You just don’t know how to let me down, do you, kiddo?"<</Dialogue>><br><br>You raise your arms, and thank him for the compliment. It feels good to be helpful like this. <<elseif $skills[1].level > 3>> Eddy’s mention of the studies about the protein remind you of some of your own nutrition research, and how they ran some of those trials. In fact, the local gym was probably part of it. You give them a call, and they hook you up with their contact - one more call, and you have a sample box being delivered within the week as a trial, for FREE, even!<br><br><<Dialogue "randomPerson" "Random person">>"Wow, you are good, I’ve been to many stores, and called so many others, you were the only ones to even get this far! I’m telling my friends about this place, you guys are great!"<</Dialogue>><br><br>Big Eddy taps your back with his big smile.<br><br><<Dialogue "Eddy" "Eddy">>"You just don’t know how to let me down, do you, kiddo?"<</Dialogue>><br><br>You raise your arms, and thank him for the compliment. It feels good to be helpful like this. <<else>> Well, this is tricky. Without much of a place to start, you just make calls to your regular distributors, but to no avail. They all say they haven’t received any of that product, and have no idea when they will. Dang!<br><br><<Dialogue "player" "You">>"I’m sorry, I have no idea when we’ll get that in stock. I’ll keep trying, but if you want you can leave your contact and I’ll let you know when we do.‘"<</Dialogue>><br><br> <<Dialogue "randomPerson" "Random person">>"It’s alright. I’ve already tried several other places, I guess I’ll just have to do without. Thanks for trying, though."<</Dialogue>><br><br>Big Eddy comes and puts an arm around your shoulder.<br><br><<Dialogue "Eddy" "Eddy">>"Don’t let it get to you, kiddo. You win some, and lose some. That’s just life."<</Dialogue>><br><br>You know he’s right, but it still bugs you, as you wonder if only you were better at it, maybe you could have done something about it? <</if>>'
     })>>
 
     <<script>>
