@@ -10374,7 +10374,9 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 :: TailorWidget [widget nobr] {"position":"2700,1525","size":"100,100"}
 <<widget "TailorWidget">>
 
-<<set _newClothes to JSON.parse(JSON.stringify($wardrobe))>>
+<<set _outfitClothesIds to setup.getOutfitClothesArray().map(clothes => clothes.id)>> /* IDs of currently wearing clothes */
+<<set _wardrobeTemp to $wardrobe.filter(clothes => !_outfitClothesIds.includes(clothes.id))>> /* clothes in wardrobe not wearing */
+<<set _newClothes to JSON.parse(JSON.stringify(_wardrobeTemp))>>
 
 <<set _getAllReadableSizes to function (clothes) {
     const sizes = {};
@@ -10393,14 +10395,14 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 	<th>Have tailored</th>
   </tr>
 
-<<for _iTailoredList to 0; _iTailoredList < $wardrobe.length; _iTailoredList ++>>
+<<for _iTailoredList to 0; _iTailoredList < _wardrobeTemp.length; _iTailoredList ++>>
 <<capture _iTailoredList>>
 
 <tr class="row" @data-num="_iTailoredList">
-  <td><<print $wardrobe[_iTailoredList].name>></td>
+  <td><<print _wardrobeTemp[_iTailoredList].name>></td>
   <td>
     <<liveblock>>
-  	    <<print setup.getReadableFitFromClothing($wardrobe[_iTailoredList])>>
+  	    <<print setup.getReadableFitFromClothing(_wardrobeTemp[_iTailoredList])>>
   	<</liveblock>>
   </td>
   <td>
@@ -10422,12 +10424,12 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         
             row.find('.price').fadeOut(250, function () {
                 const rowIndex = parseInt(row.attr('data-num'));
-                const sizeMod = State.variables.wardrobe[rowIndex].size;
+                const sizeMod = State.temporary.wardrobeTemp[rowIndex].size;
                 const sizeDifference = Math.abs(selectedSize - sizeMod);
         
-                const price = State.temporary.newClothes[rowIndex].size === State.variables.wardrobe[rowIndex].size ?
+                const price = State.temporary.newClothes[rowIndex].size === State.temporary.wardrobeTemp[rowIndex].size ?
                     0 :
-                    Math.round((20 * (0.5 * (State.variables.wardrobe[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
+                    Math.round((20 * (0.5 * (State.temporary.wardrobeTemp[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
                 State.temporary.newClothes[rowIndex].price = price;
                 $(this).fadeIn(250);
         
@@ -10440,15 +10442,15 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 	    <<liveblock>>
             <<if $money < _newClothes[_iTailoredList].price>>
                 You can't afford this
-            <<elseif _newClothes[_iTailoredList].size === $wardrobe[_iTailoredList].size>>
+            <<elseif _newClothes[_iTailoredList].size === _wardrobeTemp[_iTailoredList].size>>
                 Select a new size.
             <<else>>
                 <<linkreplace "get tailored - 00:10 🕛">>
                     <<set $simonOpinion += 1>>
                     Tailored!
-                    <<set $wardrobe[_iTailoredList] to JSON.parse(JSON.stringify(_newClothes[_iTailoredList]))>>
-                    <<set _newClothes[_iTailoredList].price to 0>>
+                    <<set _wardrobeTemp[_iTailoredList].size to _newClothes[_iTailoredList].size>>
                     <<set $money -= _newClothes[_iTailoredList].price>>
+                    <<set _newClothes[_iTailoredList].price to 0>> /* reset tailoring price */
                     <<addMinutes 5>>
                     <<update>>
                 <</linkreplace>>
