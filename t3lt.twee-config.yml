@@ -64,7 +64,7 @@ sugarcube-2:
     ClothingStoreWidget:
       name: ClothingStoreWidget
       parameters:
-        - object
+        - var
     skillIncrease:
       name: skillIncrease
       parameters:
