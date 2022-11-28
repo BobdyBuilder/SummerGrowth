@@ -14,7 +14,8 @@ sugarcube-2:
         - "'Nathan' &+ 'Nathan'"
         - "'Natalie' &+ 'Natalie'"
         - "'toshiUnknown' &+ 'Toshi'"
-        - "'randomPerson' &+ 'Random guy'"
+        - "'Eddy' &+ 'Eddy'"
+        - "'randomPerson' &+ string"
         - "'???' &+ '???'"
         - "'quest' &+ '_line'|'New Goal'"
     PersonalityCheck:
