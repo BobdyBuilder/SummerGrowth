@@ -10396,10 +10396,12 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 <<for _iTailoredList to 0; _iTailoredList < $wardrobe.length; _iTailoredList ++>>
 <<capture _iTailoredList>>
 
-<tr id="row" @data-num="_iTailoredList">
+<tr class="row" @data-num="_iTailoredList">
   <td><<print $wardrobe[_iTailoredList].name>></td>
   <td>
-  	<<print setup.getReadableFitFromClothing($wardrobe[_iTailoredList])>>
+    <<liveblock>>
+  	    <<print setup.getReadableFitFromClothing($wardrobe[_iTailoredList])>>
+  	<</liveblock>>
   </td>
   <td>
 	<<listbox "_newClothes[_iTailoredList].size" autoselect>>
@@ -10407,47 +10409,51 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 	<</listbox>>
   </td>
   <td>
-  <span class="selected">Select a new size first</span>
-  <<set _newClothes[_iTailoredList].price to 0>> /* initialize to 0 price */
+      <<set _newClothes[_iTailoredList].price to 0>> /* initialize to 0 price */
+      <<liveblock>>
+          <span class="price">
+                <<print '$' + _newClothes[_iTailoredList].price>>
+          </span>
+      <</liveblock>>
   <<timed 0s>><<script>>
-    /* Refactor this, it's a mess - to bob */
-    $('.macro-listbox#listbox--newclothes-itailoredlistsize').on('change', function () {
-        const selectedSize = parseInt($(this).children(':selected').val());
-        $(this).parents('#row').find('.selected').fadeOut(250, function () {
-            const rowIndex = parseInt($(this).parents('#row').attr('data-num'));
-            const sizeMod = State.variables.wardrobe[rowIndex].size;
-            const sizeDifference = Math.abs(selectedSize - sizeMod);
-    
-            if (State.temporary.newClothes[rowIndex].size === State.variables.wardrobe[rowIndex].size) {
-                State.temporary.newClothes[rowIndex].price = 0;
-                $(this).text('Select a new size first').fadeIn(250);
-                return;
-            }
-    
-            /* Extract this -  Bob */
-            const price = Math.round((20 * (0.5 * (State.variables.wardrobe[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
-            State.temporary.newClothes[rowIndex].price = price;
-    
-            $(this).text('$' + price).fadeIn(250);
+        $('.macro-listbox#listbox--newclothes-itailoredlistsize').on('change', function () {
+            const selectedSize = parseInt($(this).children(':selected').val());
+            const row = $(this).parents('.row');
+        
+            row.find('.price').fadeOut(250, function () {
+                const rowIndex = parseInt(row.attr('data-num'));
+                const sizeMod = State.variables.wardrobe[rowIndex].size;
+                const sizeDifference = Math.abs(selectedSize - sizeMod);
+        
+                const price = State.temporary.newClothes[rowIndex].size === State.variables.wardrobe[rowIndex].size ?
+                    0 :
+                    Math.round((20 * (0.5 * (State.variables.wardrobe[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
+                State.temporary.newClothes[rowIndex].price = price;
+                $(this).fadeIn(250);
+        
+                row.trigger(':liveupdate'); /* update current row only */
+            });
         });
-    });
 	<</script>><</timed>>
 	</td>
-	<td>
-		<<linkreplace "get tailored - 00:10 🕛">>
-		<<if $money < _newClothes[_iTailoredList].price>>
-				You can't afford this
-			<<elseif _newClothes[_iTailoredList].price is 0>>
-				⚠️Select a new size.
-			<<else>>
-				<<set $simonOpinion += 1>>
-				Tailored!
-				<<set $wardrobe[_iTailoredList] to _newClothes[_iTailoredList]>>
-				<<set $money -= _newClothes[_iTailoredList].price>>
-				<<addMinutes 5>>
-				<<update>>	
-			<</if>>
-		<</linkreplace>>
+	<td class="action">
+	    <<liveblock>>
+            <<if $money < _newClothes[_iTailoredList].price>>
+                You can't afford this
+            <<elseif _newClothes[_iTailoredList].size === $wardrobe[_iTailoredList].size>>
+                Select a new size.
+            <<else>>
+                <<linkreplace "get tailored - 00:10 🕛">>
+                    <<set $simonOpinion += 1>>
+                    Tailored!
+                    <<set $wardrobe[_iTailoredList] to JSON.parse(JSON.stringify(_newClothes[_iTailoredList]))>>
+                    <<set _newClothes[_iTailoredList].price to 0>>
+                    <<set $money -= _newClothes[_iTailoredList].price>>
+                    <<addMinutes 5>>
+                    <<update>>
+                <</linkreplace>>
+            <</if>>
+        <</liveblock>>
   </td>
 </tr>
 <</capture>>
