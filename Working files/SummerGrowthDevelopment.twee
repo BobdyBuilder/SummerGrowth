@@ -11980,6 +11980,7 @@ and will be filled in when they enter the stores. */
    return fit;
 }>>
 
+/* returns wearing clothes. Ignores empty slots */
 <<set setup.getOutfitClothesArray to function () {
     return [
         State.variables.outfit.top(),
@@ -11988,7 +11989,7 @@ and will be filled in when they enter the stores. */
         State.variables.outfit.bottom(),
         State.variables.outfit.underwear(),
         State.variables.outfit.shoes()
-    ];
+    ].filter(clothes => clothes != null);
 }>>
 
 <<set setup.getTightOutfitClothesArray to function () {
