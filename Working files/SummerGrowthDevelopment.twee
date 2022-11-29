@@ -13629,6 +13629,14 @@ setup.setClothesTable(clothes);
 <</capture>>
 <</for>>
 
+<<set _getAllReadableSizes to function (clothes) {
+    const sizes = {};
+    for (let i = 0; i < setup.sizeDatabase.length; i++) {
+        sizes[setup.getReadableFitFromSize(i, clothes.slot, clothes.tolerance)] = i;
+    }
+    return sizes;
+}>>
+
 <table id="store">
   <tr>
     <th>Name</th>
@@ -13645,39 +13653,15 @@ setup.setClothesTable(clothes);
 <tr id="row" @data-num="_i">
   <td><<print _wardRobeCopy[_i].clothing.name>></td>
   <td>
-  	<<print setup.getSizeName(_wardRobeCopy[_i].clothing.size)>>
+  	<<print setup.getReadableFitFromClothing(_wardRobeCopy[_i].clothing)>>
   </td>
   <td>
 	<<listbox "_wardRobeCopy[_i].size">>
-	<<optionsfrom setup.getAllSizeNames()>>
+	<<optionsfrom _getAllReadableSizes(_wardRobeCopy[_i].clothing)>>
 	<</listbox>>
   </td>
   <td>
   <span class="selected">0</span>
-  <<timed 0s>><<script>>
-	var boxes = $(".macro-listbox#listbox--wardrobecopy-isize");
-    boxes.on("change", function () {	
-		var mod = $(this).children(":selected").val();
-        console.log("mod: " + mod);
-        $(this).parents("#row").find(".selected, .selectedFabric").fadeOut(250, function () {
-			var rowInxed = Number($(this).parents("#row").attr("data-num"));
-			var sizeMod = State.temporary.wardRobeCopy[rowInxed].clothing.size;
-			
-			var difference = Math.abs(mod - sizeMod);			
-			
-			var value = difference * 60;
-			
-			State.temporary.wardRobeCopy[rowInxed].timeNeeded = value;
-			
-			State.temporary.wardRobeCopy[rowInxed].newSize = parseInt(mod);
-            console.log(mod);
-            State.temporary.wardRobeCopy[rowInxed].fabric = parseInt(difference);
-            
-            $(this).parents("#row").find(".selected").text(value).fadeIn(250);
-            $(this).parents("#row").find(".selectedFabric").text(difference).fadeIn(250);
-        });
-    });
-	<</script>><</timed>>
 	</td>
 	<td>
   <span class="selectedFabric">0</span>
@@ -13701,6 +13685,31 @@ setup.setClothesTable(clothes);
 <</capture>>
 <</for>>
 </table>
+
+<<timed 0s>><<script>>
+var boxes = $(".macro-listbox#listbox--wardrobecopy-isize");
+boxes.on("change", function () {	
+    var mod = $(this).children(":selected").val();
+    console.log("mod: " + mod);
+    $(this).parents("#row").find(".selected, .selectedFabric").fadeOut(250, function () {
+        var rowInxed = Number($(this).parents("#row").attr("data-num"));
+        var sizeMod = State.temporary.wardRobeCopy[rowInxed].clothing.size;
+        
+        var difference = Math.abs(mod - sizeMod);			
+        
+        var value = difference * 60;
+        
+        State.temporary.wardRobeCopy[rowInxed].timeNeeded = value;
+        
+        State.temporary.wardRobeCopy[rowInxed].newSize = parseInt(mod);
+        console.log(mod);
+        State.temporary.wardRobeCopy[rowInxed].fabric = parseInt(difference);
+        
+        $(this).parents("#row").find(".selected").text(value).fadeIn(250);
+        $(this).parents("#row").find(".selectedFabric").text(difference).fadeIn(250);
+    });
+});
+<</script>><</timed>>
 <</liveblock>>
 <</widget>>
 
