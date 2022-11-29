@@ -10417,26 +10417,6 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
                 <<print '$' + _newClothes[_iTailoredList].price>>
           </span>
       <</liveblock>>
-  <<timed 0s>><<script>>
-        $('.macro-listbox#listbox--newclothes-itailoredlistsize').on('change', function () {
-            const selectedSize = parseInt($(this).children(':selected').val());
-            const row = $(this).parents('.row');
-        
-            row.find('.price').fadeOut(250, function () {
-                const rowIndex = parseInt(row.attr('data-num'));
-                const sizeMod = State.temporary.wardrobeTemp[rowIndex].size;
-                const sizeDifference = Math.abs(selectedSize - sizeMod);
-        
-                const price = State.temporary.newClothes[rowIndex].size === State.temporary.wardrobeTemp[rowIndex].size ?
-                    0 :
-                    Math.round((20 * (0.5 * (State.temporary.wardrobeTemp[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
-                State.temporary.newClothes[rowIndex].price = price;
-                $(this).fadeIn(250);
-        
-                row.trigger(':liveupdate'); /* update current row only */
-            });
-        });
-	<</script>><</timed>>
 	</td>
 	<td class="action">
 	    <<liveblock>>
@@ -10461,6 +10441,27 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 <</capture>>
 <</for>>
 </table>
+
+<<timed 0s>><<script>>
+    $('.macro-listbox#listbox--newclothes-itailoredlistsize').on('change', function () {
+        const selectedSize = parseInt($(this).children(':selected').val());
+        const row = $(this).parents('.row');
+    
+        row.find('.price').fadeOut(250, function () {
+            const rowIndex = parseInt(row.attr('data-num'));
+            const sizeMod = State.temporary.wardrobeTemp[rowIndex].size;
+            const sizeDifference = Math.abs(selectedSize - sizeMod);
+    
+            const price = State.temporary.newClothes[rowIndex].size === State.temporary.wardrobeTemp[rowIndex].size ?
+                0 :
+                Math.round((20 * (0.5 * (State.temporary.wardrobeTemp[rowIndex].size + 1))) * (1 + ((sizeDifference / 3) * (sizeDifference / 3))));
+            State.temporary.newClothes[rowIndex].price = price;
+            $(this).fadeIn(250);
+    
+            row.trigger(':liveupdate'); /* update current row only */
+        });
+    });
+<</script>><</timed>>
 <</widget>>
 
 :: InitializeAllClothes [nobr] {"position":"0,600","size":"100,100"}
