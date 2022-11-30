@@ -14,7 +14,8 @@ sugarcube-2:
         - "'Nathan' &+ 'Nathan'"
         - "'Natalie' &+ 'Natalie'"
         - "'toshiUnknown' &+ 'Toshi'"
-        - "'randomPerson' &+ 'Random guy'"
+        - "'Eddy' &+ 'Eddy'"
+        - "'randomPerson' &+ string"
         - "'???' &+ '???'"
         - "'quest' &+ '_line'|'New Goal'"
     PersonalityCheck:
@@ -64,7 +65,7 @@ sugarcube-2:
     ClothingStoreWidget:
       name: ClothingStoreWidget
       parameters:
-        - object
+        - var
     skillIncrease:
       name: skillIncrease
       parameters:
