@@ -11800,7 +11800,7 @@ var jObjects = JSON.parse(`	[
 
 for (let i = 0; i < jObjects.length; i++) {
     jObjects[i].storeInfo = {};
-    if (Number(jObjects[i].TT) !== 0) {
+    if (!isNaN((Number(jObjects[i].TT)))) {
         jObjects[i].storeInfo.tasha = {
             chance: Number(jObjects[i].TT),
             availableSizes: [Number(jObjects[i].TTMIN), Number(jObjects[i].TTMAX)],
@@ -11812,7 +11812,7 @@ for (let i = 0; i < jObjects.length; i++) {
     delete jObjects[i].TTMAX;
     delete jObjects[i].TTCM;
 
-    if (Number(jObjects[i].BB) !== 0) {
+    if (!isNaN((Number(jObjects[i].BB)))) {
         jObjects[i].storeInfo.bulkBarn = {
             chance: Number(jObjects[i].BB),
             availableSizes: [Number(jObjects[i].BBMIN), Number(jObjects[i].BBMAX)],
@@ -11824,7 +11824,7 @@ for (let i = 0; i < jObjects.length; i++) {
     delete jObjects[i].BBMAX;
     delete jObjects[i].BBCM;
 
-    if (Number(jObjects[i].BT) !== 0) {
+    if (!isNaN(Number(jObjects[i].BT))) {
         jObjects[i].storeInfo.bigTall = {
             chance: Number(jObjects[i].BT),
             availableSizes: [Number(jObjects[i].BTMIN), Number(jObjects[i].BTMAX)],
@@ -11836,7 +11836,7 @@ for (let i = 0; i < jObjects.length; i++) {
     delete jObjects[i].BTMAX;
     delete jObjects[i].BTCM;
 
-    if (Number(jObjects[i].AA) !== 0) {
+    if (!isNaN(Number(jObjects[i].AA))) {
         jObjects[i].storeInfo.allisonsApparel = {
             chance: Number(jObjects[i].AA),
             availableSizes: [Number(jObjects[i].AAMIN), Number(jObjects[i].AAMAX)],
