@@ -3716,6 +3716,37 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     fit: function () {
     },
     bonuses: function () {
+        function toFindDuplicates(arry) {
+            return Array.from(new Set(arry));;
+        }
+
+        function duplicateFlatten(bonuses, newbonuses) {
+            for (let i = 0; i < bonuses.length; i++) {
+              newbonuses.push(bonuses[i]);
+            } 
+        }
+
+        var presentBonuses = [];
+        if (this.top() != undefined && this.top().bonuses != undefined) {
+            duplicateFlatten(this.top().bonuses, presentBonuses);
+        }
+        if (this.bottom() != undefined && this.bottom().bonuses != undefined) {
+            duplicateFlatten(this.top().bonuses, presentBonuses);
+        }
+        if (this.underwear() != undefined && this.underwear().bonuses != undefined) {
+            duplicateFlatten(this.top().bonuses, presentBonuses);
+        }
+        if (this.bra() != undefined && this.bra().bonuses != undefined) {
+            duplicateFlatten(this.top().bonuses, presentBonuses);
+        }
+        if (this.overwear() != undefined && this.overwear().bonuses != undefined) {
+            duplicateFlatten(this.top().bonuses, presentBonuses);
+        }
+        if (this.shoes() != undefined && this.shoes().bonuses != undefined) {
+            duplicateFlatten(this.top().bonuses, presentBonuses);
+        }
+        console.log(presentBonuses);
+        return toFindDuplicates(presentBonuses);
     }
 }>>
 
@@ -3723,21 +3754,23 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 <<set $wardrobe to [
 	{
         	id: 1,
-            name: 'punk T-shirt',
+            name: 'plain T-shirt',
             tolerance: 1.3,
-            archetypes: ['casual', 'punk'],
+            archetypes: ['casual', 'tomboy'],
             bonuses: [
-            		setup.clothingBonuses.stretchy
+            		setup.clothingBonuses.WorkoutWear,
+                    setup.clothingBonuses.Comfortable
             	],
             size: 2,
             slot: 'top'
         },
         {
         	id: 2,
-            name: 'simple jeans',
-            tolerance: 1.2,
-            archetypes: ['casual', 'goth', 'punk'],
+            name: 'jeans',
+            tolerance: 1.1,
+            archetypes: ['casual', 'nerdy'],
             bonuses: [
+                    setup.clothingBonuses.Comfortable
             	],
             size: 1,
             slot: 'bottom'
@@ -3745,31 +3778,34 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         {
         	id: 3,
             name: 'briefs',
-            tolerance: 1.2,
+            tolerance: 1.3,
             archetypes: ['casual'],
             bonuses: [
-            		setup.clothingBonuses.stretchy
+            		setup.clothingBonuses.Comfortable
             	],
             size: 1,
             slot: 'underwear'
         },
         {
         	id: 4,
-            name: 'simple cotton bra',
-            tolerance: 1,
-            archetypes: ['casual', 'basic'],
+            name: 'cotton bra',
+            tolerance: 1.1,
+            archetypes: ['casual'],
             bonuses: [
+                    setup.clothingBonuses.Comfortable
             	],
             size: 1,
             slot: 'bra'
         },
         {
         	id: 5,
-            name: 'black hoodie',
-            tolerance: 1.25,
-            archetypes: ['casual', 'punk', 'goth'],
+            name: 'hoodie',
+            tolerance: 1.5,
+            archetypes: ['casual', 'tomboy', 'punk', 'sporty'],
             bonuses: [
-            		setup.clothingBonuses.hideLactation
+                    setup.clothingBonuses.Baggy,
+            		setup.clothingBonuses.hideLactation,
+                    setup.clothingBonuses.ExtraWarm
             	],
             size: 1,
             slot: 'overwear'
@@ -3777,10 +3813,10 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         {
         	id: 6,
             name: 'runners',
-            tolerance: 1.25,
-            archetypes: ['casual', 'gym'],
+            tolerance: 1.3,
+            archetypes: ['casual', 'sporty', 'nerdy'],
             bonuses:  [
-            		setup.clothingBonuses.workoutClothes
+            		setup.clothingBonuses.WorkoutWear
             	],
             size: 1,
             slot: 'shoes'
@@ -4439,8 +4475,19 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 :: addMuscleSlow [widget] {"position":"2600,900","size":"100,100"}
 <<nobr>>
 <<widget "addMuscleSlow">>
+<<set _workoutOutfitBonus to 1>>
 
-<<set $muscleStore += parseFloat($args[0])>>
+<<script>>
+    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
+        console.log(State.variables.outfit.bonuses());
+        if(State.variables.outfit.bonuses()[i].name == setup.clothingBonuses.WorkoutWear.name){
+            State.temporary.workoutOutfitBonus = 1.2;
+            break;
+        }
+    }    
+<</script>>
+
+<<set $muscleStore += parseFloat($args[0]) * _workoutOutfitBonus>>
 
 <</widget>>
 <</nobr>>
@@ -4590,7 +4637,22 @@ You work out like a pro, knowing each workout with such precision that personal 
   <</if>>
 <</if>>
 
+<<script>>
+    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
+        console.log(State.variables.outfit.bonuses());
+        if(State.variables.outfit.bonuses()[i].name == setup.clothingBonuses.WorkoutWear.name){
+            State.temporary.workoutOutfitBonusDesc = true;
+            break;
+        }
+    }    
+<</script>>
 
+<<if _workoutOutfitBonusDesc>>
+<br><br>
+Wearing the right outfit certainly helps, as you feel these clothes really help you work out better!
+<</if>>
+
+<br><br>
 
 
 [[Return|$return]]
