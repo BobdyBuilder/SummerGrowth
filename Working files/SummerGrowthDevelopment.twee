@@ -2680,7 +2680,7 @@ You can't afford a shake at the bar right now.
 <<link "Go home" "Home">><<addMinutes 20>><</link>>
 
 <<if $muscle >= 50 && $elenaOpinion >= 4 && $shyConfident >= 0>>
-	<<set $elenaOpeningUp to true>>
+	<<set $elenaOpenedUp to true>>
 <</if>>
 
 
@@ -10180,6 +10180,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaMuscle10',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.elenaLastMuscle + 10 <= State.variables.muscle
 		],
 		repeatable: false,
@@ -10191,6 +10192,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaMuscle',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.elenaLastMuscle <= State.variables.muscle
 		],
 		repeatable: false,
@@ -10202,6 +10204,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaHomeTailoredClothing',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.homeTailoredClothing
 		],
 		repeatable: false,
@@ -10213,6 +10216,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaExpertCook',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.skills[1].level >= 4
 		],
 		repeatable: false,
@@ -10224,6 +10228,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaExpertWorkout',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.skills[0].level >= 4
 		],
 		repeatable: false,
@@ -10235,6 +10240,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaExpertSewing',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.skills[6].level >= 4
 		],
 		repeatable: false,
@@ -10246,6 +10252,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaExpertBookKeeping',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.skills[2].level >= 4
 		],
 		repeatable: false,
@@ -10257,6 +10264,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaAndplayerDeadlift',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.muscle >= 40,
             () => State.variables.elenaOpinion >= 40
 		],
@@ -10269,6 +10277,7 @@ name: 'EmmaExpertSewing',
 		name: 'playerBreaksMachineWithElena',
 		locationTags: ['elena'],
 		conditions: [
+		    () => State.variables.elenaOpenedUp,
 			() => State.variables.muscle >= 60,
             () => State.variables.elenaOpinion >= 40,
 		],
@@ -10286,8 +10295,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaShyIntro',
 		locationTags: ['elena'],
 		conditions: [
-        /* Left here to make sure its clear this is supposed to be able to begin from the beginning of the game - bob */
-			() => true
+            () => !State.variables.elenaOpenedUp
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -10298,7 +10306,7 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaShyOpeningUp',
 		locationTags: ['elena'],
 		conditions: [
-			() => State.variables.elenaOpeningUp
+            () => State.variables.elenaOpenedUp
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -10311,6 +10319,7 @@ name: 'EmmaExpertSewing',
     name: 'ElenaDate1',
     locationTags: ['elena'],
     conditions: [
+        () => State.variables.elenaOpenedUp,
         () => State.variables.elenaOpinion >= 30,
         () => State.variables.elenaShyOpinion >= 30
     ],
@@ -10323,6 +10332,7 @@ name: 'EmmaExpertSewing',
     name: 'ElenaMuscle30',
     locationTags: ['elena'],
     conditions: [
+        () => State.variables.elenaOpenedUp,
         () => State.variables.elenaLastMuscle + 30 <= State.variables.muscle
     ],
     repeatable: false,
@@ -10334,6 +10344,7 @@ name: 'EmmaExpertSewing',
     name: 'ElenaBreasts30',
     locationTags: ['elena'],
     conditions: [
+        () => State.variables.elenaOpenedUp,
         () => State.variables.elenaLastBreasts + 30 <= State.variables.breasts
     ],
     repeatable: false,
@@ -10345,6 +10356,7 @@ name: 'EmmaExpertSewing',
     name: 'ElenaFat30',
     locationTags: ['elena'],
     conditions: [
+        () => State.variables.elenaOpenedUp,
         () => State.variables.elenaLastFat + 30 <= State.variables.fat
     ],
     repeatable: false,
