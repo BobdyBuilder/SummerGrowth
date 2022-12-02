@@ -8663,8 +8663,8 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
                 </td>
                 <td>
                 	<<link "Throw away">>
-                        <<if $outfit[$wardrobe[_i].slot]().id == $wardrobe[_i].id>>
-                            <<set $outfit[$wardrobe[_i].slot]().id to undefined>>
+                        <<if $outfit[$wardrobe[_i].slot + 'Id'] === $wardrobe[_i].id>>
+                            <<set $outfit[$wardrobe[_i].slot + 'Id'] to null>>
                         <</if>>
                         <<set $wardrobe.splice(_i, 1)>> 
                         <<script>>
@@ -8684,19 +8684,20 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 
 <<timed 0s>>
 <<script>>
-    var boxes = $("input.clothingItemRadiobutton");
-        boxes.on("change", function () {	  
-        		var id = parseInt(document.querySelector('input[name="slotItem"]:checked').value);
-                
-                State.variables.outfit[State.temporary.slot + 'Id'] = id;
-                                
-                $(".macro-live").trigger(":liveupdateinternal");
-				$(document).trigger(":liveupdate");
-                
-            	if (Dialog.isOpen() == true) {
-                    Dialog.close();
-                    }
-        });
+    const boxes = $('input.clothingItemRadiobutton');
+    boxes.on('change', function () {
+        let id = parseInt(document.querySelector('input[name="slotItem"]:checked').value);
+        id = id === -1 ? null : id;
+    
+        State.variables.outfit[State.temporary.slot + 'Id'] = id;
+    
+        $('.macro-live').trigger(':liveupdateinternal');
+        $(document).trigger(':liveupdate');
+    
+        if (Dialog.isOpen() == true) {
+            Dialog.close();
+        }
+    });
 <</script>>  
 <</timed>>
 
