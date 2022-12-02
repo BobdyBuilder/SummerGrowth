@@ -10295,7 +10295,8 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaShyIntro',
 		locationTags: ['elena'],
 		conditions: [
-            () => !State.variables.elenaOpenedUp
+            /* Left here to make sure its clear this is supposed to be able to begin from the beginning of the game - bob */
+            () => true
 		],
 		repeatable: false,
 		retriggerable: false,
