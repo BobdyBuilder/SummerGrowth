@@ -7729,7 +7729,8 @@ Determines the measurement system used in the game.
         name: 'JohanMuscle10',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastMuscle + 10 < State.variables.muscle
+            () => State.variables.johanLastMuscle + 10 < State.variables.muscle,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7740,7 +7741,8 @@ Determines the measurement system used in the game.
         name: 'JohanMuscle',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastMuscle + 1 < State.variables.muscle
+            () => State.variables.johanLastMuscle + 1 < State.variables.muscle,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7751,7 +7753,8 @@ Determines the measurement system used in the game.
         name: 'JohanFat10',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastFat + 10 < State.variables.fat
+            () => State.variables.johanLastFat + 10 < State.variables.fat,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7762,7 +7765,8 @@ Determines the measurement system used in the game.
         name: 'JohanFat',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastFat + 1< State.variables.fat
+            () => State.variables.johanLastFat + 1< State.variables.fat,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7773,7 +7777,8 @@ Determines the measurement system used in the game.
         name: 'JohanBreasts10',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastBreasts + 10 < State.variables.breasts
+            () => State.variables.johanLastBreasts + 10 < State.variables.breasts,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7784,7 +7789,8 @@ Determines the measurement system used in the game.
         name: 'JohanBreasts',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastBreasts + 1 < State.variables.breasts
+            () => State.variables.johanLastBreasts + 1 < State.variables.breasts,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7843,7 +7849,8 @@ Determines the measurement system used in the game.
         name: 'JohanDick10',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastDick + 10 <= State.variables.dick
+            () => State.variables.johanLastDick + 10 <= State.variables.dick,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7854,7 +7861,8 @@ Determines the measurement system used in the game.
         name: 'JohanDick5',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.johanLastDick + 5 <= State.variables.dick
+            () => State.variables.johanLastDick + 5 <= State.variables.dick,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7954,7 +7962,8 @@ Determines the measurement system used in the game.
         name: 'JohanBodybuilder',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.bodyType === 'bodybuilder'
+            () => State.variables.bodyType === 'bodybuilder',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7965,7 +7974,8 @@ Determines the measurement system used in the game.
         name: 'JohanAthletic',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.bodyType === 'athletic'
+            () => State.variables.bodyType === 'athletic',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7976,7 +7986,8 @@ Determines the measurement system used in the game.
         name: 'JohanHulk',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.bodyType === 'hulk'
+            () => State.variables.bodyType === 'hulk',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7987,7 +7998,8 @@ Determines the measurement system used in the game.
         name: 'JohanGigantic0',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.bodyType === 'gigantic'
+            () => State.variables.bodyType === 'gigantic',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -7998,7 +8010,8 @@ Determines the measurement system used in the game.
         name: 'JohanGigantic1',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.bodyType === 'gigantic'
+            () => State.variables.bodyType === 'gigantic',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -8076,7 +8089,8 @@ Determines the measurement system used in the game.
         name: 'JohanStrongman',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.bodyType === 'strongman'
+            () => State.variables.bodyType === 'strongman',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -8196,7 +8210,6 @@ Was that a nosebleed?<</if>>
         name: 'johanBigDiner',
         locationTags: ['johan'],
         conditions: [
-
             () => State.variables.muscle >= 50 || State.variables.fat >= 50,
             () => State.variables.height >= 200,
             () => State.variables.johanOpinion >= 40,
@@ -8283,8 +8296,8 @@ Was that a nosebleed?<</if>>
         name: 'JohanMuscle20',
         locationTags: ['johan'],
         conditions: [
-	
-            () => State.variables.johanLastMuscle + 20 <= State.variables.muscle
+            () => State.variables.johanLastMuscle + 20 <= State.variables.muscle,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -8310,8 +8323,8 @@ Was that a nosebleed?<</if>>
         name: 'JohanFat20',
         locationTags: ['johan'],
         conditions: [
-	
-            () => State.variables.johanLastFat + 20 <= State.variables.fat
+            () => State.variables.johanLastFat + 20 <= State.variables.fat,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -8337,8 +8350,8 @@ Was that a nosebleed?<</if>>
         name: 'JohanBreasts20',
         locationTags: ['johan'],
         conditions: [
-	
-            () => State.variables.johanLastBreasts + 20 <= State.variables.breasts
+            () => State.variables.johanLastBreasts + 20 <= State.variables.breasts,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
         ],
         repeatable: false,
         retriggerable: false,
@@ -8350,7 +8363,6 @@ Was that a nosebleed?<</if>>
         name: 'JohanMainQuestQuestion',
         locationTags: ['johan'],
         conditions: [
-	
             () => State.variables.johanMainQuestQuestion
         ],
         repeatable: false,
@@ -8364,7 +8376,6 @@ Was that a nosebleed?<</if>>
         name: 'JohanApology',
         locationTags: ['johan'],
         conditions: [
-	
             () => State.variables.johanApology
         ],
         repeatable: false,
@@ -8378,7 +8389,6 @@ Was that a nosebleed?<</if>>
         name: 'JohanHeight30',
         locationTags: ['johan'],
         conditions: [
-	
             () => State.variables.johanLastHeight + 30 <= State.variables.height
         ],
         repeatable: false,
@@ -8391,7 +8401,6 @@ Was that a nosebleed?<</if>>
         name: 'Loan',
         locationTags: ['johan'],
         conditions: [
-	
             () => State.variables.money <= 100
         ],
         repeatable: false,
@@ -8404,7 +8413,6 @@ Was that a nosebleed?<</if>>
         name: 'apologizeToJohan',
         locationTags: ['johan'],
         conditions: [
-	
             () => State.variables.apologizeToJohan
         ],
         repeatable: false,
@@ -9968,7 +9976,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaBreasts10',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastBreasts + 10 <= State.variables.breasts
+        () => State.variables.emmaLastBreasts + 10 <= State.variables.breasts,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -9979,7 +9988,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaMuscle10',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastMuscle + 10 <= State.variables.muscle
+        () => State.variables.emmaLastMuscle + 10 <= State.variables.muscle,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -9990,7 +10000,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaHeight10',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastHeight + 10 <= State.variables.height
+        () => State.variables.emmaLastHeight + 10 <= State.variables.height,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -10001,7 +10012,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaBreasts10-1',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastBreasts + 10 <= State.variables.breasts
+        () => State.variables.emmaLastBreasts + 10 <= State.variables.breasts,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -10012,7 +10024,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaMuscle11',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastMuscle + 10 <= State.variables.muscle
+        () => State.variables.emmaLastMuscle + 10 <= State.variables.muscle,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -10034,7 +10047,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaDick5',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastDick + 5 <= State.variables.dick
+        () => State.variables.emmaLastDick + 5 <= State.variables.dick,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -10045,7 +10059,8 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaDick10',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaLastDick + 10 <= State.variables.dick
+        () => State.variables.emmaLastDick + 10 <= State.variables.dick,
+        () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
     ],
     repeatable: false,
     retriggerable: false,
@@ -10287,7 +10302,8 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaMuscle10',
 		locationTags: ['elena'],
 		conditions: [
-			() => State.variables.elenaLastMuscle + 10 <= State.variables.muscle
+			() => State.variables.elenaLastMuscle + 10 <= State.variables.muscle,
+			() => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -10298,7 +10314,8 @@ name: 'EmmaExpertSewing',
 		name: 'ElenaMuscle',
 		locationTags: ['elena'],
 		conditions: [
-			() => State.variables.elenaLastMuscle <= State.variables.muscle
+			() => State.variables.elenaLastMuscle <= State.variables.muscle,
+			() => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Baggy')
 		],
 		repeatable: false,
 		retriggerable: false,
