@@ -3143,7 +3143,20 @@ The goal of the game is to keep up with your growing body and make the best of i
 <<nobr>>
 <<widget "addMotivation">>
 
-<<set $motivation += parseInt($args[0])>>
+<<set _comfortableClothingBonus to 1>>
+
+<<script>>
+    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
+        console.log(State.variables.outfit.bonuses());
+        if(State.variables.outfit.bonuses()[i].name == setup.clothingBonuses.Comfortable.name){
+            State.temporary.comfortableClothingBonus = 1.2;
+            break;
+        }
+    }    
+<</script>>
+
+
+<<set $motivation += parseInt($args[0]) * _comfortableClothingBonus>>
 <<set $motivation to Math.clamp($motivation, 0, $maxMotivation)>>
 <<update>>
 
