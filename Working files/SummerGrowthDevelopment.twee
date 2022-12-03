@@ -12128,9 +12128,6 @@ setup.allClothes = jObjects;
     if (State.variables.outfit.bottom() == null) {
         nudeSlots.push('bottom');
     }
-    if (State.variables.outfit.shoes() == null) {
-        nudeSlots.push('shoes');
-    }
     return nudeSlots;
 }>>
 
