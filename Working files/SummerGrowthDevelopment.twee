@@ -396,7 +396,7 @@ text-align: left;
 }
 
 .Eddy {
-	background-color: #D6BF94;
+    background-color: #847049;
 }
 
 .Eddy .avatar {
