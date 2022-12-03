@@ -12071,20 +12071,19 @@ and will be filled in when they enter the stores. */
 
 /* Gets the human readable bonuses from the clothing. */
  <<set setup.getReadableBonusFromClothing = function (clothingItem) {
-	if(clothingItem == undefined){
-    	return '-';
+    if (clothingItem?.bonuses == null || clothingItem.bonuses.length <= 0) {
+        return '-';
     }
-    if (clothingItem.bonuses.length > 0)
-    {
-        var text = '';
-        for (let i = 0; i < clothingItem.bonuses.length; i++) {
-            text += '<b> ●' + clothingItem.bonuses[i].name + '</b><br>' + clothingItem.bonuses[i].description
+
+    let description = '';
+    for (let i = 0; i < clothingItem.bonuses.length; i++) {
+        if (i > 0) {
+            description += '<br>';
         }
-        return text;
+        let bonus = clothingItem.bonuses[i];
+        description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
     }
-    else {
-        return '-'
-    };
+    return description;
 }>>
 
 /* The single method that describes the price of clothing. For balancing, adjust this. For now it's done linearly, to make sure that the progression isn't too hard. */
