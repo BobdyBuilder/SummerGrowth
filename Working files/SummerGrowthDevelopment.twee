@@ -8239,7 +8239,7 @@ Was that a nosebleed?<</if>>
         locationTags: ['home'],
         conditions: [
 
-            () => State.variables.muscle >= 50 || State.variables.fat >= 50,
+            () => State.variables.muscle >= 80 || State.variables.fat >= 80,
             () => State.variables.gameDate.getHours() >= 12
         ],
         repeatable: false,
