@@ -3882,7 +3882,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             tolerance: 1.2,
             archetypes: ['casual', 'goth', 'punk'],
             bonuses: [
-            		setup.clothingBonuses.stretchy
+            		setup.clothingBonuses.Stretchy
             	],
             size: 0,
             slot: 'bottom'
@@ -3893,7 +3893,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             tolerance: 1.2,
             archetypes: ['casual'],
             bonuses: [
-            		setup.clothingBonuses.stretchy
+            		setup.clothingBonuses.Stretchy
             	],
             size: 1,
             slot: 'underwear'
