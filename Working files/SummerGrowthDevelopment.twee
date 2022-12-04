@@ -11750,10 +11750,10 @@ var jObjects = JSON.parse(`	[
       "TTCM": "0.9"
     },
     {
-      "name": "yoga pants Stretchy",
+      "name": "yoga pants",
       "slot": "bottom",
       "tolerance": "1.3",
-      "bonusesString": "WorkoutWear",
+      "bonusesString": "WorkoutWear Stretchy",
       "archetypes": "sporty",
       "baseCost": "40",
       "AA": "0.2",
@@ -11822,10 +11822,10 @@ var jObjects = JSON.parse(`	[
       "TTCM": "0.9"
     },
     {
-      "name": "boyshorts Stretchy",
+      "name": "boyshorts",
       "slot": "underwear",
       "tolerance": "1.3",
-      "bonusesString": "Comfortable",
+      "bonusesString": "Comfortable Stretchy",
       "archetypes": "tomboy casual",
       "baseCost": "20",
       "AA": "0.3",
