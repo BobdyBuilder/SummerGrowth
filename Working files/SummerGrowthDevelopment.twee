@@ -3817,7 +3817,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             archetypes: ['casual', 'tomboy', 'punk', 'sporty'],
             bonuses: [
                     setup.clothingBonuses.Baggy,
-            		setup.clothingBonuses.hideLactation,
+            		setup.clothingBonuses.LactationProof,
                     setup.clothingBonuses.ExtraWarm
             	],
             size: 1,
@@ -3904,7 +3904,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             tolerance: 1,
             archetypes: ['casual', 'basic'],
             bonuses: [
-            		setup.clothingBonuses.hideLactation
+            		setup.clothingBonuses.LactationProof
             	],
             size: 1,
             slot: 'bra'
