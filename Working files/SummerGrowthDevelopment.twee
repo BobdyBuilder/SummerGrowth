@@ -3840,7 +3840,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             tolerance: 1.1,
             archetypes: ['gym', 'casual', 'exposed'],
             bonuses: [
-            		setup.clothingBonuses.workoutClothes
+            		setup.clothingBonuses.WorkoutWear
             	],
             size: 1,
             slot: 'bottom'
@@ -3861,7 +3861,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
             tolerance: 1.1,
             archetypes: ['gym'],
             bonuses: [
-            		setup.clothingBonuses.workoutClothes
+            		setup.clothingBonuses.WorkoutWear
             	],
             size: 0,
             slot: 'bra'
