@@ -21934,8 +21934,8 @@ You just don't have the energy to work on hacking it right now.
     {
         name: 'ifTightPants_Rip',
         locationTags: ['jogging'],
-        conditions: [			 
-            () => ['too small', 'tight'].includes(State.variables.outfit.bottom())
+        conditions: [
+            () => ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))
         ],
         repeatable: false,
         retriggerable: true,
