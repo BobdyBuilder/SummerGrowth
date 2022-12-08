@@ -19695,7 +19695,7 @@ You get the impression Emma is speaking from experience - there was a bitter edg
 [[If you don’t want it to be romantic, it doesn’t have to be. But… doesn’t it sound exciting?|Flirty Start]]
 
 
-:: Date Decline {"position":"850,3500","size":"100,100"}
+:: Date Decline {"position":"850,3400"}
 Emma pauses with a slow sigh, rubbing her temple as she slumps in her seat.
 
 <<Dialogue "Emma" "Emma">> "I suppose that's fair. It was a big ask, and sudden, too. I apologize for imposing like that."<</Dialogue>>
@@ -23411,7 +23411,7 @@ for (let i = 0; i < State.variables.consumables.length; i++) {
 
 <<link "Continue with this later" "pcUsbHacking">><</link>>
 
-:: Emma Date Two Intro {"position":"725,3275","size":"100,100"}
+:: Emma Date Two Intro {"position":"1525,3800"}
 With less than fifteen minutes until you clock out, you're trying to find ways to look busy. Given that, you jump slightly when you notice Emma striding towards your desk. Quickly, you reach for something to do so you don't have to face a stern glare or risk a lecture. Before you have a chance to pick up your task, you feel a hand gently resting on your shoulder. You turn to face the person, andssee Emma looking at you, an uncharacteristic softness on her face, along with the hint of a smile.
 
 <<Dialogue "Emma" "Emma">>"Good afternoon, <<print $playerFirstName>>. I hope I'm not interrupting anything."<</Dialogue>>
@@ -23447,7 +23447,7 @@ With less than fifteen minutes until you clock out, you're trying to find ways t
 <<link "I don't think I can make it." "Emma Date Two Cancel">><<set $emmaDateDenied to true>><</link>>
 
 
-:: Emma Date Two Continue {"position":"725,3375","size":"100,100"}
+:: Emma Date Two Continue {"position":"1525,3900"}
 <<Dialogue "Emma" "Emma">>"Excellent. I was just about to make my way there. I'll text you the address and we can meet there."<</Dialogue>>
 
 You nod enthusiastically, and you wave to one another as Emma makes her way out of the office. As much as you'd like to just spring up and follow her... Well, now that you know she's paying attention you can't clock out early. You resign yourself to a few very slow minutes of waiting before you can acceptably leave.
@@ -23455,7 +23455,7 @@ You nod enthusiastically, and you wave to one another as Emma makes her way out 
 <<gameLink "Make your way there" "Emma Date Two Gym" time:30>><</gameLink>>
 
 
-:: Emma Date Two Cancel {"position":"825,3275","size":"100,100"}
+:: Emma Date Two Cancel {"position":"1625,3800"}
 <<Dialogue "player" "You">>"As fun as that sounds, I just don't think I can. I just don't have the time in my schedule tonight."<</Dialogue>>
 
 Emma frowns an dpurses her lips, just slightly.
@@ -23467,7 +23467,7 @@ With that, she marches off, looking as busy as she always does. You get the feel
 <<link "Go home" "Home">><</link>>
 
 
-:: Emma Date Two Gym {"position":"725,3475","size":"100,100"}
+:: Emma Date Two Gym {"position":"1525,4000"}
 The gym itself isn't terribly far from work, thankfully. It's also a notably fancier than the one on your college campus. Everything sleek, clean, and modern. Holy crap, there's even a cafe right up front? And a spa?! You can't help but compare it in your mind to your normal spot, but that just makes you feel more out of place.
 
 You're so busy taking in your surroundings that you don't notice a voice calling your name until it's practically shouting at you.
@@ -23524,7 +23524,7 @@ box.style.display = 'block';<</script>><</replace>><</link>></span>
 <<gameLink "Lets get pumped!" "Emma Date Two Workout" time:30 exhaustion:30>><</gameLink>></span>
 
 
-:: Emma Date Two Workout {"position":"725,3575","size":"100,100"}
+:: Emma Date Two Workout {"position":"1525,4100"}
 You eventually get changed into your gym clothes and find Emma waiting outside as expected. She sees you approach as she finishes a quick swig from a water bottle and smiles to you. A drop drips down one side of her mouth, cascading over that vascular, bull-like neck. 
 
 <<Dialogue "EmmaFitness" "Emma">>"Shall we?"<</Dialogue>>
@@ -23636,7 +23636,7 @@ Your evening continues in much the same way. Emma tackles her workout expertly, 
 
 [[Ugh, I can't feel my arms|Emma Date Two Finale]]</span>
 
-:: Emma Date Two Finale {"position":"725,3675","size":"100,100"}
+:: Emma Date Two Finale {"position":"1525,4200"}
 After what feels like hours, the two of you are finally resting. You take a comfortable seat and chug some water, while Emma stands nearby in front of a wall of mirrors. You watch along as she inspects her body, veins now standing in prominently above her taut muscles and the fibers all along her broad shoulders standing out like an anatomy chart. She turns and strike a side triceps pose which makes her shoulders flair out like cannonballs. The image still manages to take you by surprise. But despite what a great display Emma puts on, there's still a tinge of disappointment on her face.
 
 <<Dialogue "player" "You">>"What's the matter?"<</Dialogue>>
