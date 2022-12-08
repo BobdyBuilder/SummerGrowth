@@ -10160,6 +10160,17 @@ name: 'EmmaExpertSewing',
     npc: ['emma'],
     content: '<<goto "emmaDate1">>'
 }, {
+    name: 'EmmaDate2',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaOpinion >= 40
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: '<<goto "Emma Date Two Intro">>'
+},{
     name: 'EmmaPromotion1',
     locationTags: ['emma'],
     conditions: [
@@ -23398,3 +23409,318 @@ for (let i = 0; i < State.variables.consumables.length; i++) {
 <</nobr>>
 
 <<link "Continue with this later" "pcUsbHacking">><</link>>
+
+:: Emma Date Two Intro {"position":"725,3275","size":"100,100"}
+With less than fifteen minutes until you clock out, you're trying to find ways to look busy. Given that, you jump slightly when you notice Emma striding towards your desk. Quickly, you reach for something to do so you don't have to face a stern glare or risk a lecture. Before you have a chance to pick up your task, you feel a hand gently resting on your shoulder. You turn to face the person, andssee Emma looking at you, an uncharacteristic softness on her face, along with the hint of a smile.
+
+<<Dialogue "Emma" "Emma">>"Good afternoon, <<print $playerFirstName>>. I hope I'm not interrupting anything."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Ah... No, actually. I was just wrapping things up here."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Ah, good. I actually had something I wanted to ask you, if I may."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Sure! What is it?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Well, I wanted to invite you out this evening. Right after you clock out, if it's possible."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, this is a nice surprise! What brought this on?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Nothing in particular. But we seemed to enjoy ourselves the last time we spent some time together. Unfortunately, my schedule has been quite packed lately, so I wanted to invite you to join me for my workout this evening."<</Dialogue>>
+
+<<if $muscle > 50 || $fitness > 1>><<if $emmaDateFlirty > $emmaDateProfessional and $emmaDateFlirty > $emmaDateFriendly>><<Dialogue "player" "You">>"Ahhh, I see what you mean. You and me working up a sweat together, probably in skimpy outfits..."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"...I will refrain from responding to such statements during work hours. Would you care to join me or no?"<</Dialogue>><<elseif $emmaDateProfessional > $emmaDateFriendly>><<Dialogue "player" "You">>"I think that's a great idea! I think I could definitely learn a lot from the experience."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"And hopefully I learn from you as well. So, what do you say?"<</Dialogue>>
+
+<<else>><<Dialogue "player" "You">>"Well that sounds like a lot of fun! I don't know why we didn't think of this sooner!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I agree wholeheartedly. So, do we have a date?"<</Dialogue>><</if>>
+
+<<else>><<Dialogue "player" "You">>"Not to question your judgment or anything, but... how come? I'm not exactly a bodybuilder over here."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Well, you certainly seemed interested in my fitness regimen when we had dinner together. I 	assumed you would enjoy the experience on one level or another. So, do we have a date?"<</Dialogue>><</if>>
+
+<<link "That sounds great!" "Emma Date Two Continue">><<set $emmaDateTwoHappened to true>><</link>>
+
+<<link "I don't think I can make it." "Emma Date Two Cancel">><<set $emmaDateDenied to true>><</link>>
+
+
+:: Emma Date Two Continue {"position":"725,3375","size":"100,100"}
+<<Dialogue "Emma" "Emma">>"Excellent. I was just about to make my way there. I'll text you the address and we can meet there."<</Dialogue>>
+
+You nod enthusiastically, and you wave to one another as Emma makes her way out of the office. As much as you'd like to just spring up and follow her... Well, now that you know she's paying attention you can't clock out early. You resign yourself to a few very slow minutes of waiting before you can acceptably leave.
+
+<<gameLink "Make your way there" "Emma Date Two Gym" time:30>><</gameLink>>
+
+
+:: Emma Date Two Cancel {"position":"825,3275","size":"100,100"}
+<<Dialogue "player" "You">>"As fun as that sounds, I just don't think I can. I just don't have the time in my schedule tonight."<</Dialogue>>
+
+Emma frowns an dpurses her lips, just slightly.
+
+<<Dialogue "Emma" "Emma">>"Well, that's fair. I suppose it was short notice. Sorry to have bothered you, <<print $playerFirstName>>."<</Dialogue>>
+
+With that, she marches off, looking as busy as she always does. You get the feeling that you missed an important hint here, reinforced by the fact she called you by your first name. You continue working, pondering it as you go home.
+
+<<link "Go home" "Home">><</link>>
+
+
+:: Emma Date Two Gym {"position":"725,3475","size":"100,100"}
+The gym itself isn't terribly far from work, thankfully. It's also a notably fancier than the one on your college campus. Everything sleek, clean, and modern. Holy crap, there's even a cafe right up front? And a spa?! You can't help but compare it in your mind to your normal spot, but that just makes you feel more out of place.
+
+You're so busy taking in your surroundings that you don't notice a voice calling your name until it's practically shouting at you.
+
+<<Dialogue "randomperson" "Random">>"Ma'am? Ma'am!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh shoot, uh, yes? Sorry, what's up?"<</Dialogue>>
+
+<<Dialogue "randomperson" "Random">>"Uh... Can I see your member ID, please?"<</Dialogue>>
+
+You look around and realize that you were about to walk right past the front desk.
+
+<<Dialogue "player" "You">>"<<if $confident > 1>>Oh, that, yeah, I was just on my way to meet someone here. She should have everything under control.<<else>>Oh, uh... I'm very sorry. I was expecting to... I'll just go.<</if>>"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Not to worry, Rodney. She's with me."<</Dialogue>>
+
+The sound of Emma's voice is clear, and both you and Rodney the front desk clerk turn to face her.
+
+<img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Emma_swole.png" alt="Owh my lawd its do be Emma whose absolutely swole and gorgous!" style="border-radius: 50%; width: 75%; left: 12.5%;    position: relative; display:block;">
+
+<<Dialogue "EmmaFitness" "Emma">>"Nice to see you made it here without issue, <<print $playerFirstName>>. I've already signed you in as my guest, and Rodney should have everything you need ready to go."<</Dialogue>>
+
+<<Dialogue "randomperson" "Random">>"Oh, this is your guest! Yes ma'am, I've got everything here for you. Towel, guest pass, and a temporary key for a locker."<</Dialogue>>
+
+You would have offered a polite thank you, but your eyes haven't moved from Emma, and you're fairly certain your brain has disconnected from your mouth. She had mentioned she was a bodybuilder, but you hadn't imagined this at all!
+
+<span id="choice1"><<link "Ahem, yes, thank you. Let me go get changed.">><<replace "#choice1">><<set $emmaDateProfessional += 1>><<Dialogue "player" "You">>"Mmhmm, yes, I think that's all I need. Thank you very much. Would you mind showing me to the locker room, Emma?"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Not in the slightest. This way."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "Holy crap, Emma.">><<replace "#choice1">><<set $emmaDateFriendly += 1>><<Dialogue "player" "You">>"Holy moly. I had no idea you were *that* built under those clothes."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"By design, I assure you. And since we're out and about as friends, I won't pay any mind to 	your forwardness this time."<</Dialogue>>
+
+<<Dialogue "player" "You">>"S-sorry. It's just... wow."<</Dialogue>>
+
+You catch a subtle, but proud smirk on Emma's face.
+
+<<Dialogue "EmmaFitness" "Emma">>"Come on. Why don't you get changed and then we can get to the meat of why we came here."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "Stare silently.">><<replace "#choice1">><<set $emmaDateFlirty += 1>><<Dialogue "player" "You">>"................................"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"<<print $playerFirstName>>... We're out here as friends but I am still on a schedule."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Uh? Oh, yeah, sorry, it's just... Hoo. Wow. I don't think I was mentally prepared for this."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Hopefully you adapt with time. Let's get you to the locker room before you start drooling on the floor."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>></span>
+
+<span id="choice2" style="display:none;">You follow Emma a short walk away to the women's lockers, and she leaves after saying she'll meet you at the base of the stairs. You find a quiet corner and prepare to change into your gym clothes. The image of Emma practically undressed doesn't seem to want to leave your head. You're not sure if it's simply shock at the incongruity of it all, or something deeper than that <<if $dick > 0>>though a certain, very active part of your anatomy is making its opinion known. It's creating an extra hurdle to put your <<print $outfit.bottom().name>> on<</if>>. You shake your head and tell yourself that you knew exactly what you had signed up for.
+
+<<gameLink "Lets get pumped!" "Emma Date Two Workout" time:30 exhaustion:30>><</gameLink>></span>
+
+
+:: Emma Date Two Workout {"position":"725,3575","size":"100,100"}
+You eventually get changed into your gym clothes and find Emma waiting outside as expected. She sees you approach as she finishes a quick swig from a water bottle and smiles to you. A drop drips down one side of her mouth, cascading over that vascular, bull-like neck. 
+
+<<Dialogue "EmmaFitness" "Emma">>"Shall we?"<</Dialogue>>
+
+God, it's just as shocking as the first time around.
+
+<span id="choice1"><<link "Compliment her on her body">><<replace "#choice1">><<set $emmaDateFriendly += 1>><<Dialogue "player" "You">>"Wow. I mean, I know it barely needs saying, but... you have done some amazing work."<</Dialogue>>
+
+<<if $muscle > 50 || $skils[0].level > 3>><<Dialogue "EmmaFitness" "Emma">>"Thank you for saying so. Though don't write off your own achievements, of course. I knew you were impressive too, though it's much differnet seeing you in this light."<</Dialogue>>
+
+<<Dialogue "player" "You">>"You're telling me."<</Dialogue>>
+
+The back of your head reminds you that you don't know how much you can claim credit for directly. Though it is something of a comfort to hear Emma speak of you so highly.
+
+<<else>><<Dialogue "EmmaFitness" "Emma">>"Thank you for saying so. There are precious few people that I'm comfortable showing this side of me to. I'm extremely happy you agreed to come along today."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, I'm very happy to be here. But, uh... What do you mean by that exactly?"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"...Never mind it. Let's get to work. The free weights are in the rear."<</Dialogue>><</if>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "Get started with the workout">><<replace "#choice1">><<set $emmaDateProfessional += 1>><<Dialogue "player" "You">>"Thanks again for this opportunity. I don't think I'll ever get a better chance to learn 	from a professional like you."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Hehe. Well, I consider myself a professional in many aspects, but not in this one. This is 	a lifestyle choice. Or a hobby, you might say."<</Dialogue>>
+
+<<Dialogue "player" "You">>"BS. You look like you could be on the cover of a fitness magazine tomorrow."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"As flattering as that is, I'd rather not waste all evening here discussing myself. Shall we 	move on to the weights?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh, right! Lead the way!"<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "Stare silently">><<replace "#choice1">><<set $emmaDateFlirty += 1>><<Dialogue "player" "You">>"................"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"And here I thought you'd show up with a little more hustle."<</Dialogue>>
+
+<<Dialogue "player" "You">>"I'm sorry, it's just... whoo. You are a lot to take in."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"I'm flattered."<</Dialogue>>
+
+<<Dialogue "player" "You">>"No, really. You're just gonna go around the office with all this under wraps? Why not show 	off at least a little bit?"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"I assure you I have my reasons. And I really, truly, am honored that you would say so. But 	we aren't here to pile praise upon me, deserved or undeserved. Shall we?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh, uh, yeah, I guess we should. I'll follow you then."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>></span>
+
+<span id="choice2" style="display: none;">You follow Emma toward the rear of the gym. You pass by a lot of sights that you were used to seeing at the gym prior to all this. Older folks staying active, a lot of people your age mostly fast-walking on treadmills... But the section to the rear is much less crowded, and those that are there are clearly serious fitness types. Fitness model women in the squat cages, burly men noisily forcing huge weights into the air... This new side of Emma looks right at home here.
+
+You see her give a cordial wave to a few of the individuals you pass, though without exchanging any words. Emma clearly is here with a singular purpose, and people know it. She guides you towards a rack of dumbbells, with an array of benches and chairs facing them as people let her pass. When Emma is in the zone, her attitude grants her more than enough confidence to make up for her average height.
+
+<<Dialogue "EmmaFitness" "Emma">>"I'm focusing primarily on my shoulders today. I hope that's not too much of a concern for you. If you have your own routine I'm sure we can both stick to our own exercises while staying close by."<</Dialogue>>
+
+<<if $skills[0].level > 1>><<Dialogue "player" "You">>"No big deal. I can adapt around it. Let's hit those delts!"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Wonderful. Let's start with some shoulder presses."<</Dialogue>><<else>><<Dialogue "player" "You">>"I'm totally fine doing whatever you do. To be honest, I don't have much of a routine."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Fair enough. We'll begin with shoulder presses, and I'll start. Hopefully a demonstration 	is of some benefit to you."<</Dialogue>><</if>>
+
+Emma grabs a hefty pair of dumbbells from the rack, <<if $metric is true>>20 kg<<else>>45 lbs<</if>> printed in big block letters on each side of them. She takes a deep breath, seeming to steady herself as she does so, then quickly hoists the weights into the air, her arms bent to a right angle. You watch silently as she then powers the dumbbells up above her head, the muscle fibers in her shoulders and arms visibly tensing as she does so. Then she repeats, her form perfect and unwavering. She moves like a machine, and the sharp, hissing exhale she makes as her she reaches the peak of each lift does nothing to dispell that image. She pounds her way through her routine, movements always forceful and always steady, until she's done about a dozen lifts and she carefully allows her arms to fall to her side with a satisfied sigh.
+
+<<Dialogue "EmmaFitness" "Emma">>"Ahhh, good start. Would you like to take your set now?"<</Dialogue>>
+
+<<if $skills[0].level >= 4>>You nod happily and walk to the dumbbell rack, finding the weights you're used to using. You practically know the numbers by heart, even though they've been increasing very quickly as of late. You take the same seat and begin your exercise in a manner much similar to 	Emma's. You know proper form perfectly well, of course, but now you felt obligated to put on a show as well. You take the movements as slow and steadily as you safely can, relishing the pleasant burning as it starts to radiate from your shoulders. You follow through with form as perfect as you can manage, attempting to match or best Emma in your own dozen reps. As you count out the last rep, your arms are on fire and you have to work just to not drop 	the weights on the floor. But you feel proud of your effort, and as you roll your shoulders, Emma steps up in front of you.
+
+<<Dialogue "EmmaFitness" "Emma">>"Wow, I'm impressed. And I don't say that lightly. You clearly know your stuff."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Thank you. I've been working hard at this. I'm just happy to see it's paying off."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"I should say so. I may need to ask you for pointers after we're done here."<</Dialogue>>
+
+Your evening continues on in much the same way, the two of you giving a performance as 	perfect as possible, and attempting to assist and teach each other along the way.
+
+<<elseif $skills[0].level > 1>>You size up the weights on the rack and grab a pair that feels right. You take your seat, inhale deeply, and carefully lift the weights upward. You feel your arms and back respond immediately, burning with exertion as you first shove the weights upward. You quickly find yourself breathing heavily as you power through your set. You grit your teeth and force yourself through, not willing to give anything less than a perfect performance now that you have someone observing you. You barely manage to bring it to your last lift, and you nearly collapse against the chair from exertion. Emma gently puts a hand to your shoulder.
+
+<<Dialogue "EmmaFitness" "Emma">>"Well done. May I offer some advice, though?"<</Dialogue>>
+
+Without waiting for a response, she brings her arms up as if she were doing the same exercise again, pantomiming her way through another set.
+
+<<Dialogue "EmmaFitness" "Emma">>"You have sort of a bounce at the bottom of your lifts. You don't come steadily to a stop at the end. That's both cheating yourself and increasing your risk of injury. Try to come to a steady stop before your start the next eccentric movement."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh shoot. I hadn't even realized. Thanks, I'll try to keep an eye on that."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Constant improvement is the name of the game. Try to give it a shot in your next set here in a minute."<</Dialogue>>
+
+Your evening continues in much the same way, with Emma spending equal time pushing through 	her own exacting workout and acting as a mentor for yours.
+
+<<else>>You size up the long row of dumbbells, feeling quite intimidated by the whole affair. <<if: $muscle > 80>>Going by instinct, you simply walk to one end and grab the heaviest pair that they have, hoping that you haven't already outgrown them.<<else-if $muscle < 20>>Going by instinct, you simply walk to one end and grab the smallest pair that they have, still worrying slightly that they will prove too much of a challenge.<<else>>You start at the size Emma had chosen, and work your way down the smaller options until you reach one that looks to be the right size, at least based on your gut feeling.<</if>> You take the weights in hand and do your best to imitate Emma's movements, putting your hands up besides your head and pushing the weights upwards. You only get three lifts in before you are interrupted.
+
+<<Dialogue "EmmaFitness" "Emma">>"Put the weights down immediately, please."<</Dialogue>>
+
+Her voice is stern and forceful, but not shouting. You feel like you're back at work and she's caught you watching a meme compilation video. Without thinking you drop the weights to the floor and look at her, concerned. Her face looks like you've done something to personally offend her, though her eyes are wide with shock. This quickly shifts to her screwing her eyes shut and pinching her nose.
+
+<<Dialogue "EmmaFitness" "Emma">>"I should have known better. Honestly, I'm surprised you didn't tear a tendon like that."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh, geez. I'm sorry, I really didn't know this was that serious-"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Here."<</Dialogue>>
+
+She crouches behind you, putting her hands under your arms. She guides you upward, gently moving your arms through the sequence.
+
+<<Dialogue "EmmaFitness" "Emma">>"Slow and steady. Always control your movements. Never jerk the weight up and never allow it to just fall. Feeling better now?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Uh... Y-yes. Thank you."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Good. Now, how about you give it another try, slowly and carefully this time."<</Dialogue>>
+
+Your evening continues in much the same way. Emma tackles her workout expertly, and you follow behind attempting to copy her as best as you can, with plenty of tutorial from her along the way.<</if>>
+
+[[Ugh, I can't feel my arms|Emma Date Two Finale]]</span>
+
+:: Emma Date Two Finale {"position":"725,3675","size":"100,100"}
+After what feels like hours, the two of you are finally resting. You take a comfortable seat and chug some water, while Emma stands nearby in front of a wall of mirrors. You watch along as she inspects her body, veins now standing in prominently above her taut muscles and the fibers all along her broad shoulders standing out like an anatomy chart. She turns and strike a side triceps pose which makes her shoulders flair out like cannonballs. The image still manages to take you by surprise. But despite what a great display Emma puts on, there's still a tinge of disappointment on her face.
+
+<<Dialogue "player" "You">>"What's the matter?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Mmm. It's nothing, really. Just noticing that my arms seem to be lagging behind the rest of my body. I worry I've been slacking."<</Dialogue>>
+
+She stands up straight again and attempts a different pose, her bicep bunching up in the process.
+
+<<Dialogue "player" "You">>"Just based off what I saw tonight, I'd be surprised if you were slacking anywhere"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"It's flattering, I assure you. But I'm sure I just need to up my working weight a bit, or perhaps add on some more volume..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Emma, seriously. You look like you're getting ready to step onto a bodybuilding stage right now. Hell, you're doing the poses and everything."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Again, flattering. But I am nowhere close to a professional bodybuilder, and I don't pretend to be."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Plenty of people would disagree with you. I seriously don't know why you don't at least try since you're already basically there."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"As I've said before, I have my reasons."<</Dialogue>>
+
+<<Dialogue "player" "You">>"But you've never told me what they are."<</Dialogue>>
+
+Emma huffs and pushes her glasses into the bridge of her nose. She's silent for a moment, looking almost contemplative.
+
+<<Dialogue "Emma" "Emma">>"It wouldn't be appropriate."<</Dialogue>>
+
+<<Dialogue "player" "You">>"What do you mean?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I mean, think of how you saw me when I first hired you. Very, very differnet from how you see me now, wouldn't you agree? This is not a flattering image to everybody. To do something as public as competing in a bodybuilding competition, or something far less than that even, would put a different image of myself into the heads of not just my colleagues, but nearly everyone I interact with. There's a reason I'm so choosy about who I share this interest with. This lifestyle is enjoyable, yes, but it also runs the risk of making me a laughingstock if I'm not careful with it."<</Dialogue>>
+
+<<Dialogue "player" "You">>"I don't know if that's true... I mean, seeing you in your full glory was a surprise for sure, but... you're still you. The way you go about this whole thing is still very Emma. And I think people would be a lot more accepting than you give them credit for."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Maybe you're right. But maybe you're not. And it's not a risk I'm willing to accept. I can't put a career at risk over a hobby."<</Dialogue>>
+
+There's an awkard moment of silence a tracksuit on over, once again obscuring her body from the outside world. Maybe she had a point. Now that you've seen what she looks like, you can't help but notice the broadness of her shoulders, the flair of her hips, the thickness of her arms, even as it's all hidden from view.
+
+<span id="choice1"><<link "I mean it.">><<replace "#choice1">><<Dialogue "player" "You">>"I'm serious, you know. Everyone's got hobbies. Everyone's got weird stuff. You wouldn't 	fire someone because they write weird fanfiction. You don't see actors or celebrities 		getting grief for doing things for fun that are a little different. It doesn't have to be 	all business all the time for you."<</Dialogue>>
+
+Emma sighs as she zips up the front of her tracksuit.
+
+<<Dialogue "Emma" "Emma">>"I truly, truly admire your tenacity, $playerFirstName. I do wish I could see the world a little more like you sometimes."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "I guess you got a point..">><<replace "#choice1">><<Dialogue "player" "You">><<Dialogue "player" "You">>"You might be on to something. I mean, I wasn't lying when I said you're still Emma, but I'm kinda looking at you in a new light. And for the record, that's not a bad thing from my 	standpoint, but... I don't know. I just look at that as something more to admire about you."<</Dialogue>>
+
+Emma stops short of zipping her tracksuit up all the way. She looks uncharacteristically surprised.
+
+<<Dialogue "Emma" "Emma">>"Huh. I'd never realized you'd considered me to be worth admiring."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, sure. I mean, there's a lot to be impressed by. A lot to love."<</Dialogue>>
+
+She finishes zipping up her top, her eyes now pointing away towards a spot on the floor.<<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>></span>
+
+<span id="choice2" style="display:none;">><<Dialogue "Emma" "Emma">>"I'm sorry to end it like this, but I must be going. I've already dawdled for longer than I meant to, and I still need to make dinner for myself."<</Dialogue>>
+
+<<if $emmaDateFlirty > $emmaDateFriendly and $emmaDateFliry > $emmaDateProfessional>>Emma brings a hand up to your face and gently brushes a thumb against your cheek. What's even more surprising than the gesture is the softness of the smile on her face.
+
+<<Dialogue "Emma" "Emma">>"I'm happy to have had this chance, <<print $playerFirstName>>."<</Dialogue>>
+
+And with nothing more than that, she turns and makes her way out, leaving you a bit too stunned to follow after.
+
+<<elseif $emmaDateProfessional > $emmaDateFriendly>>Emma claps a hand to your shoulder, a smile on her face in spite of everything.
+
+<<Dialogue "Emma" "Emma">>"It means a lot to have your support, <<print $playerFirstName>>. Thank you."<</Dialogue>>
+
+You nod in return.
+
+<<Dialogue "player" "You">>"Thank you. Whatever you're after with this whole fitness thing, I hope you get it."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Me too."<</Dialogue>>
+
+She gives you another nod and a quick pat before turning on her heel and exiting. You gather up your things quickly in hopes of seeing her off, but she's gone before you can find her again.
+
+<<else>>Suddenly, Emma wraps one arm around you and pulls you closer. Like the world's gentlest, most non-committal hug. But a hug! From Emma, of all people!
+
+<<Dialogue "Emma" "Emma">>"Have I told you yet that you're a good friend?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"I'm not sure, but... I could always stand to hear it again."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"You are. Thank you for doing this with me, <<print $playerFirstName>>. I'll see you at work."<</Dialogue>>
+
+She's walking off before you can respond again. You try to catch her on the way out, but you don't see her again. You must have missed her.<</if>>
+
+With this behind you, there is nothing to do but to reflect on this, and head home. Tomorrow at work things will feel much the same, but also different. You wonder when you'll get a moment of intimacy with Emma again, but you can't help but feel like she decides that more than you.
+
+<<gameLink "Go home" "Home" time:30>><<set $emmaDate2Done to true>><<set $emmaOpinion +=10>><</gameLink>>
+</span>
