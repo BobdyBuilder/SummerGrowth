@@ -10163,7 +10163,8 @@ name: 'EmmaExpertSewing',
     name: 'EmmaDate2',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.emmaOpinion >= 40
+        () => State.variables.emmaOpinion >= 40,
+        () => State.variables.emmaFirstDateDone
     ],
     repeatable: false,
     retriggerable: false,
@@ -20066,7 +20067,7 @@ She pulls away and unlocks the front door, pausing before letting herself in.
 <<Dialogue "Emma" "Emma">> "I'm sorry, <<print $playerFirstName>>. I'll see you in the office. I hope we can still be friends."<</Dialogue>>
 Without allowing you the chance to protest, she goes in and shuts the door behind herself, leaving you standing outside under the moon. With your options exhausted, you decide it's best to just head back to your apartment. Your feelings swirl around in your head endlessly until you finally reach your building.
 
-<<link "Well, that’s a shame." "Home">><</link>>
+<<link "Well, that’s a shame." "Home">><<set $emmaFirstDateDone to true>><</link>>
 
 
 :: Friendly Ending {"position":"750,4175","size":"100,100"}
@@ -20086,7 +20087,7 @@ With Emma successfully escorted back, and no longer quite so intimidating, you h
 
 
 
-<<link "Huh, that went well!" "Home">><</link>>
+<<link "Huh, that went well!" "Home">><<set $emmaFirstDateDone to true>><</link>>
 
 
 :: Professional Ending {"position":"850,4175","size":"100,100"}
@@ -20104,7 +20105,7 @@ She shakes your shoulder friendly before letting herself into the building. As s
 <<Dialogue "Emma" "Emma">> "Keep up the good work, <<print $playerFirstName>>. I'm impressed."<</Dialogue>>
 With Emma safely escorted, you decide to make your way back home, your mind reeling with what she has in mind for you in the future.
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $emmaFirstDateDone to true>><</link>>
 
 
 :: jobWarehouseResult {"position":"1700,1700","size":"100,100"}
