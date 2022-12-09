@@ -3740,23 +3740,23 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         }
 
         var presentBonuses = [];
-        if (this.top() != undefined && this.top().bonuses != undefined) {
+        if (this?.top()?.bonuses != null) {
             duplicateFlatten(this.top().bonuses, presentBonuses);
         }
-        if (this.bottom() != undefined && this.bottom().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.bottom()?.bonuses != null) {
+            duplicateFlatten(this.bottom().bonuses, presentBonuses);
         }
-        if (this.underwear() != undefined && this.underwear().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.underwear()?.bonuses != null) {
+            duplicateFlatten(this.underwear().bonuses, presentBonuses);
         }
-        if (this.bra() != undefined && this.bra().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.bra()?.bonuses != null) {
+            duplicateFlatten(this.bra().bonuses, presentBonuses);
         }
-        if (this.overwear() != undefined && this.overwear().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.overwear()?.bonuses != null) {
+            duplicateFlatten(this.overwear().bonuses, presentBonuses);
         }
-        if (this.shoes() != undefined && this.shoes().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.shoes()?.bonuses != null) {
+            duplicateFlatten(this.shoes().bonuses, presentBonuses);
         }
         console.log(presentBonuses);
         return toFindDuplicates(presentBonuses);
