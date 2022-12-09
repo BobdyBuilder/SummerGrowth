@@ -3740,23 +3740,23 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         }
 
         var presentBonuses = [];
-        if (this.top() != undefined && this.top().bonuses != undefined) {
+        if (this?.top()?.bonuses != null) {
             duplicateFlatten(this.top().bonuses, presentBonuses);
         }
-        if (this.bottom() != undefined && this.bottom().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.bottom()?.bonuses != null) {
+            duplicateFlatten(this.bottom().bonuses, presentBonuses);
         }
-        if (this.underwear() != undefined && this.underwear().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.underwear()?.bonuses != null) {
+            duplicateFlatten(this.underwear().bonuses, presentBonuses);
         }
-        if (this.bra() != undefined && this.bra().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.bra()?.bonuses != null) {
+            duplicateFlatten(this.bra().bonuses, presentBonuses);
         }
-        if (this.overwear() != undefined && this.overwear().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.overwear()?.bonuses != null) {
+            duplicateFlatten(this.overwear().bonuses, presentBonuses);
         }
-        if (this.shoes() != undefined && this.shoes().bonuses != undefined) {
-            duplicateFlatten(this.top().bonuses, presentBonuses);
+        if (this?.shoes()?.bonuses != null) {
+            duplicateFlatten(this.shoes().bonuses, presentBonuses);
         }
         console.log(presentBonuses);
         return toFindDuplicates(presentBonuses);
@@ -23472,11 +23472,11 @@ The gym itself isn't terribly far from work, thankfully. It's also a notably fan
 
 You're so busy taking in your surroundings that you don't notice a voice calling your name until it's practically shouting at you.
 
-<<Dialogue "randomperson" "Random">>"Ma'am? Ma'am!"<</Dialogue>>
+<<Dialogue "randomPerson" "Random">>"Ma'am? Ma'am!"<</Dialogue>>
 
 <<Dialogue "player" "You">>"Oh shoot, uh, yes? Sorry, what's up?"<</Dialogue>>
 
-<<Dialogue "randomperson" "Random">>"Uh... Can I see your member ID, please?"<</Dialogue>>
+<<Dialogue "randomPerson" "Random">>"Uh... Can I see your member ID, please?"<</Dialogue>>
 
 You look around and realize that you were about to walk right past the front desk.
 
@@ -23490,7 +23490,7 @@ The sound of Emma's voice is clear, and both you and Rodney the front desk clerk
 
 <<Dialogue "EmmaFitness" "Emma">>"Nice to see you made it here without issue, <<print $playerFirstName>>. I've already signed you in as my guest, and Rodney should have everything you need ready to go."<</Dialogue>>
 
-<<Dialogue "randomperson" "Random">>"Oh, this is your guest! Yes ma'am, I've got everything here for you. Towel, guest pass, and a temporary key for a locker."<</Dialogue>>
+<<Dialogue "randomPerson" "Random">>"Oh, this is your guest! Yes ma'am, I've got everything here for you. Towel, guest pass, and a temporary key for a locker."<</Dialogue>>
 
 You would have offered a polite thank you, but your eyes haven't moved from Emma, and you're fairly certain your brain has disconnected from your mouth. She had mentioned she was a bodybuilder, but you hadn't imagined this at all!
 
@@ -23588,7 +23588,7 @@ Emma grabs a hefty pair of dumbbells from the rack, <<if $metric is true>>20 kg<
 
 <<Dialogue "EmmaFitness" "Emma">>"Ahhh, good start. Would you like to take your set now?"<</Dialogue>>
 
-<<if $skills[0].level >= 4>>You nod happily and walk to the dumbbell rack, finding the weights you're used to using. You practically know the numbers by heart, even though they've been increasing very quickly as of late. You take the same seat and begin your exercise in a manner much similar to 	Emma's. You know proper form perfectly well, of course, but now you felt obligated to put on a show as well. You take the movements as slow and steadily as you safely can, relishing the pleasant burning as it starts to radiate from your shoulders. You follow through with form as perfect as you can manage, attempting to match or best Emma in your own dozen reps. As you count out the last rep, your arms are on fire and you have to work just to not drop 	the weights on the floor. But you feel proud of your effort, and as you roll your shoulders, Emma steps up in front of you.
+<<if $skills[0].level >= 4>>You nod happily and walk to the dumbbell rack, finding the weights you're used to using. You practically know the numbers by heart, even though they've been increasing very quickly as of late. You take the same seat and begin your exercise in a manner much similar to Emma's. You know proper form perfectly well, of course, but now you felt obligated to put on a show as well. You take the movements as slow and steadily as you safely can, relishing the pleasant burning as it starts to radiate from your shoulders. You follow through with form as perfect as you can manage, attempting to match or best Emma in your own dozen reps. As you count out the last rep, your arms are on fire and you have to work just to not drop 	the weights on the floor. But you feel proud of your effort, and as you roll your shoulders, Emma steps up in front of you.
 
 <<Dialogue "EmmaFitness" "Emma">>"Wow, I'm impressed. And I don't say that lightly. You clearly know your stuff."<</Dialogue>>
 
@@ -23612,7 +23612,7 @@ Without waiting for a response, she brings her arms up as if she were doing the 
 
 Your evening continues in much the same way, with Emma spending equal time pushing through 	her own exacting workout and acting as a mentor for yours.
 
-<<else>>You size up the long row of dumbbells, feeling quite intimidated by the whole affair. <<if: $muscle > 80>>Going by instinct, you simply walk to one end and grab the heaviest pair that they have, hoping that you haven't already outgrown them.<<else-if $muscle < 20>>Going by instinct, you simply walk to one end and grab the smallest pair that they have, still worrying slightly that they will prove too much of a challenge.<<else>>You start at the size Emma had chosen, and work your way down the smaller options until you reach one that looks to be the right size, at least based on your gut feeling.<</if>> You take the weights in hand and do your best to imitate Emma's movements, putting your hands up besides your head and pushing the weights upwards. You only get three lifts in before you are interrupted.
+<<else>>You size up the long row of dumbbells, feeling quite intimidated by the whole affair. <<if $muscle > 80>>Going by instinct, you simply walk to one end and grab the heaviest pair that they have, hoping that you haven't already outgrown them.<<elseif $muscle < 20>>Going by instinct, you simply walk to one end and grab the smallest pair that they have, still worrying slightly that they will prove too much of a challenge.<<else>>You start at the size Emma had chosen, and work your way down the smaller options until you reach one that looks to be the right size, at least based on your gut feeling.<</if>> You take the weights in hand and do your best to imitate Emma's movements, putting your hands up besides your head and pushing the weights upwards. You only get three lifts in before you are interrupted.
 
 <<Dialogue "EmmaFitness" "Emma">>"Put the weights down immediately, please."<</Dialogue>>
 
@@ -23680,7 +23680,7 @@ Emma sighs as she zips up the front of her tracksuit.
 <<Dialogue "EmmaFitness" "Emma">>"I truly, truly admire your tenacity, $playerFirstName. I do wish I could see the world a little more like you sometimes."<</Dialogue>><<script>>const box = document.getElementById('choice2');
 box.style.display = 'block';<</script>><</replace>><</link>>
 
-<<link "I guess you got a point..">><<replace "#choice1">><<Dialogue "player" "You">><<Dialogue "player" "You">>"You might be on to something. I mean, I wasn't lying when I said you're still Emma, but I'm kinda looking at you in a new light. And for the record, that's not a bad thing from my 	standpoint, but... I don't know. I just look at that as something more to admire about you."<</Dialogue>>
+<<link "I guess you got a point..">><<replace "#choice1">><<Dialogue "player" "You">>"You might be on to something. I mean, I wasn't lying when I said you're still Emma, but I'm kinda looking at you in a new light. And for the record, that's not a bad thing from my 	standpoint, but... I don't know. I just look at that as something more to admire about you."<</Dialogue>>
 
 Emma stops short of zipping her tracksuit up all the way. She looks uncharacteristically surprised.
 
@@ -23691,7 +23691,7 @@ Emma stops short of zipping her tracksuit up all the way. She looks uncharacteri
 She finishes zipping up her top, her eyes now pointing away towards a spot on the floor.<<script>>const box = document.getElementById('choice2');
 box.style.display = 'block';<</script>><</replace>><</link>></span>
 
-<span id="choice2" style="display:none;">><<Dialogue "Emma" "Emma">>"I'm sorry to end it like this, but I must be going. I've already dawdled for longer than I meant to, and I still need to make dinner for myself."<</Dialogue>>
+<span id="choice2" style="display:none;"><<Dialogue "Emma" "Emma">>"I'm sorry to end it like this, but I must be going. I've already dawdled for longer than I meant to, and I still need to make dinner for myself."<</Dialogue>>
 
 <<if $emmaDateFlirty > $emmaDateFriendly and $emmaDateFliry > $emmaDateProfessional>>Emma brings a hand up to your face and gently brushes a thumb against your cheek. What's even more surprising than the gesture is the softness of the smile on her face.
 
