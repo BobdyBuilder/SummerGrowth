@@ -3756,7 +3756,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         }
         console.log(presentBonuses);
 
-        if(this.styles().includes(State.variables.favoriteStyle)){
+        if(this.style().includes(State.variables.favoriteStyle)){
             presentBonuses.push(setup.clothingBonuses.favoriteStyle)
         }
 
