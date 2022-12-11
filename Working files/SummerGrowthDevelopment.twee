@@ -3731,8 +3731,28 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     fit: function () {
     },
     bonuses: function () {
+        /*Yes, I know this is written poorly. But it seems that ==/=== doesn't work well for objects, and as such looking up different sets combined with the .map/.filter function doesn't seem to work well. Because of that I got this rather obtuse method. Feel free to fix, but please do test it to make sure it works! - bobdy */
         function toFindDuplicates(arry) {
-            return Array.from(new Set(arry));;
+            const uniqueNames = [];
+            const addedNames = [];
+
+            const unique = arry.filter(element => {
+            const isDuplicate = uniqueNames.includes(element.name);
+
+            if (!isDuplicate) {
+                uniqueNames.push(element.name);
+
+                return false;
+            }
+            else if(!addedNames.includes(element.name)){
+                addedNames.push(element.name);
+                return true;
+            }
+
+            return false;
+            });
+
+            return unique;
         }
 
         function duplicateFlatten(bonuses, newbonuses) {
@@ -3762,8 +3782,10 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         }
         console.log(presentBonuses);
 
+        /*yes, added it twice. Otherwise it gets filtered out. Yes, this can be done better bob, come on :P */
         if(this.style().includes(State.variables.favoriteStyle)){
-            presentBonuses.push(setup.clothingBonuses.favoriteStyle)
+            presentBonuses.push(setup.clothingBonuses.favoriteStyle);
+            presentBonuses.push(setup.clothingBonuses.favoriteStyle);
         }
 
         return toFindDuplicates(presentBonuses);
@@ -9334,83 +9356,95 @@ Your entire inbox is full of tasks due today, meaning you won't have stop and th
 <<set _failed to false>>
 
 
-Arriving at the building, you find your typical office space; a tall building surrounded by black glass. It seems the architect wanted to break with the style of the city as much as possible, standing out like a sore thumb from the rest of the small town. Adjusting your clothing one last time, you step in, trying to look as confident as possible. You're warmly greeted by a receptionist who barely looks at you before escorting you to a small office, where another applicant waits on a very uncomfortable chair. For a split second, it brings you a vision of a proverbial human meat grinder, but you suppress any negative thoughts as you wait. Almost half an hour later, it’s finally your turn, as a calm but cold voice calls you out.
+Arriving at the building you find a typical office space; a tall building with black glass on all sides. It seems the architect wanted to break with the style of the city as much as possible just from how much it stand out from the rest of the city. Adjusting your clothing you get in, trying to be as confident as possible. You're warmly greeted by a receptionist who barely looks at you before being brought to a small offfice, another applicant waiting there in uncomfortable chairs. For a split second it reminds you of a meatgrinder but you supress those thoughts as you wait. Almost half an hour later its finally your turn, a calm but cold voice calling out.
 
 <br><br>
 
 <<Dialogue "Emma" "Emma">>"NEXT."<</Dialogue>>
 <br>
 
-<<if $height > 300 or $muscle > 80 or $fat > 80 and _failed is false>>As you swallow, you slowly get up, your entire body filling the small hallway. The chair groans with relief as your weight is removed from it. With a huge amount of effort, you squeeze yourself through the door into the tiny office, where an overly professional woman is waiting. You are immediately struck by her pristine suit, complete with what you believe to be sizable shoulder pads. In contrast, she seems rather unimpressed as she inspects you in silence.
+<<if $height > 300 or $muscle > 60 or $fat > 60 and _failed is false>>As you swallow you slowly get up, your entire body filling the small hallway and the chair groaning with relieve as your weight is released from it. With a huge amount of effort you squeeze yourself through the door into the tiny office, where a small but suprisingly professional women is waiting. Her suit is in pristine condition while unimpressed eyes look you over. Well, they appear unimpressed. But perhaps it's better to say she's holding something back; the lady seems oddly judgemental.
 <br><br>
 
-<<Dialogue "Emma" "Emma">>"Welcome. Please, make yourself comfortable. I'm Emma Fray, human resources manager at Financial Gains and Bulk Orders LLC. Before we start... you do realize you'll need to work in an office cubicle, yes? Now, no offense, but do you really think you can work here with that... physique...? Now, we can proceed with the job interview, but I should warn you upfront that we unfortunately cannot make any exceptions to better accommodate someone of your... size."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Please, be welcome. I'm Emma Fray, human resourse manager at Financial Gains and Bulk orders ltd. Before we start... you do realize you'll need to work in an office cubicle, yes? Now, no offense but do you really think you can work here at your... physique...? Now, we could go on with the job interview but I should tell you upfront we unfortunately do not have facilities to accomodate someone your size."<</Dialogue>><br><br>
 
 <<set _failed to true>>
 <<link "...I'll see myself out." "Home">><</link>>
 
-<<elseif $dick > 20 or $breasts > 80 or setup.isOutfitTight() or setup.isOutfitNude()>>
+<<elseif $dick > 20 or $breasts > 80 or $outfitWarning < $outfitNudeWarning>>
 
-As you walk in, you find a tiny office where an overly professional woman is waiting. You are immediately struck by her pristine suit, complete with what you believe to be sizable shoulder pads. In contrast, she seems rather unimpressed as she inspects you in silence. You can't help but feel like she's judging you already, and none too impressed with your looks, ESPECIALLY not with your outfit.
+As you walk in you find a tiny office where a small but suprisingly professional women is waiting. Her suit is in pristine condition while unimpressed eyes look you over. You can't help but feel like she's judging you already and none to impressed by your looks, ESPECIALLY not by your outfit.
 <br><br>
 
-<<Dialogue "Emma" "Emma">>"Welcome. Please, make yourself comfortable. I'm Emma Fray, human resources manager at Financial Gains and Bulk Orders LLC. However, we DID warn you in our email that we expect a certain degree of formality in how we dress here. And with your current outfit, I cannot see you representing us, or being part of our team for that matter. Thank you for your time."<</Dialogue>>
+<<Dialogue "Emma" "Emma">>"Please, be welcome. I'm Emma Fray, human resourse manager at Financial Gains and Bulk orders ltd. However, we DID ask in our email that you wear representative business clothing. And with your current outfit I cannot see you representing us or being part of our team. Thank you for your time."<</Dialogue>>
 <br><br>
 
-... It seems like your outfit was just... a bit too revealing. And looking down at your tight clothes barely hiding some parts of your body, you can't really argue against that. Shit.<br><br>
+...It seems your outfit was just... a bit too revealing. And looking down at your tight cloths barely hiding some parts of you, you can't really call them out on it. Shit.<br><br>
 
 <<set _failed to true>>
 <<link "...I'll see myself out." "Home">><</link>>
 
 <<elseif $muscle > 40  or $height > 210 or $fat> 60 or $breasts > 60>>
 
-As you walk in, getting through the door with some difficulty, you find a tiny office you find a tiny office where an overly professional woman is waiting. You are immediately struck by her pristine suit, complete with what you believe to be sizable shoulder pads. In contrast, she seems rather unimpressed as she inspects you in silence. You can't help but feel like she's judging you already, and none too impressed with your... unconventional appearance.
+As you walk in, getting through the door with some difficulty, you find a tiny office where a small but suprisingly professional women is waiting. Her suit is in pristine condition while unimpressed eyes look you over. You can't help but feel like she's judging you already and none to impressed by your... appearance.
 <br><br>
 
-<<Dialogue "Emma" "Emma">>"Welcome. Please, make yourself comfortable. I'm Emma Fray, human resources manager at Financial Gains and Bulk Orders LLC. Today we will be discussing your potential employment as a junior administrative data entry official. Now, what we offer here at-"<</Dialogue>>
+<<Dialogue "Emma" "Emma">>"Please, be welcome. I'm Emma Fray, human resourse manager at Financial Gains and Bulk orders ltd. Today we will be discussing your possible employement as junior administrative employee. Now, what we offer here at-"<</Dialogue>>
 
-<br><br>She goes through a list of what the job offers, pointedly not making any remarks about your appearance. But you can tell she noticed, and she noticed that you noticed her noticing, making it all even more awkward. Several times, her steely gaze washes over you in silent judgement.
+<br><br> She goes through a list of what the job offers, pointedly not making any remarks about your appearance. But you know she noticed, and she noticed you noticed her noticing, making it all slightly awkward. Several times her gaze pases over you in judgement.
 
 <<else>>
 
-As you walk in you find a tiny office where an overly professional woman is waiting. You are immediately struck by her pristine suit, complete with what you believe to be sizable shoulder pads. In contrast, she seems rather unimpressed as she inspects you in silence. You can't help but feel like she's judging you already, and none too impressed with your looks.
+As you walk in you find a tiny office where a small but suprisingly professional women is waiting. Her suit is in pristine condition while unimpressed eyes look you over. You can't help but feel like she's judging you already and none to impressed by your looks.
 <br><br>
 
-<<Dialogue "Emma" "Emma">>"Welcome. Please, make yourself comfortable. I'm Emma Fray, human resources manager at Financial Gains and Bulk Orders LLC. Today we will be discussing your potential employment as a junior administrative data entry official. Now, what we offer here at-"<</Dialogue>>
+<<Dialogue "Emma" "Emma">>"Please, be welcome. I'm Emma Fray, human resourse manager at Financial Gains and Bulk orders ltd. Today we will be discussing your possible employement as junior administrative employee. Now, what we offer here at-"<</Dialogue>>
 
-<br><br> She goes through an extensive list of what the job offers and its responsibilities, but every now and then, her eyes skim over you, with a judgmental gaze.
+<br><br> She goes through a list of what the job offers, now and then her eyes travelling over you in judgement.
 <br><br>
 <</if>>
 
 <<if _failed is false>>
 
-<<if $breasts > 40>>Her eyes scan over your huge chest and... her gaze lingers there a moment longer than it does over the rest of your body. It seems she's too polite to say anything, but she definitely noticed it! She stalls for a bit, clearly distracted, before she resumes her spiel.
+<<if $breasts > 40>> Her gaze passes over your huge chest too and... her gaze lingers there a moment longer than she does at the rest of your body. It seems she's too polite to say anything, but definetly does notice it! She stalls her speaking for a bit, clearly distracted.
 <</if>>
 
-<<if $dick > 12>>And you can't help but notice her eyes travel towards your... bulge...  several times. And while she doesn't say anything, it's clear she has some unexpected personal thoughts regarding it!
+<<if $dick > 12>> And you can't help but notice her eyes travel towards your... bulge several times.And while she doesn't say anything it's clear she's NOT used to dealing with it!
 <</if>>
 
-<<if $muscle > 40>>Several times, you notice her gaze lingering over your beefy arms, ample pecs, or thick thighs. And though her looks are unflinchingly judgmental, she doesn't seem at all displeased. In fact, you could swear you sense a hint of... being impressed?!?
+<<if $muscle > 40>> Several times you notice her gaze passing over your arms, your pecs, or your thick thighs. And though her looks remains judgemental she doesn't seem to dislike them. In fact she almost seems... impressed?!
 <br><br>
-<<Dialogue "Emma" "Emma">>"Your physique is... quite notable, by the way. I can’t help but extend my congratulations.
+<<Dialogue "Emma" "Emma">>"You look impressive, by the way. Well done.
 <<if $muscle > 60>>
- But please be aware, we do have a strict no-drugs policy... and that does include steroids."<</if>>
+ But please do know we have a strict now drugs policy... and that does include steroids."<</if>>
 <</Dialogue>>
 <br><br>
 <</if>>
 
-<<if $height > 210>>Every time she looks you in the eyes, she has to raise her chin, and each time you catch a little sliver of surprise when she does so.
+<<if $height > 210>> Everytime she looks you in the eye she has to look up a lot, and each time you catch that little sliver of suprise.
 <br><br>
-<<Dialogue "Emma" "Emma">>"Now, we pride ourselves on our diverse staff, and we try our best to accommodate everyone’s special needs. However, with someone of your... stature... I hope you understand that there are limitation to what we can offer."
+<<Dialogue "Emma" "Emma">>"Now we pride ourselves on our diverse staff and we will try to accomendate someone your... size but I do hope you understand there are limits to what we can achieve."
 <</Dialogue>>
 <br><br>
 <</if>>
 
+<<if ['professional', 'stylish'].includes($outfit.style())>> Her eyes travel over your outfit too a few times, and...
 <br><br>
-<<Dialogue "Emma" "Emma">>"ANYWAY! I do realize I went on for quite a while, but we'd like to hear why YOU think you are qualified for this position. "
+<<Dialogue "Emma" "Emma">>"I see you have dressed for the occasion though. That speaks to your favor. Not everyone could be bothered, I'm sad to say."
+<</Dialogue>>
+<br><br>
+<<else>>
+<br><br>
+<<Dialogue "Emma" "Emma">>"We did ask for you to wear office wear to this interview though. Small point of advice; if a position requires a certain dresscode, do follow it."
+<</Dialogue>>
+<br>Well, the lady is almost spitting that out like acid...
+<</if>>
+
+<br><br>
+<<Dialogue "Emma" "Emma">>"ANYWAY! That was a lot of talking on my part but I'd like to hear why YOU think you're qualified for this position. "
 <</Dialogue>>
 
-<<include "jobInterviewQuestions">>
+<<display "jobInterviewQuestions">>
 <</if>>
 
 
@@ -9474,7 +9508,7 @@ Emma blinks a few times, her face frozen with visible confusion and annoyance. T
 
 <<Dialogue "Emma" "Emma">>“... Fine. We're severely understaffed and I need more people ASAP. We'll start you off at a reduced wage. You start next Monday at 9 AM, and the shift ends at 5 PM. The workdays go from Mondays to Thursdays. Congratulations, Ms. <<print $playerLastName>>."<</Dialogue>><br>
 
-While rubbing her temple, she gives you a contract to sign. You get the feeling that as soon as you leave her office, she will go for a large bottle of booze hidden somewhere in that desk, which she sorely needs.<br><br>
+While rubbing her temple, she gives you a contract to sign. You get the feeling that as soon as you leave her office, she will go for a large mug of coffee, which she sorely needs.<br><br>
 
 <<link "...You got the job?!" "Home">><<set $job to true>><<set $jobOffice to true>><<set $jobInterview to false>><</link>>
 <</replace>><</link>><br><br>
@@ -10703,6 +10737,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 
 /* Predefined clothing bonuses */
 <<set setup.clothingBonuses to {
+    /*included */
 	Baggy: {
     	name: "Baggy",
         description: "Hides all physical changes except for height, allowing you to suprise people when no longer wearing them.",
@@ -10713,6 +10748,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    /*included */
     LactationProof: {
     	name: "Lactation-proof",
         description: "These clothes help you hide awkward 'leaking' incidents.",
@@ -10723,6 +10759,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    /*included */
     WorkoutWear: {
     	name: "Workout-wear",
         description: "10% extra muscle growth from workouts when wearing an outfit with this bonus.",
@@ -10733,6 +10770,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    /*included */
     Comfortable: {
     	name: "Comfortable",
         description: "Gain 10% extra motivation whenever you do something that gives motivation.",
@@ -22420,7 +22458,8 @@ Dialog.open();
         name: 'ifBreastsFullWithJohan_LeakWhileCarrying',
         locationTags: ['home'],
         conditions: [
-            () => State.variables.breastsFullness === 'overflowing'
+            () => State.variables.breastsFullness === 'overflowing',
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
         repeatable: false,
         retriggerable: false,
@@ -22433,7 +22472,8 @@ Dialog.open();
         locationTags: ['elenaGym'],
         conditions: [				 
             () => State.variables.breastsFullness === 'overflowing',
-            () => State.variables.elenaOpinion >= 20
+            () => State.variables.elenaOpinion >= 20,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
         repeatable: false,
         retriggerable: false,
@@ -22446,7 +22486,8 @@ Dialog.open();
         locationTags: ['office'],
         conditions: [			 
             () => State.variables.breastsFullness === 'overflowing',
-            () => State.variables.daysWorkedOffice >= 3
+            () => State.variables.daysWorkedOffice >= 3,
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
         repeatable: false,
         retriggerable: false,
@@ -22458,7 +22499,8 @@ Dialog.open();
         name: 'ifBreastsTightAtGym_UncomfortableBenchPress',
         locationTags: ['gym'],
         conditions: [
-            () => ['overflowing', 'full'].includes(State.variables.breastsFullness)
+            () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
         repeatable: false,
         retriggerable: false,
@@ -22483,7 +22525,8 @@ Dialog.open();
         name: 'ifLeakingAndBreasts>EmmaWork',
         locationTags: ['office'],
         conditions: [	
-            () => ['overflowing', 'full'].includes(State.variables.breastsFullness)
+            () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
         repeatable: false,
         retriggerable: false,
@@ -22495,7 +22538,8 @@ Dialog.open();
         name: 'KrisLactation',
         locationTags: ['kris'],
         conditions: [	
-            () => ['overflowing', 'full'].includes(State.variables.breastsFullness)
+            () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
+            () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
         repeatable: false,
         retriggerable: false,
