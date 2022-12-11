@@ -10862,13 +10862,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 160,
         breastsMin: 5,
         breastsMax: 15,
-        thighsMin: 0,
+        thighsMin: 1,
         thighsMax: 3,
-        assMin: 0,
+        assMin: 1,
         AssMax: 3,
-        dickMin: 0,
+        dickMin: 1,
         dickMax: 3,
-        ballsMin: 0,
+        ballsMin: 1,
         ballsMax: 3        
     },
     {	
@@ -10882,11 +10882,11 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         breastsMax: 15,
         thighsMin: 0,
         thighsMax: 4,
-        assMin: 0,
+        assMin: 1,
         AssMax: 3,
-        dickMin: 0,
+        dickMin: 1,
         dickMax: 3,
-        ballsMin: 0,
+        ballsMin: 1,
         ballsMax: 3        
     },
     {	
@@ -10898,13 +10898,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 180,
         breastsMin: 15,
         breastsMax: 20,
-        thighsMin: 0,
+        thighsMin: 2,
         thighsMax: 4,
-        assMin: 0,
+        assMin: 1,
         AssMax: 3,
-        dickMin: 0,
+        dickMin: 1,
         dickMax: 3,
-        ballsMin: 0,
+        ballsMin: 1,
         ballsMax: 3        
     },
     {	
@@ -10916,13 +10916,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 180,
         breastsMin: 20,
         breastsMax: 25,
-        thighsMin: 0,
+        thighsMin: 2,
         thighsMax: 4,
-        assMin: 0,
+        assMin: 1,
         AssMax: 3,
-        dickMin: 0,
+        dickMin: 1,
         dickMax: 3,
-        ballsMin: 0,
+        ballsMin: 1,
         ballsMax: 3        
     },
     {	
@@ -10934,13 +10934,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 190,
         breastsMin: 25,
         breastsMax: 30,
-        thighsMin: 0,
+        thighsMin: 3,
         thighsMax: 5,
-        assMin: 0,
+        assMin: 2,
         AssMax: 4,
-        dickMin: 0,
+        dickMin: 2,
         dickMax: 4,
-        ballsMin: 0,
+        ballsMin: 2,
         ballsMax: 4        
     },
     {	
@@ -10952,13 +10952,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 200,
         breastsMin: 30,
         breastsMax: 35,
-        thighsMin: 0,
+        thighsMin: 4,
         thighsMax: 6,
-        assMin: 0,
+        assMin: 3,
         AssMax: 5,
-        dickMin: 0,
+        dickMin: 3,
         dickMax: 5,
-        ballsMin: 0,
+        ballsMin: 3,
         ballsMax: 5        
     },
     {	
@@ -10970,13 +10970,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 210,
         breastsMin: 35,
         breastsMax: 40,
-        thighsMin: 0,
+        thighsMin: 4,
         thighsMax: 7,
-        assMin: 0,
+        assMin: 4,
         AssMax: 6,
-        dickMin: 0,
+        dickMin: 4,
         dickMax: 6,
-        ballsMin: 0,
+        ballsMin: 4,
         ballsMax: 6        
     },
     {	
@@ -10988,13 +10988,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 220,
         breastsMin: 40,
         breastsMax: 45,
-        thighsMin: 0,
+        thighsMin: 5,
         thighsMax: 8,
-        assMin: 0,
+        assMin: 4,
         AssMax: 7,
-        dickMin: 0,
+        dickMin: 4,
         dickMax: 7,
-        ballsMin: 0,
+        ballsMin: 4,
         ballsMax: 7        
     },
     {	
@@ -11006,13 +11006,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 230,
         breastsMin: 45,
         breastsMax: 50,
-        thighsMin: 0,
+        thighsMin: 5,
         thighsMax: 8,
-        assMin: 0,
-        AssMax: 8,
-        dickMin: 0,
+        assMin: 5,
+        AssMax: 5,
+        dickMin: 5,
         dickMax: 8,
-        ballsMin: 0,
+        ballsMin: 5,
         ballsMax: 8        
     },
     {	
@@ -11024,13 +11024,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 240,
         breastsMin: 50,
         breastsMax: 55,
-        thighsMin: 0,
+        thighsMin: 6,
         thighsMax: 9,
-        assMin: 0,
+        assMin: 6,
         AssMax: 9,
-        dickMin: 0,
+        dickMin: 6,
         dickMax: 9,
-        ballsMin: 0,
+        ballsMin: 6,
         ballsMax: 9        
     },
     {	
@@ -11042,13 +11042,13 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         heightMax: 250,
         breastsMin: 55,
         breastsMax: 60,
-        thighsMin: 0,
+        thighsMin: 7,
         thighsMax: 10,
-        assMin: 0,
+        assMin: 7,
         AssMax: 10,
-        dickMin: 0,
+        dickMin: 7,
         dickMax: 10,
-        ballsMin: 0,
+        ballsMin: 7,
         ballsMax: 10        
     }
 ]>>
@@ -12142,7 +12142,7 @@ setup.allClothes = jObjects;
     }
     else if(slot == 'bottom' || slot == 'underwear'){
     	statsToCheck =  ['muscle', 'fat', 'height', 'ass', 'thighs', 'dick', 'balls'];
-        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.ass * 10, State.variables.hips * 10, State.variables.dick * 10, State.variables.balls * 10];
     }
     else if(slot == 'shoes') {
     	return 'height';
@@ -12154,16 +12154,18 @@ setup.allClothes = jObjects;
     var max = Math.max(...sizes);
 
 	var index = sizes.indexOf(max);
-    
+
     return statsToCheck[index];
 }>>
 
 /* Gets a short description of how the given clothing fit for the player */
-<<set setup.getFitDescription to function (sizeIndex, slot, tolerance = 1) {/**/
+<<set setup.getFitDescription to function (sizeIndex, slot, tolerance = 1) {
+
    const statsToCheck = setup.biggestPlayerSize(slot);
+
    const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
    const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
-   console.log('Size ' + sizeIndex + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
+   console.log('GetFitDescription - Size ' + sizeIndex + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
 
    let fit;
    if (State.variables[statsToCheck] < lowerBound) {
@@ -23502,7 +23504,7 @@ for (let i = 0; i < State.variables.consumables.length; i++) {
 
 <<link "Continue with this later" "pcUsbHacking">><</link>>
 
-:: Emma Date Two Intro {"position":"1525,3800"}
+:: Emma Date Two Intro {"position":"750,4375"}
 With less than fifteen minutes until you clock out, you're trying to find ways to look busy. Given that, you jump slightly when you notice Emma striding towards your desk. Quickly, you reach for something to do so you don't have to face a stern glare or risk a lecture. Before you have a chance to pick up your task, you feel a hand gently resting on your shoulder. You turn to face the person, andssee Emma looking at you, an uncharacteristic softness on her face, along with the hint of a smile.
 
 <<Dialogue "Emma" "Emma">>"Good afternoon, <<print $playerFirstName>>. I hope I'm not interrupting anything."<</Dialogue>>
@@ -23538,7 +23540,7 @@ With less than fifteen minutes until you clock out, you're trying to find ways t
 <<link "I don't think I can make it." "Emma Date Two Cancel">><<set $emmaDateDenied to true>><</link>>
 
 
-:: Emma Date Two Continue {"position":"1525,3900"}
+:: Emma Date Two Continue {"position":"750,4475"}
 <<Dialogue "Emma" "Emma">>"Excellent. I was just about to make my way there. I'll text you the address and we can meet there."<</Dialogue>>
 
 You nod enthusiastically, and you wave to one another as Emma makes her way out of the office. As much as you'd like to just spring up and follow her... Well, now that you know she's paying attention you can't clock out early. You resign yourself to a few very slow minutes of waiting before you can acceptably leave.
@@ -23546,7 +23548,7 @@ You nod enthusiastically, and you wave to one another as Emma makes her way out 
 <<gameLink "Make your way there" "Emma Date Two Gym" time:30>><</gameLink>>
 
 
-:: Emma Date Two Cancel {"position":"1625,3800"}
+:: Emma Date Two Cancel {"position":"850,4375"}
 <<Dialogue "player" "You">>"As fun as that sounds, I just don't think I can. I just don't have the time in my schedule tonight."<</Dialogue>>
 
 Emma frowns an dpurses her lips, just slightly.
@@ -23558,7 +23560,7 @@ With that, she marches off, looking as busy as she always does. You get the feel
 <<link "Go home" "Home">><</link>>
 
 
-:: Emma Date Two Gym {"position":"1525,4000"}
+:: Emma Date Two Gym {"position":"750,4575"}
 The gym itself isn't terribly far from work, thankfully. It's also a notably fancier than the one on your college campus. Everything sleek, clean, and modern. Holy crap, there's even a cafe right up front? And a spa?! You can't help but compare it in your mind to your normal spot, but that just makes you feel more out of place.
 
 You're so busy taking in your surroundings that you don't notice a voice calling your name until it's practically shouting at you.
@@ -23615,7 +23617,7 @@ box.style.display = 'block';<</script>><</replace>><</link>></span>
 <<gameLink "Lets get pumped!" "Emma Date Two Workout" time:30 exhaustion:30>><</gameLink>></span>
 
 
-:: Emma Date Two Workout {"position":"1525,4100"}
+:: Emma Date Two Workout {"position":"750,4675"}
 You eventually get changed into your gym clothes and find Emma waiting outside as expected. She sees you approach as she finishes a quick swig from a water bottle and smiles to you. A drop drips down one side of her mouth, cascading over that vascular, bull-like neck. 
 
 <<Dialogue "EmmaFitness" "Emma">>"Shall we?"<</Dialogue>>
@@ -23727,7 +23729,7 @@ Your evening continues in much the same way. Emma tackles her workout expertly, 
 
 [[Ugh, I can't feel my arms|Emma Date Two Finale]]</span>
 
-:: Emma Date Two Finale {"position":"1525,4200"}
+:: Emma Date Two Finale {"position":"750,4775"}
 After what feels like hours, the two of you are finally resting. You take a comfortable seat and chug some water, while Emma stands nearby in front of a wall of mirrors. You watch along as she inspects her body, veins now standing in prominently above her taut muscles and the fibers all along her broad shoulders standing out like an anatomy chart. She turns and strike a side triceps pose which makes her shoulders flair out like cannonballs. The image still manages to take you by surprise. But despite what a great display Emma puts on, there's still a tinge of disappointment on her face.
 
 <<Dialogue "player" "You">>"What's the matter?"<</Dialogue>>
