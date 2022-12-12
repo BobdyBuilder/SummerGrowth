@@ -12225,6 +12225,14 @@ setup.allClothes = jObjects;
     return setup.getFitDescription(clothes.size, clothes.slot, clothes.tolerance);
 }>>
 
+/* return whether ALL the clothes currently wearing are 'fits' */
+<<set setup.isOutfitFits to function () {
+    return setup.getOutfitClothesArray()
+            .filter(clothes => clothes != null)
+            .map(clothes => setup.getFitDescriptionOfClothes(clothes))
+            .find(fitDescription => fitDescription !== 'fits') == null
+}>>
+
 /* Gets which predefined size from setup.sizeDatabase the player can fit in */
 <<set setup.playerSizeNeeded to function (slot) {
     const fits = [];
