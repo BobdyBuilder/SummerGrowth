@@ -2265,6 +2265,10 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
 	<<DayUpdate>>
 <</if>>
 
+<<if $oldHour != $newHour>>
+	<<HourUpdate>>
+<</if>>
+
 <<set $oldDay to $gameDate.toDateString()>>
 <<set $oldHour to $gameDate.getHours()>>
 
@@ -2286,6 +2290,15 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
     }
 <</script>>
 
+:: HourUpdate [widget nobr] {"position":"900,0","size":"100,100"}
+<<nobr>>
+<<widget "HourUpdate">>
+ <<if $outfit.bonuses().map(bonus => bonus.name).includes('Extra warm')>>
+    <<addFatSlow -0.1>>
+ <</if>>
+
+<</widget>>
+<</nobr>>
 
 :: BodyTypeDescription [widget] {"position":"3350,525","size":"100,100"}
 <<nobr>>
@@ -10781,6 +10794,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    /*included */
     ExtraWarm: {
     	name: "Extra warm",
         description: "Loose a bit of fat whenever you wear this.",

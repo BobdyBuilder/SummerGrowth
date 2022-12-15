@@ -1,0 +1,6 @@
+sugarcube-2:
+  macros:
+    HourUpdate:
+      name: HourUpdate
+    addFatSlow:
+      name: addFatSlow
