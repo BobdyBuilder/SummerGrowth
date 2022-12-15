@@ -8294,7 +8294,7 @@ Was that a nosebleed?<</if>>
         name: 'JohanWizardCostume',
         locationTags: ['park'],
         conditions: [
-            () => true
+            () => State.variables.johanOpinion >= 20
         ],
         repeatable: false,
         retriggerable: false,
@@ -8305,7 +8305,8 @@ Was that a nosebleed?<</if>>
         name: 'JohanTongueStuckHelp',
         locationTags: ['home'],
         conditions: [
-            () => State.variables.tongueLenght >= 1
+            () => State.variables.tongueLenght >= 1,
+            () => State.variables.johanOpinion >= 20
         ],
         repeatable: false,
         retriggerable: false,
@@ -10225,7 +10226,7 @@ name: 'EmmaExpertSewing',
          name: 'OfficeCasualOutfit',
          locationTags: ['office'],
          conditions: [
-             () => $outfit.style() === 'casual'
+             () => !['professional','stylish'].includes($outfit.style())
          ],
          repeatable: false,
          retriggerable: false,
@@ -10236,7 +10237,8 @@ name: 'EmmaExpertSewing',
         name: 'EmmaWardrobeMalfunction',
         locationTags: ['emma'],
         conditions: [
-            () => State.variables.skills[6] >= 1
+            () => State.variables.skills[6] >= 1,
+            () => State.variables.emmaOpinion >= 30
         ],
         repeatable: false,
         retriggerable: false,
@@ -10247,18 +10249,18 @@ name: 'EmmaExpertSewing',
        name: 'EmmaLiftSomething',
        locationTags: ['emma'],
        conditions: [
-           () => true
+           () => State.variables.emmaOpinion >= 15
        ],
        repeatable: false,
        retriggerable: false,
        priority: 'response',
        npc: ['emma'],
-       content: `It’s not a regular day at work: there was a major IT snafu, and the entire network is down. People are unable to work on most tasks, so there’s quite a few people congregating by the watercooler.<br><br> It’s a rowdy bunch, and soon Emma joins the group:<br><br> <<Dialogue "Emma" "Emma">>"I understand we are having some issues, and most of you are unable to get your job done. I have no problem with an unscheduled break, but please, keep it down, some people are still working and need to concentrate."<</Dialogue>><br><br> You admire Emma - she knows how to be strict without putting anyone down - and her point was important and well delivered. Not only that, she realizes that just forcing people back to their desks would be bad for morale, so she stays to mingle with the group and keep everyone focused.<br><br> However, Bill decides to grab one of the big paper crates from one of the high shelves. He puts up the bench, and starts slowly sliding the very heavy package… unaware that, in doing so, he’s also pushing another that is leaning next to it.<br><br> Before anyone notices, the other industrial-sized cardboard box is falling right on top of poor Mrs. Yorkshire, the 70-year old secretary! Emma, who was right behind her, just extends her hand up, and catches the box, which probably weights in the vicinity of <<if $measurementSystem == 'metric'>>30-40 pounds<<else>>15-20kg<</if>>!<br><br> All the chatter comes to a complete stop. Everyone is just staring at Emma, easily holding the box between her hands, right above Mrs. Yorkshire’s head - her arms straining the sleeves of her  tailored suit. There is complete silence - did “all-business boss” just grab and hold a box that weighs more than a child like it was nothing? Emma is visibly nervous about the whole thing, all eyes trained on her.<br><br> <<if $muscle >= 50>> You quickly walk to her side, and casually grab the box underhand, like a waiter holding a tray, making sure not to let your arms tense any more than necessary.<br><br> <<Dialogue "player" "You">>"Geez, Emma, thank GOD this was just an empty cardboard box, right? Can you imagine how HEAVY it would be if it was full?!?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"Uh… yeah… of course, miss <<print $playerLastName>>."<</Dialogue>><br><br> She sighs with relief, though you can see she is looking at you, a mix of surprise and awe.<br><br> <<Dialogue "player" "You">>"I guess I’ll just take this box to the supply room for recycling, there’s no point in keeping these empty boxes here, right, boss?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"O-of course, you do that, please.."<</Dialogue>><br><br> You walk out with the box, trying your best to make it seem completely weightless - which, to be fair, to you, it is.<br><br> You go back to your desk after hiding the box.<br><br> <<else>> You elbow the half-empty water tank from the cooler, making it fall to ground and making a huge, splashy mess! You purposefully slip on the puddle, falling to your butt and getting your clothes all damp. Everyone is looking at your little spectacle, while Emma casually hides the box on the side of the shelf.<br><br> <<Dialogue "player" "You">>"Geez, how CLUMSY can I be?!? Look at this mess…"<</Dialogue>><br><br> Making sure that Emma has now put the heavy box away, you get up.<br><br> <<Dialogue "player" "You">>"Geez, Emma, thank GOD this was just an empty cardboard box, right? Can you imagine how HEAVY it would be if it was full?!?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"Uh… yeah… of course, miss <<print $playerLastName>>."<</Dialogue>><br><br> <<Dialogue "player" "You">>"Look, I’m going to check with the custodial staff to take care of this mess and replace the water tank… if that’s alright?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"Please do, miss <<print $playerLastName>> - and… make sure this does not happen again."<</Dialogue>><br><br> She says in a very stern tone, but you are fairly sure she doesn’t mean it like that. And given the wet mess, everyone goes back to their respective desks.<br><br> <</if>> Later on, after the network is back, you receive an email from Emma in your personal account. It reads:<br><br> Thank you for helping me be discreet and keep my hobby out of the work environment. I set some boundaries, and for several reasons I believe certain things I’d rather keep to myself - not only because I don’t want people to perceive me differently - but also because they are deeply personal. I suspect you understand this very well.<br><br> It is, however, nice knowing I am not alone in this here at the office. So once again, thank you. –Emma<br><br> Reading this brings a smile to your face. She may be quite guarded, but she is not wrong - your kindred with Emma solidifies as you spend more time with her. /* TODO - Maybe increase the relationship with Emma here? - Waffle */`
+       content: `<<set $emmaOpinion += 5>>It’s not a regular day at work: there was a major IT snafu, and the entire network is down. People are unable to work on most tasks, so there’s quite a few people congregating by the watercooler.<br><br> It’s a rowdy bunch, and soon Emma joins the group:<br><br> <<Dialogue "Emma" "Emma">>"I understand we are having some issues, and most of you are unable to get your job done. I have no problem with an unscheduled break, but please, keep it down, some people are still working and need to concentrate."<</Dialogue>><br><br> You admire Emma - she knows how to be strict without putting anyone down - and her point was important and well delivered. Not only that, she realizes that just forcing people back to their desks would be bad for morale, so she stays to mingle with the group and keep everyone focused.<br><br> However, Bill decides to grab one of the big paper crates from one of the high shelves. He puts up the bench, and starts slowly sliding the very heavy package… unaware that, in doing so, he’s also pushing another that is leaning next to it.<br><br> Before anyone notices, the other industrial-sized cardboard box is falling right on top of poor Mrs. Yorkshire, the 70-year old secretary! Emma, who was right behind her, just extends her hand up, and catches the box, which probably weights in the vicinity of <<if $measurementSystem == 'metric'>>30-40 pounds<<else>>15-20kg<</if>>!<br><br> All the chatter comes to a complete stop. Everyone is just staring at Emma, easily holding the box between her hands, right above Mrs. Yorkshire’s head - her arms straining the sleeves of her  tailored suit. There is complete silence - did “all-business boss” just grab and hold a box that weighs more than a child like it was nothing? Emma is visibly nervous about the whole thing, all eyes trained on her.<br><br> <<if $muscle >= 50>> You quickly walk to her side, and casually grab the box underhand, like a waiter holding a tray, making sure not to let your arms tense any more than necessary.<br><br> <<Dialogue "player" "You">>"Geez, Emma, thank GOD this was just an empty cardboard box, right? Can you imagine how HEAVY it would be if it was full?!?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"Uh… yeah… of course, miss <<print $playerLastName>>."<</Dialogue>><br><br> She sighs with relief, though you can see she is looking at you, a mix of surprise and awe.<br><br> <<Dialogue "player" "You">>"I guess I’ll just take this box to the supply room for recycling, there’s no point in keeping these empty boxes here, right, boss?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"O-of course, you do that, please.."<</Dialogue>><br><br> You walk out with the box, trying your best to make it seem completely weightless - which, to be fair, to you, it is.<br><br> You go back to your desk after hiding the box.<br><br> <<else>> You elbow the half-empty water tank from the cooler, making it fall to ground and making a huge, splashy mess! You purposefully slip on the puddle, falling to your butt and getting your clothes all damp. Everyone is looking at your little spectacle, while Emma casually hides the box on the side of the shelf.<br><br> <<Dialogue "player" "You">>"Geez, how CLUMSY can I be?!? Look at this mess…"<</Dialogue>><br><br> Making sure that Emma has now put the heavy box away, you get up.<br><br> <<Dialogue "player" "You">>"Geez, Emma, thank GOD this was just an empty cardboard box, right? Can you imagine how HEAVY it would be if it was full?!?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"Uh… yeah… of course, miss <<print $playerLastName>>."<</Dialogue>><br><br> <<Dialogue "player" "You">>"Look, I’m going to check with the custodial staff to take care of this mess and replace the water tank… if that’s alright?"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"Please do, miss <<print $playerLastName>> - and… make sure this does not happen again."<</Dialogue>><br><br> She says in a very stern tone, but you are fairly sure she doesn’t mean it like that. And given the wet mess, everyone goes back to their respective desks.<br><br> <</if>> Later on, after the network is back, you receive an email from Emma in your personal account. It reads:<br><br> Thank you for helping me be discreet and keep my hobby out of the work environment. I set some boundaries, and for several reasons I believe certain things I’d rather keep to myself - not only because I don’t want people to perceive me differently - but also because they are deeply personal. I suspect you understand this very well.<br><br> It is, however, nice knowing I am not alone in this here at the office. So once again, thank you. –Emma<br><br> Reading this brings a smile to your face. She may be quite guarded, but she is not wrong - your kindred with Emma solidifies as you spend more time with her. /* TODO - Maybe increase the relationship with Emma here? - Waffle */`
    }, {
         name: 'EmmaCoworkerSlackingOff',
         locationTags: ['emma'],
         conditions: [
-         () => true
+         () => State.variables.emmaOpinion >= 10
         ],
         repeatable: false,
         retriggerable: false,
@@ -10280,7 +10282,9 @@ name: 'EmmaExpertSewing',
       name: 'emmaLearnedPotion',
       locationTags: ['emma'],
       conditions: [
-       () => State.variable.muscle >= 30
+       () => State.variable.emmaLastMuscle >= 30,
+       () => State.variable.muscle >= 40,
+       () => State.variable.emmaOpinion <= 30
       ],
       repeatable: false,
       retriggerable: false,
@@ -10303,7 +10307,7 @@ name: 'EmmaExpertSewing',
       name: 'EmmaTakesDownBodybuildingShowLeaflet',
       locationTags: ['emma'],
       conditions: [
-       () => true
+       () => State.variables.daysPlayed >= 5
       ],
       repeatable: false,
       retriggerable: false,
@@ -10579,7 +10583,9 @@ name: 'EmmaExpertSewing',
   		name: 'ElenaMeasureArms',
   		locationTags: ['elena'],
   		conditions: [
-  		    /* TODO how to get upper arm size in real time? - Waffle */
+  		    /* TODO how to get upper arm size in real time? - Waffle  BOB: real time is not needed; the benchmark just needs to be met*/
+              () => State.variables.upperArmSize >= 75,
+              () => State.variables.elenaOpenedUp
   		],
   		repeatable: false,
   		retriggerable: false,
@@ -10590,6 +10596,7 @@ name: 'EmmaExpertSewing',
         name: 'ElenaChess',
         locationTags: ['park'],
         conditions: [
+            () => State.variables.elenaOpenedUp,
             () => State.variables.elenaOpinion >= 20,
             () => State.variables.gameDate.getHours() >= 8 && State.variables.gameDate.getHours() <= 16
         ],
@@ -10602,7 +10609,8 @@ name: 'EmmaExpertSewing',
         name: 'ElenaHiddenPhoto',
         locationTags: ['elena'],
         conditions: [
-            () => State.variables.elenaOpinion >= 25,
+            () => State.variables.elenaOpenedUp,
+            () => State.variables.elenaOpinion >= 25
         ],
         repeatable: false,
         retriggerable: false,
