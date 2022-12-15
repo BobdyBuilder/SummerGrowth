@@ -21304,7 +21304,7 @@ repeatable: false,
         locationTags: ['gym'],
             conditions: [
 
-                () => State.variables.muscle <= 40
+                () => State.variables.muscle <= 40,
                 () => State.variables.outfit.overwear().bonuses.map(bonus => bonus.name).includes('baggy'),
             ],
                 repeatable: false,
