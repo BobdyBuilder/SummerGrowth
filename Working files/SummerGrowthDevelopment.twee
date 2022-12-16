@@ -12624,7 +12624,7 @@ setup.allClothes = jObjects;
 <</nobr>>
 
 
-:: rivalHe [widget] {"position":"550,2000","size":"100,100"}
+:: rivalI [widget] {"position":"550,2000","size":"100,100"}
 <<nobr>>
 <<widget "rivalHe">>
     <<if $rivalGender === 'male'>>
@@ -12636,7 +12636,19 @@ setup.allClothes = jObjects;
 <</nobr>>
 
 
-:: rivalHis [widget] {"position":"550,2100","size":"100,100"}
+:: RivalI [widget] {"position":"550,2000","size":"100,100"}
+<<nobr>>
+<<widget "RivalHe">>
+    <<if $rivalGender === 'male'>>
+        He
+    <<else>>
+        She
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: rivalMy [widget] {"position":"550,2100","size":"100,100"}
 <<nobr>>
 <<widget "rivalHis">>
     <<if $rivalGender === 'male'>>
@@ -12648,13 +12660,61 @@ setup.allClothes = jObjects;
 <</nobr>>
 
 
-:: rivalHim [widget] {"position":"550,2200","size":"100,100"}
+:: RivalMy [widget] {"position":"550,2100","size":"100,100"}
+<<nobr>>
+<<widget "RivalHis">>
+    <<if $rivalGender === 'male'>>
+        His
+    <<else>>
+        Her
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: rivalMe [widget] {"position":"550,2200","size":"100,100"}
 <<nobr>>
 <<widget "rivalHim">>
     <<if $rivalGender === 'male'>>
         him
     <<else>>
         her
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: RivalMe [widget] {"position":"550,2200","size":"100,100"}
+<<nobr>>
+<<widget "rivalHim">>
+    <<if $rivalGender === 'male'>>
+        Him
+    <<else>>
+        Her
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: rivalMine [widget] {"position":"550,2200","size":"100,100"}
+<<nobr>>
+<<widget "rivalHim">>
+    <<if $rivalGender === 'male'>>
+        his
+    <<else>>
+        hers
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: RivalMine [widget] {"position":"550,2200","size":"100,100"}
+<<nobr>>
+<<widget "rivalHim">>
+    <<if $rivalGender === 'male'>>
+        his
+    <<else>>
+        hers
     <</if>>
 <</widget>>
 <</nobr>>

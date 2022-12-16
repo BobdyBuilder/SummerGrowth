@@ -311,7 +311,13 @@ sugarcube-2:
       name: rivalName
     rivalHe:
       name: rivalHe
+    RivalHe:
+      name: rivalHe
     rivalHis:
       name: rivalHis
+    RivalHis:
+      name: rivalHis
     rivalHim:
+      name: rivalHim
+    RivalHim:
       name: rivalHim
