@@ -12444,6 +12444,54 @@ setup.allClothes = jObjects;
 
 <<set setup.bodytypes to ["skinny", "average", "thick", "fat", "obese", "thin", "athletic", "strong", "heavy", "bodybuilder", "heroic", "strongman", "sumowrestler", "hulk", "gigantic", "monstrous"]>>
 
+<<set setup.getRivalName to function () {
+    return State.variables.rivalGender === 'male' ? 'Nathan' : 'Natalie';
+}>>
+
+
+:: rivalName [widget] {"position":"550,2300","size":"100,100"}
+<<nobr>>
+<<widget "rivalName">>
+    <<= setup.getRivalName()>>
+<</widget>>
+<</nobr>>
+
+
+:: rivalHe [widget] {"position":"550,2000","size":"100,100"}
+<<nobr>>
+<<widget "rivalHe">>
+    <<if $rivalGender === 'male'>>
+        he
+    <<else>>
+        she
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: rivalHis [widget] {"position":"550,2100","size":"100,100"}
+<<nobr>>
+<<widget "rivalHis">>
+    <<if $rivalGender === 'male'>>
+        his
+    <<else>>
+        her
+    <</if>>
+<</widget>>
+<</nobr>>
+
+
+:: rivalHim [widget] {"position":"550,2200","size":"100,100"}
+<<nobr>>
+<<widget "rivalHim">>
+    <<if $rivalGender === 'male'>>
+        him
+    <<else>>
+        her
+    <</if>>
+<</widget>>
+<</nobr>>
+
 
 :: instantFatLoss [noReturn] {"position":"550,1800","size":"100,100"}
 <<nobr>>

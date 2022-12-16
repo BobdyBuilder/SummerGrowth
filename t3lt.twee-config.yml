@@ -22,7 +22,9 @@ sugarcube-2:
       name: PersonalityCheck
       container: true
       parameters:
-        - bareword &+ ('<'|'>'|'<='|'>='|'=='|'==='|'eq'|'is'|'transition'|'t8n') &+ number &+ string
+        - bareword &+
+          ('<'|'>'|'<='|'>='|'=='|'==='|'eq'|'is'|'transition'|'t8n') &+ number
+          &+ string
     addQuest:
       name: addQuest
       parameters:
@@ -56,11 +58,11 @@ sugarcube-2:
     update:
       name: update
       parameters:
-        - ''
+        - ""
     clothingFitDescription:
       name: clothingFitDescription
       parameters:
-        - ''
+        - ""
         - string
     ClothingStoreWidget:
       name: ClothingStoreWidget
@@ -73,7 +75,7 @@ sugarcube-2:
     Failed:
       name: Failed
       parameters:
-        - ''
+        - ""
     addHeightSlow:
       name: addHeightSlow
       parameters:
@@ -85,7 +87,7 @@ sugarcube-2:
     heighNumeral:
       name: heighNumeral
       parameters:
-        - ''
+        - ""
     live:
       name: live
       parameters:
@@ -101,15 +103,15 @@ sugarcube-2:
     BreastSizeDescription:
       name: BreastSizeDescription
       parameters:
-        - ''
+        - ""
     breastCupDescriptors:
       name: breastCupDescriptors
       parameters:
-        - ''
+        - ""
     BreastsWeightDescription:
       name: BreastsWeightDescription
       parameters:
-        - ''
+        - ""
     cleaning:
       name: cleaning
       parameters:
@@ -121,7 +123,9 @@ sugarcube-2:
     getMeasurement:
       name: getMeasurement
       parameters:
-        - " 'thigh'|'calve'|'chest'|'waist'|'hips'|'neck'|'upperArm'|'lowerArm'|'wrist'|'knee'|'ankle'|'weight' |+ bool "
+        - "
+          'thigh'|'calve'|'chest'|'waist'|'hips'|'neck'|'upperArm'|'lowerArm'|'\
+          wrist'|'knee'|'ankle'|'weight' |+ bool "
     numeralConversion:
       name: numeralConversion
       parameters:
@@ -129,11 +133,11 @@ sugarcube-2:
     fullBody:
       name: fullBody
       parameters:
-        - ''
+        - ""
     bodyDescription:
       name: bodyDescription
       parameters:
-        - ''
+        - ""
     ClothingFitCalculator:
       name: ClothingFitCalculator
       parameters:
@@ -141,43 +145,43 @@ sugarcube-2:
     setPlayerSizeNeeded:
       name: setPlayerSizeNeeded
       parameters:
-        - ''
+        - ""
     DayUpdate:
       name: DayUpdate
       parameters:
-        - ''
+        - ""
     BodyTypeDescription:
       name: BodyTypeDescription
       parameters:
-        - ''
+        - ""
     bodyHairDescription:
       name: bodyHairDescription
       parameters:
-        - ''
+        - ""
     heightDescription:
       name: heightDescription
       parameters:
-        - ''
+        - ""
     headDescription:
       name: headDescription
       parameters:
-        - ''
+        - ""
     upperBodyDescription:
       name: upperBodyDescription
       parameters:
-        - ''
+        - ""
     lowerBodyDescription:
       name: lowerBodyDescription
       parameters:
-        - ''
+        - ""
     lipsDescription:
       name: lipsDescription
       parameters:
-        - ''
+        - ""
     tongueDescription:
       name: tongueDescription
       parameters:
-        - ''
+        - ""
     limitedNumberbox:
       name: limitedNumberbox
       parameters:
@@ -186,31 +190,31 @@ sugarcube-2:
       name: liveblock
       container: true
       parameters:
-        - ''
+        - ""
     BreastsDescription:
       name: BreastsDescription
       parameters:
-        - ''
+        - ""
     hipDescription:
       name: hipDescription
       parameters:
-        - ''
+        - ""
     assDescription:
       name: assDescription
       parameters:
-        - ''
+        - ""
     legLenghtDescription:
       name: legLenghtDescription
       parameters:
-        - ''
+        - ""
     dickDescription:
       name: dickDescription
       parameters:
-        - ''
+        - ""
     radarChart:
       name: radarChart
       parameters:
-        - ''
+        - ""
     streamingViewerIncomeCalc:
       name: streamingViewerIncomeCalc
       parameters:
@@ -231,7 +235,8 @@ sugarcube-2:
     sizeCalc:
       name: sizeCalc
       parameters:
-        - number &+ number &+ number &+ '$weight'|'$chestSize'|'$waistSize'|'$hipsSize'|'$neckSize'|'$upperArmSize'|'$lowerArmSize'|'$wristSize'|'$thighsSize'|'$kneeSize'|'$calveSize'|'$ankleSize'
+        - number &+ number &+ number &+
+          '$weight'|'$chestSize'|'$waistSize'|'$hipsSize'|'$neckSize'|'$upperArmSize'|'$lowerArmSize'|'$wristSize'|'$thighsSize'|'$kneeSize'|'$calveSize'|'$ankleSize'
     weightConversion:
       name: weightConversion
       parameters:
@@ -247,15 +252,15 @@ sugarcube-2:
     sleepUpdate:
       name: sleepUpdate
       parameters:
-        - ''
+        - ""
     dailyConsumables:
       name: dailyConsumables
       parameters:
-        - ''
+        - ""
     clothingCraftingWidget:
       name: clothingCraftingWidget
       parameters:
-        - ''
+        - ""
     skillCheck:
       name: skillCheck
       parameters:
@@ -267,19 +272,19 @@ sugarcube-2:
     TailorWidget:
       name: TailorWidget
       parameters:
-        - ''
+        - ""
     sewingProjectsWidget:
       name: sewingProjectsWidget
       parameters:
-        - ''
+        - ""
     sewingTailoringWidget:
       name: sewingTailoringWidget
       parameters:
-        - ''
+        - ""
     postSleepDietDescription:
       name: postSleepDietDescription
       parameters:
-        - ''
+        - ""
     krisGift:
       name: krisGift
       parameters:
@@ -302,3 +307,11 @@ sugarcube-2:
         - string &+ string
     outfitDescription:
       name: outfitDescription
+    rivalName:
+      name: rivalName
+    rivalHe:
+      name: rivalHe
+    rivalHis:
+      name: rivalHis
+    rivalHim:
+      name: rivalHim
