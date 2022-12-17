@@ -7358,7 +7358,7 @@ During the stream you had WELL over a million viewers! And with the ads you run 
 <</if>>
 
 /* Lactation */
-<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof') == false>>
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof') == false>>
     <<if $breastsFullness === 'overflowing'>>
         <<set _streamEvents.push(
             {warning: true,
@@ -7377,7 +7377,7 @@ During the stream you had WELL over a million viewers! And with the ads you run 
     <</if>>
 <</if>> 
 
-<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')>>
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof')>>
     <<if $breastsFullness === 'overflowing'>>
         <<set _streamEvents.push(
             {warning: false,
@@ -9747,7 +9747,7 @@ Emma blinks a few times, resting her forehead on her hand.
 <</if>>
 
 /* Lactation */
-<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof') == false>>
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof') == false>>
     <<if $breastsFullness === 'overflowing'>>
         <<set _streamEvents.push(
             {warning: false,
@@ -9763,7 +9763,7 @@ Emma blinks a few times, resting her forehead on her hand.
     <</if>>
 <</if>> 
 
-<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')>>
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof')>>
     <<if $breastsFullness === 'overflowing'>>
         <<set _streamEvents.push(
             {warning: false,
@@ -11041,6 +11041,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    /*included */
     Stretchy: {
     	name: "Stretchy",
         description: "Stretchy enough that you can go outside in a stretchy outfit even if it really doesn't fit anymore... if you're confident enough.",
@@ -12786,7 +12787,7 @@ setup.allClothes = jObjects;
    let fit;
    if (State.variables[statsToCheck] < lowerBound) {
        fit = 'too big';
-   } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
+   } else if (State.variables[statsToCheck] >= upperBound * tolerance && (!State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Stretchy'))) {
        fit = 'too small';
    } else if (State.variables[statsToCheck] >= upperBound) {
        fit = 'tight';
