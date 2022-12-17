@@ -7357,6 +7357,42 @@ During the stream you had WELL over a million viewers! And with the ads you run 
 	message: "As you stream, you notice that the only thing your chat is talking about are your tits. You get the feeling you'll get a warning on your channel soon..."})>>
 <</if>>
 
+/* Lactation */
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof') == false>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts, and with clothing that doesn't really hide it. It doesn't take long for two big wet spots to appear, and for the chat to go wild. And you KNOW you'll get a warning for this..."})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts, and with clothing that doesn't really hide it. It doesn't take long for two big wet spots to appear, and for the chat to go wild. And you KNOW you'll get a warning for this..."})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts, and with clothing that doesn't really hide it. It doesn't take long for two big wet spots to appear, and for the chat to go wild. And you KNOW you'll get a warning for this..."})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your stream you keep getting distracted as your tits are just painfully full. It isn't noticable, but chat does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts. Yet you wear the right clothing, and while your tits are constantly leaking, the chat is non the wiser!"})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts. Yet you wear the right clothing, and while your tits are constantly leaking, the chat is non the wiser!"})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your stream you keep getting distracted as your tits are just painfully full. It isn't noticable, but chat does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
 /* muscle */
 <<if $muscle >= 40>>
  <<set _streamEvents.push(
@@ -9710,6 +9746,39 @@ Emma blinks a few times, resting her forehead on her hand.
 	message: " Your breasts are... incredibly noticeable. That's just a fact. But must EVERYONE keep staring like that?! Come on people, this is an office!"})>>
 <</if>>
 
+/* Lactation */
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof') == false>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your shift you're working when you notice some co-workers staring at your chest. You stare back, thinking them just rude but then you notice the wet spots on your outfit! You rush to the bathroom to clear it up, only a few people noticing."})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "During your shift you're working when you notice some co-workers staring at your chest. You stare back, thinking them just rude but then you notice the wet spots on your outfit! You rush to the bathroom to clear it up, but you're pretty sure Emma saw it..."})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your shift you keep getting distracted as your tits are just painfully full. It isn't noticable, but your co-workers does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your shift you do your work when you notice that under your clothing, your breasts start leaking. Luckily, you wear the right outfit and can easily go to the bathroom to clean it up!"})>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your shift you do your work when you notice that under your clothing, your breasts start leaking. Luckily, you wear the right outfit and can easily go to the bathroom to clean it up!"})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your shift you keep getting distracted as your tits are just painfully full. It isn't noticable, but your co-workers does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
 /* muscle */
 <<if $muscle >= 40>>
 	<<set _officeEvents.push(
@@ -11011,7 +11080,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
         breakEffect: function () {
             
        		}
-    }
+    },
+
 }>>
 
 /* The predefined sizes in the game. */
@@ -11298,7 +11368,7 @@ and will be filled in when they enter the stores. */
 https://docs.google.com/spreadsheets/d/1IznLvsPDhgNDmq0T1S87PWJoSo-FiUSQuqK7YRyupI4/edit?usp=sharing */
 <<script>>
 console.log('prepping data for clothing');
-var jObjects = JSON.parse(`	[
+var jObjects = JSON.parse(`[
     {
       "name": "plain t-shirt",
       "slot": "top",
@@ -11321,7 +11391,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.9",
       "TTMIN": "0",
       "TTMAX": "6",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "geeky t-shirt",
@@ -11345,7 +11419,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.75",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "button down shirt",
@@ -11368,7 +11446,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.5",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "dress shirt",
@@ -11391,7 +11473,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.4",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "torn shirt",
@@ -11415,7 +11501,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.6",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.95",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "black halter top",
@@ -11439,7 +11529,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.25",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "crop top",
@@ -11463,7 +11557,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.25",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "tank top",
@@ -11487,7 +11585,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.75",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "halter top",
@@ -11511,7 +11613,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.45",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "fish-net top",
@@ -11535,7 +11641,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.2",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "hoodie",
@@ -11559,7 +11669,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "black trenchcoat",
@@ -11583,7 +11697,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.2",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "tailored jacket",
@@ -11606,7 +11724,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
     },
     {
       "name": "leather jacket",
@@ -11629,7 +11751,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": ".9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "vest",
@@ -11652,7 +11778,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.4",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "sweater",
@@ -11676,7 +11806,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.25",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "cat ear hoodie",
@@ -11700,7 +11834,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.95",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "track top",
@@ -11724,7 +11862,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "gothic vest",
@@ -11747,7 +11889,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.2",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
     },
     {
       "name": "spiked jacket",
@@ -11771,12 +11917,16 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.8",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
     },
     {
       "name": "sports bra",
       "slot": "bra",
-      "tolerance": "1.3",
+      "tolerance": "1.1",
       "bonusesString": "WorkoutWear",
       "archetypes": "sporty",
       "baseCost": "50",
@@ -11795,12 +11945,44 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "cotton bra",
+      "slot": "bra",
+      "tolerance": "1.2",
+      "bonusesString": "Comfortable",
+      "archetypes": "casual",
+      "baseCost": "40",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.35",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "push-up bra",
       "slot": "bra",
-      "tolerance": "1.3",
+      "tolerance": "1.1",
       "bonusesString": "ShowingOff",
       "archetypes": "casual sexy",
       "baseCost": "60",
@@ -11819,12 +12001,16 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "lace bra",
       "slot": "bra",
-      "tolerance": "1.3",
+      "tolerance": "1.1",
       "bonusesString": "ShowingOff",
       "archetypes": "stylish sexy girly",
       "baseCost": "80",
@@ -11843,7 +12029,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0",
       "TTMIN": "null",
       "TTMAX": "null",
-      "TTCM": "null"
+      "TTCM": "null",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "maternity bra",
@@ -11867,7 +12057,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "checkered skirt",
@@ -11891,12 +12085,17 @@ var jObjects = JSON.parse(`	[
       "TT": "0.2",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "dress pants",
       "slot": "bottom",
       "tolerance": "1.1",
+      "bonusesString": "ExtraWarm",
       "archetypes": "stylish professional",
       "baseCost": "100",
       "AA": "0.7",
@@ -11914,7 +12113,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "torn jeans",
@@ -11938,7 +12141,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.4",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.95",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "black skirt",
@@ -11961,7 +12168,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "jeans",
@@ -11985,7 +12196,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.4",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "jogging pants",
@@ -12009,7 +12224,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.2",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "yoga pants",
@@ -12033,7 +12252,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "shorts",
@@ -12057,7 +12280,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.3",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "baggy pants",
@@ -12081,7 +12308,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.2",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "boyshorts",
@@ -12105,7 +12336,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "briefs",
@@ -12129,7 +12364,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "hipster shorts",
@@ -12152,7 +12391,11 @@ var jObjects = JSON.parse(`	[
       "TT": "0.1",
       "TTMIN": "0",
       "TTMAX": "8",
-      "TTCM": "0.9"
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "sneakers",
@@ -12160,7 +12403,27 @@ var jObjects = JSON.parse(`	[
       "tolerance": "1.3",
       "bonusesString": "WorkoutWear Comfortable",
       "archetypes": "casual sporty nerdy",
-      "baseCost": "60"
+      "baseCost": "60",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.65",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "runners",
@@ -12168,7 +12431,27 @@ var jObjects = JSON.parse(`	[
       "tolerance": "1.3",
       "bonusesString": "WorkoutWear",
       "archetypes": "casual sporty nerdy",
-      "baseCost": "75"
+      "baseCost": "75",
+      "AA": "0",
+      "AAMIN": "null",
+      "AAMAX": "null",
+      "AACM": "null",
+      "BB": "0.65",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.75",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "combat boots",
@@ -12176,28 +12459,108 @@ var jObjects = JSON.parse(`	[
       "tolerance": "1.3",
       "bonusesString": "Intimidating",
       "archetypes": "punk tomboy",
-      "baseCost": "100"
+      "baseCost": "100",
+      "AA": "0.4",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
     },
     {
       "name": "platform boots",
       "slot": "shoes",
       "tolerance": "1.3",
       "archetypes": "stylish",
-      "baseCost": "80"
+      "baseCost": "80",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.4",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
     },
     {
       "name": "lace up boots",
       "slot": "shoes",
       "tolerance": "1.3",
       "archetypes": "punk stylish sexy",
-      "baseCost": "120"
+      "baseCost": "120",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.7",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "heels",
       "slot": "shoes",
       "tolerance": "1.3",
       "archetypes": "stylish professional",
-      "baseCost": "75"
+      "baseCost": "75",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
     },
     {
       "name": "flip flops",
@@ -12205,14 +12568,54 @@ var jObjects = JSON.parse(`	[
       "tolerance": "1.3",
       "bonusesString": "Comfortable",
       "archetypes": "nerdy casual",
-      "baseCost": "10"
+      "baseCost": "10",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.4",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "ankle boots",
       "slot": "shoes",
       "tolerance": "1.3",
       "archetypes": "stylish professional casual",
-      "baseCost": "120"
+      "baseCost": "120",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.7",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
     },
     {
       "name": "stilleto heels",
@@ -12220,7 +12623,27 @@ var jObjects = JSON.parse(`	[
       "tolerance": "1.3",
       "bonusesString": "Intimidating",
       "archetypes": "stylish sexy",
-      "baseCost": "175"
+      "baseCost": "175",
+      "AA": "0.65",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
     }
   ]`);
 
@@ -12261,6 +12684,18 @@ for (let i = 0; i < jObjects.length; i++) {
     delete jObjects[i].BTMIN;
     delete jObjects[i].BTMAX;
     delete jObjects[i].BTCM;
+
+    if (!isNaN(Number(jObjects[i].WEB))) {
+        jObjects[i].storeInfo.online = {
+            chance: Number(jObjects[i].WEB),
+            availableSizes: [Number(jObjects[i].WBMIN), Number(jObjects[i].WBMAX)],
+            costModifier: Number(jObjects[i].WBCM)
+        };
+    }
+    delete jObjects[i].WEB;
+    delete jObjects[i].WBMIN;
+    delete jObjects[i].WBMAX;
+    delete jObjects[i].WBCM;
 
     if (!isNaN(Number(jObjects[i].AA))) {
         jObjects[i].storeInfo.allisonsApparel = {
