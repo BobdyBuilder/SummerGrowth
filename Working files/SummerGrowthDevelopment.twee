@@ -3745,19 +3745,30 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     bonuses: function () {
         /* fixed that ==/=== is not working by calling function to get bonus - Waffle */
          const presentBonusesSet = new Set();
-         this.top().bonuses()
+         if(this.top() != undefined && this.top().bonuses() != undefined){
+            this.top().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
-         this.bottom().bonuses()
+         }
+         if(this.bottom() != undefined && this.bottom().bonuses() != undefined){
+             this.bottom().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
-         this.underwear().bonuses()
+         }
+         if(this.underwear() != undefined && this.underwear().bonuses() != undefined){
+             this.underwear().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
-         this.bra().bonuses()
+         }
+         if(this.bra() != undefined && this.top().bra() != undefined){
+             this.bra().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
-         this.overwear().bonuses()
+         }
+         if(this.overwear() != undefined && this.top().bonuses() != undefined){
+             this.overwear().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
-         this.shoes().bonuses()
+         }
+         if(this.shoes() != undefined && this.top().shoes() != undefined){
+             this.shoes().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
-     
+         }    
          presentBonusesSet.add(setup.clothingBonuses.FavoriteStyle);
      
          return [...presentBonusesSet];
