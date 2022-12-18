@@ -3670,7 +3670,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 
 :: InitializeClothes [nobr] {"position":"0,500","size":"100,100"}
 <<set $sewingProjects to []>>
-<<set $F to 'casual'>>
+<<set $favoriteStyle to 'casual'>>
 /* The base outfit container. The only acces point by which the clothing logic may */
 /* be approached.*/
 <<set $outfit to {
@@ -18385,16 +18385,16 @@ Before we begin the game, you can customize your starting character a bit. You c
     <span style="text-align:left;">
     <h2>Favorite clothing style:</h2>
     <h3>wearing clothes in this style gives +1 confidence</h3>
-    <<radiobutton "$F" "casual" autocheck>> casual <br>
-    <<radiobutton "$F" "tomboy" autocheck>> tomboy <br>
-    <<radiobutton "$F" "nerdy" autocheck>> nerdy <br>
-    <<radiobutton "$F" "professional" autocheck>> professional <br>
-    <<radiobutton "$F" "stylish" autocheck>> stylish <br>
-    <<radiobutton "$Fpie" "punk" autocheck>> punk <br>
-    <<radiobutton "$F" "tomboy" autocheck>> tomboy <br>
-    <<radiobutton "$F" "sporty" autocheck>> sporty <br> 
-    <<radiobutton "$F" "sexy" autocheck>> sexy <br>
-    <<radiobutton "$F" "girly" autocheck>> girly <br>
+    <<radiobutton "$favoriteStyle" "casual" autocheck>> casual <br>
+    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
+    <<radiobutton "$favoriteStyle" "nerdy" autocheck>> nerdy <br>
+    <<radiobutton "$favoriteStyle" "professional" autocheck>> professional <br>
+    <<radiobutton "$favoriteStyle" "stylish" autocheck>> stylish <br>
+    <<radiobutton "$favoriteStyle" "punk" autocheck>> punk <br>
+    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
+    <<radiobutton "$favoriteStyle" "sporty" autocheck>> sporty <br> 
+    <<radiobutton "$favoriteStyle" "sexy" autocheck>> sexy <br>
+    <<radiobutton "$favoriteStyle" "girly" autocheck>> girly <br>
 	</span>
 	</th>
   </tr> 
