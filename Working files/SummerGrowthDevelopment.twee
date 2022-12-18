@@ -12790,8 +12790,29 @@ setup.allClothes = jObjects;
    let fit;
    if (State.variables[statsToCheck] < lowerBound) {
        fit = 'too big';
-   } else if (State.variables[statsToCheck] >= upperBound * tolerance && (!State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Stretchy'))) {
-       fit = 'too small';
+   } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
+       if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Stretchy')){
+           /*empty if statement for readability. Nothing is supposed to happen here. */
+       }
+       else if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Tailored')){
+           if(State.variables[statsToCheck] >= upperBound * (tolerance + 0.1)){
+               fit = 'too small';
+           }
+           else{
+               fit = 'too small';
+           }
+       }
+       else if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')){
+           if(State.variables[statsToCheck] >= upperBound * (tolerance + 0.2)){
+               fit = 'too small';
+           }
+           else{
+               fit = 'too small';
+           }
+       }
+       else{
+            fit = 'too small';
+       }       
    } else if (State.variables[statsToCheck] >= upperBound) {
        fit = 'tight';
    } else {
