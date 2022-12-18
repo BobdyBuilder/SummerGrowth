@@ -11052,6 +11052,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    
     ShowingOff: {
     	name: "Showing-off",
         description: "Makes your breasts more visible and look bigger.",
@@ -11062,6 +11063,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    /*included */
     Intimidating: {
     	name: "Intimidating",
         description: "People will approach you less when walking outside.",
@@ -22084,7 +22086,19 @@ repeatable: false,
     priority: 'response',
     npc: [],
     content: `You sit down for your daily dose of caffeine, not a care in the world. But you notice that there’s this underlying buzz slowly growing - everyone seems to have switched from talking loudly to whispering and giving you the side eye. Huh. What’s that about?<br><br> <<if $outfit.bra() == null>> As you look around, you eventually notice how chill it is with the air conditioner blowing at full force. And that’s when you notice - uh oh - that the temperature has errr... turned on your headlights, so to speak. And since you are not wearing a bra, your <<print $topWear.name>> has two very noticeable nubs on display<<if $breasts >= 35>>, which are even more obvious on your rather large breasts, which already command quite a bit of attention by themselves, with your oversized nipples even more impressive. <</if>>.<</if>> <<if $outfit.underwear() == null && $outfit.style() === 'exposed'>>Turning around, you move your legs, and realize that you might have just pulled a bit of an exhibitionist move - your revealing <<print $bottomWear.name>>, coupled with your lack of underwear means you just flashed a bunch of people... and you might have been doing it for a while without even noticing!<<if $dick > 5>> And some of the onlookers are in for quite a surprise when they realize you are packing!<</if>> <</if>><br><br> <<if $shyConfident > 1 || $submissiveDominant > 1>>It strikes you, all of a sudden, just how much things have changed since you moved here. You are reminded of that iconic movie scene, of the woman being interrogated and controlling the room with her sex appeal - you would NEVER had guessed that it would one day be you... yet here we are. You are not afraid of commanding the room with your sex appeal. On the contrary, it’s almost arousing. You find yourself strutting your assets with confidence, and enjoying every second of it. <<else>>You blush furiously, leaning into yourself, wishing you could just dig yourself a little tunnel under the ground. Taking a deep breath, you regret the freedom of “going commando” you thought would not be such a big deal when you left the house, now coming back to bite you in the ass. Well, or some other body parts, as the case may be. <</if>><br><br> Well, this has gone on for long enough. Everybody has had enough of a show, and you make sure to avoid any further exposure as you continue with your daily routine.`
-}
+},
+{
+    name: 'clothingStuck',
+    locationTags: ['outside', 'park', 'mall', 'outOfHouse'],
+    conditions: [
+        () => State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Intimidating')
+    ],
+    repeatable: true,
+    retriggerable: true,
+    priority: 'response',
+    npc: [],
+    content: `As you go about your day you can't help but notice that now and then people look at you. As you pass two guys for example they look you over, and you really get the idea that one of them is about to approach you when you can see them thinking twice about it. You got a good hunch that your 'intimidating' outfit certainly helps with this! Makes it easier for you to go about your day and do what you want!`
+    }
 ]>>
 
 <<include joggingEvents>>
@@ -22121,7 +22135,15 @@ repeatable: false,
 <<script>>
 var events = setup.events;
 
-State.variables.eventCounter++;
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Intimidating')){
+    State.variables.eventCounter += 0.5;
+}
+else{
+    State.variables.eventCounter++;
+}
+
 
 if (State.variables.eventCounter > setup.balance.eventTresshold && tags().length > 0) {
     var immediateEvents = [];
