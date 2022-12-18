@@ -3671,7 +3671,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 
 :: InitializeClothes [nobr] {"position":"0,500","size":"100,100"}
 <<set $sewingProjects to []>>
-<<set $favoriteStyle to 'casual'>>
+<<set $F to 'casual'>>
 /* The base outfit container. The only acces point by which the clothing logic may */
 /* be approached.*/
 <<set $outfit to {
@@ -3759,7 +3759,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
          this.shoes().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
      
-         presentBonusesSet.add(setup.clothingBonuses.favoriteStyle);
+         presentBonusesSet.add(setup.clothingBonuses.FavoriteStyle);
      
          return [...presentBonusesSet];
      }
@@ -8078,7 +8078,7 @@ Determines the measurement system used in the game.
         name: 'JohanHomeTailoredClothing',
         locationTags: ['johan'],
         conditions: [
-            () => State.variables.homeTailoredClothing
+            () => State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')
         ],
         repeatable: false,
         retriggerable: false,
@@ -10170,7 +10170,7 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
     name: 'EmmaHomeTailoredClothing',
     locationTags: ['emma'],
     conditions: [
-        () => State.variables.homeTailoredClothing
+        () => State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')
     ],
     repeatable: false,
     retriggerable: false,
@@ -10545,7 +10545,7 @@ name: 'EmmaExpertSewing',
 		locationTags: ['elena'],
 		conditions: [
 		    () => State.variables.elenaOpenedUp,
-			() => State.variables.homeTailoredClothing
+			() => State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -10914,6 +10914,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
                 <<linkreplace "get tailored - 00:10 🕛">>
                     <<set $simonOpinion += 1>>
                     Tailored!
+                    <<set _wardrobeTemp[_iTailoredList].bonuses.push(setup.clothingBonuses.Tailored)
                     <<set _wardrobeTemp[_iTailoredList].size to _newClothes[_iTailoredList].size>>
                     <<set $money -= _newClothes[_iTailoredList].price>>
                     <<set _newClothes[_iTailoredList].price to 0>> /* reset tailoring price */
@@ -11052,7 +11053,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
-    favoriteStyle: {
+    FavoriteStyle: {
     	name: "Favorite style",
         description: "This outfit is really you, suiting your favorite style to a T.",
         tightEffect: function () {
@@ -11062,6 +11063,26 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
             
        		}
     },
+    Tailored: {
+    	name: "Tailored",
+        description: "This outfit is mostly tailored to you, giving you some extra size allowance.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		}
+    },
+    Crafted: {
+    	name: "Hand-made",
+        description: "This outfit has a lot of hand-made elements, making it perfectly suitable for you!",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		}
+    }
 
 }>>
 
@@ -13670,7 +13691,7 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
         locationTags: ['kris'],
         conditions: [
             () => State.variables.krisInterested,
-            () => State.variables.homeTailoredClothing
+            () => State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')
         ],
         repeatable: false,
         retriggerable: false,
@@ -14699,6 +14720,7 @@ Next to the sewing machine you have all the projects you're currently working on
 			<<if $sewingProjects[_iSewingProject].timeNeeded is 0 || 
 				$sewingProjects[_iSewingProject].timeNeeded < 0>>
 				<<set $sewingProjects[_iSewingProject].clothing.size to $sewingProjects[_iSewingProject].newSize>>
+                <<set $sewingProjects[_iSewingProject].clothing.bonuses.push(setup.clothingBonuses.Crafted)>>
                 <<set $sewingProjects[_iSewingProject].clothing.id to Date.now()>>
 				<<set $wardrobe.push($sewingProjects[_iSewingProject].clothing)>>
 				<<set $sewingProjects.deleteAt(_iSewingProject)>>
@@ -18343,16 +18365,16 @@ Before we begin the game, you can customize your starting character a bit. You c
     <span style="text-align:left;">
     <h2>Favorite clothing style:</h2>
     <h3>wearing clothes in this style gives +1 confidence</h3>
-    <<radiobutton "$favoriteStyle" "casual" autocheck>> casual <br>
-    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
-    <<radiobutton "$favoriteStyle" "nerdy" autocheck>> nerdy <br>
-    <<radiobutton "$favoriteStyle" "professional" autocheck>> professional <br>
-    <<radiobutton "$favoriteStyle" "stylish" autocheck>> stylish <br>
-    <<radiobutton "$favoriteStylepie" "punk" autocheck>> punk <br>
-    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
-    <<radiobutton "$favoriteStyle" "sporty" autocheck>> sporty <br> 
-    <<radiobutton "$favoriteStyle" "sexy" autocheck>> sexy <br>
-    <<radiobutton "$favoriteStyle" "girly" autocheck>> girly <br>
+    <<radiobutton "$F" "casual" autocheck>> casual <br>
+    <<radiobutton "$F" "tomboy" autocheck>> tomboy <br>
+    <<radiobutton "$F" "nerdy" autocheck>> nerdy <br>
+    <<radiobutton "$F" "professional" autocheck>> professional <br>
+    <<radiobutton "$F" "stylish" autocheck>> stylish <br>
+    <<radiobutton "$Fpie" "punk" autocheck>> punk <br>
+    <<radiobutton "$F" "tomboy" autocheck>> tomboy <br>
+    <<radiobutton "$F" "sporty" autocheck>> sporty <br> 
+    <<radiobutton "$F" "sexy" autocheck>> sexy <br>
+    <<radiobutton "$F" "girly" autocheck>> girly <br>
 	</span>
 	</th>
   </tr> 
