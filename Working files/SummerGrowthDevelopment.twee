@@ -3745,27 +3745,27 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     bonuses: function () {
         /* fixed that ==/=== is not working by calling function to get bonus - Waffle */
          const presentBonusesSet = new Set();
-         if(this.top() != undefined && this.top().bonuses != undefined){
+         if(this?.top?.()?.bonuses?.() != null){
             this.top().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }
-         if(this.bottom() != undefined && this.bottom().bonuses != undefined){
+         if(this?.bottom?.()?.bonuses?.() != null){
              this.bottom().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }
-         if(this.underwear() != undefined && this.underwear().bonuses() != undefined){
+         if(this?.underwear?.()?.bonuses?.() != null){
              this.underwear().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }
-         if(this.bra() != undefined && this.bra().bonuses != undefined){
+         if(this?.bra?.()?.bonuses?.() != null){
              this.bra().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }
-         if(this.overwear() != undefined && this.overwear().bonuses != undefined){
+         if(this?.overwear?.()?.bonuses?.() != null){
              this.overwear().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }
-         if(this.shoes() != undefined && this.shoes().bonuses != undefined){
+         if(this?.shoes?.()?.bonuses?.() != null){
              this.shoes().bonuses()
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }    
