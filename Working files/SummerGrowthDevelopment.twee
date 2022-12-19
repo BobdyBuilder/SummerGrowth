@@ -18402,7 +18402,6 @@ Before we begin the game, you can customize your starting character a bit. You c
     <<radiobutton "$favoriteStyle" "professional" autocheck>> professional <br>
     <<radiobutton "$favoriteStyle" "stylish" autocheck>> stylish <br>
     <<radiobutton "$favoriteStyle" "punk" autocheck>> punk <br>
-    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
     <<radiobutton "$favoriteStyle" "sporty" autocheck>> sporty <br> 
     <<radiobutton "$favoriteStyle" "sexy" autocheck>> sexy <br>
     <<radiobutton "$favoriteStyle" "girly" autocheck>> girly <br>
