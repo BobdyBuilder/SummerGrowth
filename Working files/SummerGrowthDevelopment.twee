@@ -5085,7 +5085,7 @@ Dear God, that's a lot of energy! He rattles on for a bit, quickly telling you a
 
 <<Dialogue "Johan" "Johan">>"...And let's not even talk about the mustard incident! Anyway, what's your name?"<</Dialogue>>
 
-<span id="nameChoice"><<textbox "$playerFirstName" "Alex">><<textbox "$playerLastName" "Smith">><<button "Enter">><<replace "#nameChoice">><<Dialogue "player" "You">>"I'm <<print $playerFirstName>>. <<print $playerFirstName>> <<print $playerLastName>>. You said your name is Johan, right?"<</Dialogue>>
+<span id="nameChoice"><<textbox "$playerFirstName" "Summer">><<textbox "$playerLastName" "Quinn">><<button "Enter">><<replace "#nameChoice">><<Dialogue "player" "You">>"I'm <<print $playerFirstName>>. <<print $playerFirstName>> <<print $playerLastName>>. You said your name is Johan, right?"<</Dialogue>>
 
 You immediately regret handing him the reins of the conversation once again. 
 
