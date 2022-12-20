@@ -3987,6 +3987,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 <<widget "ClothingStoreWidget">>
 
 <<set _storeClothes to $args[0].slice()>> /* keeps the shallow copy of original list */
+<<set _isOnline to $args[0] == $onlineInventory>>
 <<set _filteredStoreClothes to _storeClothes.slice()>>
 <<set _range to 10>>
 
@@ -4090,7 +4091,11 @@ setup.setClothesTable(clothes);
                     <<if setup.getPriceFromClothing(_filteredStoreClothes[_i]) <= $money>>
                         <<link 'buy'>>
                                 <<set _filteredStoreClothes[_i].id to Date.now()>>
-                            	<<set $wardrobe.push(_filteredStoreClothes[_i])>>
+                                <<if _isOnline == false>>
+                                    <<set $wardrobe.push(_filteredStoreClothes[_i])>>
+                                <<else>>
+                                    <<set $storeOnlineBoughtDelay.push(_filteredStoreClothes[_i])>>
+                                <</if>>
                                 <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>
                                 <<script>>
                                     console.log('User bought: ');
