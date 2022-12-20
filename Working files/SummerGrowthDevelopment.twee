@@ -3773,10 +3773,10 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         presentBonuses.push(setup.clothingBonuses.FavoriteStyle);
     
         const results = [];
-        for (const bonusName of Object.keys(SugarCube.setup.clothingBonuses)) {
-            if (presentBonuses.filter(presentBonus => presentBonus.name === bonusName).length > 1) {
+        for (const bonus of Object.values(SugarCube.setup.clothingBonuses)) {
+            if (presentBonuses.filter(presentBonus => presentBonus.name === bonus.name).length > 1) {
                 /* add if there are bonuses more than once */
-                results.push(setup.clothingBonuses[bonusName]);
+                results.push(presentBonuses.find(presentBonus=>presentBonus.name === bonus.name));
             }
         }
     
