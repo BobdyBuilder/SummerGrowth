@@ -3326,7 +3326,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     </td>
     <td><<print setup.playerSizeNeeded('top')>></td>
     <td class="clothingBonuses">
-        	<<print setup.getReadableBonusFromClothing($outfit.top())>>
+        	<<print setup.getReadableBonusFromClothing($outfit.top(), true)>>
     </td>
         <td>
         	<<print setup.getReadableFitFromClothing($outfit.top())>>
@@ -3355,7 +3355,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     </td>
     <td><<print setup.playerSizeNeeded('bottom')>></td>
     <td class="clothingBonuses">
-        	<<print setup.getReadableBonusFromClothing($outfit.bottom())>>
+        	<<print setup.getReadableBonusFromClothing($outfit.bottom(), true)>>
     </td>
         <td>
         <<print setup.getReadableFitFromClothing($outfit.bottom())>>
@@ -3384,7 +3384,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     </td>
     <td><<print setup.playerSizeNeeded('underwear')>></td>
     <td class="clothingBonuses">
-    	<<print setup.getReadableBonusFromClothing($outfit.underwear())>>
+    	<<print setup.getReadableBonusFromClothing($outfit.underwear(), true)>>
     </td>
         <td>
         <<print setup.getReadableFitFromClothing($outfit.underwear())>>
@@ -3413,7 +3413,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     </td>
     <td><<print setup.playerSizeNeeded('bra')>></td>
     <td class="clothingBonuses">
-    	<<print setup.getReadableBonusFromClothing($outfit.bra())>>
+    	<<print setup.getReadableBonusFromClothing($outfit.bra(), true)>>
     </td>
         <td>
         <<print setup.getReadableFitFromClothing($outfit.bra())>>
@@ -3442,7 +3442,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     </td>
     <td><<print setup.playerSizeNeeded('overwear')>></td>
     <td class="clothingBonuses">
-    	<<print setup.getReadableBonusFromClothing($outfit.overwear())>>
+    	<<print setup.getReadableBonusFromClothing($outfit.overwear(), true)>>
     </td>
         <td>
         <<print setup.getReadableFitFromClothing($outfit.overwear())>>
@@ -3471,7 +3471,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     </td>
     <td><<print setup.playerSizeNeeded('shoes')>></td>
     <td class="clothingBonuses">
-    	<<print setup.getReadableBonusFromClothing($outfit.shoes())>>
+    	<<print setup.getReadableBonusFromClothing($outfit.shoes(), true)>>
     </td>
         <td>
         <<print setup.getReadableFitFromClothing($outfit.shoes())>>
@@ -3492,12 +3492,13 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
 
 <<timed 0s>>
 <<script>>
-		function mode(arr) {
-            return arr.sort((a, b) =>
-                arr.filter(v => v === a).length
-                - arr.filter(v => v === b).length
-            ).pop();
-        }
+    function mode(arr) {
+        return arr.sort((a, b) =>
+            arr.filter(v => v === a).length
+            - arr.filter(v => v === b).length
+        ).pop();
+    }
+
     var toFindDuplicates = function toFindDuplicates(arry) {
     const uniqueElements = new Set(arry);
     const filteredElements = arry.filter(item => {
@@ -3509,37 +3510,38 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     });
 
     return [...new Set(uniqueElements)]
-};
+    };
 
 	var boxes = $("td.clothingBonuses");
     var bonuses = [];
+
     for (let i = 0; i < boxes.length; i++) {
       if(boxes[i].textContent.trim()  != "-")
       {
       	bonuses.push(boxes[i].textContent.trim());
       }
     }
+    
     const set = new Set(bonuses);
     bonuses = bonuses.filter(item => {
-    if (set.has(item)) {
-        set.delete(item);
-    } else {
-        return item;
-    }
-});
-
-var bonusText = $("span#appliedBonuses");
-console.log(bonusText);
-for (let i = 0; i < boxes.length; i++) {
-      if(bonuses.includes(boxes[i].textContent.trim()))
-      {
-      	if(!bonusText[0].innerHTML.includes(boxes[i].innerHTML)){
-			bonusText[0].innerHTML += '<br>' +  boxes[i].innerHTML;
+        if (set.has(item)) {
+            set.delete(item);
+        } else {
+            return item;
         }
-      }
-      else {
-      		boxes[i].style.opacity = "25%"
-      }
+    });
+
+    var bonusText = $("span#appliedBonuses");
+
+    console.log(bonusText);
+
+    for (let i = 0; i < boxes.length; i++) {
+        if(bonuses.includes(boxes[i].textContent.trim()))
+        {
+            if(!bonusText[0].innerHTML.includes(boxes[i].innerHTML)){
+                bonusText[0].innerHTML += '<br>' +  boxes[i].innerHTML;
+            }
+        }
     }
 <</script>>
 <</timed>>
@@ -3735,10 +3737,9 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
         if (this.shoes() != undefined && this.shoes().archetypes != undefined) {
             presentArchetypes.push(this.shoes().archetypes);
         }
-
-        presentArchetypes = mode(presentArchetypes);
+        presentArchetypes = mode(presentArchetypes.flat());
         /*get how many times each different archetype is present*/
-        return presentArchetypes[0];
+        return presentArchetypes;
     },
     fit: function () {
     },
@@ -3770,7 +3771,6 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
              .forEach(bonus => presentBonusesSet.add(bonus()));
          }    
          presentBonusesSet.add(setup.clothingBonuses.FavoriteStyle);
-     
          return [...presentBonusesSet];
      }
 }>>
@@ -4015,14 +4015,20 @@ console.log(State.temporary.filteredStoreClothes);
             Show only with bonus:<br>
             <<set _bonusCopy to function () {
                 var arr = ['-'];
-
+                console.log("bonusCopy info:");
                 for (var prop in setup.clothingBonuses) {
+                    console.log(prop);
                     if (setup.clothingBonuses.hasOwnProperty(prop)) {
                         var innerObj = {};
                         innerObj[prop] = setup.clothingBonuses[prop];
-                        arr.push(Object.values(innerObj)[0].name);
+                        console.log(Object.values(innerObj)[0]);
+                        console.log(Object.values(innerObj)[0].hideInStores);
+                        if(Object.values(innerObj)[0].hideInStores == false){
+                            arr.push(Object.values(innerObj)[0].name);
+                        }                       
                     }
-                }   
+                }  
+                console.log(arr); 
                 return arr;
             }>>
             <<listbox "$shoppingBonuses" autoselect>>
@@ -10964,13 +10970,14 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
 :: InitializeAllClothes [nobr] {"position":"0,600","size":"100,100"}
 <<set setup.allStyles to [
     'casual',
+    'tomboy',
     'nerdy',
-    'punk',
-    'gymrat',
-    'stylish',
     'professional',
-    'goth',
-    'tomboyish'
+    'stylish',
+    'punk',
+    'sporty',
+    'sexy',
+    'girly'
 ]>>
 
 /* Predefined clothing bonuses */
@@ -10984,7 +10991,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     /*included */
     LactationProof: {
@@ -10995,7 +11003,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     /*included */
     WorkoutWear: {
@@ -11006,7 +11015,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     /*included */
     Comfortable: {
@@ -11017,7 +11027,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     /*included */
     ExtraWarm: {
@@ -11028,7 +11039,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     /*included */
     Stretchy: {
@@ -11039,7 +11051,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     
     ShowingOff: {
@@ -11050,7 +11063,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     /*included */
     Intimidating: {
@@ -11061,7 +11075,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: false
     },
     FavoriteStyle: {
     	name: "Favorite style",
@@ -11071,7 +11086,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: true
     },
     Tailored: {
     	name: "Tailored",
@@ -11081,7 +11097,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: true
     },
     Crafted: {
     	name: "Hand-made",
@@ -11091,7 +11108,8 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
        		},
         breakEffect: function () {
             
-       		}
+       		},
+        hideInStores: true
     }
 
 }>>
@@ -12795,7 +12813,6 @@ setup.allClothes = jObjects;
 
    const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
    const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
-   console.log('GetFitDescription - Size ' + sizeIndex + ', lowerBound: ' + lowerBound + ', upperBound: ' + upperBound);
 
    let fit;
    if (State.variables[statsToCheck] < lowerBound) {
@@ -12905,18 +12922,31 @@ setup.allClothes = jObjects;
 }>>
 
 /* Gets the human readable bonuses from the clothing. */
- <<set setup.getReadableBonusFromClothing = function (clothingItem) {
+ <<set setup.getReadableBonusFromClothing = function (clothingItem, showActive = false) {
     if (clothingItem?.bonuses?.() == null || clothingItem.bonuses().length <= 0) {
         return '-';
     }
-
+    console.log('getReadableBonusFromClothing');
+    console.log(clothingItem.bonuses());
     let description = '';
     for (let i = 0; i < clothingItem.bonuses().length; i++) {
         if (i > 0) {
             description += '<br>';
         }
         let bonus = clothingItem.bonuses()[i]();
-        description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
+
+        if(showActive){
+            if(State.variables.outfit.bonuses().map(outfitBonus => outfitBonus.name).includes(bonus.name)){
+                description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
+            }
+            else{
+                description += '<b><span style="opacity:50%"> ●' + bonus.name + '</b><br>' + bonus.description + '</span>';
+            }
+        }
+        else{
+            description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
+        }
+        
     }
     return description;
 }>>
