@@ -3492,56 +3492,13 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
 
 <<timed 0s>>
 <<script>>
-    function mode(arr) {
-        return arr.sort((a, b) =>
-            arr.filter(v => v === a).length
-            - arr.filter(v => v === b).length
-        ).pop();
-    }
-
-    var toFindDuplicates = function toFindDuplicates(arry) {
-    const uniqueElements = new Set(arry);
-    const filteredElements = arry.filter(item => {
-        if (uniqueElements.has(item)) {
-            uniqueElements.delete(item);
-        } else {
-            return item;
-        }
-    });
-
-    return [...new Set(uniqueElements)]
-    };
-
-	var boxes = $("td.clothingBonuses");
-    var bonuses = [];
-
-    for (let i = 0; i < boxes.length; i++) {
-      if(boxes[i].textContent.trim()  != "-")
-      {
-      	bonuses.push(boxes[i].textContent.trim());
-      }
-    }
     
-    const set = new Set(bonuses);
-    bonuses = bonuses.filter(item => {
-        if (set.has(item)) {
-            set.delete(item);
-        } else {
-            return item;
-        }
-    });
+    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
 
-    var bonusText = $("span#appliedBonuses");
 
-    console.log(bonusText);
-
-    for (let i = 0; i < boxes.length; i++) {
-        if(bonuses.includes(boxes[i].textContent.trim()))
-        {
-            if(!bonusText[0].innerHTML.includes(boxes[i].innerHTML)){
-                bonusText[0].innerHTML += '<br>' +  boxes[i].innerHTML;
-            }
-        }
+                bonusText[0].innerHTML += '<b> ●' + State.variables.outfit.bonuses()[i].name + '</b><br>' + State.variables.outfit.bonuses()[i].description;
+            
+        
     }
 <</script>>
 <</timed>>
@@ -12955,7 +12912,7 @@ setup.allClothes = jObjects;
                 description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
             }
             else{
-                description += '<b><span style="opacity:50%"> ●' + bonus.name + '</b><br>' + bonus.description + '</span>';
+                description += '<span style="opacity:50%"><b> ●' + bonus.name + '</b><br>' + bonus.description + '</span>';
             }
         }
         else{
