@@ -13620,8 +13620,7 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
         name: 'krisObsessed',
         locationTags: ['kris'],
         conditions: [
-            () => State.variables.krisObsessed,
-            () => !State.variables.krisInterested
+            () => State.variables.krisInterested
         ],
         repeatable: false,
         retriggerable: false,
