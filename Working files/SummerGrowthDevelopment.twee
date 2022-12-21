@@ -3492,13 +3492,9 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
 
 <<timed 0s>>
 <<script>>
-    
-    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
-
-
-                bonusText[0].innerHTML += '<b> ●' + State.variables.outfit.bonuses()[i].name + '</b><br>' + State.variables.outfit.bonuses()[i].description;
-            
-        
+    $('span#appliedBonuses')[0].innerHTML = '';
+    for (const bonus of State.variables.outfit.bonuses()) {
+        $('span#appliedBonuses')[0].innerHTML += `<p><b> ●${bonus.name}</b><br>${bonus.description}</p>`;
     }
 <</script>>
 <</timed>>
