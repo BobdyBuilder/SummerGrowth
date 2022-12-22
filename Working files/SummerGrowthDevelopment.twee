@@ -24489,7 +24489,7 @@ God, it's just as shocking as the first time around.
 
 <span id="choice1"><<link "Compliment her on her body">><<replace "#choice1">><<set $emmaDateFriendly += 1>><<Dialogue "player" "You">>"Wow. I mean, I know it barely needs saying, but... you have done some amazing work."<</Dialogue>>
 
-<<if $muscle > 50 || $skils[0].level > 3>><<Dialogue "EmmaFitness" "Emma">>"Thank you for saying so. Though don't write off your own achievements, of course. I knew you were impressive too, though it's much differnet seeing you in this light."<</Dialogue>>
+<<if $muscle > 50 || $skills[0].level > 3>><<Dialogue "EmmaFitness" "Emma">>"Thank you for saying so. Though don't write off your own achievements, of course. I knew you were impressive too, though it's much differnet seeing you in this light."<</Dialogue>>
 
 <<Dialogue "player" "You">>"You're telling me."<</Dialogue>>
 
@@ -24647,7 +24647,7 @@ Emma stops short of zipping her tracksuit up all the way. She looks uncharacteri
 She finishes zipping up her top, her eyes now pointing away towards a spot on the floor.<<script>>const box = document.getElementById('choice2');
 box.style.display = 'block';<</script>><</replace>><</link>></span>
 
-<span id="choice2" style="display:none;"><<Dialogue "Emma" "Emma">>"I'm sorry to end it like this, but I must be going. I've already dawdled for longer than I meant to, and I still need to make dinner for myself."<</Dialogue>>
+<span id="choice2" style="display:none;"><<Dialogue "EmmaFitness" "Emma">>"I'm sorry to end it like this, but I must be going. I've already dawdled for longer than I meant to, and I still need to make dinner for myself."<</Dialogue>>
 
 <<if $emmaDateFlirty > $emmaDateFriendly and $emmaDateFliry > $emmaDateProfessional>>Emma brings a hand up to your face and gently brushes a thumb against your cheek. What's even more surprising than the gesture is the softness of the smile on her face.
 
