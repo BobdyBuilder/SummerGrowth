@@ -3700,29 +3700,29 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     bonuses: function () {
         /* fixed that ==/=== is not working by calling function to get bonus - Waffle */
         const presentBonuses = [];
-        if (this?.top?.()?.bonuses?.() != null) {
-            this.top().bonuses()
-                .forEach(bonus => presentBonuses.push(bonus()));
+        if (this?.top?.()?.bonuses != null) {
+            this.top().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
         }
-        if (this?.bottom?.()?.bonuses?.() != null) {
-            this.bottom().bonuses()
-                .forEach(bonus => presentBonuses.push(bonus()));
+        if (this?.bottom?.()?.bonuses != null) {
+            this.bottom().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
         }
-        if (this?.underwear?.()?.bonuses?.() != null) {
-            this.underwear().bonuses()
-                .forEach(bonus => presentBonuses.push(bonus()));
+        if (this?.underwear?.()?.bonuses != null) {
+            this.underwear().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
         }
-        if (this?.bra?.()?.bonuses?.() != null) {
-            this.bra().bonuses()
-                .forEach(bonus => presentBonuses.push(bonus()));
+        if (this?.bra?.()?.bonuses != null) {
+            this.bra().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
         }
-        if (this?.overwear?.()?.bonuses?.() != null) {
-            this.overwear().bonuses()
-                .forEach(bonus => presentBonuses.push(bonus()));
+        if (this?.overwear?.()?.bonuses != null) {
+            this.overwear().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
         }
-        if (this?.shoes?.()?.bonuses?.() != null) {
-            this.shoes().bonuses()
-                .forEach(bonus => presentBonuses.push(bonus()));
+        if (this?.shoes?.()?.bonuses != null) {
+            this.shoes().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
         }
         presentBonuses.push(setup.clothingBonuses.FavoriteStyle);
     
@@ -12879,17 +12879,17 @@ setup.allClothes = jObjects;
 
 /* Gets the human readable bonuses from the clothing. */
  <<set setup.getReadableBonusFromClothing = function (clothingItem, showActive = false) {
-    if (clothingItem?.bonuses?.() == null || clothingItem.bonuses().length <= 0) {
+    if (clothingItem == null || clothingItem?.bonuses?.length <= 0) {
         return '-';
     }
     console.log('getReadableBonusFromClothing');
-    console.log(clothingItem.bonuses());
+    console.log(clothingItem.bonuses);
     let description = '';
     for (let i = 0; i < clothingItem.bonuses.length; i++) {
         if (i > 0) {
             description += '<br>';
         }
-        let bonus = clothingItem.bonuses()[i]();
+        let bonus = clothingItem.bonuses[i];
 
         if(showActive){
             if(State.variables.outfit.bonuses().map(outfitBonus => outfitBonus.name).includes(bonus.name)){
