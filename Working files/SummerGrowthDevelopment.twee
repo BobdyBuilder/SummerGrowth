@@ -14718,7 +14718,7 @@ Next to the sewing machine you have all the projects you're currently working on
 <<capture _iSewingProject>>
 
 <<script>>
-    console.log(State.variable)
+    console.log(State.variables)
 <</script>>
 
 <tr id="row" @data-num="_iSewingProject">
