@@ -4057,20 +4057,30 @@ setup.setClothesTable(clothes);
                                 <<set _filteredStoreClothes[_i].id to Date.now()>>
                                 <<if _isOnline == false>>
                                     <<set $wardrobe.push(_filteredStoreClothes[_i])>>
+                                    <<script>>
+                                        console.log('User bought: ');
+                                        console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
+                                        if (!Dialog.isOpen()) {
+                                            new Wikifier(Dialog.setup('Item bought'), 'You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe');
+                                            Dialog.open();
+                                            
+                                            $('.macro-live').trigger(':liveupdateinternal'); /* update to refresh money */
+                                        }
+                                    <</script>>
                                 <<else>>
                                     <<set $storeOnlineBoughtDelay.push(_filteredStoreClothes[_i])>>
+                                    <<script>>
+                                        console.log('User bought: ');
+                                        console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
+                                        if (!Dialog.isOpen()) {
+                                            new Wikifier(Dialog.setup('Item bought'), 'The <<print _filteredStoreClothes[_i].name>> will be delivered soon.');
+                                            Dialog.open();
+                                            
+                                            $('.macro-live').trigger(':liveupdateinternal'); /* update to refresh money */
+                                        }
+                                    <</script>>
                                 <</if>>
-                                <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>
-                                <<script>>
-                                    console.log('User bought: ');
-                                    console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
-                                    if (!Dialog.isOpen()) {
-                                        new Wikifier(Dialog.setup('Item bought'), 'You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe');
-                                        Dialog.open();
-                                        
-                                        $('.macro-live').trigger(':liveupdateinternal'); /* update to refresh money */
-                                    }
-                                <</script>>
+                                <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>                                
                         <</link>>
                     <<else>>
                         Too expensive
@@ -22082,7 +22092,9 @@ repeatable: false,
     name: 'RandomPersonJealous',
     locationTags: ['outside'],
     conditions: [
-        () => $outfit.style() != null
+        () => State.variables.outfit.style() != null,
+        () => State.variables.daysPlayed > 2,
+        () => State.variables.outfit.style() != 'casual',
     ],
     repeatable: false,
     retriggerable: false,
