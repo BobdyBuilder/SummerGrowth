@@ -6396,14 +6396,11 @@ Which skill would you like to improve during the next two hours?
 <<capture _i>>
 	<<link $skills[_i].name>>
 	<<replace "#result">>You spend some time reading up on <<print $skills[_i].name>>. You think you picked up quite a bit!
-	
-	<br><br>
-	[[Return|$return]]
-			<<set $skills[_i].experience += random(5,20)>>
-			<</replace>>
-			
-			<</link>><br>
-			
+        <br><br>
+        <<set $skills[_i].experience += random(5,20)>>
+    <</replace>>
+    
+    <</link>><br>
 <</capture>>
 <</for>>
 </span><</nobr>>
