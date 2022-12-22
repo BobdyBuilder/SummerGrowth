@@ -21627,7 +21627,7 @@ repeatable: false,
         locationTags: ['mall'],
             conditions: [
 
-                () => State.variables.muscle >= 70 || State.variables.fat >= 50,
+                () => State.variables.muscle >= 70 || State.variables.fat >= 70,
                 () => State.variables.height >= 180
             ],
                 repeatable: false,
