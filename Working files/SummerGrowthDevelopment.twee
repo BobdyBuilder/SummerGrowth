@@ -10300,7 +10300,7 @@ name: 'EmmaExpertSewing',
       name: 'EmmaUsbWarning',
       locationTags: ['emma'],
       conditions: [
-       () => State.variable.hackingUnlocked
+       () => State.variables.hackingUnlocked
       ],
       repeatable: false,
       retriggerable: false,
@@ -10311,9 +10311,9 @@ name: 'EmmaExpertSewing',
       name: 'emmaLearnedPotion',
       locationTags: ['emma'],
       conditions: [
-       () => State.variable.emmaLastMuscle >= 30,
-       () => State.variable.muscle >= 40,
-       () => State.variable.emmaOpinion <= 30
+       () => State.variables.emmaLastMuscle >= 30,
+       () => State.variables.muscle >= 40,
+       () => State.variables.emmaOpinion <= 30
       ],
       repeatable: false,
       retriggerable: false,
@@ -10325,7 +10325,7 @@ name: 'EmmaExpertSewing',
     name: 'EmmaApologize',
     locationTags: ['emma'],
     conditions: [
-     () => State.variable.emmaLearnedPotion
+     () => State.variables.emmaLearnedPotion
     ],
     repeatable: false,
     retriggerable: false,
