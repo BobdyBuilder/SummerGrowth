@@ -10888,7 +10888,7 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
                 <<linkreplace "get tailored - 00:10 🕛">>
                     <<set $simonOpinion += 1>>
                     Tailored!
-                    <<set _wardrobeTemp[_iTailoredList].bonuses.push(setup.clothingBonuses.Tailored)
+                    <<set _wardrobeTemp[_iTailoredList].bonuses.push(setup.clothingBonuses.Tailored)>>
                     <<set _wardrobeTemp[_iTailoredList].size to _newClothes[_iTailoredList].size>>
                     <<set $money -= _newClothes[_iTailoredList].price>>
                     <<set _newClothes[_iTailoredList].price to 0>> /* reset tailoring price */
