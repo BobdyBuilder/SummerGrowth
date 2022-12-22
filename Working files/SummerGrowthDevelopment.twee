@@ -12764,45 +12764,36 @@ setup.allClothes = jObjects;
 
 /* Gets a short description of how the given clothing fit for the player */
 <<set setup.getFitDescription to function (sizeIndex, slot, tolerance = 1) {
+    const statsToCheck = setup.biggestPlayerSize(slot);
 
-   const statsToCheck = setup.biggestPlayerSize(slot);
+    const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
+    const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
 
-   const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
-   const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
+    if (State.variables[statsToCheck] < lowerBound) {
+        return 'too big';
+    } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
+        if (State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Stretchy')) {
+            return 'tight';
+        } else if (State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Tailored')) {
+            if (State.variables[statsToCheck] >= upperBound * (tolerance + 0.1)) {
+                return 'too small';
+            } else {
+                return 'too small';
+            }
+        } else if (State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')) {
+            if (State.variables[statsToCheck] >= upperBound * (tolerance + 0.2)) {
+                return 'too small';
+            } else {
+                return 'too small';
+            }
+        } else {
+            return 'too small';
+        }
+    } else if (State.variables[statsToCheck] >= upperBound) {
+        return 'tight';
+    }
 
-   let fit;
-   if (State.variables[statsToCheck] < lowerBound) {
-       fit = 'too big';
-   } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
-       if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Stretchy')){
-           /*empty if statement for readability. Nothing is supposed to happen here. */
-       }
-       else if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Tailored')){
-           if(State.variables[statsToCheck] >= upperBound * (tolerance + 0.1)){
-               fit = 'too small';
-           }
-           else{
-               fit = 'too small';
-           }
-       }
-       else if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')){
-           if(State.variables[statsToCheck] >= upperBound * (tolerance + 0.2)){
-               fit = 'too small';
-           }
-           else{
-               fit = 'too small';
-           }
-       }
-       else{
-            fit = 'too small';
-       }       
-   } else if (State.variables[statsToCheck] >= upperBound) {
-       fit = 'tight';
-   } else {
-       fit = 'fits';
-   }
-
-   return fit;
+    return 'fits';
 }>>
 
 /* returns wearing clothes. Ignores empty slots */
@@ -12864,8 +12855,12 @@ setup.allClothes = jObjects;
         let fit = setup.getFitDescription(sizeIndex, slot);
         fits.push(fit === 'fits');
     }
-    
+
     const allSizeNames = setup.getAllSizeNames();
+    if (fits.filter(size => size === true).length === 0) {
+        /* if every size is not 'fits', fallback to "Over [MAX_SIZE_STRING]" */
+        return 'Over ' + allSizeNames[allSizeNames.length - 1];
+    }
     return allSizeNames[fits.indexOf(true)] + ' - ' + allSizeNames[fits.lastIndexOf(true)];
 }>>
 
