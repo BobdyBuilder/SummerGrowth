@@ -10247,7 +10247,8 @@ name: 'EmmaExpertSewing',
          name: 'OfficeCasualOutfit',
          locationTags: ['office'],
          conditions: [
-             () => !['professional','stylish'].includes($outfit.style())
+             () => !['professional','stylish'].includes($outfit.style()),
+             () => State.variables.emmaOpinion >= 15
          ],
          repeatable: false,
          retriggerable: false,
