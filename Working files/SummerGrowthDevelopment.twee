@@ -23953,6 +23953,19 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
     <</script>>
 
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.7.4: Clothing & dates ---
+● Added bonuses to clothing to give players more reasons to use the clothing system
+● Added different styles of clothing with different written content
+● Added completely new outfit and clothing system, which is far more forgiving
+● Added new Date for Emma
+● Added new Date for Elena
+● Added new job to the bulk barn, allowing players to help in the store
+● Added 70.000 words of new content
+● Reworked the early Kris Dialogs
+● Added lactation content to all jobs
+● Performed an editorial pass over the entire game, fixing most grammatical & spelling issues
+● Fixed slow load time, or no penis in mirror scene
+● Rebalanced money and growth speed
 --- Version 0.6.9: Measurements & story ---
 ● Added over 40.000 word of new content to the game
 ● Added a way to measure and keep track of your growth
