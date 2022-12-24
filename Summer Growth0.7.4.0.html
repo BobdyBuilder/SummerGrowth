@@ -1470,7 +1470,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -9790,7 +9790,8 @@ name: &#39;EmmaExpertSewing&#39;,
          name: &#39;OfficeCasualOutfit&#39;,
          locationTags: [&#39;office&#39;],
          conditions: [
-             () =&gt; ![&#39;professional&#39;,&#39;stylish&#39;].includes($outfit.style())
+             () =&gt; ![&#39;professional&#39;,&#39;stylish&#39;].includes($outfit.style()),
+             () =&gt; State.variables.emmaOpinion &gt;= 15
          ],
          repeatable: false,
          retriggerable: false,
