@@ -18927,7 +18927,11 @@ Each portion for you is now enough to feed a family for a day, that's how much y
 	
 <<if $personalityChanged == true>>
 	<p>When you get started, a raging headache comes over you. You quickly go for painkillers, or just anything to make it to go away, but it only lowers it a bit. You also feel the changes to your personality slowly fading; it seems that overriding your personality isn't something that comes free of charge...</p>
-	<<set $personalityChanged to false>>
+	<<if $temporaryPersonalityGains.shyConfident === 0 &&
+         $temporaryPersonalityGains.carefreeCarefull === 0 &&
+         $temporaryPersonalityGains.submissiveDominant === 0 >>
+	    <<set $personalityChanged to false>>
+	<</if>>
 <</if>>
 
 <</widget>>
