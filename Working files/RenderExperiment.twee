@@ -1097,6 +1097,10 @@ function continueClick() {
 			/* adds the node to the textbox. */
 			$("#textBox").append(node);
 
+			/* Resets the background color. */
+			$("#textBoxWrapper").css("background", '');
+			$("#textBoxWrapper").addClass("borderedWindow");
+
 			/* From here we add all the logic for 'special' renders, such as links, or the icons later. */
 			if (node.innerHTML?.contains('link-internal macro-link')) {
 				/* This trigger is needed to let the game know when/if a link has been clicked. */
@@ -1115,12 +1119,29 @@ function continueClick() {
 			/* Special logic for text-bubbles. */
 			else if(node.innerHTML?.contains('<span class=\"avatar\"></span>')){
 				console.log("found text bubble");
-				$(".avatar").css("display", "none");
-				$(".speech").css("background", "#ffffff00");
-				$(".speech").removeClass("speech");				
+
+				var avatar = $("#textBox > .speech > .avatar");
+
+				avatar.css("display", "none");
+
+				var speechBubble = $("#textBox > .speech");				
+
+				if(speechBubble.hasClass("player")){
+					var color = $(".player").css("background");
+					console.log(color);
+					$("#textBoxWrapper").css("background", color);
+				}
+				else if(speechBubble.hasClass("KrisObsessed")){
+					var color = $(".KrisObsessed").css("background");
+					console.log(color);
+					$("#textBoxWrapper").css("background", color);
+				}
+
+				speechBubble.removeClass("speech");		
+				speechBubble.css("background", "");		
 			}
 			else {
-				$("#textBoxWrapper").addClass("borderedWindow");
+				
 			}
 			
 			changed = true;
