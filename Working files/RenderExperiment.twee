@@ -1,0 +1,1303 @@
+:: StoryTitle
+Summer Growth Testing - local
+
+
+:: StoryData
+{
+	"ifid": "A78CE82A-815D-4711-AECA-2A51EDC0417D",
+	"format": "SugarCube",
+	"format-version": "2.36.1",
+	"start": "Starting Scene",
+	"zoom": 1
+}
+
+
+:: Story Stylesheet [stylesheet]
+:root {
+    --mcIcon: URL("https://i.imgur.com/eMD17Rt.png");
+    --iconSize: 125px;
+  	--randoIcon: URL("https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png");
+}
+
+
+[hidden] {
+  display: none;
+}
+
+
+.logo { 
+  width:auto; 
+  text-align:center; 
+} 
+
+.warning {
+ width: 25%;
+ text-align:left; 
+}
+
+img#logoImage{ 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  visibility: visible;
+} 
+
+#ui-bar-body {
+    height: calc(100% - 2.5em);
+    margin: 2.5em 0;
+    padding: 0 3em 0 1.5em;
+}
+
+#motivationExhaustionTable {
+    width: 1em;
+    margin-left: auto;
+    margin-right: 0;
+    height: 80vh;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+#motivationExhaustionTable th { height: 100%; }
+
+
+.barContainer{
+  position: relative;
+  height: 100%;
+  width: 1em;
+  background-color: #111;
+	background-image: linear-gradient(to right, rgba(68, 68, 68, 0.5), rgba(34, 34, 34, 0.5) 5px), linear-gradient(to bottom, rgba(68, 68, 68, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px);
+	border-radius: 10px;
+	z-index: 10;
+	visibility: visible;
+  
+}
+
+#motivationChange{
+  bottom: 80%;
+  height: 10%;
+  z-index: 30;
+  visibility: collapse;
+  background-color: #ffffff36;
+  animation: blinkingGlow 2s infinite;
+  box-shadow: 0px 0px 1em 0.25em #ffffff00;
+  /* in order: x offset, y offset, blur size, spread size, color */
+  /* blur size and spread size are optional (they default to 0) */
+}
+
+#exhaustionChange{
+  bottom: 40%;
+  height: 20%;
+  z-index: 30;
+  visibility: collapse;
+  background-color: #ffffff36;
+  animation: blinkingGlow 2s infinite;
+  box-shadow: 0px 0px 1em 0.25em #ffffff00;
+  /* in order: x offset, y offset, blur size, spread size, color */
+  /* blur size and spread size are optional (they default to 0) */
+}
+
+@keyframes blinkingGlow{
+  0%		{ box-shadow: 0px 0px 1em 0.25em #fff; background-color: #ffffff36;}
+  25%		{ box-shadow: 0px 0px 1em 0.25em #ffffff00; background-color: #000000d1;}
+  50%		{ box-shadow: 0px 0px 1em 0.25em #fff; background-color: #ffffff36;}
+  75%		{ box-shadow: 0px 0px 1em 0.25em #ffffff00; background-color: #000000d1;}
+  100%		{ box-shadow: 0px 0px 1em 0.25em #fff; background-color: #ffffff36;}
+}
+
+#motivationBarContainer{
+
+}
+
+#exhaustionBarContainer{
+  margin-left: auto; 
+margin-right: 0;
+}
+
+.barFloor{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 10em;
+  width: 1em;
+  background-color: #111;
+background-image: linear-gradient(45deg, #c71434 25%, #8f1d1d 25%, #8f1d1d 50%, #c71434 50%, #c71434 75%, #8f1d1d 75%, #8f1d1d 100%);
+  background-size: 28.28px 28.28px;
+  border-radius: 10px;
+  z-index: 5;
+  visibility: visible;
+}
+
+.bar{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 15em;
+  width: 1em;
+  border-radius: 10px;
+  z-index: 10;
+  visibility: visible;
+}
+
+#exhaustionBarFloorChange{
+   position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 10em;
+  width: 1em;
+  background-color: #111;
+  border-radius: 10px;
+  z-index: 15;
+  visibility: collapse;
+  animation: blinkingGlow 2s infinite;
+  box-shadow: 0px 0px 1em 0.25em #ffffff00;
+}
+
+.bar#exhaustion{
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), radial-gradient( circle at bottom right, #cc00006b, #cc000075 60% );
+}
+
+.bar#motivation{
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), radial-gradient( circle at bottom right, #0c0, #00cc0085 60% );
+}
+
+.Header {
+  position: fixed;
+  top: 0;
+  background: silver;
+  left: 0;
+  Width: 100%;
+  border: 2px solid Gray;
+}
+
+.GoalClass{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  
+}
+
+.TutorialClass{
+  border-radius: 25px;
+  border: 2px solid Gray;
+  background: silver;
+  padding: 20px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  
+}
+
+
+.hidden{
+  visibility: hidden;
+  display:none;
+}
+
+.hide{
+  visibility: hidden;
+  display:none;
+}
+
+#store {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+#store td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+
+#store tr:hover {background-color: DarkGray;}
+
+#store th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: DarkGray;
+  color: white;
+}
+
+#log {
+  border: 1px solid #444;
+  overflow-y: auto;
+  max-height: 10vw;
+  display: block;
+}
+
+#logTable a:link {
+  color: red;
+}
+
+#logTable a:hover {
+  color: white;
+}
+
+#logTable th {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  color: white;
+}
+
+#logTable td, #customers th {
+  padding: 1px;
+}
+
+#logTable tr:hover {background-color: DarkGray;}
+
+h2 {
+ margin: 0px;
+  border:0px;
+}
+
+#story-caption {
+text-align: left;
+}
+  
+.speech {
+	color: white;
+	border: 2px solid white;
+	border-radius: 20px;
+	padding: 8px 8px 8px 8px;
+	box-shadow: 5px 5px 3px Black;
+}
+
+.name{
+ font-weight: bold;
+}
+
+.avatar {
+	display: block;
+	padding: 1px;
+	height: var(--iconSize);
+	width: var(--iconSize);
+	float: right;
+	margin: 0px 0px 0px 10px;
+	border: 2px solid white;
+	border-radius: var(--iconSize);
+	background-size: contain;
+}
+
+.player {
+	background-color: #13689E;
+}
+.player .avatar {
+  background-color: white;
+	background-image: var(--mcIcon);
+  	float: left;
+  	margin: 0px 10px 0px 0px;
+}
+.Johan {
+	background-color: #1C9E5B;
+}
+.Johan .avatar {
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Johan.png);
+}
+
+.Emma {
+	background-color: #9E2473;
+}
+.Emma .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Emma.png);
+}
+
+.Elena {
+	background-color: #99B06D;
+}
+
+.Elena .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Elena.png);
+}
+
+.ElenaHappy {
+	background-color: #99B06D;
+}
+
+.ElenaHappy .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/ElenaHappy.png);
+}
+
+.Kris {
+	background-color: #982027;
+}
+
+.Kris .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Kris.png);
+}
+
+.KrisCasual {
+	background-color: #982027;
+}
+
+.KrisCasual .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisCasualBored.png);
+}
+
+.KrisObsessed {
+	background-color: #982027;
+}
+
+.KrisObsessed .avatar {
+	background-color: black;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisObsessed.png);
+}
+
+.KrisCasualObsessed {
+	background-color: #982027;
+}
+
+.KrisCasualObsessed .avatar {
+	background-color: black;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisObsessesCasual.png);
+}
+
+.Tasha {
+	background-color: #c7b2b6;
+}
+
+.Tasha .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Tasha.png);
+}
+
+.Simon {
+	background-color: #8799A1;
+}
+
+.Simon .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Simon.png);
+}
+
+.randomPerson {
+	background-color: #676767;
+}
+
+.randomPerson .avatar {
+	background-color: white;
+	background-image: var(--randoIcon);
+}
+
+.\?\?\? {
+	background-color: #4d4d4d;
+}
+
+.\?\?\? .avatar {
+	background-color: black;
+}
+
+.quest {
+	background-color: #9E2A1C;
+}
+.quest .avatar {
+	background-image: url(https://i.imgur.com/1u5EHUo.png);
+}
+
+.logo { 
+  width:auto; 
+  text-align:center; 
+} 
+
+.warning {
+ width: 25%;
+ text-align:left; 
+}
+
+img#logoImage{ 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+} 
+
+.mirror {
+  height: var(--iconSize);
+	width: var(--iconSize);
+}
+
+img#radarBackground {
+    width: 100%;
+    height: 100%;
+}
+
+canvas#myCanvas {
+    width: 40vh;
+    height: 40vh;
+    margin: 5vh;
+    /* display: block; */
+    position: absolute;
+}
+
+canvas#secondCanvas {
+    width: 50vh;
+    height: 50vh;
+    padding: 0;
+    /* display: inline; */
+    /* background: red; */
+    position: absolute;
+}
+
+div#canvasContainer {
+    width: 40%;
+    height: 40%;
+    display: inline-block;
+}
+
+a.shyConfident{
+	background:rgba(255,0,255, 0.4);
+  color:white;
+}
+a.submissiveDominant{
+	background:rgba(255,0,0, 0.5);
+  color:white;
+}
+a.carefreeCarefull{
+	background:rgb(102, 153, 255);
+  color:white;
+}
+
+a.link-internal.macro-link{
+ display: block; 
+  background:rgba(0,0,255, 0.0);
+  padding-left:5px;
+}
+
+a.link-internal.macro-gameLink{
+ display: block; 
+  background:rgba(0,0,255, 0.0);
+  padding-left:5px;
+}
+
+a.link-internal.macro-link:hover{
+ background:rgba(75,75,255, 0.2);
+  color:white;
+  border-left: 6px solid white;
+  padding-left:10px;
+}
+
+a.link-internal.macro-gameLink:hover{
+ background:rgba(75,75,255, 0.2);
+  color:white;
+  border-left: 6px solid white;
+  padding-left:10px;
+}
+
+a.macro-PersonalityCheck{
+   display: block; 
+  padding-left:5px;
+  border: 2px solid white;
+  border-radius: 2px;
+}
+
+a.macro-PersonalityCheck:hover{
+ background:rgba(75,75,255, 0.5);
+  color:white;
+  border-left: 6px solid white;
+  padding-left:10px;
+}
+
+a.macro-PersonalityCheck.Failed:hover{
+ background:rgba(255,0,0, 0.5);
+  color:white;
+  border-left: 20px solid white;
+  padding-left:10px;
+}
+
+a.macro-PersonalityCheck.Succes:hover{
+ background:rgba(0,255,0, 0.5);
+  color:white;
+  border-left: 20px solid white;
+  padding-left:10px;
+}
+.important{
+    background: rgba(50,50,150, 1);
+    display: block;
+    background-image: url('https://i.imgur.com/9YZwcRq.png');
+    background-repeat: no-repeat;
+    padding-left: 3em;
+    border-radius: 1em;
+    border-bottom-color: white;
+  background-size: 3em;
+    border: 4px;
+    border-style: solid;  
+  	font-weight:bold;
+}
+
+td.skillbar {
+    border-radius: 10px;
+}
+
+.loader {
+  position: inherit;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  animation: spin 2s linear infinite;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+h1#story-title {
+  display: collapse;
+}
+
+
+:: Story JavaScript [script]
+predisplay["Menu Return"] = function (taskName) {
+	if (! tags().contains("noReturn")) {	
+		State.variables.return = passage();
+	}
+};
+
+window.Health = function (motivation, maxMotivation, BarID, Horizontal, Container) {
+	if (Container == undefined) {
+		Container = document;
+	}
+	var HP = parseInt((motivation / maxMotivation) * 100).clamp(0, 100);
+	var BarElement = $(Container).find("#" + BarID);
+	if (Horizontal) {
+		BarElement.css({ width: HP + "%" });
+	} else {
+		BarElement.css({ height: HP + "%" });
+	}
+	BarElement.attr("title", motivation + "/" + maxMotivation + " HP");
+	$(Container).find("#" + BarID + "bkg").attr("title", motivation + "/" + maxMotivation + " HP");
+};
+/* Health Bar code - End */
+
+Macro.add('Dialogue', {
+	tags     : null,
+	handler  : function () {
+		var id = this.args[0], name = id;
+		if (this.args.length > 1) name = this.args[1];
+		var output = '<div class="speech ' + id + '">';
+		output += '<span class="avatar"></span>';
+		output += '<span class="name">' + name + '</span>' + '<hr>' + this.payload[0].contents + '</div>';
+		$(this.output).wiki(output);
+	}
+});
+
+Config.history.controls = false;
+Config.history.maxStates = 1;
+
+(function () {
+	"use strict";
+
+	$(document).on(":liveupdate", function () {
+		$(".macro-live").trigger(":liveupdateinternal");
+	});
+
+	Macro.add(['update', 'upd'], {
+		handler: function handler() {
+			$(document).trigger(":liveupdate");
+		}
+	});
+
+	Macro.add(['live', 'l', 'lh'], {
+		skipArgs: true,
+		handler: function handler() {
+			if (this.args.full.length === 0) {
+				return this.error('no expression specified');
+			}
+			try {
+				var statement = this.args.full;
+				var result = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+				if (result !== null) {
+					var lh = this.name === "lh";
+					var $el = $("<span></span>").addClass("macro-live").wiki(lh ? Util.escape(result) : result).appendTo(this.output);
+					$el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+						var out = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+						$el.empty().wiki(lh ? Util.escape(out) : out);
+					}));
+				}
+			} catch (ex) {
+				return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+			}
+		}
+	});
+
+	Macro.add(['liveblock', 'lb'], {
+		tags: null,
+		handler: function handler() {
+			try {
+				var content = this.payload[0].contents.trim();
+				if (content) {
+					var $el = $("<span></span>").addClass("macro-live macro-live-block").wiki(content).appendTo(this.output);
+					$el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+						$el.empty().wiki(content);
+					}));
+				}
+			} catch (ex) {
+				return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+			}
+		}
+	});
+})();
+
+Macro.add('PersonalityCheck', {
+		skipArgs   : false,
+		tags       : ['Failed'],
+		elseifWsRe : /^\s*if\b/i,
+		ifAssignRe : /[^!=&^|<>*/%+-]=[^=>]/,
+		t8nRe   : /^(?:transition|t8n)$/,
+
+		handler() {		
+			let i;
+
+			try {
+				const len = this.payload.length;
+        
+				// Sanity checks.
+				const elseifWsRe = this.self.elseifWsRe;
+				const ifAssignRe = this.self.ifAssignRe;
+
+				for (/* declared previously */ i = 0; i < len; ++i) {
+					var query = this.payload[i].args[0] + this.payload[i].args[1] + this.payload[i].args[2];
+				 this.payload[i].args.query = query;
+					console.log(this.payload[i]);
+					/* eslint-disable prefer-template */
+					switch (this.payload[i].name) {
+					case 'Failed':
+						if (this.payload[i].args.raw.length > 0) {
+							if (elseifWsRe.test(this.payload[i].query)) {
+								return this.error(`whitespace is not allowed between the "else" and "if" in <<elseif>> clause${i > 0 ? ' (#' + i + ')' : ''}`);
+							}
+
+							
+						}
+
+						if (i + 1 !== len) {
+							return this.error('<<Failed>> must be the final clause');
+						}
+						break;
+
+					default:
+						if (this.payload[i].args.query.length === 0) {
+							return this.error(`no conditional expression specified for <<${this.payload[i].name}>> clause${i > 0 ? ' (#' + i + ')' : ''}`);
+						}
+						else if (
+							   Config.macros.ifAssignmentError
+							&& ifAssignRe.test(this.payload[i].query)
+						) {
+							return this.error(`assignment operator found within <<${this.payload[i].name}>> clause${i > 0 ? ' (#' + i + ')' : ''} (perhaps you meant to use an equality operator: ==, ===, eq, is), invalid: ${this.payload[i].args.raw}`);
+						}
+						break;
+					}
+					/* eslint-enable prefer-template */
+				}
+
+				const evalJavaScript = Scripting.evalJavaScript;
+				let success = false;
+
+				// Evaluate the clauses.
+				for (/* declared previously */ i = 0; i < len; ++i) {
+					// Custom debug view setup for the current clause.
+					if (Config.debug) {
+						this
+							.createDebugView(this.payload[i].name, this.payload[i].source)
+							.modes({ nonvoid : false });
+					}
+
+					// Conditional test.
+					if (this.payload[i].name === 'Failed' || !!evalJavaScript(this.payload[i].args.query)) {
+						success = true;
+					
+						
+						if (this.payload[0].args.length === 0) {
+										return this.error('no link text specified');
+									}
+
+						const $link      = jQuery(document.createElement('a'));
+						const $insert    = jQuery(document.createElement('span'));
+						const transition = this.args.length > 1 && this.self.t8nRe.test(this.args[1]);
+						
+						var name =  this.payload[0].args[3];
+						var personalityTested = '';
+						
+						if(this.payload[0].args.raw.includes("shyConfident"))
+							{
+								$link.addClass('shyConfident');
+								if(this.payload[0].args.raw.includes(">")){
+									personalityTested = '<b>Confidence: [';
+								}
+								else{
+									personalityTested = '<b>Shyness: [';
+								}
+							}
+						else if(this.payload[0].args.raw.includes("submissiveDominant"))
+							{
+								$link.addClass('submissiveDominant');
+								if(this.payload[0].args.raw.includes(">")){
+									personalityTested = '<b>Dominant: [';
+								}
+								else{
+									personalityTested = '<b>Submissive: [';
+								}
+							}
+						else if(this.payload[0].args.raw.includes("carefreeCarefull"))
+							{
+								$link.addClass('carefreeCarefull');
+								if(this.payload[0].args.raw.includes(">")){
+									personalityTested = '<b>Careful: [';
+								}
+								else{
+									personalityTested = '<b>Carefree: [';
+								}
+							}
+						else 
+							{
+
+							}
+						
+						if(this.payload[0].args.raw.includes(">")){
+							personalityTested += this.payload[0].args[0];
+							personalityTested += '/';
+							personalityTested += this.payload[0].args[2];
+						}
+						else{
+							personalityTested += this.payload[0].args[0] * -1;
+							personalityTested += '/';
+							personalityTested += this.payload[0].args[2] * -1;
+						}
+						
+						personalityTested += ']</b> ';
+						
+						name = personalityTested += name;
+						
+						if(this.payload[i].name === 'Failed'){
+							$link.addClass('Failed');
+						}
+						else{
+							$link.addClass('Succes');
+						}
+						
+
+						$link
+							.wikiWithOptions({ profile : 'core' }, name)
+							.addClass(`link-internal macro-${this.name}`)
+							.ariaClick({
+								namespace : '.macros',
+								one       : true
+							}, this.createShadowWrapper(
+								() => {
+									$link.remove();
+								
+									if (this.payload[i].contents !== '') {
+										const frag = document.createDocumentFragment();
+										new Wikifier(frag, this.payload[i].contents);
+										$insert.append(frag);
+									}
+
+									if (transition) {
+										setTimeout(() => $insert.removeClass(`macro-${this.name}-in`), Engine.minDomActionDelay);
+									}
+								}
+							))
+							.appendTo(this.output);
+
+						$insert.addClass(`macro-${this.name}-insert`);
+						
+						if(this.payload[i].name == "Failed")
+							{
+								$insert.addClass(`PersonalityCheckFailed`);
+							}
+						else
+							{
+								$insert.addClass(`PersonalityCheckSucces`);
+							}
+
+						if (transition) {
+							$insert.addClass(`macro-${this.name}-in`);
+						}
+
+
+						$insert.insertAfter($link);
+													
+						
+						break;
+					}
+					else if (Config.debug) {
+						// Custom debug view setup for a failed conditional.
+						this.debugView.modes({
+							hidden  : true,
+							invalid : true
+						});
+					}
+				}
+
+				// Custom debug view setup for the remaining clauses.
+				if (Config.debug) {
+					for (++i; i < len; ++i) {
+						this
+							.createDebugView(this.payload[i].name, this.payload[i].source)
+							.modes({
+								nonvoid : false,
+								hidden  : true,
+								invalid : true
+							});
+					}
+
+					/*
+						Fake a debug view for `<</if>>`.  We do this to aid the checking of nesting
+						and as a quick indicator of if any of the clauses matched.
+					*/
+					this
+						.createDebugView(`/${this.name}`, `<</${this.name}>>`)
+						.modes({
+							nonvoid : false,
+							hidden  : !success,
+							invalid : !success
+						});
+				}
+			}
+			catch (ex) {
+				return this.error(`bad conditional expression in <<${i === 0 ? 'if' : 'elseif'}>> clause${i > 0 ? ' (#' + i + ')' : ''}: ${typeof ex === 'object' ? ex.message : ex}`); // eslint-disable-line prefer-template
+			}
+		}
+	});
+
+
+:: Starting Scene [nobr] {"position":"853,366","size":"100,100"}
+<<include prep>>
+
+<<set _test to `Behind the counter stands that unpredictable freak, Kris. Approaching her, you straighten your back, looking down on her.<br><br><<Dialogue "player" "You">>"Listen, if you're going to be all weird again I'm just going to get my coffee elsewhere, you know?"<</Dialogue>><br><br>Her eyes drift over your arms, your chest, clearly trying to measure whether you grew again. Yet she stops at your eyes, aware of your displeasure.<br><br><<Dialogue "KrisObsessed" "Kris">>"Right, right, sorry! I... didn't leave the best impression last time, did I? Listen, uh. I'm sorry. I mean it! I'm sorry! But... you understand you pretty much are my deepest erotic dreams given flesh? Urgh, okay.... um... Can I... you know, buy you a drink so that we can sit down and talk about this...?"<</Dialogue>><br><br> <span id="choice1"><br> <<link "Sure, but this is your last chance">> <<replace "#choice1">><br>You follow her to a vacant table, where she removes her apron, signaling her unscheduled (and probably not boss-approved) break. She takes a few moments to brace herself, in clear deep thought. After some time, while you take some leisure sips from your hot cup, she leans forward and starts speaking, sounding like a contract negotiator.<br><br> <<Dialogue "KrisObsessed" "Kris">>"Okay, I admit I came on FAR too strongly. I'll give you that. And for that, I apologize. Give me a chance to explain myself, so we're on the same page?"<</Dialogue>><br><br>It was remarkable; when she puts her heart to it, she CAN be a reasonable person.<br><br> <<Dialogue "KrisObsessed" "Kris">>"So, you see, I got a size fetish. I ain't ashamed of saying it, and SURELY ain't hiding it. And when I say size fetish, I MEAN IT. A bodybuilder walks through that door, and I take an extra break to finger myself in the- OH, come on, don't act so disgusted, I wash my hands after I’m done. But it’s not just muscles: big tits, incredibly tall giants, huge bulges, GIGANTIC -"<</Dialogue>><br><br> With her hand she makes squeezing motions, almost drooling over herself as her breath becomes ragged and you can see sweat forming on her brow, puffs of smoke coming from her lips. You find yourself unconsciously shrinking into your chair, but it’s just too small for you. The only way you could ever describe Kris's orientation is omnisexual; she'll fuck anyone or anything if they're big in any way. She goes into a long-winded and awkward loud description of all the kinds of people (or body parts) she likes. In a nearby table, a child starts crying. <br><br> <<Dialogue "KrisObsessed" "Kris">>"- AND THEN I WILL RAM THAT BELLPEPPER STRAIGHT INTO THEIR - Oh. Oh, I... um. Sometimes I get a bit carried away. Heh. Sorry. That happens. A lot. Heh. But... yeah. As you can see, I... well, I got an obsession. And when you came in, it was like a dream come true. Your rapid growth? It makes the stuff in my brain go all kinds of haywire. I literally start fantasize about you growing before my eyes."<</Dialogue>><br><br>  <span id="choice2"><br> <<link "That is not okay!">><<replace "#choice2">> <br><<Dialogue "player" "You">>"... That description was FAR more vivid than I thought possible. And... listen, I’m happy for you, being comfortable with who you are… b-but you can't expect me to just... become your little sex toy like that! I'm a person too, you know?!?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">>"Yes, I know, and that was on me. However... listen. I... still mean it, you know, when I mean I want… how to put it? To sponsor you. Help you. Whatever you wanna call it. But... I promise to respect you as a person, stop when you say so..."<</Dialogue>><br><br><<Dialogue "player" "You">>"You're still going on about this? Even when I explicitly told you ‘no’?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">>"Yes, And can you blame me? Listen: You. Are. Perfect. And I want to help you! Listen, okay, you might not trust me. I get that. Here. This is my credit card. Just take it, it’s got a pretty high limit on it, I know how to play up my credit score. Just... use it how you see fit, as long as it helps you get huge. Deal? And don't worry, I know how to take care of myself."<</Dialogue>><br><br>The card lays there on the table between the two of you. She just stares anxiously, her eyes darting between you and the card, biting her lips, like a fisherman certain that his target is about to bite. She really means it!<br><br>  <span id="choice3"> <<link "Take it!">> <<replace "#choice3">><br>This is just too good to pass. Slowly and carefully, you reach for the card. The plastic, it feels like it’s the real deal... HER credit card. Cautiously, you look over her, and she simply smiles.<br><br><<Dialogue "player" "You">>"I'll take this, but this isn’t some sort of tacit agreement for you to get all... weird with me, got it?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">>"All that I ask is that you come over every now and then, so I can at least appreciate it, and perhaps help you a bit. Now, I’ve got to go back to work so..."<</Dialogue>><br><br>Before you get a chance to answer, she stands, puts her apron back on, and walks away. You stare, fully expecting a smirk or dirty wink from her, but she simply looks back, and giving you a friendly smile. <br><<set $money += 1000>><<set $krisOpinion += 5>><<set $krisObsessedOpinion += 5>> <<set $KrisObsessed to true>><<addTrigger "krisObsessedResponses">><<removeTrigger "krisBored1" "Kris">><<link "Continue" $currentScene>><</link>><</replace>><</link>><br><br><<link "Don't take it.">><<replace "#choice3">><br><<Dialogue "player" "You">>"...I'm flattered, but no. I can't accept this. And I'm still not comfortable with being your... I don't even know what to call it. Sexual target? Sex object?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">>"Fine. I admit I went too far. I... won't bother you again. Just... pop over for a drink now and then, okay? I know deep in my heart that you won’t stop growing. I can feel it."<</Dialogue>><br><br>With that, she gets up, puts her apron on, and walks away. You can't help but notice her enthusiasm sizzling away and as she gets back to work, her mood even sourer than before. Is that a tinge of guilt you feel? No, it couldn’t be…?<br><<set $KrisDisabled to true>><<link "Continue" $currentScene>><</link>><</replace>><</link>><br> </span><br> <</replace>><</link>> </span> <br> <</replace>> <</link>><br><br> <<PersonalityCheck $shyConfident >= 2 "Tell her to fuck off.">> <<replace "#choice1">><br><<Dialogue "player" "You">>"... Just get me my coffee and fuck off already."<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">>"Right, fine! Just... trying to be friendly. And people wonder why I just lech instead of trying to interact. Urgh. Here's your... whatever."<</Dialogue>><br><br>As you sit down, you notice the manager talking to Kris. The conversation gets heated fast, though you can't quite hear it. But you get the idea that Kris has overstepped the line one too many times. The discussion turns rather livid and Kris storms out, throwing her apron to the floor. Well, that is the end of that...<<set $KrisDisabled to true>><br><br><<link "Continue" $currentScene>><</link>> <</replace>> <<Failed>> <<replace "#choice1">><br> <<Dialogue "player" "You">>"... Just… get me my coffee... p-please?"<</Dialogue>><br><br>Well, that was a bust. Kris smirks, knowing you just didn't have it in you to stand up to her. Without saying a word, she hands you the coffee, and as you timidly sit down, the seat groans from the pressure, and you can't help but notice that this coffee tastes... off.<br><<set $KrisObsessed to true>><<set $krisOpinion += 2>><<set $krisObsessedOpinion += 1>> <<addTrigger "krisObsessedResponses">><<removeTrigger "krisBored1" "Kris">><br><<link "Continue" $currentScene>><</link>> <</replace>> <</PersonalityCheck>> </span>`>>
+
+<<print _test>>
+
+<<VisualNovelRender>>
+
+
+:: KrisGift [widget] {"position":"732,371.5","size":"100,100"}
+<<widget "krisGift">>
+
+<<if $args[0] is "potion">>
+  <<set _KrisGiftI to random(0, ($consumables.length - 1))>>
+  <<set $consumables[_KrisGiftI].amount += 1>>
+  <<set $consumables[_KrisGiftI].forSale -= 1>>
+  <<set $KrisGift to $consumables[_KrisGiftI].name>>
+  
+<<elseif $args[0] is "supplement">>
+
+<<elseif $args[0] is "clothing">>
+
+<<else>>
+
+<</if>>
+
+<</widget>>
+
+
+:: prep [nobr] {"position":"854,231.5","size":"100,100"}
+<<set $shyConfident to -2>>
+<<set $carefreeCarefull to -1>>
+<<set $submissiveDominant to -1>>
+<<set $muscle to 20>>
+
+<<set $gameDate = new Date('June 1, 2020 13:37:00')>>
+
+<<script>>
+	var randomIcons = ["https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png", "https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male2.png","https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png", "https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male2.png"];
+document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[Math.floor(Math.random() * randomIcons.length)] +  '")');
+<</script>>
+
+
+<<set $consumables to [
+	{ name: "Taste-improver",
+	description: "Right, this is a weird one. It looks similar to the bottle you found in your fridge, but the side effects note \'increased taste and tongue feel\'.",
+	transform: "instantTongueGrowth",
+	amount: 0,
+	uses: 0,
+	price: 30,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "END 001A booster",
+	description: "Another bottle in the same style of the one you found in your home. On the label is nothing but the weird name, and for some reason some small scribbling noting side effects as \'enlarged lips, chest, hips and distraction\'...?",
+	transform: "instantBimboJuice",
+	amount: 0,
+	uses: 0,
+	price: 40,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "T-booster 29D",
+	description: "Another weird chemical in a bottle, probably from the same source as the one in your room. It feels heavy and the liquid inside somehow feels heavy, and strong. <b>Better be careful with this one, because it might cause some odd changes if you take too many too quickly!</b>",
+	transform: "instantBullJuice",
+	amount: 0,
+	uses: 0,
+	price: 40,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "Lact-aid",
+	description: "It looks like a bottle of milk, except its just... half full? What the hall? It looks like another bottle of the weird experiments.",
+	transform: "instantLactaid",
+	amount: 0,
+	uses: 0,
+	price: 30,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "Puberty++, 001C",
+	description: "...What an incredibly weird name. Its in a fairly standard plastic bottle but the liquid inside it is... weird. Bright orange with white streaks in it, almost like one of those old-fashioned lava lamps. It seems to be constantly in motion, and the smell cannot be described as anything but 'awkward'.",
+	transform: "instantPuberty",
+	amount: 0,
+	uses: 0,
+	price: 50,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "Muscle Boost 29D",
+	description: "This time its an black can with the words 'muscle booster' on it in bright red letters. Smelling the liquid it almost reminds you of beef Jerkey, and not in a good way.",
+	transform: "instantMuscleBoost",
+	amount: 0,
+	uses: 0,
+	price: 30,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "FA-LOSS 133X",
+	description: "The liquid in this bottle looks... thin. Thinner than water, somehow. You have no idea how that can be, but it seems this slim bottle holds quite the suprise.",
+	transform: "instantFatLoss",
+	amount: 0,
+	uses: 0,
+	price: 50,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "FA-GAIN 23A",
+	description: "You wonder how a liquid can look so thick. Its almost like butter, but someone still as thick while being liquid. It looks strangely appetizing though!",
+	transform: "instantFatGain",
+	amount: 0,
+	uses: 0,
+	price: 30,
+	forSale: 0, 
+	settings: []
+	},
+	{ name: "SPHE-GRO-001",
+	description: "This liquid is white, chunky, and has floating orbs in it. The look of it is just insane and it starkly contrasts with the plain and simple bottle it is in. If you didn't fine the trademark lable, you might've thought this to be a lavalamp or something.",
+	transform: "instantBallGrow",
+	amount: 0,
+	uses: 0,
+	price: 50,
+	forSale: 0, 
+	settings: ["futa"]
+	},	
+	{ name: "Girth grow",
+	description: "This bottle is THICC. From the outside it looks like any can of soda if the proportions wern't so odd and there wasn't a homemade lable on it. Still, its weird that the only way this bottle can be deescribed is 'girthy.'",
+	transform: "instantGirthIncrease",
+	amount: 0,
+	uses: 0,
+	price: 50,
+	forSale: 0, 
+	settings: ["futa"]
+	},	
+	{ name: "Erecto-10",
+	description: "Its a tall bottle with a vivid blue liquid in it. You half expect it to glow in the dark, but no luck. Why does the bottle have such a long neck though?",
+	transform: "instantErectionIncrease",
+	amount: 0,
+	uses: 0,
+	price: 50,
+	forSale: 0, 
+	settings: ["futa"]
+	}
+] >>
+
+<<set _barbarian to ($carefreeCarefull * -1) + ($shyConfident * 1)>>
+<<set _cleric to ($submissiveDominant * -1) + ($carefreeCarefull * 1)>>
+<<set _paladin to ($submissiveDominant * 1) + ($shyConfident * 1)>>
+<<set _warlock to ($carefreeCarefull * -1) + ($submissiveDominant * -1)>>
+<<set _rogue to ($carefreeCarefull * -1) + ($submissiveDominant * -1)>>
+<<set _wizard to ($carefreeCarefull * 1) +  ($shyConfident * 1)>>
+
+<<if _barbarian > -7>>
+	<<set _highest to "barbarian">>
+	<<set _highestValue to _barbarian>>
+<</if>>
+<<if _cleric > _highestValue>>
+	<<set _highest to "cleric">>
+	<<set _highestValue to _cleric>>
+<</if>>
+<<if _paladin > _highestValue>>
+	<<set _highest to "paladin">>
+	<<set _highestValue to _paladin>>
+<</if>>
+<<if _warlock > _highestValue>>
+	<<set _highest to "warlock">>
+	<<set _highestValue to _warlock>>
+<</if>>
+<<if _rogue > _highestValue>>
+	<<set _highest to "rogue">>
+	<<set _highestValue to _rogue>>
+<</if>>
+<<if _wizard > _highestValue>>
+	<<set _highest to "wizard">>
+	<<set _highestValue to _wizard>>
+<</if>>
+
+
+:: Untitled Passage {"position":"976,351.5","size":"100,100"}
+<<include prep>>The two of you head over to Kris’ place, where she immediately begins taking off her clothes. <<if $shyConfident > 1>><<Dialogue "player" "You">>"Heh, can’t wait to get right to the point, huh?"<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>"Oh you know it, sexy. Get that hot as fuck body ready, because I want to feel aaaaaaaaaaaall of it"<</Dialogue>>
+
+You smirk, taking it one step further and just ripping your clothes off your body. <<if $dick > 30>> As you did, your dick proudly flops down from its bulge, the veiny length hitting your quad with a satisfying smack <<elseif $dick > 60>> You decide to get the posing action started right away, and instead of ripping out your pants with your hand, you flex your lower body to make your pants explode out from under you… including your dick. That anaconda of veiny flesh was released from its cloth prison, pulsating freely, causing you to moan softly as a result <</if>>
+<<else>><<Dialogue "player" "You">>"K-kris... w-w-what are you doing there?!"<</Dialogue>>
+Kris looks at you with a raised eyebrow, arms to the sides of her hips
+<<Dialogue "KrisCasualObsessed" "Kriss">>"What? It’s my fucking place, isn’t it? Why the hell can’t I strip down? Come on sexy, show me that hot ass bod!"<</Dialogue>>
+
+Sheepishly, you take off your clothes, taking a few sweet seconds to finish the job out of shyness. <<if $dick > 30>> As you did, your dick proudly flops down from its bulge, the veiny length hitting your quad with a satisfying smack while you give off a sheepish smile. After all, she did say it was ok. <<elseif $dick > 60>> As you slowly take off your pants, you instinctively try and hide the massive bulge that was barely being constrained by your undies. It’s futile, however. The veiny length was simply too massive to be anything but prominent. <</if>><</if>>
+
+
+Shortly after, you begin flexing for her. Unsure of where to start, you figured you might as well go for a classic and flex your <<if $muscle > 20>> decent <<elseif $muscle > 30>> huge <<elseif $muscle > 50>> Massive <<elseif $muscle > 70>> colossal <</if>> bicep. Doing so only caused Kris to lick her lips and fondle her boobs as a result
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>"Oh yeah… come on… flex those puppies for me… make them bigger…"<</Dialogue>>
+
+
+You smirk, seeing how Kris was completely in your hand. You decide to slowly pump your bicep bigger and bigger, licking the <<if $muscle > 20>> lemon-sized <<elseif $muscle > 30>> melon-sized <<elseif $muscle > 50>> pumpkin-like <<elseif $muscle > 70>> over inflated beach ball of a <</if>>mound slowly across the peak. Whilst you licked your right peak, you flex your left bicep with the slowest yet most grueling pump imaginable. Your effort was rewarded by Kris’s enthusiasm as she crawled over to your feet. <<if $muscle > 50|$boobs > 50>> Kris’s sight up however is blocked by your massive chest <<if $dick > 50>>, not to mention her face being pressed right up to your pendulum of a dong <</if>><</if>>
+
+Kris licks your <<if $muscle > 20>> chunky <<elseif $muscle > 30>> tree trunk sized <<elseif $muscle > 50>> roman column shaming <<elseif $muscle > 70>> baobab dwarfing <</if>>legs, feeling the ropey muscles on her tongue in pure bliss. You yourself enjoy the sensation a remarkable amount, biting your lip as you feel the barista worship every inch of your body (Dick modifier for erection)
+
+
+<<Dialogue "player" "You">>"Mmmmmm… you like this, don’t you? All of this mass?"<</Dialogue>>
+<<Dialogue "KrisCasualObsessed" "Kriss">>" YES, YES, YES, YES, YES. Don’t you dare fucking stop, flex as hard as you can for me! I don’t want anything else but to see you sweaty and exhausted from all the flexing!"<</Dialogue>>
+
+Delighted by the response, you turn around and have your back facing Kris, resting your hands at the sides of your hips and extending your lats. <<if $shyConfident < 1>>Said action helped with your earlier shyness, though the combination of her compliments and utter adoration of your body did help in bringing you a bit more out of your shell. <</if>> <<if $muscle > 20>> Your back  resembles an anatomy chart, each muscle clear to see as they shift into position, your lats spreading out like a cobra<<elseif $muscle > 40>> As your back spreads out like wings, you can hear Kris drool over the myriad of bulges present. Each group was visible, nay, they were grabbable by themselves due to their sheer size<<elseif $muscle > 60>> It was hard to imagine your lats becoming even larger, given how they were already so bloated that your arms were constantly at an angle nowadays. Alas, you made it possible. Your back extended from the size of a basketball field to a damn aircraft carrier. So colossal were the muscles that made up your back, that there was a noticeable ridge between your upper back and your lower back. As in, Kris could’ve put her hands against them as if they were a shelf. Which she did. Every slight movement made the masses shift, a dance of pure bulk on display <</if>>
+
+Kris wasn’t just enamored; she was in heaven. Immediately she jumped at you, feeling and licking every bump and crevice along your back. Her fingers could (Toughness modifier depending on size, regarding denting
+
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>"YES! HOLY FUCK, THIS IS AMAZING!"<</Dialogue>>
+
+
+<<if $shyConfident < 1>> Feeling and hearing Kris on your back made you drop whatever bit of shame you felt when you arrived there. <</if>> You smirk and roll your shoulders whilst Kris was worshipping you like a goddess, waves of muscle shifting and bursting for the barista to enjoy.
+
+<<Dialogue "player" "You">>"Oh, you ain’t seen nothing yet. Get down for a second, let me turn around"<</Dialogue>>
+
+
+Kris doesn’t even hesitate to obey. After all, if it involved even more glorious girl beef, who was she to deny this luxury?
+Once you felt her climb down, you turn around and face Kris directly, with the worshipper dutifully at your feet. Your <<if $muscle > 20>> sizable  <<elseif $muscle > 30>> huge <<elseif $muscle > 50>> man-shaming <<elseif $muscle > 70>> barrel sized <</if>> chest heaved as you had begun to form a bit of a sweat from the effort you were putting into your flexing. However, Kris was clearly not the only one enjoying herself. You yourself felt good about showing off your gains, a small but noticeable smile of ecstasy marking your face. Up next, you decide to put your hands behind your back, giving Kris a front view of the lats that she had been holding on before. The barista was half tempted to jump right ahead and grab onto those wings, but her focus immediately shifted as you proceeded to crunch your abs. Of course, with your pecs<<if $breasts > 50>> and boobs <</if>> being what they were, you also needed the extra little step of lifting them out of the way so that your armored core could be truly visible. 
+<<if $muscle > 20>> Your well-defined abdominals bunched forward as they pressed against each other. Each one looked as if it had been carved out of pure granite, glimmering in the room thanks to the light sheen of sweat caused by your impromptu routine. Kris couldn’t resist but to feel these bricks, put her fingers between the crevices of your six-pack, even began slowly kissing them in pure adoration. You yourself felt beyond elated, the love that Kris was putting into your physique truly intoxicating <<elseif $muscle > 40>> The 8 muscular bricks surged forward in a fight for space, larger than even most men. Veins crawled from your hips up the various shimmering crevices of your stomach, even up the cluster of obliques that dotted your sides. Kris, being Kris, couldn’t resist but to feel and caress this sweaty mountain range as she practically plastered her face against your abs
+
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>" Mmmm… yes… this is the shit… this can’t get any be-"<</Dialogue>>
+
+
+And just when she thought it couldn’t get better… it got better. You began to shift your stomach back and forth, making our abs grind against each other, compress, expand, basically make your muscles seem as If they had come alive. And of course, your efforts were soon rewarded by a lusty moan coming from the barista below you <<if $breasts > 50>>, which was all you needed in lieu of actually seeing her <</if>>. You smile and blush in return, this display of affection emboldening you to take it one step further
+ <<elseif $muscle > 70>> As you crunch down your abs, Kris has to move her face away less she be smacked by a wall of 10 bloated bricks. Because that’s what they were. Your abs were the size and toughness of actual bricks. The barista looks in wonder, seeing creases form in the overdeveloped masses as they each clashed for space with the other abs between them. So massive was your core that it looked like it protruded out like a gut
+
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>"… Wha… How… Holy shit…"<</Dialogue>>
+
+
+You smirk, knowing that this wasn’t the extent of it all. You begin swaying your stomach from size to side, your abs contracting and expanding in a hypnotic dance of pure mass. Even your obliques were bigger and more defined than other bodybuilders’ six packs! Of course, Kris couldn’t resist the urge to moan loudly as she rushed at the shifting muscles, licking the fat veins that covered your midsection like thunderbolts and lightning. She wanted to stick her fingers in the space between the bricks themselves, but even she could tell that was very very frightening. Of course, you smirk, given how you had an extra trick up your sleeve
+
+
+
+<<Dialogue "player" "You">>"Heh, just you wait, you’re going to love this"<</Dialogue>>
+<<Dialogue "KrisCasualObsessed" "Kriss">>"Heh, right, as if this could get any-"<</Dialogue>>
+
+
+Kris should really learn to wait before she opens her big mouth. Because if she had, she would’ve had a better look at how you began moving your abs like a wave. With all this mass on you, muscle control came as second nature to you. Your core shifted like an ocean of unrelenting muscle, to the point there were points where your abs WEREN’T clashing with each other! You turn to the side, and do the same thing, the monolith of your stomach accentuated by the fat pulsating veins all around them<</if>>
+Kris was in utter bliss at the display happening before her. Your muscles shimmered in the soft glow passing through the window, making your body even more enticing to the barista. She licked, groped, and all around explored your body in as many ways as possible, even grinding her nether regions against your sizable legs. Both of you groaned and moaned out of sheer pleasure, with Kris licking the <<if $muscle > 50>> crevices <<elseif $muscle <= 50>> canyons <</if>> in between every muscle group in your beefy body. She slowly began trailing up to your chest and arms, though you had a better idea. One idea to finish this all with a bang
+
+
+<<Dialogue "player" "You">>"So, tell me Kris… I know you like them big… but how big do you like them?"<</Dialogue>>
+
+
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>"<<if $muscle < 50>> AS BIG AS POSSIBLE. HOLY SHIT [PLAYERNAME], YOU’RE SO FUCKING MASSIVE! I WANT YOU TO KEEP GROWING BITCH, I WANT YOU TO BE AN ABSOLUTE FUCKING MONSTER!!! <<elseif $muscle > 50>> BITCH, PLEASE, YOU’RE A GODDAMN MONSTER ALREADY! A BLOATED BALL OF SEXY FUCKING BEEF, I DARE YOU TO GET BIGGER THAN THIS! <</if>>"<</Dialogue>>
+
+Jackpot. Now you knew just how to end this. Just as Kris was crawling to your upper body, you softly lower her with a single finger, adjusting your feet to get ready for the display that was to come
+<<if $muscle <= 20>> You move your arms under your chest, clasp your hands together, and FLEX. Your entire upper body bunches up and surges outward, making your already decent musculature seem just plain large. Veins popped up along your arms and neck, filling the wanting muscles with oxygen, and even a hint of them made themselves present alongside your chest. 
+You smiled down as you saw the reaction you wanted: Kris’s eyes wide like saucers, immediately jumping on and burying her face into your chest. Said action motivated you to squeeze as much effort as you could muster into it, your face going red as your arms trembled with exertion. This went on for like a minute, until an erotic shudder coming from Kris caused the both of you to stop what you were doing. The barista separated herself, reaching down into her legs, only to smirk as she confirmed what she thought it was
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>" Heh, I guess I was enjoying myself a little too much there. Just… UNFF, that beef always gives me a good time!"<</Dialogue>>
+
+<<if $shyconfident < 1>> You blush furiously as you realize what had just happened, averting Kris’ gaze as you rub the back of your head
+
+
+<<Dialogue "player" "You">>" Ummm, w-well I’m glad you e-enjoyed yourself! Y-yeah, that’s what it was!"<</Dialogue>>
+
+Kris smirked, licking her finger seductively as she refused to break eye contact
+<<Dialogue "KrisCasualObsessed" "Kriss">>"Oh, I’d say I more than enjoyed myself, [playername]"<</Dialogue>>
+
+
+Too flustered by the outcome of what happened, you quickly rush to grab all your clothes and head to a bathroom to get changed. Kris, meanwhile, simply sat down in the couch and enjoyed the afterglow of the whole experience. 
+<<elseif $shyconfident > 1>> You smirk as your think about what that could imply. Did… did Kris pleasure herself while thinking of you? Not like it mattered, right know your just felt remarkably good. Just… the boost of confidence this gave you was like no other, it almost made you want to go and work out right away to keep on growing <</if>>
+
+<<elseif $muscle > 20 && $muscle < 70>> 
+You move your arms under your chest whilst making your hands into fists, clasp them together under your chest and FLEX. Your body, already large, becomes utterly massive as you perform a mind-boggling crab flex, smiling as you leaned down for Kris to see. Veins crawled all along your upper body, from your neck to your chest to your arms and even down to the upper area of your abs, as your pecs clash for space with your arms
+
+Kris immediately jumps and opens her arms wide to feel every inch of your bloated mass. Alas, she was incapable of entirely wrapping her arms around your frame, though she was still content with what she could reach. She shuddered and moaned as she felt your muscles twitch and tremble with all the effort you put into flexing them. <<if $boobs > 50>>Whilst squishy and soft, the size of your boobs didn’t help Kris’s attempts, pushing her back as they pressed against her. <</if>>
+
+You smirk as you see you had Kris entirely under your control. Deciding to mess with the barista a bit more, you bounce your pecs in unison as your muscles rubbed against her lithe body, veins surging forward and covering each of your meaty slabs. You squeeze a bit extra out of the flex as your chest continues to press against your arms, until…
+
+Kris doesn’t even try to suppress it. She elicits a loud moan, her legs becoming slick as she slowly peeled off of your body and drops to the floor
+<<if $shyconfident < 1>> You blush furiously as you realize what had just happened, averting Kris’ gaze as you rub the back of your head
+
+
+<<Dialogue "player" "You">>"Ummm, w-well I’m glad you e-enjoyed yourself! Y-yeah, that’s what it was!"<</Dialogue>>
+
+
+Kris smirked, licking her lips seductively as she looked up at you, no attempt to cover what happened down there. The concept of ‘Shame’ wasn’t really in her vocabulary
+<<Dialogue "KrisCasualObsessed" "Kriss">>"Oh, I’d say I more than enjoyed myself, [playername]"<</Dialogue>>
+
+Too flustered by the outcome of what happened, you quickly rush to grab all your clothes and head to a bathroom to get changed, inevitably having to squeeze yourself through the doorframe. Kris, meanwhile, simply sat down in the couch and enjoyed the afterglow of the whole experience. <<elseif $shyconfident > 1>> You smirk as you see the results of your labor, chuckling to yourself as a lecherous grin spread on Kris’s face. Oh yeah, this felt so fucking great. And to think… you weren’t even done with your mass <</if>>
+
+<<elseif $muscle >= 70>> You smirk as you expand your arms outward, with your lats surging like a cobra’s hood. Even they had visible veins on them, such was your musculature. Then, slowly, you began lowering your arms in an agonizingly slow but powerful crab flex, teasing Kris to no end
+
+<<Dialogue "KrisCasualObsessed" "Kriss">>" COME ON, FLEX ALREADY, I WANT TO SEE YOU FUCKING EXPLODE!"<</Dialogue>>
+You wink, knowing you had her under your control from the start. Of course, given how inhumanly engorged you were, even just slowly moving your arms already caused your chest and traps to begin expanding of their own accord. Your chest and traps burgeon outwards as they fought for space with the muscles nearby, your neck forming a ring around your head from the top-down due to how girthy it was. Veins shot outwards and even reached your face, some as thick as a D type battery
+
+Kris didn’t even care anymore, openly pleasuring herself in front of you, completely and utterly drunk on muscle lust. Once you finally managed to get your arms all the way down, you smile with gritted teeth as you become an utter meatball of muscle. Your fists weren’t even able to reach each other due to the size of your chest, clashing with your arms. And even if that wasn’t the case, your biceps would be doing the exact same thing. Your shoulders were the size of volleyballs which… RIPPLED?! Due to your sheer mass, you had control over your muscles like no other. In your continued teasing of Kris, you make your delts shift like waves whilst your face registered no effort on the matter whatsoever.
+
+Just as Kris fought her lust enough to get closer to the goddess before her, you weren’t done. You stop the crab flex and stand up, letting your arms rest at an angle to your sides. You let your pecs bounce in a sublime dance of muscle control, first individually and then forming waves together… and then forming waves individually. Again, no exertion from your part, barely harder than moving a finger at this point. You begin moving to the side, your steps rumbling the house as you clasp your hands together in front of your obscenely bulging abs. And with one swift motion, you perform a mind-boggling side-chest pose. Your chest shoots up like a rocket, hitting your chin because it had nowhere else to go, your arms exploding like roman columns with just as much detail in their definition.
+
+All of this was pure overload for Kris. The second your chest shot up, she climaxed with a deafening scream, being like that for a good couple of seconds, not even needing to feel your muscles to be in cloud nine
+
+<<if $shyconfident < 1>> You blush furiously as you realize what had just happened, averting Kris’ gaze as you rub the back of your head
+
+<<Dialogue "player" "You">>"Ummm, w-well I’m glad you e-enjoyed yourself! Y-yeah, that’s what it was!"<</Dialogue>>
+
+Kris smirked, licking her lips seductively as she looked up at you, no attempt to cover what happened down there. The concept of ‘Shame’ wasn’t really in her vocabulary
+<<Dialogue "KrisCasualObsessed" "Kriss">>"Oh, I’d say I more than enjoyed myself, [playername]"<</Dialogue>>
+
+
+Too flustered by the outcome of what happened, you quickly rush to grab all your clothes and head to a bathroom to get changed, leaving footprints on the floor and inevitably shattering the doorframe. Kris, meanwhile, simply sat down in the couch and enjoyed the afterglow of the whole experience. <<elseif>> You chuckle and reach down, bringing Kris up with one hand and Frenching her like there was no tomorrow, in a pure display of your power. You separate and look at her straight, unfazed by what just happened down there
+
+
+<<Dialogue "player" "You">>"Hehe, well get ready, because I’m not even fucking tired "<</Dialogue>>
+
+You reach down to feel a certain slickness between your legs, the sensation of all this mighty flexing having had quite the effect on yourself as well. You bring your finger back up, seductively licking your juices <</if>>
+<</if>>
+
+
+:: VisualNovelRender [widget nobr] {"position":"865.5,499","size":"100,100"}
+<<widget "VisualNovelRender">>
+<<timed 0s>><<script>>
+const passage = $("#passages:first-child");
+
+var nodes = $("#passages").first().children().first()[0].childNodes;
+
+$("#passages > .passage").after(`<img style="
+    width: 100%;
+    top: 0;
+    position: absolute;
+    left: 0;
+    -webkit-mask-image: linear-gradient(to bottom, rgb(0 0 0) 50%,rgb(0 0 0 / 0%) 100%);
+" src="https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/Scenes/park.png?raw=true">
+
+<div id="textBoxWrapper" style="
+    position: absolute;
+    background: #0000ff52;
+    top: 65%;
+    min-height: 10%;
+    width: 60%;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 5px 5px 3px black;
+">
+<div id="textBox"></div>
+<div id="continueButton" style="
+    position: absolute;
+    background: white;
+    height: 5vh;
+    width: 5vh;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 50%;
+">    
+</div>
+</div>`);
+
+$("#passages > .passage").css("display", "none");
+
+var i = 1;
+var totalNodes = 0;
+nodes.forEach(function (node) {
+    if (/^\s*$/.test(node.textContent)) {
+
+    }
+    else {
+        totalNodes++;
+    }
+});
+console.log(totalNodes);
+
+var continueLink = document.getElementById("continueButton");
+myFunction();
+continueLink.onclick = myFunction;
+console.log(nodes);
+
+function myFunction() {
+    var currentNode = 0;
+    var changed = false;
+    nodes.forEach(function (node) {
+        if (/^\s*$/.test(node.textContent)) {
+
+        }
+        else {
+            if (currentNode == 0) {
+                $("#textBox").replaceWith('<div id="textBox"></div>');
+                $("#textBox").append(node);
+                console.log(node);
+                if (node.innerHTML ?.contains('link-internal macro-link')) {
+                    $(".link-internal").click(function () {
+                        $(document).trigger({
+                            type: ":replaced",
+                            passage: "my passage",
+                            target: "#whatever"
+                        });
+
+                    });
+                }
+                i++;
+            }
+            currentNode++;
+        }
+    });
+    nodes = $("#passages").first().children().first()[0].childNodes;
+
+}
+
+$(document).on(":replaced", e => {
+    var content = $("#textBox").children("span:first-child");
+
+    var childNodes = content[0].childNodes;
+    console.log(childNodes);
+    childNodes.forEach(function (node) {
+    	if (/^\s*$/.test(node.textContent)) {
+			
+        }        
+        else{
+        $("#passages > .passage")[0].append(node);
+        }
+    });
+});
+<</script>><</timed>>
+<</widget>>
+
+
