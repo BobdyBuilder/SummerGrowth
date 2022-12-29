@@ -1153,7 +1153,8 @@ function continueClick() {
 
 /* Very simple regex, checks if the node contains only whitespace, tabs, newlines and such. */
 function ifNodeEmpty(node) {
-	return /^\s*$/.test(node.textContent);
+	console.log(node);
+	return /^\s*$/gmi.test(node.textContent);
 }
 
 /* creates all the elements needed to render the basic visual novel layout. does NOT create the more specialized render elements such as dialogs, or choices. */
