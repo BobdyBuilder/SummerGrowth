@@ -25507,7 +25507,7 @@ function continueClick() {
 			$("#textBoxWrapper").addClass("borderedWindow");
 
 			/* From here we add all the logic for 'special' renders, such as links, or the icons later. */
-			if (node.innerHTML?.contains('link-internal macro-link')) {
+			if (node.innerHTML?.contains('link-internal macro-link') || node.innerHTML?.contains('link-internal macro-button')) {
 				/* This trigger is needed to let the game know when/if a link has been clicked. */
                 var links = $("#textBox").find(".link-internal");
 				links.click(function () {
@@ -25533,12 +25533,22 @@ function continueClick() {
 				var speechBubble = $("#textBox > .speech");				
 
                 var characterClasses = ["player", "Kris", "KrisObsessed", "Johan", "Eddy", "randomPerson"];
+                var npcBackgrounds = [
+                    "",
+                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Kris.png?raw=true",
+                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/KrisObsessed.png?raw=true",
+                    "https://static.wikia.nocookie.net/aceattorney/images/5/56/Adrian_Normal_1.gif/revision/latest?cb=20120728214720",
+                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/BulkBarnGuy.png?raw=true",
+                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Random_male.png?raw=true"
+                ];
 
                 for(let i = 0; i < characterClasses.length; i++){
                     if(speechBubble.hasClass(characterClasses[i])){
                         var color = $("." + characterClasses[i]).css("background");
                         console.log(color);
                         $("#textBoxWrapper").css("background", color);
+                        $("#npcBox").css("background-image", 'url(' + npcBackgrounds[i] + ')');
+                        $("#npcBox").fadeIn(1000);
                         break;
                     }                    
                 }				
@@ -25579,6 +25589,23 @@ function createVisualNovelRenderElements(){
 		">
 
 		<div id="textBox"></div>
+
+        <div id="playerBox" style="position: absolute;
+            background-image: var(--mcIcon);
+            width: 500px;
+            height: 500px;
+            top: -55vh;
+            left: -10vw;
+            z-index: 0;"></div>
+
+        <div id="npcBox" style="
+            position: absolute;
+            display:none;
+            width: 500px;
+            height: 500px;
+            top: -55vh;
+            left: 70vh;
+            z-index: 0;"></div>
 
 		<div id="continueButton" style="
 			position: absolute;
