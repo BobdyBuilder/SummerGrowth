@@ -14211,7 +14211,7 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
 
 :: NpcFrameUpdate [nobr] {"position":"1000,0","size":"100,100"}
 <<if $krisObsessed is false>>
-<<if $krisLastMuscle + 20 <= $muscle || $krisLastBreasts + 10 <= $breasts || $krisLastHeight + 20 <=  $height || $krisLastDick + 5 <= $dick || $bodyType == "bodybuilder" || $bodyType == "strongman"|| $bodyType == "hulk"|| $bodyType == "heroic"|| $bodyType == "monstrous"|| $bodyType == "gigantic"|| $bodyType == "strong" || $muscle > 30>>
+<<if $krisLastMuscle + 20 <= $muscle || $krisLastBreasts + 20 <= $breasts || $krisLastHeight + 20 <=  $height || $krisLastDick + 5 <= $dick || $bodyType == "bodybuilder" || $bodyType == "strongman"|| $bodyType == "hulk"|| $bodyType == "heroic"|| $bodyType == "monstrous"|| $bodyType == "gigantic"|| $bodyType == "strong" || $muscle > 30>>
 	<<set $krisInterested to true>>
 	<<set $krisObsessed to true>>
 	
