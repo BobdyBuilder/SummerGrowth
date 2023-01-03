@@ -9701,15 +9701,15 @@ Emma blinks a few times, resting her forehead on her hand.
 /* Lactation */
 <<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof') == false>>
     <<if $breastsFullness === 'overflowing'>>
-        <<set _streamEvents.push(
+        <<set _officeEvents.push(
             {warning: false,
             message: "During your shift you're working when you notice some co-workers staring at your chest. You stare back, thinking them just rude but then you notice the wet spots on your outfit! You rush to the bathroom to clear it up, only a few people noticing."})>>
-        <<set _streamEvents.push(
+        <<set _officeEvents.push(
             {warning: true,
             message: "During your shift you're working when you notice some co-workers staring at your chest. You stare back, thinking them just rude but then you notice the wet spots on your outfit! You rush to the bathroom to clear it up, but you're pretty sure Emma saw it..."})>>
     <</if>>
     <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
-        <<set _streamEvents.push(
+        <<set _officeEvents.push(
             {warning: false,
             message: "During your shift you keep getting distracted as your tits are just painfully full. It isn't noticable, but your co-workers does notice you seem a bit distracted."})>>
     <</if>>
@@ -9717,15 +9717,15 @@ Emma blinks a few times, resting her forehead on her hand.
 
 <<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof')>>
     <<if $breastsFullness === 'overflowing'>>
-        <<set _streamEvents.push(
+        <<set _officeEvents.push(
             {warning: false,
             message: "During your shift you do your work when you notice that under your clothing, your breasts start leaking. Luckily, you wear the right outfit and can easily go to the bathroom to clean it up!"})>>
-        <<set _streamEvents.push(
+        <<set _officeEvents.push(
             {warning: false,
             message: "During your shift you do your work when you notice that under your clothing, your breasts start leaking. Luckily, you wear the right outfit and can easily go to the bathroom to clean it up!"})>>
     <</if>>
     <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
-        <<set _streamEvents.push(
+        <<set _officeEvents.push(
             {warning: false,
             message: "During your shift you keep getting distracted as your tits are just painfully full. It isn't noticable, but your co-workers does notice you seem a bit distracted."})>>
     <</if>>
