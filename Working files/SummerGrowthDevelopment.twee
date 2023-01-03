@@ -9323,7 +9323,7 @@ Emma Fray, Human Resources
 	<<goto "jobSideGrade">>
 <</if>>
 
-<<if  _bodyDismissal and $dismissalOffered is false and $daysWorkedOffice > 8 and $jobInterview is false>>
+<<if  _bodyDismissal and $dismissalOffered is false and $daysWorkedOffice > 8 and $jobInterview is false and $jobWarehouse is false>>
 	<<goto "jobDismissal">>
 <</if>>
 
