@@ -18932,8 +18932,8 @@ Each portion for you is now enough to feed a family for a day, that's how much y
 	
 <<if $lactationMorningRoutineEmptying is true>>
 	<p>Your expectations for college life: buying a lot of stuff, drunk parties... you didn't expect spending half an hour on the sink, squeezing milk out of your tits. Amazing. <<if $breasts > 100>>It's surprising you can get it done so quickly, considering those things barely fit through a door... each. Yet you squeeze and massage them, letting it all out. The sink nearly overflows, but luckily these buildings have decent plumbing.<<elseif $breasts >= 80>>And God, these things have gotten large... you just let them hang, though it's getting harder and harder not to make a mess with their immense size. Oh well, nothing to do but wait until they're empty.<<elseif $breasts >= 50>>You got huge breasts, no way around that. And as such, it takes longer for you to milk yourself dry. Heh... milk yourself. Fucking insane that you even do that these days...<<elseif $breasts >= 25>> So here you are, your tits above the sink, being massaged to empty them. Yeah, this is JUST how you imagined college life would be.<</if>></p>
-<</if>>
-<<if $carefreeCarefull >= 1>><p>You also make sure to log how much you're leaking. Gotta keep a check on this after all...</p><</if>>
+
+<<if $carefreeCarefull >= 1>><p>You also make sure to log how much you're leaking. Gotta keep a check on this after all...</p><</if>><</if>>
 	
 <<if $personalityChanged == true>>
 	<p>When you get started, a raging headache comes over you. You quickly go for painkillers, or just anything to make it to go away, but it only lowers it a bit. You also feel the changes to your personality slowly fading; it seems that overriding your personality isn't something that comes free of charge...</p>
