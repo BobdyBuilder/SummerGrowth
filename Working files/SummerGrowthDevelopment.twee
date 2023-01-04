@@ -13196,6 +13196,77 @@ setup.allClothes = jObjects;
     }
 }>>
 
+<<script>>
+$(document).on(':passageinit', function (ev) {
+        /* update the old outfit functions every passageinit */
+        /* TODO remember to remove this event after any new releases 2023-01-04 */
+        const outfit = State.variables.outfit;
+        if (!(outfit && (outfit.top() == null || outfit.bottom() == null || outfit.bra() == null || outfit.underwear() == null || outfit.overwear() == null || outfit.shoes() == null))) {
+            return;
+        }
+    
+        outfit.top = function () {
+            return State.variables.wardrobe.find(item => item.id == this.topId) || setup.emptyClothes;
+        };
+        outfit.bottom = function () {
+            return State.variables.wardrobe.find(item => item.id == this.bottomId) || setup.emptyClothes;
+        };
+        outfit.bra = function () {
+            return State.variables.wardrobe.find(item => item.id == this.braId) || setup.emptyClothes;
+        };
+        outfit.underwear = function () {
+            return State.variables.wardrobe.find(item => item.id == this.underwearId) || setup.emptyClothes;
+        };
+        outfit.overwear = function () {
+            return State.variables.wardrobe.find(item => item.id == this.overwearId) || setup.emptyClothes;
+        };
+        outfit.shoes = function () {
+            return State.variables.wardrobe.find(item => item.id == this.shoesId) || setup.emptyClothes;
+        };
+        outfit.style = function () {
+            if (this.top() == undefined && this.bottom() == undefined && this.overwear() == undefined && this.bra() == undefined && this.bottom() == undefined && this.underwear() == undefined && this.shoes() == undefined) {
+                return undefined;
+            }
+    
+            /*find most common object*/
+            function mode(arr) {
+                return arr.sort((a, b) =>
+                    arr.filter(v => v === a).length
+                    - arr.filter(v => v === b).length
+                ).pop();
+            }
+    
+            /*setup objects*/
+            var retval = [];
+            var presentArchetypes = [];
+    
+            /*add all the archetypes of the clothing to a single heap*/
+            if (this.top() != undefined && this.top().archetypes != undefined) {
+                presentArchetypes.push(this.top().archetypes);
+            }
+            if (this.bottom() != undefined && this.bottom().archetypes != undefined) {
+                presentArchetypes.push(this.bottom().archetypes);
+            }
+            if (this.underwear() != undefined && this.underwear().archetypes != undefined) {
+                presentArchetypes.push(this.underwear().archetypes);
+            }
+            if (this.bra() != undefined && this.bra().archetypes != undefined) {
+                presentArchetypes.push(this.bra().archetypes);
+            }
+            if (this.overwear() != undefined && this.overwear().archetypes != undefined) {
+                presentArchetypes.push(this.overwear().archetypes);
+            }
+            if (this.shoes() != undefined && this.shoes().archetypes != undefined) {
+                presentArchetypes.push(this.shoes().archetypes);
+            }
+            presentArchetypes = mode(presentArchetypes.flat());
+            /*get how many times each different archetype is present*/
+            return presentArchetypes;
+        };
+    }
+);
+<</script>>
+
 
 :: StoryInit {"position":"0,300","size":"100,100"}
 <<include "InitializeAllClothes">>
