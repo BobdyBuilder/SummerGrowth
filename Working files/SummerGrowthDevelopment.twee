@@ -3309,7 +3309,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
   <tr>
     <td>Top</td>
 	<td>
-    	<<if $outfit.top() === setup.emptyClothes>>
+    	<<if $outfit.top() == null || $outfit.top() === setup.emptyClothes>>
         	<<set _topName to '-'>>
 		<<else>>
         	<<set _topName to $outfit.top().name>>
@@ -3338,7 +3338,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     <tr>
     <td>Bottom</td>
 		<td>
-        <<if $outfit.bottom() === setup.emptyClothes>>
+        <<if $outfit.bottom() == null || $outfit.bottom() === setup.emptyClothes>>
         	<<set _bottomName to '-'>>
 		<<else>>
         	<<set _bottomName to $outfit.bottom().name>>
@@ -3367,7 +3367,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     <tr>
     <td>Underwear</td>
 		<td>
-        <<if $outfit.underwear() === setup.emptyClothes>>
+        <<if $outfit.underwear() == null || $outfit.underwear() === setup.emptyClothes>>
         	<<set _underwearName to '-'>>
 		<<else>>
         	<<set _underwearName to $outfit.underwear().name>>
@@ -3396,7 +3396,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     <tr>
     <td>Bra</td>
 		<td>
-    	<<if $outfit.bra() === setup.emptyClothes>>
+    	<<if $outfit.bra() == null || $outfit.bra() === setup.emptyClothes>>
         	<<set _braName to '-'>>
 		<<else>>
         	<<set _braName to $outfit.bra().name>>
@@ -3425,7 +3425,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
     <tr>
     <td>Overwear</td>
 		<td>
-    	<<if $outfit.overwear() === setup.emptyClothes>>
+    	<<if $outfit.overwear() == null || $outfit.overwear() === setup.emptyClothes>>
         	<<set _overwearName to '-'>>
 		<<else>>
         	<<set _overwearName to $outfit.overwear().name>>
@@ -3454,7 +3454,7 @@ The one place in your home that is 100% you: neatly arranged and well decorated,
   <tr>
     <td>Shoes</td>
 		<td>
-    	<<if $outfit.shoes() === setup.emptyClothes>>
+    	<<if $outfit.shoes() == null || $outfit.shoes() === setup.emptyClothes>>
         	<<set _shoesName to '-'>>
 		<<else>>
         	<<set _shoesName to $outfit.shoes().name>>
@@ -12980,7 +12980,7 @@ setup.allClothes = jObjects;
         State.variables.outfit.bottom(),
         State.variables.outfit.underwear(),
         State.variables.outfit.shoes()
-    ].filter(clothes => clothes !== setup.emptyClothes);
+    ].filter(clothes => clothes != null || clothes !== setup.emptyClothes);
 }>>
 
 <<set setup.getTightOutfitClothesArray to function () {
@@ -12994,11 +12994,11 @@ setup.allClothes = jObjects;
 
 <<set setup.getNudeOutfitSlots to function () {
     const nudeSlots = [];
-    if (State.variables.outfit.top() === setup.emptyClothes && State.variables.outfit.overwear() === setup.emptyClothes) {
+    if ((State.variables.outfit.top() == null || State.variables.outfit.top() === setup.emptyClothes) && (State.variables.outfit.overwear() == null || State.variables.outfit.overwear() === setup.emptyClothes)) {
         nudeSlots.push('top');
         nudeSlots.push('overwear');
     }
-    if (State.variables.outfit.bottom() === setup.emptyClothes) {
+    if (State.variables.outfit.bottom() == null || State.variables.outfit.bottom() === setup.emptyClothes) {
         nudeSlots.push('bottom');
     }
     return nudeSlots;
@@ -13009,7 +13009,7 @@ setup.allClothes = jObjects;
 }>>
 
 <<set setup.getFitDescriptionOfClothes to function (clothes) {
-    if (clothes === setup.emptyClothes) {
+    if (clothes == null || clothes === setup.emptyClothes) {
         return null;
     }
     return setup.getFitDescription(clothes.size, clothes.slot, clothes.tolerance);
@@ -13049,7 +13049,7 @@ setup.allClothes = jObjects;
 
 /* Gets the human readable bonuses from the clothing. */
  <<set setup.getReadableBonusFromClothing = function (clothingItem, showActive = false) {
-    if (clothingItem === setup.emptyClothes || clothingItem?.bonuses?.length <= 0) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes || clothingItem?.bonuses?.length <= 0) {
         return '-';
     }
 
@@ -13078,7 +13078,7 @@ setup.allClothes = jObjects;
 
 /* The single method that describes the price of clothing. For balancing, adjust this. For now it's done linearly, to make sure that the progression isn't too hard. */
  <<set setup.getPriceFromClothing = function (clothingItem) {
-    if (clothingItem === setup.emptyClothes) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes) {
         throw 'undefined clothingitem in getPriceFromClothing';
     }
     return parseInt(clothingItem.price + (clothingItem.price * clothingItem.size));
@@ -13086,7 +13086,7 @@ setup.allClothes = jObjects;
 
 /* Gets the human readable archetypes from the clothing. */
 <<set setup.getReadableArchetypesFromClothing to function (clothingItem) {
-	if(clothingItem === setup.emptyClothes){
+	if(clothingItem == undefined || clothingItem === setup.emptyClothes){
     	return '-';
     }
     if (clothingItem.archetypes.length > 0)
@@ -13104,7 +13104,7 @@ setup.allClothes = jObjects;
 
 /* Retrieves boolean fit/doesn't fit. */
 <<set setup.getFitFromClothing = function (clothingItem) {
-	if(clothingItem === setup.emptyClothes){
+	if(clothingItem == null || clothingItem === setup.emptyClothes){
     	return '-';
     }
 	var fits = setup.getReadableFitFromClothing(clothingItem);
@@ -13133,7 +13133,7 @@ setup.allClothes = jObjects;
 
 /* retrieves human readable fit from the clothing. */
 <<set setup.getReadableFitFromClothing = function (clothingItem) {/**/
-    if (clothingItem === setup.emptyClothes) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes) {
         return '-';
     }
     return setup.getReadableFitFromSize(clothingItem.size, clothingItem.slot, clothingItem.tolerance);
