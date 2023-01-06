@@ -3560,7 +3560,7 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 	<<set $elenaDate to false>>
 <</if>>
 
-<<if krisDate1Delay>>
+<<if $krisDate1Delay>>
 <<set $krisDate1 to true>>
 <</if>>
 
