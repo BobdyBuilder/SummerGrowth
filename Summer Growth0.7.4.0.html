@@ -1470,7 +1470,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -3233,7 +3233,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
   &lt;tr&gt;
     &lt;td&gt;Top&lt;/td&gt;
 	&lt;td&gt;
-    	&lt;&lt;if $outfit.top() === setup.emptyClothes&gt;&gt;
+    	&lt;&lt;if $outfit.top() == null || $outfit.top() === setup.emptyClothes&gt;&gt;
         	&lt;&lt;set _topName to &#39;-&#39;&gt;&gt;
 		&lt;&lt;else&gt;&gt;
         	&lt;&lt;set _topName to $outfit.top().name&gt;&gt;
@@ -3262,7 +3262,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
     &lt;tr&gt;
     &lt;td&gt;Bottom&lt;/td&gt;
 		&lt;td&gt;
-        &lt;&lt;if $outfit.bottom() === setup.emptyClothes&gt;&gt;
+        &lt;&lt;if $outfit.bottom() == null || $outfit.bottom() === setup.emptyClothes&gt;&gt;
         	&lt;&lt;set _bottomName to &#39;-&#39;&gt;&gt;
 		&lt;&lt;else&gt;&gt;
         	&lt;&lt;set _bottomName to $outfit.bottom().name&gt;&gt;
@@ -3291,7 +3291,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
     &lt;tr&gt;
     &lt;td&gt;Underwear&lt;/td&gt;
 		&lt;td&gt;
-        &lt;&lt;if $outfit.underwear() === setup.emptyClothes&gt;&gt;
+        &lt;&lt;if $outfit.underwear() == null || $outfit.underwear() === setup.emptyClothes&gt;&gt;
         	&lt;&lt;set _underwearName to &#39;-&#39;&gt;&gt;
 		&lt;&lt;else&gt;&gt;
         	&lt;&lt;set _underwearName to $outfit.underwear().name&gt;&gt;
@@ -3320,7 +3320,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
     &lt;tr&gt;
     &lt;td&gt;Bra&lt;/td&gt;
 		&lt;td&gt;
-    	&lt;&lt;if $outfit.bra() === setup.emptyClothes&gt;&gt;
+    	&lt;&lt;if $outfit.bra() == null || $outfit.bra() === setup.emptyClothes&gt;&gt;
         	&lt;&lt;set _braName to &#39;-&#39;&gt;&gt;
 		&lt;&lt;else&gt;&gt;
         	&lt;&lt;set _braName to $outfit.bra().name&gt;&gt;
@@ -3349,7 +3349,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
     &lt;tr&gt;
     &lt;td&gt;Overwear&lt;/td&gt;
 		&lt;td&gt;
-    	&lt;&lt;if $outfit.overwear() === setup.emptyClothes&gt;&gt;
+    	&lt;&lt;if $outfit.overwear() == null || $outfit.overwear() === setup.emptyClothes&gt;&gt;
         	&lt;&lt;set _overwearName to &#39;-&#39;&gt;&gt;
 		&lt;&lt;else&gt;&gt;
         	&lt;&lt;set _overwearName to $outfit.overwear().name&gt;&gt;
@@ -3378,7 +3378,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
   &lt;tr&gt;
     &lt;td&gt;Shoes&lt;/td&gt;
 		&lt;td&gt;
-    	&lt;&lt;if $outfit.shoes() === setup.emptyClothes&gt;&gt;
+    	&lt;&lt;if $outfit.shoes() == null || $outfit.shoes() === setup.emptyClothes&gt;&gt;
         	&lt;&lt;set _shoesName to &#39;-&#39;&gt;&gt;
 		&lt;&lt;else&gt;&gt;
         	&lt;&lt;set _shoesName to $outfit.shoes().name&gt;&gt;
@@ -3472,7 +3472,7 @@ $(&quot;.macro-live&quot;).trigger(&quot;:liveupdateinternal&quot;);
 	&lt;&lt;set $elenaDate to false&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if krisDate1Delay&gt;&gt;
+&lt;&lt;if $krisDate1Delay&gt;&gt;
 &lt;&lt;set $krisDate1 to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
@@ -12477,7 +12477,7 @@ setup.allClothes = jObjects;
         State.variables.outfit.bottom(),
         State.variables.outfit.underwear(),
         State.variables.outfit.shoes()
-    ].filter(clothes =&gt; clothes !== setup.emptyClothes);
+    ].filter(clothes =&gt; clothes != null || clothes !== setup.emptyClothes);
 }&gt;&gt;
 
 &lt;&lt;set setup.getTightOutfitClothesArray to function () {
@@ -12491,11 +12491,11 @@ setup.allClothes = jObjects;
 
 &lt;&lt;set setup.getNudeOutfitSlots to function () {
     const nudeSlots = [];
-    if (State.variables.outfit.top() === setup.emptyClothes &amp;&amp; State.variables.outfit.overwear() === setup.emptyClothes) {
+    if ((State.variables.outfit.top() == null || State.variables.outfit.top() === setup.emptyClothes) &amp;&amp; (State.variables.outfit.overwear() == null || State.variables.outfit.overwear() === setup.emptyClothes)) {
         nudeSlots.push(&#39;top&#39;);
         nudeSlots.push(&#39;overwear&#39;);
     }
-    if (State.variables.outfit.bottom() === setup.emptyClothes) {
+    if (State.variables.outfit.bottom() == null || State.variables.outfit.bottom() === setup.emptyClothes) {
         nudeSlots.push(&#39;bottom&#39;);
     }
     return nudeSlots;
@@ -12506,7 +12506,7 @@ setup.allClothes = jObjects;
 }&gt;&gt;
 
 &lt;&lt;set setup.getFitDescriptionOfClothes to function (clothes) {
-    if (clothes === setup.emptyClothes) {
+    if (clothes == null || clothes === setup.emptyClothes) {
         return null;
     }
     return setup.getFitDescription(clothes.size, clothes.slot, clothes.tolerance);
@@ -12546,7 +12546,7 @@ setup.allClothes = jObjects;
 
 /* Gets the human readable bonuses from the clothing. */
  &lt;&lt;set setup.getReadableBonusFromClothing = function (clothingItem, showActive = false) {
-    if (clothingItem === setup.emptyClothes || clothingItem?.bonuses?.length &lt;= 0) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes || clothingItem?.bonuses?.length &lt;= 0) {
         return &#39;-&#39;;
     }
 
@@ -12575,7 +12575,7 @@ setup.allClothes = jObjects;
 
 /* The single method that describes the price of clothing. For balancing, adjust this. For now it&#39;s done linearly, to make sure that the progression isn&#39;t too hard. */
  &lt;&lt;set setup.getPriceFromClothing = function (clothingItem) {
-    if (clothingItem === setup.emptyClothes) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes) {
         throw &#39;undefined clothingitem in getPriceFromClothing&#39;;
     }
     return parseInt(clothingItem.price + (clothingItem.price * clothingItem.size));
@@ -12583,7 +12583,7 @@ setup.allClothes = jObjects;
 
 /* Gets the human readable archetypes from the clothing. */
 &lt;&lt;set setup.getReadableArchetypesFromClothing to function (clothingItem) {
-	if(clothingItem === setup.emptyClothes){
+	if(clothingItem == undefined || clothingItem === setup.emptyClothes){
     	return &#39;-&#39;;
     }
     if (clothingItem.archetypes.length &gt; 0)
@@ -12601,7 +12601,7 @@ setup.allClothes = jObjects;
 
 /* Retrieves boolean fit/doesn&#39;t fit. */
 &lt;&lt;set setup.getFitFromClothing = function (clothingItem) {
-	if(clothingItem === setup.emptyClothes){
+	if(clothingItem == null || clothingItem === setup.emptyClothes){
     	return &#39;-&#39;;
     }
 	var fits = setup.getReadableFitFromClothing(clothingItem);
@@ -12630,7 +12630,7 @@ setup.allClothes = jObjects;
 
 /* retrieves human readable fit from the clothing. */
 &lt;&lt;set setup.getReadableFitFromClothing = function (clothingItem) {/**/
-    if (clothingItem === setup.emptyClothes) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes) {
         return &#39;-&#39;;
     }
     return setup.getReadableFitFromSize(clothingItem.size, clothingItem.slot, clothingItem.tolerance);
@@ -12691,7 +12691,78 @@ setup.allClothes = jObjects;
         console.log(&#39;Final inventory for &#39; + storeName + &#39;Inventory: &#39;);
         console.log(State.variables[storeName + &#39;Inventory&#39;]);
     }
-}&gt;&gt;</tw-passagedata><tw-passagedata pid="148" name="StoryInit" tags="" position="0,300" size="100,100">&lt;&lt;include &quot;InitializeAllClothes&quot;&gt;&gt;
+}&gt;&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).on(&#39;:passageinit&#39;, function (ev) {
+        /* update the old outfit functions every passageinit */
+        /* TODO remember to remove this event after any new releases 2023-01-04 */
+        const outfit = State.variables.outfit;
+        if (!(outfit &amp;&amp; (outfit.top() == null || outfit.bottom() == null || outfit.bra() == null || outfit.underwear() == null || outfit.overwear() == null || outfit.shoes() == null))) {
+            return;
+        }
+    
+        outfit.top = function () {
+            return State.variables.wardrobe.find(item =&gt; item.id == this.topId) || setup.emptyClothes;
+        };
+        outfit.bottom = function () {
+            return State.variables.wardrobe.find(item =&gt; item.id == this.bottomId) || setup.emptyClothes;
+        };
+        outfit.bra = function () {
+            return State.variables.wardrobe.find(item =&gt; item.id == this.braId) || setup.emptyClothes;
+        };
+        outfit.underwear = function () {
+            return State.variables.wardrobe.find(item =&gt; item.id == this.underwearId) || setup.emptyClothes;
+        };
+        outfit.overwear = function () {
+            return State.variables.wardrobe.find(item =&gt; item.id == this.overwearId) || setup.emptyClothes;
+        };
+        outfit.shoes = function () {
+            return State.variables.wardrobe.find(item =&gt; item.id == this.shoesId) || setup.emptyClothes;
+        };
+        outfit.style = function () {
+            if (this.top() == undefined &amp;&amp; this.bottom() == undefined &amp;&amp; this.overwear() == undefined &amp;&amp; this.bra() == undefined &amp;&amp; this.bottom() == undefined &amp;&amp; this.underwear() == undefined &amp;&amp; this.shoes() == undefined) {
+                return undefined;
+            }
+    
+            /*find most common object*/
+            function mode(arr) {
+                return arr.sort((a, b) =&gt;
+                    arr.filter(v =&gt; v === a).length
+                    - arr.filter(v =&gt; v === b).length
+                ).pop();
+            }
+    
+            /*setup objects*/
+            var retval = [];
+            var presentArchetypes = [];
+    
+            /*add all the archetypes of the clothing to a single heap*/
+            if (this.top() != undefined &amp;&amp; this.top().archetypes != undefined) {
+                presentArchetypes.push(this.top().archetypes);
+            }
+            if (this.bottom() != undefined &amp;&amp; this.bottom().archetypes != undefined) {
+                presentArchetypes.push(this.bottom().archetypes);
+            }
+            if (this.underwear() != undefined &amp;&amp; this.underwear().archetypes != undefined) {
+                presentArchetypes.push(this.underwear().archetypes);
+            }
+            if (this.bra() != undefined &amp;&amp; this.bra().archetypes != undefined) {
+                presentArchetypes.push(this.bra().archetypes);
+            }
+            if (this.overwear() != undefined &amp;&amp; this.overwear().archetypes != undefined) {
+                presentArchetypes.push(this.overwear().archetypes);
+            }
+            if (this.shoes() != undefined &amp;&amp; this.shoes().archetypes != undefined) {
+                presentArchetypes.push(this.shoes().archetypes);
+            }
+            presentArchetypes = mode(presentArchetypes.flat());
+            /*get how many times each different archetype is present*/
+            return presentArchetypes;
+        };
+    }
+);
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="148" name="StoryInit" tags="" position="0,300" size="100,100">&lt;&lt;include &quot;InitializeAllClothes&quot;&gt;&gt;
 &lt;&lt;include &quot;initBalance&quot;&gt;&gt;
 &lt;&lt;include &quot;initEvents&quot;&gt;&gt;
 
