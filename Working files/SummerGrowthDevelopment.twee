@@ -2871,6 +2871,7 @@ The goal of the game is to keep up with your growing body and make the best of i
 <<set $iconSize to "125px">>
 <<set $debug to false>>
 <<set $futa to false>>
+<<set $visualNovelRenderSetting to true>>
 
 <</nobr>>
 
@@ -4693,6 +4694,12 @@ Determines the general rate at which the main character grows. This makes the ga
 <<radiobutton "$growthMod" 0.5 autocheck>> Slow
 <<radiobutton "$growthMod" 1 autocheck>> Medium
 <<radiobutton "$growthMod" 1.5 autocheck>>  Fast
+
+<h2>Use visual novel style rendering </h2>
+Adds a new style of rendering dialogs in the game.
+<<radiobutton "$visualNovelRenderSetting" true autocheck>> true
+<<radiobutton "$visualNovelRenderSetting" false autocheck>> false
+
 
 <h2>Daily amount of potions </h2>
 Determines the amount of potions that will appear in the shop daily.
@@ -7556,6 +7563,15 @@ Determines the general speed at which the main character will grow. This makes t
 <<radiobutton "$growthMod" 1 autocheck>> Medium
 <br>
 <<radiobutton "$growthMod" 1.5 autocheck>>  Fast
+<br>
+<br>
+<h2>Use visual novel style rendering </h2>
+<br>
+Adds a new style of rendering dialogs in the game.
+<br>
+<<radiobutton "$visualNovelRenderSetting" true autocheck>> true
+<br>
+<<radiobutton "$visualNovelRenderSetting" false autocheck>> false
 <br>
 <br>
 <h2>Daily amount of potions </h2>
@@ -25556,6 +25572,7 @@ You bring the phone to your chest, pushing it tightly against it, as you let out
 
 :: VisualNovelRender [widget nobr] {"position":"865.5,499","size":"100,100"}
 <<widget "VisualNovelRender">>
+<<if $visualNovelRenderSetting>>
 <<timed 0s>><<script>>
 
 /*The logic of this widget is simple, but goes through a few steps. It finds the html object that the game is normally rendered in. From that passage, it retrieves all HTML nodes. The original passage is than made hidden, but NOT destroyed. The original passage from now on functions as storage for the nodes that are to be clicked through. */
@@ -25664,13 +25681,7 @@ function ifNodeEmpty(node) {
 
 /* creates all the elements needed to render the basic visual novel layout. does NOT create the more specialized render elements such as dialogs, or choices. */
 function createVisualNovelRenderElements(){
-	$("#passages > .passage").after(`<img style="
-		width: 100%;
-		top: 0;
-		position: absolute;
-		left: 0;
-		-webkit-mask-image: linear-gradient(to bottom, rgb(0 0 0) 50%,rgb(0 0 0 / 0%) 100%);
-	" src="https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/Scenes/park.png?raw=true">
+	$("#passages > .passage").after(`
 
 	<div id="textBoxWrapper" class="borderedWindow" style="
 		position: relative;		
@@ -25680,13 +25691,29 @@ function createVisualNovelRenderElements(){
 
 		<div id="textBox"></div>
 
-        <div id="playerBox" style="position: absolute;
-            background-image: var(--mcIcon);
+        <div id="playerBox" style="position: absolute;    
             width: 500px;
             height: 500px;
-            top: -55vh;
+            top: -54vh;
             left: -10vw;
-            z-index: 0;"></div>
+            z-index: 0;
+            border-radius: 250px;">
+                <div id="playerBoxBackground" style="    background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Scenes/park.png);
+                    background-size: 100vw 100vh;
+                    background-position-y: 50vw;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    border-radius: 250px;
+                    background-attachment: fixed;"></div>
+                <div id="playerBoxBust" style="    background-image: url(https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/PlayerBusts/SumoWrestler_t.png?raw=true);
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    border-radius: 250px;"></div>
+        </div>
 
         <div id="npcBox" style="
             position: absolute;
@@ -25722,6 +25749,8 @@ $(document).on(":replaced", e => {
 			$("#passages > .passage")[0].append(node);
         }        
     });
+    continueClick();
 });
 <</script>><</timed>>
+<</if>>
 <</widget>>
