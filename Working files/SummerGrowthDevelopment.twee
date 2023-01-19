@@ -627,8 +627,9 @@ Macro.add('Dialogue', {
     }
 });
 
-Config.history.controls = false;
-Config.history.maxStates = 1;
+Config.history.controls = true;
+Config.history.maxStates = 3;
+
 
 (function () {
     "use strict";
@@ -4737,14 +4738,6 @@ When this is on, the player may start leaking milk
 	<<set $difficultyMod to 1>>
 <</if>>
 <<set $rentAmount to 100 * $difficultyMod>>
-	
-  <<if $debug is "true">>
-	<<run Config.history.maxStates = 5;>>
-	<<run Config.history.controls = true;>>
-	<<else>>
-	<<run Config.history.maxStates = 1;>>
-	<<run Config.history.controls = false;>>
-  <</if>>
 
   <<script>>
 	var iconSize = State.getVar('$iconSize');
