@@ -1724,8 +1724,8 @@ Money: $<<live Math.round($money)>>
 <<set $deletedLog to []>>
 
 <<set $history to 5>>
-<<run Config.history.maxStates = 1;>>
-<<run Config.history.controls = false;>>
+<<run Config.history.maxStates = 3;>>
+<<run Config.history.controls = true;>>
 <<include "StoreRefresh">>
 
 <<set $workingOutBonus to setup.balance.muscleAllowancePerDay>>
