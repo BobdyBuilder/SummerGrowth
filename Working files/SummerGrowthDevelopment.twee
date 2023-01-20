@@ -2868,6 +2868,32 @@ The goal of the game is to keep up with your growing body and make the best of i
 
 :: eventTesting [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
 
+<<listbox "$eventToDebugName" autoselect>>
+	<<optionsfrom setup.events.map(event => event.name)>>
+<</listbox>>
+
+
+        <<live $eventToDebug>>
+
+
+
+<<timed 0s>>
+<<script>>
+const inputs = document.getElementById('listbox-eventtodebugname');
+
+inputs.onchange = function () {
+    console.log("changed");
+    State.variables.eventToDebug = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).content;
+    $(".macro-live").trigger(":liveupdateinternal");
+    $(document).trigger(":liveupdate");
+
+};
+<</script>>
+<</timed>>
+
+
 [[Return|$return]]
 
 :: Cheats [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
@@ -21684,7 +21710,26 @@ repeatable: false,
             npc: [],
                 content: 'Entering the thrift store, you walk around, and almost immediately run into Tasha. She enthusiastically smiles at your sight.<br><br><<Dialogue "Tasha" "Tasha">>"Oh, there you are dear, oh my, you\'ve changed! Did you get a new sweater? We have PLENTY of new sweaters here, along with some new arrivals! But never mind that, what DOES matter is I got that thing you were looking for!"<</Dialogue>><br><br>		<<Dialogue "player" "You">>"...The thing I was looking for?"<</Dialogue>><br><br><<Dialogue "Tasha" "Tasha">>"Yes, yes, you asked me to keep an eye out for more! Well, I found some of the goods that came in that same batch!"<</Dialogue>><br><br>With shaky hands, she gives you a box full of... junk. Well, that\'s a bit anticlimatic. While you rummage around in it you find mostly useless stuff, like receipts, a few cleaning products, a toothbrush and... wait, a USB stick! It even has a label on it; \'If found, return to Toshi\'. It even has an address on it. Wait, that’s YOUR ADDRESS! Now you not only have a name, but also some digital information that you might be able to salvage! Tasha says something, but you you are so hyped you don’t even pay attention, instead, you lift her tiny frame in your arms and hug her tight in gratitude. A bit stunned, the woman is left spinning in confusion as you hurry home to test this thing. <<set $currentScene to "pcUsbHacking">>'
     },
-{
+    {
+        name: 'mainQuestUsbFilesUnlocked',
+        locationTags: ['Home'],
+        conditions: [
+                
+                () => State.variables.usbPassword1Unlocked,
+                () => State.variables.usbPassword2Unlocked,
+                () => State.variables.usbPassword3Unlocked,
+                () => State.variables.usbPassword4Unlocked,
+                () => State.variables.usbPassword5Unlocked,
+                () => State.variables.usbPassword6Unlocked,
+                () => State.variables.usbPassword7Unlocked
+            ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `Finally you have all the USB files unlocked. There was a lot to take in with them; the growth of this Toshi, and what this means for you. You learned WHY you are growing so much, and how that mysterious drink you had when you moved in here was some sort of 'gene-unlocker'. You sit down on your couch, <<if (($muscle + $fat) * $heightMod) > 100>> and as you forget about your immense weight you simply crush it between you. You didn't even mean to do so, but your body has grown so much that nothing is made for you anymore. <<elseif (($muscle + $fat) * $heightMod) > 70>> making it audibly groan under you. If you keep growing like this nothing will accomodate your size soon. <<else>> letting your growing body rest. <</if>>You do something you havn't done in some time; actually sitting down and taking stock of your growth. <br><br><<if $tongue > 0 || $lips > 0>> You begin with your mouth; before your transformations started you had pretty thin lips and hell, you didn't even think about your tongue. But now... <<if tongue >= 6>> You tongue has changes to something that looks more like a tentacle than a normal human tongue. You feel the cool air hit it as you let it pass between your lips, wet and dripping with drool. It's gigantic, kinda hot... and definately not human. <<elseif $tongue >= 3>> Your tongue is inhumanely long and flexible, dripping with drool and so sensative you can almost taste the air as you let it out. Heh, it began kinda funny but now it definately looks gigantic. <<elseif $tongue >= 1>> Your tongue is big. It looks almost too big for your mouth, but you easily fit it in, somehow. It doesn't look THAT weird to be honest, and you've become quite the kisser with it!<</if>><<if $lips >= 0>>And your lips started as pretty thin, but now they're just... <<if $lips <= 0>>thin<<elseif $lips <= 1>>average<<elseif $lips <= 2>>plump<<elseif $lips <= 3>>kissable<<elseif $lips <= 4>>sensual<<elseif $lips <= 5>>thick<<elseif $lips <= 6>>incredibly full<<else>>huge<</if>>. They look good on you, but its another change to your body you did without really thinking about it.<</if>><</if>><br><br><<if $breasts >= 25>>Your torso also has gone through some changes. Well, your chest.<</if>>`
+    },
+    {
     name: 'ifBreastsBiggerThan50_ThotCheck',
         locationTags: ['outOfHouse'],
             conditions: [
