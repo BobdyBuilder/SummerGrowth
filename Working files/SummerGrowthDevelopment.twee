@@ -2869,6 +2869,32 @@ The goal of the game is to keep up with your growing body and make the best of i
 
 :: eventTesting [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
 
+<<listbox "$eventToDebugName" autoselect>>
+	<<optionsfrom setup.events.map(event => event.name)>>
+<</listbox>>
+
+
+        <<live $eventToDebug>>
+
+
+
+<<timed 0s>>
+<<script>>
+const inputs = document.getElementById('listbox-eventtodebugname');
+
+inputs.onchange = function () {
+    console.log("changed");
+    State.variables.eventToDebug = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).content;
+    $(".macro-live").trigger(":liveupdateinternal");
+    $(document).trigger(":liveupdate");
+
+};
+<</script>>
+<</timed>>
+
+
 [[Return|$return]]
 
 :: Cheats [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
@@ -21677,7 +21703,32 @@ repeatable: false,
             npc: [],
                 content: 'Entering the thrift store, you walk around, and almost immediately run into Tasha. She enthusiastically smiles at your sight.<br><br><<Dialogue "Tasha" "Tasha">>"Oh, there you are dear, oh my, you\'ve changed! Did you get a new sweater? We have PLENTY of new sweaters here, along with some new arrivals! But never mind that, what DOES matter is I got that thing you were looking for!"<</Dialogue>><br><br>		<<Dialogue "player" "You">>"...The thing I was looking for?"<</Dialogue>><br><br><<Dialogue "Tasha" "Tasha">>"Yes, yes, you asked me to keep an eye out for more! Well, I found some of the goods that came in that same batch!"<</Dialogue>><br><br>With shaky hands, she gives you a box full of... junk. Well, that\'s a bit anticlimatic. While you rummage around in it you find mostly useless stuff, like receipts, a few cleaning products, a toothbrush and... wait, a USB stick! It even has a label on it; \'If found, return to Toshi\'. It even has an address on it. Wait, that’s YOUR ADDRESS! Now you not only have a name, but also some digital information that you might be able to salvage! Tasha says something, but you you are so hyped you don’t even pay attention, instead, you lift her tiny frame in your arms and hug her tight in gratitude. A bit stunned, the woman is left spinning in confusion as you hurry home to test this thing. <<set $currentScene to "pcUsbHacking">>'
     },
-{
+    {
+        name: 'mainQuestUsbFilesUnlocked',
+        locationTags: ['Home'],
+        conditions: [
+                
+                () => State.variables.usbPassword1Unlocked,
+                () => State.variables.usbPassword2Unlocked,
+                () => State.variables.usbPassword3Unlocked,
+                () => State.variables.usbPassword4Unlocked,
+                () => State.variables.usbPassword5Unlocked,
+                () => State.variables.usbPassword6Unlocked,
+                () => State.variables.usbPassword7Unlocked
+            ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `<<set _changes to 0>>Finally you have all the USB files unlocked. There was a lot to take in with them; the growth of this Toshi, and what this means for you. You learned WHY you are growing so much, and how that mysterious drink you had when you moved in here was some sort of 'gene-unlocker'. You sit down on your couch, <<if (($muscle + $fat) * $heightMod) > 100>> and as you forget about your immense weight you simply crush it between you. You didn't even mean to do so, but your body has grown so much that nothing is made for you anymore. <<elseif (($muscle + $fat) * $heightMod) > 70>> making it audibly groan under you. If you keep growing like this nothing will accomodate your size soon. <<else>> letting your growing body rest. <</if>>You do something you havn't done in some time; actually sitting down and taking stock of your growth. <br><br><<if $tongue > 0 || $lips > 0>> You begin with your mouth; before your transformations started you had pretty thin lips and hell, you didn't even think about your tongue. But now... <<if tongue >= 6>><<set _changes += 3>> You tongue has changes to something that looks more like a tentacle than a normal human tongue. You feel the cool air hit it as you let it pass between your lips, wet and dripping with drool. It's gigantic, kinda hot... and definately not human. <<elseif $tongue >= 3>><<set _changes += 2>> Your tongue is inhumanely long and flexible, dripping with drool and so sensative you can almost taste the air as you let it out. Heh, it began kinda funny but now it definately looks gigantic. <<elseif $tongue >= 1>><<set _changes += 1>> Your tongue is big. It looks almost too big for your mouth, but you easily fit it in, somehow. It doesn't look THAT weird to be honest, and you've become quite the kisser with it!<</if>><<if $lips >= 0>>And your lips started as pretty thin, but now they're just... <<if $lips <= 0>>thin<<elseif $lips <= 1>>average<<elseif $lips <= 2>>plump<<elseif $lips <= 3>>kissable<<elseif $lips <= 4>>sensual<<elseif $lips <= 5>>thick<<elseif $lips <= 6>>incredibly full<<else>>huge<</if>>. They look good on you, but its another change to your body you did without really thinking about it.<<set _changes += Math.round($lips * 0.5)>><</if>><</if>><br><br><<if $breasts >= 25>>Your torso also has gone through some changes. Well, your chest.<<if $breasts >= 80>><<set _changes += 3>>What you got sitting on your chest is normally only achievable by either some sort of rare genetic growth thing, or by enough plastic surgery to be a minor enviromental disaster. It dominates your frame, and you wonder again if maybe you havn't gone too far. <<elseif $breasts >= 50>><<set _changes += 1>> You now got some of the biggest breasts in town. In the past you sometimes had tinges of breast envy, but now? Heh, you MIGHT have taken things a bit too far. You cup them, feeling their weight in your hands. Yeah, these are just huge. <<elseif $breasts >= 25>><<set _changes += 1>>Your breasts look pretty nice. Before, they were petite and hardly noticable and now... now they just have a bit of a presence. As you look at them, you smile. Yeah, these certainly are a nice addition.<</if>><<if $lactationUnlocked>><<set _changes += 2>> But lets not forget... you're lactating these days. Producing milk. That certainly isn't normal, and while its enjoyable, its certainly something that is now happening... for better or worse.<</if>><</if>><br><br><<if ['skinny', 'average', 'thin'].includes($bodyType)>><<set _changes -=2>>Your build didn't change much though. Hmm. Very few people would have the opportunity to change their body as much as you could... perhaps... you could be a bit braver.<<elseif ['thick', 'fat', 'heavy'].includes($bodyType)>><<set _changes -= 1>> As for the rest of your body, you've mostly just gained weight. Heh, did you really need nead magical potions for that? You jiggle your tummy a bit. It has a nice but of weight, and you look cute. But... is it the body you wanted?<<elseif $bodyType == "obese">><<set _changes += 2>> As for your body... your huge, jiggling belly and thick arms say enough. Okay, most people gain a bit of weight on their first year at uni, but you took it to the extreme. In just <<print $daysPlayed>> you gained a massive amount of weight. You should be careful what you put in your body, is the old advice. That probably goes double for magical potions...<<elseif ['athletic', 'strong'].includes($bodyType)>><<set _changes += 1>> As for your body, you now are just toned. If you walked into a gym, you'd get a LOT of positive attention. Sure, you worked out a bit before but you know that this body would be impossible without the help of those drinks. You smile, tracing a finger over your abs. Perhaps those drinks did give you a wonderful result. <<elseif ['bodybuilder', 'heroic'].includes($bodyType)>><<set _changes += 2>> As for your body... a lifetime of lifting would be needed, or a ton of steroids, to get you your physique. There is a very good chance you're one of the most muscular woman in town, if not of the world. Your arms are thick and muscular, your legs thick and powerful. You flex them, thinking on what you've become. And to think, a few weeks ago you were thin as a stick...<<elseif ["strongman", "sumowrestler"].includes($bodyType)>><<set _changes += 3>> As for the immense body you now have... you're one of the biggest woman by in the world, easily. Nobody could match your arms, your legs, even if they worked their entire life and took dangerous amounts of steroids. And here you were, having achieved it within not even a single summer... <<elseif ["hulk", "gigantic", "monstrous"].includes($bodyType)>><<set _changes += 4>> And your body... you can barely recognize it as your own body. Is it even your own body? It's so gigantic and overgrown with muscle, it looks nothing like you used to. Doors and furniture are a problem, and the amount of food you need... you've been drinking a lot of those potions. Perhaps you went too far.<</if>><<if $height >= 155>><br><br>Of course its impossible to not think about the changes in your height. As you look around, seeing the room that grew ever smaller for you, its hard not to think about how much even a small change in perspective can do so much. And your perspective has changed. <<if $height >= 225>><<set _changes += 4>>A lot. You're now one of the tallest woman in the world. Just like that. <<elseif $height >= 200>><<set _changes += 3>>More than you expected. You now look down on people, instead of up. Before, you had to make sure people saw you. People were scary big at times. Now, you're the scary big. <<elseif $height >= 175>><<set _changes += 2>> A fair amount. But its nice not being the smallest around. You're pretty tall now too, finally not having to look up at everyone. Its a good new perspective. <<else>><<set _changes += 1>> A bit. You're not that gigantic, just closer to average. Like you always wanted.<</if>><</if>><<if $dick >= 1>><<set _changes += 4>><br><br> But of course, one of the most noticable changes is the log between your legs. You grew a dick. In no time, you grew a dick. it twitches, almost like it notices your attention going to it. Whenever you have a romantic partner now, you'll have something to explain. It feels nice, its a fun experience... but god its a big change.<</if>>
+        
+        <br>
+
+        <<if _changes >= 10>>Reflecting on it all, there's no denying it. Your new body is barely recognizable anymore. You think about what your old friends would say, your parents. Your family. They'd be shocked, they'd be worried. For some time you sit there, sitting, thinking, the weight of your body sinking in. You've changed your body, without knowing if you could go back. Perhaps you've been indulging in those drinks a bit too eagerly.<<elseif _changes >= 3>> Reflecting on it all, you've certainly changed your body immensely. Your parents, your family, old friends... they'd be suprised. Scared even. But you also know that deep down, despite everything, you're still yourself. Perhaps you've over indulged in those potions. But who else had the chance to experience this?<<else>>Reflecting on this, you realize you've been pretty conservative with your potions. Minor changes, here and there, that'd suprise to your family and old friends for sure. But... given the opportunity you had... have you really fully experienced it?<</if>>
+        
+        CONTINUE WRITTING HERE`
+    },
+    {
     name: 'ifBreastsBiggerThan50_ThotCheck',
         locationTags: ['outOfHouse'],
             conditions: [
