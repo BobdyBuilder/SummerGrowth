@@ -628,7 +628,7 @@ Macro.add('Dialogue', {
 });
 
 Config.history.controls = true;
-Config.history.maxStates = 3;
+Config.history.maxStates = 5;
 
 
 (function () {
