@@ -22310,19 +22310,6 @@ repeatable: false,
                                 content: 'You are strolling by the streets of this calm town, when you spot two guys having a passionate debate. Their enthusiasm catches your attention, and you end up eavesdropping on their talk.<br><br><<Dialogue "randomPerson" "Random guy">>"I mean, seriously, girl abs, man, just abs. I could lick them all day, no matter how sweaty they were!"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"Yeah, this TekTok app is a godsend! I can just scroll through videos of buff women flexing all day long. Heck, I even started a trend about showing muscular backs and, before I knew it, it was RAINING videos of strong women flexing all day, every day!"<</Dialogue>><br><br>The pair seems rather excited about the prospect of fit females. From the general disposition, it seems like they’ve been going at this topic for a bit already.<br><br><<Dialogue "randomPerson" "Random guy">>"Even then, they still surprise me - I follow this girl, she’s like tall and pretty muscular, she started doing some videos showing her quads from below - dude, I almost exploded right there and then."<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"I went ahead and got myself a gym membership, I’m going there and doing cardio and weights everyday - just to check out the chicks. It’s better than a dating app! There’s this redhead I saw, bro, you would NOT believe her bubble ass. I think I’m going to make my move soon, see if she wants to go out for coffee. Seriously!"<</Dialogue>><br><br>You put a hand on your own tush. It’s kinda flat and a bit squishy. You feel very self conscious as you hear him describing the woman from the gym.<br><br><<Dialogue "randomPerson" "Random guy">>"Not even joking, I get horny just thinking about getting beaten up by a strong woman. It’s that serious."<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"Yeah, I mentioned that online, and some guy suggested this anime with a muscular chick… I kept freeze-framing on this moment she flexed her arms… I never thought biceps could be hot, but now it gets me going just nice a nice ass or some great boobs!"<</Dialogue>><br><br>Again, you find yourself putting your hand on your upper arm, your fingers squeezing the small, soft circumference. Nothing, zip, zilch, nada! You try raising your arm up and making a muscle, but you can’t even see a difference. You poke, hoping to find SOME firmness… and it is just depressing. You are pretty sure there must be SOME muscle there, because your arm moves and bends… but you really can’t even fathom WHERE it is.<br><br>Frowning, you watch the guys continue their heated discussion, and you proceed on your way, feeling defeated. Maybe you need to get serious about working out…<<set $muscleChatRandoms to true>>'
 },
 {
-    name: '',
-        locationTags: ['gym'],
-            conditions: [
-
-                () => State.variables.muscle <= 30
-            ],
-                repeatable: false,
-                    retriggerable: false,
-                        priority: 'response',
-                            npc: [],
-                                content: ''
-},
-{
     name: 'HoodieMuscleComments',
         locationTags: ['gym'],
             conditions: [
