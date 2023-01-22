@@ -2870,7 +2870,7 @@ The goal of the game is to keep up with your growing body and make the best of i
 :: eventTesting [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
 
 <<listbox "$eventToDebugName" autoselect>>
-	<<optionsfrom setup.events.map(event => event.name)>>
+	<<optionsfrom setup.events.map(event => event.name).sort()>>
 <</listbox>>
 
 
