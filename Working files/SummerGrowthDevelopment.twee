@@ -25640,11 +25640,12 @@ function continueClick() {
 				var speechBubble = $("#textBox > .speech");				
 
                 var characterClasses = ["player", "Kris", "KrisObsessed", "Johan", "Eddy", "randomPerson"];
+                var characterHeights = [0, 165, 165, 170, 180, Math.floor(Math.random() * (190 - 155 + 1) + 155)];
                 var npcBackgrounds = [
                     "",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Kris.png?raw=true",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/KrisObsessed.png?raw=true",
-                    "https://static.wikia.nocookie.net/aceattorney/images/5/56/Adrian_Normal_1.gif/revision/latest?cb=20120728214720",
+                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Johan.png?raw=true",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/BulkBarnGuy.png?raw=true",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Random_male.png?raw=true"
                 ];
@@ -25654,8 +25655,10 @@ function continueClick() {
                         var color = $("." + characterClasses[i]).css("background");
                         console.log(color);
                         $("#textBoxWrapper").css("background", color);
-                        $("#npcBox").css("background-image", 'url(' + npcBackgrounds[i] + ')');
+                        $("#npcBox").css("background-image", 'url(' + npcBackgrounds[i] + ')');                        
+
                         $("#npcBox").fadeIn(1000);
+                        scaleNpcBox(characterHeights[i]);
                         break;
                     }                    
                 }				
@@ -25679,6 +25682,35 @@ function ifNodeEmpty(node) {
 	return /^\s*$/gmi.test(node.textContent);
 }
 
+function scaleNpcBox(npcFullHeightInCm){
+    /* Sets by the players size how many pixels on the screen represents 1cm */
+    let pixelsPerGameCM = $("#playerBoxBust").innerHeight() / State.variables.height;
+
+    console.log("pixels per game CM: " + pixelsPerGameCM);
+
+    /* finds the proportions of the player. 3.5 is based on that most people's heads are 1/7th of their heights, 2/7th is to their chest. */
+    let playerFeetToBustInCm = State.variables.height - (State.variables.height / 7 * 2);
+    let playerTopOfHeadToBustinCm = State.variables.height / 7 * 2;
+
+    let npcToPlayerScale = npcFullHeightInCm / State.variables.height;
+
+    let npcFeetToBustInCm = npcFullHeightInCm - (npcFullHeightInCm / 7 * 2);
+    let npcTopOfHeadToBustInCm = npcFullHeightInCm / 7 * 2;
+
+    let differenceBetweenPlayerAndNpcBust = playerFeetToBustInCm - npcFeetToBustInCm;
+
+    var npcAvatar = document.getElementById("npcBox");
+    let initNpcAvatarSize = npcAvatar.getBoundingClientRect().width; 
+    
+    npcAvatar.style.width = `${npcToPlayerScale * npcAvatar.getBoundingClientRect().width}px`;
+    npcAvatar.style.height = `${npcToPlayerScale * npcAvatar.getBoundingClientRect().height}px`;
+    
+    npcAvatar.style.transform = `translate(0px,${(differenceBetweenPlayerAndNpcBust * pixelsPerGameCM) + (initNpcAvatarSize - npcAvatar.getBoundingClientRect().width)}px)`;
+    
+    
+
+}
+
 /* creates all the elements needed to render the basic visual novel layout. does NOT create the more specialized render elements such as dialogs, or choices. */
 function createVisualNovelRenderElements(){
 	$("#passages > .passage").after(`
@@ -25690,7 +25722,7 @@ function createVisualNovelRenderElements(){
 		">
 
 		<div id="textBox"></div>
-
+        
         <div id="playerBox" style="position: absolute;    
             width: 500px;
             height: 500px;
@@ -25707,7 +25739,7 @@ function createVisualNovelRenderElements(){
                     z-index: -1;
                     border-radius: 250px;
                     background-attachment: fixed;"></div>
-                <div id="playerBoxBust" style="    background-image: url(https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/PlayerBusts/SumoWrestler_t.png?raw=true);
+                <div id="playerBoxBust" style="    background-image: var(--mcIcon);
                     position: absolute;
                     width: 100%;
                     height: 100%;
@@ -25722,7 +25754,9 @@ function createVisualNovelRenderElements(){
             height: 500px;
             top: -55vh;
             left: 70vh;
-            z-index: 0;"></div>
+            z-index: 0;
+            background-size: cover;
+            border-radius: 250px;"></div>
 
 		<div id="continueButton" style="
 			position: absolute;
