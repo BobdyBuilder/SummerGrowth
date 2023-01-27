@@ -2874,9 +2874,19 @@ The goal of the game is to keep up with your growing body and make the best of i
 <</listbox>>
 
 
-        <<live $eventToDebug>>
+<<live $eventToDebug>>
 
+<h2>Conditions:</h2>
+<<live $eventToDebugConditions>>
 
+<h2>Location:</h2>
+<<live $eventToDebugLocations>>
+
+<h2>NPC's:</h2>
+<<live $eventToDebugNPC>>
+
+<h2>Priority:</h2>
+<<live $eventToDebugPriority>>
 
 <<timed 0s>>
 <<script>>
@@ -2887,6 +2897,20 @@ inputs.onchange = function () {
     State.variables.eventToDebug = setup.events.find(obj => {
         return obj.name === State.variables.eventToDebugName
     }).content;
+
+    State.variables.eventToDebugConditions = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).conditions.toString();
+
+    State.variables.eventToDebugLocations = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).locationTags.toString();
+    State.variables.eventToDebugNPC = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).npc.toString();
+    State.variables.eventToDebugPriority = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).priority.toString();
     $(".macro-live").trigger(":liveupdateinternal");
     $(document).trigger(":liveupdate");
 
@@ -21726,7 +21750,7 @@ repeatable: false,
 
         <<if _changes >= 10>>Reflecting on it all, there's no denying it. Your new body is barely recognizable anymore. You think about what your old friends would say, your parents. Your family. They'd be shocked, they'd be worried. For some time you sit there, sitting, thinking, the weight of your body sinking in. You've changed your body, without knowing if you could go back. Perhaps you've been indulging in those drinks a bit too eagerly.<<elseif _changes >= 3>> Reflecting on it all, you've certainly changed your body immensely. Your parents, your family, old friends... they'd be suprised. Scared even. But you also know that deep down, despite everything, you're still yourself. Perhaps you've over indulged in those potions. But who else had the chance to experience this?<<else>>Reflecting on this, you realize you've been pretty conservative with your potions. Minor changes, here and there, that'd suprise to your family and old friends for sure. But... given the opportunity you had... have you really fully experienced it?<</if>>
         
-        CONTINUE WRITTING HERE`
+        You snap out of it, looking around. Okay, you hacked the USB file. You learned who Toshi is... but more importantly, you now somewhat know how all those odd potions work. `
     },
     {
     name: 'ifBreastsBiggerThan50_ThotCheck',
