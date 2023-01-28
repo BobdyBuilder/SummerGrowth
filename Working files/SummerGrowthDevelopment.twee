@@ -2868,8 +2868,18 @@ The goal of the game is to keep up with your growing body and make the best of i
 <</nobr>>
 
 :: eventTesting [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
+<<script>>
+    /* init eventToDebug */
+    State.variables.eventToDebugName = null;
+    State.variables.eventToDebug = null;
+    State.variables.eventToDebugConditions = State.variables.eventToDebug = null;
+    State.variables.eventToDebugLocations = State.variables.eventToDebug = null;
+    State.variables.eventToDebugNPC = State.variables.eventToDebug = null;
+    State.variables.eventToDebugPriority = State.variables.eventToDebug = null;
+<</script>>
 
 <<listbox "$eventToDebugName" autoselect>>
+    <<option "(None)">>
 	<<optionsfrom setup.events.map(event => event.name).sort()>>
 <</listbox>>
 
@@ -2911,9 +2921,9 @@ inputs.onchange = function () {
     State.variables.eventToDebugPriority = setup.events.find(obj => {
         return obj.name === State.variables.eventToDebugName
     }).priority.toString();
+    
     $(".macro-live").trigger(":liveupdateinternal");
     $(document).trigger(":liveupdate");
-
 };
 <</script>>
 <</timed>>
@@ -2922,7 +2932,7 @@ inputs.onchange = function () {
 [[Return|$return]]
 
 :: Cheats [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
-<<link "Goto event testing" "eventTesting">><<goto eventTesting>><</link>>
+<<link "Goto event testing" "eventTesting">><</link>>
 
 <table id="store">
   <tr>
