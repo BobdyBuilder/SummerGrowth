@@ -25955,7 +25955,7 @@ function continueClick() {
 				var speechBubble = $("#textBox > .speech");				
 
                 var characterClasses = ["player", "Kris", "KrisObsessed", "Johan", "Eddy", "randomPerson"];
-                var characterHeights = [0, 165, 165, 170, 180, Math.floor(Math.random() * (190 - 155 + 1) + 155)];
+                var characterHeights = [State.variables.height, 165, 165, 170, 180, Math.floor(Math.random() * (190 - 155 + 1) + 155)];
                 var npcBackgrounds = [
                     "",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Kris.png?raw=true",
@@ -25965,7 +25965,7 @@ function continueClick() {
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Random_male.png?raw=true"
                 ];
 
-                for(let i = 0; i < characterClasses.length; i++){
+                for(let i = 1; i < characterClasses.length; i++){
                     if(speechBubble.hasClass(characterClasses[i])){
                         var color = $("." + characterClasses[i]).css("background");
                         console.log(color);
