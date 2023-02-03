@@ -25960,7 +25960,7 @@ function continueClick() {
                     "",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Kris.png?raw=true",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/KrisObsessed.png?raw=true",
-                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Johan.png?raw=true",
+                    "https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Npc_t/Johan.png",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/BulkBarnGuy.png?raw=true",
                     "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Random_male.png?raw=true"
                 ];
@@ -26018,9 +26018,12 @@ function scaleNpcBox(npcFullHeightInCm){
     let initNpcAvatarSize = npcAvatar.getBoundingClientRect().width; 
     
     npcAvatar.style.width = `${npcToPlayerScale * npcAvatar.getBoundingClientRect().width}px`;
-    npcAvatar.style.height = `${npcToPlayerScale * npcAvatar.getBoundingClientRect().height}px`;
+
+    let heightChange = npcToPlayerScale * npcAvatar.getBoundingClientRect().height;
+    npcAvatar.style.height = `${heightChange}px`;
     
-    npcAvatar.style.transform = `translate(0px,${(differenceBetweenPlayerAndNpcBust * pixelsPerGameCM) + (initNpcAvatarSize - npcAvatar.getBoundingClientRect().width)}px)`;
+    /* npcAvatar.style.transform = `translate(0px,${(differenceBetweenPlayerAndNpcBust * pixelsPerGameCM) + (initNpcAvatarSize - npcAvatar.getBoundingClientRect().width)}px)`; */
+    
     
     
 
@@ -26033,55 +26036,95 @@ function createVisualNovelRenderElements(){
 	<div id="textBoxWrapper" class="borderedWindow" style="
 		position: relative;		
 		top: 70vh;
-		min-height: 10vh;		
-		">
+		min-height: 10vh;
+        z-index: 1;">
 
 		<div id="textBox"></div>
-        
-        <div id="playerBox" style="position: absolute;    
-            width: 500px;
-            height: 500px;
-            top: -54vh;
-            left: -10vw;
-            z-index: 0;
-            border-radius: 250px;">                
-                <div id="playerBoxBust" style="
-                    background-image: var(--mcIcon);
+        <div id="bustContainer" style="
+            width: 100%;
+            height: 70vh;
+            position: absolute;
+            bottom: 100%;
+        ">
+            <div id="playerBox" style="
                     position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    z-index: -1;
+                    background-image: var(--mcIcon);
+                    width: 100vw;
+                    height: 50vh;
+                    bottom: 0px;
+                    /* left: -10vw; */
+                    z-index: 0;
+                    translate: -50%;
                     /* border-radius: 250px; */
                     background-position-x: center;
                     background-position-y: bottom;
-                    background-repeat: no-repeat;"></div>
+                    background-repeat: no-repeat;
+                    background-size: contain;">
+            </div>   
+            <div id="npcBox" style="
+                position: absolute;
+                display:none;
+                width: 100vw;
+                height: 50vh;
+                bottom: 0px;
+                translate: 50%;
+                z-index: 5;
+                background-repeat: no-repeat;
+                background-position-x: center;
+                background-position-y: top;
+                background-size: contain;">
+            </div>
         </div>
-
-        <div id="npcBox" style="
-            position: absolute;
-            display:none;
-            width: 500px;
-            height: 500px;
-            top: -55vh;
-            left: 70vh;
-            z-index: 0;
-            background-size: cover;
-            border-radius: 250px;"></div>
-
-		<div id="continueButton" style="
+        <div id="continueButton" style="
 			position: absolute;
 			background: white;
 			height: 5vh;
 			width: 5vh;
 			bottom: 5px;
 			right: 5px;
-			border-radius: 50%;
-		">    
-		</div>
-	</div>`);
+			border-radius: 50%;">
+        </div>
+    </div>
+    <div id="graphicsContainer" style="
+        z-index: 0; 
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100vh;
+        width: 100vw;">                
+
+        <div id="BackgroundContainer" style="
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100vh;
+            width: 100vw;
+            background-image: url(https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Scenes/park.png?raw=true);
+            background-size: cover;"
+        </div>
+    </div>`);
 
 	/* VERY important; this hides the original location of all the nodes, but keeps it accesible. It MUST still be accesible, to allow all the game-logic to happen. */
 	$("#passages > .passage").css("display", "none");
+
+    /* this all keeps the elements sized correctly. */
+    var changeIndex = -1;
+
+    $( "#story" ).addClass( "same" );
+    $( "#textBoxWrapper" ).addClass( "same" );
+
+    function setToSame() {
+        if(changeIndex!=-1) {
+            console.log("test");
+            $('.same').height($('.same').eq(changeIndex).height());
+            $('.same').width($('.same').eq(changeIndex).width());
+            changeIndex = -1;
+
+
+        }
+    };
+
+    setInterval(setToSame, 4);
 }
 
 /* Activated the moment a link is clicked within a visual novel style passage. As the data is only appended normally AFTER a links is clicked, and not accesible earlier, we need to make sure that it's once more moved to the right places. */
