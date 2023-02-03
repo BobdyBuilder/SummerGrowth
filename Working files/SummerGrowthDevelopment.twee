@@ -25911,17 +25911,14 @@ continueLink.onclick = continueClick;
 function continueClick() {
     /* This is VITAL; it combines all split text nodes into single text nodes after twine is done with them. Without it, there'd be a lot of emtpy nodes floating around. Also makes the print macro work. */
     $passages[0].normalize();
-    let currentCheckedNode = 0;
-    let changed = false;
 
     const $textBox = $('#textBox');
     const $textBoxWrapper = $('#textBoxWrapper');
-    nodes.forEach(function (node) {
-        if (ifNodeEmpty(node) || changed !== false) {
-            return;
+    for (const node of nodes) {
+        if (ifNodeEmpty(node)) {
+            continue; /* if the node is empty, and nothing has changed yet, display it next. */
         }
 
-        /* if the node is empty, and nothing has changed yet, display it next. The changed variable is needed, as we only want to display the first node in line, not the last one. And as this is a forEach, and not a for loop, we can't break out of the loop after the first iteration. As such, the changed variable escapes all logic very quickly. */
         console.log('Currently posted node;');
         console.log(node);
 
@@ -25983,9 +25980,9 @@ function continueClick() {
         } else {
 
         }
-        currentCheckedNode++;
-        changed = true;
-    });
+        break;
+    }
+    
     /* refresh the node list, in case any new ones have been added by a link action. */
     nodes = $passages[0].childNodes;
 }
