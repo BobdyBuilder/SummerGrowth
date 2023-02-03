@@ -25889,20 +25889,20 @@ You bring the phone to your chest, pushing it tightly against it, as you let out
 <<widget "VisualNovelRender">>
 <<if $visualNovelRenderSetting>>
 <<timed 0s>><<script>>
-
 /*The logic of this widget is simple, but goes through a few steps. It finds the html object that the game is normally rendered in. From that passage, it retrieves all HTML nodes. The original passage is than made hidden, but NOT destroyed. The original passage from now on functions as storage for the nodes that are to be clicked through. */
 
 /*retrieves the object that the passage is normally rendered in. */
-const passage = $("#passages:first-child");
+const passage = $('#passages:first-child');
 
 /*Retrieves the nodes within the passages. */
-var nodes = $("#passages > .passage")[0].childNodes;
+const $passages = $('#passages > .passage');
+let nodes = $passages[0].childNodes;
 
 /*Creates all the basic html elements for the new rendering to work */
 createVisualNovelRenderElements();
 
 /*Makes continue button available in this scope */
-var continueLink = document.getElementById("continueButton");
+const continueLink = document.getElementById('continueButton');
 
 /*Sets initial state.*/
 continueClick();
@@ -25910,91 +25910,89 @@ continueLink.onclick = continueClick;
 
 function continueClick() {
     /* This is VITAL; it combines all split text nodes into single text nodes after twine is done with them. Without it, there'd be a lot of emtpy nodes floating around. Also makes the print macro work. */
-     $("#passages > .passage")[0].normalize();
-    var currentCheckedNode = 0;
-    var changed = false;
+    $passages[0].normalize();
+    let currentCheckedNode = 0;
+    let changed = false;
+
+    const $textBox = $('#textBox');
+    const $textBoxWrapper = $('#textBoxWrapper');
     nodes.forEach(function (node) {
-		/* if the node is empty, and nothing has changed yet, display it next. The changed variable is needed, as we only want to display the first node in line, not the last one. And as this is a forEach, and not a for loop, we can't break out of the loop after the first iteration. As such, the changed variable escapes all logic very quickly. */
-        if (!ifNodeEmpty(node) && changed == false) {
-            console.log("Currently posted node;");
-            console.log(node);
-
-			/* resets the textbox and wrapper, allowing us a blank slate. */
-			$("#textBox").replaceWith('<div id="textBox"></div>');
-			/* adds the node to the textbox. */
-			$("#textBox").append(node);
-
-			/* Resets the background color. */
-			$("#textBoxWrapper").css("background", '');
-			$("#textBoxWrapper").addClass("borderedWindow");
-
-			/* From here we add all the logic for 'special' renders, such as links, or the icons later. */
-			if (node.innerHTML?.contains('link-internal macro-link') || node.innerHTML?.contains('link-internal macro-button')) {
-				/* This trigger is needed to let the game know when/if a link has been clicked. */
-                var links = $("#textBox").find(".link-internal");
-				links.click(function () {
-					$(document).trigger({
-						type: ":replaced",
-						passage: "my passage",
-						target: "#whatever"
-					});
-
-				});
-				links.addClass("borderedWindow");
-				links.css("background", "#0000ff52");
-				$("#textBoxWrapper").removeClass("borderedWindow");
-			} 
-			/* Special logic for text-bubbles. */
-			else if(node.innerHTML?.contains('<span class=\"avatar\"></span>')){
-				console.log("found text bubble");
-
-				var avatar = $("#textBox > .speech > .avatar");
-
-				avatar.css("display", "none");
-
-				var speechBubble = $("#textBox > .speech");				
-
-                var characterClasses = ["player", "Kris", "KrisObsessed", "Johan", "Eddy", "randomPerson"];
-                var characterHeights = [State.variables.height, 165, 165, 170, 180, Math.floor(Math.random() * (190 - 155 + 1) + 155)];
-                var npcBackgrounds = [
-                    "",
-                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Kris.png?raw=true",
-                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/KrisObsessed.png?raw=true",
-                    "https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Npc_t/Johan.png",
-                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/BulkBarnGuy.png?raw=true",
-                    "https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Random_male.png?raw=true"
-                ];
-
-                for(let i = 1; i < characterClasses.length; i++){
-                    if(speechBubble.hasClass(characterClasses[i])){
-                        var color = $("." + characterClasses[i]).css("background");
-                        console.log(color);
-                        $("#textBoxWrapper").css("background", color);
-                        $("#npcBox").css("background-image", 'url(' + npcBackgrounds[i] + ')');                        
-
-                        $("#npcBox").fadeIn(1000);
-                        scaleNpcBox(characterHeights[i]);
-                        break;
-                    }                    
-                }				
-
-				speechBubble.removeClass("speech");		
-				speechBubble.css("background", "");		
-			}
-			else {
-				
-			}
-			currentCheckedNode++;
-			changed = true;
+        if (ifNodeEmpty(node) || changed !== false) {
+            return;
         }
+
+        /* if the node is empty, and nothing has changed yet, display it next. The changed variable is needed, as we only want to display the first node in line, not the last one. And as this is a forEach, and not a for loop, we can't break out of the loop after the first iteration. As such, the changed variable escapes all logic very quickly. */
+        console.log('Currently posted node;');
+        console.log(node);
+
+        $textBox.empty();
+        $textBox.append(node);
+        $textBoxWrapper.css('background', '');
+        $textBoxWrapper.addClass('borderedWindow');
+        if (node.innerHTML?.contains('link-internal macro-link') || node.innerHTML?.contains('link-internal macro-button')) {
+            /* This trigger is needed to let the game know when/if a link has been clicked. */
+            const links = $textBox.find('.link-internal');
+            links.click(function () {
+                $(document).trigger({
+                    type: ':replaced',
+                    passage: 'my passage',
+                    target: '#whatever'
+                });
+
+            });
+            links.addClass('borderedWindow');
+            links.css('background', '#0000ff52');
+            $textBoxWrapper.removeClass('borderedWindow');
+        } else if (node.innerHTML?.contains('<span class=\"avatar\"></span>')) {
+            /* Special logic for text-bubbles. */
+            console.log('found text bubble');
+
+            const avatar = $('#textBox > .speech > .avatar');
+
+            avatar.css('display', 'none');
+
+            const speechBubble = $('#textBox > .speech');
+
+            const characterClasses = ['player', 'Kris', 'KrisObsessed', 'Johan', 'Eddy', 'randomPerson'];
+            const characterHeights = [State.variables.height, 165, 165, 170, 180, Math.floor(Math.random() * (190 - 155 + 1) + 155)];
+            const npcBackgrounds = [
+                '',
+                'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Kris.png?raw=true',
+                'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/KrisObsessed.png?raw=true',
+                'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Npc_t/Johan.png',
+                'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/BulkBarnGuy.png?raw=true',
+                'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc/Random_male.png?raw=true'
+            ];
+
+            for (let i = 1; i < characterClasses.length; i++) {
+                if (speechBubble.hasClass(characterClasses[i])) {
+                    const color = $('.' + characterClasses[i]).css('background');
+                    console.log(color);
+                    $textBoxWrapper.css('background', color);
+                    const $npcBox = $('#npcBox');
+                    $npcBox.css('background-image', 'url(' + npcBackgrounds[i] + ')');
+
+                    $npcBox.fadeIn(1000);
+                    scaleNpcBox(characterHeights[i]);
+                    break;
+                }
+            }
+
+            speechBubble.removeClass('speech');
+            speechBubble.css('background', '');
+        } else {
+
+        }
+        currentCheckedNode++;
+        changed = true;
     });
-	/* refresh the node list, in case any new ones have been added by a link action. */
-    nodes = $("#passages > .passage")[0].childNodes;
+    /* refresh the node list, in case any new ones have been added by a link action. */
+    nodes = $passages[0].childNodes;
 }
 
 /* Very simple regex, checks if the node contains only whitespace, tabs, newlines and such. */
 function ifNodeEmpty(node) {
-	return /^\s*$/gmi.test(node.textContent);
+    return /^\s*$/gmi.test(node.textContent);
 }
 
 function scaleNpcBox(npcFullHeightInCm) {
@@ -26025,8 +26023,8 @@ function scaleNpcBox(npcFullHeightInCm) {
 }
 
 /* creates all the elements needed to render the basic visual novel layout. does NOT create the more specialized render elements such as dialogs, or choices. */
-function createVisualNovelRenderElements(){
-	$("#passages > .passage").after(`
+function createVisualNovelRenderElements() {
+    $passages.after(`
 
 	<div id="textBoxWrapper" class="borderedWindow" style="
 		position: relative;		
@@ -26046,7 +26044,7 @@ function createVisualNovelRenderElements(){
                     background-image: var(--mcIcon);
                     width: 100vw;
                     height: 50vh;
-                    bottom: 0px;
+                    bottom: 0;
                     /* left: -10vw; */
                     z-index: 0;
                     translate: -50%;
@@ -26061,7 +26059,7 @@ function createVisualNovelRenderElements(){
                 display:none;
                 width: 100vw;
                 height: 50vh;
-                bottom: 0px;
+                bottom: 0;
                 translate: 50%;
                 z-index: 5;
                 background-repeat: no-repeat;
@@ -26083,15 +26081,15 @@ function createVisualNovelRenderElements(){
     <div id="graphicsContainer" style="
         z-index: 0; 
         position: fixed;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         height: 100vh;
         width: 100vw;">                
 
         <div id="BackgroundContainer" style="
             position: fixed;
-            top: 0px;
-            left: 0px;
+            top: 0;
+            left: 0;
             height: 100vh;
             width: 100vw;
             background-image: url(https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Scenes/park.png?raw=true);
@@ -26099,41 +26097,41 @@ function createVisualNovelRenderElements(){
         </div>
     </div>`);
 
-	/* VERY important; this hides the original location of all the nodes, but keeps it accesible. It MUST still be accesible, to allow all the game-logic to happen. */
-	$("#passages > .passage").css("display", "none");
+    /* VERY important; this hides the original location of all the nodes, but keeps it accesible. It MUST still be accesible, to allow all the game-logic to happen. */
+    $passages.css('display', 'none');
 
     /* this all keeps the elements sized correctly. */
-    var changeIndex = -1;
+    let changeIndex = -1;
 
-    $( "#story" ).addClass( "same" );
-    $( "#textBoxWrapper" ).addClass( "same" );
+    $('#story').addClass('same');
+    $('#textBoxWrapper').addClass('same');
 
     function setToSame() {
-        if(changeIndex!=-1) {
-            console.log("test");
-            $('.same').height($('.same').eq(changeIndex).height());
-            $('.same').width($('.same').eq(changeIndex).width());
+        if (changeIndex !== -1) {
+            console.log('test');
+            const $same = $('.same');
+            $same.height($same.eq(changeIndex).height());
+            $same.width($same.eq(changeIndex).width());
             changeIndex = -1;
 
-
         }
-    };
+    }
 
     setInterval(setToSame, 4);
 }
 
 /* Activated the moment a link is clicked within a visual novel style passage. As the data is only appended normally AFTER a links is clicked, and not accesible earlier, we need to make sure that it's once more moved to the right places. */
-$(document).on(":replaced", e => {
-    var content = $("#textBox").children("span:first-child");
+$(document).on(':replaced', e => {
+    const content = $('#textBox').children('span:first-child');
     if (content.length === 0) {
         return;
     }
-    
-    var childNodes = content[0].childNodes;
+
+    const childNodes = content[0].childNodes;
     childNodes.forEach(function (node) {
-    	if (!ifNodeEmpty(node)) {
-			$("#passages > .passage")[0].append(node);
-        }        
+        if (!ifNodeEmpty(node)) {
+            $passages[0].append(node);
+        }
     });
     continueClick();
 });
