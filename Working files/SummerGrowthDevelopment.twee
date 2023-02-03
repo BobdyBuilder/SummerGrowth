@@ -26130,6 +26130,10 @@ function createVisualNovelRenderElements(){
 /* Activated the moment a link is clicked within a visual novel style passage. As the data is only appended normally AFTER a links is clicked, and not accesible earlier, we need to make sure that it's once more moved to the right places. */
 $(document).on(":replaced", e => {
     var content = $("#textBox").children("span:first-child");
+    if (content.length === 0) {
+        return;
+    }
+    
     var childNodes = content[0].childNodes;
     childNodes.forEach(function (node) {
     	if (!ifNodeEmpty(node)) {
