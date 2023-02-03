@@ -25994,7 +25994,7 @@ function ifNodeEmpty(node) {
 
 function scaleNpcBox(npcFullHeightInCm) {
     /* Sets by the players size how many pixels on the screen represents 1cm */
-    const $playerBoxBust = $('#playerBoxBust');
+    const $playerBoxBust = $('#playerBox');
     const pixelsPerGameCM = $playerBoxBust.innerHeight() / State.variables.height;
 
     console.log('pixels per game CM: ' + pixelsPerGameCM);
@@ -26015,6 +26015,9 @@ function scaleNpcBox(npcFullHeightInCm) {
     const npcAvatarHeight = $playerBoxBust.innerHeight() * npcToPlayerScale;
     npcAvatar.style.width = `${npcAvatarWidth}px`;
     npcAvatar.style.height = `${npcAvatarHeight}px`;
+
+    console.log('PC height px: ' + $playerBoxBust.innerHeight());    
+    console.log('NPC height px: ' + npcAvatarHeight);
 
     /* npcAvatar.style.transform = `translate(0px,${(differenceBetweenPlayerAndNpcBust * pixelsPerGameCM) + (initNpcAvatarSize - npcAvatar.getBoundingClientRect().width)}px)`; */
 }
