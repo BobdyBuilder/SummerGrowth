@@ -25993,11 +25993,13 @@ function ifNodeEmpty(node) {
 }
 
 function scaleNpcBox(npcFullHeightInCm) {
-    /* Sets by the players size how many pixels on the screen represents 1cm */
-    const $playerBoxBust = $('#playerBox');
-    const pixelsPerGameCM = $playerBoxBust.innerHeight() / State.variables.height;
+    /* Sets by the players size how many unit(px,vh,em,...) on the screen represents 1cm */
+    const playerHeightStyle = $('#playerBox')[0].style.height;
+    const playerBoxHeight = Number.parseInt(playerHeightStyle);
+    const playerBoxHeightUnit = String(playerHeightStyle.replace(playerBoxHeight, ''));
+    const heightUnitPerGameCM = playerBoxHeight / State.variables.height;
 
-    console.log('pixels per game CM: ' + pixelsPerGameCM);
+    console.log(`"${playerBoxHeightUnit}"s per game CM: ${heightUnitPerGameCM}`);
 
     /* finds the proportions of the player. 3.5 is based on that most people's heads are 1/7th of their heights, 2/7th is to their chest. */
     const playerFeetToBustInCm = State.variables.height - (State.variables.height / 7 * 2);
@@ -26011,13 +26013,13 @@ function scaleNpcBox(npcFullHeightInCm) {
     const differenceBetweenPlayerAndNpcBust = playerFeetToBustInCm - npcFeetToBustInCm;
 
     const npcAvatar = document.getElementById('npcBox');
-    const npcAvatarWidth = $playerBoxBust.innerWidth() * npcToPlayerScale;
-    const npcAvatarHeight = $playerBoxBust.innerHeight() * npcToPlayerScale;
-    npcAvatar.style.width = `${npcAvatarWidth}px`;
-    npcAvatar.style.height = `${npcAvatarHeight}px`;
+    const npcAvatarHeight = playerBoxHeight * npcToPlayerScale;
+    const npcAvatarWidth = npcAvatarHeight;
+    npcAvatar.style.width = `${npcAvatarWidth}${playerBoxHeightUnit}`;
+    npcAvatar.style.height = `${npcAvatarHeight}${playerBoxHeightUnit}`;
 
-    console.log('PC height px: ' + $playerBoxBust.innerHeight());    
-    console.log('NPC height px: ' + npcAvatarHeight);
+    console.log(`PC height ${playerBoxHeightUnit}: ${playerBoxHeight}`);
+    console.log(`NPC height ${playerBoxHeightUnit}: ${npcAvatar.style.height}`);
 
     /* npcAvatar.style.transform = `translate(0px,${(differenceBetweenPlayerAndNpcBust * pixelsPerGameCM) + (initNpcAvatarSize - npcAvatar.getBoundingClientRect().width)}px)`; */
 }
@@ -26025,49 +26027,56 @@ function scaleNpcBox(npcFullHeightInCm) {
 /* creates all the elements needed to render the basic visual novel layout. does NOT create the more specialized render elements such as dialogs, or choices. */
 function createVisualNovelRenderElements() {
     $passages.after(`
-
+<div id="renderWrapper" style=" 
+    height: 85vh;
+    position: relative;
+    /* width: 42em; */
+    /* left: -1em; */
+    ">
+    <div id="bustContainer" style="
+        width: 100%;
+        height: 65vh;
+        position: absolute;
+        z-index: 1;
+    ">
+        <div id="playerBox" style="
+                position: absolute;
+                background-image: var(--mcIcon);
+                width: 45vh;
+                height: 45vh;
+                bottom: 0;
+                /* left: -10vw; */
+                z-index: 0;
+                /* border-radius: 250px; */
+                background-position-x: center;
+                background-position-y: bottom;
+                background-repeat: no-repeat;
+                background-size: contain;">
+        </div>   
+        <div id="npcBox" style="
+            position: absolute;
+            display:none;
+            width: 50px; /* intended for visual debugging. It should be changed dynamically */
+            height: 50px; /* intended for visual debugging. It should be changed dynamically */
+            bottom: 0;
+            right: 0;
+            z-index: 5;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: top;
+            background-size: contain;">
+        </div>
+    </div>
 	<div id="textBoxWrapper" class="borderedWindow" style="
-		position: relative;		
-		top: 70vh;
-		min-height: 10vh;
-        z-index: 1;">
+        position: absolute;
+        /* top: 70vh; */
+        min-height: 10vh;
+        z-index: 1;
+        bottom: 0;
+        width: -webkit-fill-available;
+        ">
 
 		<div id="textBox"></div>
-        <div id="bustContainer" style="
-            width: 100%;
-            height: 70vh;
-            position: absolute;
-            bottom: 100%;
-        ">
-            <div id="playerBox" style="
-                    position: absolute;
-                    background-image: var(--mcIcon);
-                    width: 100vw;
-                    height: 50vh;
-                    bottom: 0;
-                    /* left: -10vw; */
-                    z-index: 0;
-                    translate: -50%;
-                    /* border-radius: 250px; */
-                    background-position-x: center;
-                    background-position-y: bottom;
-                    background-repeat: no-repeat;
-                    background-size: contain;">
-            </div>   
-            <div id="npcBox" style="
-                position: absolute;
-                display:none;
-                width: 100vw;
-                height: 50vh;
-                bottom: 0;
-                translate: 50%;
-                z-index: 5;
-                background-repeat: no-repeat;
-                background-position-x: center;
-                background-position-y: top;
-                background-size: contain;">
-            </div>
-        </div>
         <div id="continueButton" style="
 			position: absolute;
 			background: white;
@@ -26095,7 +26104,8 @@ function createVisualNovelRenderElements() {
             background-image: url(https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Scenes/park.png?raw=true);
             background-size: cover;"
         </div>
-    </div>`);
+    </div>
+</div>`);
 
     /* VERY important; this hides the original location of all the nodes, but keeps it accesible. It MUST still be accesible, to allow all the game-logic to happen. */
     $passages.css('display', 'none');
