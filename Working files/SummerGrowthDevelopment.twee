@@ -25964,7 +25964,7 @@ function continueClick() {
                     console.log(color);
                     $textBoxWrapper.css('background', color);
                     const $npcBox = $('#npcBox');
-                    $npcBox.css('background-image', 'url(' + npcBackgrounds[i] + ')');
+                    $npcBox.css('content', 'url(' + npcBackgrounds[i] + ')');
 
                     $npcBox.fadeIn(1000);
                     scaleNpcBox(characterHeights[i]);
@@ -26011,8 +26011,6 @@ function scaleNpcBox(npcFullHeightInCm) {
 
     const npcAvatar = document.getElementById('npcBox');
     const npcAvatarHeight = playerBoxHeight * npcToPlayerScale;
-    const npcAvatarWidth = npcAvatarHeight;
-    npcAvatar.style.width = `${npcAvatarWidth}${playerBoxHeightUnit}`;
     npcAvatar.style.height = `${npcAvatarHeight}${playerBoxHeightUnit}`;
 
     console.log(`PC height ${playerBoxHeightUnit}: ${playerBoxHeight}`);
@@ -26036,33 +26034,21 @@ function createVisualNovelRenderElements() {
         position: absolute;
         z-index: 1;
     ">
-        <div id="playerBox" style="
-                position: absolute;
-                background-image: var(--mcIcon);
-                width: 45vh;
-                height: 45vh;
-                bottom: 0;
-                /* left: -10vw; */
-                z-index: 0;
-                /* border-radius: 250px; */
-                background-position-x: center;
-                background-position-y: bottom;
-                background-repeat: no-repeat;
-                background-size: contain;">
-        </div>   
-        <div id="npcBox" style="
+         <img id="playerBox" style="
+                    content: var(--mcIcon);
+                    position: absolute;
+                    height: 50vh;
+                    bottom: 0px;
+                    z-index: 0;
+                    translate: -35%;">
+        <img id="npcBox" style="
             position: absolute;
             display:none;
-            width: 50px; /* intended for visual debugging. It should be changed dynamically */
             height: 50px; /* intended for visual debugging. It should be changed dynamically */
             bottom: 0;
             right: 0;
-            z-index: 5;
-            background-repeat: no-repeat;
-            background-position-x: center;
-            background-position-y: top;
-            background-size: contain;">
-        </div>
+            translate: 12%;
+            z-index: 5;">
     </div>
 	<div id="textBoxWrapper" class="borderedWindow" style="
         position: absolute;
