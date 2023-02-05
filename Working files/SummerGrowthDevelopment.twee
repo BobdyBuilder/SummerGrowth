@@ -18674,7 +18674,7 @@ Before we begin the game, you can customize your starting character a bit. You c
   <tr>
     <th style="width:50%;vertical-align: top;">
 		<div style="width:100%;padding-block: inherit;display: table; height:450px;">
-<span class="player mirror"><span style="width:300px; height:300px; padding: 10px 10px 10px 10px; border-radius: 300px;" class="avatar mirror"></span></span></div>
+<span class="player mirror"><span style="width:300px; height:300px; padding: 10px 10px 10px 10px; border-radius: 300px; background-position: center; background-repeat: no-repeat;" class="avatar mirror"></span></span></div>
 	</th>
     <th style="width:50%;vertical-align: top;">
 	<<radarChart>>
