@@ -25891,9 +25891,6 @@ You bring the phone to your chest, pushing it tightly against it, as you let out
 <<timed 0s>><<script>>
 /*The logic of this widget is simple, but goes through a few steps. It finds the html object that the game is normally rendered in. From that passage, it retrieves all HTML nodes. The original passage is than made hidden, but NOT destroyed. The original passage from now on functions as storage for the nodes that are to be clicked through. */
 
-/*retrieves the object that the passage is normally rendered in. */
-const passage = $('#passages:first-child');
-
 /*Retrieves the nodes within the passages. */
 const $passages = $('#passages > .passage');
 let nodes = $passages[0].childNodes;
@@ -25982,7 +25979,7 @@ function continueClick() {
         }
         break;
     }
-    
+
     /* refresh the node list, in case any new ones have been added by a link action. */
     nodes = $passages[0].childNodes;
 }
@@ -26140,7 +26137,7 @@ $(document).on(':replaced', e => {
     const childNodes = content[0].childNodes;
     childNodes.forEach(function (node) {
         if (!ifNodeEmpty(node)) {
-            $passages[0].append(node);
+            $('#passages > .passage')[0].append(node);
         }
     });
     continueClick();
