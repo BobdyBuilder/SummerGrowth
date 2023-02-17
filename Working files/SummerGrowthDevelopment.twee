@@ -25961,7 +25961,7 @@ function continueClick() {
 
             const speechBubble = $('#textBox > .speech');
 
-            const characterClasses = ['player', 'Kris', 'KrisObsessed', 'Johan', 'Eddy', 'randomPerson', 'elena', 'elenaShy'];
+            const characterClasses = ['player', 'Kris', 'KrisObsessed', 'Johan', 'Eddy', 'randomPerson', 'Elena', 'ElenaShy'];
             const characterHeights = [State.variables.height, 165, 165, 170, 180, Math.floor(Math.random() * (190 - 155 + 1) + 155), 210, 210];
             const npcBackgrounds = [
                 '',
@@ -25970,8 +25970,8 @@ function continueClick() {
                 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Npc_t/Johan.png',
                 'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc_t/BulkBarnGuy.png?raw=true',
                 'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc_t/Random_male.png?raw=true',
-                'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc_t/Elena.png?raw=true',
-                'https://github.com/BobdyBuilder/SummerGrowth/blob/RenderExperiment/Art%20assets/Npc_t/ElenaShy.png?raw=true'
+                'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Npc_t/ElenaHappy.png',
+                'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/RenderExperiment/Art%20assets/Npc_t/Elena.png'
             ];
 
             for (let i = 1; i < characterClasses.length; i++) {
