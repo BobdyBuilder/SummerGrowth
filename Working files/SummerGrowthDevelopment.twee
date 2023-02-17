@@ -25911,6 +25911,11 @@ function continueClick() {
 
     const $textBox = $('#textBox');
     const $textBoxWrapper = $('#textBoxWrapper');
+    const $continueButton = $('#continueButton');
+
+    /* makes sure that we always have the button in case we turned it off in the last node. */
+    $('#continueButton').css("display", "flex");
+
     for (const node of nodes) {
         if (ifNodeEmpty(node)) {
             continue; /* if the node is empty, and nothing has changed yet, display it next. */
@@ -25923,7 +25928,13 @@ function continueClick() {
         $textBox.append(node);
         $textBoxWrapper.css('background', '');
         $textBoxWrapper.addClass('borderedWindow');
-        if (node.innerHTML?.contains('link-internal macro-link') || node.innerHTML?.contains('link-internal macro-button')) {
+        /* not the neatest, but there are a LOT of possible div's that can contain a choice. */
+        if (node.innerHTML?.contains('macro-link') || 
+            node.innerHTML?.contains('macro-button') ||
+            node.innerHTML?.contains('macro-gameLink') ||
+            node.innerHTML?.contains('link-internal') ||
+            node.innerHTML?.contains('macro-PersonalityCheck')
+            ) {
             /* This trigger is needed to let the game know when/if a link has been clicked. */
             const links = $textBox.find('.link-internal');
             links.click(function () {
@@ -25937,6 +25948,9 @@ function continueClick() {
             links.addClass('borderedWindow');
             links.css('background', '#0000ff52');
             $textBoxWrapper.removeClass('borderedWindow');
+
+            /* The button does nothing here, so we hide it. */
+            $('#continueButton').css("display", "none");
         } else if (node.innerHTML?.contains('<span class=\"avatar\"></span>')) {
             /* Special logic for text-bubbles. */
             console.log('found text bubble');
@@ -26009,21 +26023,24 @@ function scaleNpcBox(npcFullHeightInCm) {
 
     const differenceBetweenPlayerAndNpcBust = playerFeetToBustInCm - npcFeetToBustInCm;
 
+    const differenceBetweenPlayerAndNpcBustInUnits = differenceBetweenPlayerAndNpcBust * heightUnitPerGameCM;
+
     const npcAvatar = document.getElementById('npcBox');
     const npcAvatarHeight = playerBoxHeight * npcToPlayerScale;
-    npcAvatar.style.height = `${npcAvatarHeight}${playerBoxHeightUnit}`;
+    npcAvatar.style.height = `${npcAvatarHeight + differenceBetweenPlayerAndNpcBustInUnits}${playerBoxHeightUnit}`;
 
     console.log(`PC height ${playerBoxHeightUnit}: ${playerBoxHeight}`);
-    console.log(`NPC height ${playerBoxHeightUnit}: ${npcAvatar.style.height}`);
+    console.log(`NPC Bust height ${playerBoxHeightUnit}: ${npcAvatar.style.height}`);
+    console.log(`NPC Feet to bust height ${playerBoxHeightUnit}: ${differenceBetweenPlayerAndNpcBustInUnits}`);
 
-    /* npcAvatar.style.transform = `translate(0px,${(differenceBetweenPlayerAndNpcBust * pixelsPerGameCM) + (initNpcAvatarSize - npcAvatar.getBoundingClientRect().width)}px)`; */
+    npcAvatar.style.transform = `translate(0${playerBoxHeightUnit},${differenceBetweenPlayerAndNpcBustInUnits}${playerBoxHeightUnit})`;
 }
 
 /* creates all the elements needed to render the basic visual novel layout. does NOT create the more specialized render elements such as dialogs, or choices. */
 function createVisualNovelRenderElements() {
     $passages.after(`
 <div id="renderWrapper" style=" 
-    height: 85vh;
+    height: 90vh;
     position: relative;
     /* width: 42em; */
     /* left: -1em; */
@@ -26059,15 +26076,20 @@ function createVisualNovelRenderElements() {
         width: -webkit-fill-available;
         ">
 
-		<div id="textBox"></div>
+		<div id="textBox" style="margin-bottom: 5vh;"></div>
         <div id="continueButton" style="
-			position: absolute;
-			background: white;
-			height: 5vh;
-			width: 5vh;
-			bottom: 5px;
-			right: 5px;
-			border-radius: 50%;">
+			    display: flex;
+                position: absolute;
+                background: white;
+                height: 5vh;
+                width: 5vh;
+                bottom: 5px;
+                right: 5px;
+                border-radius: 50%;
+                color: black;
+                align-items: center;
+                justify-content: center;
+                font-size: x-large;">►
         </div>
     </div>
     <div id="graphicsContainer" style="
