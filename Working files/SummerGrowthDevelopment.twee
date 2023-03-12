@@ -21881,6 +21881,18 @@ You reach down to feel a certain slickness between your legs, the sensation of a
 
 
 :: initEvents [nobr] {"position":"0,100","size":"100,100"}
+<<set setup.hasEvenBeenTriggered to function (eventName) {
+        for (let i = 0; i < State.variables.indexesOfEventsUsed.length; i++) {
+            if(setup.events[i].name === eventName){
+                return true;
+            }
+        }
+        return false;
+    }
+>>
+
+
+
 <<set setup.events to [{
     name: 'mainQuest1Progress',
     locationTags: ['secondHandStore'],
