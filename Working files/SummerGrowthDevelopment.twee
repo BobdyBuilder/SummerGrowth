@@ -1437,6 +1437,7 @@ window.isNumeric = function (obj) {
 <<include "FrameUpdate" "hide">>
 <<if !tags().includes('noEventTrigger')>>
 <<include "EventManager">>
+<<include "EndingManager">>
 <</if>>
 
 <<set $tags to tags()>>
@@ -16746,6 +16747,27 @@ timeBox.addEventListener('change', (event) => {
 
 <</nobr>>
 
+:: initBalance {"position":"0,200","size":"100,100"}
+<<set setup.endings to [
+    {
+        name: 'exampleEnding',
+        header: '',
+        triggers: [
+            () => false
+        ],
+        content: ''
+    },
+    {
+        name: 'stuckAtHomeEnding',
+        header: 'Game Over!',
+        triggers: [
+            () => State.variables.money < 100 && setup.isOutfitNude() && State.variables.debug != "true" &&
+            State.variables.streamWarnings < 3
+        ]
+        content: ''
+    }
+
+]>>
 
 :: initBalance {"position":"0,200","size":"100,100"}
 <<set setup.balance to {
@@ -21918,7 +21940,7 @@ repeatable: false,
 
         <<if _changes >= 10>>Reflecting on it all, there's no denying it. Your new body is barely recognizable anymore. You think about what your old friends would say, your parents. Your family. They'd be shocked, they'd be worried. For some time you sit there, sitting, thinking, the weight of your body sinking in. You've changed your body, without knowing if you could go back. Perhaps you've been indulging in those drinks a bit too eagerly.<<elseif _changes >= 3>> Reflecting on it all, you've certainly changed your body immensely. Your parents, your family, old friends... they'd be suprised. Scared even. But you also know that deep down, despite everything, you're still yourself. Perhaps you've over indulged in those potions. But who else had the chance to experience this?<<else>>Reflecting on this, you realize you've been pretty conservative with your potions. Minor changes, here and there, that'd suprise to your family and old friends for sure. But... given the opportunity you had... have you really fully experienced it?<</if>>
         
-        You snap out of it, looking around. Okay, you hacked the USB file. You learned who Toshi is... but more importantly, you now somewhat know how all those odd potions work. `
+        You snap out of it, looking around. Okay, you hacked the USB file. You learned who Toshi is... but more importantly, you now somewhat know how all those odd drinks work. Somewhat. They still defy everything you know about biology, but here we are. And with the knowledge how you can change, for better of for worse, its time to see what you can do with the new you.`
     },
     {
     name: 'ifBreastsBiggerThan50_ThotCheck',
@@ -25855,3 +25877,9 @@ It means “my flower”.
 You bring the phone to your chest, pushing it tightly against it, as you let out a content sigh. It’s going to be a long walk home… or at the very least, it will feel that way.
 
 <<link "Go home" "Home">><<set $elenaOpinion += 10>><<set $elenaShyOpinion += 10>><</link>>
+
+:: EndingManager [nobr] {"position":"600,700","size":"100,100"}
+
+
+
+
