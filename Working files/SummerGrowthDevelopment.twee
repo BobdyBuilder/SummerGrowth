@@ -11244,6 +11244,65 @@ name: 'EmmaExpertSewing',
             You know this won’t be easy for her, which makes you appreciate the effort even more. You thank her again, before changing the subject:<br><br>
             <<Dialogue "player" "You">>"So how about we lift some obscene amount of iron now? I could use a little distraction!"<</Dialogue>><br><br>
             Elena giggles, and you join her in a gruesome but very fulfilling session of strength training.`
+  },{
+        name: 'ElenaThinkingUsb',
+        locationTags: ['elena'],
+        conditions: [
+            () => State.variables.elenaOpenedUp,
+            () => setup.hasEvenBeenTriggered('ElenaOffersHelpUsb')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['elena'],
+        content: `You meet Elena, as you had scheduled. She looks forlorn, holding the USB stick in her hand.<br><br>
+            <<Dialogue "Elena" "Elena">>"I’m sorry, <<print $playerFirstName>>. I… I tried, but I failed."<</Dialogue>><br><br>
+            She is almost crying… she clearly feels really bad she couldn’t help more. You insist that it’s okay, but she can’t stop explaining herself.<br><br>
+            <<Dialogue "Elena" "Elena">>"I… I looked at all the giornale. I even went to the library to check the microfiche. I… I looked online, it’s almost as if there’s someone suppressing information about the whole thing."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Hey, Elena, it’s okay - no worries, it was a long shot anyway. I knew it from the start."<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"I know, but… I didn’t want to deluderti… disappoint you."<</Dialogue>><br><br>
+            She is now sobbing. You give her a hug, and insist that it’s okay.<br><br>
+            <<Dialogue "Elena" "Elena">>"Connor… what he did… I don’t know that I can ever perdonalo - forgive him. I still have nightmare with him."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wait… you KNOW him?"<</Dialogue>><br><br>
+            Elena closes up, looking more reluctant. She clearly is not comfortable with this.<br><br>
+            
+            <span id="choice">
+                <<link "It’s okay, it’s not worth going over this.">>
+                    <<replace "#choice">>
+                        You hold Elena in your arms, and give gentle taps on her back.<br><br>
+                        <<Dialogue "player" "You">>"Don’t worry. This is not worth this heartache."<</Dialogue>><br><br>
+                        As you say this, though, she realizes the importance of this. She feels divided and scared, but… you know at this moment that she would do anything for you.<br><br>
+                        <<Dialogue "Elena" "Elena">>"I had just moved here for college. I didn’t know many people… and he was so nice to me! He said he needed my help, and I didn’t want to disappoint him!"<</Dialogue>><br><br>
+                        You hold Elena’s hand tightly. You can see these memories are painful.<br><br>
+                        <<Dialogue "Elena" "Elena">>"He said he had some experiments, that he needed subjects… I went to his apartment… and when I asked about what it was… he just laughed. Then he pointed to my tazza, the cup, and said that I just had to wait now…"<</Dialogue>><br><br>
+                        Geez, seriously, he thought it was okay to just use a teenager as his guinea pig?<br><br>
+                        <<Dialogue "Elena" "Elena">>"Ha riso… he just laughed and laughed… like il jolly…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Jolly? You mean he laughed like Santa Claus?"<</Dialogue>><br><br>
+                        <<Dialogue "Elena" "Elena">>"il jolly, la carta… uh, come si dice… the Joker! He had many, all over the apartment…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Wait… could it be? Elena… I think you might be on to something!"<</Dialogue>><br><br>
+                        You get up, and take the USB drive with you. You have a very good feeling about this…
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            
+                <<link "Elena, please, this is very important!">>
+                    <<replace "#choice">>
+                        You don’t feel proud about this, but you have to do it.<br><br>
+                        <<Dialogue "player" "You">>"Elena, I wouldn’t ask if this wasn’t really important… but I think this may actually be bigger than you and me. I need you to think back to that time…"<</Dialogue>><br><br>
+                        She knew the importance of this, of course. She feels divided and scared, but… it just makes you feel bad for putting her through this. Yet, she perseveres, as Elena is wont to do.<br><br>
+                        <<Dialogue "Elena" "Elena">>"Well, it was a little over a year ago. I had just moved here for college. I didn’t know many people… and he was so nice to me! He said he needed my help, and I didn’t want to disappoint him!"<</Dialogue>><br><br>
+                        You hold Elena’s hand tightly. You can see these memories are painful.<br><br>
+                        <<Dialogue "Elena" "Elena">>"He said he had some experiments, that he needed subjects… I went to his apartment… and when I asked about what it was… he just laughed. Then he pointed to my tazza, the cup, and said that I just had to wait now…"<</Dialogue>><br><br>
+                        Geez, seriously, he thought it was okay to just use a teenager as his guinea pig?<br><br>
+                        <<Dialogue "Elena" "Elena">>"Ha riso… he just laughed and laughed… like il jolly…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Jolly? You mean he laughed like Santa Claus?"<</Dialogue>><br><br>
+                        <<Dialogue "Elena" "Elena">>"il jolly, la carta… uh, come si dice… the Joker! He had many, all over the apartment…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Wait… could it be? Elena… I think you might be on to something!"<</Dialogue>><br><br>
+                        You get up, and take the USB drive with you. You have a very good feeling about this…
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
   })>>
 
 
