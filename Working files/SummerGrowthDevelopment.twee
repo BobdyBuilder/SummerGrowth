@@ -8385,7 +8385,98 @@ Was that a nosebleed?<</if>>
         priority: 'response',
         npc: ['johan'],
         content: `You bump your head on the door frame as you enter Johan’s apartment, and proceed to rub your forehead as you see him on top of a little step stool, dusting his collection of anime figures on the shelf. You walk to his side, and notice he missed a spot on top of one of their hats.<br><br><<Dialogue "player" "You">>"Hey, there’s quite a bit of grime on top of the hat of this one here on the corner."<</Dialogue>><br><br>Johan tiptoes on top of the bench, and realizes that, indeed, there was a spot he couldn’t reach there.<br><br><<Dialogue "Johan" "Johan">>"Ah, thanks. Can you reach that for me, please?"<</Dialogue>><br><br>He hands you the duster, and you make sure to thoroughly clean the figure. Johan looks confused, however.<br><br><<Dialogue "Johan" "Johan">>"Uh, where did you get another step stool? I thought this was the only one…"<</Dialogue>><br><br>He looks down, and realizes that you are, in fact, still very much on the ground. Despite that, even with him on tiptoes on top of his little stool, you still stand taller than him.<br><br><<Dialogue "Johan" "Johan">>"Oh… wow… I never quite realized… how tall you’ve gotten, <<print $playerFirstName>>."<</Dialogue>><br><br>You are also struck by the difference, remembering how Johan used to stand almost a full head taller than you when you moved in. You stand by his side, waiting for him to finish his dusting. <<if $muscle >=45>>Once he is done, you grab him by the armpits and settle him back down on the ground. He seems slightly flustered by the ease with which you manhandle him, but you can’t quite point out if he was scared, aroused… or both!<br><br><<else>>He steps down from the stool, once again bringing attention to the height deficit he now holds against you.<</if>><<if $breasts >= 50>>He looks up, and realizes that he can barely see your face from this close, as your considerable bosom acts as a barrier on top of his head. He takes a step back to look at your face properly.<br><br><<else>>He looks up, getting almost a bit of vertigo as he realizes his eyes barely clear your breasts, forcing him to tilt his chin up to look you in the face. It’s definitely very intimidating so close, so he takes a step back to get a better look at you.<br><br><</if>> <<Dialogue "Johan" "Johan">>"So… wow, I guess I should deputize you to help change light bulbs and help me clean the drapes, huh?"<</Dialogue>><br><br>You get a little lost inside your head. Your height was part of your identity - you’ve ALWAYS been “the short girl” in school, which came with its own set of challenges (like always getting picked last for basketball teams). But now… you tower over most people, your new height redefining who you are… and how others see you. It’s not that there isn’t something a bit exciting about it - it’s just that it creates this bizarre cognitive dissonance, as you still commonly picture yourself with your old stature.<br><br><<Dialogue "player" "You">>"Yeah, haha! I suppose I could help you with those things, that’s what tall friends are for, right?"<</Dialogue>><br><br> Johan gets all flustered, and starts gesticulating wildly with a nervous expression, babbling incoherently as he realizes that his “joke” might have been a bit reductive.<br><br><<Dialogue "Johan" "Johan">>"Oh, no! I… just kidding! Your… height… you tall and… I didn’t mean to, just… haha! Not that it isn’t nice to have someone like that, but obviously that’s not what I wanted or expected…"<</Dialogue>><br><br><<Dialogue "player" "You">>"Johan, it’s OK, I get it. Trust me, it’s also weird for me too, and I’m still getting used to it."<</Dialogue>><br><br> <<Dialogue "Johan" "Johan">>"Not gonna lie, I still feel like that sidekick seeing their old friend getting superpowers and being the one that is all excited… the height does look REALLY good on your figure…"<</Dialogue>><br><br>That one comment surprises you, and you end checking yourself out on his (rather small) bathroom mirror from afar… and he isn’t wrong - the added stature does somehow make you look quite nice - “Look at those legs”, you think to yourself, as you make a bit of a seductive pose by spreading your legs a bit and curving your torso while pucker your lips.<br><br><<Dialogue "Johan" "Johan">>"Awamawaaaanaaa…"<</Dialogue>><br><br>Johan has turned beet red, and can’t take his eyes away from your enticing figure. You stand back up, and his eyes track your face as you straighten yourself. Looking back at him, it also somewhat impacts you that the way you see Johan has also changed - he originally was like a cool older brother… and now feels kinda like the cute younger brother, and you find yourself having to resist the urge to just grab and hold him like a little baby.<br><br><<Dialogue "player" "You">>"Well, I assume you still have more stuff to dust, anything hard to reach that you need help with?"<</Dialogue>><br><br>Johan stutters and stammers, and settles for just shaking his head. So you say your goodbyes and wave, as you head to the door. But you can’t help but feel like you have awakened something in him - and hope that this doesn’t get in the way of your friendship… right?`
-    })>>
+    },
+      {
+          name: 'johanFinancialEmergency',
+          locationTags: ['johan'],
+          conditions: [
+              () => State.variables.streamingViewers >= 200,
+              () => setup.hasEvenBeenTriggered('Loan')
+          ],
+          repeatable: false,
+          retriggerable: false,
+          priority: 'response',
+          npc: ["johan"],
+          content: `As you approach Johan’s apartment, you are shocked to step on something unusual - your feet slosh on the carpeting in the hallway. There’s… water coming out from his front door?<br><br>
+               You come in without knocking, asking if everything is alright. You find poor Johan tying towels around a broken pipe that has some badly applied duct tape, but still seems to leak, creating a large puddle that slowly seeps out of the apartment. He is visibly shook, with a level of worry that you did not think he was capable of achieving.<br><br>
+               <<if $muscle >= 35 || $height >= 175>>Given your taller stature and strength, you gently ask him to move so you can take a stab at the leak. <<if $carefreeCarefull > 1>>You ask about the main valve, and he explains that this old building has it shared among different apartments, so he can’t shut it off without cutting water to other people. To release some of the pressure, you open the shower and untie the towels, carefully reapplying the duct tape, which holds much better now. You twist the towel a little, and then return it to the pipe much tighter, and pretty much staves most of the leak - nothing a bucket can’t hold for the time being.<br><br>
+               <<Dialogue "Johan" "Johan">>"Wow, thanks <<print $playerFirstName>>, you are a life-saver!"<</Dialogue>><br><br>
+               <<else>>
+               You come in hot, trying to squeeze things tighter, but it doesn’t get much better. In fact, you pull it so tight you might have cracked the pipe a bit more. You add another towel and try to stave it, somewhat succeeding, but it’s still a mess.
+               <<Dialogue "Johan" "Johan">>"Well, it was worth a try!"<</Dialogue>><br><br>
+               <</if>>
+               <<else>>
+               You look at the mess, and ask if there’s anything you can do to help. Johan asks you to pass him another towel, which from the top of his stool he tries to wrap around the previous one. The flow of water is slightly diminished, but not enough to keep this from being pretty disastrous. He sighs, exasperated, and your heart sinks a bit, seeing him so nervous and sad.
+               <</if>>
+               <<Dialogue "player" "You">>"What happened?"<</Dialogue>><br><br>
+               <<Dialogue "Johan" "Johan">>"This pipe had a small crack for a while. I kept asking the super to have a look at it, but he just told me to put some duct tape on it, and place a bucket under the leak. Which I did. But I think it’s been getting worse, and then I find THIS!"<</Dialogue>><br><br>
+               <<Dialogue "player" "You">>"What are you going to do?"<</Dialogue>><br><br>
+               He sighs again, and you can feel the tension from a distance.<br><br>
+               <<Dialogue "Johan" "Johan">>"There’s only so much I can do, I tried looking at some videos online, but even if I had the skills, I don’t have the tools. I’ll end up having to call a plumber, but that’s gonna cost me almost two hundred dollars… and I’ll probably also have to pay for the building damages with all this water everywhere on the floor…"<</Dialogue>><br><br>
+               Feeling for the guy, you dash to your apartment without saying a word, and bring every towel you can collect to try and absorb all the water you can. It’s weird, it’s really not THAT big of a deal, but it’s making you very anxious - the general lack of control, the financial burden that will put on Johan…
+               You turn around to see him collecting some of his comics that got wet, and hanging them to dry, and it just pierces your heart. He seems to know what he’s doing and they’ll probably still be readable, just a bit stained. You know how those are important to him, but he still prioritized trying to keep the damage to the building to a minimum.<br><br>
+               You bite your lips and frown, and come to help him.<br><br>
+               <<Dialogue "player" "You">>"Can I help? I can separate these pages while you hang them."<</Dialogue>><br><br>
+               <<Dialogue "Johan" "Johan">>"Thanks, I’m hoping I’ll have the funds to have the plumber come in by the next week… or the one after that, at least. I think I can keep things somewhat under control until then, I guess?"<</Dialogue>><br><br>
+               That’s it, you need to do something about this whole thing.<br><br>
+               
+               <span id="choice">
+                   <<if $money >= 300>>
+                       <<link "Hey, Johan, why don’t I lend you some money I made on my stream? (GIVE $300)">>
+                           <<replace "#choice">>
+                               <<Dialogue "player" "You">>"You helped me when I needed it - I’ve been having a lot of success in my livestreams, least I can do is repay you."<</Dialogue>><br><br>
+                               You grab a wad of 300 dollars and hand it to him, while you call a plumber on your phone to come urgently.<br><br>
+                               <<Dialogue "Johan" "Johan">>"But, but… that’s YOUR money, I couldn’t possibly…"<</Dialogue>><br><br>
+                               You lean the phone against your shoulder, still waiting for the plumber to pick up as you grab Johan by the shoulders.
+                               <<Dialogue "player" "You">>"Are you kidding me? Short of a medical emergency, this is about the clearest case of you needing some help - just like you did when I had a much minor one… Hello? I saw your ad online for emergency plumbing services, can you come right now? Yes? Great, I’ll text you the address."<</Dialogue>><br><br>
+                               <<Dialogue "Johan" "Johan">>"But I don’t know I’ll be able to repay you, and…"<</Dialogue>><br><br>
+                               <<Dialogue "player" "You">>"Come on, Johan! Neither did I when YOU lent me some money. And here’s my chance to repay the favor. That is what friends are for, correct? I know for a fact you’d do the same for me, because YOU ALREADY DID!"<</Dialogue>><br><br>
+                               Johan stops arguing, lowering his head. He mumbles a thank you, and gives you a big hug. Awwww, the little guy is so adorable!<br><br>
+                               <<Dialogue "player" "You">>"Plumber should be here in half an hour. We should be able to keep the damage to a minimum if we work together in the meantime."<</Dialogue>><br><br>
+                               <<Dialogue "Johan" "Johan">>"I don’t really deserve you, <<print $playerFirstName>>."<</Dialogue>><br><br>
+                               <<Dialogue "player" "You">>"Don’t be silly. Now grab that mop, and I’ll keep twisting the towels off in the sink while we keep this under control."<</Dialogue>><br><br>
+                               Little by little, Johan’s spirits are lifted, and he gets back to his usual mood, and by the time you notice, he’s doing little dances as he mops. It brings a smile to your face, and you swear to yourself never to let him down in the future, no matter what.
+               
+                               <<set $money -= 300>>
+                               <<link "Continue" $currentScene>><</link>>
+                           <</replace>>
+                       <</link>>
+                   <</if>>
+                   
+                   <<PersonalityCheck $shyConfident >= 2 "This isn’t fair, Johan! I’m gonna talk to the superintendent!">>
+                       <<replace "#choice">>
+                           <<Dialogue "player" "You">>"OK, that’s it. This is NOT your fault, Johan. I’m getting the super to fix this, it’s clearly HIS fault for ignoring your complaints."<</Dialogue>><br><br>
+                           You storm off the apartment, leaving the confused Johan behind. He is frozen in his spot for a few minutes, and you find him basically in the same pose when you come back dragging the super behind you.<br><br>
+                           <<Dialogue "player" "You">>"You see this? This is the leak you refused to fix. You understand that THIS is all YOUR FAULT? So unless YOU want to pay for all the damages, you may want to get a plumber here ASAP! Have I made myself clear?"<</Dialogue>><br><br>
+                           The super grunts and grabs his phone to call for a plumber. You smile proudly, and Johan is still frozen in the same spot. With a giggle, you watch the little soap opera unfold in front of you, but it looks like it will all be under control.<br><br>
+                           Johan thanks you for running interference and standing up for him:<br><br>
+                           <<Dialogue "Johan" "Johan">>"Thanks, <<print $playerFirstName>>. I wish I wasn’t such a spineless wretch that needs a girl to stand up for him… you must be ashamed of me."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"Awww, are you kidding me? You ain’t spineless, you are just too sweet to bother anyone. It’s cute, really!"<</Dialogue>><br><br>
+                           Johan blushes, and makes you laugh. You give him a tap on the back and tell him things should be OK now before leaving, satisfied you had a chance to help him.
+                           <<link "Continue" $currentScene>><</link>>
+                       <</replace>>
+                   <<Failed>>
+                       <<replace "#choice">>
+                           You grab your phone and call the super, planning to give him a piece of your mind.<br><br>
+                           <<Dialogue "player" "You">>"Hey, it’s <<print $playerFirstName>> here, I’m at Johan’s apartment - remember that leak he complained about?"<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"Yeah, that same one. The one that now is basically a waterfall?"<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"What do you mean you can’t do anything? You are the super, he told you about it weeks ago!!!"<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"Yeah, but you gotta do something about it! It’s going to damage the floor and the carpet and..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"YOU GOTTA BE KIDDING! YOU CAN SHOVE YOUR EXCUSES UP YOUR…"<</Dialogue>><br><br>
+                           Johan’s eyes widen.<br><br>
+                           <<Dialogue "player" "You">>"Well, he hung up, I don’t think he’s going to be much help. Sorry, I kinda lost it there."<</Dialogue>><br><br>
+                           Johan’s shoulders slump, but he musters the best smile he can, but it’s very bittersweet.<br><br>
+                           <<Dialogue "Johan" "Johan">>"No worries, you really tried there. I’m going to see if I can have one of the guys from my RPG group whose dad works in construction come over, I think he might be able to help."<</Dialogue>><br><br>
+                           Ugh! You feel so lousy, you really wanted to help, but you accomplish almost nothing. Without many other options on the table, you help Johan mop and twist towels for now, but it’s going to be a miserable few days until he can afford that plumber. Ugh!
+                           <<link "Continue" $currentScene>><</link>>
+                       <</replace>>
+                   <</PersonalityCheck>>
+               </span>`
+      })>>
 
 
 :: JohanImmediates [nobr] {"position":"1300,2225","size":"100,100"}
