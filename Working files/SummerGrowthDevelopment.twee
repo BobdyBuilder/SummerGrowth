@@ -8567,6 +8567,83 @@ Was that a nosebleed?<</if>>
                     <</replace>>
                 <</link>>
             </span>`
+     },
+     {
+         name: 'johanDrawingBarbarian',
+         locationTags: ['johan'],
+         conditions: [
+             () => setup.hasEvenBeenTriggered('JohanCaughtWithMusclePorn'),
+             () => State.variables.muscle >= 20
+         ],
+         repeatable: false,
+         retriggerable: false,
+         priority: 'response',
+         npc: ["johan"],
+         content: `You walk into Johan’s apartment and find him leaning over his desk, pencil in hand. He seems unusually concentrated on the task at hand, without music blaring or three different Japanese cartoons on the background (the norm for when he isn’t playing videogames, when it’s just one). You approach silently from behind, and you see him drawing something, with several reference pictures of well-muscled females in furry bikinis around his workspace.<br><br>
+            <<Dialogue "player" "You">>"Whatchu up to, Johan?"<</Dialogue>><br><br>
+            He gives a small jump, but then realizes it’s you and relaxes again.<br><br>
+            <<Dialogue "Johan" "Johan">>"Hey, sup, <<print $playerFirstName>>! After our conversation about errr... healthy girls... I decided to take a stab at drawing a barbarian! "<</Dialogue>><br><br>
+            You peek over his shoulder. He’s got some pretty awesome drawings there - with the two Franks representing some of the best she-beef ever committed to cellulose. How these guys manage to capture women as both powerful and imposing but still supremely sexy and alluring somewhat baffles you.<br><br>
+            <<Dialogue "player" "You">>"What’s the problem, though? You seem a bit troubled."<</Dialogue>><br><br>
+            Johan looks dejected at his sketch, which right now is just a bunch of pencilled circles and rectangles.<br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, I kinda suck at anatomy. I have this pose I want to draw, but I can’t find any good references, and whenever I try to set it up, it looks all wonky and stupid."<</Dialogue>><br><br>
+            He grabs a plastic poseable figure, showing more of less what he wants, and it does look awesome - holding a big sword horizontally behind her head, with the free hand making a “come here” gesture. You can really imagine how cool that drawing would look, but it does seem a bit hard.<br><br>
+            <<Dialogue "Johan" "Johan">>"If only I had some good reference for it, but where would I find a barbarian around here... or in this age, I should say, heh! Not many Hyperborians around these days!"<</Dialogue>><br><br>
+            Well, that is some food for thought!<br><br>
+            
+            <span id="choice">
+                <<link "Duh, I’d say you have the perfect model right here!">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Uh, excuse me, am I chopped liver or something?"<</Dialogue>><br><br>
+                        Johan just tilts his head, confused. You look at him, annoyed, as your wave your hands over your own body, and then bring your arm back in the same sword-holding pose, flexing your biceps for that extra effect. Johan squints, and it take a few seconds until that lightbulb flashes and his eyes bug out.<br><br>
+                        <<Dialogue "Johan" "Johan">>"WHOA! You could model for me!!!"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"DUUUUUH!!!"<</Dialogue>><br><br>
+                        And with that, Johan is once again in hyper-mode. He rushes off into the closet, leaving you behind slightly confused. He comes out, with something behind his back. He looks slightly embarrassed.<br><br>
+                        <<Dialogue "Johan" "Johan">>"So, huh, how much are you willing to commit yourself to the arts?"<</Dialogue>><br><br>
+                        You raise an eyebrow, waiting to see what he has in stock for you. He pulls out a skimpy metal bikini with some detail in fake fur.
+                        <<Dialogue "Johan" "Johan">>"So this girl had me sculpt her some foam weapons for LARPing, but she couldn’t pay me, but she offered this battle armor she made as a present."<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Uh, calling that ‘armor’ is being VERY generous."<</Dialogue>><br><br>
+                        Johan blushes into a shade of light purple, but makes his biggest and sweetest begging smile.<br><br>
+                        <<if $shyConfident > 1 && $submissiveDominant > 1>><<Dialogue "player" "You">>"I’m going to rock this bikini so hard you might have to get another pencil just to finish the sketch!"<</Dialogue>><br><br>You say, as you snatch the two piece set from his hand.
+                        <<elseif $shyConfident < 0 && $submissiveDominant < 0>><<Dialogue "player" "You">>"I don’t know about that - it’s a bit too revealing for my tastes, and doesn’t look all that practical, I’m sure we can find some alternative...!"<</Dialogue>><br><br>But as you look at Johan’s huge begging eyes, you just roll yours and, with a sigh, grab the two piece set to get changed.
+                        <<elseif $shyConfident < 0 && $submissiveDominant > 1>><<Dialogue "player" "You">>"Sorry, lil’ buddy, but the metal bikini is where I draw the line. But I’ll go to my apartment and change into a swimsuit for this, OK?"<</Dialogue>><br><br>Johan is a bit deject, but accepts your decision. You go get changed so you can come back for the posing.
+                        <<else>>
+                        <<Dialogue "player" "You">>"I suppose, if I’m doing this, might as well go all the way."<</Dialogue>><br><br>You say, as you snatch the two piece set from his hand to get changed.
+                        <</if>><br><br>
+                        Now properly dressed, Johan points where you should stand in the middle of his room. He opens the windows, and starts to explain the posing. He grabs a foam sword for you to hold. <<if $muscle >45 && $shyConfident > 1>><<Dialogue "player" "You">>"Johan, this so-called ‘sword’ is too light, don’t you have something a bit beefier to really get my biceps pumped?"<</Dialogue>><br><br>Johan gulps at your request, and goes to grab a metal rebar from the closet, which he drags with difficulty to you.<br><br><<Dialogue "player" "You">>"Ahhhhh, MUCH better, let’s get a pump going before I start!"<</Dialogue>><br><br>And so you start curling the rebar repeatedly, getting your arms filled with blood, before you get back to the pose, now showing much more definition. Johan just gulps again.
+                        <<elseif $muscle <25>>While it’s not horribly heavy, holding it up for a prolonged time seems like could get tiring, and you ask Johan to do it empty handed. He agrees, and takes it back from you.<</if>><br><br>
+                        After he explains the basics of the pose, you stand there and he sits back down. He pulls the pencil up and notches the proportions with thumb, but you can see he is still a bit frustrated - he tries to verbalize some changes to your posture, but he is having a hard time explaining (or maybe you are the one not getting it).<br><br>
+                        <<Dialogue "Johan" "Johan">>"Uh, so, errr, would you mind if I, uh..."<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"What?"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Well, um, I just, wanted to fine tune your pose a bit, so - can I, errr… mind if I use my hands to position you?"<</Dialogue>><br><br>
+                        <<if $shyConfident > 1>><<Dialogue "player" "You">>I didn’t cultivate this physique so no one could feel these muscles - go ahead, pose me away!"<</Dialogue>><br><br>
+                        <<elseif $shyconfident >-1>><<Dialogue "player" "You">>"Sure, go ahead!"<</Dialogue>><br><br>
+                        <<else>>You blush, trying to come up with an excuse, but you kind of just freeze and let out an “eep,” which Johan mistakes for consent.
+                        <</if>><br><br>
+                        Johan brings his hands to your hips, now past the shade of purple. You are not even sure he is even breathing. He adjusts your waist, then proceeds to move your thighs, and he gasps as he realizes just how firm they are - but does not say a single word, which is pretty impressive (his face communicates more than enough, though).<br><br>
+                        He straightens up, and starts slightly moving your arm back. At first, he is unable to make your elbow budge, putting quite a bit of effort, but then you relax a bit and let him change the position of your arm. He is transfixed with your upper appendages, and you could swear he is even drooling a bit.<br><br>
+                        <<Dialogue "Johan" "Johan">>"PERFECT!"<</Dialogue>><br><br>
+                        And with that snap, he’s back in Johan mode. He rushes to his chair, and starts sketching furiously. You try to make your fiercest expression, <<if $skills[4].level > 3>>and you apparently succeed, because it makes his fire burn even hotter. It helps that your modelling experience makes it so you don’t move a single bit for the entire duration of the drawing.<<else>>but you could use some more modelling experience to properly communicate that. Also, it means you have a harder time holding the pose, but Johan makes the most of it anyway.<</if>>
+                        Eventually Johan’s arms shoot up as he shouts “YES!” It would seem he is done, and you relax.<br><br>
+                        As you approach, you see his sketch. Wow, this looks AWESOME - you seem so powerful you could eat barbarians for breakfast!<br><br>
+                        <<Dialogue "Johan" "Johan">>"That came out amazing, <<print $playerFirstName>>. I couldn’t have done it without you."<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Are you kidding me? All I did was model for you. This is mostly on you. And it DOES look amazing."<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Oh, just you wait until I’m done coloring this. It will be even more awesome, just you wait!"<</Dialogue>><br><br>
+                        You can’t deny you are kinda anxious to see the final product. But for now, you change back into your own clothes and head back home, having some fantasies about going around the snow with a big sword.
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            
+                <<link "Yeah, that’s tough. Wish I could help, but I suck at art.">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Yeah, he he, pity there ain’t more barbarian girls just roaming the streets, am I right?"<</Dialogue>><br><br>
+                        You laugh nervously, and start looking at the time in an anxious pattern while Johan pouts. He goes back to his sketch, and you just scratch the back of your head.<br><br>
+                        <<Dialogue "player" "You">>"I guess I won’t get in your way. Hope you manage to crank out some cool art! Good luck!"<</Dialogue>><br><br>
+                        And with that, you leave, Johan’s eyes never leaving the page to say goodbye.
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
      })>>
 
 
