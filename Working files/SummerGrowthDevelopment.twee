@@ -372,6 +372,10 @@ text-align: left;
 	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisObsessesCasual.png);
 }
 
+.KrisMessage {
+	color: #9E2473;
+}
+
 .Tasha {
 	background-color: #c7b2b6;
 }
