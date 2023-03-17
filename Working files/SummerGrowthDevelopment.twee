@@ -10746,6 +10746,58 @@ name: 'EmmaExpertSewing',
         priority: 'response',
         npc: ['emma'],
         content: `As you finish one of your tasks, you notice an email popping in your inbox. It’s a general office-wide announcement from Emma, which you know she tends to save only for situations in which it is absolutely necessary, so you figure there’s no time to wait and start reading the message:<br><br>“Fellow coworkers,<br><br>Our company prides itself in our progressive policies, and we were among the first to institute unissex toilets along our previous separate restrooms. However, over the last few days, there have been several complaints regarding the use of the female facilities.<br>It should be no surprise to anyone that the users of said facilities have certain expectations, but there were multiple incidents of the toilet seats being found left on their vertical orientation - as well as anecdotal reports of urine particles on the seat itself.<br><br>While we are vehemently any sort of gender discrimination at the workplace, I cannot reinforce enough that certain societal expectations should be maintained and no one wants to have rules enforced regarding this (not to mention the privacy issues that arise from said procedures). Since we still count with both male and ungendered facilities, I am sending this memo to all employees in the hope that we won’t be forced to take further action regarding this issue.<br><br>Cordially,<br>Emma Fray, Director of Human Resources.”<br><br>You guess you got a little overexcited with the prospect of peeing standing up now that you have the proper pipes to do so. You make a mental note to change your habits, since the last thing you want is to cause more issues. You do laugh at the mental image of the look on Emma’s face as she was writing that message… heh.`
+    },
+  {
+        name: 'EmmaInvitesToTailor',
+        locationTags: ['emma'],
+        conditions: [
+         () => setup.hasEvenBeenTriggered('OfficeCasualOutfit'),
+         () => State.variables.emmaOpinion >= 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['emma'],
+        content: `For some reason, work is not going very smoothly today. You had to start going over some issues on a previous report, and it was getting so frustrating you had to take a break and get some coffee. And as you get back to your station, your screen just won’t turn on. After testing all the buttons and connections behind the monitor, you decide to look under your desk for a potential solution. <<if $muscle >= 50 || $height >= 190>>Unfortunately, this is not easily accomplished given your size. You roll down to your knees and try very hard to squish yourself in a position that you’ll fit under the table, until you finally manage to get down there. <</if>>You find that the electric plug seems to have come off somehow, and you try to reach the rather inaccessible outlet to put it back where it belongs.<br><br>
+            <<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>?"<</Dialogue>><br><br>
+            Surprised, you hit your head against the table with a loud THUNK! Everything wobbles as your reach for your head, and there’s some struggle as you try to extricate yourself from the embarrassing position, finding Emma looking away - allowing you to maintain some self-respect… but not THAT much.<br><br>
+            <<Dialogue "player" "You">>"Ms. Fray, I’m sorry, I was just replugging my monitor that came loose from the electric…"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"It’s quite alright, no worries. However, since we are discussing awkward situations, we should discuss your adherence to our dress code."<</Dialogue>><br><br>
+            Uh-oh! Are you going to get in trouble for wearing those casual clothes the other day? You figured that was in the past but apparently, you are not quite over it.<br><br>
+            <<Dialogue "player" "You">>"I’m very sorry, Emma. I promise it won’t happen again. I 100% learned my lesson and…"<</Dialogue>><br><br>
+            But before you can complete that thought, your boss interrupts you.<br><br>
+            <<if $muscle >= 45 || $height >= 190>>
+            <<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>, I should tell you, I can empathize with the difficulty of finding clothes off-the-rack for women like us who are… outside the purview of established standards. As it turns out, all of my work attire is made to order at the family tailor. As I feel for your plight, I’d like to make an offer, should you be interested. Should you be so inclined, I could introduce you to him, so you can get clothes that best fit your… physique."<</Dialogue>><br><br>
+            There was a hint of something in her voice when she uttered the word ‘physique’. It almost sounded like admiration? Nah, that must be your mind playing tricks.
+            <<else>>
+            <<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>, as it happens, I employ the services of an excellent tailor for my clothing needs. As it turns out, it can be quite challenging to be this presentable, and it does not bring any pleasure to reveal that society places some truly unfair burdens on our gender when it comes to presenting ourselves. That is to say, if you’d be so willing, I would introduce you to him."<</Dialogue>><br><br>
+            Wow, okay! That’s… it might sound condescending, but somehow Emma makes it feel like a true mentor concerned with her trainee. It makes you feel important and valued, which is saying a lot.
+            <</if>><br><br>
+            <<Dialogue "player" "You">>"I… uh, Emma, that is…"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"No need to feel pressured. I can schedule it for this upcoming friday, but it’s ultimately up to you. Just trying to help."<</Dialogue>><br><br>
+            
+            <span id="choice">
+                <<link "Of course I’m in!">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"No, it would be an honor. Friday, you said, right?"<</Dialogue>><br><br>
+                        Emma flashes a brief but radiant smile.<br><br>
+                        <<Dialogue "Emma" "Emma">>"I will send you the address and time after I schedule it, and we’ll meet there."<</Dialogue>><br><br>
+                        After she leaves, you confirm that your screen is turning on and get back to your work. Why are you suddenly so anxious for the weekend?
+                        <<set $emmaInvitesToTailorAccept = true>>
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+                
+                <<link "Thank you so much, but I think I’ll pass">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Well, that sounds great, Emma, but, you might have noticed, I’m not really the ‘tailor’ type. Just thinking about it and I’m having Eliza Doolittle flashbacks."<</Dialogue>><br><br>
+                        There it is. That slight tightening of her eyebrows. She may have a great poker face, but by now you can tell that Emma is slightly disappointed. Still, she acts as professionally as she can.<br><br>
+                        <<Dialogue "Emma" "Emma">>"Of course. I hope you do not interpret this as criticism, I was just meaning to offer some help I wish I had when I was in your position. Carry on."<</Dialogue>><br><br>
+                        You turn around, only to find out your monitor still won’t light up. Argh! Why does it feel like nothing is going your way today?
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
     }
 )>>
 
