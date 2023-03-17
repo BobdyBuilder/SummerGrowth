@@ -10736,7 +10736,7 @@ name: 'EmmaExpertSewing',
     },
   {
         name: 'EmmaBathroomComment',
-        locationTags: ['tailor'],
+        locationTags: ['emma'],
         conditions: [
          () => State.variables.emmaOpinion > 10,
          () => State.variables.dickActive
