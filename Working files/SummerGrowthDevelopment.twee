@@ -11303,6 +11303,59 @@ name: 'EmmaExpertSewing',
                     <</replace>>
                 <</link>>
             </span>`
+  },{
+        name: 'ElenaHowToHandleAttention',
+        locationTags: ['elena'],
+        conditions: [
+            () => State.variables.elenaOpenedUp,
+            () => setup.hasEvenBeenTriggered('ElenaHiddenPhoto')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['elena'],
+        content: `You try to focus and finish your current set, but it’s hard. Every time you are about to get in the groove, you get flashbacks of that picture those meatheads posted of Elena online. It just sours your mood and breaks your concentration. That sparkling joy of the effort with the weights just dissolved into thin air every time your eyes cross with the gentle giant, who seems to be in a world of her own across the gym.<br><br>
+            It weighs heavy on your heart - it feels like this world does not deserve her. And you worry how random cruelty might hurt her at any point.<br><br>
+            I mean, there’s no denying that people are just wired to make judgement on first visual impressions - you’ve felt this yourself, both when you were a small underdeveloped girl... and now. It can be dehumanizing, and you just know Elena is much more sensitive than you. Ugh!<br><br>
+            You blink rapidly, trying to put these thoughts aside, but it feels like they aren’t going anywhere. You decide to get a break from pumping iron and checking if Elena is willing to talk for a bit.<br><br>
+            <<if $shyConfident > 1 ||  $carefreeCarefull < -1>>
+            You tap Elena on the shoulder, and just blurt it out without thinking much.<br><br>
+            <<Dialogue "player" "You">>"Hey, Elena, there’s something bothering me, can we just chat for a bit?"<</Dialogue>><br><br>
+            Elena jumps like she got shocked from your touch, dropping the heavy barbell, which makes the floor shake considerably.<br><br>
+            <<Dialogue "Elena" "Elena">>"EEEK! Oh, <<print $playerFirstName>>, //scuzi//, you scared me there!"<</Dialogue>><br><br>
+            Despite being slightly embarrassed, her sweet smile shows no sign of resentment, but then it transitions into some worry as she fully processes your request.
+            <<else>>
+            You wait patiently as Elena finishes her set, her concentration absolutely unwavering, like always. As she puts the barbell down and wipes her forehead with a deep breath, you approach her from the side with a calm wave. It brings a weak but sincere smile to her introspective visage - it blooms like a flower in spring, and warms you just as much.<br><br>
+            <<Dialogue "player" "You">>"So, hi, Elena... if you have a second for a break at some point, huh... there’s something bothering me, when you can, I’d love to chat for a bit, maybe?"<</Dialogue>><br><br>
+            Concern sprouts on her face almost immediately. You know just how selfless Elena can be, and she’d probably jump in front of a speeding truck to save you without thinking twice, so it’s only natural that she’d drop anything with just an insinuation of trouble.<br><br>
+            <</if>>
+            <<Dialogue "Elena" "Elena">>"//Certamente!//"<</Dialogue>><br><br>
+            She follows you to the smoothie bar, where you both try to comically get comfortable on the small stools - and end up just leaning against the counter (probably discouraging any other gymgoer of using the facilities). You take a deep breath, and start venting.<br><br>
+            <<Dialogue "player" "You">>"Elena, I’m just going to cut to the chase. Those guys who were making fun of you and took your picture? It really bothered me, you know? "<</Dialogue>><br><br>
+            Elena looks somewhat puzzled. She frowns and her neck slightly bends forward.<br><br>
+            <<Dialogue "player" "You">>"Yeah, they were just assholes, but it got me thinking, this stuff gets to you, right? How do you handle people just judging you by your appearance? It seems to me like it really bothers you. But I can only imagine it really affects your daily life. Constantly!"<</Dialogue>><br><br>
+            Elena’s worry seems to chill a bit, and she smiles while looking into your eyes.<br><br>
+            <<Dialogue "Elena" "Elena">>"//È vero, suppongo che// the way I look is something I get quite… //come si dice,// uh, self-conscious, about my... size."<</Dialogue>><br><br>
+            You feel a stab in your chest as she says the S-word, you can tell it almost requires effort to get it through her throat, like trying to cough up a ball.<br><br>
+            <<Dialogue "Elena" "Elena">>"I AM afraid that people are going to look at me and just see the monster. Oh, sometimes //mi chiedo//... I wonder... would it be worse if people WANTED that?"<</Dialogue>><br><br>
+            Elena’s eyes focus on the distance, and she’s clearly very pensive, almost like she’s talking more to herself than you.<br><br>
+            <<Dialogue "Elena" "Elena">>"Is it even still me, if I change so much? Am I making a mistake by working out, even if it helps me feel good? It IS quite a relief that I’m not growing like I did when this started - that was //terrificante//."<</Dialogue>><br><br>
+            You put a hand on her shoulder, and Elena seems to snap from her little monologue. But she looks you deep in your eyes, and says, quite happily:<br><br>
+            <<Dialogue "Elena" "Elena">>"<<if $elenaMuseumDate>>//Mi fiore,//<<else>>//Cara mia,//<</if>>, you are right, //mi infastidire//, it bothers me, but... not as much as my concern about YOU worrying about me. So, the best help I can get is... not worrying you. Does that even make sense?"<</Dialogue>><br><br>
+            More than you can imagine, Elena. More than you can imagine!<br><br>
+            <<Dialogue "player" "You">>"Absolutely! There are days, Elena, that I feel like there’s someone pulling my strings like a puppet, that I do completely contradictory things, and I’m not sure of who I am deep inside..."<</Dialogue>><br><br>
+            “Though guzzling all those weird potions willy-nilly probably isn’t helping,” you think to yourself, knowing that saying it out loud would probably bother her.<br><br>
+            Elena smiles, and as usual, she brightens the entire room with it.<br><br>
+            <<Dialogue "Elena" "Elena">>"I think the best part about our //amizicia//, our friendship, is that I feel safe with you."<</Dialogue>><br><br>
+            <<if $shyConfident < 2 || $carefreeCarefull >1 >>
+            <<Dialogue "player" "You">>"It goes both ways, Elena. I don’t have that many close friends in this new town, but sometimes I feel like I’ve known you forever."<</Dialogue>><br><br>
+            She looks surprised, as she mumbles:<br><br>
+            <<Dialogue "Elena" "Elena">>"//mi hai tolto le parole di bocca.//"<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"I mean, who wouldn’t, being with someone with THESE CANNONS?"<</Dialogue>><br><br>
+            You deliver your best mock-bodybuilder pose, making your sinewy arms and back explode while you make funny faces. Elena just raises an eyebrow, and her expression SCREAMS “really?”
+            <</if>><br><br>
+            Well, it seems like your concern is solved. Elena is a big girl (in more ways than one), and you realize that, despite her sensitive nature, she can probably more than take care of herself. Getting up, you offer her a hand, and she follows you back to the weights, both eager to finish your respective training sessions.`
   })>>
 
 
