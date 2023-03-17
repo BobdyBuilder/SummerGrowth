@@ -14834,6 +14834,69 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
        priority: 'response',
        npc: ['kris'],
         content: 'You leave the gym, toweling the last bit of water from your hair, as you bump into Kris outside. She gives a lecherous wolf whistle.<br><br><<Dialogue "Kris" "Kris">>"Oooh… are you putting on some meat on that frame? Mama likes that!"<</Dialogue>><br><br>She just goes and squeezes your arm, which happens to be quite pumped from the workout. You can feel her temperature rising.<<Dialogue "player" "You">>"Hey, Kris. Do you work out here too? I’ve never seen you inside…"<</Dialogue>><br><br>Kris shrugs and frowns, which is absolutely the last reaction you expected from her. Before either of you has a chance to say anything else, the owner of the gym comes out with a spray bottle on one hand, and a broom on the other.<br><br><<Dialogue "randomPerson" "Random guy">>"I told you not to show your face back here! Now SCRAM!"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">>"Hey, the street is a public place, asshole!"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"Yeah, but don’t you forget the restraining order. I really don’t want to call the cops, but I WILL if I have to."<</Dialogue>><br><br>Kris flips the guy off, and walks away, really pissed. Whoa.<br><br><<Dialogue "player" "You">>"Whoa, what was that about?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"She used to work here about an year ago. Part of the deal was that she could use the facilities in her off hours… at first, I was just complaining about her harassing our clients while she was working… but then she started laying it REALLY thick, literally just ogling at everyone all the time. It was bad… but we have a client who works out only late at night, really serious about her privacy… well… let’s just say we don’t talk about the accident."<</Dialogue>><br><br><<Dialogue "player" "You">>"That bad, huh?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"Oh, I mean that LITERALLY. Our lawyer had everyone sign NDAs during the settlement. And now we have a restraining order on Kris. So if you see her, please let me know immediately."<</Dialogue>><br><br>Yeah, that’s pretty on-brand for her.'
+    },
+    {
+        name: 'KrisHelpsUsb',
+        locationTags: ['kris'],
+        conditions: [
+        	() => State.variables.krisInterested,
+              () => State.variables.hackingUnlocked
+        ],
+        repeatable: false,
+        retriggerable: false,
+       priority: 'response',
+       npc: ['kris'],
+        content: `You are sitting down, looking pensively at the USB stick in your hand. You can feel the eyes on you, however.<br><br>
+            <<Dialogue "player" "You">>"Hey, Kris."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Whatcha got there? I bet it’s a lot of lewd pictures of deliciously humongous females?"<</Dialogue>><br><br>
+            You smile back, amused at the imminent potential “Krishap”, but you find yourself strangely melancholy to even properly react in any meaningful way.<br><br>
+            <<Dialogue "player" "You">>"Sorry to disappoint you. I guess it’s not anything that exciting."<</Dialogue>><br><br> 
+            <<Dialogue "Kris" "Kris">>"Ooooooooh, NOW you have my curiosity piqued. Is it some pirate porn movies? Maybe something with some real hair-raising fetishes?!?"<</Dialogue>><br><br>
+            You give a half-hearted laugh.<br><br>
+            <<Dialogue "player" "You">>"Nah… it’s just something that’s been bothering me. I found this USB drive from the guy who created those weird drinks in the metal canisters. I was hoping to learn more about them but…"<</Dialogue>><br><br>
+            You look at Kris, and… something is wrong. She’s stiff as a board, completely frozen with an expression of absolute incredulity and surprise - you just aren’t used to getting that reaction from her. You wave your hand right in front of her face, and she remains motionless. You might just have broken Kris.<br><br>
+            <<Dialogue "player" "You">>"Anyway, not anything as exciting as your ideas, sorry…"<</Dialogue>><br><br>
+            Before you know, Kris is kneeling on your lap, both hands grabbing your collar violently.<br><br>
+            <<Dialogue "Kris" "Kris">>"YOU MEAN YOU FIND INFO ABOUT THE GROWNECTAR?!? YOU HAVE THE ACTUAL LOWDOWN ON THAT HEAVENLY JUICE?!?"<</Dialogue>><br><br>
+            She is still shaking you frenetically, and you get briefly disoriented as you ask her to please let go.<br><br>
+            <<Dialogue "Kris" "Kris">>"Do you have any idea how long I’ve been dosing people with that stuff, hoping to find someone else like that dark-skinned girl from last year?!? You need to let me in on this!"<</Dialogue>><br><br>
+            
+            <span id="choice">
+                <<PersonalityCheck $carefreeCarefull <= -2 "I need any help I can get to decrypt these…">>
+                    <<replace "#choice">>
+                        Well, she is clearly invested. You do wonder for a bit if it might be a bad idea to give her access to this information, but you ARE pretty desperate…<br><br>
+                        <<Dialogue "player" "You">>"But… you see, the files are encrypted, so…"<</Dialogue>><br><br>
+                        She nabs the device from your hand.<br><br>
+                        <<Dialogue "Kris" "Kris">>"Pffft! You kidding me? I have gone in the dark web before to procure some… possibly less than legal steroids. I am sure I can get some resources to crack this."<</Dialogue>><br><br>
+                        And with that, she is off. Not just back to work - she threw her apron on the ground and just ran to the back, possibly to use the café’s Wi-Fi to engage in potentially unlawful behavior. Yup, it doesn’t get any more Kris than that.
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <<Failed>>
+                    <<replace "#choice">>
+                        You really want her help, but knowing just how impulsive Kris is, you can’t help but worry about involving her in such a seedy task.<br><br>
+                        <<Dialogue "player" "You">>"Thanks for the offer, Kris, but I can’t imagine there are many practical ways to figure out these passwords…"<</Dialogue>><br><br>
+                        <<Dialogue "Kris" "Kris">>"NONSENSE! I’m going to get these cracked even if I have to drag some pimply hacker from their mother’s basement myself!"<</Dialogue>><br><br>
+                        And with that, she nabs the device from your hand, and heads into the back of the café. She really isn’t planning to lose any time on this, huh?
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</PersonalityCheck>>
+            
+                <<PersonalityCheck $carefreeCarefull >= 1 "Are you sure you want Kris to have access to info on growth chemicals?">>
+                    <<replace "#choice">>
+                        You know that, if Kris figures out the secrets of these potions, she might just dose up the entire town. You have a comical glimpse of a city composed entirely of giant amazons, as Kris simply walks around like a girl in a candy shop. It would be hilarious, if it wasn’t absolutely terrifying. So you put the stick back into your pocket.<br><br>
+                        <<Dialogue "player" "You">>"Thanks, but I still have a lot to figure out before I can really understand what is in here."<</Dialogue>><br><br>
+                        <<Dialogue "Kris" "Kris">>"Are you SERIOUSLY going to hold out on this? You’d BETTER at least be planning to create a giant vat of this stuff… and then just swim in it… and… bigger than a building…"<</Dialogue>><br><br>
+                        Kris seems to trail off into delirious daydreaming about you becoming a literal giant. She just stands there, chin tilted up to the sky, mouth agape and looking into the distance. This seems like a good time to just get out of here… 
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <<Failed>>
+                    <<replace "#choice">>
+                        You imagine the havoc that Kris could unleash in the world if she was a muscular giant, and you gulp with the sheer terror of the hijinks she could get into. By the time you snap out of the nightmare, the drive is gone from your hand… and so is Kris.<br><br>
+                        You seriously pray this doesn’t come back to haunt you later…
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</PersonalityCheck>>
+            </span>`
     }
 )>>
 
