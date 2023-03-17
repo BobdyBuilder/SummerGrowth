@@ -8476,7 +8476,98 @@ Was that a nosebleed?<</if>>
                        <</replace>>
                    <</PersonalityCheck>>
                </span>`
-      })>>
+      },
+     {
+         name: 'johanTriesWorkout',
+         locationTags: ['johan'],
+         conditions: [
+             () => setup.hasEvenBeenTriggered('JohanMuscle')
+         ],
+         repeatable: false,
+         retriggerable: false,
+         priority: 'response',
+         npc: ["johan"],
+         content: `You hear the familiar clanging of metal coming from Johan’s apartment… huh… that’s… unexpected?<br><br>
+            You walk in to find Johan in a baggy tank top, shorts and a neon sweat headband. Kinda reminds you of that goofy actor in that teen pregnancy movie, it’s… you don’t want to say funny, so you’ll stick with sweet.<br><br>
+            After clanging his pastel-colored dumbbell on the floor against its twin, he starts doing the most haphazard jumping jacks you’ve ever seen. He hasn’t noticed your presence yet, since he’s facing away from the door.<br><br>
+            <<Dialogue "player" "You">>"Working out hard or hardly working out, dude?"<</Dialogue>><br><br>
+            Mid-jump, somehow Johan seems to do a double-jump, surprised at your arrival. He turns around and smiles, and it’s just as infectious as usual.<br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, hey, <<print $playerFirstName>>. Didn’t hear you coming in."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Obviously, you seem pretty absorbed in your workout!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Totally! You inspired me the other day, you know, with you getting buff and stuff, and now I wanna get ripped too!"<</Dialogue>><br><br>
+            Like his smile, his excitement is infectious. He is really invested in this. <<if $skills[0].level > 2>>However, you can easily tell his actual knowledge about exercise is… severely lacking, and that’s being generous. He was really swinging those weights that are clearly too light even for his small frame - and the form on his jumping jacks? Yikes! It was almost a miracle he didn’t hurt himself already!
+            <<else>>You might not be an expert in how to pump iron, but it doesn’t take a personal trainer to tell that Johan has no clue about what he’s doing, and is bound to hurt himself at this pace.
+            <</if>><br><br>
+            <<Dialogue "player" "You">>"So, uh, I dig the enthusiasm and all, but did you do ANY research on how you set up your fitness routine?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"R-routine? I was kinda trying to imitate the montage from that cool boxing movie from the 80s. That’s why I have the song playing on the speakers!"<</Dialogue>><br><br>
+            He says that earnestly, and you just blink slowly realizing he’s serious. Okay, it might just be time for a bit of an intervention?<br><br>
+            
+            <span id="choice">
+                <<link "OK, time to play personal trainer!">>
+                    <<replace "#choice">>
+                        <<if $skills[0].level > 2>>
+                        You crack your knuckles loudly, and put an arm over Johan’s shoulder. He gulps, somewhat intimidated.<br><br>
+                        <<Dialogue "player" "You">>"Well, Johan, I think it’s time you got some tutoring, these muscles aren’t gonna exercise themselves - but you need SOME technique if you want results, so... let’s check your gear and figure this out."<</Dialogue>><br><br>
+                        Remembering your own journey, you think about how much you struggled with squats. That might be a good one to start with. And so you give him some weights to hold, and start explaining how he’s supposed to bend his knees and move his hips. You rest a hand on the base of his back, and another to guide his knees through the move. It’s awkward, and he has a really hard time setting his center of gravity properly - his hips are all over the place.<br><br>
+                        But you try to explain and direct, and after a few reps he mostly seems to get it, but his legs are having quite a hard time pulling off the exercise - his lower body is clearly underdeveloped.<br><br>
+                        And that’s when one of his knees just buckles, and he loses his balance. <<if $muscle >= 50>>With your hands still on his back, however, you just easily grab him, as your other arm quickly goes in for the legs, and the poor guy is now in your arms, in his very own… prince carry, I guess? You put him down, completely red in the face, and he can’t even look you in the eyes. You try to play it down, but he’s really embarrassed. <<elseif $muscle >= 40>>With your hand on his back, you can handle his weight - even with the dumbbells - and you push him back up to his feet. Johan lets out a nervous giggle, which is quite endearing. << elseif $muscle >= 30>>The sudden shift of Johan’s weight onto your supporting arm on his back jerks both of you, and you almost lose your footing, but after some shuffling, he drops the weights and the two of you lean against each other and avoid a disastrous fall. But you find your face extremely close to his, noses almost touching... as both of you blush, the laughing starts, and the two of you stand straight. <<else>>Everything happens too fast, and you two tumble down after some stumbling around, with you straddling the boy, hands on either side of his head. He looks you in the eyes, breath bated and eyes wide. Your heart races, and your eyes dart around, as your brain tries to catch up. Times crawls to a stop, and it feels like an eternity until you actually get up, and Johan follows.
+                        <</if>> Johan tries to apologize, but you insist it’s not necessary.<br><br>
+                        <<Dialogue "Johan" "Johan">>"Yeah, maybe that’s a tad too ambitious for me right now… b-but thanks for trying!"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"N-nah, it also took me some effort to get it right, you can do it!"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Maybe I can, but I’m starting to weight the risks before I try some of this stuff again!"<</Dialogue>><br><br>
+                        Johan blurts, hand on the back of his neck and eyes avoiding yours.<br><br>
+                        <<Dialogue "player" "You">>"Johan! I know you got this! Maybe not today, but keep at it, I stuck to it, and it really pays off!"<</Dialogue>><br><br>
+                        You declare, flexing your right arm. Johan feels a bit discouraged, however.<br><br>
+                        <<Dialogue "Johan" "Johan">>"I dunno, maybe I’m just too far behind to it even be worth it!"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Johan! This is NOT a competition. It’s a journey for us to take together, you know?"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Yeah, but you are awesome and I just suck! If anything, I’m just gonna hold you back... or worse, you’ll lose all respect you have for me!"<</Dialogue>><br><br>
+                        You tilt your head and frown. Silly boy!<br><br>
+                        <<Dialogue "player" "You">>"You think I hang out with you because of your physique? I mean, no offense, but it’s not the reason I keep showing up here. I come here because you are a fun, loyal and cool dude!"<</Dialogue>><br><br>
+                        Pouting, he just looks at you adoringly like a puppy. You roll your eyes and sigh.<br><br>
+                        <<Dialogue "player" "You">>"Look, just promise me you won’t hold your self-esteem to what you believe I think of you. I think you are cool, and it’s not your muscles that are going to change that, OK?"<</Dialogue>><br><br>
+                        With a smile and teary eyes, Johan nods.<br><br>
+                        <<Dialogue "player" "You">>"OBVIOUSLY I judge you based on your ability to beat on Super Slap Bros., SO YOU BETTER NOT SLACK THERE!"<</Dialogue>><br><br>
+                        After freezing for a second, you both start laughing, and he slaps your back playfully. You are glad to have cleared this up - it’s so great to have someone like him around, it would suck if he just thought you looked down at him.<br><br>
+                        <<else>>
+                        Raising an eyebrow, you sigh, and put an arm over Johan’s shoulder. He seems a bit confused.<br><br>
+                        <<Dialogue "player" "You">>"Look, we ought to check some online resources, you clearly need SOME instructions if you are serious about this."<</Dialogue>><br><br>
+                        You pick up his laptop and start searching for articles and videos about exercising. Wow, the Internet is FULL of those. Johan watches over your shoulders, half intimidated by the beefy shirtless dudes on the tutorials, half excited with the prospect of getting some beefy PECS and ABS like those someday.<br><br>
+                        <<Dialogue "player" "You">>"Well, to start, do you have any specific goals? Lose fat? Gain muscle? Any specific target areas that need work?"<</Dialogue>><br><br>
+                        Johan just shrugs and makes his ‘I dunno’ face. Yeah, okay. You grab some paper and a pencil and start scribbling some of the suggestions from the sites.<br><br>
+                        <<Dialogue "player" "You">>"Okay, why don’t we start with something simple? Let’s do some basic stuff, like concentration curls and tricep extensions, you can follow this program here."<</Dialogue>><br><br>
+                        You hand in the routine, and prepare to show him the instructional videos. Pulling a chair, you help him set up and lean his elbow against his thigh.<br><br>
+                        <<Dialogue "player" "You">>"Is this the heaviest weights you got?"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Yeah, got them on a sale online."<</Dialogue>><br><br>
+                        You grab the heaviest one, which is dark blue, and give it a testing curl. <<if $muscle >= 50>>It’s kinda adorable that he thinks this will even challenge him… or maybe you are fooling yourself because of your own strength? You literally cannot tell how much this weight, it’s like a feather.<<elseif $muscle >= 40>>You guess this will have to do, even though it’s pretty much the lightest thing you could conceive one would use for exercise, these wouldn’t even cut it for a warmup for lateral raises...<<elseif $muscle >= 30>>Well, these aren’t half bad, if a bit too light, but maybe for Johan they might do the job? <<else>>OK! These will do!<</if>> You hand the dumbbell to Johan and watch as he starts excitedly curling - for the first set of 15. After a brief pause, he starts over, but the latter half of the second set is making him grimace and sweat starts forming on his forehead.<br><br>
+                        <<Dialogue "player" "You">>"You can do it, Johan! Come on!"<</Dialogue>><br><br>
+                        That brings a smile back to his face, and he starts the last set. He manages to get 10 reps in, and then two kinda wonky ones, but he’s done.<br><br>
+                        <<Dialogue "player" "You">>"Not bad! You’ll get there, give it some time!"<</Dialogue>><br><br>
+                        Next, you demonstrate how to do triceps extensions. He watches intently, but does it with horrible form. You sigh, and remember the tips from the website, and try to illustrate by doing it yourself.<br><br>
+                        <<Dialogue "player" "You">>"Here, make sure to keep your upper arm straight and firm… if you do it right, you can feel your triceps hardening, see?"<</Dialogue>><br><br>
+                        As you repeat the motion, you put his hand on the back of your upper arm for him to feel the tightening. <<if $muscle >= 50>>He almost chokes as the horseshoe bulges under his fingers, your arm exploding out of nowhere. You laugh, and Johan blushes. <<elseif $muscle >= 35>>Your firm triceps manifest into existence, and Johan’s eyes widen. You can’t help but giggle. <<elseif $muscle >= 25>>You might not be huge, but your workout have been paying off, and your arm hardens under Johan’s fingertips, and he gives it a squeeze and utters a brief and subdued ‘wow.’ It brings a smile to your face.<</if>> But the important part is that he got it, and proceeds to repeat the motion.<br><br>
+                        Satisfied with these exercises, you try to give him the pointers and resources for him to look it up, and you hope he can manage the rest by himself.<br><br>
+                        <<Dialogue "player" "You">>"You got this, dude. Just keep going, and eventually you’ll get there!"<</Dialogue>><br><br>
+                        Johan nods, and seems genuinely excited. Now, you just hope he’s decreased his odds of getting hurt during his routine.<br><br>
+                        <</if>>
+                        And with that, you say your goodbyes. Hopefully, Johan can take it from here.
+            
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+                <<link "Dude, you gotta watch your limitations...">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Johan, don’t take this personally but... maybe this whole fitness thing just isn’t for you?"<</Dialogue>><br><br>
+                        Johan looks dejected. It’s like a puppy that just got told he’s not cute and is not a good boy. His pout almost hurts to watch. The attire really should have clued you that he was serious about this whole thing.<br><br>
+                        <<Dialogue "Johan" "Johan">>"I suppose you are right. I should have known better. Oh, well, I guess at least I can still level up on my RPGs."<</Dialogue>><br><br>
+                        Now THAT’S the unflinchable Johan you know - nothing will bring this guy down. You slap him on the back and tell him that this is the spirit. He does a tentative biceps flex and squeezes his upper arm, almost laughing at himself.<br><br>
+                        <<Dialogue "Johan" "Johan">>"At least I can say I tried. Besides, I still got my other gifts, I suppose. I never was one to multi-spec attributed anyway!."<</Dialogue>><br><br>
+                        With his morale raised, you consider your job done, and say your goodbyes. But as you leave, you can’t help but fantasize a bit about a buff Johan. Hmmmmm...
+                        
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
+     })>>
 
 
 :: JohanImmediates [nobr] {"position":"1300,2225","size":"100,100"}
