@@ -10798,6 +10798,83 @@ name: 'EmmaExpertSewing',
                     <</replace>>
                 <</link>>
             </span>`
+    },
+  {
+        name: 'EmmaVisitsTailor',
+        locationTags: ['tailor'],
+        conditions: [
+         () => setup.hasEvenBeenTriggered('EmmaInvitesToTailor'),
+         () => State.variables.emmaInvitesToTailorAccept === true,
+         () => [0, 6].includes(State.variables.gameDate.getDay()) /* weekends */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['emma'],
+        content: `You look at the address that Emma sent you for the tailor, and it is immediately familiar: it’s the big mall in town.
+            <<if $simonOpinion > 0>>
+                In fact, you are pretty sure you know what store she must be talking about… well, that’s unexpected.<br><br>
+                As you reach Simon’s Tailoring & Sewing, you find Emma impatiently looking at her watch, expecting you at the door.<br><br>
+                <<Dialogue "player" "You">>"Hey, Emma, hope I didn’t make you wait too long!"<</Dialogue>><br><br>
+                Your boss makes a point to disguise any irritation at that, if that was indeed the case? She just looks at you with a serious smile, and waves you through the discreet door.<br><br>
+                You come in, and Simon is at his natural state of fully concentrating at his current task. The two of you patiently wait as he finishes the seam, and he lifts his face to discover who has entered his shop. In an unusual demonstration of surprise, he raises one eyebrow.<br><br>
+                <<Dialogue "Simon" "Simon">>"<<print $playerFirstName>>? Fancy seeing you here - with Ms. Fray, on top of that?"<</Dialogue>><br><br>
+                <<Dialogue "Emma" "Emma">>"You know Ms. <<print $playerLastName>>?"<</Dialogue>><br><br>
+                <<if $quests[$sewingTutotial].completed>>
+                    <<Dialogue "Simon" "Simon">>"Know her? I taught that girl how to sew. <<if $skills[6].level > 3>>And she’s actually quite talented.<</if>>"<</Dialogue>><br><br>
+                    <<if $emmaWardrobeMalfunctionSewing>>
+                        <<Dialogue "Emma" "Emma">>"Actually, I was made aware of that when I had a little wardrobe malfunction at work. She is indeed quite the talent."<</Dialogue>><br><br>
+                        <<if $shyConfident < 0>>You find yourself blushing at the unexpected praise from your boss. 
+                        <<else>>You find yourself fixing your posture proudly, beaming after the unexpected praise from your boss. 
+                        <</if>> 
+                    <<else>>
+                        <<Dialogue "Emma" "Emma">>"Wow, is that so? You are full of surprises, aren’t you?"<</Dialogue>><br><br>
+                    <</if>>
+                    Emma smiles. Revealing more tricks from your sleeve seems to please her quite a bit.
+                <<else>>
+                    <<if $muscle >= 45 || $height >= 190>>
+                    <<Dialogue "Simon" "Simon">>"As a big girl yourself, I am sure you understand why she came to me."<</Dialogue>><br><br>
+                    The large man says calmly, but with a razor-thin edge. And thus, Simon accomplishes the impossible: Emma blushes, her eyes widening briefly with the comment. But she quickly regains her composure, clearing her throat and continuing.
+                    <<else>>
+                    <<Dialogue "Simon" "Simon">>"I don't have many clients, though I can’t complain about lack of work. But no offense taken."<</Dialogue>><br><br>
+                    Emma raises an eyebrow at the biting comment, delivered in complete deadpan. Who would have thought the laconic Simon would have such a sharp tongue?
+                    <</if>><br><br>
+                    <<Dialogue "Emma" "Emma">>"AHEM! Well, now that we are all well acquainted, there’s work to be done!"<</Dialogue>><br><br>
+                <</if>>
+            
+            <<else>>
+                You are not quite familiar with the store Emma mentioned, despite your knowledge of the mall. You navigate to one of the small corridors full of tiny service shops, which give a totally different vibe from the rest of the building. You find Emma impatiently looking at her watch, expecting you at the door.<br><br>
+                <<Dialogue "player" "You">>"Hey, Emma, hope I didn’t make you wait too long!"<</Dialogue>><br><br>
+                Your boss makes a point to disguise any irritation at that, if that was indeed the case? She just looks at you with a serious smile, and waves you through the discreet door.<br><br>
+                Inside the cramped workshop, a giant hunches over a tiny and ancient-looking pedal-powered sewing machine. He has several pins in his mouth, and is calmly working on some unrecognizable article of clothing, spools of fabric surrounding him.<br><br>
+                You motion to call his attention, but Emma silently just raises her hand, stopping you. He continues for a whole minute, then, without looking at either of you, he takes the pins off his mouth and announces:<br><br>
+                <<Dialogue "Simon" "Simon">>"How can I help you two today?"<</Dialogue>><br><br>
+                <<Dialogue "Emma" "Emma">>"Hello, Simon. Hope you are doing well. Could I bother you to do my friend here a favor?"<</Dialogue>><br><br>
+            <</if>>
+            
+            Simon lets out an indecipherable grunt - you can’t even begin to guess at his current mood. The guy really is an impenetrable and unreadable wall!<br><br>
+            <<Dialogue "Emma" "Emma">>"Hello, Simon. Hope you are doing well. Could I bother you to do my friend here a favor?"<</Dialogue>><br><br>
+            Simon just nods to acknowledge he heard. You wait awkwardly as Emma briefs him.<br><br>
+            <<Dialogue "Emma" "Emma">>"So I’m thinking… maybe a basic boyfriend blazer with matching skirt… <<if $muscle >= 35 || $height > 165>>these legs were not made to be hidden by pants… you have the stockings for that, right?<</if>>"<</Dialogue>><br><br>
+            <<if $muscle >= 35 || $height > 165>>Like a deer under headlights, you just nod before you even really think about it. You did not expect Emma to just take charge like that, but there here we go!
+            <</if>><br><br>
+            Emma continues to explain, and you don’t think you could get a word in edgewise even if you wanted. She speaks and Simon continues doing his work, and the whole situation seems a bit surreal, but you get the impression that this is their usual ritual.<br><br>
+            Eventually, Simon puts down the piece he was working on, getting up - wow, you knew he was a big guy, but it’s still a bit of a shock every time you actually witness him standing up. He grabs a bunch of tools and, without a word, puts his hand on your hips and directs you to stand on a little pedestal with some mirrors around it on the corner of the shop.<br><br>
+            At this point you kind of already gave up on even voicing any ideas. No matter, because he starts taking your measurements with the kind of precision and speed only someone who’s been doing that their entire life could. <<if $muscle >= 55 || $height > 195>>It’s pretty convenient that he is also in the Extra Large spectrum, allowing him to get around you with ease.<</if>>
+            <<if $muscle >= 45 && $height > 180 && fat <= 30>>Wow. Being in the spotlight, getting all measure under the eyes of the pair, and surrounded by mirrors… you can’t help but check yourself out. And as you check your body, you clearly crossed that line where you describe it as a physique instead of shape. Muscles come in like waves, giving you very appealing curves everywhere - you need to control yourself not to get on your tiptoes to check out your calves.<</if>><br><br>
+            Before you know it, Simon apparently has memorized all your measurements. He scribbles all of them at once on his yellow legal pad, and Emma continues to give him some last directions as he sketches a little.<br><br>
+            As you step down, you just watch the incredible clash of these two opposite personalities. It’s kinda neat, except for the part where you feel like you are invisible. Eventually Simon shows his sketch to Emma, who squints and points a couple of details. Simon licks his thumb, smudges the sketch and redraws those parts and…<br><br>
+            Emma just smiles with satisfaction, and that inimitable raised eyebrow, at this time denoting clear approval.<br><br>
+            <<Dialogue "Simon" "Simon">>"I’ll have it ready by monday."<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Great, put it on my tab, will you?"<</Dialogue>><br><br>
+            Simon just nods.<br><br>
+            <<Dialogue "player" "You">>"Wait, Emma, I can’t let you pay for this!"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Nonsense. You’ve been putting a lot of work lately, I see this as… personal investment on my part."<</Dialogue>><br><br>
+            You are trying to both take a peek at the sketch and object to her gift, but you fail at both. Before you know, Emma has given your personal address for Simon to ship it to you when it’s done.<br><br>
+            <<Dialogue "player" "You">>"Wow, thanks, Emma! This is probably the nicest thing any boss has ever done for me."<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"No worries, I’ll ensure that you make this worth every cent."<</Dialogue>><br><br>
+            Emma just looks at you with that smug satisfied look, and you can’t help but love and hate it. She will not relinquish control, and it’s weirdly exciting and unnerving.<br><br>
+            And with that, you thank Simon and Emma one last time, before heading out.`
     }
 )>>
 
