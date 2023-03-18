@@ -14929,6 +14929,31 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
             <<Dialogue "Kris" "Kris">>"He says this is one of the passwords. Um… if… if you manage to somehow get huge… do you… do you promise to step on me? Please?"<</Dialogue>><br><br>
             Excitedly, you grab the piece of paper. You might be one step closer to solving this mystery. When you look back at Kris, she’s sleeping standing up again, mumbling something about hugging your ankle… You set her down on a safe place, eager to check the contents of the file.
             <<set State.variables.usbPasswordUnlocked[State.variables.usbPasswordUnlocked.findIndex(i => i === false)] = true>>`
+    },{
+        name: 'KrisNoticeBulge',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.dick >= 5
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `As you approach the Coffee Corner cashier, the wonderful smell makes you take a deep breath. Ahhhh! But, as you open your eyes, you see a deeply entranced Kris manning the register. No comments, no guff, just two eyes, trained directly at your waist. “Did I put on some weight?” you ask yourself, getting self-conscious about your waistline. But as you try to figure that out, she silently goes back to the shelf, and starts filling her arms and her apron with all kinds of seasoning tubes.<br><br>
+            Still quite confused, you wait as she comes back and systematically starts arranging the squeezable bottles all over the counter, like an artist carefully planning their next move. At this point you are more curious than anything else, and you just watch as she crosses the counter and stands right in front of you. Kris stares you in the eyes, looking VERY serious… as her hand just GRABS YOUR CROTCH and gives it a nice squeeze.<br><br>
+            <<Dialogue "Kris" "Kris">>"I KNEW IT!"<</Dialogue>><br><br>
+            Dazed and confused, you don’t even have time to react before she jumps back over the counter and starts licking her lips as she bends over and starts curating her collection of sauces, reading the labels with thirsty eyes…<br><br>
+            <<Dialogue "Kris" "Kris">>"Not vanilla… hmmmm, hazelnut, yes! Some dulce de leche… and definitely raspberry…"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Uh, Kris, can you take my order now?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"SHHHHHHH! I can’t believe you were holding out on me! You got that nice package there and didn’t tell me about it?!? SERIOUSLY?!?"<</Dialogue>><br><br>
+            It would make sense that she would be excited about your… huh… newest addition under your <<print $outfit.bottom().name>>, but what does have to do with all the sauce bottles she… oh… OH!<br><br>
+            <<Dialogue "Kris" "Kris">>"Yeah, yeah, I will need to remember the whipped cream, for sure."<</Dialogue>><br><br>
+            You really didn’t take Kris for a planner, but it seems like your penis is too big a project for her just to flip out during work. She’s a veritable Leonardo daKinky right now, planning her next masterpiece with the type of concentration you never expected from her. She stands up, and extends her hand in the general direction of your crotch, thumb raised and one eye closed, like a painter measuring proportions for his next brushstroke.<br><br>
+            <<Dialogue "player" "You">>"Any chance I could order, like, today?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"YOU DON’T HURRY GENIUS!!!"<</Dialogue>><br><br>
+            Shrugging, you wait until the next employee comes over to take your order. It’s weird, but it turns out that you find this dedicated side of Kris strangely endearing. With your coffee in hand, you leave, wondering what Kris will do with this new piece of information she acquired…`
+
     }
 )>>
 
