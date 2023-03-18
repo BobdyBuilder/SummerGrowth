@@ -14984,6 +14984,36 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
             The man starts spinning around in confusion, as if that could possibly break the iron grip of the sex-addicted ride-on he just got. She sniffs his neck, admiring his musk, as her hands explore his rugged back. The other people waiting at the bus stop start leaving, scared, and you wonder whether you should interfere or not… but your documentarian logic kicks back in, and you decide to just watch the events unfold.<br><br>
             The bus finally comes, the bodybuilder seems completely confused and enters the vehicle, Kris in tow. A loud commotion can be heard, and a few seconds later, a bunch of people run out of the vehicle in panic. Wow, that has to be a new record for Kris!<br><br>
             As the bus goes away, you can’t help but hope that the poor bodybuilder is not too badly scarred from this encounter with Kris…`
+    },{
+        name: 'KrisNoticesHugeTongue',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.krisOpinion >= 15,
+            () => State.variables.tongueLenght >= 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `Ugh! You feel VERY sleepy. You take another sip of your coffee, hoping the magic brew will somehow fight this weird tired feeling. The warm liquid does snap some energy back in you, but you still cannot resist a veeeeeery long yawn…<br><br>
+            <<Dialogue "player" "You">>"YAAAAAAAAAAAAAAAAAAAAAAAAAWN!!!"<</Dialogue>><br><br>
+            Ah, that long stretch felt really good. But as you open your eyes, you almost have a heart attack: there’s a Kris, standing right in front of your nose, eyes wide open and curious.<br><br>
+            <<Dialogue "Kris" "Kris">>"WHAT. WAS. THAT?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"GEEZ, KRIS! A little heads-up would be nice! What was what?"<</Dialogue>><br><br>
+            She comes in pulls your jaw down, still laden with curiosity.<br><br>
+            <<Dialogue "Kris" "Kris">>"That fucking red menace that came from your mouth. I never knew your tongue was THAT LONG!!!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Oh, yeah, that. I guess my tongue has been getting pretty long…"<</Dialogue>><br><br>
+            As she confirms her theory, the cogs start turning inside her head.<br><br>
+            <<Dialogue "Kris" "Kris">>"Girl, how many times do I have to repeat myself - YOU CAN’T HOLD OUT ON ME LIKE THAT! You telling me your tongue is stretching too?!?"<</Dialogue>><br><br>
+            You nod, still somewhat confused. Her eyes dart around, and you can tell all her synapses seem to be firing at once. Her fingers wiggle excitedly, and she proclaims:<br><br>
+            <<Dialogue "Kris" "Kris">>"Well, DOCTOR KRIS IS IN THE HOUSE! It’s time for some science, kids! We gotta measure that tongue!"<</Dialogue>><br><br>
+            Somehow, Kris just gets a measuring tape from her apron. Does she walk with one all the time?!? You gasp, surprised, and as you open your mouth, Kris just pushes her face against your mouth, like it’s a cave waiting to be explored. If it wasn’t for the fact that she doesn’t know what a personal boundary is, you’d probably be more scared.<br><br>
+            <<Dialogue "player" "You">>"Errr… what do you think you are doing, Kris?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"WE MUST MEASURE IT! FOR SCIENCE!"<</Dialogue>><br><br>
+            Science, right. The fact her nipples have hardened to the point of being visible through her shirt and apron are just a coincidence. You push her away.<br><br>
+            <<Dialogue "player" "You">>"Look, huh… for sanitary reasons, I’ll measure it at home… and IF you behave, maybe I’ll tell you how big it is. Deal?"<</Dialogue>><br><br>
+            Kris is initially deflated, but then nods. She goes back behind the counter, still really intrigued by your appendage. You’d better humor her request, though… you don’t even want to guess what she would do if you forget to give her that information…`
     }
 )>>
 
