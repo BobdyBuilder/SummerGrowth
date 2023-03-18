@@ -14840,7 +14840,8 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
         locationTags: ['kris'],
         conditions: [
         	() => State.variables.krisInterested,
-              () => State.variables.hackingUnlocked
+            () => State.variables.hackingUnlocked,
+            () => State.variables.usbPasswordUnlocked?.filter(i => !i).length > 0 /* there is a locked file */,
         ],
         repeatable: false,
         retriggerable: false,
@@ -14869,6 +14870,7 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
                         She nabs the device from your hand.<br><br>
                         <<Dialogue "Kris" "Kris">>"Pffft! You kidding me? I have gone in the dark web before to procure some… possibly less than legal steroids. I am sure I can get some resources to crack this."<</Dialogue>><br><br>
                         And with that, she is off. Not just back to work - she threw her apron on the ground and just ran to the back, possibly to use the café’s Wi-Fi to engage in potentially unlawful behavior. Yup, it doesn’t get any more Kris than that.
+                        <<set $KrisHelpsUsbTriggeredDaysPlayed = $daysPlayed>>
                         <<link "Continue" $currentScene>><</link>>
                     <</replace>>
                 <<Failed>>
@@ -14897,6 +14899,36 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
                     <</replace>>
                 <</PersonalityCheck>>
             </span>`
+    },{
+        name: 'KrisCrackedUsb',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => setup.hasEvenBeenTriggered('KrisHelpsUsb'),
+            () => State.variables.usbPasswordUnlocked?.filter(i => !i).length > 0 /* there is a locked file */,
+            () => {
+                if (State.variables.KrisHelpsUsbTriggeredDaysPlayed == null) {
+                    return false
+                }
+                return State.variables.KrisHelpsUsbTriggeredDaysPlayed + 1 <= State.variables.daysPlayed; /* trigger since the day after "KrisHelpsUsb" event */
+            } 
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `You feel someone tapping your back. You turn around to see Kris, looking half-asleep with huge bags under her eyes. She has your USB drive in her hand.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, <<print $playerFirstName>>. So… (yawn)... I got something for ya…"<</Dialogue>><br><br>
+            She drops the device on your hand, and closes her eyes as she dozes off, waking up as her neck starts dropping.<br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, um, so, sorry, spent all night traipsing around on stack overflow… (yawn)... found this kid hacker who lives around here… and I went to his house. "<</Dialogue>><br><br>
+            None of that sounds vaguely right. Not as in “insincere”, more in the legal and moral sense.<br><br>
+            <<Dialogue "Kris" "Kris">>"So… the brat, real tech wiz. Threatened to tell his mom about his little dark web antics. Wasn’t too happy. He did some stuff, I think he said he looked into the fat table? What a weird thing…"<</Dialogue>><br><br>
+            She trails off again… oh boy… this is going to be special. You poke her awake again.<br><br>
+            <<Dialogue "Kris" "Kris">>"Where I was? Oh, yeah. So, bad news… I think I have another restraining order to add to my collection. Cops weren’t too happy when they arrive. BUT… on the bright side… before they did… he got this…"<</Dialogue>><br><br>
+            She hands you a scribbled note, from the handwriting, you assume it’s the kid’s, not Kris’s.<br><br>
+            <<Dialogue "Kris" "Kris">>"He says this is one of the passwords. Um… if… if you manage to somehow get huge… do you… do you promise to step on me? Please?"<</Dialogue>><br><br>
+            Excitedly, you grab the piece of paper. You might be one step closer to solving this mystery. When you look back at Kris, she’s sleeping standing up again, mumbling something about hugging your ankle… You set her down on a safe place, eager to check the contents of the file.
+            <<set State.variables.usbPasswordUnlocked[State.variables.usbPasswordUnlocked.findIndex(i => i === false)] = true>>`
     }
 )>>
 
