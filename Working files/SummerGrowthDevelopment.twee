@@ -10702,7 +10702,7 @@ name: 'EmmaExpertSewing',
         retriggerable: false,
         priority: 'response',
         npc: ['emma'],
-        content: `You sit on your desk, ready for a long day of work ahead… but you notice an urgent email from Emma. It reads only:<br><br> Meet me at my office.<br> -Emma<br><br> Okay? Hope it’s not serious - you’ve never seen her call someone into her office by email like this…<br><br> You knock on her door.<br><br> <<Dialogue "Emma" "Emma">>"Come in."<</Dialogue>><br><br> You very carefully open and close the door, and silently sit by her desk. <<Dialogue "Emma" "Emma">>"I’ll keep this brief. I used the company resources to break the encryption. Unfortunately, we use a third-party system that requires a one-time payment for activation per task… so I could only work on one file without going over my discretionary fund and call attention to this side project."<</Dialogue>><br><br> She slides a piece of folded paper over to you, along with the USB stick.<br><br> <<Dialogue "Emma" "Emma">>"I’m sorry I couldn’t do more, miss <<print $playerLastName>>."<</Dialogue>><br><br> You are at a loss for words.<br><br> <<Dialogue "player" "You">>"Emma… I have no way to proper thank you for this…"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"There’s no need for thanks. I didn’t look into the file, but I admit my curiosity was not small. I will let it up to you to share anything you desire regarding this."<</Dialogue>><br><br> You grab the paper and the device, and get up.<br><br> <<Dialogue "player" "You">>"Emma… really… thank you, from the bottom of my heart!"<</Dialogue>><br><br> Emma stops and stammers a bit… <<Dialogue "Emma" "Emma">>"Oh, i-it’s… nothing a boss wouldn’t do for a good employee. Now go, I don’t want people reading too much into you being in my office this early."<</Dialogue>><br><br> You give her a big hug, and return to your station, closing the door behind you.<br><br> Emma sighs, removing her glasses and leaning her hand against her eye.<br><br> <<Dialogue "Emma" "Emma">>"You be careful about this, <<print $playerFirstName>>, you hear…?"<</Dialogue>><br><br> She says to herself.<<if $usbPassword1Unlocked != true>><<set $usbPassword1Unlocked to true>><<elseif $usbPassword2Unlocked != true>><<set $usbPassword2Unlocked to true>><<elseif $usbPassword3Unlocked != true>><<set $usbPassword3Unlocked to true>><<elseif $usbPassword4Unlocked != true>><<set $usbPassword3Unlocked to true>><<elseif $usbPassword5Unlocked != true>><<set $usbPassword5Unlocked to true>><<elseif $usbPassword6Unlocked>><<set $usbPassword6Unlocked to true>><<elseif $usbPassword7Unlocked != true>><<set $usbPassword7Unlocked to true>><</if>>`
+        content: `You sit on your desk, ready for a long day of work ahead… but you notice an urgent email from Emma. It reads only:<br><br> Meet me at my office.<br> -Emma<br><br> Okay? Hope it’s not serious - you’ve never seen her call someone into her office by email like this…<br><br> You knock on her door.<br><br> <<Dialogue "Emma" "Emma">>"Come in."<</Dialogue>><br><br> You very carefully open and close the door, and silently sit by her desk. <<Dialogue "Emma" "Emma">>"I’ll keep this brief. I used the company resources to break the encryption. Unfortunately, we use a third-party system that requires a one-time payment for activation per task… so I could only work on one file without going over my discretionary fund and call attention to this side project."<</Dialogue>><br><br> She slides a piece of folded paper over to you, along with the USB stick.<br><br> <<Dialogue "Emma" "Emma">>"I’m sorry I couldn’t do more, miss <<print $playerLastName>>."<</Dialogue>><br><br> You are at a loss for words.<br><br> <<Dialogue "player" "You">>"Emma… I have no way to proper thank you for this…"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"There’s no need for thanks. I didn’t look into the file, but I admit my curiosity was not small. I will let it up to you to share anything you desire regarding this."<</Dialogue>><br><br> You grab the paper and the device, and get up.<br><br> <<Dialogue "player" "You">>"Emma… really… thank you, from the bottom of my heart!"<</Dialogue>><br><br> Emma stops and stammers a bit… <<Dialogue "Emma" "Emma">>"Oh, i-it’s… nothing a boss wouldn’t do for a good employee. Now go, I don’t want people reading too much into you being in my office this early."<</Dialogue>><br><br> You give her a big hug, and return to your station, closing the door behind you.<br><br> Emma sighs, removing her glasses and leaning her hand against her eye.<br><br> <<Dialogue "Emma" "Emma">>"You be careful about this, <<print $playerFirstName>>, you hear…?"<</Dialogue>><br><br> She says to herself.<<if $usbPasswordUnlocked[0] !== true>><<set $usbPasswordUnlocked[0] to true>><<elseif $usbPasswordUnlocked[1] !== true>><<set $usbPasswordUnlocked[1] to true>><<elseif $usbPasswordUnlocked[2] !== true>><<set $usbPasswordUnlocked[2] to true>><<elseif $usbPasswordUnlocked[3] !== true>><<set $usbPasswordUnlocked[2] to true>><<elseif $usbPasswordUnlocked[4] !== true>><<set $usbPasswordUnlocked[4] to true>><<elseif $usbPasswordUnlocked[5] !== true>><<set $usbPasswordUnlocked[5] to true>><<elseif $usbPasswordUnlocked[6] !== true>><<set $usbPasswordUnlocked[6] to true>><</if>>`
     },
   {
         name: 'EmmaCoworkerBulgeComment',
@@ -22542,13 +22542,13 @@ repeatable: false,
         locationTags: ['Home'],
         conditions: [
                 
-                () => State.variables.usbPassword1Unlocked,
-                () => State.variables.usbPassword2Unlocked,
-                () => State.variables.usbPassword3Unlocked,
-                () => State.variables.usbPassword4Unlocked,
-                () => State.variables.usbPassword5Unlocked,
-                () => State.variables.usbPassword6Unlocked,
-                () => State.variables.usbPassword7Unlocked
+                () => State.variables.usbPasswordUnlocked[0],
+                () => State.variables.usbPasswordUnlocked[1],
+                () => State.variables.usbPasswordUnlocked[2],
+                () => State.variables.usbPasswordUnlocked[3],
+                () => State.variables.usbPasswordUnlocked[4],
+                () => State.variables.usbPasswordUnlocked[5],
+                () => State.variables.usbPasswordUnlocked[6]
             ],
         repeatable: false,
         retriggerable: false,
@@ -23578,6 +23578,16 @@ if (State.variables.eventCounter > setup.balance.eventTresshold && tags().length
 
 
 :: pcUsbHacking [nobr] {"position":"1800,1100","size":"100,100"}
+<<script>>
+    if (State.variables.usbPasswordUnlocked == null) {
+        if (State.variables.usbPassword1Unlocked != null) {
+            State.variables.usbPasswordUnlocked = [State.variables.usbPassword1Unlocked, State.variables.usbPassword2Unlocked, State.variables.usbPassword3Unlocked, State.variables.usbPassword4Unlocked, State.variables.usbPassword5Unlocked, State.variables.usbPassword6Unlocked, State.variables.usbPassword7Unlocked];
+        } else {
+            State.variables.usbPasswordUnlocked = [false, false, false, false, false, false, false];
+        }
+    }
+<</script>>
+
 <<if $hackingUnlocked == undefined>>
 <<set $hackingUnlocked to true>>
 <<set $hackingProgress to 0>>
@@ -23622,7 +23632,7 @@ Well, here you are. Assuming he picked secure passwords, then it should be next 
 
 <br><br>
 
-<<if $usbPassword1Unlocked != true>>
+<<if $usbPasswordUnlocked[0] != true>>
 Selfie.png password:
 <br>
 <<textbox "_selfiePassword" _selfiePassword autofocus>>
@@ -23636,7 +23646,7 @@ Selfie.png password:
           }
           <</script>>
 		<<replace "#result1">>Got it!
-        <<set $usbPassword1Unlocked to true>>
+        <<set $usbPasswordUnlocked[0] to true>>
         <<link "View file" "usbFile1">><</link>><</replace>>
 	<<else>>
 		<<replace "#result1">>Nope, that’s not it...<</replace>>
@@ -23649,7 +23659,7 @@ Selfie.png password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword1Unlocked to true>>
+        <<set $usbPasswordUnlocked[0] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
           var dialog = Dialog.setup("You're in!");
@@ -23671,7 +23681,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword2Unlocked != true>>
+<<if $usbPasswordUnlocked[1] != true>>
 Experiment_log_01.txt password:
 <br>
 <<textbox "_log1Password" _log1Password autofocus>>
@@ -23685,7 +23695,7 @@ Experiment_log_01.txt password:
           Dialog.open();
           }
           <</script>>
-        <<set $usbPassword2Unlocked to true>>
+        <<set $usbPasswordUnlocked[1] to true>>
         <<link "View file" "usbFile2">><</link>><</replace>>
 	<<else>>
 		<<replace "#result2">>Nope, that’s not it...<</replace>>
@@ -23698,7 +23708,7 @@ Experiment_log_01.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword2Unlocked to true>>
+        <<set $usbPasswordUnlocked[1] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
           var dialog = Dialog.setup("You're in!");
@@ -23720,7 +23730,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword3Unlocked != true>>
+<<if $usbPasswordUnlocked[2] != true>>
 selfie2.png password:
 <br>
 <<textbox "_selfie2Password" _selfie2Password autofocus>>
@@ -23735,7 +23745,7 @@ selfie2.png password:
 }
 
           <</script>>
-        <<set $usbPassword3Unlocked to true>>
+        <<set $usbPasswordUnlocked[2] to true>>
         <<link "View file" "usbFile3">><</link>><</replace>>
 	<<else>>
 		<<replace "#result3">>Nope, thats not it...<</replace>>
@@ -23748,7 +23758,7 @@ selfie2.png password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword3Unlocked to true>>
+        <<set $usbPasswordUnlocked[2] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
     var dialog = Dialog.setup("You're in!");
@@ -23772,7 +23782,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword4Unlocked != true>>
+<<if $usbPasswordUnlocked[3] != true>>
 experiment_log_2.txt password:
 <br>
 <<textbox "_log2Password" _log2Password autofocus>>
@@ -23787,7 +23797,7 @@ experiment_log_2.txt password:
 }
 
           <</script>>
-        <<set $usbPassword4Unlocked to true>>
+        <<set $usbPasswordUnlocked[3] to true>>
         <<link "View file" "usbFile4">><</link>><</replace>>
 	<<else>>
 		<<replace "#result4">>Nope, that’s not it...<</replace>>
@@ -23800,7 +23810,7 @@ experiment_log_2.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword4Unlocked to true>>
+        <<set $usbPasswordUnlocked[3] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -23822,7 +23832,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword5Unlocked != true>>
+<<if $usbPasswordUnlocked[4] != true>>
 inventory.txt password:
 <br>
 <<textbox "_inventoryPassword" _inventoryPassword autofocus>>
@@ -23837,7 +23847,7 @@ inventory.txt password:
 }
 
           <</script>>
-        <<set $usbPassword5Unlocked to true>>
+        <<set $usbPasswordUnlocked[4] to true>>
         <<link "View file" "usbFile5">><</link>><</replace>>
 	<<else>>
 		<<replace "#result5">>Nope, that’s not it...<</replace>>
@@ -23850,7 +23860,7 @@ inventory.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword5Unlocked to true>>
+        <<set $usbPasswordUnlocked[4] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -23872,7 +23882,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword6Unlocked != true>>
+<<if $usbPasswordUnlocked[5] != true>>
 Doctors note.txt password:
 <br>
 <<textbox "_doctorNotePassword" _doctorNotePassword autofocus>>
@@ -23887,7 +23897,7 @@ Doctors note.txt password:
 }
 
           <</script>>
-        <<set $usbPassword6Unlocked to true>>
+        <<set $usbPasswordUnlocked[5] to true>>
         <<link "View file" "usbFile6">><</link>><</replace>>
 	<<else>>
 		<<replace "#result6">>Nope, that’s not it...<</replace>>
@@ -23900,7 +23910,7 @@ Doctors note.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword6Unlocked to true>>
+        <<set $usbPasswordUnlocked[5] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -23922,7 +23932,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword7Unlocked != true>>
+<<if $usbPasswordUnlocked[6] != true>>
 Chemistry notes.docx password:
 <br>
 <<textbox "_notesPassword" _notesPassword autofocus>>
@@ -23937,7 +23947,7 @@ Chemistry notes.docx password:
 }
 
           <</script>>
-        <<set $usbPassword7Unlocked to true>>
+        <<set $usbPasswordUnlocked[6] to true>>
         <<link "View file" "usbFile7">><</link>><</replace>>
 	<<else>>
 		<<replace "#result7">>Nope, that’s not it...<</replace>>
@@ -23950,7 +23960,7 @@ Chemistry notes.docx password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword7Unlocked to true>>
+        <<set $usbPasswordUnlocked[6] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -25513,7 +25523,7 @@ Dialog.open();
 :: usbFile1 {"position":"1800,1200","size":"100,100"}
 The file loads slowly, and what you see before you is... well, who you suspect to be Toshi.  The odd red carpet, the same box... you know for sure it's the guy who inhabited this apartment before you. And given the lab coat and his pose, you bet he's the one responsible for all these strange drinks. You try and see if you can get more from the file, but for now, you can't think of anything. All the metadata has been corrupted, and you only got the filename and the image...
 
-<<if $usbPassword3Unlocked == true>>
+<<if $usbPasswordUnlocked[2] == true>>
 Compared to the other selfie, he's a LOT smaller! If you only knew how much time elapsed between these two selfies, but taking into consideration he's only been in this room for a year, that he looks pretty much the same if you ignore his size, at most we are talking a few months in-between. You wonder... <<if $muscle > 80>>are you growing even faster than him, giving how huge you already are?<<else>>is this how big you will become too? Do you even want that? He looks almost... awkwardly big...<</if>>
 <</if>>
 
@@ -25541,7 +25551,7 @@ There is a lot to unpack here. The thing you drank from the fridge must be one o
 
 
 :: usbFile3 {"position":"2000,1200","size":"100,100"}
-The file loads in, and what you are greeted with is a selfie of inhumanely large proportions. <<if $usbPassword1Unlocked == true>> You see who you assume to be the same guy from the first picture, wearing the same shirt even, but blown up to gigantic proportions. How long has it been between these 2 selfies?! Years? Months? Weeks...? It's almost scary how big he has gotten.<<else>>You don't know who this is, or why you haven't heard of someone this... size. You're sure that someone THIS huge would be like an urban legend on the Internet. Who is he?<</if>><<if $muscle > 80>> Something else that stands out to you is how you're already bigger than him. Your own muscles would bulge just as much, your own pecs explode from your clothing. You pause for a second as you look at it, not sure how this makes you feel. <<else>> and looking at the sheer size on him, you wonder how he felt about it. This could be you at some point.<<if $shyConfident > 0>>But that physique does look amazing, and if you looked like that... would that be so bad?<<else>> You're no sure you even want to look like that. That size, that level of musculature... can he even walk normally in public? Maybe you should reconsider this whole potion business...<</if>><</if>>
+The file loads in, and what you are greeted with is a selfie of inhumanely large proportions. <<if $usbPasswordUnlocked[0] == true>> You see who you assume to be the same guy from the first picture, wearing the same shirt even, but blown up to gigantic proportions. How long has it been between these 2 selfies?! Years? Months? Weeks...? It's almost scary how big he has gotten.<<else>>You don't know who this is, or why you haven't heard of someone this... size. You're sure that someone THIS huge would be like an urban legend on the Internet. Who is he?<</if>><<if $muscle > 80>> Something else that stands out to you is how you're already bigger than him. Your own muscles would bulge just as much, your own pecs explode from your clothing. You pause for a second as you look at it, not sure how this makes you feel. <<else>> and looking at the sheer size on him, you wonder how he felt about it. This could be you at some point.<<if $shyConfident > 0>>But that physique does look amazing, and if you looked like that... would that be so bad?<<else>> You're no sure you even want to look like that. That size, that level of musculature... can he even walk normally in public? Maybe you should reconsider this whole potion business...<</if>><</if>>
 
 <img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Scenes/Toshi_selfie2.png" alt="alternatetext" style="width: 100%;">
 
