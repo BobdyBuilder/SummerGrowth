@@ -15014,6 +15014,43 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
             Science, right. The fact her nipples have hardened to the point of being visible through her shirt and apron are just a coincidence. You push her away.<br><br>
             <<Dialogue "player" "You">>"Look, huh… for sanitary reasons, I’ll measure it at home… and IF you behave, maybe I’ll tell you how big it is. Deal?"<</Dialogue>><br><br>
             Kris is initially deflated, but then nods. She goes back behind the counter, still really intrigued by your appendage. You’d better humor her request, though… you don’t even want to guess what she would do if you forget to give her that information…`
+    },{
+        name: 'KrisTouchesTongue',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => setup.hasEvenBeenTriggered('KrisNoticesHugeTongue')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `After finishing your coffee, you head to the restroom to wash your hands. You look in the mirror, and notice you have a bit of food stuck on your teeth and…<br><br>
+            <<Dialogue "player" "You">>"GEEEEEEEEEEEEEEEZ!!!"<</Dialogue>><br><br>
+            Kris just shows over your shoulder, having just popped out of her hiding place inside one of the bathroom stalls. As you catch your breath from the scare, she smiles broadly, like the cat who just got the canary. Apparently, you are the canary in this scenario.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, babe… I’ve been checking the health code, and my hands have been washed."<</Dialogue>><br><br>
+            Kris is a master at speaking in riddles… or at least saying things that seem like they were supposed to make perfect sense, but don’t. You look at her quizzically, and she sigh, frustrated.<br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, you know, there’s really no sanitation guidelines to what employees can do in the restroom as long as they wash their hands… and I already did. So… can we have a good look at the little red snake you have inside your cavernous mouth?"<</Dialogue>><br><br>
+            Oh. So THAT’S what this is about. Well, at least she managed to be pretty discreet about it - and you can’t argue too much about the sanitary aspect of it. Shrugging, you sigh and with a resigned look, unfurl your behemoth tongue for her appreciation.<br><br>
+            You can see Kris’s growing excitement with every little bit of your tongue that comes out - she starts excited, then surprised, then shocked, and finally ecstatic. You roll your eyes, and wait as she just admires the muscular organ in front of her, breath held.<br><br>
+            <<Dialogue "Kris" "Kris">>"C-c-can I… touch it?"<</Dialogue>><br><br>
+            <<if $shyConfident < 0 || $submissiveDominant < 0 || $carefreeCarefull < -1>>
+            You sigh once again, and drooping your shoulders, nod approval (since speaking with your tongue out this way is pretty hard!). Kris’s eyes sparkle with delight, and she goes in with childish glee.<br><br>
+            She lifts her hand with uncommon reverence, like a priest about to touch a holy relic. She looks you in the eye one last time for permission, and you nod once again. She places a careful thumb over the top of your tongue, and pinches the back with her index finger. She carefully bends it a little, admiring the muscular nature of the organ as well as its texture. Kris is drooling, her own tongue unconsciously hanging from the corner of her mouth. You could swear she wants to lick your tongue, but her fluttering eyes betray that she’s probably fantasizing about all the things you could do with it.<br><br>
+            Still, she runs her fingers very gently up and down, and you get a shiver down your spine - this is actually weirdly arousing, and you find your nipples hardening a bit, your face becoming flushed. This, obviously, does not pass unnoticed by Kris, who is now grinning.<br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, grandma, what a longue tongue you have!"<</Dialogue>><br><br>
+            You can’t really answer at the moment, but Kris definitely is more Big Bad Wolf than Little Red Riding Hood right now. In fact, she’d probably devour you right now, if she was physically capable of doing it. You start rolling your tongue, but she actually pinches firmer, keeping you from retracting it. You look at her angrily, and she gives you a mischievous look, but does let go.<br><br>
+            <<Dialogue "Kris" "Kris">>"Thank you for the little treat! I’ll behave now."<</Dialogue>><br><br>
+            And surprisingly, she does! Washing her hands, she shoots you a last look and leaves the restroom. Huh! Apparently, positive reinforcement might actually work with her. You wonder if maybe you should be humoring her more often to see if that levels her a bit…<br><br>
+            ANYWAY! Since you are done here, you absentmindedly wash your hands one more time and also take your leave.”
+            <<else>>
+            <<Dialogue "player" "You">>"Yeeee…"<</Dialogue>><br><br>
+            You retract your tongue back into your mouth.<br><br>
+            <<Dialogue "player" "You">>"Yeah… that is going to be a hard pass, Kris. Nice try, though."<</Dialogue>><br><br>
+            The barista humphs indignantly. But then she lets out a wry smile.<br><br>
+            <<Dialogue "Kris" "Kris">>"You win this one… but mark my words - I’ll have you lick all of me one of these days. Just you wait…"<</Dialogue>><br><br>
+            She washes her hands again, and leaves the room. The scariest part? You don’t DARE doubt her… and what she wouldn’t do to make sure her scenario does come to pass…”
+            <</if>>`
     }
 )>>
 
