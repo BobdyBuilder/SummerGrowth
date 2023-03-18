@@ -14954,6 +14954,36 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
             <<Dialogue "Kris" "Kris">>"YOU DON’T HURRY GENIUS!!!"<</Dialogue>><br><br>
             Shrugging, you wait until the next employee comes over to take your order. It’s weird, but it turns out that you find this dedicated side of Kris strangely endearing. With your coffee in hand, you leave, wondering what Kris will do with this new piece of information she acquired…`
 
+    },{
+        name: 'KrisAdmiringBodybuilder',
+        locationTags: ['outside'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.krisOpinion >= 15
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `You hop across the street, and your eyes are caught by a decently-sized bodybuilder waiting at the bus stop - the man’s sleeves seem one flex away from ripping apart, and his taut stomach is imprinted on his tight T-shirt; his thighs are also pretty hard to ignore, though his calves could use some work. Yeah, I guess you are already sizing the guy up… and apparently, you aren’t alone.<br><br>
+            Right behind him, you see a familiar face - Kris, who is not wearing her work uniform. She is, however, very intoxicated by the man meat she is admiring with a very aroused conviction.<br><br>
+            <<Dialogue "Kris" "Kris">>"Yummmm!"<</Dialogue>><br><br>
+            There’s something in her face that is different from the usual, behind-the-counter Kris. She’s just leaning against the wall, casually, with one foot on the wall, other on the ground, leaning back against the building. She’s playing with a coin in her hand - but she’s anything but distracted: her squinting gaze is fixed on the bodybuilder like a prey ready to pounce. Her thoughts are inscrutable, like she’s planning to do something, but you are not quite sure what.<br><br>
+            It is a weird change of pace for her - at least as far as what you are used to. She’s more one to act, not plan. And yet, there she is, just hungrily eyeing the muscular man, licking her lips. Curiosity gets the better of you, and you can’t help but try to stay undetected and watch what will transpire, like a documentary filmmaker, hoping for a nice shot for your next project.<br><br>
+            The man looks at his watch, looking concerned about the delayed bus. His biceps explode as he raises his wrist to his face, and Kris takes a deep breath, and approaches him.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, there, handsome! Do you have someplace to be?"<</Dialogue>><br><br>
+            <<Dialogue "randomPerson" "Bodybuilder">>"Actually, yes, I do have a meeting with my doctor, and I’m concerned that the bus is late - is this normal?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, yeah, the buses here are HORRIBLE. But I think it’s your lucky day today - do you want a ride?"<</Dialogue>><br><br>
+            She is, amazingly, playing this straight. Was that related to all her planning and thinking earlier? What is her endgame? This is better than a nature documentary, and you watch with rapt attention from your privileged spot.<br><br>
+            The man seems slightly taken aback by Kris’s unusual offer, but he looks at his watch again, and gives Kris another look before replying:<br><br>
+            <<Dialogue "randomPerson" "Bodybuilder">>"Well, that kind of weird to offer a stranger… but yes, I guess I COULD use a ride, wouldn’t it be a problem for you?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Oh ho ho! No… not at all!!!"<</Dialogue>><br><br>
+            And then you see that devious grin, and know what a Krishap is imminent. Like a mass vampire waiting anxiously for an invitation, Kris takes her cue and POUNCES the guy, wrapping her legs around his waist and her arms around his shoulders, giving him the hug of a drug-addled boa constrictor!<br><br>
+            <<Dialogue "randomPerson" "Bodybuilder">>"WHAT THE FUCK?!?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Here’s the ride - ME riding YOU!"<</Dialogue>><br><br>
+            The man starts spinning around in confusion, as if that could possibly break the iron grip of the sex-addicted ride-on he just got. She sniffs his neck, admiring his musk, as her hands explore his rugged back. The other people waiting at the bus stop start leaving, scared, and you wonder whether you should interfere or not… but your documentarian logic kicks back in, and you decide to just watch the events unfold.<br><br>
+            The bus finally comes, the bodybuilder seems completely confused and enters the vehicle, Kris in tow. A loud commotion can be heard, and a few seconds later, a bunch of people run out of the vehicle in panic. Wow, that has to be a new record for Kris!<br><br>
+            As the bus goes away, you can’t help but hope that the poor bodybuilder is not too badly scarred from this encounter with Kris…`
     }
 )>>
 
