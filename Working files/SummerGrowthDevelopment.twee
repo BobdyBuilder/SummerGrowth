@@ -372,6 +372,10 @@ text-align: left;
 	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisObsessesCasual.png);
 }
 
+.KrisMessage {
+	color: #9E2473;
+}
+
 .Tasha {
 	background-color: #c7b2b6;
 }
@@ -8399,7 +8403,266 @@ Was that a nosebleed?<</if>>
         priority: 'response',
         npc: ['johan'],
         content: `You bump your head on the door frame as you enter Johan’s apartment, and proceed to rub your forehead as you see him on top of a little step stool, dusting his collection of anime figures on the shelf. You walk to his side, and notice he missed a spot on top of one of their hats.<br><br><<Dialogue "player" "You">>"Hey, there’s quite a bit of grime on top of the hat of this one here on the corner."<</Dialogue>><br><br>Johan tiptoes on top of the bench, and realizes that, indeed, there was a spot he couldn’t reach there.<br><br><<Dialogue "Johan" "Johan">>"Ah, thanks. Can you reach that for me, please?"<</Dialogue>><br><br>He hands you the duster, and you make sure to thoroughly clean the figure. Johan looks confused, however.<br><br><<Dialogue "Johan" "Johan">>"Uh, where did you get another step stool? I thought this was the only one…"<</Dialogue>><br><br>He looks down, and realizes that you are, in fact, still very much on the ground. Despite that, even with him on tiptoes on top of his little stool, you still stand taller than him.<br><br><<Dialogue "Johan" "Johan">>"Oh… wow… I never quite realized… how tall you’ve gotten, <<print $playerFirstName>>."<</Dialogue>><br><br>You are also struck by the difference, remembering how Johan used to stand almost a full head taller than you when you moved in. You stand by his side, waiting for him to finish his dusting. <<if $muscle >=45>>Once he is done, you grab him by the armpits and settle him back down on the ground. He seems slightly flustered by the ease with which you manhandle him, but you can’t quite point out if he was scared, aroused… or both!<br><br><<else>>He steps down from the stool, once again bringing attention to the height deficit he now holds against you.<</if>><<if $breasts >= 50>>He looks up, and realizes that he can barely see your face from this close, as your considerable bosom acts as a barrier on top of his head. He takes a step back to look at your face properly.<br><br><<else>>He looks up, getting almost a bit of vertigo as he realizes his eyes barely clear your breasts, forcing him to tilt his chin up to look you in the face. It’s definitely very intimidating so close, so he takes a step back to get a better look at you.<br><br><</if>> <<Dialogue "Johan" "Johan">>"So… wow, I guess I should deputize you to help change light bulbs and help me clean the drapes, huh?"<</Dialogue>><br><br>You get a little lost inside your head. Your height was part of your identity - you’ve ALWAYS been “the short girl” in school, which came with its own set of challenges (like always getting picked last for basketball teams). But now… you tower over most people, your new height redefining who you are… and how others see you. It’s not that there isn’t something a bit exciting about it - it’s just that it creates this bizarre cognitive dissonance, as you still commonly picture yourself with your old stature.<br><br><<Dialogue "player" "You">>"Yeah, haha! I suppose I could help you with those things, that’s what tall friends are for, right?"<</Dialogue>><br><br> Johan gets all flustered, and starts gesticulating wildly with a nervous expression, babbling incoherently as he realizes that his “joke” might have been a bit reductive.<br><br><<Dialogue "Johan" "Johan">>"Oh, no! I… just kidding! Your… height… you tall and… I didn’t mean to, just… haha! Not that it isn’t nice to have someone like that, but obviously that’s not what I wanted or expected…"<</Dialogue>><br><br><<Dialogue "player" "You">>"Johan, it’s OK, I get it. Trust me, it’s also weird for me too, and I’m still getting used to it."<</Dialogue>><br><br> <<Dialogue "Johan" "Johan">>"Not gonna lie, I still feel like that sidekick seeing their old friend getting superpowers and being the one that is all excited… the height does look REALLY good on your figure…"<</Dialogue>><br><br>That one comment surprises you, and you end checking yourself out on his (rather small) bathroom mirror from afar… and he isn’t wrong - the added stature does somehow make you look quite nice - “Look at those legs”, you think to yourself, as you make a bit of a seductive pose by spreading your legs a bit and curving your torso while pucker your lips.<br><br><<Dialogue "Johan" "Johan">>"Awamawaaaanaaa…"<</Dialogue>><br><br>Johan has turned beet red, and can’t take his eyes away from your enticing figure. You stand back up, and his eyes track your face as you straighten yourself. Looking back at him, it also somewhat impacts you that the way you see Johan has also changed - he originally was like a cool older brother… and now feels kinda like the cute younger brother, and you find yourself having to resist the urge to just grab and hold him like a little baby.<br><br><<Dialogue "player" "You">>"Well, I assume you still have more stuff to dust, anything hard to reach that you need help with?"<</Dialogue>><br><br>Johan stutters and stammers, and settles for just shaking his head. So you say your goodbyes and wave, as you head to the door. But you can’t help but feel like you have awakened something in him - and hope that this doesn’t get in the way of your friendship… right?`
-    })>>
+    },
+      {
+          name: 'JohanFinancialEmergency',
+          locationTags: ['johan'],
+          conditions: [
+              () => State.variables.streamingViewers >= 200,
+              () => setup.hasEvenBeenTriggered('Loan')
+          ],
+          repeatable: false,
+          retriggerable: false,
+          priority: 'response',
+          npc: ["johan"],
+          content: `As you approach Johan’s apartment, you are shocked to step on something unusual - your feet slosh on the carpeting in the hallway. There’s… water coming out from his front door?<br><br>
+               You come in without knocking, asking if everything is alright. You find poor Johan tying towels around a broken pipe that has some badly applied duct tape, but still seems to leak, creating a large puddle that slowly seeps out of the apartment. He is visibly shook, with a level of worry that you did not think he was capable of achieving.<br><br>
+               <<if $muscle >= 35 || $height >= 175>>Given your taller stature and strength, you gently ask him to move so you can take a stab at the leak. <<if $carefreeCarefull > 1>>You ask about the main valve, and he explains that this old building has it shared among different apartments, so he can’t shut it off without cutting water to other people. To release some of the pressure, you open the shower and untie the towels, carefully reapplying the duct tape, which holds much better now. You twist the towel a little, and then return it to the pipe much tighter, and pretty much staves most of the leak - nothing a bucket can’t hold for the time being.<br><br>
+               <<Dialogue "Johan" "Johan">>"Wow, thanks <<print $playerFirstName>>, you are a life-saver!"<</Dialogue>><br><br>
+               <<else>>
+               You come in hot, trying to squeeze things tighter, but it doesn’t get much better. In fact, you pull it so tight you might have cracked the pipe a bit more. You add another towel and try to stave it, somewhat succeeding, but it’s still a mess.
+               <<Dialogue "Johan" "Johan">>"Well, it was worth a try!"<</Dialogue>><br><br>
+               <</if>>
+               <<else>>
+               You look at the mess, and ask if there’s anything you can do to help. Johan asks you to pass him another towel, which from the top of his stool he tries to wrap around the previous one. The flow of water is slightly diminished, but not enough to keep this from being pretty disastrous. He sighs, exasperated, and your heart sinks a bit, seeing him so nervous and sad.
+               <</if>>
+               <<Dialogue "player" "You">>"What happened?"<</Dialogue>><br><br>
+               <<Dialogue "Johan" "Johan">>"This pipe had a small crack for a while. I kept asking the super to have a look at it, but he just told me to put some duct tape on it, and place a bucket under the leak. Which I did. But I think it’s been getting worse, and then I find THIS!"<</Dialogue>><br><br>
+               <<Dialogue "player" "You">>"What are you going to do?"<</Dialogue>><br><br>
+               He sighs again, and you can feel the tension from a distance.<br><br>
+               <<Dialogue "Johan" "Johan">>"There’s only so much I can do, I tried looking at some videos online, but even if I had the skills, I don’t have the tools. I’ll end up having to call a plumber, but that’s gonna cost me almost two hundred dollars… and I’ll probably also have to pay for the building damages with all this water everywhere on the floor…"<</Dialogue>><br><br>
+               Feeling for the guy, you dash to your apartment without saying a word, and bring every towel you can collect to try and absorb all the water you can. It’s weird, it’s really not THAT big of a deal, but it’s making you very anxious - the general lack of control, the financial burden that will put on Johan…
+               You turn around to see him collecting some of his comics that got wet, and hanging them to dry, and it just pierces your heart. He seems to know what he’s doing and they’ll probably still be readable, just a bit stained. You know how those are important to him, but he still prioritized trying to keep the damage to the building to a minimum.<br><br>
+               You bite your lips and frown, and come to help him.<br><br>
+               <<Dialogue "player" "You">>"Can I help? I can separate these pages while you hang them."<</Dialogue>><br><br>
+               <<Dialogue "Johan" "Johan">>"Thanks, I’m hoping I’ll have the funds to have the plumber come in by the next week… or the one after that, at least. I think I can keep things somewhat under control until then, I guess?"<</Dialogue>><br><br>
+               That’s it, you need to do something about this whole thing.<br><br>
+               
+               <span id="choice">
+                   <<if $money >= 300>>
+                       <<link "Hey, Johan, why don’t I lend you some money I made on my stream? (GIVE $300)">>
+                           <<replace "#choice">>
+                               <<Dialogue "player" "You">>"You helped me when I needed it - I’ve been having a lot of success in my livestreams, least I can do is repay you."<</Dialogue>><br><br>
+                               You grab a wad of 300 dollars and hand it to him, while you call a plumber on your phone to come urgently.<br><br>
+                               <<Dialogue "Johan" "Johan">>"But, but… that’s YOUR money, I couldn’t possibly…"<</Dialogue>><br><br>
+                               You lean the phone against your shoulder, still waiting for the plumber to pick up as you grab Johan by the shoulders.
+                               <<Dialogue "player" "You">>"Are you kidding me? Short of a medical emergency, this is about the clearest case of you needing some help - just like you did when I had a much minor one… Hello? I saw your ad online for emergency plumbing services, can you come right now? Yes? Great, I’ll text you the address."<</Dialogue>><br><br>
+                               <<Dialogue "Johan" "Johan">>"But I don’t know I’ll be able to repay you, and…"<</Dialogue>><br><br>
+                               <<Dialogue "player" "You">>"Come on, Johan! Neither did I when YOU lent me some money. And here’s my chance to repay the favor. That is what friends are for, correct? I know for a fact you’d do the same for me, because YOU ALREADY DID!"<</Dialogue>><br><br>
+                               Johan stops arguing, lowering his head. He mumbles a thank you, and gives you a big hug. Awwww, the little guy is so adorable!<br><br>
+                               <<Dialogue "player" "You">>"Plumber should be here in half an hour. We should be able to keep the damage to a minimum if we work together in the meantime."<</Dialogue>><br><br>
+                               <<Dialogue "Johan" "Johan">>"I don’t really deserve you, <<print $playerFirstName>>."<</Dialogue>><br><br>
+                               <<Dialogue "player" "You">>"Don’t be silly. Now grab that mop, and I’ll keep twisting the towels off in the sink while we keep this under control."<</Dialogue>><br><br>
+                               Little by little, Johan’s spirits are lifted, and he gets back to his usual mood, and by the time you notice, he’s doing little dances as he mops. It brings a smile to your face, and you swear to yourself never to let him down in the future, no matter what.
+               
+                               <<set $money -= 300>>
+                               <<link "Continue" $currentScene>><</link>>
+                           <</replace>>
+                       <</link>>
+                   <</if>>
+                   
+                   <<PersonalityCheck $shyConfident >= 2 "This isn’t fair, Johan! I’m gonna talk to the superintendent!">>
+                       <<replace "#choice">>
+                           <<Dialogue "player" "You">>"OK, that’s it. This is NOT your fault, Johan. I’m getting the super to fix this, it’s clearly HIS fault for ignoring your complaints."<</Dialogue>><br><br>
+                           You storm off the apartment, leaving the confused Johan behind. He is frozen in his spot for a few minutes, and you find him basically in the same pose when you come back dragging the super behind you.<br><br>
+                           <<Dialogue "player" "You">>"You see this? This is the leak you refused to fix. You understand that THIS is all YOUR FAULT? So unless YOU want to pay for all the damages, you may want to get a plumber here ASAP! Have I made myself clear?"<</Dialogue>><br><br>
+                           The super grunts and grabs his phone to call for a plumber. You smile proudly, and Johan is still frozen in the same spot. With a giggle, you watch the little soap opera unfold in front of you, but it looks like it will all be under control.<br><br>
+                           Johan thanks you for running interference and standing up for him:<br><br>
+                           <<Dialogue "Johan" "Johan">>"Thanks, <<print $playerFirstName>>. I wish I wasn’t such a spineless wretch that needs a girl to stand up for him… you must be ashamed of me."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"Awww, are you kidding me? You ain’t spineless, you are just too sweet to bother anyone. It’s cute, really!"<</Dialogue>><br><br>
+                           Johan blushes, and makes you laugh. You give him a tap on the back and tell him things should be OK now before leaving, satisfied you had a chance to help him.
+                           <<link "Continue" $currentScene>><</link>>
+                       <</replace>>
+                   <<Failed>>
+                       <<replace "#choice">>
+                           You grab your phone and call the super, planning to give him a piece of your mind.<br><br>
+                           <<Dialogue "player" "You">>"Hey, it’s <<print $playerFirstName>> here, I’m at Johan’s apartment - remember that leak he complained about?"<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"Yeah, that same one. The one that now is basically a waterfall?"<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"What do you mean you can’t do anything? You are the super, he told you about it weeks ago!!!"<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"Yeah, but you gotta do something about it! It’s going to damage the floor and the carpet and..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"..."<</Dialogue>><br><br>
+                           <<Dialogue "player" "You">>"YOU GOTTA BE KIDDING! YOU CAN SHOVE YOUR EXCUSES UP YOUR…"<</Dialogue>><br><br>
+                           Johan’s eyes widen.<br><br>
+                           <<Dialogue "player" "You">>"Well, he hung up, I don’t think he’s going to be much help. Sorry, I kinda lost it there."<</Dialogue>><br><br>
+                           Johan’s shoulders slump, but he musters the best smile he can, but it’s very bittersweet.<br><br>
+                           <<Dialogue "Johan" "Johan">>"No worries, you really tried there. I’m going to see if I can have one of the guys from my RPG group whose dad works in construction come over, I think he might be able to help."<</Dialogue>><br><br>
+                           Ugh! You feel so lousy, you really wanted to help, but you accomplish almost nothing. Without many other options on the table, you help Johan mop and twist towels for now, but it’s going to be a miserable few days until he can afford that plumber. Ugh!
+                           <<link "Continue" $currentScene>><</link>>
+                       <</replace>>
+                   <</PersonalityCheck>>
+               </span>`
+      },
+     {
+         name: 'JohanTriesWorkout',
+         locationTags: ['johan'],
+         conditions: [
+             () => setup.hasEvenBeenTriggered('JohanMuscle')
+         ],
+         repeatable: false,
+         retriggerable: false,
+         priority: 'response',
+         npc: ["johan"],
+         content: `You hear the familiar clanging of metal coming from Johan’s apartment… huh… that’s… unexpected?<br><br>
+            You walk in to find Johan in a baggy tank top, shorts and a neon sweat headband. Kinda reminds you of that goofy actor in that teen pregnancy movie, it’s… you don’t want to say funny, so you’ll stick with sweet.<br><br>
+            After clanging his pastel-colored dumbbell on the floor against its twin, he starts doing the most haphazard jumping jacks you’ve ever seen. He hasn’t noticed your presence yet, since he’s facing away from the door.<br><br>
+            <<Dialogue "player" "You">>"Working out hard or hardly working out, dude?"<</Dialogue>><br><br>
+            Mid-jump, somehow Johan seems to do a double-jump, surprised at your arrival. He turns around and smiles, and it’s just as infectious as usual.<br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, hey, <<print $playerFirstName>>. Didn’t hear you coming in."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Obviously, you seem pretty absorbed in your workout!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Totally! You inspired me the other day, you know, with you getting buff and stuff, and now I wanna get ripped too!"<</Dialogue>><br><br>
+            Like his smile, his excitement is infectious. He is really invested in this. <<if $skills[0].level > 2>>However, you can easily tell his actual knowledge about exercise is… severely lacking, and that’s being generous. He was really swinging those weights that are clearly too light even for his small frame - and the form on his jumping jacks? Yikes! It was almost a miracle he didn’t hurt himself already!
+            <<else>>You might not be an expert in how to pump iron, but it doesn’t take a personal trainer to tell that Johan has no clue about what he’s doing, and is bound to hurt himself at this pace.
+            <</if>><br><br>
+            <<Dialogue "player" "You">>"So, uh, I dig the enthusiasm and all, but did you do ANY research on how you set up your fitness routine?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"R-routine? I was kinda trying to imitate the montage from that cool boxing movie from the 80s. That’s why I have the song playing on the speakers!"<</Dialogue>><br><br>
+            He says that earnestly, and you just blink slowly realizing he’s serious. Okay, it might just be time for a bit of an intervention?<br><br>
+            
+            <span id="choice">
+                <<link "OK, time to play personal trainer!">>
+                    <<replace "#choice">>
+                        <<if $skills[0].level > 2>>
+                        You crack your knuckles loudly, and put an arm over Johan’s shoulder. He gulps, somewhat intimidated.<br><br>
+                        <<Dialogue "player" "You">>"Well, Johan, I think it’s time you got some tutoring, these muscles aren’t gonna exercise themselves - but you need SOME technique if you want results, so... let’s check your gear and figure this out."<</Dialogue>><br><br>
+                        Remembering your own journey, you think about how much you struggled with squats. That might be a good one to start with. And so you give him some weights to hold, and start explaining how he’s supposed to bend his knees and move his hips. You rest a hand on the base of his back, and another to guide his knees through the move. It’s awkward, and he has a really hard time setting his center of gravity properly - his hips are all over the place.<br><br>
+                        But you try to explain and direct, and after a few reps he mostly seems to get it, but his legs are having quite a hard time pulling off the exercise - his lower body is clearly underdeveloped.<br><br>
+                        And that’s when one of his knees just buckles, and he loses his balance. <<if $muscle >= 50>>With your hands still on his back, however, you just easily grab him, as your other arm quickly goes in for the legs, and the poor guy is now in your arms, in his very own… prince carry, I guess? You put him down, completely red in the face, and he can’t even look you in the eyes. You try to play it down, but he’s really embarrassed. <<elseif $muscle >= 40>>With your hand on his back, you can handle his weight - even with the dumbbells - and you push him back up to his feet. Johan lets out a nervous giggle, which is quite endearing. << elseif $muscle >= 30>>The sudden shift of Johan’s weight onto your supporting arm on his back jerks both of you, and you almost lose your footing, but after some shuffling, he drops the weights and the two of you lean against each other and avoid a disastrous fall. But you find your face extremely close to his, noses almost touching... as both of you blush, the laughing starts, and the two of you stand straight. <<else>>Everything happens too fast, and you two tumble down after some stumbling around, with you straddling the boy, hands on either side of his head. He looks you in the eyes, breath bated and eyes wide. Your heart races, and your eyes dart around, as your brain tries to catch up. Times crawls to a stop, and it feels like an eternity until you actually get up, and Johan follows.
+                        <</if>> Johan tries to apologize, but you insist it’s not necessary.<br><br>
+                        <<Dialogue "Johan" "Johan">>"Yeah, maybe that’s a tad too ambitious for me right now… b-but thanks for trying!"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"N-nah, it also took me some effort to get it right, you can do it!"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Maybe I can, but I’m starting to weight the risks before I try some of this stuff again!"<</Dialogue>><br><br>
+                        Johan blurts, hand on the back of his neck and eyes avoiding yours.<br><br>
+                        <<Dialogue "player" "You">>"Johan! I know you got this! Maybe not today, but keep at it, I stuck to it, and it really pays off!"<</Dialogue>><br><br>
+                        You declare, flexing your right arm. Johan feels a bit discouraged, however.<br><br>
+                        <<Dialogue "Johan" "Johan">>"I dunno, maybe I’m just too far behind to it even be worth it!"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Johan! This is NOT a competition. It’s a journey for us to take together, you know?"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Yeah, but you are awesome and I just suck! If anything, I’m just gonna hold you back... or worse, you’ll lose all respect you have for me!"<</Dialogue>><br><br>
+                        You tilt your head and frown. Silly boy!<br><br>
+                        <<Dialogue "player" "You">>"You think I hang out with you because of your physique? I mean, no offense, but it’s not the reason I keep showing up here. I come here because you are a fun, loyal and cool dude!"<</Dialogue>><br><br>
+                        Pouting, he just looks at you adoringly like a puppy. You roll your eyes and sigh.<br><br>
+                        <<Dialogue "player" "You">>"Look, just promise me you won’t hold your self-esteem to what you believe I think of you. I think you are cool, and it’s not your muscles that are going to change that, OK?"<</Dialogue>><br><br>
+                        With a smile and teary eyes, Johan nods.<br><br>
+                        <<Dialogue "player" "You">>"OBVIOUSLY I judge you based on your ability to beat on Super Slap Bros., SO YOU BETTER NOT SLACK THERE!"<</Dialogue>><br><br>
+                        After freezing for a second, you both start laughing, and he slaps your back playfully. You are glad to have cleared this up - it’s so great to have someone like him around, it would suck if he just thought you looked down at him.<br><br>
+                        <<else>>
+                        Raising an eyebrow, you sigh, and put an arm over Johan’s shoulder. He seems a bit confused.<br><br>
+                        <<Dialogue "player" "You">>"Look, we ought to check some online resources, you clearly need SOME instructions if you are serious about this."<</Dialogue>><br><br>
+                        You pick up his laptop and start searching for articles and videos about exercising. Wow, the Internet is FULL of those. Johan watches over your shoulders, half intimidated by the beefy shirtless dudes on the tutorials, half excited with the prospect of getting some beefy PECS and ABS like those someday.<br><br>
+                        <<Dialogue "player" "You">>"Well, to start, do you have any specific goals? Lose fat? Gain muscle? Any specific target areas that need work?"<</Dialogue>><br><br>
+                        Johan just shrugs and makes his ‘I dunno’ face. Yeah, okay. You grab some paper and a pencil and start scribbling some of the suggestions from the sites.<br><br>
+                        <<Dialogue "player" "You">>"Okay, why don’t we start with something simple? Let’s do some basic stuff, like concentration curls and tricep extensions, you can follow this program here."<</Dialogue>><br><br>
+                        You hand in the routine, and prepare to show him the instructional videos. Pulling a chair, you help him set up and lean his elbow against his thigh.<br><br>
+                        <<Dialogue "player" "You">>"Is this the heaviest weights you got?"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Yeah, got them on a sale online."<</Dialogue>><br><br>
+                        You grab the heaviest one, which is dark blue, and give it a testing curl. <<if $muscle >= 50>>It’s kinda adorable that he thinks this will even challenge him… or maybe you are fooling yourself because of your own strength? You literally cannot tell how much this weight, it’s like a feather.<<elseif $muscle >= 40>>You guess this will have to do, even though it’s pretty much the lightest thing you could conceive one would use for exercise, these wouldn’t even cut it for a warmup for lateral raises...<<elseif $muscle >= 30>>Well, these aren’t half bad, if a bit too light, but maybe for Johan they might do the job? <<else>>OK! These will do!<</if>> You hand the dumbbell to Johan and watch as he starts excitedly curling - for the first set of 15. After a brief pause, he starts over, but the latter half of the second set is making him grimace and sweat starts forming on his forehead.<br><br>
+                        <<Dialogue "player" "You">>"You can do it, Johan! Come on!"<</Dialogue>><br><br>
+                        That brings a smile back to his face, and he starts the last set. He manages to get 10 reps in, and then two kinda wonky ones, but he’s done.<br><br>
+                        <<Dialogue "player" "You">>"Not bad! You’ll get there, give it some time!"<</Dialogue>><br><br>
+                        Next, you demonstrate how to do triceps extensions. He watches intently, but does it with horrible form. You sigh, and remember the tips from the website, and try to illustrate by doing it yourself.<br><br>
+                        <<Dialogue "player" "You">>"Here, make sure to keep your upper arm straight and firm… if you do it right, you can feel your triceps hardening, see?"<</Dialogue>><br><br>
+                        As you repeat the motion, you put his hand on the back of your upper arm for him to feel the tightening. <<if $muscle >= 50>>He almost chokes as the horseshoe bulges under his fingers, your arm exploding out of nowhere. You laugh, and Johan blushes. <<elseif $muscle >= 35>>Your firm triceps manifest into existence, and Johan’s eyes widen. You can’t help but giggle. <<elseif $muscle >= 25>>You might not be huge, but your workout have been paying off, and your arm hardens under Johan’s fingertips, and he gives it a squeeze and utters a brief and subdued ‘wow.’ It brings a smile to your face.<</if>> But the important part is that he got it, and proceeds to repeat the motion.<br><br>
+                        Satisfied with these exercises, you try to give him the pointers and resources for him to look it up, and you hope he can manage the rest by himself.<br><br>
+                        <<Dialogue "player" "You">>"You got this, dude. Just keep going, and eventually you’ll get there!"<</Dialogue>><br><br>
+                        Johan nods, and seems genuinely excited. Now, you just hope he’s decreased his odds of getting hurt during his routine.<br><br>
+                        <</if>>
+                        And with that, you say your goodbyes. Hopefully, Johan can take it from here.
+            
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+                <<link "Dude, you gotta watch your limitations...">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Johan, don’t take this personally but... maybe this whole fitness thing just isn’t for you?"<</Dialogue>><br><br>
+                        Johan looks dejected. It’s like a puppy that just got told he’s not cute and is not a good boy. His pout almost hurts to watch. The attire really should have clued you that he was serious about this whole thing.<br><br>
+                        <<Dialogue "Johan" "Johan">>"I suppose you are right. I should have known better. Oh, well, I guess at least I can still level up on my RPGs."<</Dialogue>><br><br>
+                        Now THAT’S the unflinchable Johan you know - nothing will bring this guy down. You slap him on the back and tell him that this is the spirit. He does a tentative biceps flex and squeezes his upper arm, almost laughing at himself.<br><br>
+                        <<Dialogue "Johan" "Johan">>"At least I can say I tried. Besides, I still got my other gifts, I suppose. I never was one to multi-spec attributed anyway!."<</Dialogue>><br><br>
+                        With his morale raised, you consider your job done, and say your goodbyes. But as you leave, you can’t help but fantasize a bit about a buff Johan. Hmmmmm...
+                        
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
+     },
+     {
+         name: 'JohanDrawingBarbarian',
+         locationTags: ['johan'],
+         conditions: [
+             () => setup.hasEvenBeenTriggered('JohanCaughtWithMusclePorn'),
+             () => State.variables.muscle >= 20
+         ],
+         repeatable: false,
+         retriggerable: false,
+         priority: 'response',
+         npc: ["johan"],
+         content: `You walk into Johan’s apartment and find him leaning over his desk, pencil in hand. He seems unusually concentrated on the task at hand, without music blaring or three different Japanese cartoons on the background (the norm for when he isn’t playing videogames, when it’s just one). You approach silently from behind, and you see him drawing something, with several reference pictures of well-muscled females in furry bikinis around his workspace.<br><br>
+            <<Dialogue "player" "You">>"Whatchu up to, Johan?"<</Dialogue>><br><br>
+            He gives a small jump, but then realizes it’s you and relaxes again.<br><br>
+            <<Dialogue "Johan" "Johan">>"Hey, sup, <<print $playerFirstName>>! After our conversation about errr... healthy girls... I decided to take a stab at drawing a barbarian! "<</Dialogue>><br><br>
+            You peek over his shoulder. He’s got some pretty awesome drawings there - with the two Franks representing some of the best she-beef ever committed to cellulose. How these guys manage to capture women as both powerful and imposing but still supremely sexy and alluring somewhat baffles you.<br><br>
+            <<Dialogue "player" "You">>"What’s the problem, though? You seem a bit troubled."<</Dialogue>><br><br>
+            Johan looks dejected at his sketch, which right now is just a bunch of pencilled circles and rectangles.<br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, I kinda suck at anatomy. I have this pose I want to draw, but I can’t find any good references, and whenever I try to set it up, it looks all wonky and stupid."<</Dialogue>><br><br>
+            He grabs a plastic poseable figure, showing more of less what he wants, and it does look awesome - holding a big sword horizontally behind her head, with the free hand making a “come here” gesture. You can really imagine how cool that drawing would look, but it does seem a bit hard.<br><br>
+            <<Dialogue "Johan" "Johan">>"If only I had some good reference for it, but where would I find a barbarian around here... or in this age, I should say, heh! Not many Hyperborians around these days!"<</Dialogue>><br><br>
+            Well, that is some food for thought!<br><br>
+            
+            <span id="choice">
+                <<link "Duh, I’d say you have the perfect model right here!">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Uh, excuse me, am I chopped liver or something?"<</Dialogue>><br><br>
+                        Johan just tilts his head, confused. You look at him, annoyed, as your wave your hands over your own body, and then bring your arm back in the same sword-holding pose, flexing your biceps for that extra effect. Johan squints, and it take a few seconds until that lightbulb flashes and his eyes bug out.<br><br>
+                        <<Dialogue "Johan" "Johan">>"WHOA! You could model for me!!!"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"DUUUUUH!!!"<</Dialogue>><br><br>
+                        And with that, Johan is once again in hyper-mode. He rushes off into the closet, leaving you behind slightly confused. He comes out, with something behind his back. He looks slightly embarrassed.<br><br>
+                        <<Dialogue "Johan" "Johan">>"So, huh, how much are you willing to commit yourself to the arts?"<</Dialogue>><br><br>
+                        You raise an eyebrow, waiting to see what he has in stock for you. He pulls out a skimpy metal bikini with some detail in fake fur.
+                        <<Dialogue "Johan" "Johan">>"So this girl had me sculpt her some foam weapons for LARPing, but she couldn’t pay me, but she offered this battle armor she made as a present."<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Uh, calling that ‘armor’ is being VERY generous."<</Dialogue>><br><br>
+                        Johan blushes into a shade of light purple, but makes his biggest and sweetest begging smile.<br><br>
+                        <<if $shyConfident > 1 && $submissiveDominant > 1>><<Dialogue "player" "You">>"I’m going to rock this bikini so hard you might have to get another pencil just to finish the sketch!"<</Dialogue>><br><br>You say, as you snatch the two piece set from his hand.
+                        <<elseif $shyConfident < 0 && $submissiveDominant < 0>><<Dialogue "player" "You">>"I don’t know about that - it’s a bit too revealing for my tastes, and doesn’t look all that practical, I’m sure we can find some alternative...!"<</Dialogue>><br><br>But as you look at Johan’s huge begging eyes, you just roll yours and, with a sigh, grab the two piece set to get changed.
+                        <<elseif $shyConfident < 0 && $submissiveDominant > 1>><<Dialogue "player" "You">>"Sorry, lil’ buddy, but the metal bikini is where I draw the line. But I’ll go to my apartment and change into a swimsuit for this, OK?"<</Dialogue>><br><br>Johan is a bit deject, but accepts your decision. You go get changed so you can come back for the posing.
+                        <<else>>
+                        <<Dialogue "player" "You">>"I suppose, if I’m doing this, might as well go all the way."<</Dialogue>><br><br>You say, as you snatch the two piece set from his hand to get changed.
+                        <</if>><br><br>
+                        Now properly dressed, Johan points where you should stand in the middle of his room. He opens the windows, and starts to explain the posing. He grabs a foam sword for you to hold. <<if $muscle >45 && $shyConfident > 1>><<Dialogue "player" "You">>"Johan, this so-called ‘sword’ is too light, don’t you have something a bit beefier to really get my biceps pumped?"<</Dialogue>><br><br>Johan gulps at your request, and goes to grab a metal rebar from the closet, which he drags with difficulty to you.<br><br><<Dialogue "player" "You">>"Ahhhhh, MUCH better, let’s get a pump going before I start!"<</Dialogue>><br><br>And so you start curling the rebar repeatedly, getting your arms filled with blood, before you get back to the pose, now showing much more definition. Johan just gulps again.
+                        <<elseif $muscle <25>>While it’s not horribly heavy, holding it up for a prolonged time seems like could get tiring, and you ask Johan to do it empty handed. He agrees, and takes it back from you.<</if>><br><br>
+                        After he explains the basics of the pose, you stand there and he sits back down. He pulls the pencil up and notches the proportions with thumb, but you can see he is still a bit frustrated - he tries to verbalize some changes to your posture, but he is having a hard time explaining (or maybe you are the one not getting it).<br><br>
+                        <<Dialogue "Johan" "Johan">>"Uh, so, errr, would you mind if I, uh..."<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"What?"<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Well, um, I just, wanted to fine tune your pose a bit, so - can I, errr… mind if I use my hands to position you?"<</Dialogue>><br><br>
+                        <<if $shyConfident > 1>><<Dialogue "player" "You">>I didn’t cultivate this physique so no one could feel these muscles - go ahead, pose me away!"<</Dialogue>><br><br>
+                        <<elseif $shyconfident >-1>><<Dialogue "player" "You">>"Sure, go ahead!"<</Dialogue>><br><br>
+                        <<else>>You blush, trying to come up with an excuse, but you kind of just freeze and let out an “eep,” which Johan mistakes for consent.
+                        <</if>><br><br>
+                        Johan brings his hands to your hips, now past the shade of purple. You are not even sure he is even breathing. He adjusts your waist, then proceeds to move your thighs, and he gasps as he realizes just how firm they are - but does not say a single word, which is pretty impressive (his face communicates more than enough, though).<br><br>
+                        He straightens up, and starts slightly moving your arm back. At first, he is unable to make your elbow budge, putting quite a bit of effort, but then you relax a bit and let him change the position of your arm. He is transfixed with your upper appendages, and you could swear he is even drooling a bit.<br><br>
+                        <<Dialogue "Johan" "Johan">>"PERFECT!"<</Dialogue>><br><br>
+                        And with that snap, he’s back in Johan mode. He rushes to his chair, and starts sketching furiously. You try to make your fiercest expression, <<if $skills[4].level > 3>>and you apparently succeed, because it makes his fire burn even hotter. It helps that your modelling experience makes it so you don’t move a single bit for the entire duration of the drawing.<<else>>but you could use some more modelling experience to properly communicate that. Also, it means you have a harder time holding the pose, but Johan makes the most of it anyway.<</if>>
+                        Eventually Johan’s arms shoot up as he shouts “YES!” It would seem he is done, and you relax.<br><br>
+                        As you approach, you see his sketch. Wow, this looks AWESOME - you seem so powerful you could eat barbarians for breakfast!<br><br>
+                        <<Dialogue "Johan" "Johan">>"That came out amazing, <<print $playerFirstName>>. I couldn’t have done it without you."<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Are you kidding me? All I did was model for you. This is mostly on you. And it DOES look amazing."<</Dialogue>><br><br>
+                        <<Dialogue "Johan" "Johan">>"Oh, just you wait until I’m done coloring this. It will be even more awesome, just you wait!"<</Dialogue>><br><br>
+                        You can’t deny you are kinda anxious to see the final product. But for now, you change back into your own clothes and head back home, having some fantasies about going around the snow with a big sword.
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            
+                <<link "Yeah, that’s tough. Wish I could help, but I suck at art.">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Yeah, he he, pity there ain’t more barbarian girls just roaming the streets, am I right?"<</Dialogue>><br><br>
+                        You laugh nervously, and start looking at the time in an anxious pattern while Johan pouts. He goes back to his sketch, and you just scratch the back of your head.<br><br>
+                        <<Dialogue "player" "You">>"I guess I won’t get in your way. Hope you manage to crank out some cool art! Good luck!"<</Dialogue>><br><br>
+                        And with that, you leave, Johan’s eyes never leaving the page to say goodbye.
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
+     })>>
 
 
 :: JohanImmediates [nobr] {"position":"1300,2225","size":"100,100"}
@@ -10484,7 +10747,7 @@ name: 'EmmaExpertSewing',
         retriggerable: false,
         priority: 'response',
         npc: ['emma'],
-        content: `You sit on your desk, ready for a long day of work ahead… but you notice an urgent email from Emma. It reads only:<br><br> Meet me at my office.<br> -Emma<br><br> Okay? Hope it’s not serious - you’ve never seen her call someone into her office by email like this…<br><br> You knock on her door.<br><br> <<Dialogue "Emma" "Emma">>"Come in."<</Dialogue>><br><br> You very carefully open and close the door, and silently sit by her desk. <<Dialogue "Emma" "Emma">>"I’ll keep this brief. I used the company resources to break the encryption. Unfortunately, we use a third-party system that requires a one-time payment for activation per task… so I could only work on one file without going over my discretionary fund and call attention to this side project."<</Dialogue>><br><br> She slides a piece of folded paper over to you, along with the USB stick.<br><br> <<Dialogue "Emma" "Emma">>"I’m sorry I couldn’t do more, miss <<print $playerLastName>>."<</Dialogue>><br><br> You are at a loss for words.<br><br> <<Dialogue "player" "You">>"Emma… I have no way to proper thank you for this…"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"There’s no need for thanks. I didn’t look into the file, but I admit my curiosity was not small. I will let it up to you to share anything you desire regarding this."<</Dialogue>><br><br> You grab the paper and the device, and get up.<br><br> <<Dialogue "player" "You">>"Emma… really… thank you, from the bottom of my heart!"<</Dialogue>><br><br> Emma stops and stammers a bit… <<Dialogue "Emma" "Emma">>"Oh, i-it’s… nothing a boss wouldn’t do for a good employee. Now go, I don’t want people reading too much into you being in my office this early."<</Dialogue>><br><br> You give her a big hug, and return to your station, closing the door behind you.<br><br> Emma sighs, removing her glasses and leaning her hand against her eye.<br><br> <<Dialogue "Emma" "Emma">>"You be careful about this, <<print $playerFirstName>>, you hear…?"<</Dialogue>><br><br> She says to herself.<<if $usbPassword1Unlocked != true>><<set $usbPassword1Unlocked to true>><<elseif $usbPassword2Unlocked != true>><<set $usbPassword2Unlocked to true>><<elseif $usbPassword3Unlocked != true>><<set $usbPassword3Unlocked to true>><<elseif $usbPassword4Unlocked != true>><<set $usbPassword3Unlocked to true>><<elseif $usbPassword5Unlocked != true>><<set $usbPassword5Unlocked to true>><<elseif $usbPassword6Unlocked>><<set $usbPassword6Unlocked to true>><<elseif $usbPassword7Unlocked != true>><<set $usbPassword7Unlocked to true>><</if>>`
+        content: `You sit on your desk, ready for a long day of work ahead… but you notice an urgent email from Emma. It reads only:<br><br> Meet me at my office.<br> -Emma<br><br> Okay? Hope it’s not serious - you’ve never seen her call someone into her office by email like this…<br><br> You knock on her door.<br><br> <<Dialogue "Emma" "Emma">>"Come in."<</Dialogue>><br><br> You very carefully open and close the door, and silently sit by her desk. <<Dialogue "Emma" "Emma">>"I’ll keep this brief. I used the company resources to break the encryption. Unfortunately, we use a third-party system that requires a one-time payment for activation per task… so I could only work on one file without going over my discretionary fund and call attention to this side project."<</Dialogue>><br><br> She slides a piece of folded paper over to you, along with the USB stick.<br><br> <<Dialogue "Emma" "Emma">>"I’m sorry I couldn’t do more, miss <<print $playerLastName>>."<</Dialogue>><br><br> You are at a loss for words.<br><br> <<Dialogue "player" "You">>"Emma… I have no way to proper thank you for this…"<</Dialogue>><br><br> <<Dialogue "Emma" "Emma">>"There’s no need for thanks. I didn’t look into the file, but I admit my curiosity was not small. I will let it up to you to share anything you desire regarding this."<</Dialogue>><br><br> You grab the paper and the device, and get up.<br><br> <<Dialogue "player" "You">>"Emma… really… thank you, from the bottom of my heart!"<</Dialogue>><br><br> Emma stops and stammers a bit… <<Dialogue "Emma" "Emma">>"Oh, i-it’s… nothing a boss wouldn’t do for a good employee. Now go, I don’t want people reading too much into you being in my office this early."<</Dialogue>><br><br> You give her a big hug, and return to your station, closing the door behind you.<br><br> Emma sighs, removing her glasses and leaning her hand against her eye.<br><br> <<Dialogue "Emma" "Emma">>"You be careful about this, <<print $playerFirstName>>, you hear…?"<</Dialogue>><br><br> She says to herself.<<if $usbPasswordUnlocked[0] !== true>><<set $usbPasswordUnlocked[0] to true>><<elseif $usbPasswordUnlocked[1] !== true>><<set $usbPasswordUnlocked[1] to true>><<elseif $usbPasswordUnlocked[2] !== true>><<set $usbPasswordUnlocked[2] to true>><<elseif $usbPasswordUnlocked[3] !== true>><<set $usbPasswordUnlocked[2] to true>><<elseif $usbPasswordUnlocked[4] !== true>><<set $usbPasswordUnlocked[4] to true>><<elseif $usbPasswordUnlocked[5] !== true>><<set $usbPasswordUnlocked[5] to true>><<elseif $usbPasswordUnlocked[6] !== true>><<set $usbPasswordUnlocked[6] to true>><</if>>`
     },
   {
         name: 'EmmaCoworkerBulgeComment',
@@ -10518,7 +10781,7 @@ name: 'EmmaExpertSewing',
     },
   {
         name: 'EmmaBathroomComment',
-        locationTags: ['tailor'],
+        locationTags: ['emma'],
         conditions: [
          () => State.variables.emmaOpinion > 10,
          () => State.variables.dickActive
@@ -10528,6 +10791,135 @@ name: 'EmmaExpertSewing',
         priority: 'response',
         npc: ['emma'],
         content: `As you finish one of your tasks, you notice an email popping in your inbox. It’s a general office-wide announcement from Emma, which you know she tends to save only for situations in which it is absolutely necessary, so you figure there’s no time to wait and start reading the message:<br><br>“Fellow coworkers,<br><br>Our company prides itself in our progressive policies, and we were among the first to institute unissex toilets along our previous separate restrooms. However, over the last few days, there have been several complaints regarding the use of the female facilities.<br>It should be no surprise to anyone that the users of said facilities have certain expectations, but there were multiple incidents of the toilet seats being found left on their vertical orientation - as well as anecdotal reports of urine particles on the seat itself.<br><br>While we are vehemently any sort of gender discrimination at the workplace, I cannot reinforce enough that certain societal expectations should be maintained and no one wants to have rules enforced regarding this (not to mention the privacy issues that arise from said procedures). Since we still count with both male and ungendered facilities, I am sending this memo to all employees in the hope that we won’t be forced to take further action regarding this issue.<br><br>Cordially,<br>Emma Fray, Director of Human Resources.”<br><br>You guess you got a little overexcited with the prospect of peeing standing up now that you have the proper pipes to do so. You make a mental note to change your habits, since the last thing you want is to cause more issues. You do laugh at the mental image of the look on Emma’s face as she was writing that message… heh.`
+    },
+  {
+        name: 'EmmaInvitesToTailor',
+        locationTags: ['emma'],
+        conditions: [
+         () => setup.hasEvenBeenTriggered('OfficeCasualOutfit'),
+         () => State.variables.emmaOpinion >= 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['emma'],
+        content: `For some reason, work is not going very smoothly today. You had to start going over some issues on a previous report, and it was getting so frustrating you had to take a break and get some coffee. And as you get back to your station, your screen just won’t turn on. After testing all the buttons and connections behind the monitor, you decide to look under your desk for a potential solution. <<if $muscle >= 50 || $height >= 190>>Unfortunately, this is not easily accomplished given your size. You roll down to your knees and try very hard to squish yourself in a position that you’ll fit under the table, until you finally manage to get down there. <</if>>You find that the electric plug seems to have come off somehow, and you try to reach the rather inaccessible outlet to put it back where it belongs.<br><br>
+            <<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>?"<</Dialogue>><br><br>
+            Surprised, you hit your head against the table with a loud THUNK! Everything wobbles as your reach for your head, and there’s some struggle as you try to extricate yourself from the embarrassing position, finding Emma looking away - allowing you to maintain some self-respect… but not THAT much.<br><br>
+            <<Dialogue "player" "You">>"Ms. Fray, I’m sorry, I was just replugging my monitor that came loose from the electric…"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"It’s quite alright, no worries. However, since we are discussing awkward situations, we should discuss your adherence to our dress code."<</Dialogue>><br><br>
+            Uh-oh! Are you going to get in trouble for wearing those casual clothes the other day? You figured that was in the past but apparently, you are not quite over it.<br><br>
+            <<Dialogue "player" "You">>"I’m very sorry, Emma. I promise it won’t happen again. I 100% learned my lesson and…"<</Dialogue>><br><br>
+            But before you can complete that thought, your boss interrupts you.<br><br>
+            <<if $muscle >= 45 || $height >= 190>>
+            <<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>, I should tell you, I can empathize with the difficulty of finding clothes off-the-rack for women like us who are… outside the purview of established standards. As it turns out, all of my work attire is made to order at the family tailor. As I feel for your plight, I’d like to make an offer, should you be interested. Should you be so inclined, I could introduce you to him, so you can get clothes that best fit your… physique."<</Dialogue>><br><br>
+            There was a hint of something in her voice when she uttered the word ‘physique’. It almost sounded like admiration? Nah, that must be your mind playing tricks.
+            <<else>>
+            <<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>, as it happens, I employ the services of an excellent tailor for my clothing needs. As it turns out, it can be quite challenging to be this presentable, and it does not bring any pleasure to reveal that society places some truly unfair burdens on our gender when it comes to presenting ourselves. That is to say, if you’d be so willing, I would introduce you to him."<</Dialogue>><br><br>
+            Wow, okay! That’s… it might sound condescending, but somehow Emma makes it feel like a true mentor concerned with her trainee. It makes you feel important and valued, which is saying a lot.
+            <</if>><br><br>
+            <<Dialogue "player" "You">>"I… uh, Emma, that is…"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"No need to feel pressured. I can schedule it for this upcoming friday, but it’s ultimately up to you. Just trying to help."<</Dialogue>><br><br>
+            
+            <span id="choice">
+                <<link "Of course I’m in!">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"No, it would be an honor. Friday, you said, right?"<</Dialogue>><br><br>
+                        Emma flashes a brief but radiant smile.<br><br>
+                        <<Dialogue "Emma" "Emma">>"I will send you the address and time after I schedule it, and we’ll meet there."<</Dialogue>><br><br>
+                        After she leaves, you confirm that your screen is turning on and get back to your work. Why are you suddenly so anxious for the weekend?
+                        <<set $emmaInvitesToTailorAccept = true>>
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+                
+                <<link "Thank you so much, but I think I’ll pass">>
+                    <<replace "#choice">>
+                        <<Dialogue "player" "You">>"Well, that sounds great, Emma, but, you might have noticed, I’m not really the ‘tailor’ type. Just thinking about it and I’m having Eliza Doolittle flashbacks."<</Dialogue>><br><br>
+                        There it is. That slight tightening of her eyebrows. She may have a great poker face, but by now you can tell that Emma is slightly disappointed. Still, she acts as professionally as she can.<br><br>
+                        <<Dialogue "Emma" "Emma">>"Of course. I hope you do not interpret this as criticism, I was just meaning to offer some help I wish I had when I was in your position. Carry on."<</Dialogue>><br><br>
+                        You turn around, only to find out your monitor still won’t light up. Argh! Why does it feel like nothing is going your way today?
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
+    },
+  {
+        name: 'EmmaVisitsTailor',
+        locationTags: ['tailor'],
+        conditions: [
+         () => setup.hasEvenBeenTriggered('EmmaInvitesToTailor'),
+         () => State.variables.emmaInvitesToTailorAccept === true,
+         () => [0, 6].includes(State.variables.gameDate.getDay()) /* weekends */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['emma'],
+        content: `You look at the address that Emma sent you for the tailor, and it is immediately familiar: it’s the big mall in town.
+            <<if $simonOpinion > 0>>
+                In fact, you are pretty sure you know what store she must be talking about… well, that’s unexpected.<br><br>
+                As you reach Simon’s Tailoring & Sewing, you find Emma impatiently looking at her watch, expecting you at the door.<br><br>
+                <<Dialogue "player" "You">>"Hey, Emma, hope I didn’t make you wait too long!"<</Dialogue>><br><br>
+                Your boss makes a point to disguise any irritation at that, if that was indeed the case? She just looks at you with a serious smile, and waves you through the discreet door.<br><br>
+                You come in, and Simon is at his natural state of fully concentrating at his current task. The two of you patiently wait as he finishes the seam, and he lifts his face to discover who has entered his shop. In an unusual demonstration of surprise, he raises one eyebrow.<br><br>
+                <<Dialogue "Simon" "Simon">>"<<print $playerFirstName>>? Fancy seeing you here - with Ms. Fray, on top of that?"<</Dialogue>><br><br>
+                <<Dialogue "Emma" "Emma">>"You know Ms. <<print $playerLastName>>?"<</Dialogue>><br><br>
+                <<if $quests[$sewingTutotial].completed>>
+                    <<Dialogue "Simon" "Simon">>"Know her? I taught that girl how to sew. <<if $skills[6].level > 3>>And she’s actually quite talented.<</if>>"<</Dialogue>><br><br>
+                    <<if $emmaWardrobeMalfunctionSewing>>
+                        <<Dialogue "Emma" "Emma">>"Actually, I was made aware of that when I had a little wardrobe malfunction at work. She is indeed quite the talent."<</Dialogue>><br><br>
+                        <<if $shyConfident < 0>>You find yourself blushing at the unexpected praise from your boss. 
+                        <<else>>You find yourself fixing your posture proudly, beaming after the unexpected praise from your boss. 
+                        <</if>> 
+                    <<else>>
+                        <<Dialogue "Emma" "Emma">>"Wow, is that so? You are full of surprises, aren’t you?"<</Dialogue>><br><br>
+                    <</if>>
+                    Emma smiles. Revealing more tricks from your sleeve seems to please her quite a bit.
+                <<else>>
+                    <<if $muscle >= 45 || $height >= 190>>
+                    <<Dialogue "Simon" "Simon">>"As a big girl yourself, I am sure you understand why she came to me."<</Dialogue>><br><br>
+                    The large man says calmly, but with a razor-thin edge. And thus, Simon accomplishes the impossible: Emma blushes, her eyes widening briefly with the comment. But she quickly regains her composure, clearing her throat and continuing.
+                    <<else>>
+                    <<Dialogue "Simon" "Simon">>"I don't have many clients, though I can’t complain about lack of work. But no offense taken."<</Dialogue>><br><br>
+                    Emma raises an eyebrow at the biting comment, delivered in complete deadpan. Who would have thought the laconic Simon would have such a sharp tongue?
+                    <</if>><br><br>
+                    <<Dialogue "Emma" "Emma">>"AHEM! Well, now that we are all well acquainted, there’s work to be done!"<</Dialogue>><br><br>
+                <</if>>
+            
+            <<else>>
+                You are not quite familiar with the store Emma mentioned, despite your knowledge of the mall. You navigate to one of the small corridors full of tiny service shops, which give a totally different vibe from the rest of the building. You find Emma impatiently looking at her watch, expecting you at the door.<br><br>
+                <<Dialogue "player" "You">>"Hey, Emma, hope I didn’t make you wait too long!"<</Dialogue>><br><br>
+                Your boss makes a point to disguise any irritation at that, if that was indeed the case? She just looks at you with a serious smile, and waves you through the discreet door.<br><br>
+                Inside the cramped workshop, a giant hunches over a tiny and ancient-looking pedal-powered sewing machine. He has several pins in his mouth, and is calmly working on some unrecognizable article of clothing, spools of fabric surrounding him.<br><br>
+                You motion to call his attention, but Emma silently just raises her hand, stopping you. He continues for a whole minute, then, without looking at either of you, he takes the pins off his mouth and announces:<br><br>
+                <<Dialogue "Simon" "Simon">>"How can I help you two today?"<</Dialogue>><br><br>
+                <<Dialogue "Emma" "Emma">>"Hello, Simon. Hope you are doing well. Could I bother you to do my friend here a favor?"<</Dialogue>><br><br>
+            <</if>>
+            
+            Simon lets out an indecipherable grunt - you can’t even begin to guess at his current mood. The guy really is an impenetrable and unreadable wall!<br><br>
+            <<Dialogue "Emma" "Emma">>"Hello, Simon. Hope you are doing well. Could I bother you to do my friend here a favor?"<</Dialogue>><br><br>
+            Simon just nods to acknowledge he heard. You wait awkwardly as Emma briefs him.<br><br>
+            <<Dialogue "Emma" "Emma">>"So I’m thinking… maybe a basic boyfriend blazer with matching skirt… <<if $muscle >= 35 || $height > 165>>these legs were not made to be hidden by pants… you have the stockings for that, right?<</if>>"<</Dialogue>><br><br>
+            <<if $muscle >= 35 || $height > 165>>Like a deer under headlights, you just nod before you even really think about it. You did not expect Emma to just take charge like that, but there here we go!
+            <</if>><br><br>
+            Emma continues to explain, and you don’t think you could get a word in edgewise even if you wanted. She speaks and Simon continues doing his work, and the whole situation seems a bit surreal, but you get the impression that this is their usual ritual.<br><br>
+            Eventually, Simon puts down the piece he was working on, getting up - wow, you knew he was a big guy, but it’s still a bit of a shock every time you actually witness him standing up. He grabs a bunch of tools and, without a word, puts his hand on your hips and directs you to stand on a little pedestal with some mirrors around it on the corner of the shop.<br><br>
+            At this point you kind of already gave up on even voicing any ideas. No matter, because he starts taking your measurements with the kind of precision and speed only someone who’s been doing that their entire life could. <<if $muscle >= 55 || $height > 195>>It’s pretty convenient that he is also in the Extra Large spectrum, allowing him to get around you with ease.<</if>>
+            <<if $muscle >= 45 && $height > 180 && fat <= 30>>Wow. Being in the spotlight, getting all measure under the eyes of the pair, and surrounded by mirrors… you can’t help but check yourself out. And as you check your body, you clearly crossed that line where you describe it as a physique instead of shape. Muscles come in like waves, giving you very appealing curves everywhere - you need to control yourself not to get on your tiptoes to check out your calves.<</if>><br><br>
+            Before you know it, Simon apparently has memorized all your measurements. He scribbles all of them at once on his yellow legal pad, and Emma continues to give him some last directions as he sketches a little.<br><br>
+            As you step down, you just watch the incredible clash of these two opposite personalities. It’s kinda neat, except for the part where you feel like you are invisible. Eventually Simon shows his sketch to Emma, who squints and points a couple of details. Simon licks his thumb, smudges the sketch and redraws those parts and…<br><br>
+            Emma just smiles with satisfaction, and that inimitable raised eyebrow, at this time denoting clear approval.<br><br>
+            <<Dialogue "Simon" "Simon">>"I’ll have it ready by monday."<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Great, put it on my tab, will you?"<</Dialogue>><br><br>
+            Simon just nods.<br><br>
+            <<Dialogue "player" "You">>"Wait, Emma, I can’t let you pay for this!"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Nonsense. You’ve been putting a lot of work lately, I see this as… personal investment on my part."<</Dialogue>><br><br>
+            You are trying to both take a peek at the sketch and object to her gift, but you fail at both. Before you know, Emma has given your personal address for Simon to ship it to you when it’s done.<br><br>
+            <<Dialogue "player" "You">>"Wow, thanks, Emma! This is probably the nicest thing any boss has ever done for me."<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"No worries, I’ll ensure that you make this worth every cent."<</Dialogue>><br><br>
+            Emma just looks at you with that smug satisfied look, and you can’t help but love and hate it. She will not relinquish control, and it’s weirdly exciting and unnerving.<br><br>
+            And with that, you thank Simon and Emma one last time, before heading out.`
     }
 )>>
 
@@ -10966,6 +11358,158 @@ You blink, incredulously. Is this the same Emma that you are used to? For most p
         priority: 'response',
         npc: ['elena'],
         content: `As you lay down to do some bench pressing, you find yourself at an impasse: it would seem that your tush is making it quite uncomfortable to get a proper grip on the heavy barbell. Since you usually lift quite a massive amount, you are used to arching your back - and the elevation to your hips is just… awkward and unstable - it’s like you are trying to position yourself on a slippery bench - on the plus side, you get great isolation on your chest - but your lumbar is not happy with that at all.<br><br>You struggle, as no matter what you do, your backside keeps wiggling left and right on the bench, making it pretty impossible to hold on to the massive barbell. Frustrated, you get up and dig your face in your hands.<br><br><<Dialogue "Elena" "Elena">>"E-excuse me… <<print $playerFirstName>>?"<</Dialogue>><br><br>You raise your head, as the biggest little girl that shares your nightly gym visits tries to catch your attention. Looking back at her, she turns her head away, but continues:<br><br><<Dialogue "Elena" "Elena">>"Uh… are… are you having some problems with the bench, maybe?<<print $playerFirstName>>?"<</Dialogue>><br><br><<if $shyConfident > 1>><<Dialogue "player" "You">>"I guess my badonkadonk has gotten out of control!"<</Dialogue>><br><br>You share your woes with a nervous laugh.<br><br><<Dialogue "player" "You">>"Believe it or not, this ass is getting in the way of my workout!"<</Dialogue>><br><br>You confess, in a sarcastic tone. This does not help Elena get more at ease.<br><br><<Dialogue "Elena" "Elena">>"Oh. I’m… sorry to hear."<</Dialogue>><br><br>She fidgets nervously, still unable to get proper eye contact - or even eye-butt contact, which might be helpful in what she apparently wants to accomplish.<br><br><<elseif $shyConfident > -1>><<Dialogue "player" "You">>"Sorry, just a bit frustrated. Having some issues with my derrière and the bench here…"<</Dialogue>><br><br>You realize your use of a French loanword has thrown Elena off. You point to your backside, and she blushes.<<Dialogue "Elena" "Elena">>"Oh. Of course. I… I noticed."<</Dialogue>><br><br>Even when she’s blushing, she’s so adorable!<br><br><<else>>You are embarrassed to admit your posterior postural procedural problem. You blush a bit, and reply:<br><br><<Dialogue "player" "You">>"I… guess the day hasn’t been very conducive for bench pressing, is all."<</Dialogue>><br><br>Elena, smarter than she might appear, picks up on it immediately.<br><br><</if>><<Dialogue "Elena" "Elena">>"If I may… I’ve had my share of problems with la meccanica… of being… you know… a growing girl trying to lift."<</Dialogue>><br><br>You tilt your head. You’d never given this any thought, but given her age, she probably made her gains really fast, not unlike you. But even though she’s very careful and precise at the gym, it must have taken quite a bit of trial and error to get proper form while exercising given her… wide frame.<br><br>She motions silently for you to get up, and brings the incline bench under your quite immovable barbell rack. She timidly eyes your entire body, then dutifully changes the inclination on the bench, and stands behind the barbell, to hand it to you at the increased height.<br><br>You try laying down again, resting your tush at the uninclined portion of the bench. The small inclination for your back, however, makes up the difference for your gigantic glutes perfectly. You arch your back tentatively, and it feels just like you are just laying down as you used to.<br><br><<Dialogue "player" "You">>"Wow, Elena, this is perfect! Thank you so much!"<</Dialogue>><br><br>The young girl giggles, covering her mouth, before handing you the almost curving loaded barbell, which she spots while you bench. You can see the delight in her smile… if only you had known it was so easy to make her happy like this, you would have struggled at the gym earlier!`
+  },{
+        name: 'ElenaOffersHelpUsb',
+        locationTags: ['elena'],
+        conditions: [
+            () => State.variables.elenaOpenedUp,
+            () => State.variables.elenaOpinion >= 25,
+            () => State.variables.hackingUnlocked === true
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['elena'],
+        content: `The gym has become one of the places where you find your center, and achieve inner peace. But this time you step in it feeling a lot less confident or pleased… you hold the USB drive in your hand, and as you spot Elena, she flashes her usual shy smile back at you. Instead of warming you up inside, however, this time, it makes you anxious.<br><br>
+            <<Dialogue "player" "You">>"Hey, Elena, how are you doing?"<</Dialogue>><br><br>
+            The giant girl wipes the sweat on her forehead with a towel, her well-developed chest still heaving from the effort she was putting herself into. Her shy smile quickly fades, as her highly empathetic nature picks up on your nervousness, and you can see her mirroring your feeling almost instantly.<br><br>
+            <<Dialogue "Elena" "Elena">>"I’m… fine, <<print $playerFirstName>>. What’s wrong?"<</Dialogue>><br><br>
+            Preferring to skip right to the chase, you open your palm, revealing the data device.<br><br>
+            <<Dialogue "player" "You">>"Elena… I… need some help."<</Dialogue>><br><br>
+            She looks at the small plastic piece on your hand, slightly confused, but puts a hand on your shoulder as she replies:<br><br>
+            <<Dialogue "Elena" "Elena">>"Anything… just… talk to me."<</Dialogue>><br><br>
+            You feel the warmth of her hand, not unlike the sensation her caring eyes give you. You bite your lip and just let it out.<br><br>
+            <<Dialogue "player" "You">>"I… need to know more about the potions. I came across this at Tasha’s - this USB drive belonged to Connor, the person I believe made all these concoctions."<</Dialogue>><br><br>
+            Elena winces at the mention of the name - and you feel her hand grip your shoulder harder than she would have probably liked. Her eyes start darting around a bit.
+            <<Dialogue "Elena" "Elena">>"Oh."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"The files in here, I’m positive they are all related to these experiments. And I need to understand these changes that are happening to me… they are rapturous bliss just as they are terrifying… I NEED to know more about this!"<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"I… think I know what you mean…"<</Dialogue>><br><br>
+            This clearly isn’t an easy subject for her, but you can feel her internal struggle, her own questions that she has repressed for so long, also trying to break free.<br><br>
+            <<Dialogue "player" "You">>"I can’t pretend to know what it was like for you, Elena. But I know that for me this still feels like a curse and a blessing in disguise, and I keep struggling with that. It’s the uncertainties that preclude me from truly becoming this person that I feel like I was always meant to be, you know? I need to understand, so I can finally be myself."<</Dialogue>><br><br> 
+            In a flash, Elena’s usual insecurity completely vanishes, and that determination that always was always hinted underneath comes to the forefront. Her hunched posture gives place to her full height and poise.
+            <<Dialogue "Elena" "Elena">>"You will never be alone in this, <<print $playerFirstName>>. Those chemicals scare me… but I suppose I can’t just keep running away from it, either. La paura… The fear, it’s been controlling me for too long. It’s time I face it."<</Dialogue>><br><br>
+            You are in awe. Was this beautiful, confident woman always hiding inside the hunched, insecure muscular girl? You hug Elena tightly, as you whisper a faint “thank you” in her ear. She closes her eyes and passes a gentle hand on your hair as she shushes and promises that everything will be fine.<br><br>
+            After this surreal moment, you recompose yourself, and see Elena circling back to her natural state.<br><br>
+            <<Dialogue "player" "You">>"Well… so… we still need to find a way to crack these passwords…"<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"Ecco. Do you have any suggerimenti… any clues or hints?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Not really. I’ve basically been accidentally stumbling upon these weird metal vials, and they do stuff to me. Not only that, but I feel like everything I do is naturally amplified… there’s this weird action and reaction dynamic I can’t quite explain. Well, that, and it always hits me hardest when I wake up."<</Dialogue>><br><br>
+            Elena nods in agreement, and you can feel like she knows exactly what you are talking about.<br><br>
+            <<Dialogue "Elena" "Elena">>"It was a big deal when Connor was expelled. I still have some of the giornale… the newspaper clippings. I’ll see if I can find anything."<</Dialogue>><br><br>
+            You know this won’t be easy for her, which makes you appreciate the effort even more. You thank her again, before changing the subject:<br><br>
+            <<Dialogue "player" "You">>"So how about we lift some obscene amount of iron now? I could use a little distraction!"<</Dialogue>><br><br>
+            Elena giggles, and you join her in a gruesome but very fulfilling session of strength training.`
+  },{
+        name: 'ElenaThinkingUsb',
+        locationTags: ['elena'],
+        conditions: [
+            () => State.variables.elenaOpenedUp,
+            () => setup.hasEvenBeenTriggered('ElenaOffersHelpUsb')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['elena'],
+        content: `You meet Elena, as you had scheduled. She looks forlorn, holding the USB stick in her hand.<br><br>
+            <<Dialogue "Elena" "Elena">>"I’m sorry, <<print $playerFirstName>>. I… I tried, but I failed."<</Dialogue>><br><br>
+            She is almost crying… she clearly feels really bad she couldn’t help more. You insist that it’s okay, but she can’t stop explaining herself.<br><br>
+            <<Dialogue "Elena" "Elena">>"I… I looked at all the giornale. I even went to the library to check the microfiche. I… I looked online, it’s almost as if there’s someone suppressing information about the whole thing."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Hey, Elena, it’s okay - no worries, it was a long shot anyway. I knew it from the start."<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"I know, but… I didn’t want to deluderti… disappoint you."<</Dialogue>><br><br>
+            She is now sobbing. You give her a hug, and insist that it’s okay.<br><br>
+            <<Dialogue "Elena" "Elena">>"Connor… what he did… I don’t know that I can ever perdonalo - forgive him. I still have nightmare with him."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wait… you KNOW him?"<</Dialogue>><br><br>
+            Elena closes up, looking more reluctant. She clearly is not comfortable with this.<br><br>
+            
+            <span id="choice">
+                <<link "It’s okay, it’s not worth going over this.">>
+                    <<replace "#choice">>
+                        You hold Elena in your arms, and give gentle taps on her back.<br><br>
+                        <<Dialogue "player" "You">>"Don’t worry. This is not worth this heartache."<</Dialogue>><br><br>
+                        As you say this, though, she realizes the importance of this. She feels divided and scared, but… you know at this moment that she would do anything for you.<br><br>
+                        <<Dialogue "Elena" "Elena">>"I had just moved here for college. I didn’t know many people… and he was so nice to me! He said he needed my help, and I didn’t want to disappoint him!"<</Dialogue>><br><br>
+                        You hold Elena’s hand tightly. You can see these memories are painful.<br><br>
+                        <<Dialogue "Elena" "Elena">>"He said he had some experiments, that he needed subjects… I went to his apartment… and when I asked about what it was… he just laughed. Then he pointed to my tazza, the cup, and said that I just had to wait now…"<</Dialogue>><br><br>
+                        Geez, seriously, he thought it was okay to just use a teenager as his guinea pig?<br><br>
+                        <<Dialogue "Elena" "Elena">>"Ha riso… he just laughed and laughed… like il jolly…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Jolly? You mean he laughed like Santa Claus?"<</Dialogue>><br><br>
+                        <<Dialogue "Elena" "Elena">>"il jolly, la carta… uh, come si dice… the Joker! He had many, all over the apartment…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Wait… could it be? Elena… I think you might be on to something!"<</Dialogue>><br><br>
+                        You get up, and take the USB drive with you. You have a very good feeling about this…
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            
+                <<link "Elena, please, this is very important!">>
+                    <<replace "#choice">>
+                        You don’t feel proud about this, but you have to do it.<br><br>
+                        <<Dialogue "player" "You">>"Elena, I wouldn’t ask if this wasn’t really important… but I think this may actually be bigger than you and me. I need you to think back to that time…"<</Dialogue>><br><br>
+                        She knew the importance of this, of course. She feels divided and scared, but… it just makes you feel bad for putting her through this. Yet, she perseveres, as Elena is wont to do.<br><br>
+                        <<Dialogue "Elena" "Elena">>"Well, it was a little over a year ago. I had just moved here for college. I didn’t know many people… and he was so nice to me! He said he needed my help, and I didn’t want to disappoint him!"<</Dialogue>><br><br>
+                        You hold Elena’s hand tightly. You can see these memories are painful.<br><br>
+                        <<Dialogue "Elena" "Elena">>"He said he had some experiments, that he needed subjects… I went to his apartment… and when I asked about what it was… he just laughed. Then he pointed to my tazza, the cup, and said that I just had to wait now…"<</Dialogue>><br><br>
+                        Geez, seriously, he thought it was okay to just use a teenager as his guinea pig?<br><br>
+                        <<Dialogue "Elena" "Elena">>"Ha riso… he just laughed and laughed… like il jolly…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Jolly? You mean he laughed like Santa Claus?"<</Dialogue>><br><br>
+                        <<Dialogue "Elena" "Elena">>"il jolly, la carta… uh, come si dice… the Joker! He had many, all over the apartment…"<</Dialogue>><br><br>
+                        <<Dialogue "player" "You">>"Wait… could it be? Elena… I think you might be on to something!"<</Dialogue>><br><br>
+                        You get up, and take the USB drive with you. You have a very good feeling about this…
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
+  },{
+        name: 'ElenaHowToHandleAttention',
+        locationTags: ['elena'],
+        conditions: [
+            () => State.variables.elenaOpenedUp,
+            () => setup.hasEvenBeenTriggered('ElenaHiddenPhoto')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['elena'],
+        content: `You try to focus and finish your current set, but it’s hard. Every time you are about to get in the groove, you get flashbacks of that picture those meatheads posted of Elena online. It just sours your mood and breaks your concentration. That sparkling joy of the effort with the weights just dissolved into thin air every time your eyes cross with the gentle giant, who seems to be in a world of her own across the gym.<br><br>
+            It weighs heavy on your heart - it feels like this world does not deserve her. And you worry how random cruelty might hurt her at any point.<br><br>
+            I mean, there’s no denying that people are just wired to make judgement on first visual impressions - you’ve felt this yourself, both when you were a small underdeveloped girl... and now. It can be dehumanizing, and you just know Elena is much more sensitive than you. Ugh!<br><br>
+            You blink rapidly, trying to put these thoughts aside, but it feels like they aren’t going anywhere. You decide to get a break from pumping iron and checking if Elena is willing to talk for a bit.<br><br>
+            <<if $shyConfident > 1 ||  $carefreeCarefull < -1>>
+            You tap Elena on the shoulder, and just blurt it out without thinking much.<br><br>
+            <<Dialogue "player" "You">>"Hey, Elena, there’s something bothering me, can we just chat for a bit?"<</Dialogue>><br><br>
+            Elena jumps like she got shocked from your touch, dropping the heavy barbell, which makes the floor shake considerably.<br><br>
+            <<Dialogue "Elena" "Elena">>"EEEK! Oh, <<print $playerFirstName>>, //scuzi//, you scared me there!"<</Dialogue>><br><br>
+            Despite being slightly embarrassed, her sweet smile shows no sign of resentment, but then it transitions into some worry as she fully processes your request.
+            <<else>>
+            You wait patiently as Elena finishes her set, her concentration absolutely unwavering, like always. As she puts the barbell down and wipes her forehead with a deep breath, you approach her from the side with a calm wave. It brings a weak but sincere smile to her introspective visage - it blooms like a flower in spring, and warms you just as much.<br><br>
+            <<Dialogue "player" "You">>"So, hi, Elena... if you have a second for a break at some point, huh... there’s something bothering me, when you can, I’d love to chat for a bit, maybe?"<</Dialogue>><br><br>
+            Concern sprouts on her face almost immediately. You know just how selfless Elena can be, and she’d probably jump in front of a speeding truck to save you without thinking twice, so it’s only natural that she’d drop anything with just an insinuation of trouble.<br><br>
+            <</if>>
+            <<Dialogue "Elena" "Elena">>"//Certamente!//"<</Dialogue>><br><br>
+            She follows you to the smoothie bar, where you both try to comically get comfortable on the small stools - and end up just leaning against the counter (probably discouraging any other gymgoer of using the facilities). You take a deep breath, and start venting.<br><br>
+            <<Dialogue "player" "You">>"Elena, I’m just going to cut to the chase. Those guys who were making fun of you and took your picture? It really bothered me, you know? "<</Dialogue>><br><br>
+            Elena looks somewhat puzzled. She frowns and her neck slightly bends forward.<br><br>
+            <<Dialogue "player" "You">>"Yeah, they were just assholes, but it got me thinking, this stuff gets to you, right? How do you handle people just judging you by your appearance? It seems to me like it really bothers you. But I can only imagine it really affects your daily life. Constantly!"<</Dialogue>><br><br>
+            Elena’s worry seems to chill a bit, and she smiles while looking into your eyes.<br><br>
+            <<Dialogue "Elena" "Elena">>"//È vero, suppongo che// the way I look is something I get quite… //come si dice,// uh, self-conscious, about my... size."<</Dialogue>><br><br>
+            You feel a stab in your chest as she says the S-word, you can tell it almost requires effort to get it through her throat, like trying to cough up a ball.<br><br>
+            <<Dialogue "Elena" "Elena">>"I AM afraid that people are going to look at me and just see the monster. Oh, sometimes //mi chiedo//... I wonder... would it be worse if people WANTED that?"<</Dialogue>><br><br>
+            Elena’s eyes focus on the distance, and she’s clearly very pensive, almost like she’s talking more to herself than you.<br><br>
+            <<Dialogue "Elena" "Elena">>"Is it even still me, if I change so much? Am I making a mistake by working out, even if it helps me feel good? It IS quite a relief that I’m not growing like I did when this started - that was //terrificante//."<</Dialogue>><br><br>
+            You put a hand on her shoulder, and Elena seems to snap from her little monologue. But she looks you deep in your eyes, and says, quite happily:<br><br>
+            <<Dialogue "Elena" "Elena">>"<<if $elenaMuseumDate>>//Mi fiore,//<<else>>//Cara mia,//<</if>>, you are right, //mi infastidire//, it bothers me, but... not as much as my concern about YOU worrying about me. So, the best help I can get is... not worrying you. Does that even make sense?"<</Dialogue>><br><br>
+            More than you can imagine, Elena. More than you can imagine!<br><br>
+            <<Dialogue "player" "You">>"Absolutely! There are days, Elena, that I feel like there’s someone pulling my strings like a puppet, that I do completely contradictory things, and I’m not sure of who I am deep inside..."<</Dialogue>><br><br>
+            “Though guzzling all those weird potions willy-nilly probably isn’t helping,” you think to yourself, knowing that saying it out loud would probably bother her.<br><br>
+            Elena smiles, and as usual, she brightens the entire room with it.<br><br>
+            <<Dialogue "Elena" "Elena">>"I think the best part about our //amizicia//, our friendship, is that I feel safe with you."<</Dialogue>><br><br>
+            <<if $shyConfident < 2 || $carefreeCarefull >1 >>
+            <<Dialogue "player" "You">>"It goes both ways, Elena. I don’t have that many close friends in this new town, but sometimes I feel like I’ve known you forever."<</Dialogue>><br><br>
+            She looks surprised, as she mumbles:<br><br>
+            <<Dialogue "Elena" "Elena">>"//mi hai tolto le parole di bocca.//"<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"I mean, who wouldn’t, being with someone with THESE CANNONS?"<</Dialogue>><br><br>
+            You deliver your best mock-bodybuilder pose, making your sinewy arms and back explode while you make funny faces. Elena just raises an eyebrow, and her expression SCREAMS “really?”
+            <</if>><br><br>
+            Well, it seems like your concern is solved. Elena is a big girl (in more ways than one), and you realize that, despite her sensitive nature, she can probably more than take care of herself. Getting up, you offer her a hand, and she follows you back to the weights, both eager to finish your respective training sessions.`
   })>>
 
 
@@ -14444,6 +14988,223 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
        priority: 'response',
        npc: ['kris'],
         content: 'You leave the gym, toweling the last bit of water from your hair, as you bump into Kris outside. She gives a lecherous wolf whistle.<br><br><<Dialogue "Kris" "Kris">>"Oooh… are you putting on some meat on that frame? Mama likes that!"<</Dialogue>><br><br>She just goes and squeezes your arm, which happens to be quite pumped from the workout. You can feel her temperature rising.<<Dialogue "player" "You">>"Hey, Kris. Do you work out here too? I’ve never seen you inside…"<</Dialogue>><br><br>Kris shrugs and frowns, which is absolutely the last reaction you expected from her. Before either of you has a chance to say anything else, the owner of the gym comes out with a spray bottle on one hand, and a broom on the other.<br><br><<Dialogue "randomPerson" "Random guy">>"I told you not to show your face back here! Now SCRAM!"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">>"Hey, the street is a public place, asshole!"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"Yeah, but don’t you forget the restraining order. I really don’t want to call the cops, but I WILL if I have to."<</Dialogue>><br><br>Kris flips the guy off, and walks away, really pissed. Whoa.<br><br><<Dialogue "player" "You">>"Whoa, what was that about?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"She used to work here about an year ago. Part of the deal was that she could use the facilities in her off hours… at first, I was just complaining about her harassing our clients while she was working… but then she started laying it REALLY thick, literally just ogling at everyone all the time. It was bad… but we have a client who works out only late at night, really serious about her privacy… well… let’s just say we don’t talk about the accident."<</Dialogue>><br><br><<Dialogue "player" "You">>"That bad, huh?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"Oh, I mean that LITERALLY. Our lawyer had everyone sign NDAs during the settlement. And now we have a restraining order on Kris. So if you see her, please let me know immediately."<</Dialogue>><br><br>Yeah, that’s pretty on-brand for her.'
+    },
+    {
+        name: 'KrisHelpsUsb',
+        locationTags: ['kris'],
+        conditions: [
+        	() => State.variables.krisInterested,
+            () => State.variables.hackingUnlocked,
+            () => State.variables.usbPasswordUnlocked?.filter(i => !i).length > 0 /* there is a locked file */,
+        ],
+        repeatable: false,
+        retriggerable: false,
+       priority: 'response',
+       npc: ['kris'],
+        content: `You are sitting down, looking pensively at the USB stick in your hand. You can feel the eyes on you, however.<br><br>
+            <<Dialogue "player" "You">>"Hey, Kris."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Whatcha got there? I bet it’s a lot of lewd pictures of deliciously humongous females?"<</Dialogue>><br><br>
+            You smile back, amused at the imminent potential “Krishap”, but you find yourself strangely melancholy to even properly react in any meaningful way.<br><br>
+            <<Dialogue "player" "You">>"Sorry to disappoint you. I guess it’s not anything that exciting."<</Dialogue>><br><br> 
+            <<Dialogue "Kris" "Kris">>"Ooooooooh, NOW you have my curiosity piqued. Is it some pirate porn movies? Maybe something with some real hair-raising fetishes?!?"<</Dialogue>><br><br>
+            You give a half-hearted laugh.<br><br>
+            <<Dialogue "player" "You">>"Nah… it’s just something that’s been bothering me. I found this USB drive from the guy who created those weird drinks in the metal canisters. I was hoping to learn more about them but…"<</Dialogue>><br><br>
+            You look at Kris, and… something is wrong. She’s stiff as a board, completely frozen with an expression of absolute incredulity and surprise - you just aren’t used to getting that reaction from her. You wave your hand right in front of her face, and she remains motionless. You might just have broken Kris.<br><br>
+            <<Dialogue "player" "You">>"Anyway, not anything as exciting as your ideas, sorry…"<</Dialogue>><br><br>
+            Before you know, Kris is kneeling on your lap, both hands grabbing your collar violently.<br><br>
+            <<Dialogue "Kris" "Kris">>"YOU MEAN YOU FIND INFO ABOUT THE GROWNECTAR?!? YOU HAVE THE ACTUAL LOWDOWN ON THAT HEAVENLY JUICE?!?"<</Dialogue>><br><br>
+            She is still shaking you frenetically, and you get briefly disoriented as you ask her to please let go.<br><br>
+            <<Dialogue "Kris" "Kris">>"Do you have any idea how long I’ve been dosing people with that stuff, hoping to find someone else like that dark-skinned girl from last year?!? You need to let me in on this!"<</Dialogue>><br><br>
+            
+            <span id="choice">
+                <<PersonalityCheck $carefreeCarefull <= -2 "I need any help I can get to decrypt these…">>
+                    <<replace "#choice">>
+                        Well, she is clearly invested. You do wonder for a bit if it might be a bad idea to give her access to this information, but you ARE pretty desperate…<br><br>
+                        <<Dialogue "player" "You">>"But… you see, the files are encrypted, so…"<</Dialogue>><br><br>
+                        She nabs the device from your hand.<br><br>
+                        <<Dialogue "Kris" "Kris">>"Pffft! You kidding me? I have gone in the dark web before to procure some… possibly less than legal steroids. I am sure I can get some resources to crack this."<</Dialogue>><br><br>
+                        And with that, she is off. Not just back to work - she threw her apron on the ground and just ran to the back, possibly to use the café’s Wi-Fi to engage in potentially unlawful behavior. Yup, it doesn’t get any more Kris than that.
+                        <<set $KrisHelpsUsbTriggeredDaysPlayed = $daysPlayed>>
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <<Failed>>
+                    <<replace "#choice">>
+                        You really want her help, but knowing just how impulsive Kris is, you can’t help but worry about involving her in such a seedy task.<br><br>
+                        <<Dialogue "player" "You">>"Thanks for the offer, Kris, but I can’t imagine there are many practical ways to figure out these passwords…"<</Dialogue>><br><br>
+                        <<Dialogue "Kris" "Kris">>"NONSENSE! I’m going to get these cracked even if I have to drag some pimply hacker from their mother’s basement myself!"<</Dialogue>><br><br>
+                        And with that, she nabs the device from your hand, and heads into the back of the café. She really isn’t planning to lose any time on this, huh?
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</PersonalityCheck>>
+            
+                <<PersonalityCheck $carefreeCarefull >= 1 "Are you sure you want Kris to have access to info on growth chemicals?">>
+                    <<replace "#choice">>
+                        You know that, if Kris figures out the secrets of these potions, she might just dose up the entire town. You have a comical glimpse of a city composed entirely of giant amazons, as Kris simply walks around like a girl in a candy shop. It would be hilarious, if it wasn’t absolutely terrifying. So you put the stick back into your pocket.<br><br>
+                        <<Dialogue "player" "You">>"Thanks, but I still have a lot to figure out before I can really understand what is in here."<</Dialogue>><br><br>
+                        <<Dialogue "Kris" "Kris">>"Are you SERIOUSLY going to hold out on this? You’d BETTER at least be planning to create a giant vat of this stuff… and then just swim in it… and… bigger than a building…"<</Dialogue>><br><br>
+                        Kris seems to trail off into delirious daydreaming about you becoming a literal giant. She just stands there, chin tilted up to the sky, mouth agape and looking into the distance. This seems like a good time to just get out of here… 
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <<Failed>>
+                    <<replace "#choice">>
+                        You imagine the havoc that Kris could unleash in the world if she was a muscular giant, and you gulp with the sheer terror of the hijinks she could get into. By the time you snap out of the nightmare, the drive is gone from your hand… and so is Kris.<br><br>
+                        You seriously pray this doesn’t come back to haunt you later…
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</PersonalityCheck>>
+            </span>`
+    },{
+        name: 'KrisCrackedUsb',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => setup.hasEvenBeenTriggered('KrisHelpsUsb'),
+            () => State.variables.usbPasswordUnlocked?.filter(i => !i).length > 0 /* there is a locked file */,
+            () => {
+                if (State.variables.KrisHelpsUsbTriggeredDaysPlayed == null) {
+                    return false
+                }
+                return State.variables.KrisHelpsUsbTriggeredDaysPlayed + 1 <= State.variables.daysPlayed; /* trigger since the day after "KrisHelpsUsb" event */
+            } 
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `You feel someone tapping your back. You turn around to see Kris, looking half-asleep with huge bags under her eyes. She has your USB drive in her hand.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, <<print $playerFirstName>>. So… (yawn)... I got something for ya…"<</Dialogue>><br><br>
+            She drops the device on your hand, and closes her eyes as she dozes off, waking up as her neck starts dropping.<br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, um, so, sorry, spent all night traipsing around on stack overflow… (yawn)... found this kid hacker who lives around here… and I went to his house. "<</Dialogue>><br><br>
+            None of that sounds vaguely right. Not as in “insincere”, more in the legal and moral sense.<br><br>
+            <<Dialogue "Kris" "Kris">>"So… the brat, real tech wiz. Threatened to tell his mom about his little dark web antics. Wasn’t too happy. He did some stuff, I think he said he looked into the fat table? What a weird thing…"<</Dialogue>><br><br>
+            She trails off again… oh boy… this is going to be special. You poke her awake again.<br><br>
+            <<Dialogue "Kris" "Kris">>"Where I was? Oh, yeah. So, bad news… I think I have another restraining order to add to my collection. Cops weren’t too happy when they arrive. BUT… on the bright side… before they did… he got this…"<</Dialogue>><br><br>
+            She hands you a scribbled note, from the handwriting, you assume it’s the kid’s, not Kris’s.<br><br>
+            <<Dialogue "Kris" "Kris">>"He says this is one of the passwords. Um… if… if you manage to somehow get huge… do you… do you promise to step on me? Please?"<</Dialogue>><br><br>
+            Excitedly, you grab the piece of paper. You might be one step closer to solving this mystery. When you look back at Kris, she’s sleeping standing up again, mumbling something about hugging your ankle… You set her down on a safe place, eager to check the contents of the file.
+            <<set State.variables.usbPasswordUnlocked[State.variables.usbPasswordUnlocked.findIndex(i => i === false)] = true>>`
+    },{
+        name: 'KrisNoticeBulge',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.dick >= 5
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `As you approach the Coffee Corner cashier, the wonderful smell makes you take a deep breath. Ahhhh! But, as you open your eyes, you see a deeply entranced Kris manning the register. No comments, no guff, just two eyes, trained directly at your waist. “Did I put on some weight?” you ask yourself, getting self-conscious about your waistline. But as you try to figure that out, she silently goes back to the shelf, and starts filling her arms and her apron with all kinds of seasoning tubes.<br><br>
+            Still quite confused, you wait as she comes back and systematically starts arranging the squeezable bottles all over the counter, like an artist carefully planning their next move. At this point you are more curious than anything else, and you just watch as she crosses the counter and stands right in front of you. Kris stares you in the eyes, looking VERY serious… as her hand just GRABS YOUR CROTCH and gives it a nice squeeze.<br><br>
+            <<Dialogue "Kris" "Kris">>"I KNEW IT!"<</Dialogue>><br><br>
+            Dazed and confused, you don’t even have time to react before she jumps back over the counter and starts licking her lips as she bends over and starts curating her collection of sauces, reading the labels with thirsty eyes…<br><br>
+            <<Dialogue "Kris" "Kris">>"Not vanilla… hmmmm, hazelnut, yes! Some dulce de leche… and definitely raspberry…"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Uh, Kris, can you take my order now?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"SHHHHHHH! I can’t believe you were holding out on me! You got that nice package there and didn’t tell me about it?!? SERIOUSLY?!?"<</Dialogue>><br><br>
+            It would make sense that she would be excited about your… huh… newest addition under your <<print $outfit.bottom().name>>, but what does have to do with all the sauce bottles she… oh… OH!<br><br>
+            <<Dialogue "Kris" "Kris">>"Yeah, yeah, I will need to remember the whipped cream, for sure."<</Dialogue>><br><br>
+            You really didn’t take Kris for a planner, but it seems like your penis is too big a project for her just to flip out during work. She’s a veritable Leonardo daKinky right now, planning her next masterpiece with the type of concentration you never expected from her. She stands up, and extends her hand in the general direction of your crotch, thumb raised and one eye closed, like a painter measuring proportions for his next brushstroke.<br><br>
+            <<Dialogue "player" "You">>"Any chance I could order, like, today?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"YOU DON’T HURRY GENIUS!!!"<</Dialogue>><br><br>
+            Shrugging, you wait until the next employee comes over to take your order. It’s weird, but it turns out that you find this dedicated side of Kris strangely endearing. With your coffee in hand, you leave, wondering what Kris will do with this new piece of information she acquired…`
+
+    },{
+        name: 'KrisAdmiringBodybuilder',
+        locationTags: ['outside'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.krisOpinion >= 15
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `You hop across the street, and your eyes are caught by a decently-sized bodybuilder waiting at the bus stop - the man’s sleeves seem one flex away from ripping apart, and his taut stomach is imprinted on his tight T-shirt; his thighs are also pretty hard to ignore, though his calves could use some work. Yeah, I guess you are already sizing the guy up… and apparently, you aren’t alone.<br><br>
+            Right behind him, you see a familiar face - Kris, who is not wearing her work uniform. She is, however, very intoxicated by the man meat she is admiring with a very aroused conviction.<br><br>
+            <<Dialogue "Kris" "Kris">>"Yummmm!"<</Dialogue>><br><br>
+            There’s something in her face that is different from the usual, behind-the-counter Kris. She’s just leaning against the wall, casually, with one foot on the wall, other on the ground, leaning back against the building. She’s playing with a coin in her hand - but she’s anything but distracted: her squinting gaze is fixed on the bodybuilder like a prey ready to pounce. Her thoughts are inscrutable, like she’s planning to do something, but you are not quite sure what.<br><br>
+            It is a weird change of pace for her - at least as far as what you are used to. She’s more one to act, not plan. And yet, there she is, just hungrily eyeing the muscular man, licking her lips. Curiosity gets the better of you, and you can’t help but try to stay undetected and watch what will transpire, like a documentary filmmaker, hoping for a nice shot for your next project.<br><br>
+            The man looks at his watch, looking concerned about the delayed bus. His biceps explode as he raises his wrist to his face, and Kris takes a deep breath, and approaches him.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, there, handsome! Do you have someplace to be?"<</Dialogue>><br><br>
+            <<Dialogue "randomPerson" "Bodybuilder">>"Actually, yes, I do have a meeting with my doctor, and I’m concerned that the bus is late - is this normal?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, yeah, the buses here are HORRIBLE. But I think it’s your lucky day today - do you want a ride?"<</Dialogue>><br><br>
+            She is, amazingly, playing this straight. Was that related to all her planning and thinking earlier? What is her endgame? This is better than a nature documentary, and you watch with rapt attention from your privileged spot.<br><br>
+            The man seems slightly taken aback by Kris’s unusual offer, but he looks at his watch again, and gives Kris another look before replying:<br><br>
+            <<Dialogue "randomPerson" "Bodybuilder">>"Well, that kind of weird to offer a stranger… but yes, I guess I COULD use a ride, wouldn’t it be a problem for you?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Oh ho ho! No… not at all!!!"<</Dialogue>><br><br>
+            And then you see that devious grin, and know what a Krishap is imminent. Like a mass vampire waiting anxiously for an invitation, Kris takes her cue and POUNCES the guy, wrapping her legs around his waist and her arms around his shoulders, giving him the hug of a drug-addled boa constrictor!<br><br>
+            <<Dialogue "randomPerson" "Bodybuilder">>"WHAT THE FUCK?!?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Here’s the ride - ME riding YOU!"<</Dialogue>><br><br>
+            The man starts spinning around in confusion, as if that could possibly break the iron grip of the sex-addicted ride-on he just got. She sniffs his neck, admiring his musk, as her hands explore his rugged back. The other people waiting at the bus stop start leaving, scared, and you wonder whether you should interfere or not… but your documentarian logic kicks back in, and you decide to just watch the events unfold.<br><br>
+            The bus finally comes, the bodybuilder seems completely confused and enters the vehicle, Kris in tow. A loud commotion can be heard, and a few seconds later, a bunch of people run out of the vehicle in panic. Wow, that has to be a new record for Kris!<br><br>
+            As the bus goes away, you can’t help but hope that the poor bodybuilder is not too badly scarred from this encounter with Kris…`
+    },{
+        name: 'KrisNoticesHugeTongue',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.krisOpinion >= 15,
+            () => State.variables.tongueLenght >= 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `Ugh! You feel VERY sleepy. You take another sip of your coffee, hoping the magic brew will somehow fight this weird tired feeling. The warm liquid does snap some energy back in you, but you still cannot resist a veeeeeery long yawn…<br><br>
+            <<Dialogue "player" "You">>"YAAAAAAAAAAAAAAAAAAAAAAAAAWN!!!"<</Dialogue>><br><br>
+            Ah, that long stretch felt really good. But as you open your eyes, you almost have a heart attack: there’s a Kris, standing right in front of your nose, eyes wide open and curious.<br><br>
+            <<Dialogue "Kris" "Kris">>"WHAT. WAS. THAT?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"GEEZ, KRIS! A little heads-up would be nice! What was what?"<</Dialogue>><br><br>
+            She comes in pulls your jaw down, still laden with curiosity.<br><br>
+            <<Dialogue "Kris" "Kris">>"That fucking red menace that came from your mouth. I never knew your tongue was THAT LONG!!!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Oh, yeah, that. I guess my tongue has been getting pretty long…"<</Dialogue>><br><br>
+            As she confirms her theory, the cogs start turning inside her head.<br><br>
+            <<Dialogue "Kris" "Kris">>"Girl, how many times do I have to repeat myself - YOU CAN’T HOLD OUT ON ME LIKE THAT! You telling me your tongue is stretching too?!?"<</Dialogue>><br><br>
+            You nod, still somewhat confused. Her eyes dart around, and you can tell all her synapses seem to be firing at once. Her fingers wiggle excitedly, and she proclaims:<br><br>
+            <<Dialogue "Kris" "Kris">>"Well, DOCTOR KRIS IS IN THE HOUSE! It’s time for some science, kids! We gotta measure that tongue!"<</Dialogue>><br><br>
+            Somehow, Kris just gets a measuring tape from her apron. Does she walk with one all the time?!? You gasp, surprised, and as you open your mouth, Kris just pushes her face against your mouth, like it’s a cave waiting to be explored. If it wasn’t for the fact that she doesn’t know what a personal boundary is, you’d probably be more scared.<br><br>
+            <<Dialogue "player" "You">>"Errr… what do you think you are doing, Kris?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"WE MUST MEASURE IT! FOR SCIENCE!"<</Dialogue>><br><br>
+            Science, right. The fact her nipples have hardened to the point of being visible through her shirt and apron are just a coincidence. You push her away.<br><br>
+            <<Dialogue "player" "You">>"Look, huh… for sanitary reasons, I’ll measure it at home… and IF you behave, maybe I’ll tell you how big it is. Deal?"<</Dialogue>><br><br>
+            Kris is initially deflated, but then nods. She goes back behind the counter, still really intrigued by your appendage. You’d better humor her request, though… you don’t even want to guess what she would do if you forget to give her that information…`
+    },{
+        name: 'KrisTouchesTongue',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => setup.hasEvenBeenTriggered('KrisNoticesHugeTongue')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `After finishing your coffee, you head to the restroom to wash your hands. You look in the mirror, and notice you have a bit of food stuck on your teeth and…<br><br>
+            <<Dialogue "player" "You">>"GEEEEEEEEEEEEEEEZ!!!"<</Dialogue>><br><br>
+            Kris just shows over your shoulder, having just popped out of her hiding place inside one of the bathroom stalls. As you catch your breath from the scare, she smiles broadly, like the cat who just got the canary. Apparently, you are the canary in this scenario.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, babe… I’ve been checking the health code, and my hands have been washed."<</Dialogue>><br><br>
+            Kris is a master at speaking in riddles… or at least saying things that seem like they were supposed to make perfect sense, but don’t. You look at her quizzically, and she sigh, frustrated.<br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, you know, there’s really no sanitation guidelines to what employees can do in the restroom as long as they wash their hands… and I already did. So… can we have a good look at the little red snake you have inside your cavernous mouth?"<</Dialogue>><br><br>
+            Oh. So THAT’S what this is about. Well, at least she managed to be pretty discreet about it - and you can’t argue too much about the sanitary aspect of it. Shrugging, you sigh and with a resigned look, unfurl your behemoth tongue for her appreciation.<br><br>
+            You can see Kris’s growing excitement with every little bit of your tongue that comes out - she starts excited, then surprised, then shocked, and finally ecstatic. You roll your eyes, and wait as she just admires the muscular organ in front of her, breath held.<br><br>
+            <<Dialogue "Kris" "Kris">>"C-c-can I… touch it?"<</Dialogue>><br><br>
+            <<if $shyConfident < 0 || $submissiveDominant < 0 || $carefreeCarefull < -1>>
+            You sigh once again, and drooping your shoulders, nod approval (since speaking with your tongue out this way is pretty hard!). Kris’s eyes sparkle with delight, and she goes in with childish glee.<br><br>
+            She lifts her hand with uncommon reverence, like a priest about to touch a holy relic. She looks you in the eye one last time for permission, and you nod once again. She places a careful thumb over the top of your tongue, and pinches the back with her index finger. She carefully bends it a little, admiring the muscular nature of the organ as well as its texture. Kris is drooling, her own tongue unconsciously hanging from the corner of her mouth. You could swear she wants to lick your tongue, but her fluttering eyes betray that she’s probably fantasizing about all the things you could do with it.<br><br>
+            Still, she runs her fingers very gently up and down, and you get a shiver down your spine - this is actually weirdly arousing, and you find your nipples hardening a bit, your face becoming flushed. This, obviously, does not pass unnoticed by Kris, who is now grinning.<br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, grandma, what a longue tongue you have!"<</Dialogue>><br><br>
+            You can’t really answer at the moment, but Kris definitely is more Big Bad Wolf than Little Red Riding Hood right now. In fact, she’d probably devour you right now, if she was physically capable of doing it. You start rolling your tongue, but she actually pinches firmer, keeping you from retracting it. You look at her angrily, and she gives you a mischievous look, but does let go.<br><br>
+            <<Dialogue "Kris" "Kris">>"Thank you for the little treat! I’ll behave now."<</Dialogue>><br><br>
+            And surprisingly, she does! Washing her hands, she shoots you a last look and leaves the restroom. Huh! Apparently, positive reinforcement might actually work with her. You wonder if maybe you should be humoring her more often to see if that levels her a bit…<br><br>
+            ANYWAY! Since you are done here, you absentmindedly wash your hands one more time and also take your leave.”
+            <<else>>
+            <<Dialogue "player" "You">>"Yeeee…"<</Dialogue>><br><br>
+            You retract your tongue back into your mouth.<br><br>
+            <<Dialogue "player" "You">>"Yeah… that is going to be a hard pass, Kris. Nice try, though."<</Dialogue>><br><br>
+            The barista humphs indignantly. But then she lets out a wry smile.<br><br>
+            <<Dialogue "Kris" "Kris">>"You win this one… but mark my words - I’ll have you lick all of me one of these days. Just you wait…"<</Dialogue>><br><br>
+            She washes her hands again, and leaves the room. The scariest part? You don’t DARE doubt her… and what she wouldn’t do to make sure her scenario does come to pass…”
+            <</if>>`
     }
 )>>
 
@@ -22089,13 +22850,13 @@ repeatable: false,
         locationTags: ['Home'],
         conditions: [
                 
-                () => State.variables.usbPassword1Unlocked,
-                () => State.variables.usbPassword2Unlocked,
-                () => State.variables.usbPassword3Unlocked,
-                () => State.variables.usbPassword4Unlocked,
-                () => State.variables.usbPassword5Unlocked,
-                () => State.variables.usbPassword6Unlocked,
-                () => State.variables.usbPassword7Unlocked
+                () => State.variables.usbPasswordUnlocked[0],
+                () => State.variables.usbPasswordUnlocked[1],
+                () => State.variables.usbPasswordUnlocked[2],
+                () => State.variables.usbPasswordUnlocked[3],
+                () => State.variables.usbPasswordUnlocked[4],
+                () => State.variables.usbPasswordUnlocked[5],
+                () => State.variables.usbPasswordUnlocked[6]
             ],
         repeatable: false,
         retriggerable: false,
@@ -22714,7 +23475,7 @@ repeatable: false,
                     retriggerable: false,
                         priority: 'response',
                             npc: [],
-                                content: 'As you make you way through town, you find there’s quite a few people out and about. You are quite proud of your matching outfit, and you unconsciously find yourself proverbially strutting your stuff. It does not take long for someone to notice.<br><br><<if $outfit.style() === "tomboy">> /* IF Code for if the player has both a TOP and BOTTOM in the TOMBOY style - Gabe */<<Dialogue "randomPerson" "Random Girl">>"Hey, I dig that look!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Excuse me...?<</Dialogue>><br><br>You turn around, where you find a teen girl wearing some torn jeans and a baggy T-shirt, looking rather impressed by your ensemble.<br><br><<Dialogue "randomPerson" "Random Girl">>"That outfit - it’s ACE! I love that you don’t let society dictate how you should look just because you’re a girl!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Oh, thank you!<</Dialogue>><br><br><<if $muscle >= 40>><<Dialogue "randomPerson" "Random Girl">>"And the fact you aren’t afraid about not following standards of femininity with your muscles just makes it even more awesome. Seriously, you are GOALS, girl!"<</Dialogue>><br><br><</if>><<if $shyConfident > 1 || $carefreeCarefull < -1>><<Dialogue "player" "You">>"Heh. Glad you like it. And you are right, I live by my own rules!<</Dialogue>><br><br><<Dialogue "randomPerson" "Random Girl">>"Well, YOU rule! Keep doing you and show everyone!"<</Dialogue>><br><br>She gives you a high-five and goes on her way. Wow, you never expected to inspire anyone. This feels pretty awesome.<<else>>That took you by surprise! You can see the admiration in her eyes, but still somewhat unsure on how to respond. She raises a hand for a high-five, and you slap it tentatively. She just goes on her way, with you still in a bit of a state of shock.<</if>><<elseif $outfit.style() === "sporty">> /* IF Code for if the player has both a TOP and BOTTOM in the SPORTY style - Gabe */<<Dialogue "randomPerson" "Random Girl">>"That is SUCH an awesome look, girl! Where’d you get it?"<</Dialogue>><br><br><<Dialogue "player" "You">>"Excuse me...?"<</Dialogue>><br><br>You turn around, and see a jogger, running in place, just scanning your entire outfit.<br><br><<Dialogue "randomPerson" "Random Girl">>"The <<print $topWear.name>> and <<print $bottomWear.name>>, where did you buy them?"<</Dialogue>><br><br><<if $outfit.top().bonuses.map(bonus => bonus.name).includes("Crafted")>> You tell her that you made it yourself, and she is beyond herself, shooting a barrage of questions. You politely decline her offer to buy clothes from you, but still point her to the same resources you used to create the clothes so she can learn the same herself.<<else>>You tell her where you got them, and she writes it all down on her phone.<br><br><<Dialogue "randomPerson" "Random Girl">>"Do you have a Picstagram account? I’d love to see your other workout looks, if they are anything as awesome as this one!"<</Dialogue>><br><br><</if>><br><br>You did not expect your ensemble to get you that much attention. But you do realize there are a lot of influencers that specialize in showing off workout gear. Maybe you should look into a sponsorship? Might make you some extra cash!<<elseif $outfit.style() === "punk">> /* IF Code for if the player has both a TOP and BOTTOM in the PUNK style - Gabe */You hear the sound of a skate being kicked up as you turn, and see a skater girl with brightly-dyed hair,  looking rather impressed.<br><br><<Dialogue "randomPerson" "Random Girl">>"Yo, that ensemble is rocking!"<</Dialogue>><br><br>Confused, you look around. She’s definitely talking to you.<br><br><<Dialogue "randomPerson" "Random Girl">>"Damn, just look at that <<print $topWear.name>>! Love the style!"<</Dialogue>><br><br>She sticks her tongue out and makes horns with her fingers. Despite her attitude, her compliments are quite flattering. <<if $shyConfident > 1 || $carefreeCarefull < -1>>You return the hand sign and tongue in kind, and both of you start headbanging the air playfully.<br><br><<Dialogue "randomPerson" "Random Girl">>"Hell, yeah!!!"<</Dialogue>><br><br>The two of you laugh, and she makes a dig about going against the system or somesuch. It goes a bit above your head, but you still appreciate it - and you feel even more awesome about your outfit.<<else>>You blush a bit, feeling somewhat unsure if you really were trying to make a political statement or just trying to look good. But with a nod and a shy smile, you thank her for it. <</if>><<elseif $outfit.style() === "sexy">> /* IF Code for if the player has both a TOP and BOTTOM in the SEXY style - Gabe */You hear a loud wolf whistle. A guy from across the street is looking at you with lecherous eyes, and he winks as you turn to look at him. <<if $shyConfident <= 1 && $submissiveDominant > 1>>It is true you are wearing some revealing and sexy clothing, but that does not give him the right to treat you like a piece of meat. <<if $muscle >= 40>> You just glare menancigly at the individual, and let your physique do the rest of the talking. Yeah, he might have drooled at your bubble butt, but he’s now seriously cowering at your towering traps. Good riddance!<<else>>You flip him the bird, which doesn’t particularly discourage him, but he gets the point across well enough. He doesn’t stop staring, but at least he’ll leave you alone.<<if $shyConfident > 1>>You bite your lips and look at him seductively, and you bend over just enough to emphasize your best assets - a task which is greatly enhanced by your alluring apparel. The guy’s jaw drops right there and then, and you feel especially good about picking this outfit - it does bring out your best assets!<<else>>Confused, you look around, trying to figure out if there is anyone else, until you remember the sexy outfit you decided to wear - yeah, it’s definitely bound to attract some of this kind of attention. You blush, but despite any embarrassment, it’s hard to deny that part of you feels good about being looked at with such lust. It makes you feel hot and desired, even if it might be a bit uncomfortable. <</if>><</if>><</if>><<elseif $outfit.style() === "stylish">> /* IF Code for if the player has both a TOP and BOTTOM in the STYLISH style - Gabe */You hear a gasp. It scares you for a second, and you turn around, only to find someone who seems like a stereotype of someone pretending to wear a “The Devil Wears Prada” cosplay. She is fanning herself as she now proceeds to make circles around you, leaving you speechless.<br><br><<Dialogue "randomPerson" "Random Woman">>"Oh, my! Look at you! I need my salts, I never thought I would find such style in this podunk town! Who are you wearing, darling?"<</Dialogue>><br><br>It takes a moment for you to even process the question. Oh, she means what brand you are wearing. Right.<br><br><<if $outfit.top().bonuses.map(bonus => bonus.name).includes("Crafted")>> /* IF CLOTHES ARE CRAFTED - Gabe */You explain that you made the clothes yourself, and she looks like she might just faint - or at least is pretending to in her highly flamboyant style. It takes a little bit for you to make her give up on trying to drag you back to her office in New York - but damn, did that feel flattering!<<else>>You explain where you bought the clothes, and she looks temporarily offended that these are off-the-rack, before telling you that you have some sort of magical touch to make that outfit work so well. Flattered, you thank her for the compliment, not quite expecting this kind of reaction when you put this together.<</if>><<elseif $outfit.style() === "professional" && setup.isOutfitFits() >> As you wait for the pedestrian light to cross the street, a smartly-dressed man in a business suit discreetly scans you top to bottom. He looks quite good in his clearly tailored suit, and waits for you to acknowledge his appreciation as your eyes cross.<br><br>Once he notices you are looking back at him, he gives a nod of approval, still with a very serious face. There is no need for words, as if you share some sort of workaholic connection with him. You nod back, reinforcing that you also approve of his garb.<br><br>The whole situation is a bit surreal, when you stop to think about it, but it shows that there is merit in making sure you pick matching clothes in a proper style - and fit. People notice, and impressions matter.<<elseif $outfit.style() === "nerdy">> You hear someone clearing their throat. You turn around to see a guy in glasses who is wearing a T-shirt of an anime you don’t quite recognize. The art is amazing, though.<br><br><<Dialogue "randomPerson" "Random Guy">>"That’s a cool reference there, glad to see you are a woman of culture as well!"<</Dialogue>><br><br>You laugh at his memetic reference, as he pretends to tip an imaginary fedora. You hit him with your elbow as you reply with a wink:<br><br><<Dialogue "player" "You">>"Us nerds, huh? Cake, lie and all that jazz...<</Dialogue>><br><br>You two share a giggle of belonging. It’s weird how much even a clothing statement can bring people together. You feel that you are not only represented by what you have on, but you also make a statement. Geek and proud!<br><br>After exchanging a last thumbs up, you wave each other goodbye.<<elseif $outfit.style() === "cute">> You feel a tug on your <<print $outfit.bottom().name>>. There’s a little girl, looking at you with big, sparkly eyes.<br><br><<Dialogue "randomPerson" "Random Girl">>"Excuse me, are you a princess?"<</Dialogue>><br><br>OMG! It takes every bit of willpower for you not to squee and squish her big cheeks. She sees your cute ensemble and is apparently enchanted with your outfit. Trying to control yourself, you do a little twirl, and she just stares at you, jaw fallen.<br><br><<Dialogue "randomPerson" "Random Girl">>"You are so cute! I wanna be like you when I grow up!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Why, thank you. You also look adorable.<</Dialogue>><br><br>You improvise your best curtsy, and she mirrors the gesture. It brings a huge smile to both your faces, like you just had a magical moment. You look around, half-expecting to see a fairy flying by, before going your way.<</if>><br><br>Huh, turns out wearing a matching outfit might just be more important that you might have originally thought. You should probably keep that in mind.'
+                                content: 'As you make you way through town, you find there’s quite a few people out and about. You are quite proud of your matching outfit, and you unconsciously find yourself proverbially strutting your stuff. It does not take long for someone to notice.<br><br><<if $outfit.style() === "tomboy">> /* IF Code for if the player has both a TOP and BOTTOM in the TOMBOY style - Gabe */<<Dialogue "randomPerson" "Random Girl">>"Hey, I dig that look!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Excuse me...?<</Dialogue>><br><br>You turn around, where you find a teen girl wearing some torn jeans and a baggy T-shirt, looking rather impressed by your ensemble.<br><br><<Dialogue "randomPerson" "Random Girl">>"That outfit - it’s ACE! I love that you don’t let society dictate how you should look just because you’re a girl!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Oh, thank you!<</Dialogue>><br><br><<if $muscle >= 40>><<Dialogue "randomPerson" "Random Girl">>"And the fact you aren’t afraid about not following standards of femininity with your muscles just makes it even more awesome. Seriously, you are GOALS, girl!"<</Dialogue>><br><br><</if>><<if $shyConfident > 1 || $carefreeCarefull < -1>><<Dialogue "player" "You">>"Heh. Glad you like it. And you are right, I live by my own rules!<</Dialogue>><br><br><<Dialogue "randomPerson" "Random Girl">>"Well, YOU rule! Keep doing you and show everyone!"<</Dialogue>><br><br>She gives you a high-five and goes on her way. Wow, you never expected to inspire anyone. This feels pretty awesome.<<else>>That took you by surprise! You can see the admiration in her eyes, but still somewhat unsure on how to respond. She raises a hand for a high-five, and you slap it tentatively. She just goes on her way, with you still in a bit of a state of shock.<</if>><<elseif $outfit.style() === "sporty">> /* IF Code for if the player has both a TOP and BOTTOM in the SPORTY style - Gabe */<<Dialogue "randomPerson" "Random Girl">>"That is SUCH an awesome look, girl! Where’d you get it?"<</Dialogue>><br><br><<Dialogue "player" "You">>"Excuse me...?"<</Dialogue>><br><br>You turn around, and see a jogger, running in place, just scanning your entire outfit.<br><br><<Dialogue "randomPerson" "Random Girl">>"The <<print $topWear.name>> and <<print $outfit.bottom().name>>, where did you buy them?"<</Dialogue>><br><br><<if $outfit.top().bonuses.map(bonus => bonus.name).includes("Crafted")>> You tell her that you made it yourself, and she is beyond herself, shooting a barrage of questions. You politely decline her offer to buy clothes from you, but still point her to the same resources you used to create the clothes so she can learn the same herself.<<else>>You tell her where you got them, and she writes it all down on her phone.<br><br><<Dialogue "randomPerson" "Random Girl">>"Do you have a Picstagram account? I’d love to see your other workout looks, if they are anything as awesome as this one!"<</Dialogue>><br><br><</if>><br><br>You did not expect your ensemble to get you that much attention. But you do realize there are a lot of influencers that specialize in showing off workout gear. Maybe you should look into a sponsorship? Might make you some extra cash!<<elseif $outfit.style() === "punk">> /* IF Code for if the player has both a TOP and BOTTOM in the PUNK style - Gabe */You hear the sound of a skate being kicked up as you turn, and see a skater girl with brightly-dyed hair,  looking rather impressed.<br><br><<Dialogue "randomPerson" "Random Girl">>"Yo, that ensemble is rocking!"<</Dialogue>><br><br>Confused, you look around. She’s definitely talking to you.<br><br><<Dialogue "randomPerson" "Random Girl">>"Damn, just look at that <<print $topWear.name>>! Love the style!"<</Dialogue>><br><br>She sticks her tongue out and makes horns with her fingers. Despite her attitude, her compliments are quite flattering. <<if $shyConfident > 1 || $carefreeCarefull < -1>>You return the hand sign and tongue in kind, and both of you start headbanging the air playfully.<br><br><<Dialogue "randomPerson" "Random Girl">>"Hell, yeah!!!"<</Dialogue>><br><br>The two of you laugh, and she makes a dig about going against the system or somesuch. It goes a bit above your head, but you still appreciate it - and you feel even more awesome about your outfit.<<else>>You blush a bit, feeling somewhat unsure if you really were trying to make a political statement or just trying to look good. But with a nod and a shy smile, you thank her for it. <</if>><<elseif $outfit.style() === "sexy">> /* IF Code for if the player has both a TOP and BOTTOM in the SEXY style - Gabe */You hear a loud wolf whistle. A guy from across the street is looking at you with lecherous eyes, and he winks as you turn to look at him. <<if $shyConfident <= 1 && $submissiveDominant > 1>>It is true you are wearing some revealing and sexy clothing, but that does not give him the right to treat you like a piece of meat. <<if $muscle >= 40>> You just glare menancigly at the individual, and let your physique do the rest of the talking. Yeah, he might have drooled at your bubble butt, but he’s now seriously cowering at your towering traps. Good riddance!<<else>>You flip him the bird, which doesn’t particularly discourage him, but he gets the point across well enough. He doesn’t stop staring, but at least he’ll leave you alone.<<if $shyConfident > 1>>You bite your lips and look at him seductively, and you bend over just enough to emphasize your best assets - a task which is greatly enhanced by your alluring apparel. The guy’s jaw drops right there and then, and you feel especially good about picking this outfit - it does bring out your best assets!<<else>>Confused, you look around, trying to figure out if there is anyone else, until you remember the sexy outfit you decided to wear - yeah, it’s definitely bound to attract some of this kind of attention. You blush, but despite any embarrassment, it’s hard to deny that part of you feels good about being looked at with such lust. It makes you feel hot and desired, even if it might be a bit uncomfortable. <</if>><</if>><</if>><<elseif $outfit.style() === "stylish">> /* IF Code for if the player has both a TOP and BOTTOM in the STYLISH style - Gabe */You hear a gasp. It scares you for a second, and you turn around, only to find someone who seems like a stereotype of someone pretending to wear a “The Devil Wears Prada” cosplay. She is fanning herself as she now proceeds to make circles around you, leaving you speechless.<br><br><<Dialogue "randomPerson" "Random Woman">>"Oh, my! Look at you! I need my salts, I never thought I would find such style in this podunk town! Who are you wearing, darling?"<</Dialogue>><br><br>It takes a moment for you to even process the question. Oh, she means what brand you are wearing. Right.<br><br><<if $outfit.top().bonuses.map(bonus => bonus.name).includes("Crafted")>> /* IF CLOTHES ARE CRAFTED - Gabe */You explain that you made the clothes yourself, and she looks like she might just faint - or at least is pretending to in her highly flamboyant style. It takes a little bit for you to make her give up on trying to drag you back to her office in New York - but damn, did that feel flattering!<<else>>You explain where you bought the clothes, and she looks temporarily offended that these are off-the-rack, before telling you that you have some sort of magical touch to make that outfit work so well. Flattered, you thank her for the compliment, not quite expecting this kind of reaction when you put this together.<</if>><<elseif $outfit.style() === "professional" && setup.isOutfitFits() >> As you wait for the pedestrian light to cross the street, a smartly-dressed man in a business suit discreetly scans you top to bottom. He looks quite good in his clearly tailored suit, and waits for you to acknowledge his appreciation as your eyes cross.<br><br>Once he notices you are looking back at him, he gives a nod of approval, still with a very serious face. There is no need for words, as if you share some sort of workaholic connection with him. You nod back, reinforcing that you also approve of his garb.<br><br>The whole situation is a bit surreal, when you stop to think about it, but it shows that there is merit in making sure you pick matching clothes in a proper style - and fit. People notice, and impressions matter.<<elseif $outfit.style() === "nerdy">> You hear someone clearing their throat. You turn around to see a guy in glasses who is wearing a T-shirt of an anime you don’t quite recognize. The art is amazing, though.<br><br><<Dialogue "randomPerson" "Random Guy">>"That’s a cool reference there, glad to see you are a woman of culture as well!"<</Dialogue>><br><br>You laugh at his memetic reference, as he pretends to tip an imaginary fedora. You hit him with your elbow as you reply with a wink:<br><br><<Dialogue "player" "You">>"Us nerds, huh? Cake, lie and all that jazz...<</Dialogue>><br><br>You two share a giggle of belonging. It’s weird how much even a clothing statement can bring people together. You feel that you are not only represented by what you have on, but you also make a statement. Geek and proud!<br><br>After exchanging a last thumbs up, you wave each other goodbye.<<elseif $outfit.style() === "cute">> You feel a tug on your <<print $outfit.bottom().name>>. There’s a little girl, looking at you with big, sparkly eyes.<br><br><<Dialogue "randomPerson" "Random Girl">>"Excuse me, are you a princess?"<</Dialogue>><br><br>OMG! It takes every bit of willpower for you not to squee and squish her big cheeks. She sees your cute ensemble and is apparently enchanted with your outfit. Trying to control yourself, you do a little twirl, and she just stares at you, jaw fallen.<br><br><<Dialogue "randomPerson" "Random Girl">>"You are so cute! I wanna be like you when I grow up!"<</Dialogue>><br><br><<Dialogue "player" "You">>"Why, thank you. You also look adorable.<</Dialogue>><br><br>You improvise your best curtsy, and she mirrors the gesture. It brings a huge smile to both your faces, like you just had a magical moment. You look around, half-expecting to see a fairy flying by, before going your way.<</if>><br><br>Huh, turns out wearing a matching outfit might just be more important that you might have originally thought. You should probably keep that in mind.'
 },
 {
     name: 'clothingStuck',
@@ -22764,7 +23525,7 @@ repeatable: false,
     retriggerable: false,
     priority: 'response',
     npc: [],
-    content: `You sit down for your daily dose of caffeine, not a care in the world. But you notice that there’s this underlying buzz slowly growing - everyone seems to have switched from talking loudly to whispering and giving you the side eye. Huh. What’s that about?<br><br> <<if $outfit.bra() == null>> As you look around, you eventually notice how chill it is with the air conditioner blowing at full force. And that’s when you notice - uh oh - that the temperature has errr... turned on your headlights, so to speak. And since you are not wearing a bra, your <<print $topWear.name>> has two very noticeable nubs on display<<if $breasts >= 35>>, which are even more obvious on your rather large breasts, which already command quite a bit of attention by themselves, with your oversized nipples even more impressive. <</if>>.<</if>> <<if $outfit.underwear() == null && $outfit.style() === 'exposed'>>Turning around, you move your legs, and realize that you might have just pulled a bit of an exhibitionist move - your revealing <<print $bottomWear.name>>, coupled with your lack of underwear means you just flashed a bunch of people... and you might have been doing it for a while without even noticing!<<if $dick > 5>> And some of the onlookers are in for quite a surprise when they realize you are packing!<</if>> <</if>><br><br> <<if $shyConfident > 1 || $submissiveDominant > 1>>It strikes you, all of a sudden, just how much things have changed since you moved here. You are reminded of that iconic movie scene, of the woman being interrogated and controlling the room with her sex appeal - you would NEVER had guessed that it would one day be you... yet here we are. You are not afraid of commanding the room with your sex appeal. On the contrary, it’s almost arousing. You find yourself strutting your assets with confidence, and enjoying every second of it. <<else>>You blush furiously, leaning into yourself, wishing you could just dig yourself a little tunnel under the ground. Taking a deep breath, you regret the freedom of “going commando” you thought would not be such a big deal when you left the house, now coming back to bite you in the ass. Well, or some other body parts, as the case may be. <</if>><br><br> Well, this has gone on for long enough. Everybody has had enough of a show, and you make sure to avoid any further exposure as you continue with your daily routine.`
+    content: `You sit down for your daily dose of caffeine, not a care in the world. But you notice that there’s this underlying buzz slowly growing - everyone seems to have switched from talking loudly to whispering and giving you the side eye. Huh. What’s that about?<br><br> <<if $outfit.bra() == null>> As you look around, you eventually notice how chill it is with the air conditioner blowing at full force. And that’s when you notice - uh oh - that the temperature has errr... turned on your headlights, so to speak. And since you are not wearing a bra, your <<print $topWear.name>> has two very noticeable nubs on display<<if $breasts >= 35>>, which are even more obvious on your rather large breasts, which already command quite a bit of attention by themselves, with your oversized nipples even more impressive. <</if>>.<</if>> <<if $outfit.underwear() == null && $outfit.style() === 'exposed'>>Turning around, you move your legs, and realize that you might have just pulled a bit of an exhibitionist move - your revealing <<print $outfit.bottom().name>>, coupled with your lack of underwear means you just flashed a bunch of people... and you might have been doing it for a while without even noticing!<<if $dick > 5>> And some of the onlookers are in for quite a surprise when they realize you are packing!<</if>> <</if>><br><br> <<if $shyConfident > 1 || $submissiveDominant > 1>>It strikes you, all of a sudden, just how much things have changed since you moved here. You are reminded of that iconic movie scene, of the woman being interrogated and controlling the room with her sex appeal - you would NEVER had guessed that it would one day be you... yet here we are. You are not afraid of commanding the room with your sex appeal. On the contrary, it’s almost arousing. You find yourself strutting your assets with confidence, and enjoying every second of it. <<else>>You blush furiously, leaning into yourself, wishing you could just dig yourself a little tunnel under the ground. Taking a deep breath, you regret the freedom of “going commando” you thought would not be such a big deal when you left the house, now coming back to bite you in the ass. Well, or some other body parts, as the case may be. <</if>><br><br> Well, this has gone on for long enough. Everybody has had enough of a show, and you make sure to avoid any further exposure as you continue with your daily routine.`
 },
 {
     name: 'clothingStuck',
@@ -23125,6 +23886,16 @@ if (State.variables.eventCounter > setup.balance.eventTresshold && tags().length
 
 
 :: pcUsbHacking [nobr] {"position":"1800,1100","size":"100,100"}
+<<script>>
+    if (State.variables.usbPasswordUnlocked == null) {
+        if (State.variables.usbPassword1Unlocked != null) {
+            State.variables.usbPasswordUnlocked = [State.variables.usbPassword1Unlocked, State.variables.usbPassword2Unlocked, State.variables.usbPassword3Unlocked, State.variables.usbPassword4Unlocked, State.variables.usbPassword5Unlocked, State.variables.usbPassword6Unlocked, State.variables.usbPassword7Unlocked];
+        } else {
+            State.variables.usbPasswordUnlocked = [false, false, false, false, false, false, false];
+        }
+    }
+<</script>>
+
 <<if $hackingUnlocked == undefined>>
 <<set $hackingUnlocked to true>>
 <<set $hackingProgress to 0>>
@@ -23169,7 +23940,7 @@ Well, here you are. Assuming he picked secure passwords, then it should be next 
 
 <br><br>
 
-<<if $usbPassword1Unlocked != true>>
+<<if $usbPasswordUnlocked[0] != true>>
 Selfie.png password:
 <br>
 <<textbox "_selfiePassword" _selfiePassword autofocus>>
@@ -23183,7 +23954,7 @@ Selfie.png password:
           }
           <</script>>
 		<<replace "#result1">>Got it!
-        <<set $usbPassword1Unlocked to true>>
+        <<set $usbPasswordUnlocked[0] to true>>
         <<link "View file" "usbFile1">><</link>><</replace>>
 	<<else>>
 		<<replace "#result1">>Nope, that’s not it...<</replace>>
@@ -23196,7 +23967,7 @@ Selfie.png password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword1Unlocked to true>>
+        <<set $usbPasswordUnlocked[0] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
           var dialog = Dialog.setup("You're in!");
@@ -23218,7 +23989,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword2Unlocked != true>>
+<<if $usbPasswordUnlocked[1] != true>>
 Experiment_log_01.txt password:
 <br>
 <<textbox "_log1Password" _log1Password autofocus>>
@@ -23232,7 +24003,7 @@ Experiment_log_01.txt password:
           Dialog.open();
           }
           <</script>>
-        <<set $usbPassword2Unlocked to true>>
+        <<set $usbPasswordUnlocked[1] to true>>
         <<link "View file" "usbFile2">><</link>><</replace>>
 	<<else>>
 		<<replace "#result2">>Nope, that’s not it...<</replace>>
@@ -23245,7 +24016,7 @@ Experiment_log_01.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword2Unlocked to true>>
+        <<set $usbPasswordUnlocked[1] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
           var dialog = Dialog.setup("You're in!");
@@ -23267,7 +24038,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword3Unlocked != true>>
+<<if $usbPasswordUnlocked[2] != true>>
 selfie2.png password:
 <br>
 <<textbox "_selfie2Password" _selfie2Password autofocus>>
@@ -23282,7 +24053,7 @@ selfie2.png password:
 }
 
           <</script>>
-        <<set $usbPassword3Unlocked to true>>
+        <<set $usbPasswordUnlocked[2] to true>>
         <<link "View file" "usbFile3">><</link>><</replace>>
 	<<else>>
 		<<replace "#result3">>Nope, thats not it...<</replace>>
@@ -23295,7 +24066,7 @@ selfie2.png password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword3Unlocked to true>>
+        <<set $usbPasswordUnlocked[2] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
     var dialog = Dialog.setup("You're in!");
@@ -23319,7 +24090,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword4Unlocked != true>>
+<<if $usbPasswordUnlocked[3] != true>>
 experiment_log_2.txt password:
 <br>
 <<textbox "_log2Password" _log2Password autofocus>>
@@ -23334,7 +24105,7 @@ experiment_log_2.txt password:
 }
 
           <</script>>
-        <<set $usbPassword4Unlocked to true>>
+        <<set $usbPasswordUnlocked[3] to true>>
         <<link "View file" "usbFile4">><</link>><</replace>>
 	<<else>>
 		<<replace "#result4">>Nope, that’s not it...<</replace>>
@@ -23347,7 +24118,7 @@ experiment_log_2.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword4Unlocked to true>>
+        <<set $usbPasswordUnlocked[3] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -23369,7 +24140,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword5Unlocked != true>>
+<<if $usbPasswordUnlocked[4] != true>>
 inventory.txt password:
 <br>
 <<textbox "_inventoryPassword" _inventoryPassword autofocus>>
@@ -23384,7 +24155,7 @@ inventory.txt password:
 }
 
           <</script>>
-        <<set $usbPassword5Unlocked to true>>
+        <<set $usbPasswordUnlocked[4] to true>>
         <<link "View file" "usbFile5">><</link>><</replace>>
 	<<else>>
 		<<replace "#result5">>Nope, that’s not it...<</replace>>
@@ -23397,7 +24168,7 @@ inventory.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword5Unlocked to true>>
+        <<set $usbPasswordUnlocked[4] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -23419,7 +24190,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword6Unlocked != true>>
+<<if $usbPasswordUnlocked[5] != true>>
 Doctors note.txt password:
 <br>
 <<textbox "_doctorNotePassword" _doctorNotePassword autofocus>>
@@ -23434,7 +24205,7 @@ Doctors note.txt password:
 }
 
           <</script>>
-        <<set $usbPassword6Unlocked to true>>
+        <<set $usbPasswordUnlocked[5] to true>>
         <<link "View file" "usbFile6">><</link>><</replace>>
 	<<else>>
 		<<replace "#result6">>Nope, that’s not it...<</replace>>
@@ -23447,7 +24218,7 @@ Doctors note.txt password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword6Unlocked to true>>
+        <<set $usbPasswordUnlocked[5] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -23469,7 +24240,7 @@ You just don't have the energy to work on hacking it right now.
 
 <br><br>
 
-<<if $usbPassword7Unlocked != true>>
+<<if $usbPasswordUnlocked[6] != true>>
 Chemistry notes.docx password:
 <br>
 <<textbox "_notesPassword" _notesPassword autofocus>>
@@ -23484,7 +24255,7 @@ Chemistry notes.docx password:
 }
 
           <</script>>
-        <<set $usbPassword7Unlocked to true>>
+        <<set $usbPasswordUnlocked[6] to true>>
         <<link "View file" "usbFile7">><</link>><</replace>>
 	<<else>>
 		<<replace "#result7">>Nope, that’s not it...<</replace>>
@@ -23497,7 +24268,7 @@ Chemistry notes.docx password:
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
 	<<if $hackingProgress > 100>>
     	<<set $hackingProgress to 0>>
-        <<set $usbPassword7Unlocked to true>>
+        <<set $usbPasswordUnlocked[6] to true>>
         <<script>>
           if (Dialog.isOpen() == false) {
 				var dialog = Dialog.setup("You're in!");
@@ -25060,7 +25831,7 @@ Dialog.open();
 :: usbFile1 {"position":"1800,1200","size":"100,100"}
 The file loads slowly, and what you see before you is... well, who you suspect to be Toshi.  The odd red carpet, the same box... you know for sure it's the guy who inhabited this apartment before you. And given the lab coat and his pose, you bet he's the one responsible for all these strange drinks. You try and see if you can get more from the file, but for now, you can't think of anything. All the metadata has been corrupted, and you only got the filename and the image...
 
-<<if $usbPassword3Unlocked == true>>
+<<if $usbPasswordUnlocked[2] == true>>
 Compared to the other selfie, he's a LOT smaller! If you only knew how much time elapsed between these two selfies, but taking into consideration he's only been in this room for a year, that he looks pretty much the same if you ignore his size, at most we are talking a few months in-between. You wonder... <<if $muscle > 80>>are you growing even faster than him, giving how huge you already are?<<else>>is this how big you will become too? Do you even want that? He looks almost... awkwardly big...<</if>>
 <</if>>
 
@@ -25088,7 +25859,7 @@ There is a lot to unpack here. The thing you drank from the fridge must be one o
 
 
 :: usbFile3 {"position":"2000,1200","size":"100,100"}
-The file loads in, and what you are greeted with is a selfie of inhumanely large proportions. <<if $usbPassword1Unlocked == true>> You see who you assume to be the same guy from the first picture, wearing the same shirt even, but blown up to gigantic proportions. How long has it been between these 2 selfies?! Years? Months? Weeks...? It's almost scary how big he has gotten.<<else>>You don't know who this is, or why you haven't heard of someone this... size. You're sure that someone THIS huge would be like an urban legend on the Internet. Who is he?<</if>><<if $muscle > 80>> Something else that stands out to you is how you're already bigger than him. Your own muscles would bulge just as much, your own pecs explode from your clothing. You pause for a second as you look at it, not sure how this makes you feel. <<else>> and looking at the sheer size on him, you wonder how he felt about it. This could be you at some point.<<if $shyConfident > 0>>But that physique does look amazing, and if you looked like that... would that be so bad?<<else>> You're no sure you even want to look like that. That size, that level of musculature... can he even walk normally in public? Maybe you should reconsider this whole potion business...<</if>><</if>>
+The file loads in, and what you are greeted with is a selfie of inhumanely large proportions. <<if $usbPasswordUnlocked[0] == true>> You see who you assume to be the same guy from the first picture, wearing the same shirt even, but blown up to gigantic proportions. How long has it been between these 2 selfies?! Years? Months? Weeks...? It's almost scary how big he has gotten.<<else>>You don't know who this is, or why you haven't heard of someone this... size. You're sure that someone THIS huge would be like an urban legend on the Internet. Who is he?<</if>><<if $muscle > 80>> Something else that stands out to you is how you're already bigger than him. Your own muscles would bulge just as much, your own pecs explode from your clothing. You pause for a second as you look at it, not sure how this makes you feel. <<else>> and looking at the sheer size on him, you wonder how he felt about it. This could be you at some point.<<if $shyConfident > 0>>But that physique does look amazing, and if you looked like that... would that be so bad?<<else>> You're no sure you even want to look like that. That size, that level of musculature... can he even walk normally in public? Maybe you should reconsider this whole potion business...<</if>><</if>>
 
 <img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Scenes/Toshi_selfie2.png" alt="alternatetext" style="width: 100%;">
 
