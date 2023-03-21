@@ -25320,6 +25320,47 @@ You sit down on your chair and just keep watching as they spend yet another hour
                 <</if>> 
                 Well, at least you can’t complain that it was a slow day!
             <</if>>`
+    },
+    {
+        name: 'EddyElenaVisits',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob === true,
+            () => State.variables.elenaOpenedUp === true,
+            () => State.variables.elenaOpinion >= 10,
+            () => Math.random() >= 0.95
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy', 'elena'],
+        content: `You are dusting the weights on display when you hear a very familiar throat cleaning.<br><br>
+<<Dialogue "player" "You">>"Elena?"<</Dialogue>><br><br>
+You turn to find your workout partner, wearing a very cute summer dress, and despite her muscularity, looking 300% out of place inside the Bulk Barn, which just boggles the mind any way you cut it.<br><br>
+<<Dialogue "Elena" "Elena">>"Hey, <<print $playerFirstName>>, I hope I’m not intruding, showing up at your workplace..."<</Dialogue>><br><br>
+A sudden look of horror comes to her face.<br><br>
+<<Dialogue "Elena" "Elena">>"Oh, no! I’m intruding, am I not? //Mi dispiace!!!// In the middle of your workday - you are going to get in trouble, I shouldn’t have come, I’m so sorry!"<</Dialogue>><br><br>
+She starts leaving in a hurry, <<if $shyConfident < -1>>and you try to say something, but she’s like a scared bird, and is almost out of the store when Big Eddy materializes in front of her, making her jump back with an ‘Eek!’ and falling down on her behind, making several shelves shake - and giving you a near-heart attack, but thankfully, no products fall.
+<<else>>
+You grab her by her wrist, and insist that it’s alright.<br><br>
+<<Dialogue "player" "You">>"Hey, chill! There isn’t that much movement in a supplement store, so it’s not like I’m not doing my job. Besides, having someone of your, huh… //stature//… is probably the best advertising we can have!"<</Dialogue>><br><br>
+Her eyes bug out at the thought of that - her being ADVERTISING for the store? As in, people LOOKING at her?!? She’s like a scared bird, running straight for the door. And she is almost out when Big Eddy materializes in front of her, making her jump back with an ‘Eek!’ and falling down on her behind, making several shelves shake - and giving you a near-heart attack, but thankfully, no products fall.
+<</if>>
+<<Dialogue "Eddy" "Eddy">>"Oh, I’m so sorry, lady! I have a bad habit of just popping up in front of people. Let me give you a hand!"<</Dialogue>><br><br>
+The scene is almost comical: a fairly short and very muscular dude, offering his hand to what can best be described as a shy and dainty giantess. Elena blushes and covers her face, but somehow Big Eddy’s smile seems to melt right through that, and she raises her hand delicately. It doesn’t take a physics professor to realize that, extremely strong as the smaller Big Eddy (yes, the irony is not lost on you) may be, he just lacks the mass to counterbalance giving Elena a hand up. So you discreetly help push her up from behind as he pulls her hand.<br><br>
+<<Dialogue "Eddy" "Eddy">>"WOW, YOU’RE HUGE! Dang, girl, how come you don’t shop here? I feel almost embarrassed that you got these results without ever buying from us! Still, kudos!"<</Dialogue>><br><br>
+Eddy is literally clapping as he smiles, and Elena seems to shrink 3 sizes unto herself, and turn a light shade of purple. That was definitely not the attention she wanted to bring onto herself.<br><br>
+<<Dialogue "player" "You">>"Uh, Eddy, this is Elena. She’s a friend of mine, and maybe you noticed, but she’s a bit on the shy side!"<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"What? Shy?!? You kiddin’ me? I am not sure I could envision anyone bigger! I’m pretty sure our entire clientele would be jealous of her! So no worries, Elena, you are doing just peachy!"<</Dialogue>><br><br>
+Elena once again cradles her face inside her hands, taking a step back in silence. You put a hand so she doesn’t run into one of the precariously-arranged shelves, as you shush in her ear. With your other hand, you make a neck-cutting gesture as you look with an angry face at Eddy, trying to discreetly tell him to CUT IT OUT!<br><br>
+<<Dialogue "Eddy" "Eddy">>"But seriously, girl, this is a no-judgment zone here. You can just chill, I’ll be in the back, but if you ever want to share some of your routines and diet, I am DYING to know what your tricks are! So, again, congrats!"<</Dialogue>><br><br>
+And with that, Eddy walks into the back room, humming excitedly. You wrap your arms around Elena, telling her it’s okay and it’s only the two of you there now.<br><br>
+<<Dialogue "player" "You">>"Hey, hey, are you alright?"<</Dialogue>><br><br>
+She looks less hurt and more embarrassed at herself for the way she handled that.<br><br>
+<<Dialogue "Elena" "Elena">>"He seems... very nice. It’s just... //è troppo//... a bit much."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, you basically just described Big Eddy. But I can guarantee, he’s the nicest guy you ever meant, and he really means well. He’s just… a bit, huh, //troppo//!!!"<</Dialogue>><br><br>
+You butchering of Italian makes Elena laugh, and she comes out of her shell. With the situation disarmed, she says she just wanted to see your work and hang out for a bit, and that’s exactly what you two do for the next half hour.<br><br>
+You will just have to give Big Eddy a little lesson in handling Elena if she ever decides to visit again.`
     })>>
 
     <<script>>
