@@ -14906,12 +14906,12 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
             () => State.variables.krisInterested,
             () => setup.hasEvenBeenTriggered('KrisHelpsUsb'),
             () => State.variables.usbPasswordUnlocked?.filter(i => !i).length > 0 /* there is a locked file */,
-            () => {
-                if (State.variables.KrisHelpsUsbTriggeredDaysPlayed == null) {
-                    return false
-                }
-                return State.variables.KrisHelpsUsbTriggeredDaysPlayed + 1 <= State.variables.daysPlayed; /* trigger since the day after "KrisHelpsUsb" event */
-            } 
+() => {
+    if (State.variables.KrisHelpsUsbTriggeredDaysPlayed == null) {
+        return false
+    }
+    return State.variables.KrisHelpsUsbTriggeredDaysPlayed + 1 <= State.variables.daysPlayed; /* trigger since the day after "KrisHelpsUsb" event */
+} 
         ],
         repeatable: false,
         retriggerable: false,
@@ -25179,6 +25179,74 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         priority: 'filler',
         npc: [],
         content: 'Despite most clients being average people, the Bulk Barn still gets a lot of serious athletes. And suddenly in comes a very sizable bodybuilder. In some ways, these are the easiest customers to cater to, since they know exactly what they want. But that is not ALWAYS the case.<br><br><<Dialogue "randomPerson" "Random person">>"Hey, uh, can you help me out? I’m looking for something specific."<</Dialogue>><br><br><<Dialogue "player" "You">>"Sure, what is it?"<</Dialogue>><br><br>He grabs his phone, and shows a picture of a very specific brand of BCAA you’ve never seen before. You squint, and ask if you can have a closer look. You scroll through the article, examining the picture of the product, its brand and distributor. Hmmmm.<br><br><<Dialogue "player" "You">>"Hey, Eddy, help me out here. Have you ever heard about this?"<</Dialogue>><br><br>You show him the picture. He seems initially excited:<br><br><<Dialogue "Eddy" "Eddy">>"Oh, yeah, I heard about it! They just launched this product, and I heard some great things about it! It sounds AWESOME, there’s a lot of scientific literature about the stuff they have done with the proteins in this, really exciting stuff."<</Dialogue>><br><br><<Dialogue "player" "You">>"Yeah, but my question is more along the lines of ‘how do we get our hands on it?‘"<</Dialogue>><br><br>Eddy shrugs with his typical ‘I dunno’ face. You roll your eyes, because this is his code for ‘you figure this one out, kiddo.’ Which you proceed to do. Asking the guy for a minute, you head to the computer.<br><br> <<if $skills[2].level > 3>> You go through your order history, and try to figure out if any of your suppliers have ties with that distributor. After a few phone calls, you find out someone who gives you their contact. Another phone call and you are informed that it’s still on limited distribution - but you happen to have a good contact with one of the nearby markets that are part of that. It’s a bit convoluted, but you manage to convince a distributor from those parts to send you a couple of boxes of the product as a favor. It should be here in a week!<br><br><<Dialogue "randomPerson" "Random person">>"Wow, you are good, I’ve been to many stores, and called so many others, you were the only ones to even get this far! I’m telling my friends about this place, you guys are great!"<</Dialogue>><br><br>Big Eddy taps your back with his big smile.<br><br><<Dialogue "Eddy" "Eddy">>"You just don’t know how to let me down, do you, kiddo?"<</Dialogue>><br><br>You raise your arms, and thank him for the compliment. It feels good to be helpful like this. <<elseif $skills[1].level > 3>> Eddy’s mention of the studies about the protein remind you of some of your own nutrition research, and how they ran some of those trials. In fact, the local gym was probably part of it. You give them a call, and they hook you up with their contact - one more call, and you have a sample box being delivered within the week as a trial, for FREE, even!<br><br><<Dialogue "randomPerson" "Random person">>"Wow, you are good, I’ve been to many stores, and called so many others, you were the only ones to even get this far! I’m telling my friends about this place, you guys are great!"<</Dialogue>><br><br>Big Eddy taps your back with his big smile.<br><br><<Dialogue "Eddy" "Eddy">>"You just don’t know how to let me down, do you, kiddo?"<</Dialogue>><br><br>You raise your arms, and thank him for the compliment. It feels good to be helpful like this. <<else>> Well, this is tricky. Without much of a place to start, you just make calls to your regular distributors, but to no avail. They all say they haven’t received any of that product, and have no idea when they will. Dang!<br><br><<Dialogue "player" "You">>"I’m sorry, I have no idea when we’ll get that in stock. I’ll keep trying, but if you want you can leave your contact and I’ll let you know when we do.‘"<</Dialogue>><br><br> <<Dialogue "randomPerson" "Random person">>"It’s alright. I’ve already tried several other places, I guess I’ll just have to do without. Thanks for trying, though."<</Dialogue>><br><br>Big Eddy comes and puts an arm around your shoulder.<br><br><<Dialogue "Eddy" "Eddy">>"Don’t let it get to you, kiddo. You win some, and lose some. That’s just life."<</Dialogue>><br><br>You know he’s right, but it still bugs you, as you wonder if only you were better at it, maybe you could have done something about it? <</if>>'
+    },
+    {
+        name: 'EddyOffersToSponsor',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [			 
+            () => State.variables.muscles >= 35
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `As you walk by the corridors of the Bulk Barn, you feel like something is wrong, but you can’t quite put a finger on it. After a whole minute, you realize what is wrong: Big Eddy hasn’t said A SINGLE WORD since you came in!<br><br>
+            <<Dialogue "player" "You">>"Hey, uh, Eddy, how is it going?"<</Dialogue>><br><br>
+            You notice he’s staring a bit at you, those gears turning in his head, and as you talk to him, he seems to snap out of it, blinking and shaking his head.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"Sorry, girl, I was lost in thought there for a second… it’s all good, all good! "<</Dialogue>><br><br>
+            He still stares at you, a twinkle in his eye and a smile on his lips. OK, you can’t do it anymore.<br><br>
+            <<Dialogue "player" "You">>"Do you need anything?"<</Dialogue>><br><br>
+            You seem to have said the magic words, as he approaches you from behind the counter, his eyes probing you from top to bottom.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"Say girl, I couldn’t help but notice, but I’m guessing you take your physique pretty seriously, I’m guessing you didn’t get that body on a fluke, that must have taken quite a bit of effort, am I right? "<</Dialogue>><br><br>
+            <<if $shyConfident > 1 || $submissiveDominant > 1>>You smile at the unexpected compliment, and flex your respectable biceps.<br><br>
+            <<Dialogue "player" "You">>"You noticed my babies? Yeah, I’ve heard my share of ‘you lift?’ lately."<</Dialogue>><br><br>
+             <<else>>You are somewhat taken aback by the sudden comment. You slump a bit, blushing, but still subconsciously find yourself squeezing your upper arm, only to find a beefy and firm muscle there. This just elicits a hearty laugh from Eddy.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"No need to be bashful, girl! I know firsthand that this kind of body requires serious effort, and damn, it is AMAZING what you have built! Kudos!"<</Dialogue>><br><br>
+            <</if>>
+            Big Eddy sucks air through his teeth as he squints, like he was bracing for something… no, more like he’s catching his breath in preparation to unleash something exciting. He’s like an excitement balloon, filling up in preparation to pop with something extraordinary. Which he does, raising a poster from behind the counter, as he announces even more energetic than usual.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"TA-DAH! See this poster here? This is my pet project, the little baby I’ve been working on for the last few months! I finally convinced the National Bodybuilding Association to host their next competition in town - and I really think you should compete!"<</Dialogue>><br><br>
+            He flashes the big colorful poster, which is just as energetic as him (and also happens to display how horrible his design skills are). You look at it, as Eddy nods with a big smile and very buggy eyes, anxiously waiting for your reaction.<br><br>
+            <<Dialogue "player" "You">>"Bodybuilding competition? That’s some very serious business, Eddy, I’m an amateur at best."<</Dialogue>><br><br>
+            <<if $muscle >= 80>><<Dialogue "Eddy" "Eddy">>"Are you kidding me? As it is, you can probably steamroll the entire male heavyweight category without even trying! Sure, it might take some training for posing, maybe tan and cut a bit, but it would be a TRAVESTY if you didn’t enroll!"<</Dialogue>><br><br>
+            <<elseif $muscle >= 50>><<Dialogue "Eddy" "Eddy">>"Are you kidding me? Look at yourself! You were BORN for this! Sure, you might be a bit of a diamond in the rough, but you are a powerhouse!!! You have the hardest part down. And I mean HARDEST, just look at those muscles of yours!"<</Dialogue>><br><br>
+            <<elseif $muscle >= 45 || $fat >= 30>><<Dialogue "Eddy" "Eddy">>"Hah! You really shouldn’t sell yourself short! I can help you dry a little bit, figure out the posing and the tanning, but I think it would be a pity if you didn’t enroll!"<</Dialogue>><br><br>
+            <<elseif $muscle >= 45>><<Dialogue "Eddy" "Eddy">>"Hah! You already have plenty of muscle and are super trim - I would love to help you figure out the nitty gritty details like tanning and posing, and you can easily place in the competition, if not win it outright!"<</Dialogue>><br><br>
+            <<elseif $muscle >= 35 || $fat >= 30>><<Dialogue "Eddy" "Eddy">>"Look, kiddo, I only know you so much, but my instincts tell me you are a natural, and you already have a great base. I believe you already got the hardest part taken care of, and if you are willing, we can figure out the part that is missing - cutting, tanning, posing, the works! Imagine how much fun that could be?"<</Dialogue>><br><br>
+            <<elseif $muscle >= 35>><<Dialogue "Eddy" "Eddy">>"You already have a pretty solid base there, and you are pretty trim. Sure, it might take a little effort, but it looks like such an obvious choice - though, I really don’t want to push you into doing something you are not willing… but… I need to say, I’d be very sad to see you let that potential go to waste!"<</Dialogue>><br><br><</if>>
+            He honestly thinks you have a shot at this. Part of your brain is thinking about how hard you imagine a competition like this could be. But at the same time, he’s not wrong - your changes lately make this seem like such an obvious path. That, and it’s hard to disappoint Big Eddy when he makes the puppy eyes like this.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"In fact, as the owner of the Bulk Barn, I’m looking for competitors to sponsor for the competition. So… how would you like to be the first official bodybuilder to represent our humble establishment? I would pay you a stipend, and sell you supplements at cost if you accept!"<</Dialogue>><br><br>
+            
+            <span id="choice">
+                <<link "I dunno, man. Bodybuilding sounds super hard. Maybe this is not for me.">>
+                    <<replace "#choice">>
+                        That is all a bit too much, too fast. You feel your head spinning with the prospect, and even though you don’t want to disappoint someone so sweet, you end up breaking the bad news as nicely as you can:<br><br>
+                        <<Dialogue "player" "You">>"Look, Eddy, I’m REALLY flattered that you think I have the potential, but it just isn’t the right time for me. I’m dealing with a lot of personal stuff as is, and still adjusting to college dorm life. I just need some breathing space, and I’d feel really bad if I accepted but couldn’t reciprocate with the attention this deserves."<</Dialogue>><br><br>
+                        You fully expected Big Eddy to look downright miserable and dejected at your refusal, but you vastly underestimated his positive vibe.<br><br>
+                        <<Dialogue "Eddy" "Eddy">>"Oh, don’t sweat it. I mean, yeah, I’m a tad disappointed because I think if you took this seriously - girl, I am not exaggerating, I KNOW you have it in you to be a serious world-level competitor. But I know this figure competition life is not for everyone, and I will be the first to agree that you should be living college life to the fullest. I would not forgive myself if I was the one to harsh your mellow, so forget I even said that."<</Dialogue>>
+                        <<Dialogue "player" "You">>"Awwww, now I am feeling even worse!"<</Dialogue>><br><br>
+                        You respond with a pout. Again, Big Eddy responds with a big laugh and a very forceful slap on your back.<br><br>
+                        <<Dialogue "Eddy" "Eddy">>"Come on, cut it out! I’ll be happy to watch you coming back here with your continually improving physique, and as long as you are happy with your body, you will bring a smile to this silly face!"<</Dialogue>>
+                        And out of nowhere he just gives you a very warm and affectionate hug. <<if $shyConfident < 0>>It’s a bit weird, but you know he means well, and awkwardly rest your arms sort of around him.<<else>>Not only is he obviously very touchy-feely, but there’s this contagious energy that just makes you feel good about yourself, as you return with an equally tight hug.<</if>>
+                        <<Dialogue "Eddy" "Eddy">>"So you go out there and show the world what you are capable of, in your terms. And whenever you need some supplements to help, you know who to call!"<</Dialogue>>
+                        He says with a wink, making you incapable of not smiling - despite the underlying guilt you still feel for knowing that, deep inside, you disappointed him. Oh, well, maybe in another timeline, you’ll compete and make him proud.” 
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            
+                <<link "You know what? You are absolutely right - it WOULD be absurd to let this pass!">>
+                    <<replace "#choice">>
+                        You can’t describe it, it feels like you just watched one of those magical monologues from movies, with inspiring music as a charismatic leader gives an amazing speech and gets everyone pumped. He aroused something deep inside you, growing like a flame inside your chest, and as you take a deep breath, you feel it rising and awakening something… indescribable.<br><br>
+                        <<Dialogue "player" "You">>"Yeah! You ARE right! I totally SHOULD enroll. If I actually put my heart in it, who knows what I could do!"<</Dialogue>><br><br>
+                        <<Dialogue "Eddy" "Eddy">>"THAT’S THE SPIRIT, KIDDO!"<</Dialogue>>
+                        Before you can react, he’s already setting aside some cash, and writing down on the little notebook he keeps on the counter.<br><br>
+                        <<Dialogue "Eddy" "Eddy">>"I’m going to have to bring some of my books about posing, and see if there’s anyone who can get you a spray tan in town… maybe I’ll order some online and we can figure this out! Oh, this is so exciting!"<</Dialogue>>
+                        Eddy is downright vibrating with excitement, and you are not sure you’ll manage to get a word in edgewise. He is very obviously taking this super seriously, and will probably want to do much more than just sponsor you financially - it would appear he has a lot in store to help you out… assuming he can actually organize all the stuff he is daydreaming about - which, given his planning skills, could be a bit hit or miss.<br><br>
+                        Still, the idea hasn’t quite hit you yet - you really are doing this. He writes down your personal information and promises to take care of all the bureaucracy to enroll you into the competition. You have butterflies in your stomach, as you envision yourself in a bikini onstage, a mix of excitement and nerves.<br><br>
+                        Wow. You really are doing this. Geez. It just hasn’t hit you yet, but you should probably get more serious about your diet, exercising and nutrition going forward. And maybe, just maybe… you should look more into those mysterious drinks that got this whole mess started?
+                        <<link "Continue" $currentScene>><</link>>
+                    <</replace>>
+                <</link>>
+            </span>`
     })>>
 
     <<script>>
