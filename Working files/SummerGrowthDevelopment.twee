@@ -25189,7 +25189,7 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
         repeatable: false,
         retriggerable: false,
         priority: 'response',
-        npc: [],
+        npc: ['eddy'],
         content: `As you walk by the corridors of the Bulk Barn, you feel like something is wrong, but you can’t quite put a finger on it. After a whole minute, you realize what is wrong: Big Eddy hasn’t said A SINGLE WORD since you came in!<br><br>
             <<Dialogue "player" "You">>"Hey, uh, Eddy, how is it going?"<</Dialogue>><br><br>
             You notice he’s staring a bit at you, those gears turning in his head, and as you talk to him, he seems to snap out of it, blinking and shaking his head.<br><br>
