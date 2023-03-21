@@ -25361,6 +25361,38 @@ She looks less hurt and more embarrassed at herself for the way she handled that
 <<Dialogue "player" "You">>"Yeah, you basically just described Big Eddy. But I can guarantee, he’s the nicest guy you ever meant, and he really means well. He’s just… a bit, huh, //troppo//!!!"<</Dialogue>><br><br>
 You butchering of Italian makes Elena laugh, and she comes out of her shell. With the situation disarmed, she says she just wanted to see your work and hang out for a bit, and that’s exactly what you two do for the next half hour.<br><br>
 You will just have to give Big Eddy a little lesson in handling Elena if she ever decides to visit again.`
+    },
+    {
+        name: 'EddyNoticePlayerWeightlifting',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob === true,
+            () => State.variables.exhaustion < 50
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy'],
+        content: `Finally! You cleaned all the dust in the stockroom. But now you are soooo bored. You start flicking paper balls on the trashcan, sighing as you start getting increasingly restless. Your legs shake, and you end up pacing through the store impatiently. There’s just too much energy and you gotta DO SOMETHING!<br><br>
+And then your eyes stop at the weights on sale. Hmmmmm... maybe if you tire yourself, this might help pass time?<br><br>
+You sit down on the bench, and look at all the weights available. <<if $muscle >= 80>>You end up grabbing the loaded barbell, which is there mostly for display, given the inordinate amount of weight loaded as a sort of prop. It’s enough for serious lifters to have second thoughts about doing squats with it. YET...<br><br>
+With the weight in hand, you stand up, and start doing barbell biceps curls. Wow, you’ve really been getting strong. Your arms get more pumped with each rep, enormous globes of power adorned with veins that make it seem to have a life of its own.
+<<elseif $muscle >= 60>>
+You see the loaded barbell, which is there mostly for display, given the inordinate amount of weight loaded as a sort of prop. It’s enough for serious lifters to have second thoughts about doing squats with it. Well, as they say, nothing ventured, nothing gained, right?<br><br>
+You grab the bar, and attempt a Romanian deadlift. You feel that characteristic burning on the back of your legs, but it feels perfectly doable. It FEELS right. You keep pulling as many reps as you can, biting your lips as you feel your muscles tighten and harden. After you are done, you check yourself in the mirror, and the pump is real. You lower body looks pretty amazing as your turn your back to watch your progress.
+<<elseif $muscle >= 45>>You grab one of the heavier dumbbells, which is fully loaded to look cool, and you attempt a concentration curl. OOF! It’s a lot of weight, and you grit your teeth and start sweating - it burns, but you are so obstinate to pull it off, you just keep slowly raising the rod. It feels like it takes forever, and your arm really burns… but you eventually bring the weight all the way up!<br><br>
+You let out an excited WHOOP, but you lack the wherewithal or force to bring it down carefully, and it falls hard on the soft mat, making a loud THUD! You massage your arm, but you aren’t going to let your other arm not join in the fun! And so you proceed to repeat the feat.
+<<elseif $muscle >= 30>>
+You load up a couple of dumbbells, and lay down on the bench, pressing them to test your pecs. You seem to have slightly overestimated your own strength, and after a couple of reps, your arms are shaking wildly and you decide to give up before you make a mess.
+<<else>>You grab one of the colorful starter dumbbells, and just keep cranking reps idly as you continue with your routine. It’s not much, but you are relentless in your little routine. A long while later, your upper arms feel much firmer than you ever remembered. In fact, after you stop, you quickly move the big metal chair back, and it feels weirdly... lighter?
+<</if>><br><br>
+Big Eddy comes back into the store, and looks at you.<br><br>
+<<Dialogue "Eddy" "Eddy">>"Hey, there, kiddo! You look like you are glowing! Did you put some makeup on or something?"<</Dialogue>><br><br>
+<<if $shyConfident > 1>>
+<<Dialogue "player" "You">>"Heck, yeah! I was hitting the weights here in, and I feel AWESOME!"<</Dialogue>><br><br>
+You give your pumped muscles a flex, showing off to him. Big Eddy smiles and shows a double thumbs-up. Man, he’s so great at motivation it’s not even funny!”
+<<else>>You blush, and try to explain that you were just messing around with the weights. Eddy winks approvingly, and you slump into the corner, slightly embarrassed... but also weirdly proud!” 
+<</if>>`
     })>>
 
     <<script>>
