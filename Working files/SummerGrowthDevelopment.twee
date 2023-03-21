@@ -25289,6 +25289,37 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
             <<Dialogue "Eddy" "Eddy">>"HA! When I was a kid back in Michigan, there really wasn’t much there for kids to do, so I used to explore the woods and make up my own stories, too. Didn’t have that many friends, so I came up with these stories about the brook and the waterfall, and the cave..."<</Dialogue>><br><br>
             You never quite gave it enough thought about how similar those two are, but now you can’t unsee it. It’s kind of adorable, both of the passions feeding off of each other, geeks in their own domains - yet the love they share is enough to make them seem almost like long lost brothers.<br><br>
 You sit down on your chair and just keep watching as they spend yet another hour talking about their hobbies excitedly to each other. You will not be surprised if they completely forget the original cosplay and fitness plan by the time they are done…`
+    },
+    {
+        name: 'EddyKrisVisits',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob === true,
+            () => State.variables.krisObsessed === true,
+            () => State.variables.krisOpinion >= 10,
+            () => Math.random() >= 0.95
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: `Your sixth sense has been tingling for a while, and after the third customer comes and goes, you realize there’s someone watching the store from outside for quite a while. Wait, you know exactly who that barista is...<br><br>
+            You figure just ignoring Kris is the best approach, and so you go on with your business. And for a while, that seems to work. Until you turn around and she’s right there, her nose practically touching yours like she materialized all of a sudden.<br><br>
+            <<Dialogue "Kris" "Kris">>"SO! This is the place for all the growing goods, huh?"<</Dialogue>><br><br>
+            Her eyes dance through the dozens of bottles strewn across the establishment. She has that look of a curious predator, figuring out the environment before making a move.<br><br>
+            <<Dialogue "player" "You">>"Uh, do you need anything, Kris?"<</Dialogue>><br><br>
+            Her eyes still dart around, and you try your best to try and gleam what she intends to do. She’s obviously not preying upon the mass-endowed clientele, or even doing anything close to harassing you. No, she has another endgame that you can’t quite put your fingers on yet.<br><br>
+            <<Dialogue "Kris" "Kris">>"Products are kinda pricey, huh? But how much growth can you actually get from it? Can you give a weight per dollar spent estimate?"<</Dialogue>><br><br>
+            Oh, she’s plotting, no doubt. But what? Your fingers start fidgeting, as the uncertainty of her chaos could manifest at any point. Is she going to harass your customers? Just stockpile the merchandise (or, worse, try to come with some crazy scheme to barter for it)? You don’t want to involve Eddy, because you feel like these two personalities won’t quite mesh - he’s just TOO NICE to deal with Kris.<br><br>
+            You hand her a generic informative flier about the products sold there, which she inspects with uncommon attention. And just as quietly as she entered, she leaves, absorbing the secrets of the leaflet. Phew! Disaster averted... right?<br><br>
+            <<if $muscle >= 45>>But just as you turn around, you feel something climbing over your back, almost making you lose your balance.<br><br>
+                <<Dialogue "Kris" "Kris">>"Hmmmm, this job you got here seems to be helping. You feeling BEEFY, girl!"<</Dialogue>><br><br>
+                She exclaims, while squeezing your shoulders. <<if $carefreeCarefull > 1>>You take a deep breath, walk out of the store, and lean until she lets go.<br><br>
+                <<Dialogue "player" "You">>"Look, at MY place of work, we’ll need some boundaries, OK?"<</Dialogue>><br><br>
+                <<else>>You try to reach and get her down, but she’s there like a tick! You complain with some choice words until she finally dismounts, having inspected the ‘merchandise’ properly and feeling satisfied, and leaves as quickly as she came in.<br><br> 
+                <</if>> 
+                Well, at least you can’t complain that it was a slow day!
+            <</if>>`
     })>>
 
     <<script>>
