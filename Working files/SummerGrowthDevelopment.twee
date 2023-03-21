@@ -25247,6 +25247,48 @@ You sigh and decide this is just not worth the trouble.<<set $krisOpinion += 2>>
                     <</replace>>
                 <</link>>
             </span>`
+    },
+    {
+        name: 'EddyJohanVisits',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob === true,
+            () => State.variables.johanOpinion >= 10,
+            () => Math.random() >= 0.95
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy', 'johan'],
+        content: `As you face away from the door, replacing products on shelves, you feel a disturbance in the force. As you turn, you see a familiar face.<br><br>
+            <<Dialogue "player" "You">>"Johan?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>?"<</Dialogue>><br><br>
+            Both of you seem equally surprised to find the other there. You turn away from the shelves to properly greet your mate. He does seem somewhat embarrassed to have been caught at the supplement store.<br><br>
+            <<Dialogue "player" "You">>"Hey, so what are you up to here at the Bulk Barn?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"I was about to ask the same thing!"<</Dialogue>><br><br>
+            You point at your improvised paper sticker nametag, since you really couldn’t expect anything more elaborate from Eddy.<br><br>
+            <<Dialogue "player" "You">>"Well, I work here. So if there’s anything you need, I’m your gal!"<</Dialogue>><br><br>
+            Johan squints at the sticker, raising his glasses. Then he tilts his head, expecting there to be a catch or a revelation of a prank of some sort. But no, it is exactly what it seems.<br><br>
+            <<Dialogue "Johan" "Johan">>"Whoa, that’s cool! And a bit crazy, I guess! <<if $muscle >= 35>>I mean, I suppose you do look pretty buff, so that is not entirely true, but it still doesn’t quite, I dunno, you never seemed like the gym bro ‘look at my protein’ type. Uh, I guess that sounded a bit wrong, I’ll shut up now.<<else>>You never quite struck me as the gym rat type, let alone someone who would know about supplements and stuff. Uh, no offense.<</if>>"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Nah, no worries. I suppose it was a bit surprising for me as well, to be sincere. <<if $skills[1].level > 2>>Though, you’d probably be a bit surprised with how much I know about nutrition. <</if>><<if $skills[0].level > 2>>And I actually am a bit of an expert in physical exercise now, believe it or not.<</if>> So, yeah. But that doesn’t answer my question."<</Dialogue>><br><br>
+            Johan looks at you, then a lightbulb goes over his head when he realizes he never told what he came there for.<br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, yeah! About that! I was planning to cosplay this martial arts dude for the upcoming event, and I was trying to... you know... nail the look? So I figure I could come for some advice?"<</Dialogue>><br><br>
+            And when he utters the A word, you see Big Eddy’s ear perk up in the back. He drops the magazine he was reading, stands up in a flash, and before you know it, he’s materialized in front of Johan.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"So, my boy, you came here to get started on your fitness journey?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Uh, I mean, I wanted to try and look more like this guy for a costume, but... a journey, you mean like in the King of the Earrings? Because that sounds neat!"<</Dialogue>><br><br>
+            Big Eddy bellows with his hearty laughter, giving Johan a slap on the back so forceful that he almost bends over, and cough a bit.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"The journey is what you want it to be, so if that is what you want, that’s what we will try to do! So you wanna look like this?"<</Dialogue>><br><br>
+            With little ceremony, Eddy nabs the drawing from Johan’s hand. It shows a rather slim but toned martial arts, with a short-sleeved gi that reveals his forearms and some of the chest.<br><br>
+            <<Dialogue "Eddy" "Eddy">>"Yeah, I can work with this, boy! What’s your name? Everyone calls me Big Eddy!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"I-I’m Johan, nice to meet you. Are you going to be like my sensei?"<</Dialogue>><br><br>
+            <<Dialogue "Eddy" "Eddy">>"Yeah, I don’t really go for the title thing, I think it’s a bit stuffy, but I’ll gladly give you all the advice and motivation I can! You see, I was a chubby kid back in the day, so I can tell you, given enough time and effort, you can do ANYTHING!"<</Dialogue>><br><br>
+            Johan’s eyes sparkle. He’s gobbling it all up, and Eddy is also basking on the attention. Another customer comes in, so you leave them as you go work on a bunch of other tasks.<br><br>
+            …<br><br>
+            It’s been over an hour by the time you get back to that pair. They are both still talking, a million miles an miles, with a matching level of excitement.<br><br>
+            <<Dialogue "Johan" "Johan">>"So, you see, I painted these figures, and then we have little simulated combat with other collector’s, and there’s this whole lore to it, as these factions fight, so we make up our own stories!"<</Dialogue>><br><br>
+            <<Dialogue "Eddy" "Eddy">>"HA! When I was a kid back in Michigan, there really wasn’t much there for kids to do, so I used to explore the woods and make up my own stories, too. Didn’t have that many friends, so I came up with these stories about the brook and the waterfall, and the cave..."<</Dialogue>><br><br>
+            You never quite gave it enough thought about how similar those two are, but now you can’t unsee it. It’s kind of adorable, both of the passions feeding off of each other, geeks in their own domains - yet the love they share is enough to make them seem almost like long lost brothers.<br><br>
+You sit down on your chair and just keep watching as they spend yet another hour talking about their hobbies excitedly to each other. You will not be surprised if they completely forget the original cosplay and fitness plan by the time they are done…`
     })>>
 
     <<script>>
