@@ -8893,7 +8893,7 @@ Was that a nosebleed?<</if>>
     },
     {
         name: 'johanFrustratingVideoGameGetsPhysical',
-        locationTags: ['home'],
+        locationTags: ['johan'],
         conditions: [	
             () => setup.hasEventBeenTriggered('JohanDate1'),
             () => State.variables.daysPlayed > 15
@@ -8903,6 +8903,19 @@ Was that a nosebleed?<</if>>
         priority: 'immediate',
         npc: ["johan"],
         content: '<<goto "johanFrustratingVideoGameGetsPhysical">>'
+    },
+    {
+        name: 'johanPinUpArt',
+        locationTags: ['home'],
+        conditions: [	
+            () => setup.hasEventBeenTriggered('johanFrustratingVideoGameGetsPhysical'),
+            () => setup.hasEventBeenTriggered('JohanDrawingBarbarian')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ["johan"],
+        content: '<<goto "johanPinUpArt">>'
     }
 )>>
 
@@ -27240,3 +27253,7 @@ You say, lying through your teeth.
 You watch as Johan basks in the very deserving fame he is receiving. But deep inside, you wish he was more receptive to someone else's attention. Sigh. Oh, well. Maybe some other time...
 
 <<link "Continue" "home">><<set $johanOpinion += 20>><</link>>
+
+:: johanPinUpArt {"position":"1500,3900","size":"100,100"}
+
+
