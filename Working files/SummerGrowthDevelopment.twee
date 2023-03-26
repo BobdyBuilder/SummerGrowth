@@ -27106,7 +27106,7 @@ You bring the phone to your chest, pushing it tightly against it, as you let out
 
 <<link "Go home" "Home">><<set $elenaOpinion += 10>><<set $elenaShyOpinion += 10>><</link>>
 
-:: johanFrustratingVideoGameGetsPhysical {"position":"1500,3900","size":"100,100"}
+:: johanFrustratingVideoGameGetsPhysical {"position":"1925,3600"}
 You stop at the door of Johan's apartment, and something feels... off? You hold the doorknob, hearing only some high-pitched beeping coming from inside the apartment. You can't quite put your finger on it, but something is missing - that geeky vibration that emanates from Johan's high energy. You step in through the unlocked door, and find a very still Johan sitting on the sofa, illuminated by an old CRT screen - the source of the bleepy-bloopy noises.
 
 You silently approach, and Johan seems to be completely concentrated, holding an old-school controller, attached to a weird blocky red-and-cream plastic console, with a garish yellow cartridge in it. Your eyes flow through the wires connecting this setup of prehistoric devices, and Johan appears completely oblivious to your presence. So you take a second to try and decipher what the hell is going on.
@@ -27194,7 +27194,7 @@ You blink a few times, trying to process everything he just told you. He goes on
 
 
 
-:: johanFrustratingVideoGameGetsPhysical_p2 {"position":"1500,3900","size":"100,100"}
+:: johanFrustratingVideoGameGetsPhysical_p2 {"position":"1925,3500"}
 
 Johan eventually reaches Act 7, which he informs you is the final one. The difficulty somehow manages to ramp up even more, and you find yourself firmly gripping the cushion to the point it might just rip apart under your fingers. <<if $johanFrustratingVideoGameGetsPhysicalChoice2 === "A">>But your boy is calm and collected, still struggling, sure, but he just gives this aura that he's got this. The excitement is contagious, almost like you are partially responsible for his amazing performance.<<else>>The growing tension is inevitable, and every mistake feels like a small disaster on its own. But both of you persevered under bated breath. And just like that, your tag team continues as you cheer him on, through gritted teeth and sheer force of will.<</if>>
 
@@ -27276,7 +27276,7 @@ You watch as Johan basks in the very deserving fame he is receiving. But deep in
 
 <<link "Continue" "Home">><<set $johanOpinion += 20>><</link>>
 
-:: johanPinUpArt {"position":"1500,3900","size":"100,100"}
+:: johanPinUpArt {"position":"1800,3500"}
 
 You do your best neighbor-from-a-sitcom impression as you barge into Johan’s apartment unannounced. You meet no resistance as you see him scrolling through several posters on a website.
 
