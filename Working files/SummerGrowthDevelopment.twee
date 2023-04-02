@@ -25610,6 +25610,17 @@ You give your pumped muscles a flex, showing off to him. Big Eddy smiles and sho
     <</script>>
 
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.7.9: Dates, Rewinds, & stabilisation ---
+● Added many new dialogs for all NPCs.
+● Added new interactions at the bulk barn job
+● Added new dates for Emma
+● Added new Date for Elena
+● Added new Date for Elena
+● Added new dates for Johan
+● Reintrocuded the rewind button.
+● Reworked early growth rates
+● Fixed slow load time, or no penis in mirror scene
+● Rebalanced money and growth speed
 --- Version 0.7.4: Clothing & dates ---
 ● Added bonuses to clothing to give players more reasons to use the clothing system
 ● Added different styles of clothing with different written content

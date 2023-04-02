@@ -1475,7 +1475,7 @@ window.isNumeric = function (obj) {
 		break;
 	}
 	return isFinite(obj) && !isNaN(obj);
-};</script><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
+};</script><tw-tag name="inside" color="green"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-passagedata pid="1" name="DisplayGenderName" tags="widget" position="2375,50" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;widget &quot;genderDescription&quot;&gt;&gt;
 &lt;&lt;if $gender &lt;= 10&gt;&gt;extremly feminine
 &lt;&lt;elseif $gender &lt;= 20&gt;&gt;very feminine
@@ -24468,7 +24468,18 @@ You give your pumped muscles a flex, showing off to him. Big Eddy smiles and sho
             }
             setup.events[i].content += &#39;&lt;br&gt;&lt;br&gt;And that ends your shift! It took a bit of work, but you earned $&lt;&lt;print setup.balance.bulkBarnJobIncome()&gt;&gt; this shift.&lt;&lt;if $skills[0].level &gt; 0&gt;&gt; Your knowledge of lifting certainly helped with this!&lt;&lt;/if&gt;&gt; And your cooking skills did give you a suprising aid when it comes to advising people on their diets.&lt;&lt;if $skills[2].level &gt; 0&gt;&gt; That course on bookkeeping certainly wasn\&#39;t wasted either. Maybe Eddy should take one.&lt;&lt;/if&gt;&gt;&lt;&lt;set $money += setup.balance.bulkBarnJobIncome()&gt;&gt;&#39;;
         }
-    &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="307" name="Changelog" tags="noReturn noEventTrigger" position="1700,0" size="100,100">--- Version 0.7.4: Clothing &amp; dates ---
+    &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="307" name="Changelog" tags="noReturn noEventTrigger" position="1700,0" size="100,100">--- Version 0.7.9: Dates, Rewinds, &amp; stabilisation ---
+● Added many new dialogs for all NPCs.
+● Added new interactions at the bulk barn job
+● Added new dates for Emma
+● Added new Date for Elena
+● Added new Date for Elena
+● Added new dates for Johan
+● Reintrocuded the rewind button.
+● Reworked early growth rates
+● Fixed slow load time, or no penis in mirror scene
+● Rebalanced money and growth speed
+--- Version 0.7.4: Clothing &amp; dates ---
 ● Added bonuses to clothing to give players more reasons to use the clothing system
 ● Added different styles of clothing with different written content
 ● Added completely new outfit and clothing system, which is far more forgiving
