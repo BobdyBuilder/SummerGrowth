@@ -11058,7 +11058,7 @@ name: 'EmmaExpertSewing',
     locationTags: ['emma'],
     conditions: [
         () => State.variables.emmaOpinion >= 40,
-        () => hasEventBeenTriggered("EmmaExpertCook")
+        () => setup.hasEventBeenTriggered("EmmaExpertCook")
     ],
     repeatable: false,
     retriggerable: false,
