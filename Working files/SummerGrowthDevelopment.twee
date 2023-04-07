@@ -6497,16 +6497,20 @@ It's big, it's loud, and they have everything you could wish for, as long as it 
     		<td><<print $electronicStoreInventory[_i].name>></td>
     		<td><<print $electronicStoreInventory[_i].description>></td>
 	    	<td>$<<print $electronicStoreInventory[_i].price>></td>
-			<td><span id="result"><<link "buy - 00:05 🕛">>
-			<<if $electronicStoreInventory[_i].price > $money>>
-			<<replace "#result">>You can't afford that.<</replace>>
-			<<else>>
-			<<addMinutes 5>>
-			<<set $money -= $electronicStoreInventory[_i].price>>
-			<<set $furniture.push($electronicStoreInventory[_i].name)>>
-			<<goto "ElectronicsStore">>
-			<</if>>				 
-			<</link>></span></td>
+			<td>
+                <span id="result">
+                    <<if $electronicStoreInventory[_i].price > $money>>
+                        You can't afford that.
+                    <<else>>
+                        <<link "buy - 00:05 🕛">>
+                            <<addMinutes 5>>
+                            <<set $money -= $electronicStoreInventory[_i].price>>
+                            <<set $furniture.push($electronicStoreInventory[_i].name)>>
+                            <<goto "ElectronicsStore">>
+                        <</link>>
+                    <</if>>				 
+                </span>
+            </td>
   		</tr>
 		<</if>>
 		<</capture>>
