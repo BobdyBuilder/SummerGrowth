@@ -10,7 +10,7 @@ sugarcube-2:
         - "'Kris'|'KrisCasualObsessed'|'KrisCasual'|'KrisObsessed' &+ 'Kris'"
         - "'Johan' &+ 'Johan'|'JO-HAN, The Magnificent'"
         - "'Elena'|'ElenaHappy' &+ 'Elena'"
-        - "'Emma'|'EmmaFitness' &+ 'Emma'"
+        - "'Emma'|'EmmaFitness' &+ 'Emma'|'Office lady'"
         - "'Nathan' &+ 'Nathan'"
         - "'Natalie' &+ 'Natalie'"
         - "'toshiUnknown' &+ 'Toshi'"
@@ -235,8 +235,7 @@ sugarcube-2:
     sizeCalc:
       name: sizeCalc
       parameters:
-        - number &+ number &+ number &+
-          '$weight'|'$chestSize'|'$waistSize'|'$hipsSize'|'$neckSize'|'$upperArmSize'|'$lowerArmSize'|'$wristSize'|'$thighsSize'|'$kneeSize'|'$calveSize'|'$ankleSize'
+        - number &+ number &+ number &+ '$weight'|'$chestSize'|'$waistSize'|'$hipsSize'|'$neckSize'|'$upperArmSize'|'$lowerArmSize'|'$wristSize'|'$thighsSize'|'$kneeSize'|'$calveSize'|'$ankleSize'
     weightConversion:
       name: weightConversion
       parameters:
