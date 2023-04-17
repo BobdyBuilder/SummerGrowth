@@ -27155,7 +27155,7 @@ The old tube TV is displaying whatever he is playing. You are cool enough to par
 <<Dialogue "player" "You">>"What are you playing, Johan?"<</Dialogue>><br><br> 
 He jumps in the sofa, which almost costs him a life in the game as he misses a jump between train cars, but the ninja just grabs to the side of it before he pauses.
 
-<<Dialogue "Johan" "Johan">>"Oh, hey there, <<print $playerFirstName>>. Sorry, didn't notice you there. I got a hold of this vintage copy of Ninja Side Story 2 and figured I'd try to beat it, it's supposed to be really hard. My uncle played this as a kid, and he kept talking how frustrated he was that he could never get to the end. So I decided to stream it... but it's kind of kicking my ass, and I'm still on Act 2. But I made this whole CRT setup with original hardware to give me an edge, you see, on a flat display, it would be a problem because..."<</Dialogue>>>
+<<Dialogue "Johan" "Johan">>"Oh, hey there, <<print $playerFirstName>>. Sorry, didn't notice you there. I got a hold of this vintage copy of Ninja Side Story 2 and figured I'd try to beat it, it's supposed to be really hard. My uncle played this as a kid, and he kept talking about how frustrated he was that he could never get to the end. So I decided to stream it... but it's kind of kicking my ass, and I'm still on Act 2. But I made this whole CRT setup with original hardware to give me an edge, you see, on a flat display, it would be a problem because..."<</Dialogue>>>
 
 You blink a few times, trying to process everything he just told you. He goes on about cathode ray tubes, RCA jacks, interlacing, display lag and some other things that just go straight over your head, so you just interrupt him after a bit.
 
