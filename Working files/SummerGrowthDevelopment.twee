@@ -18031,11 +18031,11 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
         }
 
         if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))){
-            postSleepOutfitDescription += `Finally, Putting on your  ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that this no longer fits. Shame. `;
+            postSleepOutfitDescription += `Finally, Putting on your  ${State.variables.outfit.bottom().name} should've been easy, but as you try to get your legs in you discover that this no longer fits. Shame. `;
             State.variables.outfit.bottomId = undefined;
         }
         else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))){
-            postSleepOutfitDescription += `finally, Putting on your ${State.variables.outfit.top().name} should've been easy, but as you try to get your legs in you discover that this barely longer fits. Well, time to get something new. `;;
+            postSleepOutfitDescription += `finally, Putting on your ${State.variables.outfit.bottom().name} should've been easy, but as you try to get your legs in you discover that this barely fits. Well, time to get something new. `;;
         }
 
         if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.shoes()))){
