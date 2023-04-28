@@ -2740,7 +2740,7 @@ You can't afford a shake at the bar right now.
 <<nobr>>
 <<widget "dickDescription">>
 <<if $futa>>
-<<set $tempDick to $dick * $heightMod>>
+<<set $tempDick to setup.getTempDick()>>
 <<set $tempDickGirth to Math.round($dickGirthMod * $tempDick)>>
 <<set $tempDickGirthErect to Math.round($tempDickGirth * (1 + ($dickErectionMod / 4)))>>
 <<set $tempDickErect to Math.round($dickErectionMod * $tempDick)>>
@@ -12439,6 +12439,10 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
     }
 ]>>
 
+<<set setup.getTempDick to function () {
+    return State.variables.dick * State.variables.heightMod;
+}>>
+
 /* The name for the given size index of setup.sizeDatabase */
 <<set setup.getSizeName to function (sizeIndex) {
     if (sizeIndex < 0) {
@@ -18271,7 +18275,7 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
     retriggerable: false,
     priority: 'immediate',
     npc: [],
-    content: 'As you wake up, something catches your attention. After twisting and turning, you just can’t find comfort. It’s only when you sit up in your bed that you figure out why. <br><br>Your dick is hard. It stands out, fully erect, a good <<numeralConversion $tempDick>> long. Stunned, you look at it while it stands proud, its veins impossible to ignore. Your own breath washes over it, and you shudder as it touches its sensitive tip. This is the first time waking up like this, and you’re not sure what to do. Until now, you managed to ignore it. But this simply demands attention. <<if $shyConfident < 0>> You can’t deal with this. Not now, not yet, not here. You grab your outfit and force them over your rod, yet you shake with a shiver and a moan when as your hand pushes it in your underwear. <<else>> You work up some courage and run a single finger, from the underside to the tip of your penis. Immediately, you find yourself moaning and gasping. Your back arches, your body shudders. For the first time, shoot your load, and find unexpected clarity in its wake. <</if>> '
+    content: 'As you wake up, something catches your attention. After twisting and turning, you just can’t find comfort. It’s only when you sit up in your bed that you figure out why. <br><br>Your dick is hard. It stands out, fully erect, a good <<numeralConversion setup.getTempDick()>> long. Stunned, you look at it while it stands proud, its veins impossible to ignore. Your own breath washes over it, and you shudder as it touches its sensitive tip. This is the first time waking up like this, and you’re not sure what to do. Until now, you managed to ignore it. But this simply demands attention. <<if $shyConfident < 0>> You can’t deal with this. Not now, not yet, not here. You grab your outfit and force them over your rod, yet you shake with a shiver and a moan when as your hand pushes it in your underwear. <<else>> You work up some courage and run a single finger, from the underside to the tip of your penis. Immediately, you find yourself moaning and gasping. Your back arches, your body shudders. For the first time, shoot your load, and find unexpected clarity in its wake. <</if>> '
 }, {
     name: 'PostSleepBallsDialog3',
     locationTags: ['postSleep'],
@@ -19027,7 +19031,7 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
 		retriggerable: false,
 		 priority: 'response',
 		npc: [],
-		content: 'Though you don’t recall having any sexually-charged dreams the night before, you wake up to the feeling of a fierce, throbbing erection under your sheets. Your cock feels primed to explode, both in a literal and metaphorical sense. It must’ve done quite a bit of growing overnight. Grunting, you pull your sheets off and clench your teeth, fighting back the threat of an imminent handsfree ejaculation. Once it seems like things are under control, you stumble out of bed and head to the bathroom. Your member is still standing to attention, its tip dangerously close to your chest. You rummage through a cabinet and locate a simple measuring tape, wrapping it around your fingers and drawing the end to the base of your penis. The number you read at the top makes you gasp. It came out to <<numeralConversion $tempDick>>, in total. Easily more cock-flesh than most men could claim to have, and now it was yours, for better or worse…'
+		content: 'Though you don’t recall having any sexually-charged dreams the night before, you wake up to the feeling of a fierce, throbbing erection under your sheets. Your cock feels primed to explode, both in a literal and metaphorical sense. It must’ve done quite a bit of growing overnight. Grunting, you pull your sheets off and clench your teeth, fighting back the threat of an imminent handsfree ejaculation. Once it seems like things are under control, you stumble out of bed and head to the bathroom. Your member is still standing to attention, its tip dangerously close to your chest. You rummage through a cabinet and locate a simple measuring tape, wrapping it around your fingers and drawing the end to the base of your penis. The number you read at the top makes you gasp. It came out to <<numeralConversion setup.getTempDick()>>, in total. Easily more cock-flesh than most men could claim to have, and now it was yours, for better or worse…'
 	}, {
 		name: 'PostSleepDickRepeat10',
 		locationTags: ['postSleep'],
