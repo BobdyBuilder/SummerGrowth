@@ -8736,7 +8736,7 @@ Was that a nosebleed?<</if>>
         retriggerable: false,
         priority: 'immediate',
         npc: ["johan"],
-        content: '<<Dialogue "player" "You">> "Hey, Johan! What\'s up?"<</Dialogue>><br>As you approach Johan, you notice that you have to adjust your shirt over your breasts. Again.<br><br><<Dialogue "Johan" "Johan">> "Oh, hey, not mu-"<</Dialogue>><br>Johan\'s eyes nearly pop out of their sockets as he turns and looks at your chest.<br><br><<Dialogue "Johan" "Johan">> "Holy cow! Did you take a potion of super endowment or something?! Where did those come from?!"<</Dialogue>><br>
+        content: `<<Dialogue "player" "You">> "Hey, Johan! What\'s up?"<</Dialogue>><br>As you approach Johan, you notice that you have to adjust your shirt over your breasts. Again.<br><br><<Dialogue "Johan" "Johan">> "Oh, hey, not mu-"<</Dialogue>><br>Johan\'s eyes nearly pop out of their sockets as he turns and looks at your chest.<br><br><<Dialogue "Johan" "Johan">> "Holy cow! Did you take a potion of super endowment or something?! Where did those come from?!"<</Dialogue>><br>
 
 <span id="choice">
 	<<PersonalityCheck $carefreeCarefull <= -1 "Thrust out your chest and show off.">>
@@ -8758,7 +8758,7 @@ Was that a nosebleed?<</if>>
             <br><br>You move your arms to cover your breasts as best you can.<br><br><<Dialogue "player" "You">> "Johan! Stop it, you creep!"<</Dialogue>><br><<Dialogue "Johan" "Johan">> "Wha- No! No, that\'s not it! I just meant..."<</Dialogue>><br><<Dialogue "player" "You">> "Yeah, I\'m sure, Johan. Look, I\'ve got things to do. Goodbye."<</Dialogue>><br>And with that, you turn around, noticing the weight gained on your chest, before walking off with purpose. Leaving no time for Johan to respond.<br><br><<link "Go home" "Home">><<set $johanOpinion -= 10>><</link>>
 		<</replace>>
 	<</link>>
-</span>'
+</span>`
     },
     {
         name: 'JohanBreasts20',
