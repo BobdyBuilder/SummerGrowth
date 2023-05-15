@@ -7761,6 +7761,44 @@ Determines the measurement system used in the game.
 <<include "PostSleepTriggers">>
 
 
+:: NatEvents [nobr] {"position":"1300,2425","size":"100,100"}
+<<set setup.natEvents to []>>
+
+<<set setup.natEvents.push(
+    {
+		name: 'NatMovingIn',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `You are still getting your bearings in this new town, and whenever you go out, you tend to just look everywhere in an attempt to memorize some recognizable reference points. The downside of this… is that sometimes you can be a little distracted.<br><br>
+            BONK!<br><br>
+            You hit a big, very sturdy obstacle and fall on your behind. Ow, ow, ow! Looking ahead, you see a fallen cardboard box with jump ropes, resistance bands, some plastic drink bottles, towels… all sorts of sporting goods. You look up, covering your eyes from the glare of the sun, but all you can see is a very large silhouette covering the light.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you alright?"<</Dialogue>><br><br>
+            Asks the voice, offering you a hand. You accept the help, and they pull you up like you weigh nothing. As you dust yourself, you look at the person who was unloading boxes and boxes of workout equipment from a moving truck.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Did you hurt yourself?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"No… no, I'm fine… I'm just a bit clumsy at times, no worries."<</Dialogue>><br><br>
+            You finally get a good look at the <<if $rivalGender === 'male'>>
+                guy - the buzzcut-shaved man has the kind of good looks you see on a perfume ad, with swimmer shoulders and a shirt that is too tight at the chest, but also incredibly tapered at the waist, giving him an impressive hourglass shape. But his face…
+            <<else>>
+                girl - she sports a half-shaved, dreadlocked visage that gives you Spartan/Viking vibes, and looks like they just jumped out of a trendy crossfit ad, with swimmer shoulders and arms that would not look out of place on a bodybuilder, and visible bulging abs through the fabric, giving her an impressive hourglass shape. But her face… 
+            <</if>> it looks eerily familiar.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Phew, I'm glad… sorry, I didn't realize I left so much stuff on the sidewalk. It was pretty irresponsible of me."<</Dialogue>><br><br>
+            Indeed, there's A LOT of stuff, and it does seem to be predominantly sports-related - including a big box of trophies: swimming, martial arts, track and field…<br><br>
+            <<Dialogue "player" "You">>"Oh… no, no, no… I'm the klutz. Hehe… Do you… do you want some help carrying the stuff up?"<</Dialogue>><br><br>
+            <<RivalI>> takes a good look at your rather petite frame, and you can't help feeling a bit judged. Not that <<rivalI>>'s wrong… <<rivalI>> looks like he could lift your entire bodyweight with one arm…<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"No worries, I can use the exercise."<</Dialogue>><br><br>
+            <<RivalI>> seems to look at your face quite a bit, like he also somehow recognizes you.<br><br>
+            <<Dialogue "player" "You">>"Well, huh… I guess… I should be going then… sorry again!"<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Again, no worries. Do watch where you step though..."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"You too! I mean… uh… good luck with your move!"<</Dialogue>><br><br>
+            You blush, still embarrassed, and get on your way.`
+	}
+)>>
+
+
 :: JohanTriggers [nobr] {"position":"1300,2125","size":"100,100"}
 <<set $JohanTriggers to []>>
 
@@ -23742,6 +23780,7 @@ repeatable: false,
 <<include "KrisImmediates">>
 <<include "KrisResponses">>
 <<include "KrisFiller">>
+<<include "NatEvents">>
 <<include "PostSleepImmediates">>
 <<include "PostSleepResponses">>
 <<include "PostSleepFiller">>
