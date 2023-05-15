@@ -14288,108 +14288,90 @@ $(document).on(':passageinit', function (ev) {
 }>>
 
 
-:: rivalName [widget] {"position":"550,2300","size":"100,100"}
-<<nobr>>
+:: rivalName [widget nobr] {"position":"550,2300","size":"100,100"}
 <<widget "rivalName">>
     <<= setup.getRivalName()>>
 <</widget>>
-<</nobr>>
 
 
-:: rivalI [widget] {"position":"550,2000","size":"100,100"}
-<<nobr>>
-<<widget "rivalHe">>
+:: rivalI [widget nobr] {"position":"550,2000","size":"100,100"}
+<<widget "rivalI">>
     <<if $rivalGender === 'male'>>
         he
     <<else>>
         she
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: RivalI [widget] {"position":"550,2000","size":"100,100"}
-<<nobr>>
-<<widget "RivalHe">>
+:: RivalI [widget nobr] {"position":"550,2000","size":"100,100"}
+<<widget "RivalI">>
     <<if $rivalGender === 'male'>>
         He
     <<else>>
         She
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: rivalMy [widget] {"position":"550,2100","size":"100,100"}
-<<nobr>>
-<<widget "rivalHis">>
+:: rivalMy [widget nobr] {"position":"550,2100","size":"100,100"}
+<<widget "rivalMy">>
     <<if $rivalGender === 'male'>>
         his
     <<else>>
         her
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: RivalMy [widget] {"position":"550,2100","size":"100,100"}
-<<nobr>>
-<<widget "RivalHis">>
+:: RivalMy [widget nobr] {"position":"550,2100","size":"100,100"}
+<<widget "RivalMy">>
     <<if $rivalGender === 'male'>>
         His
     <<else>>
         Her
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: rivalMe [widget] {"position":"550,2200","size":"100,100"}
-<<nobr>>
-<<widget "rivalHim">>
+:: rivalMe [widget nobr] {"position":"550,2200","size":"100,100"}
+<<widget "rivalMe">>
     <<if $rivalGender === 'male'>>
         him
     <<else>>
         her
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: RivalMe [widget] {"position":"550,2200","size":"100,100"}
-<<nobr>>
-<<widget "rivalHim">>
+:: RivalMe [widget nobr] {"position":"550,2200","size":"100,100"}
+<<widget "rivalMe">>
     <<if $rivalGender === 'male'>>
         Him
     <<else>>
         Her
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: rivalMine [widget] {"position":"550,2200","size":"100,100"}
-<<nobr>>
-<<widget "rivalHim">>
+:: rivalMine [widget nobr] {"position":"550,2200","size":"100,100"}
+<<widget "rivalMine">>
     <<if $rivalGender === 'male'>>
         his
     <<else>>
         hers
     <</if>>
 <</widget>>
-<</nobr>>
 
 
-:: RivalMine [widget] {"position":"550,2200","size":"100,100"}
-<<nobr>>
-<<widget "rivalHim">>
+:: RivalMine [widget nobr] {"position":"550,2200","size":"100,100"}
+<<widget "rivalMine">>
     <<if $rivalGender === 'male'>>
         his
     <<else>>
         hers
     <</if>>
 <</widget>>
-<</nobr>>
 
 
 :: instantFatLoss [noReturn] {"position":"550,1800","size":"100,100"}
