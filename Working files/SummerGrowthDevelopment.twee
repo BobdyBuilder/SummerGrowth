@@ -7795,6 +7795,82 @@ Determines the measurement system used in the game.
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Again, no worries. Do watch where you step though..."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"You too! I mean… uh… good luck with your move!"<</Dialogue>><br><br>
             You blush, still embarrassed, and get on your way.`
+	},
+	{
+		name: 'NatSavedByProtagonist',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `You've learned your lesson after the incident with the person in the moving truck, and now you tend to be a lot more mindful of your surroundings as you get around town. Which is great, because apparently some very irresponsible city workers have left an unattended manhole open… with nothing around it! But as you lift your eyes, you see someone carrying a stack of large boxes that covers their field of view… and they are about to fall in!<br><br>
+            <<if $shyConfident < -1>>
+                You briefly hesitate, but the person is quickly approaching their potential death - and before you realize, you have thrown yourself against the distracted pedestrian.<br><br>
+            <<elseif $submissiveDominant > 1>>
+                Knowing there's no time to waste, you just throw yourself against the distracted pedestrian.<br><br>
+            <<else>>
+                Before you realize, you are throwing yourself against the distracted pedestrian.<br><br>
+            <</if>>
+            CRASH!!!
+            As you come to, you find yourself surrounded by the fallen boxes, on top of a VERY firm torso.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow, owwwww… my hand!"<</Dialogue>><br><br>
+            As <<rivalI>> opens <<rivalMy>> eyes, your noses almost touching, your gazes meet… and the two of you remember something that happened many years ago…<br><br>
+            You were 8 years old, having fun with your neighbor in the nearby woods. <<RivalI>> teased you for being a scaredy cat, and you decided to prove <<rivalMy>> wrong by climbing a tall tree. You were doing pretty well, too… but a squirrel ran past your hand… and you just remember the world turning into a blur.<br><br>
+            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<RivalI>> leans on top of you, hugging you and apologizing…<br><br>
+            <<Dialogue "player" "You">>"Nat?!?"<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow… <<print $playerFirstName>>?!?"<</Dialogue>><br><br>
+            You get off Nat's chest, and <<rivalI>>'s still rubbing <<rivalMy>> left wrist. <<RivalI>> seems to have landed awkwardly on it.<br><br>
+            <<Dialogue "player" "You">>"I'm sorry, Nat… you were about to fall on that manhole, and I just… I didn't even think…"<</Dialogue>><br><br>
+            You start nervously collecting the stuff on the ground… some of them are some pretty heavy weight plates and dumbbells… how was <<rivalI>> even carrying all of this?!?<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"<<print $playerFirstName>>... wow, it's been so long… I mean, other than last time!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Yeah… you've… grown… since you were 8…"<</Dialogue>><br><br>
+            <<if $muscle >= 55 || $height >=185 >>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Huh… I could say the same… in fact… is my memory playing tricks on me? You look HUGE!"<</Dialogue>><br><br>
+                <<RivalI>> shakes <<rivalMy>> head, looking at your body confused, comparing it to the day you bumped on <<rivalMy>>.
+            <<elseif $muscle >= 35 || $height >=170 >>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Huh… I could say the same… in fact… last time we met…?"<</Dialogue>><br><br>
+                <<RivalI>> shakes his head, looking at your body confused, comparing it to the day you bumped on <<rivalMy>>.
+            <<else>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"And you… well, you still look as cute as I remember!"<</Dialogue>><br><br>
+                Well, at least <<rivalI>>'s nice about your undeveloped body.
+            <</if>>
+            <<Dialogue "player" "You">>"Did… did you hurt your hand?"<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ah, this? This is nothing… I got plenty of injuries in sports before, and… ARGH!"<</Dialogue>><br><br>
+            <<RivalI>> tries to lift the boxes, and <<rivalMy>> wrist is clearly in pain.<br><br>
+            <<if $muscle >= 55>>
+                You help <<rivalMy>> with the heavier boxes, and <<rivalI>> grabs the light ones on <<rivalMy>> right arm. Nat seems slightly bothered about how you manage to do so like it weighs nothing.<br><br>
+            <<elseif $muscle >= 35>>
+                You help <<rivalMy>> with the heavier boxes, and <<rivalI>> grabs the light ones on <<rivalMy>> right arm. You can't help but notice that Nat seems confused about how you manage to do so.<br><br>
+            <<else>>
+                <<RivalI>> somehow manages to load the heavy boxes on <<rivalMy>> right arm, and you help <<rivalMy>> with the light ones. Damn, <<rivalI>> looks incredibly strong - that sleeve looks like it could rip at any second!<br><br>
+            <</if>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I guess now not only have I failed you when we were kids… but now I also owe you my life…"<</Dialogue>><br><br>
+            You'd think <<rivalI>>'d look glad… but, this situation feels very awkward for <<rivalMy>>.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"My apartment is just around the corner, why don't you come over, and we can catch up?"<</Dialogue>><br><br>
+            You nod, and the two of you make your way there.<br><br>
+            Nat's apartment is… stark, to say the least. It's a small studio, and you could say that 90% of all objects in there are somehow related to some sort of training. <<RivalI>> has a standing rack with lots of very fashionable clothing articles, and a mattress just laying on the ground in the corner.<br><br>
+            <<Dialogue "player" "You">>"Uh… nice place?"<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Thanks for the lie. Yeah, I must look pretty boring… I am just focusing hard on the upcoming competition - I'm going to be in a documentary about bodybuilding competition that is coming up at the end of summer…"<</Dialogue>><br><br>
+            <<RivalI>> certainly looks like <<rivalI>>'s been putting the work in… and nothing else. There's no TV, no speakers, no books…<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Other than that… been making some money on the side as a model… these supplements don't come cheap, you know?"<</Dialogue>><br><br>
+            Your eyes just sparkle… you kinda want to see <<rivalMy>> shirtless, get a better idea of whatever that tight shirt is hiding.<br><br>
+            <<Dialogue "player" "You">>"Well, you are kind of a tough act to follow - so you basically excelled at a bunch of sports, you are a model and you are in a documentary about bodybuilding. Meanwhile I… basically was living with my parents, slacking a whole bunch, and just transferred here. I have a nice friend who is into modeling… the little metal figures he paints, that is."<</Dialogue>><br><br>
+            Nat laughs. Man, you missed that laugh and didn't even realize.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, do you want to come to the meeting with the documentary crew? It's going to be in a couple of weeks, and I could use a wingwoman, it can get pretty boring with all the waiting…"<</Dialogue>><br><br>
+            You didn't realize just how much you missed Nat, and it's so great to have a familiar face in town. You agree, and you make a note of the time and place.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, huh, I hate to be THAT person… but I really need to put some cardio in… so… maybe we'll talk later?"<</Dialogue>><br><br>
+            <<if $carefreeCarefull < -1>>
+                <<Dialogue "player" "You">>"Does that mean some shirtless treadmill and jump rope action? Because I'd gladly stay and give you some moral support…."<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Uhhhhh…"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Haha! Just kidding…"<</Dialogue>><br><br>
+                You say, lying through your teeth.
+            <<else>>
+                You resist the urge to just tell <<rivalMy>> that you don't mind, <<rivalI>> can jump rope and run shirtless and you'll just chill and watch…<br><br>
+                <<Dialogue "player" "You">>"Yeah, I should be going…"<</Dialogue>><br><br>
+            <</if>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it was great seeing you. And looking forward to the next time!"<</Dialogue>><br><br>
+            And with that, you say your goodbyes and leave.`
 	}
 )>>
 
