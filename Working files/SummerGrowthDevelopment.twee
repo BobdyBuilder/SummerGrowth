@@ -586,6 +586,19 @@ h1#story-title {
   display: collapse;
 }
 
+.flash {
+    animation-name: flash;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {background-color: black; color: white}
+    to {background-color: white; color: black}
+}
 
 :: Story JavaScript [script]
 /* twine-user-script #1: "Story JavaScript" */
@@ -7797,7 +7810,7 @@ Determines the measurement system used in the game.
             You blush, still embarrassed, and get on your way.`
 	},
 	{
-		name: 'NatSavedByProtagonist',
+		name: 'NatSavedByProtagonist-1',
 		locationTags: ['FIXME'],
 		conditions: [() => 'FIXME'],
 		repeatable: false,
@@ -7815,9 +7828,17 @@ Determines the measurement system used in the game.
             CRASH!!!
             As you come to, you find yourself surrounded by the fallen boxes, on top of a VERY firm torso.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow, owwwww… my hand!"<</Dialogue>><br><br>
-            As <<rivalI>> opens <<rivalMy>> eyes, your noses almost touching, your gazes meet… and the two of you remember something that happened many years ago…<br><br>
-            You were 8 years old, having fun with your neighbor in the nearby woods. <<RivalI>> teased you for being a scaredy cat, and you decided to prove <<rivalMy>> wrong by climbing a tall tree. You were doing pretty well, too… but a squirrel ran past your hand… and you just remember the world turning into a blur.<br><br>
-            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<RivalI>> leans on top of you, hugging you and apologizing…<br><br>
+            As <<rivalI>> opens <<rivalMy>> eyes, your noses almost touching, your gazes meet… and the two of you remember something that happened many years ago…<<link "continue">><<playNatEvent"NatSavedByProtagonist-2">><</link>>`
+	},{
+		name: 'NatSavedByProtagonist-2',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `<div class="flash">You were 8 years old, having fun with your neighbor in the nearby woods. <<RivalI>> teased you for being a scaredy cat, and you decided to prove <<rivalMy>> wrong by climbing a tall tree. You were doing pretty well, too… but a squirrel ran past your hand… and you just remember the world turning into a blur.<br><br>
+            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<RivalI>> leans on top of you, hugging you and apologizing…<br><br></div>
             <<Dialogue "player" "You">>"Nat?!?"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow… <<print $playerFirstName>>?!?"<</Dialogue>><br><br>
             You get off Nat's chest, and <<rivalI>>'s still rubbing <<rivalMy>> left wrist. <<RivalI>> seems to have landed awkwardly on it.<br><br>
