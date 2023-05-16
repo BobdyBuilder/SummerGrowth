@@ -8008,6 +8008,166 @@ Determines the measurement system used in the game.
                     <</link>>
                 </span>
             <</if>>`
+	},
+    {
+		name: 'NatModelingGig',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `You get a text message from Nat - <<rivalMy>> modeling gig is coming up, and the message includes the place and the time. Huh… you were expecting some fancy building in the office district, your mind bringing flashbacks of a fashion magazine like you saw in that movie. Instead, it seems like it's in a more run-down part of town? Weird!<br><br>
+You make your way to the address, which is signaled by a bunch of trucks in front - probably the crew and their equipment and props… parked in front of an abandoned car mechanic shop? It's really not what you expected.<br><br>
+You go in and find the hubbub of dozens of members of the crew buzzing like bees everywhere. You try to be discreet as you make your way through all the chaos, where they are setting up around a very modern and expensive-looking car. You eventually spot Nat, sitting down on a chair, a make-up artist working on <<rivalMy>> <<if $rivalGender === 'male'>>bare<<else>>exposed<</if>> torso.<br><br>
+<<Dialogue "player" "You">>"Hey, there, Nat! Am I interrupting?"<</Dialogue>><br><br>
+It's very weird, they are applying regular make-up, but also painting very dramatic black smears that look like axle grease all over <<rivalMy>> body.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, <<print $playerFirstName>>. No, no worries, the make up takes a bit, and I really don't have much to do, so I could use the company."<</Dialogue>><br><br>
+Nat introduces you to the make-up girl and some other members of the team, who are very nice to you, despite being clearly very busy.<br><br>
+<<Dialogue "player" "You">>"I have to say, I never expected there would be these many people in a photo shoot - and certainly not this much work!"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, it varies, but this is a big deal - they are unveiling this high-end car prototype in a fashion magazine - it's all very hush-hush, so they had to do it somewhere inconspicuous. But at the same time, there's a lot of money riding on this one - it's going to be great for my career! It could very well be my big break!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wow, that's VERY exciting! Thanks for inviting me over!"<</Dialogue>><br><br>
+You are offered a chair, but the energy there is so electric you kind have to keep standing - you can barely stand still as is, watching as dozens of different people set up lights, prepare the set, coordinate with other departments and clients - and there's also a very generous and tasty-looking catering service which makes your stomach rumble. You never thought modeling could be so cool and exciting!<br><br>
+<<Dialogue "randomPerson" "Art Director">>"<<rivalName>>, darling, have you tried the jumpsuit yet? The photographer would like to have a look!"<</Dialogue>><br><br>
+This very nicely-dressed woman walks into the make-up station, holding a big folder and a clipboard in her hand, and an earpiece in her ear.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Just a sec, I should be ready for wardrobe soon, I think."<</Dialogue>><br><br>
+<<if $muscle >= 50 && $breasts >= 45 && $fat <=25>>
+    <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
+    Nat introduces you to the art director, who can't stop staring at you.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Your… muscular physique… this POWER you exude… wait… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
+    A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this Greek goddess here? I need to send a preview to the client… I think this will work wonder!"<</Dialogue>><br><br>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+
+<<elseif $muscle >= 35 && $breasts >= 40 && $height >= 185 && $fat <=25 >>
+    <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
+    Nat introduces you to the art director, who can't stop staring at you.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Hmmm… looking at the two of you… this raw vibe of fury from your fitness… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
+    A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this statuesque athlete here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+
+<<elseif $hipsSize >= 50 && $breasts >= 40 && $height >= 180 && $fat <=25 >>
+    <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
+    Nat introduces you to the art director, who can't stop staring at you.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Hmmm… girl, your proportions… sexy sells, and you, my darling, have a body that could sell umbrellas in the Sahara… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
+    A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this supermodel-in-the-making here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+    
+<<elseif $height >= 180 && $fat <=20 && $skills[4].level > 2 && $shyConfident > 1>>
+    <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
+    Nat introduces you to the art director, who can't stop staring at you.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Hmmm… girl, I've discovered many models in my time, and YOU… you have IT! I can't let an opportunity like that pass me by… WARDROOOOOBE!!!"<</Dialogue>><br><br>
+    A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
+    <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit our next great up-and-coming supermodel here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+
+<<else>>
+    <<Dialogue "randomPerson" "Art Director">>"Well, you didn't tell me you were going to bring your girlfriend to the shoot."<</Dialogue>><br><br>
+    You and Nat quickly dismiss the notion that you are dating, in a clumsy and embarrassed fashion. It's actually kinda cute.<br><br><<link "continue">><<playNatEvent "NatModelingGig-NonModelPath">><</link>>
+<</if>>`
+	},
+    {
+		name: 'NatModelingGig-ModelPath',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `<<rivalName>> seems to fidget on <<rivalMy>> seat from this development, which is quite a difference from <<rivalMy>> complete peace before. The art director continues to appraise you and even take some candid shots with her phone as she mumbles to herself and takes notes. This feels a bit weird, to be sincere… but you don't want to be any more disruptive of this environment you've been invited to.<br><br>
+Soon the wardrobe girl comes back with an enormous frayed denim jumpsuit. 
+<<if $height >= 180 && $fat <=20 && $skills[4].level > 2 && $shyConfident > 1>>
+Before you can properly react, she's taking off your <<print outfit.top().name>> and <<print outfit.bottom().name>>, which leads the art director to just gasp at your alluring aura. Before handing you the jumpsuit, she has you giving a walk and a spin in your underwear. And without hesitation, you do it and just KILL IT. She's in pure awe of your presence, and won't shut up about your “It” factor.<br><br>
+You nab the jumpsuit from the wardrobe girl, and find yourself donning it in a sexy fashion almost instinctively - keeping the front open.
+<<elseif $muscle >= 50 && $breasts >= 45 && $fat <=25>>
+Before you can properly react, she's taking off your <<print outfit.top().name>> and <<print outfit.bottom().name>> (which, incidentally, makes the art director stare at you even more, and even give some of your muscles a quick rub of admiration), and trying to put on the jumpsuit.<br><br>
+<<elseif $muscle >= 35 && $breasts >= 40 && $height >= 185 && $fat <=25 >>
+Before you can properly react, she's taking off your <<print outfit.top().name>> and <<print outfit.bottom().name>> (a process the art director watches intently, amazed at your figure and fitness), and trying to put on the jumpsuit.<br><br>
+<<elseif $hipsSize >= 50 && $breasts >= 40 && $height >= 180 && $fat <=25 >>
+Before you can properly react, she's taking off your <<print outfit.top().name>> and <<print outfit.bottom().name>> (a process the art director watches intently, amazed at your incredibly alluring female figure), and trying to put on the jumpsuit.<br><br>
+<</if>>
+The process turns out to be more involved than you expected. Their plan is to keep the front zipper open, so she needs to carefully tape both sides to your shoulders and breasts - you never expected this to be a thing, but the wardrobe girl explains they do it all the time. <<if $muscle > 65>>She also discovers that any hope of getting your gigantic arms through the sleeves might be impossible. Since you notice that they are going for the frayed look anyway, with the entire piece being carefully weathered all over, you ask for their permission and just rip both sleeves away like they were made of paper (which makes the wardrobe girl gasp and get flushed).<</if>><br><br>
+As you finally get the jumpsuit on, the art director goes nuts, taking several pictures on her phone and saying a bunch of things out loud that you assume to be compliments, but you can't decipher more than half of them. You look at yourself in the mirror - and, boy, do you look HOT!
+One person from the make-up team stops working on Nat to work on you, which clearly irritates <<rivalMe>>, as they seat you by <<rivalMy>> side.<br><br>
+<<Dialogue "randomPerson" "Art Director">>"<<print $playerFirstName>>, I am not taking ‘no' for an answer, you MUST feature in this shoot with Nat. The two of you will look GORGEOUS. I will match <<rivalMy>> salary if I have to, and will have a contract in here for you to sign shortly."<</Dialogue>><br><br>
+Well, that escalated quickly. Things literally flash before your eyes, and when you finally realize what just happened, you and Nat are posing in front of the car.
+<<if $skills[4].level > 2 && $shyConfident > 1>>
+Somehow, you feel right at home, and without putting any effort, you find yourself in the sexiest poses you could possibly imagine. The camera just naturally gravitates towards you all the time, which makes Nat increasingly irritated as you quickly become the focus of the shoot instead of <<rivalMe>>, who is now playing second fiddle.<<set $flagNa6Route = 1>>
+<<elseif $muscle >= 50 || $breasts >= 40 || $height >= 180 || $hipsSize >= 50>>
+It takes a little bit for you to figure it out, but with the help of the amazing photographer and director, you quickly find out that your physical gifts allow you to stand just as prominently in the shoot as Nat. They alternate between the two of you, emphasizing each one's best assets. The director makes it a point to have you interact with each other <<if $shyConfident >1>> and the chemistry is instantaneous, resulting in very tantalizing poses that make everyone there drool.<<else>> despite it making you a bit uncomfortable - but Nat is so professional that <<rivalI>> manages to make it work.<</if>><<set $flagNa6Route = 2>>
+<<elseif $shyConfident < 0 && $skills[4].level < 2>>
+You try your hardest, but despite your good looks, actually being in a revealing outfit in front of so many people makes you pretty uncomfortable. Nat is forced to pick up the slack, which <<rivalI>> does effortlessly and magnifically: you end up being sort of background window dressing to <<rivalMy>> starring role in the shoot - which suits you well enough. At times, the director has the two of you interacting directly with one another, which makes you very thankful for the heavy make-up, because you suspect your cheeks might be PURPLE under all that as they pose you rubbing <<rivalMy>> <<if $rivalGender === 'male'>>muscular chest<<else>>prominent abs and forearms<</if>>.<<set $flagNa6Route = 3>>
+<<else>>
+The shoot is an incredible experience - Nat shines as the star, and you just help prop <<rivalMe>> up with your own great assets. The photographer and director are much more demanding of <<rivalMe>>… obviously… but they take great care in using you in the background, and you realize working as a model IS indeed as hard as you expected, maybe even more so. Yet, you have fun doing it.<<set $flagNa6Route = 3>>
+<</if>>
+<<if $muscle >= 75 && $shyConfident > 2>>
+As the shoot is coming to an end, the director asks for a last shot of Nat laying under the car, as you watch from over the hood. However, they realize they don't have enough clearance for a proper shot - so the assistant is called to bring in a jack to lift the car.<br><br>
+<<Dialogue "player" "You">>"Actually… do you guys have the rest of the shot set up already?"<</Dialogue>><br><br>
+When the director confirms that they do, you decide to play a little bit.<br><br>
+<<Dialogue "player" "You">>"Well, then, no need to go get the jack!"<</Dialogue>><br><br>
+You reach under the shocks and just lift the entire front of the car, your shoulders and arms bulging to unbelievable proportions. It's really heavy and quite a bit of effort, but you make a point of making it look absolutely effortless, smiling at the camera.<br><br>
+The director literally spits her expensive soy latte as she immediately instructs the photographer to take as many shots as he can. After they are done, you put the car back down and the entire crew claps - which prompts you to make a few muscle poses and take a bow, which only makes them clap even longer and harder.
+<</if>>
+With the shooting done, the photographer and director come to congratulate the two of you.<br><br>
+
+<<if $flagNa6Route === 1>>
+    <<Dialogue "randomPerson" "Art Director">>"So, <<print $playerFirstName>>, do you have an agent already? Because, if you don't, you MUST let me suggest someone - it's a SIN that you are not in this business professionally yet. Because I know I will be requesting you again…"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, you were great."<</Dialogue>><br><br>
+    Nat says that rather unenthusiastically - probably just to please the director, you suspect. No matter, you feel like a million bucks right now.<br><br>
+    The assistant proceeds to get your details for payment (and maybe even future gigs, you hope?) while they give Nat some feedback. <<rivalI>> just nods irritably, despite getting a lot of compliments.<br><br>
+    As they are done, the two of you go back to the dressing area to put your street clothes back on and remove the make-up.<br><br>
+    <<Dialogue "player" "You">>"Wow, Nat, I can't thank you enough - this was an amazing experience!"<</Dialogue>><br><br> 
+    Nat grumbles.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I just wish it had been a more professional one, these guys were acting like amateurs today… I'm not thrilled."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Really? I thought everyone was super-nice and worked very hard… uh, I guess I really don't know much about the business."<</Dialogue>><br><br> 
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, that goes without saying…"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Excuse me?"<</Dialogue>><br><br>
+    You don't appreciate that indirect dig, but decide to let it go, Nat's clearly in a very sour mood.
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Nah, it's nothing. I really should be going. There's going to be some taping of the documentary soon, and I need to just dive into my training routine so I can be ready."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Oh, that sounds cool too! Do let me know, I'd like to be there!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Sure, whatever."<</Dialogue>><br><br>
+    Nat just finishes dressing up and leaves without saying another word. Huh.
+
+<<elseif $flagNa6Route === 2>>
+    <<Dialogue "randomPerson" "Art Director">>"Wow, you two work great together. <<rivalName>>, does your agent also represent her? Because, if not, I would get them in touch - you two would make an incredible package deal!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Uh, I guess I could introduce them..."<</Dialogue>><br><br>
+    The director proceeds to give feedback to you two, mostly complimenting your synergy and how well the session went. Nat seems uneasy at sharing the credit, but tries to do so as gracefully as <<rivalI>> can.<br><br>
+    As they are done, the two of you go back to the dressing area to put your street clothes back on and remove the make-up.<br><br>
+    <<Dialogue "player" "You">>"Wow, Nat, I can't thank you enough - this was an amazing experience!"<</Dialogue>><br><br> 
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"It was alright. I've been to better ones, though."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Really? I thought everyone was super-nice and worked very hard… uh, I guess I really don't know much about the business."<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it wasn't as great as some other ones, I can assure you of that."<</Dialogue>><br><br>
+    <<rivalI>> clearly is bothered, and you decide not to probe further.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, thanks for stopping by, but I really should be going. There's going to be some taping of the documentary soon, and I need to just dive into my training routine so I can be ready."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Oh, that sounds cool too! Do let me know, I'd like to be there!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, I'll drop you a line or something."<</Dialogue>><br><br>
+    Nat just finishes dressing up and leaves with a curt “bye”.
+
+<<else>> /* $flagNa6Route === 3 */
+    <<Dialogue "randomPerson" "Art Director">>"See, <<print $playerFirstName>>, that's why we pay <<rivalName>> the big bucks!"<</Dialogue>><br><br>
+    You nod, proud of your friend, who gladly accepts the praise. The director proceeds to give feedback, mostly positive, and reinforcing just how good Nat is at <<rivalMy>> job. It's a joy to see, really, and you find yourself learning a lot from it.<br><br>
+    As they are done, the two of you go back to the dressing area to put your street clothes back on and remove the make-up.<br><br>
+    <<Dialogue "player" "You">>"Wow, Nat, I can't thank you enough - this was an amazing experience!"<</Dialogue>><br><br> 
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"It was fun, right? I'm glad you could participate! Believe me, this doesn't happen everyday."<</Dialogue>><br><br>
+    The two of you share your favorite moments among laughs, and it makes you miss the time you spent with Nat when you were kids. There was something magical about your friendship, and the feeling of nostalgia and satisfaction is just amazing.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, that was awesome and all, but I really should be going. There's going to be some taping of the documentary soon, and I need to just dive into my training routine so I can be ready."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Oh, that sounds cool too! Do let me know, I'd like to be there!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Of course, I can always use someone like you for support!"<</Dialogue>><br><br>
+    Nat just finishes dressing up and gives you a warm hug before leaving.
+<</if>>
+With a nice unexpected paycheck in hand, you head back home.`
+	},
+    {
+		name: 'NatModelingGig-NonModelPath',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: ``
 	}
 )>>
 
@@ -14542,10 +14702,10 @@ $(document).on(':passageinit', function (ev) {
 }>>
 
 
-:: PlayEvent [widget nobr] {"position":"550,2300","size":"100,100"}
-<<widget "PlayEvent">>
+:: playNatEvent [widget nobr] {"position":"550,2300","size":"100,100"}
+<<widget "playNatEvent">>
     <<script>>
-        SugarCube.State.setVar( '$currentEvent', SugarCube.setup.events.find((event) => event.name === SugarCube.State.getVar('_args')[0]) );
+        SugarCube.State.setVar( '$currentEvent', SugarCube.setup.natEvents.find((event) => event.name === SugarCube.State.getVar('_args')[0]) );
         SugarCube.Engine.play('eventPassage');
     <</script>>
 <</widget>>

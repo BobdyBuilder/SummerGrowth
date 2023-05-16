@@ -324,7 +324,7 @@ sugarcube-2:
       name: rivalMine
     RivalMine:
       name: RivalMine
-    PlayEvent:
-      name: PlayEvent
+    playNatEvent:
+      name: playNatEvent
       parameters:
         - string
