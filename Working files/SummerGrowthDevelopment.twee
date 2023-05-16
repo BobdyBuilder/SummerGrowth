@@ -7871,6 +7871,143 @@ Determines the measurement system used in the game.
             <</if>>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it was great seeing you. And looking forward to the next time!"<</Dialogue>><br><br>
             And with that, you say your goodbyes and leave.`
+	},
+    {
+		name: 'NatFirstTapingBodybuildingDocumentary',
+		locationTags: ['FIXME'],
+		conditions: [() => 'FIXME'],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `Today is the day! You promised to meet Nat in front of City Hall, where the documentary crew is supposed to meet all participants. You leave, wondering what that is going to be like… a whole film crew and dozens of wannabe bodybuilders? You suppose you could do worse for your day.<br><br>
+            As you arrive, you are somewhat surprised at how small the film crew is: one guy with a camera, the director, and her assistant. On the other hand, there are indeed dozens of bodybuilders of all sizes, genders and styles… some came dressed casually, some are trying to look sharp with fancier clothes - and a handful came in swimsuits and full painted-tan regalia - you were not expecting that.<br><br>
+            You quickly spot Nat in the crowd. <<RivalI>>'s not wearing the nice dress shirt from last time, but a very stylish sleeveless hoodie and running shorts, and you have no doubt that <<rivalI>> is taking this very seriously: <<rivalI>> sports rugby ball-sized biceps that are super defined, a chest and abs that stretch the hoodie taut, and <<rivalMy>> legs… damn… <<rivalI>> certainly has NOT been skipping leg day!<br><br>
+            <<if $carefreeCarefull < -1>>
+                <<Dialogue "player" "You">>"Hey, there, <<if $rivalGender === 'male'>>stud<<else>>babe<</if>>!"<</Dialogue>><br><br>
+                You say, approaching <<rivalMy>> from behind as you give <<rivalMy>> arm a very firm squeeze. It is as hard as it looks.<br><br>
+            <<else>>
+                You poke Nat on the back, and <<rivalI>> turns to see you.<br><br>
+            <</if>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, you came, <<print $playerFirstName>>!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I said I would, didn't I?"<</Dialogue>><br><br>
+            Nat smiles, happy to see you.<br><br>
+            <<Dialogue "player" "You">>"Wow, your training has been paying off, huh? You look great!"<</Dialogue>><br><br>
+            Nat gives <<rivalMy>> arm and chest a squeeze, and makes a <<if $rivalGender === 'male'>>smoldering<<else>>sultry<</if>> expression - yup, the <<if $rivalGender === 'male'>>guy<<else>>girl<</if>> is a model, alright. Doesn't even seem to be trying.<br><br>
+            <<if $muscle > 60>>
+                You can tell setup.getRivalName() is trying very hard not to acknowledge your massive size, changing the subject almost entirely with niceties about the weather, but it's impossible not to notice <<rivalMy>> eyes constantly darting to all your major muscle groups instead of your face. <<if $shyConfident > 1>>You purposefully pull your hair back to give <<rivalMy>> a full-on double biceps flex, and <<rivalMy>> eyes bug out - forcing you to resist giggling.<br><br><</if>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Uhhhh… I guess you've been working out as well?"<</Dialogue>><br><br>
+                <<if $shyConfident > 1>>
+                    <<Dialogue "player" "You">>"Oh, these lil muscles here?"<</Dialogue>><br><br>
+                    You start a systematic flexing of every muscle group in your overdeveloped body, enjoying as <<rivalI>> fights to keep <<rivalMy>> jaw shut during the whole show.<br><br>
+                    <<Dialogue "player" "You">>"I suppose I might have gotten a bit strong… wouldn't you say?"<</Dialogue>><br><br>
+                <<elseif $shyConfident > -1 >>
+                    <<Dialogue "player" "You">>"Not gonna lie, it's become a bit of an obsession lately…"<</Dialogue>><br><br>
+                    You bring your flexed biceps in front of your chest and feel it with your other hand. Damn, sometimes you even surprise yourself with how bulky and firm it feels! Nat audibly gulps.
+                <<else>>
+                    <<Dialogue "player" "You">>"Oh… I guess I have… but really, nothing quite like what YOU accomplished…"<</Dialogue>><br><br>
+                    You blush, trying not to stare at <<rivalMy>> yummy abs poking through the fabric.
+                <</if>>
+            <<elseif $muscle > 40>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"You ain't looking so bad yourself… though… I could SWEAR you didn't look nearly this big last time I saw you…"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Hehe… I guess I've been working hard too…"<</Dialogue>><br><br>
+                <<if $carefreeCarefull < -1>>
+                    You give <<rivalMy>> a wink and continue:<br><br>
+                    <<Dialogue "player" "You">>"I suppose SOMEONE might have motivated me…"<</Dialogue>><br><br>
+                <</if>>
+            <</if>>
+            setup.getRivalName() proceeds to explain that the producers invited all participants to come over and sign their respective release forms to be in the documentary, and get everyone's contacts and even possibly start scheduling some filming.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"So everyone received a number, and they are going one by one - I'm 45…"<</Dialogue>><br><br>
+            <<RivalI>> shows you the sheet with the large digits on it.<br><br>
+            <<Dialogue "player" "You">>"That's pretty cool… though, if you are a model, I guess this must feel just like any day to you."<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Not really, it's usually a lot more intense, tight schedules and all. I'm kinda just hanging out, so… it's cool having a familiar face here to pass the time."<</Dialogue>><br><br>
+            You two catch up a bit more - you tell <<rivalMy>> about your antics at the new apartment, <<rivalI>> tells you about <<rivalMy>> demanding coach, until…<br><br>
+            <<Dialogue "randomPerson" "Random guy">>"Number 45!"<</Dialogue>><br><br>
+            Nat raises <<rivalMy>> hand, and the director comes over.<br><br>
+            <<if $muscle < 45>>
+                <<RivalI>> gives a good look at Nat.<br><br>
+                <<Dialogue "randomPerson" "Random guy">>"Interesting - not exactly heavy weight material, but what you lack in size and symmetry, you make up in looks - I could see you in a crossfit spread in a heartbeat!"<</Dialogue>><br><br>
+                You'd be glowing with pride at such a comment, but Nat seems almost insulted.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"There's still quite a bit of time until the competition, and I've got a solid base, besides, what do you even know about bodybuilding?"<</Dialogue>><br><br>
+                Uh-oh. This time it's the director that is getting indignant. She shoves the clipboard with the release form on Nat's chest quite aggressively.<br><br>
+                <<Dialogue "randomPerson" "Random guy">>"Do you even know who you are speaking with? I'm one of the top 5 fitness photographers in the country. I know my shit, alright? I definitely have big plans for you in the documentary - but you better lose the attitude."<</Dialogue>><br><br>
+                Nat clearly has a temper and an ego, and so does the director. You figure you might want to intervene…<br><br>
+                <<Dialogue "player" "You">>"Oh, you should see <<rivalMy>> as a kid - <<rivalI>> was a completely stick figure - if <<rivalI>>'s gotten this far, I'm confident <<rivalI>>'ll wow you at the contest."<</Dialogue>><br><br>
+                Both of them “hmph” at each other, before the director leaves with the clipboard.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"How DARE she treat me like this?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Well, you weren't exactly a peach either… but I'm sure that's just the whole reality TV drama vibe, I wouldn't worry about it too much. Besides, I know you are going to shine."<</Dialogue>><br><br>
+                You imagine Nat with the muscle <<rivalI>>'ll probably be putting over the course of the next few months. You need to control yourself not to salivate a bit.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I guess you are right. Still… at least, looking around, the competition isn't TOO bad. I'm confident I will surpass everyone by the time the contest comes."<</Dialogue>><br><br>
+                <<RivalI>> certainly is sure of <<rivalMy>>self.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Anyway, I want to get some more training in today, so I'll be heading home. Thanks for stopping by."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Oh, believe me, it was my pleasure! I'll see you around!"<</Dialogue>><br><br>
+                And with that, both of you leave. But you can't help but feel something awakening inside of you. Seeing all these muscular people… there was such an energy there… you feel yourself buzzing on the inside - not only from being aroused by these magnificent physiques, but as if your own body is fighting with itself, inspired by all of this.<br><br>
+                Nah, must just be your imagination.
+                <<link "Continue" $currentScene>><</link>>
+            <<else>>
+                However, she doesn't face Nat, but you.<br><br>
+                /* <<SET DOCNOTICE FLAG>> */
+                <<Dialogue "randomPerson" "Random guy">>"Wow! You look amazing! What's your name?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Errrr… no, I'm not the participant, it's him!"<</Dialogue>><br><br>
+                The director inspects the two of you.<br><br>
+                <<Dialogue "randomPerson" "Random guy">>"I mean, sure, <<rivalI>>'s got that <<if $rivalGender === 'male'>>male<<else>>crossfit<</if>> model thing going, but… let me tell you, I'm a fitness photographer, and you are SIZZLING, girl! Are you sure you are not competing? I can get you a form and we can have you in…"<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey! Um, it's… still my turn, though, right? Aren't we at least going to get my release form and get me processed?"<</Dialogue>><br><br>
+                <<Dialogue "randomPerson" "Random guy">>"Sure, sure… just give me a second, honey… you, have my card, if you are not going to get processed right now, I want you to have it, in case you change your mind later and decide to compete - I MUST have you in the documentary."<</Dialogue>><br><br>
+                She is being incredibly dismissive of Nat, and you can see how irritated <<rivalI>> got with that. <<RivalMy>> whole body language changed, and you are feeling quite awkward. You grab the card and pocket it.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"So, where's my form?"<</Dialogue>><br><br>
+                Nat says, quite irritated.<br><br>
+                The director just gives <<rivalMy>> the clipboard, but continues just sizing you up while Nat fills it out. <<RivalI>>'s clearly getting more worked up.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Here, are you doing some testimonials or any taping today?"<</Dialogue>><br><br>
+                The director grabs the clipboard and gives him a generic answer and goes back to her list.<br><br>
+                setup.getRivalName() is visibly uncomfortable now, and trying not to direct <<rivalMy>> frustration at you… but <<rivalI>>'s not really dealing with it well.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"If they are going to treat their documentary subjects like this - I don't think it will go well for them."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"I mean, she seemed nice… she's probably just busy…"<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, at least you won't be competing, so I don't have to worry about not getting my deserved spot in the film whenever we are together..."<</Dialogue>><br><br>
+
+                <span id="choice">
+                    <<PersonalityCheck $shyConfident >= 1 "Actually, competing doesn't sound like the worst idea…">>
+                        <<replace "#choice">>
+                            /* <<SET COMPETEBB FLAG>> */
+                            <<Dialogue "player" "You">>"Well, actually, I've been dabbling a bit in weight training, and I'm kind of an easy gainer…"<</Dialogue>><br><br>
+                            You do a tentative double biceps pose, and notice several eyes turning your way in the crowd. Quite a few females seem downright intimidated.<br><br>
+                            <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, sure, you could probably place in <<if $rivalGender === 'male'>>the female<<else>>a lighter<</if>> division, you certainly look good. But let's face it, I've known since you were a kid - you are not cut for the bodybuilding lifestyle, <<print $playerFirstName>>."<</Dialogue>><br><br>
+                            <<Dialogue "player" "You">>"Nat, you certainly changed - you were a stick figure and you were never really dedicated to anything before. I can barely recognize you now, so… you know, don't go making assumptions about me."<</Dialogue>><br><br>
+                            <<Dialogue setup.getRivalName() setup.getRivalName()>>"This is different, though. Bodybuilding is all about dedication, sacrifice, determination and commitment. True grit. I know you are a hard worker, but this is not just a hobby, it's literally a lifestyle."<</Dialogue>><br><br>
+                            <<Dialogue "player" "You">>"Well, maybe it WILL be my lifestyle too. Maybe I should look into how to sign in for the competition…"<</Dialogue>><br><br>
+                            setup.getRivalName() lets out a loud hmph. You can't help but feel a bit judged here, and that <<rivalI>>'s acting quite childishly… but you assume it's just the nerves from this whole documentary thing.<br><br>
+                            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I should be going. There's some hard training ahead of me… I'm SURE you understand."<</Dialogue>><br><br>
+                            The sarcasm in <<rivalMy>> voice is mildly grating. You give <<rivalMy>> a forced smile, and go on your way.<br><br>
+                            And you are just itching to lift some truly heavy iron in the near future.
+                            <<link "Continue" $currentScene>><</link>>
+                        <</replace>>
+                    <<Failed>>
+                        <<replace "#choice">>
+                            You give your arm a firm squeeze. Huh… you ARE pretty beefy, aren't you…<br><br>
+                            <<Dialogue "player" "You">>"I don't know, seeing all these people, I guess it could be fun!"<</Dialogue>><br><br>
+                            setup.getRivalName() laughs at your affirmation.<br><br>
+                            <<Dialogue setup.getRivalName() setup.getRivalName()>>"THAT will be the day… I'm laughing just thinking of little dainty <<print $playerFirstName>> at the gym, not even sure what dumbbell to pick…"<</Dialogue>><br><br>
+                            You blush with embarrassment, but also a hint of anger - but find yourself unable to respond.<br><br>
+                            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Anyway, I want to get some more training in today, so I'll be heading home. Thanks for stopping by."<</Dialogue>><br><br>
+                            And with that, you two return to your respective apartments.
+                            <<link "Continue" $currentScene>><</link>>
+                        <</replace>>
+                    <</PersonalityCheck>>
+
+                    <<link "Haha, can you imagine me, in a bodybuilding competition?">>
+                        <<replace "#choice">>
+                            <<Dialogue "player" "You">>"Haha! Yeah, can you imagine ME in a bodybuilding competition?!?!"<</Dialogue>><br><br>
+                            You laugh with <<rivalMy>>. I mean, <<rivalI>>'s right… right? <<if $rivalGender === 'male'>>You're just a girl<<else>>You've just begun exercising<</if>>, what do you know about bodybuilding? Sure, you've gotten pretty strong… and these muscles you've been putting on are pretty big… but bodybuilding?<br><br>
+                            Still… there's something stirring inside of you. Like a caged beast, snapping against its captor. You notice your heart beating faster, your breathing getting deeper. Your muscles seem to tense with a mind of their own, getting more pumped and defined just from this whole thing going on inside your head now…<br><br>
+                            <<Dialogue setup.getRivalName() setup.getRivalName()>>"... right, <<print $playerFirstName>>?"<</Dialogue>><br><br>
+                            <<Dialogue "player" "You">>"Oh, absolutely."<</Dialogue>><br><br>
+                            You have no idea what you just agreed to.<br><br>
+                            <<Dialogue "player" "You">>"Cool, so I'll call you for the next taping! But I really should get going, there's plenty of time for more training today!"<</Dialogue>><br><br>
+                            And before you answer, <<rivalI>> runs off. You start heading home as well, feeling your muscles contemplatively all the way home.
+                            <<link "Continue" $currentScene>><</link>>
+                        <</replace>>
+                    <</link>>
+                </span>
+            <</if>>`
 	}
 )>>
 
