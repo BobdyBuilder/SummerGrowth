@@ -3341,9 +3341,221 @@ $(".macro-live").trigger(":liveupdateinternal");
 <br><br>
 <</if>>
 
+<<if $furniture.contains("distilation still")>>
+<<link "Go use your lab" "Lab">><</link>>
+<</if>>
+
 
 <<link "Go back" "Home">><</link>>
 
+:: Lab [nobr home] {"position":"1225,900","size":"100,100"}
+<<if $fullBrewingUnlocked is true>>
+
+<<else>>
+Well, here you are. At your new chemistry still; it makes your kitchen look more like a junkey's lab than a normal ktichen, but hey you're in college. Time to experiment right! Now, tasha taught you how to do the basics. Time to put a potion in here, and have some fun!
+
+<br><br>
+
+<<set _potions to $consumables.filter(potion => potion.amount > 0).map(x => x.name + " (" + x.amount + ")")>>
+<<set _selectionPotionName to 0>>
+<<set _selectedIngredientName to 0>>
+<<set _selectedPotion to function() {
+    for (let i = 0; i < State.variables.consumables.length; i++) {
+        if(State.variables.consumables[i].name  + " (" + State.variables.consumables[i].amount + ")" == State.temporary.selectionPotionName){
+            return State.variables.consumables[i];
+        }         
+    }   
+}>>
+
+<<set _ingredientsDisplay to function() {
+    var list = State.variables.potionIngredients.slice();;
+
+    var count = {};
+    list.reduce((prev, next) => {
+        count[next] = (count[next] || 0) + 1;
+        return prev;
+    }, {});
+
+    var displayList = [];
+
+    for (const key in count) {
+        displayList.push(key + " (" + count[key] + ")");
+    }
+    return displayList;
+}>>
+
+<<set _ingredientAndPotionsDisplay to function() {
+    var list = State.variables.potionIngredients.slice();;
+
+    var count = {};
+    list.reduce((prev, next) => {
+        count[next] = (count[next] || 0) + 1;
+        return prev;
+    }, {});
+
+    var displayList = [];
+
+    for (const key in count) {
+        displayList.push(key + " (" + count[key] + ")");
+    }
+
+    for (let i = 0; i < State.variables.consumables.length; i++) {
+        if(State.variables.consumables[i].amount > 0){
+            displayList.push(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")");    
+        }         
+    }   
+    return displayList;
+}>>
+
+<<set _displayComponentName to function(position) {
+    if(State.temporary.selectionPotionName == "-"){
+        return "-";
+    }
+    else if(State.variables.potionIngredients.contains(State.temporary.selectedPotion().ingredients[position])){
+        return State.temporary.selectedPotion().ingredients[position];
+    }
+    else{
+        return "???"
+    }
+}>>
+<div id="potionCreation" style="
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+">
+    <div id="leftPortion" style="
+            height: 30vh;
+            width: 50%;
+                border-right: solid;      
+                    border-bottom: solid;   
+        ">
+        <<listbox "_selectedIngredientNameOne">>
+            <<optionsfrom _ingredientAndPotionsDisplay()>>
+        <</listbox>>
+        
+        <<listbox "_selectedIngredientNameTwo">>
+            <<optionsfrom _ingredientAndPotionsDisplay()>>
+        <</listbox>>
+        <br>
+        <h1 style="text-align: center;"><<button "▼">>
+            <<script>>
+var effective = false;
+
+             for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
+                    if(State.temporary.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
+                        State.temporary.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
+                    ){
+                        effective = true;
+                        State.variables.potionIngredientCombinations[i].discovered = true;
+                        State.variables.potionIngredientCombinations[i].effect();
+                        if (Dialog.isOpen() == false) {
+                            var dialog = Dialog.setup("SUCCES!");
+                            new Wikifier(dialog, "You learned a new combination! You note it down;" +
+                                State.temporary.selectedIngredientNameOne + " + " +
+                                State.temporary.selectedIngredientNameTwo + "= <br>" +
+                                 State.variables.potionIngredientCombinations[i].resultDesc
+                            );
+                            Dialog.open();
+                        }
+
+                        break;
+                    }         
+                }
+                
+                if (!effective && Dialog.isOpen() == false) {
+                    var dialog = Dialog.setup("It fizzled");
+                    new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
+                    );
+                    Dialog.open();
+                }
+            <</script>>  
+            <<goto "Lab">> 
+        <</button>></h1>
+        <br>
+        ???
+    </div>
+
+    <div id="rightPortion" style="
+        height: 30vh;
+        width: 50%;
+        border-left: solid;
+        margin-left: 0px;
+        border-bottom: solid;
+    ">
+        <div id="dropdownListBox" style="width: 50%;left: 25%;position: relative;">
+            <<listbox "_selectionPotionName">>
+                <<optionsfrom _potions>>
+            <</listbox>>
+        </div>
+
+        <h1 style="text-align: center;"><<button "▼">>
+            <<script>>        
+                for (let i = 0; i < State.variables.consumables.length; i++) {
+                    if(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")"  == State.temporary.selectionPotionName){
+                        State.variables.consumables[i].amount -= 1;
+                        State.variables.potionIngredients = State.variables.potionIngredients.concat(State.variables.consumables[i].ingredients);
+
+                        if (Dialog.isOpen() == false) {
+                            var dialog = Dialog.setup("Potion distilled");
+                            new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
+                                State.variables.consumables[i].ingredients[0] + "<br> -" +
+                                State.variables.consumables[i].ingredients[1] + "<br> -" +
+                                State.variables.consumables[i].ingredients[2] + "<br> -" +
+                                State.variables.consumables[i].ingredients[3] + "<br>"
+                            );
+                            Dialog.open();
+                        }
+                    }         
+                }   
+            <</script>>
+            <<goto "Lab">>
+        <</button>></h1>
+        <<liveblock>>
+        <table id="store" style="
+                width: 90%;
+                left: 5%;
+                position: relative;
+            ">
+            <tr>
+            <td><<print _displayComponentName(0)>></td>
+            <td><<print _displayComponentName(1)>></td>
+        </tr>
+        <tr>  
+            <td><<print _displayComponentName(2)>></td>
+            <td><<print _displayComponentName(3)>></td>
+        </tr>  
+        </table>
+        <</liveblock>>
+    </div>
+</div>
+
+<table id="store">
+    <tr>
+        <th>Discovered combinations</th>
+    </tr>
+    <<for _i to 0; _i < $potionIngredientCombinations.length; _i ++>>
+        <<capture _i>>
+            <<if $potionIngredientCombinations[_i].discovered == true>>
+                <tr>
+                    <td><<print $potionIngredientCombinations[_i].ingredientOne>> + <<print $potionIngredientCombinations[_i].ingredientTwo>> = <<print $potionIngredientCombinations[_i].resultDesc>></td>
+                </tr>   
+            <</if>>
+        <</capture>>
+    <</for>>
+</table>
+
+
+<<timed 0s>><<script>>
+    $('select#listbox--selectionpotionname').on('change', function () {
+        console.log("got here");
+        $('.macro-live').trigger(':liveupdateinternal');
+    });
+<</script>><</timed>>
+  
+<</if>>
+
+
+<<link "Go back" "Kitchen">><</link>>
 
 :: Bedroom [nobr home] {"position":"1225,900","size":"100,100"}
 The one place in your home that is 100% you: neatly arranged and well decorated, it has quickly become your little corner away from the world. Inside here you can shut out all outside noises and just relax. With a big bed and your desk, you have everything you need. Well, other than perhaps a small fridge.
@@ -4332,6 +4544,10 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 
 <br><br>[Tasha's dialog coming in a later version]
 
+<<if $tashaChemistryProfessorDiscovered>>
+<<link "Ask Tasha about chemistry" "TashaChemistryDiscussion">><</link>><br><br>
+<</if>>>>
+
 <<nobr>>
 <table id="store">
   <tr>
@@ -4354,6 +4570,25 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 	  <<set $money -= 10>>
 	  <<set $fabric += 10>>
 	  <<goto "SecondHandStore">>
+	  <</if>>              
+	  <</link>></span></td>
+	</tr>
+<</if>>
+<<if $potionMakingEquipmentForSale>>
+    <tr>
+	  <td>Chemical distilation still</td>
+	  <td>An industrial looking machine that Tasha has shown you how you can make various distilations with from the strange potions you found. You could fit this in your kitchen; it's a KIND of cooking...?</td>
+	  <td>1</td>
+	  <td>$300</td>
+	  <td><span id="result"><<link "buy">>
+	  <<if 300 > $money>>
+	    <<replace "#result">>You can't afford that.<</replace>>
+    <<elseif $furniture.contains("distilation still")>>
+    You wouldn't need a second still at home.
+	  <<else>>
+        <<set $money -= 300>>
+        <<set $furniture.push("distilation still")>>
+        <<goto "SecondHandStore">>
 	  <</if>>              
 	  <</link>></span></td>
 	</tr>
@@ -4403,6 +4638,68 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 <</linkreplace>>
 
 <<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+:: TashaChemistryDiscussion [] {"position":"2500,1625","size":"100,100"}
+
+As you approach Tasha’s Thrifts, you find the diminutive Tasha trying to accomplish an impossible task. The old lady is effortlessly pushing a large metallic apparatus in front of her store - revealing a wide smile and humming happily as if she’s making huge progress - but she’s just leaning her hands against it and stepping in place, as the heavy weight of the device completely stops her in her tracks.
+You approach her, still in disbelief that she is the mysterious chemistry tutor. Who would’ve guessed? She must be a retired professor from the college. But if you want to ask her some questions, she'll need some help first.
+
+<<Dialogue "player" "You">>"Uh, Tasha, hello. Do you need a hand?"<</Dialogue>>
+
+Without turning around, she just keeps pushing, and nonchalantly responds:
+
+<<Dialogue "Tasha" "Tasha">>"Just give me a second, dear, I’ll have this device back inside the store and I’ll help you after that."<</Dialogue>>
+
+Yeah, this is going nowhere. So it’s time for you to roll up your sleeves and give her a hand. <<if $muscle>=60>>You grab the device by its convenient handles, and lift it, Tasha and all, with ease - thanks to your overdeveloped musculature, since the unrecognizable contraption must easily weigh more than <<if $measurementSystem == 'metric'>>fifty kilos<<else>>a hundred pounds<</if>>.<<elseif $muscle>=40>>You politely ask Tasha to step aside for a second, and grabbing both handles, lift the weighty unknown contraption. It must weigh more than <<if $measurementSystem == 'metric'>>fifty kilos<<else>>a hundred pounds<</if>>, but all your workouts have paid off, and with a little bit of effort, you bring it inside the store, Tasha following you close behind.<<elseif $muscle>=25>>This won’t be easy, but you request Tasha to move aside, and use the handles to tilt the barrel-like metallic contraption on its rim, allowing you to slowly (and with considerable effort, this thing has got to weigh over <<if $measurementSystem == 'metric'>>fifty kilos<<else>>a hundred pounds<</if>>!) to get it inside the store.<<else>>As Tasha pushes it from behind, you grab both handles and pull it from the front. OOPH! It’s gotta weigh over <<if $measurementSystem == 'metric'>>fifty kilos<<else>>a hundred pounds<</if>>!<</if>>
+
+Now that was done, you approach Tasha. <<if $height >= 170>>You tower over her, being careful not to loom too much over her. But where to even begin?
+
+<<Dialogue "player" "You">>"So, Miss. I understand you used to teach at the university here not long ago. Is that correct...?"<</Dialogue>>
+
+Tasha nods in agreement, still looking at you with that same kind smile.
+
+<<Dialogue "player" "You">>"Right... well, I came here because I need some information about chemistry. See, I found these notes and I can't make head or tails of them, but I need to kind of understand them for a... personal project."<</Dialogue>>
+
+While she reads the notes you brought Tasha smiled, a playful hint filling her small figure.
+
+<<Dialogue "Tasha" "Tasha">>"Oh, just in time for class, dear. You can sit down now, class will start shortly."<</Dialogue>>
+
+Tasha moves behind the counter and grabs a piece of chalk, and starts drawing on the wall behind her - which is not a blackboard, but at least is dark enough to make it readable. After reading the note she puts them away, clearly having grasped the material already. She has kindly provided a small student chair with desk, which you immediately make use of. <<if $height >= 190 || $muscle > 40 || $fat > 40>>However, considering your weight... yeah, best not to.<</if>>
+
+<<Dialogue "Tasha" "Tasha">>"Well, kids, today’s class is about one of the most basic procedures in chemistry, dating back to more than a thousand years before Christ. Yes, indeed, we were breaking down liquids through this incredible process so long ago we have tablets from Babylonians in Mesopotamia making use of it. Isn’t that amazing?"<</Dialogue>>
+
+Wow, I guess you should give her more credit, she seems to really know what she’s talking about. She not only has your attention, you are downright mesmerized by what she has to say - she must have been an amazing professor back in the day. She makes everything easy to digest and captivates your attention effortlessly. You lean your chin against your hands as she continues her lecture.
+
+<<Dialogue "Tasha" "Tasha">>"You see, the incredible thing about distillation is that it allows us to separate elements in a liquid mixture using simply evaporation and condensation. You see, different components have different boiling temperatures, and so, by using very controlled heating and cooling, we can make one part of a mixture be completely taken apart from the rest. Like so..."<</Dialogue>>
+
+Tasha produces one of the metallic vials from her pocket. Wait, isn’t that...? Yeah, it’s one of the mysterious potions you’ve been seeing around the town!
+
+Tasha playfully open the device you helped her move in, and pours the liquid inside the barrel through one of its pipes. Then she reaches for one of its controls and starts raising the temperature, which is displayed on a digital readout. She goes on to explain how you can ascertain that there is some component changing its state from liquid to gas by watching how the temperature changes at a different pace once the boiling process has started. Your eyes widen as you watch the steam forming and little droplets appearing on one of the glass pipes. It’s like you are part of some sort of sci-fi story or something.
+
+The purple liquid she poured has turned a deep cerulean blue, and now there’s a red liquid on the glass vial at the end of the pipe. She unscrews the vial from the machine, and drops another liquid she had in her thermos, which results in a bizarre green solution - the smell of which is all the more familiar to you. It reminds you of all the various concoctions you've had so far. Not even one in particular, but all of them at once. It is a potent, strong smell which Tasha seems to ignore completely. 
+
+Tasha smells it, and studies it for a moment. Then she just sets it aside.
+
+<<Dialogue "Tasha" "Tasha">>"As you can see, the distilation has lost most of its properties. But, it can then be combined with perhaps other distilated to create new and exiting chemical solutions!"<</Dialogue>>
+
+Tasha doesn't seem to recognize the possibilities of the... thing she had just made. But, she had also not downed the drink you found in your apartment. There is a good chance she legit can't smell it. But you stand up, and walk towards it while Tasha is tending to the machine as it slowly winds down. As her back is turned, you just dip your finger into it. As you bring it to your mouth, and taste it, you feel an electric shuder travel through you. You feel a shuddering around your mouth, and as you look at your hands you can see the vascularity increase in them as this new concoction burns through them.
+
+Wow, that’s a lot to digest. Wait. Does that mean you can manipulate these concoctions and create new effects? Your mind races as you realize the implications of all of this. But, this is just the distilation. You'll need other devices to also combine the new distilations. 
+
+<<Dialogue "player" "You">>"Tasha? How much do you want for that still? And... do you have any other "<</Dialogue>>
+
+<<Dialogue "Tasha" "Tasha">>"Oh, this old thing? It’s property of the college. I’m sure you understand, right? They're quite specialized."<</Dialogue>>
+
+You slump, dejected. Surely it won’t be easy to find such an elaborate device on just any store...
+
+<<Dialogue "Tasha" "Tasha">>"Three hundred dollars sounds good to you? I got some more surplus here, if you want. Just ask about it."<</Dialogue>>
+
+You point your index fingers at her and just blurt out:
+
+<<Dialogue "player" "You">>"Just a moment, and I’ll get it for you!"<</Dialogue>>
+
+<<link "Continue" "SecondHandStore">><<set $potionMakingEquipmentForSale to true>><</link>>
+
 
 :: bulkBarnJob [fitnessStoreJob noReturnDialog nobr] {"position":"2500,1625","size":"100,100"}
 
@@ -5214,11 +5511,121 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
 <<set $storeOnlineBoughtDelay to []>>
 
 /* Transformables */
+<<set $potionIngredients to []>>
+
+<<set $potionIngredientCombinations to [
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.potionIngredients.push("FatIngredient");
+                State.variables.potionIngredients.push("FatIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'FatIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.potionIngredients.push("MuscleIngredient");
+                State.variables.potionIngredients.push("MuscleIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'MuscleIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'ShyIngredient',
+        effect: () => {State.variables.potionIngredients.push("ConfidentIngredient");
+                State.variables.potionIngredients.push("ConfidentIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'ConfidentIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.potionIngredients.push("ShyIngredient");
+                State.variables.potionIngredients.push("ShyIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'ShyIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'SubmissiveIngredient',
+        effect: () => {State.variables.potionIngredients.push("DominantIngredient");
+                State.variables.potionIngredients.push("DominantIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'DominantIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'DominantIngredient',
+        effect: () => {State.variables.potionIngredients.push("SubmissiveIngredient");
+                State.variables.potionIngredients.push("SubmissiveIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'SubmissiveIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.potionIngredients.push("CarefullIngredient");
+                State.variables.potionIngredients.push("CarefullIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'CarefullIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'CarefullIngredient',
+        effect: () => {State.variables.potionIngredients.push("CarefreeIngredient");
+                State.variables.potionIngredients.push("CarefreeIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'CarefreeIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'SlowIngredient',
+        effect: () => {State.variables.potionIngredients.push("InstantIngredient");
+                State.variables.potionIngredients.push("InstantIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'InstantIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'InstantIngredient',
+        effect: () => {State.variables.potionIngredients.push("SlowIngredient");
+                State.variables.potionIngredients.push("SlowIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'SlowIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.potionIngredients.push("MasculineIngredient");
+                State.variables.potionIngredients.push("MasculineIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'MasculineIngredient (2x)'
+    }
+]>>
+
 <<set $consumables to [
     {
         name: "Taste-improver",
         description: "Right, this is a weird one. It looks similar to the bottle you found in your fridge, but the side effects note \'increased taste and tongue feel\'.",
         transform: "instantTongueGrowth",
+        ingredients: [
+            "CarefreeIngredient",
+            "SubmissiveIngredient",
+            "Opposium",
+            "FeminineIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 30,
@@ -5254,6 +5661,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "END 001A booster",
         description: "Another bottle in the same style of the one you found in your home. On the label is nothing but the weird name, and for some reason some small scribbling noting side-effects such as \'enlarged lips, chest, hips and distraction\'...?",
         transform: "instantBimboJuice",
+        ingredients: [
+            "CarefreeIngredient",
+            "SubmissiveIngredient",
+            "Opposium",
+            "FeminineIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 40,
@@ -5289,6 +5702,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "T-booster 29D",
         description: "Another weird chemical in a bottle, probably from the same source as the one in your room. It feels heavy, and the liquid inside somehow feels heavier, and strong. <b>Better be careful with this one, because it might cause some odd changes if you take too many at once!</b>",
         transform: "instantBullJuice",
+        ingredients: [
+            "DominantIngredient",
+            "Opposium",
+            "FutaIngredient",
+            "MuscleIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 40,
@@ -5324,6 +5743,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Lact-aid",
         description: "It looks like a bottle of milk, except it's just... half full? What the hell? It looks like another bottle of the weird experiment.",
         transform: "instantLactaid",
+        ingredients: [
+            
+        ],
         amount: 0,
         uses: 0,
         price: 30,
@@ -5359,6 +5781,11 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Puberty++, 001C",
         description: "...What an unusually weird name. It's in a fairly standard plastic bottle, but the liquid inside it is... bizarre. Bright orange with white streaks in it, almost like one of those old-fashioned lava lamps. It seems to be swirling in constant in motion, and the smell cannot be described as anything but 'awkward'.",
         transform: "instantPuberty",
+        ingredients: [
+            "HeightIngredient",
+            "InstantIngredient",
+            "SlowIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 50,
@@ -5393,6 +5820,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Muscle Boost 29D",
         description: "This time it's a black can with the words 'muscle booster' in bright red letters. Smelling the liquid almost reminds you of beef jerky, and not in a pleasant way.",
         transform: "instantMuscleBoost",
+        ingredients: [
+            "ConfidentIngredient",
+            "MuscleIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 30,
@@ -5428,6 +5861,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "FA-LOSS 133X",
         description: "The liquid in this bottle looks... thin. Thinner than water, somehow. You have no idea how that can be, but it seems this slim bottle holds quite a surprise.",
         transform: "instantFatLoss",
+        ingredients: [
+            "Opposium",
+            "FatIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 50,
@@ -5463,6 +5902,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "FA-GAIN 23A",
         description: "You wonder how a liquid can look so thick. It's almost like butter, but someone still thicker while being a liquid. It looks strangely appetizing, though!",
         transform: "instantFatGain",
+        ingredients: [
+            "FatIngredient",
+            "Fatingredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 30,
@@ -5498,6 +5943,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "SPHE-GRO-001",
         description: "This liquid is white, chunky, and has floating orbs in it. The look of it is just insane and it starkly contrasts with the plain and simple bottle that contains it. If you didn't see the telltale label, you might've thought this was a miniature lava lamp.",
         transform: "instantBallGrow",
+        ingredients: [
+            "FutaIngredient",
+            "LiquidIngredient",
+            "LiquidIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 50,
@@ -5519,6 +5970,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Girth grow",
         description: "This bottle is THICC. From the outside, it looks like any can of soda, except for the odd proportions and the homemade label. Still, it's weird that how much this bottle feels girthy in your hands.",
         transform: "instantGirthIncrease",
+        ingredients: [
+            "FutaIngredient",
+            "FatIngredient",
+            "HeightIngredient",
+            "FutaIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 50,
@@ -5540,6 +5997,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Erecto-10",
         description: "It's a tall bottle with a vivid blue liquid in it. You half expect it to glow in the dark, but no luck. Why would the bottle have such a long neck, though?",
         transform: "instantErectionIncrease",
+        ingredients: [
+            "HeightIngredient",
+            "HeightIngredient",
+            "SlowIngredient",
+            "FutaIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 50,
@@ -5561,6 +6024,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "B-shrink",
         description: "A simple, small bottle filled with something that feels oddly heavy, almost like it has been compressed.",
         transform: "instantBodyShrink",
+        ingredients: [
+            "Opposium",
+            "HeightIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 10,
@@ -5596,6 +6065,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "B-gr0w",
         description: "An insanely long and tall bottle, filled with a sort of jelly-like drink.",
         transform: "instantBodyGrow",
+        ingredients: [
+            "HeightIngredient",
+            "FatIngredient",
+            "Opposium",
+            "MuscleIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 30,
@@ -5652,6 +6127,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Mot-V10",
         description: "A tin can filled with a bright-green liquid that somehow never quite stops moving.",
         transform: "instantMotivation",
+        ingredients: [
+            "Opposium",
+            "ShyIngredient",
+            "CarefulIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 10,
@@ -5680,6 +6161,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Exhaust-B-g0n3",
         description: "A simple plastic bottle with a vibrant, sugary liquid inside",
         transform: "instantExhaustion",
+        ingredients: [
+            "Opposium",
+            "DominantIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 25,
@@ -5708,6 +6195,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "BRA-SHRINK-T1",
         description: "A surprisingly small, almost condensed bottle that only contains a few drops of a clear liquid, smelling strongly of lemon.",
         transform: "instantBreastShrink",
+        ingredients: [
+            "Opposium",
+            "ShyIngredient",
+            "CarefulIngredient",
+            "InstantIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 10,
@@ -5729,6 +6222,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Milk--",
         description: "At first glance, it smells like a cleaning liquid, but it has a nice, lemony scent to it. Normally, you'd never consider drinking this, but when you think of the other drinks...",
         transform: "instantLactationRemoval",
+        ingredients: [
+            "MuscleIngredient",
+            "MasculineIngredient",
+            "InstantIngredient",
+            "ShyIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 10,
@@ -5750,6 +6249,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Milk++",
         description: "A simple bottle, with a liquid inside it that can only be described as thick, sweet, and incredibly creamy syrup.",
         transform: "instantMilkCapacityIncrease",
+        ingredients: [
+            "Opposium",
+            "DominantIngredient",
+            "HeightIngredient",
+            "LiquidIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 10,
@@ -5771,6 +6276,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Ton-shrink//01",
         description: "This one gives a vibe of being very tasty. It has a bright blue hue and it's in an unremarkable bottle. Frankly, you're almost salivating just looking at it!",
         transform: "instantTongueShrink",
+        ingredients: [
+            "MasculineIngredient",
+            "ShyIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 15,
@@ -5792,6 +6303,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "lip-shrink//XX",
         description: "A small case of lip balm, made of aluminum bearing no distinguishing markings, except for its homemade label.",
         transform: "instantLipShrink",
+        ingredients: [
+            "MuscleIngredient",
+            "HeightIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 10,
@@ -5813,6 +6330,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-Caring",
         description: "An aluminum can filled with a clear, sharp-tasting liquid. The label warns that it can temporarily change your personality.",
         transform: "instantTempCareful",
+        ingredients: [
+            "Opposium",
+            "DominantIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 100,
@@ -5834,6 +6357,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-shy",
         description: "A aluminum can, filled with a pleasantly understated liquid. The label warns that it can temporarily change your personality.",
         transform: "instantTempShy",
+        ingredients: [
+            "SlowIngredient",
+            "DominantIngredient",
+            "CarefulIngredient",
+            "ConfidentIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 100,
@@ -5855,6 +6384,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-Con",
         description: "This aluminum can is filled with something smelling bold and strong. The label warns that it can temporarily change your personality.",
         transform: "instantTempConfidence",
+        ingredients: [
+            "SlowIngredient",
+            "DominantIngredient",
+            "CarefulIngredient",
+            "ConfidentIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 100,
@@ -5876,6 +6411,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-Care",
         description: "A aluminum can with a liquid with the most confounding smell. The label warns that it can temporarily change your personality.",
         transform: "instantTempCarefree",
+        ingredients: [
+            "SlowIngredient",
+            "ShyIngredient",
+            "CarefulIngredient",
+            "ConfidentIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 100,
@@ -5897,6 +6438,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-sub",
         description: "A simple can filled with a liquid that seems to conform to your palate. The label warns that it can temporarily change your personality.",
         transform: "instantTempSubmissive",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "SubmissiveIngredient",
+            "ShyIngredient"
+        ],
         amount: 0,
         uses: 0,
         price: 100,
@@ -22949,13 +23496,7 @@ repeatable: false,
         retriggerable: false,
         priority: 'immediate',
         npc: [],
-        content: `<<set _changes to 0>>Finally you have all the USB files unlocked. There was a lot to take in with them; the growth of this Toshi, and what this means for you. You learned WHY you are growing so much, and how that mysterious drink you had when you moved in here was some sort of 'gene-unlocker'. You sit down on your couch, <<if (($muscle + $fat) * $heightMod) > 100>> and as you forget about your immense weight you simply crush it between you. You didn't even mean to do so, but your body has grown so much that nothing is made for you anymore. <<elseif (($muscle + $fat) * $heightMod) > 70>> making it audibly groan under you. If you keep growing like this nothing will accomodate your size soon. <<else>> letting your growing body rest. <</if>>You do something you havn't done in some time; actually sitting down and taking stock of your growth. <br><br><<if $tongue > 0 || $lips > 0>> You begin with your mouth; before your transformations started you had pretty thin lips and hell, you didn't even think about your tongue. But now... <<if tongue >= 6>><<set _changes += 3>> You tongue has changes to something that looks more like a tentacle than a normal human tongue. You feel the cool air hit it as you let it pass between your lips, wet and dripping with drool. It's gigantic, kinda hot... and definately not human. <<elseif $tongue >= 3>><<set _changes += 2>> Your tongue is inhumanely long and flexible, dripping with drool and so sensative you can almost taste the air as you let it out. Heh, it began kinda funny but now it definately looks gigantic. <<elseif $tongue >= 1>><<set _changes += 1>> Your tongue is big. It looks almost too big for your mouth, but you easily fit it in, somehow. It doesn't look THAT weird to be honest, and you've become quite the kisser with it!<</if>><<if $lips >= 0>>And your lips started as pretty thin, but now they're just... <<if $lips <= 0>>thin<<elseif $lips <= 1>>average<<elseif $lips <= 2>>plump<<elseif $lips <= 3>>kissable<<elseif $lips <= 4>>sensual<<elseif $lips <= 5>>thick<<elseif $lips <= 6>>incredibly full<<else>>huge<</if>>. They look good on you, but its another change to your body you did without really thinking about it.<<set _changes += Math.round($lips * 0.5)>><</if>><</if>><br><br><<if $breasts >= 25>>Your torso also has gone through some changes. Well, your chest.<<if $breasts >= 80>><<set _changes += 3>>What you got sitting on your chest is normally only achievable by either some sort of rare genetic growth thing, or by enough plastic surgery to be a minor enviromental disaster. It dominates your frame, and you wonder again if maybe you havn't gone too far. <<elseif $breasts >= 50>><<set _changes += 1>> You now got some of the biggest breasts in town. In the past you sometimes had tinges of breast envy, but now? Heh, you MIGHT have taken things a bit too far. You cup them, feeling their weight in your hands. Yeah, these are just huge. <<elseif $breasts >= 25>><<set _changes += 1>>Your breasts look pretty nice. Before, they were petite and hardly noticable and now... now they just have a bit of a presence. As you look at them, you smile. Yeah, these certainly are a nice addition.<</if>><<if $lactationUnlocked>><<set _changes += 2>> But lets not forget... you're lactating these days. Producing milk. That certainly isn't normal, and while its enjoyable, its certainly something that is now happening... for better or worse.<</if>><</if>><br><br><<if ['skinny', 'average', 'thin'].includes($bodyType)>><<set _changes -=2>>Your build didn't change much though. Hmm. Very few people would have the opportunity to change their body as much as you could... perhaps... you could be a bit braver.<<elseif ['thick', 'fat', 'heavy'].includes($bodyType)>><<set _changes -= 1>> As for the rest of your body, you've mostly just gained weight. Heh, did you really need nead magical potions for that? You jiggle your tummy a bit. It has a nice but of weight, and you look cute. But... is it the body you wanted?<<elseif $bodyType == "obese">><<set _changes += 2>> As for your body... your huge, jiggling belly and thick arms say enough. Okay, most people gain a bit of weight on their first year at uni, but you took it to the extreme. In just <<print $daysPlayed>> you gained a massive amount of weight. You should be careful what you put in your body, is the old advice. That probably goes double for magical potions...<<elseif ['athletic', 'strong'].includes($bodyType)>><<set _changes += 1>> As for your body, you now are just toned. If you walked into a gym, you'd get a LOT of positive attention. Sure, you worked out a bit before but you know that this body would be impossible without the help of those drinks. You smile, tracing a finger over your abs. Perhaps those drinks did give you a wonderful result. <<elseif ['bodybuilder', 'heroic'].includes($bodyType)>><<set _changes += 2>> As for your body... a lifetime of lifting would be needed, or a ton of steroids, to get you your physique. There is a very good chance you're one of the most muscular woman in town, if not of the world. Your arms are thick and muscular, your legs thick and powerful. You flex them, thinking on what you've become. And to think, a few weeks ago you were thin as a stick...<<elseif ["strongman", "sumowrestler"].includes($bodyType)>><<set _changes += 3>> As for the immense body you now have... you're one of the biggest woman by in the world, easily. Nobody could match your arms, your legs, even if they worked their entire life and took dangerous amounts of steroids. And here you were, having achieved it within not even a single summer... <<elseif ["hulk", "gigantic", "monstrous"].includes($bodyType)>><<set _changes += 4>> And your body... you can barely recognize it as your own body. Is it even your own body? It's so gigantic and overgrown with muscle, it looks nothing like you used to. Doors and furniture are a problem, and the amount of food you need... you've been drinking a lot of those potions. Perhaps you went too far.<</if>><<if $height >= 155>><br><br>Of course its impossible to not think about the changes in your height. As you look around, seeing the room that grew ever smaller for you, its hard not to think about how much even a small change in perspective can do so much. And your perspective has changed. <<if $height >= 225>><<set _changes += 4>>A lot. You're now one of the tallest woman in the world. Just like that. <<elseif $height >= 200>><<set _changes += 3>>More than you expected. You now look down on people, instead of up. Before, you had to make sure people saw you. People were scary big at times. Now, you're the scary big. <<elseif $height >= 175>><<set _changes += 2>> A fair amount. But its nice not being the smallest around. You're pretty tall now too, finally not having to look up at everyone. Its a good new perspective. <<else>><<set _changes += 1>> A bit. You're not that gigantic, just closer to average. Like you always wanted.<</if>><</if>><<if $dick >= 1>><<set _changes += 4>><br><br> But of course, one of the most noticable changes is the log between your legs. You grew a dick. In no time, you grew a dick. it twitches, almost like it notices your attention going to it. Whenever you have a romantic partner now, you'll have something to explain. It feels nice, its a fun experience... but god its a big change.<</if>>
-        
-        <br>
-
-        <<if _changes >= 10>>Reflecting on it all, there's no denying it. Your new body is barely recognizable anymore. You think about what your old friends would say, your parents. Your family. They'd be shocked, they'd be worried. For some time you sit there, sitting, thinking, the weight of your body sinking in. You've changed your body, without knowing if you could go back. Perhaps you've been indulging in those drinks a bit too eagerly.<<elseif _changes >= 3>> Reflecting on it all, you've certainly changed your body immensely. Your parents, your family, old friends... they'd be suprised. Scared even. But you also know that deep down, despite everything, you're still yourself. Perhaps you've over indulged in those potions. But who else had the chance to experience this?<<else>>Reflecting on this, you realize you've been pretty conservative with your potions. Minor changes, here and there, that'd suprise to your family and old friends for sure. But... given the opportunity you had... have you really fully experienced it?<</if>>
-        
-        You snap out of it, looking around. Okay, you hacked the USB file. You learned who Toshi is... but more importantly, you now somewhat know how all those odd drinks work. Somewhat. They still defy everything you know about biology, but here we are. And with the knowledge how you can change, for better of for worse, its time to see what you can do with the new you.`
+        content: `As you collect all parts of the compressed file in a folder, a new diary file is revealed. What was it that Toshi felt the urge to separate behind seven different passwords? Anxiously, you double-click the file, which seems to have a quick introduction, is a list of excerpts that were excised for the rest of his documents.<br><br>“I can’t believe I let my lawyer convince me that I had to redact all these vital observations from my computer and delete it everywhere for safety. Ugh, don’t these guys get how science is done? You can’t just erase progress! I’ll just separate the more, as he says, and I quote: ‘PROBLEMATIC’ entries and fragment it so no one else finds it. That ought to do it.”<br><br>Huh. So it does connect to all those rumors that made the news. What kind of trouble did he get into?<br><br>“August 20th, 2019<br>Just when I thought that my passion for academia was starting to wane, I had this dream - it was a bizarre surreal experience, a bear climbing a tree that just kept going on forever. But just as he was about die of hunger, he bites the bark and sucks the honey inside. It allows him to keep going forever... and when I woke up, I had this idea on how to genetically unlock the potential of the cells in our body.<br><br>I ran to the lab, and started experimenting, but quickly hit several roadblocks. I actually spent the last three days there, sleepless. My friends dragged me home when I just collapsed of exhaustion. And when I next woke up, I knew exactly what to do. That was last week.<br><br>I now have in my hands what I believe might be the first step in fully unlocking human potential. But I cannot run the risk of having someone stop my research with meager concerns about ethics and safety. Therefore, I will bring my findings to my apartment and purchase my own equipment so I can continue this away from the eyes of anyone who could tattle on me.”<br><br>Yikes, that’s going seriously into mad scientist territory there. I can understand why his lawyer had problems with THAT entry. But there are more!<br><br>“October 5th, 2019<br>I don’t understand why the distilled elements seem to have no effect whatsoever! I managed to have the cells react individually in a controlled environment - more efficient energy production, faster reproduction, more resilience, dramatic specialization... but as soon as I expose living organisms to it, nothing happens! I can’t have gone this far only to stop here! If my calculations are correct, the effects on living tissue would be unbelievable.”<br><br>A lot of the entries beyond this point are very frustrated ramblings with science that goes WAY over your head. But at some point he seems to start raving about the so-called Gene Unlocker - and the need to make a version SPECIFIC for humans, which leads to the January 2020 entry you had read in one of the previous files. Hmmm.<br><br>There is a separate picture he took of a napkin, it just seems like a long list of effects he scribbled down quite haphazardly. You go through it, seeing several effects listed: follicle growth stimulation, increased muscle density, improved vascular potential, instantaneous cellular multiplication, permanent synaptic rewiring, adipose redistribution, cellular reconstruction… the list goes on and on. It seems to confirm he achieved several of the possible effects speculated on the other file. It even suggests the possibility of even more undiscovered ones!<br><br>The entries seem rarer after this, since most of these were not redacted from the other documents. However, there is one later than all the other ones, around the same time that the scandal broke in the campus.<br><br>“February 13th, 2020<br>Fuck, I’m going to have to disappear for a while. I can’t believe I let someone else be affected by my experiments, and now the entire faculty is coming after my ass. I can’t believe they would do this when I’m so close to this major breakthrough. I could change humanity!<br><br>But right now, the most important thing is that I need to make everything that could link this back to me disappear! Since I only have this last bottle of Gene-Unlocker that I will take with me, I’ll get rid of the distillations all over the campus - should be easy to just leave some boxes around, people will think they are energetic drinks and just help themselves, making it harder to trace it back to me.<br><br>The bigger probem is that I need to somehow find someplace for this giant professional still I’ve been using to create further distillations! It’s already been pre-calibrated for the boiling point of all major elements in them, and I can’t risk the police finding it. I guess the best idea would be to sell it - but not online, where it would be easy to trace. The old chemistry professor that retired last year seems to have opened a thrift store, that might be a good place - her memory is crap and I doubt the cops would get anything from her.”<br><br>Wait, is he talking about Tasha? Is she a former chemistry professor? Wow, you’d never guess. It might be time to go talk to her - and maybe see if she still has this equipment!<<set $tashaChemistryProfessorDiscovered to true>>`
     },
     {
     name: 'ifBreastsBiggerThan50_ThotCheck',
