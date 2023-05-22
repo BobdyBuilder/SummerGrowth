@@ -23941,7 +23941,7 @@ repeatable: false,
     },
     {
         name: 'mainQuestUsbFilesUnlocked',
-        locationTags: ['Home'],
+        locationTags: ['home'],
         conditions: [
                 
                 () => State.variables.usbPasswordUnlocked[0],
