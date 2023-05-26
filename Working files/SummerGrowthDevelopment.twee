@@ -8751,7 +8751,7 @@ You say your goodbyes, and find yourself looking forward to that next call.`
 		name: 'NatDocumentaryFilming1-fromRoute1or2',
 		locationTags: ['FIXME'],
 		conditions: [
-		    () => [1, 2].includes(State.variables.flagNa6Route),
+		    () => [1, 2].includes(State.variables.flag.nat.na6route),
 		    () => false /*FIXME*/
 		],
 		repeatable: false,
