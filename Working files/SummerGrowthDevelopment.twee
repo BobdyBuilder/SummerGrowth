@@ -8836,7 +8836,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
         You raise your fist in front of you with a mighty flex, your biceps in full display. The crowd gasps - except for Nat, who crosses <<rivalMy>> arms and looks to the side, sulking.<br><br>
         <<Dialogue "randomPerson" "Documentary Director">>"Well, so… that means you are going to feature in the documentary, right? We don't have a release form for you yet…"<</Dialogue>><br><br>
     <</if>>
-    <<GOTO NA7RT1>>
+    <<link "continue">><<playNatEvent 'NatDocumentaryFilming3-route1'>><</link>>
 
 <<elseif $muscle >= 55  && !$flag.nat.docnotice>>
     She squints as she gets a really good look at you.<br><br>
@@ -8846,7 +8846,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
         <<else>>
         <<Dialogue "player" "You">>"To be sincere, I wasn't planning to compete… not yet, anyways…"<</Dialogue>><br><br>
     <</if>>
-    <<GOTO NA7RT1>>
+    <<link "continue">><<playNatEvent 'NatDocumentaryFilming3-route1'>><</link>>
 
 <<elseif $height >= 205 || $breasts >= 55 || $dick >= 30>> 
     She squints as she gets a really good look at you.<br><br>
@@ -8872,6 +8872,106 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, it's nothing. I mean, what is a documentary when you are a professional fitness model, right? I literally pose <<if $rivalGender === 'male'>>half-naked<<else>>in underwear<</if>> for a living!"<</Dialogue>><br><br>
     <<GOTO NA7RT3>>
 <</if>>`
+	},
+    {
+		name: 'NatDocumentaryFilming3-route1',
+		locationTags: ['FIXME'],
+		conditions: [
+		    () => false /*manually triggered from 'NatDocumentaryFilming2'*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `She grabs a form inside her backpack, along with a pen.<br><br>
+<<Dialogue "randomPerson" "Documentary Director">>"I just need your signature there… and we'll bend over backwards to document your progress. I'll work around your schedule if I have to. Come on, I'm sure you must want to share this wonderful accomplishment with the rest of the world… right?"<</Dialogue>><br><br>
+
+<span id="choice">
+	<<PersonalityCheck $shyConfident >= 1 "I suppose you're right - the world deserves to know this physique!">>
+		<<replace "#choice">>
+            You'd be lying if you said you weren't proud of your fitness accomplishments, but having this professional come and ask you to put it on display for the world… it stirs something deep within you. It's like waking up from a dream, this surreal notion of how big and strong you are made real in an instant - like putting on a fake muscle suit, only to remove it and find out you were just as big all along - heck, even bigger, and you look at yourself in Nat's mirror. Damn, <<print $playerFirstName>>, you ARE beefy! REALLY BEEFY!<br><br>
+            <<Dialogue "player" "You">>"Of course, I'll do it."<</Dialogue>><br><br>
+            You eagerly grab the pen and form and sign it - much to the delight of the director. Nat, however, is an entirely different story.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Whoa, whoa! Wait a second! Let's think about this - you don't just decide to compete in a bodybuilding contest AND participate in a documentary on a whim! Are you sure about this, <<print $playerFirstName>>?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I mean, have you SEEN me? And given my current gains, there's still plenty of time for improvement until the contest! Besides, I kinda sucked at documenting my progress myself, it would be nice to have someone do it, don't you think?"<</Dialogue>><br><br>
+            <<rivalName>> flaps <<rivalMy>> mouth silently for a bit and tries to articulate an objection… but it doesn't quite go as <<rivalI>>hoped.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Look, you just don't know what you are doing, take it from someone who's been on this path for years, alright?"<</Dialogue>><br><br>
+            <<if $submissiveDominant > 1>><<Dialogue "player" "You">>"Let's just be objective here - think about how much I accomplished in a short span of time - you really think I'm way over my head? What would that mean about you, then? Seriously, I expected more from you, Nat!"<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"I won't deny that you have more experience, Nat. That is indisputable - AND I respect that. But, by the same logic, you can't really argue against my talent for this, all the progress I've made in a short time. I really hoped you'd be more supportive!"<</Dialogue>><br><br>
+            <</if>>
+            Everyone else goes silent at the little spat between you and <<rivalName>> - who looks downright irritated at your response. <<rivalI>> frown tries unsuccessfully to hide <<rivalMy>>anger, and you can see <<rivalMy>> mind is trying to figure out a way to make you change your mind.<br><br>
+            <<Dialogue "player" "You">>"I made my mind - and I'd like this to be a friendly competition. We can do that, right?"<</Dialogue>><br><br>
+            Nat sighs, rolls <<rivalMy>> eyes, and offers <<rivalMy>> hand, still unable to quite mask <<rivalMy>> frustration. You shake <<rivalMy>> hand, and feel as <<rivalI>> squeezes yours with all <<rivalMy>> strength.<br><br>
+            <<if $submissiveDominant > 1>>
+            Without even blinking, you also squeeze it back - enough not to do any damage, but more than enough to show <<rivalMy>> who's the strongest. Your smile fades as you do so, looking deep into <<rivalMy>> eyes and asserting dominance in a way you didn't even know you had it in you. From the surprise in <<rivalMy>> eyes, you are pretty sure the message came across loud and clear.<br><br>
+            <<elseif $submissiveDominant > -1>>
+            You give <<rivalMe>> a firm squeeze, using a tiny fraction of your strength so as to let <<rivalMe>> have this Pyrrhic victory, knowing it just fuels your passion to grow even bigger and stronger. <<rivalI>> might just regret pushing you like this…<br><br>
+            <<else>>
+            Despite having enough muscle on your palm to probably be able to snap <<rivalMy>> arm, you feel quite intimidated by <<rivalMy>> assertion of dominance, and you wince - not from the non-existing pain from <<rivalMy>> squeezing, but from seeing your childhood friend treating you like this. Worse, <<rivalI>>seems to delight in doing it to you, which hurts more than any physical pain.
+            <</if>>
+            <<Dialogue "randomPerson" "Documentary Director">>"Perfect! We'll get in touch with you… actually… if you don't mind, we could also tape your first testimonials today… you wouldn't mind waiting a little bit, right <<rivalName>>? You said you had the whole day today…"<</Dialogue>><br><br>
+            Nat grunts as they sit you down in the chair. It would seem that getting <<rivalMe>> upstaged like this might change the way <<rivalI>> sees you in the long run…
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Uh… I guess… I don't know, how many people would see that?"<</Dialogue>><br><br>
+            Before you can squirm your way out of it, however, Nat's agent jumps in and shouts “She'll do it!” Gee, thanks for putting me in the spot.
+            Feeling pressured into it, you grab the pen and form and sign it - much to the delight of the director and the agent. Nat, however, is an entirely different story.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Whoa, whoa! Wait a second! Let's think about this - you don't just decide to compete in a bodybuilding contest AND participate in a documentary on a whim! Are you sure about this, <<print $playerFirstName>>?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I dunno, I kinda sucked at documenting my progress myself, it would be nice to have someone do it, don't you think?"<</Dialogue>><br><br>
+            <<rivalName>> flaps <<rivalMy>> mouth silently for a bit and tries to articulate an objection… but it doesn't quite go as <<rivalI>>hoped.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Look, you just don't know what you are doing, take it from someone who's been on this path for years, alright?"<</Dialogue>><br><br>
+            <<if $submissiveDominant > 1>><<Dialogue "player" "You">>"Let's just be objective here - think about how much I accomplished in a short span of time - you really think I'm way over my head? What would that mean about you, then? Seriously, I expected more from you, Nat!"<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"I won't deny that you have more experience, Nat. That is indisputable - AND I respect that. But, by the same logic, you can't really argue against my talent for this, all the progress I've made in a short time. I really hoped you'd be more supportive!"<</Dialogue>><br><br>
+            <</if>>
+            Everyone else goes silent at the little spat between you and <<rivalName>> - who looks downright irritated at your response. <<rivalMy>> frown tries unsuccessfully to hide his anger, and you can see <<rivalMy>> mind is trying to figure out a way to make you change your mind.<br><br>
+            <<Dialogue "player" "You">>"I made my mind - and I'd like this to be a friendly competition. We can do that, right?"<</Dialogue>><br><br>
+            Nat sighs, rolls <<rivalMy>> eyes, and offers <<rivalMy>> hand, still unable to quite mask <<rivalMy>> frustration. You shake <<rivalMy>> hand, and feel as <<rivalMy>> squeezes yours with all her strength.<br><br>
+            <<if $submissiveDominant > 1>>
+            Without even blinking, you also squeeze it back - enough not to do any damage, but more than enough to show <<rivalMe>> who's the strongest. Your smile fades as you do so, looking deep into his eyes and asserting dominance in a way you didn't even know you had it in you. From the surprise in <<rivalMy>> eyes, you are pretty sure the message came across loud and clear.<br><br>
+            <<elseif $submissiveDominant > -1>>
+            You give <<rivalMe>> a firm squeeze, using a tiny fraction of your strength so as to let <<rivalMe>> have this Pyrrhic victory, knowing it just fuels your passion to grow even bigger and stronger. <<rivalI>> might just regret pushing you like this…<br><br>
+            <<else>>
+            Despite having enough muscle on your palm to probably be able to snap <<rivalMy>> arm, you feel quite intimidated by <<rivalMy>> assertion of dominance, and you wince - not from the non-existing pain from <<rivalMy>> squeezing, but from seeing your childhood friend treating you like this. Worse, <<rivalI>> seems to delight in doing it to you, which hurts more than any physical pain.
+            <</if>>
+            <<Dialogue "randomPerson" "Documentary Director">>"Perfect! We'll get in touch with you… actually… if you don't mind, we could also tape your first testimonials today… you wouldn't mind waiting a little bit, right <<rivalName>>? You said you had the whole day today…"<</Dialogue>><br><br>
+            Nat grunts as they sit you down in the chair. It would seem that getting <<rivalMy>> upstaged like this might change the way <<rivalI>> sees you in the long run…
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+
+	<<link "Hey, I can't do this to Nat, if you want me, you need to feature us as a couple!">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Well, actually, I have an idea… why don't we tackle this as partners?"<</Dialogue>><br><br>
+            Nat seems confused by your proposal, but you can notice the director's eyes are already sparkling with the idea.<br><br>
+            <<Dialogue "player" "You">>"Think about it - Nat has the experience, I apparently have some natural talent or good genetics or whatever… why don't the two of us get treated as partners in the documentary? It makes for some good storytelling, right?"<</Dialogue>><br><br>
+            At this point, the director is just about giggling with excitement. Nat, on the other hand, seems a bit resentful of being upstaged like that.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"I suppose you would have a chance at the competition… and you DO need someone with experience to help you figure out how to do this. I GUESS it wouldn't hurt to help you."<</Dialogue>><br><br>
+            Before you know it, both the director and Nat's agent are already making all kinds of plans for the two of you. They bring in a second chair and make preparations to film while you and Nat discuss how this partnership will work. You can't help but feel like <<rivalI>>'s not quite all in on the plan, but isn't about to state <<rivalMy>> opinions in front of everyone.<br><br>
+            For now, it will be fun to tackle this challenge together… or at least, you hope so.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Well, actually, the spotlight isn't really for me…">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"You know what? This is all well and good, but I'm not really bodybuilder material."<</Dialogue>><br><br>
+            Nat's agent actually spills out her coffee and laughs when you say that.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"She's not wrong, you know? Bodybuilding is so much more than just having big muscles. Not only do you have to work on symmetry, being very mindful of your nutrition, but you also need to learn how to pose and have on-stage presence. This takes time and effort."<</Dialogue>><br><br>
+            <<if $skills[0].level > 2 && $skills[1].level > 2 && $skills[4].level > 1>>
+            “Oh, EXCUSE ME, Nat… you think I just SPROUTED these muscles overnight?” You think to yourself. I mean, yeah, you kinda did… but there's also a lot of effort and study that went into it. “I hope you realize the beast you are awakening here…” you think, as you envision yourself as a mountainous competitor, a skimpy bikini revealing obscenely defined muscles - the veritable definition of HUGE. You KNOW you have the potential - and <<rivalI>> may just have given you the motivation you needed to go even further beyond.<br><br>
+            Just you wait, Nat… just you wait.
+            <<else>>
+            It IS a bit demeaning, <<rivalMy>> implication that you would be unable to do so, but it is true that you kind of just fell into this whole thing quite suddenly. But now this question lingers in your mind - what COULD you achieve if you actually put the effort in? Taking into consideration the road so far, it sparks the imagination - if only you actually studied more about training, nutrition and posing…<br><br>
+            You snap out of it, as <<rivalName>> sits down and starts giving <<rivalMy>> testimonial. You watch, wondering what it would be like if that was you on that seat…
+            <</if>>
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+</span>`
 	}
 )>>
 
