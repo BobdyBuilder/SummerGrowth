@@ -8500,7 +8500,7 @@ Determines the measurement system used in the game.
                 <<link "Continue" $currentScene>><</link>>
             <<else>>
                 However, she doesn't face Nat, but you.<br><br>
-                /* <<SET DOCNOTICE FLAG>> */
+                <<set $docnotice to true>>
                 <<Dialogue "randomPerson" "Random guy">>"Wow! You look amazing! What's your name?"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Errrr… no, I'm not the participant, it's him!"<</Dialogue>><br><br>
                 The director inspects the two of you.<br><br>
@@ -8745,6 +8745,37 @@ You actually wouldn't mind waiting for <<rivalMe>>… but you already feel like 
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Look, <<print $playerFirstName>>, I do need to put in a lot of training for the bodybuilding contest, so I don't know when we'll be able to meet again - but if you want, they said they'd be scheduling a taping sometime soon… I can give you a ring so you can come watch… if you are interested, that is."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"You had me at “bodybuilding”... I mean… yeah, that sounds great!"<</Dialogue>><br><br>
 You say your goodbyes, and find yourself looking forward to that next call.`
+	},
+    {
+		name: 'NatDocumentaryFilming1-fromRoute1or2',
+		locationTags: ['FIXME'],
+		conditions: [
+		    () => [1, 2].includes(State.variables.flagNa6Route),
+		    () => false /*FIXME*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `You receive a text message from Nat's agent, asking if you are going to be at the taping of the bodybuilding documentary… weird, Nat did say <<rivalI>> was going to call you for that, didn't <<rivalI>>? Well, with all that training, <<rivalI>> must've been busy and just forgot - but you confirm that you will be there, as <<if $rivalGender === 'male'>>she<<else>>her agent<</if>> tells you they'll be at his apartment within the hour.<br><br>
+You can hear the noise from inside <<rivalMy>>apartment, and after knocking, the door is opened by Nat's modeling agent - who immediately introduces herself and proceeds to shower you in praise as she gives you her business card and ushers you in.<br><br>
+The commotion is not quite as big as during the modeling shoot, but despite the crew of three, you are amazed at the whole lighting and sound setup. You stay in the corner as they work, and Nat comes out from <<rivalMy>> bedroom, wearing a very sporty but fashionable outfit that hugs <<rivalMy>> excellent form quite tightly.<br><br>
+You wave at <<rivalMe>>, and <<rivalI>> does a double-take, as if <<rivalI>>doesn't want to acknowledge your presence, then sighs and comes over, looking somewhat irritated.<br><br>
+<<rivalMy>> agent gives <<rivalMe>> some guff about “holding out on the goods” about you, and Nat just gives the fakest laugh you ever heard. Well, at least <<rivalI>>'s trying to be nice about it?<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, uh, nice to see you here, but I think I really should engage with the documentary crew. I don't want to be rude, of course."<</Dialogue>><br><br>
+Well, mission failed, Nat! Is that how you treat your childhood friend? You watch as <<rivalI>> goes up to the crew, and while they talk, you see the director shooting some glances at you, and Nat grows more bothered by the second, until all of them come to you.<br><br>
+<<if $docnotice>>
+<<Dialogue "randomPerson" "Documentary Director">>"Hey, I was telling <<rivalName>> that I remember you from sign-ups at the town hall. You sure know how to catch an eye!"<</Dialogue>><br><br>
+<<if $shyConfident > 1>><<Dialogue "player" "You">>"Yeah, I came over to give Nat some moral support - not that <<rivalI>> needs it, just look at this <<if $rivalGender === 'male'>>hunk<<else>>babe<</if>>!"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Oh, yeah… I remember…"<</Dialogue>><br><br>
+You find yourself hunching over, as she once again seems to be sizing you up.<br><br>
+<</if>>
+<<else>>
+<<Dialogue "randomPerson" "Documentary Director">>"So… I was telling <<rivalName>> that you caught my eye there, <<print $playerFirstName>>, and I wanted to talk to you too!"<</Dialogue>><br><br>
+<</if>>
+
+<<GOTO MERGED NA7 SEQUENCE>>/*FIXME*/`
 	}
 )>>
 
