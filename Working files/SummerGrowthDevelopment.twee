@@ -8322,7 +8322,7 @@ Determines the measurement system used in the game.
     {
 		name: 'NatMovingIn',
 		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		conditions: [() => false /*FIXME*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8353,7 +8353,7 @@ Determines the measurement system used in the game.
 	{
 		name: 'NatSavedByProtagonist',
 		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		conditions: [() => false /*FIXME*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8429,7 +8429,7 @@ Determines the measurement system used in the game.
     {
 		name: 'NatFirstTapingBodybuildingDocumentary',
 		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		conditions: [() => false /*FIXME*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8566,7 +8566,7 @@ Determines the measurement system used in the game.
     {
 		name: 'NatModelingGig',
 		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		conditions: [() => false /*FIXME*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8625,7 +8625,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     {
 		name: 'NatModelingGig-ModelPath',
 		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		conditions: [() => false /*FIXME*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8716,7 +8716,7 @@ With a nice unexpected paycheck in hand, you head back home.`
     {
 		name: 'NatModelingGig-NonModelPath',
 		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		conditions: [() => false /*FIXME*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
