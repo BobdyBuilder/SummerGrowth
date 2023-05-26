@@ -8841,7 +8841,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<elseif $muscle >= 55  && !$flag.nat.docnotice>>
     She squints as she gets a really good look at you.<br><br>
     <<Dialogue "randomPerson" "Documentary Director">>"Well, I couldn't help but notice, but you seem like you might be the main contender for the bodybuilding contest - how come we didn't get your release? Don't you want to be in the documentary?"<</Dialogue>><br><br>
-    <<if COMPETEBB flag =1>>
+    <<if $flag.nat.competebb>>
         <<Dialogue "player" "You">>"Well, I hadn't given much thought about the documentary, to be sincere… even my plans to compete were still a bit on the tentative side… but, I suppose my gains would be right at home on this film."<</Dialogue>><br><br>
         <<else>>
         <<Dialogue "player" "You">>"To be sincere, I wasn't planning to compete… not yet, anyways…"<</Dialogue>><br><br>
@@ -8857,12 +8857,39 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
     <<elseif $shyConfident < 0>>
         You start slumping your shoulders and wrapping your arms in front of your torso, and having a hard time maintaining eye contact - “oh, God, this is so embarrassing!”, you think to yourself.<br><br>
         <<Dialogue "player" "You">>"Uh… this sounds… like an unusual documentary…"<</Dialogue>><br><br>
-        <<else>>
+    <<else>>
         <<Dialogue "player" "You">>"Whoa! Really? I suppose I do stand out a bit."<</Dialogue>><br><br>
     <</if>>
     <<Dialogue "randomPerson" "Documentary Director">>"Well, you certainly qualify for a spot… if you are willing to participate, of course! We'd love to have you as one of main features!"<</Dialogue>><br><br>
     You start imagining in your head, your transformation being broadcast to the whole world…<br><br>
-    <<GOTO NA7RT2>>
+    /*NA7RT2*/
+    <span id="choice">
+        <<PersonalityCheck $shyConfident >= 1 "I suppose you're right - the world deserves to know this unique body!">>
+            <<replace "#choice">>
+                You look at yourself, coming to the realization of all the changes you've been going through over the last few weeks… sure, it's a shock every morning - but it also hadn't quite dropped… until now. Acknowledging it is a whole different matter, and as you look at yourself in the mirror, you realize: that's YOU that you're looking at.<br><br>
+                <<Dialogue "player" "You">>"You know what? I'm in. It's going to be a little weird, I guess - but maybe it will help me process this whole thing after all."<</Dialogue>><br><br>
+                You grab the pen and sign the release form.<br><br>
+                <<Dialogue "randomPerson" "Documentary Director">>"Excellent! In fact, if you don't mind, we could go ahead and film your introduction and maybe get an initial testimony…"<</Dialogue>><br><br>
+                Nat seems quite annoyed, <<rivalMy>> own recording postponed by this opportunity you just got.<br><br>
+                <<Dialogue "player" "You">>"Ummm, you won't mind, right, Nat?"<</Dialogue>><br><br>
+                <<rivalI>> just shakes <<rivalMy>> head grumpily. You take the seat, and start telling the story of your transformation as you watch Nat repeatedly roll <<rivalMy>> eyes. Hopefully <<rivalI>> won't hold this against you later…
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <<Failed>>
+            <<replace "#choice">>
+                <<Dialogue "player" "You">>"Maflupt?"<</Dialogue>><br><br>
+                You fail to properly communicate any meaningful words as your mind reels with the idea of putting your transformation as a bizarre circus routine for the world to see. But as you blush and try to elaborate, Nat's agent takes the reins and announces that you will do it. She just thrusts the pen and clipboard onto your hands, and before you know, your name is there on the release form.<br><br>
+                <<Dialogue "randomPerson" "Documentary Director">>"Amazing! In fact, if you don't mind, we could go ahead and film your introduction and maybe get an initial testimony…"<</Dialogue>><br><br>
+                Nat seems miffed at you and <<rivalMy>> own agent, his recording postponed by this unexpected event.<br><br>
+                <<Dialogue "player" "You">>"Ummm, you won't mind, right, Nat?"<</Dialogue>><br><br>
+                <<rivalI>> just shakes <<rivalMy>> head grumpily. You take the seat, and awkwardly start telling the story of your transformation as you watch Nat repeatedly roll <<rivalMy>> eyes. Hopefully <<rivalI>> won't hold this against you later…
+                choice- Well, actually, the spotlight isn't really for me…
+                <<Dialogue "player" "You">>"Look, this is great and all, but I barely understand what I'm going through… and I feel even less comfortable putting it out there for everyone to see. I'm sorry, but I'm not some circus attraction to be paraded around for other people's entertainment. I hope you understand…"<</Dialogue>><br><br>
+                The director seems quite disappointed, but on the bright side, you can see Nat has renewed enthusiasm as the attention circles back to <<rivalMe>>. <<rivalI>> sits down for <<rivalMy>> testimonial, putting <<rivalMe>> very eloquent and charismatic persona out there for everyone. You can't deny, the <<if $rivalGender === 'male'>>guy<<else>>girl<</if>> knows how to put on a show for the cameras…
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <</PersonalityCheck>>
+    </span>
 
 <<else>> 
     <<Dialogue "player" "You">>"Hey, I remember you from that day in front of town hall… this is all so exciting!"<</Dialogue>><br><br>
@@ -8870,7 +8897,37 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
     You laugh, yup, she's got Nat down pat! Nat's agent is apparently just as excited, as she keeps posting on social media and talking to herself about how much this will raise <<rivalMy>> profile… but Nat <<rivalMy>>self… <<rivalI>> seems a bit distant. At one point <<rivalI>> just walks to the corner while everyone else is chatting. You decide to go check on <<rivalMe>>.<br><br>
     <<Dialogue "player" "You">>"Hey, Nat, what's up?"<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, it's nothing. I mean, what is a documentary when you are a professional fitness model, right? I literally pose <<if $rivalGender === 'male'>>half-naked<<else>>in underwear<</if>> for a living!"<</Dialogue>><br><br>
-    <<GOTO NA7RT3>>
+    /*NA7RT3*/
+    You can tell there's something eating at <<rivalMe>>.<br><br>
+    <<Dialogue "player" "You">>"Well, so it should be alright, just go there and do you magic, tiger!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, but…"<</Dialogue>><br><br>
+    <<rivalI>> rubs <<rivalMy>> wrist, pensive.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Am I just fooling myself with this whole thing? Bodybuilding is pretty tough business, and modeling does expect a certain physique - am I going to fuck it all up if I try to have my cake and eat it too? I can't help but feel like I'm the dog looking at his reflection for Aesop's fable, you know?"<</Dialogue>><br><br>
+    You never expected to see Nat doubting <<rivalMy>>self, and so you prepare yourself, knowing what you have to do as <<rivalMy>> childhood friend.<br><br>
+    
+    <span id="choice">
+        <<link "Insecurity is just part of the process, and I know you have it in you!">>
+            <<replace "#choice">>
+                <<Dialogue "player" "You">>"Nat… I look at you, and it's kinda funny to me. I can get lost in your eyes and see that insecure eight-year old <<if $rivalGender === 'male'>>boy<<else>>girl<</if>> just now… but all I need to do is take a step back… and look at the wonderful <<if $rivalGender === 'male'>>man<<else>>woman<</if>> you grew into. And I'm not even talking about your body…"<</Dialogue>><br><br>
+                (Thought that's even yummier and hard to stop thinking about…)<br><br>
+                <<Dialogue "player" "You">>"You are an accomplished model, an athlete with more trophies than I can count, you have an enviable body and you are just almost obnoxiously <<if $rivalGender === 'male'>>handsome<<else>>gorgeous<</if>>. Am I going to have to slap some sense into you?"<</Dialogue>><br><br>
+                Nat blushes, eyes dewy with all the praise you just showered.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I… I-I'm sorry. You are right, it was the eight year old talking just now, and I suppose it's a bit shameful that I even let that out. But you know, from all people that could've seen that… I'm glad it was you, you know?"<</Dialogue>><br><br>
+                <<rivalI>> gives you a very thankful nod and a wink. As <<rivalI>> turns around to return to his testimonial recording, you playfully slap <<rivalMy>> ass as you two used to do to each other as kids. Some things never change…
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <</link>>
+    
+        <<link "Stop being a baby! Just look at yourself!">>
+            <<replace "#choice">>
+                <<Dialogue "player" "You">>"For chrissakes, <<if $rivalGender === 'male'>>man<<else>>woman<</if>>! Look at yourself! Don't be a baby, just about any <<if $rivalGender === 'male'>>guy<<else>>girl<</if>> I could get outside right now would KILL to be in your shoes. Heck, they probably would kill just to look like you - and you come crying because you don't think you are good enough? Just grow up, will you?"<</Dialogue>><br><br>
+                Nat is quite shocked at your outburst. But you continue…<br><br>
+                <<Dialogue "player" "You">>"It's no wonder you couldn't help me when I fell from that tree. I mean, I know you are no knight in shining armor, but holy shit, at least pretend you have some <<if $rivalGender === 'male'>>balls<<else>>guts<</if>>. Now put on your big <<if $rivalGender === 'male'>>boy<<else>>girl<</if>> pants and go film this before I kick your ass."<</Dialogue>><br><br>
+                <<rivalI>> looks hurt by your comment. Maybe you went a bit too far there… but <<rivalI>> needed some tough love, right? You watch as <<rivalMy>> dejected demeanor takes over during the filming of the testimonial, a hint of melancholy almost painful to watch. Well, a <<if $rivalGender === 'male'>>guy<<else>>girl<</if>> with that body can't afford to be insecure! You keep telling yourself that for the rest of the day, but you can't shake this pit in your stomach for saying all of that.
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <</link>>
+    </span>
 <</if>>`
 	},
     {
