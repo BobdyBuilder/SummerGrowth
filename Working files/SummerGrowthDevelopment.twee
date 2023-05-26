@@ -8777,6 +8777,38 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <</if>>
 
 <<GOTO MERGED NA7 SEQUENCE>>/*FIXME*/`
+	},
+    {
+		name: 'NatDocumentaryFilming1-fromRoute3orNonModel',
+		locationTags: ['FIXME'],
+		conditions: [
+		    () => State.variables.flag.nat.na6route === 3 || State.variables.flag.nat.modelPath === false,
+		    () => false /*FIXME*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `As promised, Nat lets you know that they will be filming <<rivalMy>>spotlight for the documentary at <<rivalMy>> apartment, and you find yourself quickly getting decent and running there.<br><br>
+You can hear the noise from inside <<rivalMy>>apartment, and after knocking, the door is opened by Nat's modeling agent. She introduces herself and quietly ushers you in.<br><br>
+The commotion is not quite as big as during the modeling shoot, but despite the crew of three, you are amazed at the whole lighting and sound setup. You stay in the corner as they work, and Nat comes out from <<rivalMy>>bedroom, wearing a very sporty but fashionable outfit that hugs <<rivalMy>> excellent form quite tightly.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Sup, <<print $playerFirstName>>! Nice to see you here!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Are you kidding me? I wouldn't miss this for the world!"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, why don't we go meet the documentary crew?"<</Dialogue>><br><br>
+The two of you go talk to them as they put that last touches on their filming setup.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Seems like you are almost done with the setup, I'm good to go as well. By the way, this is an old friend of mine, <<print $playerFirstName>>, I invited her to watch, I hope that's not a problem."<</Dialogue>><br><br>
+<<if $flag.nat.docnotice>>
+<<Dialogue "randomPerson" "Documentary Director">>"Hey, I remember you… weren't you there at the town hall when we were getting the forms?"<</Dialogue>><br><br>
+<<if $shyConfident > 1>><<Dialogue "player" "You">>"Yup! Still giving Nat some moral support - not that <<rivalI>> needs it, just look at this <<if $rivalGender === 'male'>>hunk<<else>>babe<</if>>!"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Oh, yeah… I remember…"<</Dialogue>><br><br>
+You find yourself hunching over, as she once again seems to be sizing you up.<br><br>
+<</if>>
+<<else>>
+<<Dialogue "randomPerson" "Documentary Director">>"Oh, nice to meet you, <<print $playerFirstName>>!"<</Dialogue>><br><br>
+<</if>>
+
+<<GOTO MERGED NA7 SEQUENCE>>/*FIXME*/`
 	}
 )>>
 
