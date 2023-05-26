@@ -8749,7 +8749,7 @@ You say your goodbyes, and find yourself looking forward to that next call.`
 )>>
 
 
-<<set setup.events.push(...setup.natEvents)>> /* TODO - REMOVE ME! ANYONE! */
+<<set setup.events.push(...setup.natEvents)>>
 
 
 :: JohanTriggers [nobr] {"position":"1300,2125","size":"100,100"}
