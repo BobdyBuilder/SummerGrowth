@@ -8776,7 +8776,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<Dialogue "randomPerson" "Documentary Director">>"So… I was telling <<rivalName>> that you caught my eye there, <<print $playerFirstName>>, and I wanted to talk to you too!"<</Dialogue>><br><br>
 <</if>>
 
-<<GOTO MERGED NA7 SEQUENCE>>/*FIXME*/`
+<<link "continue">><<playNatEvent 'NatDocumentaryFilming2'>><</link>>`
 	},
     {
 		name: 'NatDocumentaryFilming1-fromRoute3orNonModel',
@@ -8808,7 +8808,70 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<Dialogue "randomPerson" "Documentary Director">>"Oh, nice to meet you, <<print $playerFirstName>>!"<</Dialogue>><br><br>
 <</if>>
 
-<<GOTO MERGED NA7 SEQUENCE>>/*FIXME*/`
+<<link "continue">><<playNatEvent 'NatDocumentaryFilming2'>><</link>>`
+	},
+    {
+		name: 'NatDocumentaryFilming2',
+		locationTags: ['FIXME'],
+		conditions: [
+		    () => false /*manually triggered from 'NatDocumentaryFilming1'*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `<<if $muscle >= 55  && $flag.nat.docnotice>> 
+    She squints as she gets a really good look at you.<br><br>
+    <<Dialogue "randomPerson" "Documentary Director">>"Is my mind playing tricks on me, I remember you looked pretty muscular then… but I could swear you are noticeably bigger now? I'd like to say IMPOSSIBLY so…?"<</Dialogue>><br><br>
+    <<if $shyConfident > 1>>
+        <<Dialogue "player" "You">>"Oh, you noticed? I suppose you could say so…"<</Dialogue>><br><br>
+        You reply playfully as you go into a most muscular pose, fully displaying your record-breaking physique. Everyone in the room gasps at your explosive expansion… maybe except for Nat, who crosses <<rivalMy>>arms and looks to the side, looking downright sour about the whole thing.<br><br>
+        <<Dialogue "randomPerson" "Documentary Director">>"Well, so… that means you are going to feature in the documentary, right? We don't have a release form for you yet…"<</Dialogue>><br><br>
+    <<elseif $shyConfident < 0>>
+        <<Dialogue "player" "You">>"Hmmm… I mean, maybe?"<</Dialogue>><br><br>
+        You keep hunching over, and you feel as all eyes converge on you - Nat's agent even raises a hand to give your arm a squeeze, but she pulls her hand before she actually touches you. Actually, though, not everyone is looking at you. Nat seems to be sulking in the corner, looking away with <<rivalMy>> arms crossed.
+        <<Dialogue "randomPerson" "Documentary Director">>"Come on, I can't let a physique like that NOT be in our documentary! I'm pretty sure you haven't signed a release for us yet…"<</Dialogue>><br><br>
+    <<else>>
+        <<Dialogue "player" "You">>"Yeah, I've been putting some effort, and can't complain about the results…"<</Dialogue>><br><br>
+        You raise your fist in front of you with a mighty flex, your biceps in full display. The crowd gasps - except for Nat, who crosses <<rivalMy>> arms and looks to the side, sulking.<br><br>
+        <<Dialogue "randomPerson" "Documentary Director">>"Well, so… that means you are going to feature in the documentary, right? We don't have a release form for you yet…"<</Dialogue>><br><br>
+    <</if>>
+    <<GOTO NA7RT1>>
+
+<<elseif $muscle >= 55  && !$flag.nat.docnotice>>
+    She squints as she gets a really good look at you.<br><br>
+    <<Dialogue "randomPerson" "Documentary Director">>"Well, I couldn't help but notice, but you seem like you might be the main contender for the bodybuilding contest - how come we didn't get your release? Don't you want to be in the documentary?"<</Dialogue>><br><br>
+    <<if COMPETEBB flag =1>>
+        <<Dialogue "player" "You">>"Well, I hadn't given much thought about the documentary, to be sincere… even my plans to compete were still a bit on the tentative side… but, I suppose my gains would be right at home on this film."<</Dialogue>><br><br>
+        <<else>>
+        <<Dialogue "player" "You">>"To be sincere, I wasn't planning to compete… not yet, anyways…"<</Dialogue>><br><br>
+    <</if>>
+    <<GOTO NA7RT1>>
+
+<<elseif $height >= 205 || $breasts >= 55 || $dick >= 30>> 
+    She squints as she gets a really good look at you.<br><br>
+    <<Dialogue "randomPerson" "Documentary Director">>"Look, I was telling <<rivalName>>… we have another documentary we are also shooting, about record-breaking and unusual bodies - in fact, it was our original, bigger project, but we got some external funding to cover this bodybuilding project as a side-gig… and I couldn't help noticing… <<if $height >= 205>>your standout height…<</if>><<if $breasts >= 55>>... your large breasts… <</if>><<if $dick >= 30>>...your… ahem… PACKAGE…<</if>>"<</Dialogue>><br><br>
+    <<if $shyConfident > 1>>
+        <<Dialogue "player" "You">>"What can I say? There aren't many people around who can handle this much woman… if you know what I mean?"<</Dialogue>><br><br>
+        You give them a wink, and your charisma just charms them even more.
+    <<elseif $shyConfident < 0>>
+        You start slumping your shoulders and wrapping your arms in front of your torso, and having a hard time maintaining eye contact - “oh, God, this is so embarrassing!”, you think to yourself.<br><br>
+        <<Dialogue "player" "You">>"Uh… this sounds… like an unusual documentary…"<</Dialogue>><br><br>
+        <<else>>
+        <<Dialogue "player" "You">>"Whoa! Really? I suppose I do stand out a bit."<</Dialogue>><br><br>
+    <</if>>
+    <<Dialogue "randomPerson" "Documentary Director">>"Well, you certainly qualify for a spot… if you are willing to participate, of course! We'd love to have you as one of main features!"<</Dialogue>><br><br>
+    You start imagining in your head, your transformation being broadcast to the whole world…<br><br>
+    <<GOTO NA7RT2>>
+
+<<else>> 
+    <<Dialogue "player" "You">>"Hey, I remember you from that day in front of town hall… this is all so exciting!"<</Dialogue>><br><br>
+    <<Dialogue "randomPerson" "Documentary Director">>"Yeah, I couldn't agree more - Nat is giving us quite an interesting subject by being a bodybuilder who is also a professional model! There's so much we can tackle - like commercial demand in fitness modeling, all the stigmas that go with that, societal standards of beauty… it doesn't hurt that <<rivalI>> seems to be very opinionated!"<</Dialogue>><br><br>
+    You laugh, yup, she's got Nat down pat! Nat's agent is apparently just as excited, as she keeps posting on social media and talking to herself about how much this will raise <<rivalMy>> profile… but Nat <<rivalMy>>self… <<rivalI>> seems a bit distant. At one point <<rivalI>> just walks to the corner while everyone else is chatting. You decide to go check on <<rivalMe>>.<br><br>
+    <<Dialogue "player" "You">>"Hey, Nat, what's up?"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, it's nothing. I mean, what is a documentary when you are a professional fitness model, right? I literally pose <<if $rivalGender === 'male'>>half-naked<<else>>in underwear<</if>> for a living!"<</Dialogue>><br><br>
+    <<GOTO NA7RT3>>
+<</if>>`
 	}
 )>>
 
