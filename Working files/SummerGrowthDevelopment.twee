@@ -8841,8 +8841,11 @@ You never thought you'd see a modeling shoot for real! This is so exciting! Afte
 	},
     {
 		name: 'NatModelingGig',
-		locationTags: ['FIXME'],
-		conditions: [() => false /*FIXME*/],
+		locationTags: ['Outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatTeachModeling'),
+		    () => State.variables.daysPlayed >= 25
+		],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
