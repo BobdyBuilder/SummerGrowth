@@ -8734,6 +8734,112 @@ Determines the measurement system used in the game.
             <</if>>`
 	},
     {
+		name: 'NatTeachModeling',
+		locationTags: ['Outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary'),
+		    () => State.variables.daysPlayed >= 21
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `Your phone rings… it's Nat!<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, <<print $playerFirstName>>, are you busy? I kinda need a favor…"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Hey, Nat, what's up?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"I have this gig coming up, and I need to send some photos in for the producer, but I don't have my tripod yet. Could you come over and help me with the camera?"<</Dialogue>><br><br>
+<<if $shyConfident > 0>>
+    Hmmmm… sexy modeling Nat… all to yourself? How could you say no?<br><br>
+<</if>>
+<<Dialogue "player" "You">>"Sure, I'll be there in a jiffy!"<</Dialogue>><br><br>
+You grab your stuff and walk… okay, maybe rush… to Nat's apartment.<br><br>
+You find the door open, and Nat is <<if $rivalGender === 'male'>>shirtless<<else>>wearing nothing but <<rivalMy>> sports bra and shorts,<</if>> doing some chin-ups as you come in.
+<<if $shyConfident > 0>>
+    <<Dialogue "player" "You">>"Hmmm… don't mind if I do…"<</Dialogue>><br><br>
+    You say, licking your lips.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, hey, <<print $playerFirstName>>, What was that? Sorry, let me get down here and put something on…"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"No need to…"<</Dialogue>><br><br>
+    You mumble under your breath.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Sorry, didn't catch that!"<</Dialogue>><br><br>
+    <<RivalI>> says, as <<rivalI>> puts a tight T-shirt on.<br><br>
+    <<Dialogue "player" "You">>"Oh, nothing…"<</Dialogue>><br><br>
+<<else>>
+    You blush and turn around, and just hear Nat laughing.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, <<print $playerFirstName>>, just give me one second here…"<</Dialogue>><br><br>
+    You stand there, silent, as <<rivalI>> pokes your back.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Sorry about that, my training has been a little 24/7 lately, and I kinda needed to be a bit pumped for these pictures… didn't mean to make it awkward…"<</Dialogue>><br><br>
+    You squeak an unintelligible answer, and Nat looks amused.<br><br>
+<</if>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Do you know how to operate a DLSR? "<</Dialogue>><br><br>
+<<RivalI>> asks, handing you a rather daunting camera. You never seen one so close before, but you can at least tell which button takes a picture.<br><br>
+<<Dialogue "player" "You">>"Uh, do I need to focus or measure the light or some other special thing?"<</Dialogue>><br><br>
+Nat laughs.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"I set it to full auto mode, and the lighting is already set up. Just… can you sit there for a second so I do some minor adjustments?"<</Dialogue>><br><br>
+You sit at the bench <<rivalI>> laid out in the middle of the lights, and <<rivalI>> starts adjusting their intensity and position.<br><br>
+<<if $shyConfident > 1>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"You've got some good posture, have you done any modeling yourself?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Not really? I mean, it never even occurred to me, frankly. It sounds like something that you are born with or maybe you get discovered or I don't know?"<</Dialogue>><br><br>
+<<else>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Can you just stand a bit more straight? I kinda need to figure how to cover the shadows… let me grab a reflector…"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Sorry, this whole modeling thing sounds like something only really pretty people do…"<</Dialogue>><br><br>
+<</if>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, trust me, you can be taught how to model… why don't I give you a few pointers later? There, I'm done."<</Dialogue>><br><br>
+You trade places, and <<rivalI>> sits down again. While you were fumbling with the camera, Nat seems to have turned on a switch or something, because when you are looking at <<rivalMe>> through the viewfinder, it's like a different person: <<rivalMy>> eyes burn with an intensity you cannot put in words, and it makes you feel desired…<br><br>
+<<Dialogue "player" "You">>"Just… take me already…"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"What?"<</Dialogue>><br><br>
+Did you say that out loud? Oops… Nat seems to also have reverted to <<rivalMy>> normal self.<br><br>
+<<Dialogue "player" "You">>"Sorry… just… figuring the camera out. Here, let's do this."<</Dialogue>><br><br>
+The two of you spend the next ten minutes taking a series of shots in different poses, and Nat seems to almost magically know how to look <<rivalMy>> best. A small move of the arm, a change in the position of <<rivalMy>> legs… a simple bend backwards that makes those abs pop even more as they are revealed from the raised shirt… it feels like it's getting pretty hot in here, must be all these lights…<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Thanks, these turned out pretty good!"<</Dialogue>><br><br>
+Nat says, while checking the shots you took on the camera's screen.<br><br>
+<<Dialogue "player" "You">>"You make it look really easy, too."<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Here, let me show you how this works, it's not as hard as you might think…"<</Dialogue>><br><br>
+<<RivalI>> motions for you to sit on the bench as <<rivalI>> handles the camera.<br><br>
+<<if $shyConfident > 1 && $muscle > 40>>
+    You sit down, and before you know, the spirit of a fierce lioness has taken over your body. That lens trained at you makes you feel sexy and powerful, and you just radiate that energy. Instinctively, you react to Nat's every motion, alternating between sexy smiles and smoldering stares, with some casual displays of your developed physique - you highlight your abs, quads, calves and arms at every opportunity, even though you are barely aware of doing it. Nat is clicking fewer and fewer shots, even though you feel like your posing is actually picking up steam. 
+<<elseif $shyConfident > 1>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Wow, okay, look at you - I don't even have to say anything…"<</Dialogue>><br><br>
+    Nat clicks away, and you just find yourself posing without thinking - every time <<rivalI>> moves, you find yourself repositioning instinctively to show all your best assets, never stopping with either radiant smiles or smoldering stares. Nat keeps clicking, but <<rivalI>> seems more and more hesitant as <<rivalI>> keep going.<br><br>
+<<elseif $shyConfident > -1 && muscle > 40>>
+    You sit down, unsure of what <<rivalI>> expects you to do. Nat puts the camera down and looks straight at you, demonstrating as <<rivalI>> speaks.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"You've got an amazing body, flaunt it! Let's get those shoulders open, reveal all that beautiful torso and the nice core… stretch those toned legs, I want to get all of those… and just remember to smile."<</Dialogue>><br><br>
+    <<RivalMy>> compliments hit you real deep, and you couldn't keep yourself from smiling if you tried to. <<RivalI>> makes you feel very at ease, and soon <<rivalI>>'s giving you more posing tips and you are having so much fun while <<rivalI>> clicks away…<br><br>
+<<elseif $shyConfident > -1>>
+    You sit down, unsure of what <<rivalI>> expects you to do. Nat puts the camera down and looks straight at you, demonstrating as <<rivalI>> speaks.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Pull back your shoulders, I wanna see that pretty torso. And raise your head a little, so we can get your nice eyes… there… now… just… smile…"<</Dialogue>><br><br>
+    You find yourself glowing from those compliments, and the smile comes quite naturally. Soon, Nat is clicking away, and giving you small suggestions regarding your posture. You do as <<rivalI>> says, and <<rivalI>> continues clicking.<br><br>
+<<else>>
+    You sit down, all hunched over yourself. Nat puts the camera down and first walks in front of you and just pulls your shoulders back, then raises your chin. No words, just gentle touches as <<rivalI>> looks at you like some statue <<rivalI>>'s carefully sculpting. You blush at every moment, and feel your heart beating faster and faster.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Now, I need you to look at me… you look amazing, <<print $playerFirstName>>! Just give me that trademark smile of yours!"<</Dialogue>><br><br>
+    You force yourself to smile.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Come on, <<print $playerFirstName>>! We both know you can do better than that! Remember when my mom used to bake apple pies, and you'd throw all your charm to get some? I want that smile!"<</Dialogue>><br><br>
+    Just the memory of your childhood is enough to send a warm feeling of joy, and before you know Nat's already clicking away.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"THAT'S the one! Great! Just keep that, and turn your head a bit to the right…"<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "player" "You">>"Wow! Just look at those! I can barely believe it's me!"<</Dialogue>><br><br>
+You are genuinely surprised as you see your own pictures - you never really thought you could actually pull it off - but looking at it, you can actually imagine yourself modeling!<br><br>
+<<if $shyConfident > 1>>
+    <<Dialogue "player" "You">>"DAMN! I'd fuck me! Maybe I should start looking into modeling after all…"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Whoa, Nelly, hold your horses! You look nice, but modeling is a lot more than just looking good for the camera."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Okay, but I'm not just looking good there, I'm basically ON FIRE! Can I get some copies of these? Maybe I should send them out to some agencies…"<</Dialogue>><br><br>
+    Nat grumbles, but says <<rivalI>>'ll forward you the pictures by email later.
+<<elseif $shyConfident > -1>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, what do you know, I guess I do make a pretty good teacher!"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Yeah, I'm kinda surprised I had it in me. I look pretty good in these!"<</Dialogue>><br><br>
+<<else>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Seems like you are a natural! You did come out great in these."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Well, not that I could have done it without you…"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I might have helped, but this is all you."<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "player" "You">>"So… what are the pictures I took for?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"It's a gig I have coming up, they just needed a preview for their art director to organize the shoot."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"OHHHH, that's SO COOL! Can I come along?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Uh, I guess? It might be a bit boring though, it's a lot of waiting, and there's really not much to do in the meantime - and you need to stay off of everyone's toes. People can get pretty catty in modeling… everyone's a diva, you know?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I promise I'll behave! Just tell me when that's going on and I'll be there! Deal?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Ssssssuuuure…?"<</Dialogue>><br><br>
+You never thought you'd see a modeling shoot for real! This is so exciting! After Nat thanks you for the favor, you say it's always good to see <<rivalMe>> and make your way back home.`
+	},
+    {
 		name: 'NatModelingGig',
 		locationTags: ['FIXME'],
 		conditions: [() => false /*FIXME*/],
