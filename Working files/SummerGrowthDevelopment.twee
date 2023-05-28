@@ -3466,8 +3466,7 @@ var effective = false;
 
                         break;
                     }         
-                }
-                
+                }                
                 if (!effective && Dialog.isOpen() == false) {
                     var dialog = Dialog.setup("It fizzled");
                     new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
@@ -5618,7 +5617,168 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         discovered: false,
         pinned: false,
         resultDesc: 'MasculineIngredient (2x)'
+    },
+    {
+        ingredientOne: 'FeminineIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Taste-improver").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Taste-improver'
+    },
+    {
+        ingredientOne: 'FatIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "FA-GAIN 23A").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'FA-GAIN 23A'
+    },
+    {
+        ingredientOne: 'FutaIngredient',
+        ingredientTwo: 'LiquidIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "SPHE-GRO-001").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'SPHE-GRO-001'
+    },
+    {
+        ingredientOne: 'FutaIngredient',
+        ingredientTwo: 'HeightIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Girth grow").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Girth grow'
+    },
+    {
+        ingredientOne: 'FutaIngredient',
+        ingredientTwo: 'FutaIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Erecto-10").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Erecto-10'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'HeightIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "B-shrink").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'B-shrink'
+    },
+    {
+        ingredientOne: 'HeightIngredient',
+        ingredientTwo: 'SlowIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "B-gr0w").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'B-gr0w'
+    },
+    {
+        ingredientOne: 'ConfidentIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Mot-v10").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Mot-v10'
+    },
+    {
+        ingredientOne: 'CarefreeIngredient',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Exhaust-B-g0n3").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Exhaust-B-g0n3'
+    },
+    {
+        ingredientOne: 'LiquidIngredient',
+        ingredientTwo: 'ShrinkIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "BRA-SHRINK-T1").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'BRA-SHRINK-T1'
+    },
+    {
+        ingredientOne: 'LiquidIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Milk--").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Milk--'
+    },
+    {
+        ingredientOne: 'LiquidIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Milk++").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Milk++'
+    },
+    {
+        ingredientOne: 'FeminineIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Ton-shrink/01'
+    },
+    {
+        ingredientOne: 'FeminineIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Ton-shrink/01'
+    },
+    {
+        ingredientOne: 'MuscleIngredient',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "lip-shrink//XX").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'lip-shrink//XX'
+    },
+    {
+        ingredientOne: 'MuscleIngredient',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-shy").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-shy'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'ConfidenceIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Con").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-Con'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Care").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-Care'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'SubmissiveIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-sub").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-sub'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'DominantIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Dom").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-Dom'
     }
+    
 ]>>
 
 <<set $consumables to [
@@ -5637,7 +5797,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 30,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 1,
         effects: [
             {
@@ -5757,7 +5917,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 30,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.8,
         effects: [
             {
@@ -5919,7 +6079,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 30,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.8,
         effects: [
             {
@@ -5960,7 +6120,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 50,
         forSale: 0,
         settings: ["futa"],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.75,
         effects: [
             {
@@ -5987,7 +6147,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 50,
         forSale: 0,
         settings: ["futa"],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.75,
         effects: [
             {
@@ -6014,7 +6174,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 50,
         forSale: 0,
         settings: ["futa"],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.75,
         effects: [
             {
@@ -6049,7 +6209,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
                 description: () => "Well, at least the bottle is tiny? You can down it in a single sip, barely any liquid in it. The drink goes down smoothly but feels incredibly heavy on your stomach. So heavy, in fact, you get the feeling your entire body just sinks in a bit.",
                 shortDescription: () => "Makes you shorter",
                 chance: 1,
-                discovered: false
+                discovered: true
             },
             {
                 code: () => "<<addMuscleSlow 2>><<addFatSlow 2>>",
@@ -6082,7 +6242,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 30,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 1,
         effects: [
             {
@@ -6117,7 +6277,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 20,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 1,
         effects: [
             {
@@ -6144,7 +6304,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 10,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 1,
         effects: [
             {
@@ -6178,7 +6338,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 25,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 1,
         effects: [
             {
@@ -6212,7 +6372,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 10,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 1,
         effects: [
             {
@@ -6239,7 +6399,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 10,
         forSale: 0,
         settings: ["lactation"],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.75,
         effects: [
             {
@@ -6266,7 +6426,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 10,
         forSale: 0,
         settings: ["lactation"],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.75,
         effects: [
             {
@@ -6293,7 +6453,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 15,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6320,7 +6480,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 10,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6347,7 +6507,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 100,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6374,7 +6534,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 100,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6401,7 +6561,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 100,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6428,7 +6588,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 100,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6455,7 +6615,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 100,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -6476,7 +6636,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         price: 100,
         forSale: 0,
         settings: [],
-        HideInStores: false,
+        HideInStores: true,
         dropRate: 0.5,
         effects: [
             {
@@ -8321,8 +8481,8 @@ Determines the measurement system used in the game.
 <<set setup.natEvents.push(
     {
 		name: 'NatMovingIn',
-		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		locationTags: ['Outside'],
+		conditions: [() => State.variables.daysPlayed > 3],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8352,8 +8512,8 @@ Determines the measurement system used in the game.
 	},
 	{
 		name: 'NatSavedByProtagonist',
-		locationTags: ['FIXME'],
-		conditions: [() => 'FIXME'],
+		locationTags: ['Outside'],
+		conditions: [() => State.variables.daysPlayed > 5],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
