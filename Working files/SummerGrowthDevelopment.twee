@@ -8356,8 +8356,11 @@ Determines the measurement system used in the game.
 	},
 	{
 		name: 'NatSavedByProtagonist',
-		locationTags: ['FIXME'],
-		conditions: [() => false /*FIXME*/],
+		locationTags: [],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatMovingIn'),
+		    () => State.variables.daysPlayed >= 7
+		],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
