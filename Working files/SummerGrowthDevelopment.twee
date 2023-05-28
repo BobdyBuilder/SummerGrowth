@@ -9027,10 +9027,10 @@ You say your goodbyes, and find yourself looking forward to that next call.`
 	},
     {
 		name: 'NatDocumentaryFilming1-fromRoute1or2',
-		locationTags: ['FIXME'],
+		locationTags: ['outside'],
 		conditions: [
 		    () => [1, 2].includes(State.variables.flag.nat.na6route),
-		    () => false /*FIXME*/
+		    () => State.variables.daysPlayed >= 30
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -9058,10 +9058,10 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 	},
     {
 		name: 'NatDocumentaryFilming1-fromRoute3orNonModel',
-		locationTags: ['FIXME'],
+		locationTags: ['outside'],
 		conditions: [
 		    () => State.variables.flag.nat.na6route === 3 || State.variables.flag.nat.modelPath === false,
-		    () => false /*FIXME*/
+		    () => State.variables.daysPlayed >= 30
 		],
 		repeatable: false,
 		retriggerable: false,
