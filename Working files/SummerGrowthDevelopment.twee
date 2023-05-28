@@ -15766,7 +15766,7 @@ $(document).on(':passageinit', function (ev) {
 
 
 :: RivalMe [widget nobr] {"position":"550,2200","size":"100,100"}
-<<widget "rivalMe">><<if $rivalGender === 'male'>>Him<<else>>Her<</if>><</widget>>
+<<widget "RivalMe">><<if $rivalGender === 'male'>>Him<<else>>Her<</if>><</widget>>
 
 
 :: rivalMine [widget nobr] {"position":"550,2200","size":"100,100"}
@@ -15774,7 +15774,7 @@ $(document).on(':passageinit', function (ev) {
 
 
 :: RivalMine [widget nobr] {"position":"550,2200","size":"100,100"}
-<<widget "rivalMine">><<if $rivalGender === 'male'>>his<<else>>hers<</if>><</widget>>
+<<widget "RivalMine">><<if $rivalGender === 'male'>>his<<else>>hers<</if>><</widget>>
 
 
 :: instantFatLoss [noReturn] {"position":"550,1800","size":"100,100"}
