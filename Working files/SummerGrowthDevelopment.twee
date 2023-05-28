@@ -24443,9 +24443,9 @@ You reach down to feel a certain slickness between your legs, the sensation of a
     name: 'mainQuest1Progress',
     locationTags: ['secondHandStore'],
     conditions: [
-			 
             () => State.variables.mainQuestProgressMade,
-    () => State.variables.daysPlayed > 5
+            () => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet*/),
+            () => State.variables.daysPlayed >= 10
         ],
 repeatable: false,
     retriggerable: false,
