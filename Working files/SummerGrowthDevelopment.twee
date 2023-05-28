@@ -8482,7 +8482,7 @@ Determines the measurement system used in the game.
 <<set setup.natEvents.push(
     {
 		name: 'NatMovingIn',
-		locationTags: ['Outside'],
+		locationTags: ['outside'],
 		conditions: [
 		    () => setup.hasEventBeenTriggered('johanVisits'),
 		    () => State.variables.daysPlayed >= 3
@@ -8516,7 +8516,7 @@ Determines the measurement system used in the game.
 	},
 	{
 		name: 'NatSavedByProtagonist',
-		locationTags: ['Outside'],
+		locationTags: ['outside'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatMovingIn'),
 		    () => State.variables.daysPlayed >= 7
@@ -8735,7 +8735,7 @@ Determines the measurement system used in the game.
 	},
     {
 		name: 'NatTeachModeling',
-		locationTags: ['Outside'],
+		locationTags: ['outside'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary'),
 		    () => State.variables.daysPlayed >= 21
@@ -8841,7 +8841,7 @@ You never thought you'd see a modeling shoot for real! This is so exciting! Afte
 	},
     {
 		name: 'NatModelingGig1',
-		locationTags: ['Outside'],
+		locationTags: ['outside'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatTeachModeling'),
 		    () => State.variables.daysPlayed >= 25
@@ -8903,7 +8903,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
 	},
     {
 		name: 'NatModelingGig2-ModelPath',
-		locationTags: ['Outside'],
+		locationTags: ['outside'],
 		conditions: [() => false /*triggered manually from 'NatModelingGig1'*/],
 		repeatable: false,
 		retriggerable: false,
@@ -8994,7 +8994,7 @@ With a nice unexpected paycheck in hand, you head back home.`
 	},
     {
 		name: 'NatModelingGig2-NonModelPath',
-		locationTags: ['Outside'],
+		locationTags: ['outside'],
 		conditions: [() => false /*triggered manually from 'NatModelingGig1'*/],
 		repeatable: false,
 		retriggerable: false,
