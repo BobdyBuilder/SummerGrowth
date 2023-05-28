@@ -24101,16 +24101,9 @@ repeatable: false,
     },
     {
         name: 'mainQuestUsbFilesUnlocked',
-        locationTags: ['Home'],
+        locationTags: ['home'],
         conditions: [
-                
-                () => State.variables.usbPasswordUnlocked[0],
-                () => State.variables.usbPasswordUnlocked[1],
-                () => State.variables.usbPasswordUnlocked[2],
-                () => State.variables.usbPasswordUnlocked[3],
-                () => State.variables.usbPasswordUnlocked[4],
-                () => State.variables.usbPasswordUnlocked[5],
-                () => State.variables.usbPasswordUnlocked[6]
+                () => State.variables.usbPasswordUnlocked?.filter(i => !i).length === 0 /* there is no locked file */
             ],
         repeatable: false,
         retriggerable: false,
@@ -25137,11 +25130,7 @@ if (State.variables.eventCounter > setup.balance.eventTresshold && tags().length
 :: pcUsbHacking [nobr] {"position":"1800,1100","size":"100,100"}
 <<script>>
     if (State.variables.usbPasswordUnlocked == null) {
-        if (State.variables.usbPassword1Unlocked != null) {
-            State.variables.usbPasswordUnlocked = [State.variables.usbPassword1Unlocked, State.variables.usbPassword2Unlocked, State.variables.usbPassword3Unlocked, State.variables.usbPassword4Unlocked, State.variables.usbPassword5Unlocked, State.variables.usbPassword6Unlocked, State.variables.usbPassword7Unlocked];
-        } else {
-            State.variables.usbPasswordUnlocked = [false, false, false, false, false, false, false];
-        }
+        State.variables.usbPasswordUnlocked = [false, false, false, false, false, false, false];
     }
 <</script>>
 
