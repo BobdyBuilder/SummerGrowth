@@ -9090,7 +9090,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 	},
     {
 		name: 'NatDocumentaryFilming2',
-		locationTags: ['FIXME'],
+		locationTags: ['outside'],
 		conditions: [
 		    () => false /*manually triggered from 'NatDocumentaryFilming1'*/
 		],
@@ -9210,7 +9210,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 	},
     {
 		name: 'NatDocumentaryFilming3-route1',
-		locationTags: ['FIXME'],
+		locationTags: ['outside'],
 		conditions: [
 		    () => false /*manually triggered from 'NatDocumentaryFilming2'*/
 		],
