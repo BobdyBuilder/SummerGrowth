@@ -8322,8 +8322,11 @@ Determines the measurement system used in the game.
 <<set setup.natEvents.push(
     {
 		name: 'NatMovingIn',
-		locationTags: ['FIXME'],
-		conditions: [() => false /*FIXME*/],
+		locationTags: [],
+		conditions: [
+		    () => setup.hasEventBeenTriggered('johanVisits'),
+		    () => State.variables.daysPlayed >= 3
+		],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -25020,7 +25023,6 @@ if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Intimidat
 else{
     State.variables.eventCounter++;
 }
-
 
 if (State.variables.eventCounter > setup.balance.eventTresshold && tags().length > 0) {
     var immediateEvents = [];
