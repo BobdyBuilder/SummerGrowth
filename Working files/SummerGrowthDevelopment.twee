@@ -8840,7 +8840,7 @@ You are genuinely surprised as you see your own pictures - you never really thou
 You never thought you'd see a modeling shoot for real! This is so exciting! After Nat thanks you for the favor, you say it's always good to see <<rivalMe>> and make your way back home.`
 	},
     {
-		name: 'NatModelingGig',
+		name: 'NatModelingGig1',
 		locationTags: ['Outside'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatTeachModeling'),
@@ -8870,7 +8870,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Your… muscular physique… this POWER you exude… wait… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this Greek goddess here? I need to send a preview to the client… I think this will work wonder!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig2-ModelPath">><</link>>
 
 <<elseif $muscle >= 35 && $breasts >= 40 && $height >= 185 && $fat <=25 >>
     <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
@@ -8878,7 +8878,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Hmmm… looking at the two of you… this raw vibe of fury from your fitness… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this statuesque athlete here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig2-ModelPath">><</link>>
 
 <<elseif $hipsSize >= 50 && $breasts >= 40 && $height >= 180 && $fat <=25 >>
     <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
@@ -8886,7 +8886,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Hmmm… girl, your proportions… sexy sells, and you, my darling, have a body that could sell umbrellas in the Sahara… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this supermodel-in-the-making here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig2-ModelPath">><</link>>
     
 <<elseif $height >= 180 && $fat <=20 && $skills[4].level > 2 && $shyConfident > 1>>
     <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
@@ -8894,17 +8894,17 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Hmmm… girl, I've discovered many models in my time, and YOU… you have IT! I can't let an opportunity like that pass me by… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit our next great up-and-coming supermodel here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig-ModelPath">><</link>>
+    The girl nods, and goes out running as fast as she came.<br><br><<link "continue">><<playNatEvent "NatModelingGig2-ModelPath">><</link>>
 
 <<else>>
     <<Dialogue "randomPerson" "Art Director">>"Well, you didn't tell me you were going to bring your girlfriend to the shoot."<</Dialogue>><br><br>
-    You and Nat quickly dismiss the notion that you are dating, in a clumsy and embarrassed fashion. It's actually kinda cute.<br><br><<link "continue">><<playNatEvent "NatModelingGig-NonModelPath">><</link>>
+    You and Nat quickly dismiss the notion that you are dating, in a clumsy and embarrassed fashion. It's actually kinda cute.<br><br><<link "continue">><<playNatEvent "NatModelingGig2-NonModelPath">><</link>>
 <</if>>`
 	},
     {
-		name: 'NatModelingGig-ModelPath',
+		name: 'NatModelingGig2-ModelPath',
 		locationTags: ['Outside'],
-		conditions: [() => false /*triggered manually from 'NatModelingGig'*/],
+		conditions: [() => false /*triggered manually from 'NatModelingGig1'*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
@@ -8993,9 +8993,9 @@ With the shooting done, the photographer and director come to congratulate the t
 With a nice unexpected paycheck in hand, you head back home.`
 	},
     {
-		name: 'NatModelingGig-NonModelPath',
+		name: 'NatModelingGig2-NonModelPath',
 		locationTags: ['Outside'],
-		conditions: [() => false /*triggered manually from 'NatModelingGig'*/],
+		conditions: [() => false /*triggered manually from 'NatModelingGig1'*/],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
