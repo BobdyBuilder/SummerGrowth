@@ -8435,8 +8435,11 @@ Determines the measurement system used in the game.
 	},
     {
 		name: 'NatFirstTapingBodybuildingDocumentary',
-		locationTags: ['FIXME'],
-		conditions: [() => false /*FIXME*/],
+		locationTags: [],
+		conditions: [
+            () => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet*/),
+		    () => State.variables.daysPlayed >= 15
+		],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
