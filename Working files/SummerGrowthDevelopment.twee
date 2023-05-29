@@ -9026,7 +9026,7 @@ You actually wouldn't mind waiting for <<rivalMe>>… but you already feel like 
 You say your goodbyes, and find yourself looking forward to that next call.`
 	},
     {
-		name: 'NatDocumentaryFilming1-fromRoute1or2',
+		name: 'NatDocumentaryFilmingCompetitorProfile1-fromRoute1or2',
 		locationTags: ['outside'],
 		conditions: [
 		    () => [1, 2].includes(State.variables.flag.nat.na6route),
@@ -9054,10 +9054,10 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<Dialogue "randomPerson" "Documentary Director">>"So… I was telling <<rivalName>> that you caught my eye there, <<print $playerFirstName>>, and I wanted to talk to you too!"<</Dialogue>><br><br>
 <</if>>
 
-<<link "continue">><<playNatEvent 'NatDocumentaryFilming2'>><</link>>`
+<<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile2'>><</link>>`
 	},
     {
-		name: 'NatDocumentaryFilming1-fromRoute3orNonModel',
+		name: 'NatDocumentaryFilmingCompetitorProfile1-fromRoute3orNonModel',
 		locationTags: ['outside'],
 		conditions: [
 		    () => State.variables.flag.nat.na6route === 3 || State.variables.flag.nat.modelPath === false,
@@ -9086,13 +9086,13 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<Dialogue "randomPerson" "Documentary Director">>"Oh, nice to meet you, <<print $playerFirstName>>!"<</Dialogue>><br><br>
 <</if>>
 
-<<link "continue">><<playNatEvent 'NatDocumentaryFilming2'>><</link>>`
+<<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile2'>><</link>>`
 	},
     {
-		name: 'NatDocumentaryFilming2',
+		name: 'NatDocumentaryFilmingCompetitorProfile2',
 		locationTags: ['outside'],
 		conditions: [
-		    () => false /*manually triggered from 'NatDocumentaryFilming1'*/
+		    () => false /*manually triggered from 'NatDocumentaryFilmingCompetitorProfile1'*/
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -9114,7 +9114,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
         You raise your fist in front of you with a mighty flex, your biceps in full display. The crowd gasps - except for Nat, who crosses <<rivalMy>> arms and looks to the side, sulking.<br><br>
         <<Dialogue "randomPerson" "Documentary Director">>"Well, so… that means you are going to feature in the documentary, right? We don't have a release form for you yet…"<</Dialogue>><br><br>
     <</if>>
-    <<link "continue">><<playNatEvent 'NatDocumentaryFilming3-route1'>><</link>>
+    <<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
 
 <<elseif $muscle >= 55  && !$flag.nat.docnotice>>
     She squints as she gets a really good look at you.<br><br>
@@ -9124,7 +9124,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
         <<else>>
         <<Dialogue "player" "You">>"To be sincere, I wasn't planning to compete… not yet, anyways…"<</Dialogue>><br><br>
     <</if>>
-    <<link "continue">><<playNatEvent 'NatDocumentaryFilming3-route1'>><</link>>
+    <<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
 
 <<elseif $height >= 205 || $breasts >= 55 || $dick >= 30>> 
     She squints as she gets a really good look at you.<br><br>
@@ -9209,10 +9209,10 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <</if>>`
 	},
     {
-		name: 'NatDocumentaryFilming3-route1',
+		name: 'NatDocumentaryFilmingCompetitorProfile3-route1',
 		locationTags: ['outside'],
 		conditions: [
-		    () => false /*manually triggered from 'NatDocumentaryFilming2'*/
+		    () => false /*manually triggered from 'NatDocumentaryFilmingCompetitorProfile2'*/
 		],
 		repeatable: false,
 		retriggerable: false,
