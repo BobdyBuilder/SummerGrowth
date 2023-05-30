@@ -9295,6 +9295,160 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 		<</replace>>
 	<</link>>
 </span>`
+	},
+    {
+		name: 'NatVsKrisAtCoffeeCorner',
+		locationTags: ['outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatDocumentaryFilmingCompetitorProfile2') /*FIXME need to merge 'NatDocumentaryFilmingCompetitorProfile' events into one*/,
+		    () => State.variables.daysPlayed >= 34
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `Your phone beeps with a message from Nat: “Wanna go out for some coffee? I found this cozy place called Coffee Corner, they have excellent espressos.” 
+<<if $krisOpinion > 0>>Well, <<rivalI>> clearly hasn't met Kris yet…<<else>>That sounds like a nice plan!<</if>><br><br>
+You could use a little caffeine right now, and so you make your way to the mall.<br><br>
+You arrive at the Coffee Corner before Nat, and get yourself a table for two. While you go through the menu, you see your old friend rushing in.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Sorry for my tardiness… got caught up in a silly phone call with my agent."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Hey, no biggie. Work comes first, I know how it goes."<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, yeah… nice weather, though… glad to be out of the house."<</Dialogue>><br><br>
+<<if $natOpinion < 0>>Nat seems a bit uneasy, this kind of small talk isn't quite <<rivalMy>> style. It doesn't take long for <<rivalMe>> to spill the beans.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Still… the reason I called you… is that I wanted to apologize for my behavior lately. I haven't been the greatest friend, but I've been under a lot of stress and I feel like I ended up just dumping all of that on you. So… I'm sorry."<</Dialogue>><br><br>
+    That's more in line with the Nat you remember from your childhood. Yeah, <<rivalI>> was always on the impulsive side, but you remember <<rivalMy>> strong sense of justice… and <<rivalI>> must have felt bad for the stuff that happened.<br><br>
+    <<Dialogue "player" "You">>"Well, the important part is that you realize that what you did was not cool. I know life can get crazy… just… don't let it happen again, alright? I know you are not a jerk - but everyone else might not think the same way."<</Dialogue>><br><br>
+    Nat smiles and thanks you, as a server approaches to take your orders.<br><br>
+<<else>>
+    Nat seems a bit distracted and unfocused, which you didn't quite expect.<br><br>
+    <<Dialogue "player" "You">>"Is everything okay? You seem a little… off?"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ah, you know how it goes - I get a little too focused on my goals, and it throws me off-balance. I can get easily irritated or just overly pensive. That's why I invited you for coffee, you tend to help balance me - I don't have many people I would call “friends” here… in fact, I'd say you really are the only one."<</Dialogue>><br><br>
+    Awwww, that's sweet. Part of you just wants to smoosh <<rivalMy>>, but that might be a little forward on your part right now. As you ponder on that, Nat goes ahead and orders a couple of iced coffees. <<RivalI>> proceeds to tell you about how stressed <<rivalI>> is with the upcoming contest:<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"You know, despite all my martial arts training, I've always struggled a bit with anxiety - and that ticking clock for the contest is taking a toll. I feel like I need to squeeze every bit possible from each workout, worry about every single carb I consume… I'm just… constantly policing myself."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Well, but do you enjoy the process?"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"The workouts, for sure. I feel the pressure to perform, but the training itself has always been very therapeutic for me - I'd say even more so the results…"<</Dialogue>><br><br>
+    <<rivalI>> flexes <<rivalMy>> biceps, as to illustrate the point. You can't help but appreciate the very sharp peak on <<rivalMy>> arm, which gives <<rivalMy>> a very aesthetically pleasing shape.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"It probably sounds silly, but seeing the change on the numbers on the scale, the measuring tape, on the weights… it means I'm going forward. So every time I plateau, it's a bit unnerving - nerve-wracking, even."<</Dialogue>><br><br>
+    You think for a bit. Maybe there's a way you can help <<rivalMe>>…<br><br>
+    <<Dialogue "player" "You">>"Maybe you just need to see this from another perspective. If you can get enjoyment of part of it, I wonder if there's a way you can just perceive it differently?"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"How so?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Well, what if you had a training partner? Someone you could both have a friendly competition and just a companion? Someone else to share the burden with you, motivate you, and just be there for you?"<</Dialogue>><br><br>
+    You see surprise in <<rivalMy>> eyes. Both of you know you are talking about yourself… but before <<rivalI>> can fully process that, in comes Kris with the order.<br><br>
+<</if>>
+<<Dialogue "Kris" "Kris">>"Sup, here are a couple of iced cof..."<</Dialogue>><br><br>
+Kris suddenly flips off the slacker mode switch… uh oh…<br><br>
+<<Dialogue "Kris" "Kris">>"Wait… I KNOW you. I've seen you featured in <<if $rivalGender === 'male'>>Men<<else>>Women<</if>>'s Super Fitness Magazine - <<rivalName>>, right?"<</Dialogue>><br><br>
+Kris licks her lips and crumbles the order pad in her hand. Krishap incoming…<br><br>
+<<Dialogue "Kris" "Kris">>"Did anyone ever tell you that your abs are the most delicious thing on this planet? If I could, I would use them for a pillow for the rest of my life - pity I have a washing machine at home, because if I had access to those washboards, I would do my laundry everyday."<</Dialogue>><br><br>
+She completes that thought with a wink. Nat is clearly not amused, but plays along with <<rivalMy>> celebrity.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Uh… do you… want an autograph or something?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Oops, I guess I crumbled my notepad, but I'd gladly sign MY NAME on your abs WITH MY TONGUE!"<</Dialogue>><br><br>
+<<rivalName>> is now downright uncomfortable with the situation, and makes a point of making that clear.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"I'm sorry, I don't mind dealing with fans, but I do demand we keep some boundaries - ESPECIALLY from people in the service industry while they are working!"<</Dialogue>><br><br>
+<<rivalName>> doesn't quite understand how Kris operates - this rant is only bound to get her more worked up!<br><br>
+<<Dialogue "Kris" "Kris">>"Well, how about we service you then? Let me take a peek under the hood…"<</Dialogue>><br><br>
+QED.<br><br>
+Kris just unapologetically lifts Nat's shirt, revealing <<rivalMy>> (unquestionably yummy) abs to the entire store. The usual clientele, quite accustomed to Kris, doesn't even bat an eye, but Nat <<rivalMy>>self seems to be surprised at that, and grabs the attendant by the wrist, apparently putting quite a bit of pressure on it.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"HEY! HANDS OFF!"<</Dialogue>><br><br>
+Unsurprisingly, this just seems to get Kris even more excited.<br><br>
+<<Dialogue "player" "You">>"Hey… everyone… maybe we ought to de-escalate this whole situation?"<</Dialogue>><br><br>
+The look on both of their eyes is, frankly, a bit scary. Kris is laying down the thirst, and Nat seems to have an intense burning - not quite anger, but… intense, nonetheless. The Mexican standoff has now grabbed some attention from other people as the tension continues to climb.<br><br>
+Time seems to freeze. The two trade looks, and you can't pry your own eyes from the situation, but also can't quite decide what to say. No one knows who is going to make the next move, and you can almost swear your heart has stopped in anticipation - at the very least, you know you are holding your breath.<br><br>
+And then, completely unannounced, Kris just bends over and gives Nat a lick on the neck, <<rivalMy>> wrist still being held, and stands back up with a huge grin. Nat jerks back immediately, like <<rivalI>>'s been bitten by a rabid animal, and just grabs his iced coffee cup with <<rivalMy>> free hand and tosses the whole thing against Kris's face - the rigid plastic cup leaving a small red mark on her drenched face. Suddenly, all eyes on the store turn to watch the altercation.<br><br>
+Complete silence. No one in the place moves a muscle - Kris's face dripping wet with iced coffee, and her demeanor is a bizarre mix of surprise, revolt and excitement.<br><br>
+<<if $submissiveDominant > 1 && $muscle >= 50>>
+Without even blinking, you grab the free wrist that tossed the cup, which you remember being the one <<rivalI>> hurt from the day <<rivalI>> was bringing the sports equipment. You hold it quite tightly, and you can see some pain in Nat's face.<br><br>
+<<Dialogue "player" "You">>"She stepped out of line - but you just did the same, Nat."<</Dialogue>><br><br>
+With the most decisive expression you might have ever put up in your entire life, you say the next phrase, carefully pronouncing each word clearly and slowly.<br><br>
+<<Dialogue "player" "You">>"Let. Her. Go."<</Dialogue>><br><br>
+<<elseif $submissiveDominant > 1>>
+You stand up and move yourself between Nat and Kris, facing your old friend.<br><br>
+<<Dialogue "player" "You">>"She stepped out of line - but you just did the same, Nat."<</Dialogue>><br><br>
+With the most decisive expression you might have ever put up in your entire life, you say the next phrase, carefully pronouncing each word clearly and slowly.<br><br>
+<<Dialogue "player" "You">>"Let. Her. Go."<</Dialogue>><br><br>
+<<else>>
+This has officially gotten out of control. You are unsure how to deal with it. You stand up, and start trying to push the two apart.<br><br>
+<<Dialogue "player" "You">>"HEY! This has gone quite far. Let's break this up, right now!"<</Dialogue>><br><br>
+<</if>>
+<<if $natOpinion > 0>>
+    Nat seems to realize what <<rivalI>> just did, and you can see <<rivalI>> is shocked as it dawns on <<rivalMy>>. Letting go of Kris, <<rivalI>> apologizes profusely.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I-I'm… I'm sorry. I don't know what came over me - it's… just been a difficult day."<</Dialogue>><br><br>
+    <<if $submissiveDominant > 1 && $muscle >= 50>>You let go of <<rivalMy>> hand.<br><br><</if>>
+    Kris quickly snaps back into her senses as well, but seems even more confused - she's probably not used to this kind of blowback to her advances, and seems to still be processing the whole ordeal. Either way - she just scurries back behind the counter, trying to figure whether she should be harboring contempt or arousal as she removes her wet apron.<br><br>
+    <<rivalName>> is frankly not doing much better. <RrivalI>> lowers <<rivalMy>> face into <<rivalMy>> hands, eyes bugged out.<br><br>
+    <<Dialogue "player" "You">>"Nat… I'm glad you apologized and I understand you are under a lot of stress… but you just acted like a little kid. "<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I… I…"<</Dialogue>><br><br>
+    <<RivalI>> is struggling. You can see <<rivalI>> feels really guilty about it, and is trying to figure out his next step.<br><br>
+    <<Dialogue "player" "You">>"Nat… I can't pretend to know what you are going through right now. But it seems like you may need some help."<</Dialogue>><br><br>
+    <<RivalI>> takes a deep breath before continuing.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I fought for so many years to earn people's respect… so many people doubted me - and just being a model, I get judged so much on my looks alone."<</Dialogue>><br><br>
+    <<RivalI>> is genuinely regretting the whole thing. You give <<rivalMe>> a hug.<br><br>
+    <<Dialogue "player" "You">>"I understand the pressure - but what you did is pretty awful. You talk about respect, and Kris did step over the line, but what you did was just as bad."<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Trust me, I know. I… just need a second to decompress or something."<</Dialogue>><br><br>
+    You tell <<rivalMe>> to go home and get some rest. You make sure to check on Kris, but in typical fashion, she seems to already be lusting after someone else. Well, on the bright side, it seems like Nat has gotten a wake-up call about <<rivalMy>> behavior, and learned an important lesson about respect and self-control. The conversation about training with <<rivalMe>> will just have to wait for now.
+<<else>>
+    You are going to have to deal with this.
+
+    <span id="choice">
+        <<link "Nat, let her go right this instant or you are going to regret this.">>
+            <<replace "#choice">>
+                <<if $submissiveDominant > 1 && $muscle >= 50>>
+                You give Nat's wrist a very firm squeeze, and he winces. You aren't proud of it, but <<rivalI>> crossed a line by splashing her. <<RivalI>> lets go of Kris, and you do the same. Nat rubs <<rivalMy>> wrist.<br><br>
+                <<elseif $submissiveDominant > 1>>
+                You look very deeply into Nat's eyes, and no more words are needed - you look so intense that <<rivalI>> lets go of Kris, and you do the same to <<rivalMe>>.<br><br>
+                <<else>>
+                <<Dialogue "player" "You">>"Nat, was I not clear? Do I have to call security?"<</Dialogue>><br><br>
+                <<RivalI>> thinks for a second, anger still in <<rivalMy>> face, then lets go of Kris's wrist.
+                <</if>>
+                Kris scurries to the back, and the manager starts to approach, but you tell him that you'll deal with this.<br><br>
+                <<Dialogue "player" "You">>"Dude, what the fuck was that? You think tossing your coffee was the adult thing to do?"<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Did you see what she did to me first?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"No, that is no excuse. You both acted like little kids, so I don't want to hear a peep about who started it."<</Dialogue>><br><br>
+                Nat grunts, still harboring feelings of self-righteousness over the whole episode. Unbelievable.<br><br>
+                <<Dialogue "player" "You">>"What if that hadn't been iced coffee, but hot?"<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you really going to take her side, despite of what she did to start the whole thing?"<</Dialogue>><br><br>
+                You find yourself raising your voice considerably.<br><br>
+                <<Dialogue "player" "You">>"<<rivalName>>! This is NOT about whose side I'm on! Do you understand the seriousness of throwing coffee on someone's face?!?"<</Dialogue>><br><br>
+                This is just going in circles. You demand that <<rivalI>> apologizes, and <<rivalI>> very reluctantly agrees. <<RivalI>> stands up, walks up to Kris, who very uncharacteristically looks frozen as Nat approaches. <<rivalI>> blurts out a half-hearted apology, and Kris nods back, hints of contempt and lust adorning her reddened cheek.<br><br>
+                You just roll your eyes. You expected more from Nat, and as you come back, you just glare in disbelief.<br><br>
+                <<Dialogue "player" "You">>"You really don't understand the gravity of the situation, do you?"<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I just don't get how this is all about me, is everyone really pretending that what that girl did is normal?"<</Dialogue>><br><br>
+                You huff in frustration, and decide it's best to walk out before you are the one doing something stupid. You are not in the mood to finish the conversation about training with <<rivalMe>>, but maybe you should pick that up later as an excuse to help <<rivalMy>> deal with <<rivalMy>> issues.
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <</link>>
+
+        <<PersonalityCheck $shyConfident >= 2 "I need everyone to chill here.">>
+            <<replace "#choice">>
+                <<Dialogue "player" "You">>"ALRIGHT, EVERYONE, NOTHING TO SEE HERE! Nat, Kris… can you stop for a second here, everyone take a step back and take a deep breath, please?"<</Dialogue>><br><br>
+                Nat lets go of Kris's wrist, and Kris looks downright confused about the whole thing as she covers her smarting cheek.<br><br>
+                The manager approaches, phone in hand and presumably calling the cops. You promise you have things under control, and <<rivalI>> steps back. Alright, <<print $playerFirstName>>, let's try to rein this whole thing in.<br><br>
+                <<Dialogue "player" "You">>"Kris? Are you okay?"<</Dialogue>><br><br>
+                In a very uncharacteristic reaction, she stays quiet, like her fight or flight response got wires crossed with her lust. She is dripping wet, but the scare was probably worse than the cold drink. Still… holy shit, Nat!<br><br>
+                <<Dialogue "player" "You">>"Nat, do you understand the seriousness of what you just did? What if that was hot coffee? She could've been badly burned!"<</Dialogue>><br><br>
+                Nat looks very clearly unhappy about the turn of events, not wanting to be the villain in all of this, but <<rivalI>> rolls his eyes and also nods.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I've been having a hard time, and I've lost control. I'm not proud of it, alright?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"I'm not the one you owe an apology to, Nat. Kris is right there!!!"<</Dialogue>><br><br>
+                Nat huffs and puffs, but <<rivalI>> does apologize sincerely to Kris - who is now herself downright uncomfortable about the whole episode as her brain tries to process whether she's mad or excited, and scurries to the back after giving Nat a nod that confirms she accepted the apology.<br><br>
+                Nat sits back down. You approach <<rivalMe>>, still with a very serious expression.<br><br>
+                <<Dialogue "player" "You">>"What the fuck were you thinking?"<</Dialogue>><br><br> 
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I… <<print $playerFirstName>>, it's… I don't know what came over me. I felt so utterly disrespected, and it messed with me. It's no excuse, but it's hard being a model, you know? People just rush to judge you on your looks - and it affects you, you know, being objectified… her lack of respect really triggered me."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Look, Nat, at least it looks clear that you understand that this is no excuse… but… you clearly have some issues that need to be worked out - maybe you should seek professional help."<</Dialogue>><br><br>
+                <<RivalI>> sighs and nods, looking defeated but at least not angry anymore.<br><br>
+                <<Dialogue "player" "You">>"And for the record: you weren't exactly respectful with her either at the end of the day. "<</Dialogue>><br><br> 
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"You are 100% right. <<print $playerFirstName>>, I'm really feeling the pressure with this upcoming bodybuilding competition… so… thanks for being on my corner."<</Dialogue>><br><br>
+                You give Nat a tight hug, and tell <<rivalMe>> to go back home and think about what <<rivalI>> did. <<RivalI>> leaves, thanking you one last time. You make a mental note to finish that conversation about joining <<rivalMy>> training some other time.
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <<Failed>>
+            <<replace "#choice">>
+                <<Dialogue "player" "You">>"Errr, someone… help?"<</Dialogue>><br><br>
+                The manager steps in, already calling the cops on the phone. You start freaking out, and Kris steps in and convinces him to hang up. The manager ends up confronting Nat, and you find yourself unable to intervene. The whole thing kind of just blows up as everyone starts shouting louder and louder, and you just leave the Coffee Corner without saying another word. That conversation about joining his training will just have to wait.
+                <<link "Continue" $currentScene>><</link>>
+            <</replace>>
+        <</PersonalityCheck>>
+    </span>
+<</if>>`
 	}
 )>>
 
