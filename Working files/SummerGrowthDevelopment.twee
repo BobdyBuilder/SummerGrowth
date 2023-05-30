@@ -10912,58 +10912,58 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 ]>>
 
 <<set $johanVisited to false>>
-<<set $johanLastMuscle to 20>>
-<<set $johanLastFat to 20>>
-<<set $johanLastBreasts to 10>>
-<<set $johanLastDick to 0>>
-<<set $johanLastHeight to 150>>
+<<set $johanLastMuscle to $muscle>>
+<<set $johanLastFat to $fat>>
+<<set $johanLastBreasts to $breasts>>
+<<set $johanLastDick to $dick>>
+<<set $johanLastHeight to $height>>
 <<set $johanAmountVisited to 0>>
 <<set $johanOpinion to 10>>
 
 <<set $emmaVisited to false>>
-<<set $emmaLastMuscle to 20>>
-<<set $emmaLastFat to 20>>
-<<set $emmaLastBreasts to 10>>
-<<set $emmaLastDick to 0>>
-<<set $emmaLastHeight to 150>>
+<<set $emmaLastMuscle to $muscle>>
+<<set $emmaLastFat to $fat>>
+<<set $emmaLastBreasts to $breasts>>
+<<set $emmaLastDick to $dick>>
+<<set $emmaLastHeight to $height>>
 <<set $emmaAmountVisited to 0>>
 <<set $emmaOpinion to 0>>
 <<set $emmaFirstDateTime = new Date('June 1, 2020 13:37:00')>>
 
 <<set $elenaVisited to false>>
-<<set $elenaLastMuscle to 20>>
-<<set $elenaLastFat to 20>>
-<<set $elenaLastBreasts to 10>>
-<<set $elenaLastDick to 0>>
-<<set $elenaLastHeight to 150>>
+<<set $elenaLastMuscle to $muscle>>
+<<set $elenaLastFat to $fat>>
+<<set $elenaLastBreasts to $breasts>>
+<<set $elenaLastDick to $dick>>
+<<set $elenaLastHeight to $height>>
 <<set $elenaAmountVisited to 0>>
 <<set $elenaOpinion to 0>>
 
 <<set $elenashyVisited to false>>
-<<set $elenaShyLastMuscle to 20>>
-<<set $elenaShyLastFat to 20>>
-<<set $elenaShyLastBreasts to 10>>
-<<set $elenaShyLastDick to 0>>
-<<set $elenaShyLastHeight to 150>>
+<<set $elenaShyLastMuscle to $muscle>>
+<<set $elenaShyLastFat to $fat>>
+<<set $elenaShyLastBreasts to $breasts>>
+<<set $elenaShyLastDick to $dick>>
+<<set $elenaShyLastHeight to $height>>
 <<set $elenaShyAmountVisited to 0>>
 <<set $elenaShyOpinion to 0>>
 <<set $elenaUnlocked to false>>
 
 <<set $krisVisited to false>>
-<<set $krisLastMuscle to 20>>
-<<set $krisLastFat to 20>>
-<<set $krisLastBreasts to 10>>
-<<set $krisLastDick to 0>>
-<<set $krisLastHeight to 150>>
+<<set $krisLastMuscle to $muscle>>
+<<set $krisLastFat to $fat>>
+<<set $krisLastBreasts to $breasts>>
+<<set $krisLastDick to $dick>>
+<<set $krisLastHeight to $height>>
 <<set $krisOpinion to 0>>
 <<set $krisAmountVisited to 0>>
 
 <<set $krisObsessedVisited to false>>
-<<set $krisObsessedLastMuscle to 20>>
-<<set $krisObsessedLastFat to 20>>
-<<set $krisObsessedLastBreasts to 10>>
-<<set $krisObsessedLastDick to 0>>
-<<set $krisObsessedLastHeight to 150>>
+<<set $krisObsessedLastMuscle to $muscle>>
+<<set $krisObsessedLastFat to $fat>>
+<<set $krisObsessedLastBreasts to $breasts>>
+<<set $krisObsessedLastDick to $dick>>
+<<set $krisObsessedLastHeight to $height>>
 <<set $krisObsessedOpinion to 0>>
 <<set $krisObsessedAmountVisited to 0>>
 
