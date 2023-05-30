@@ -10976,6 +10976,15 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $simonOpinion to 0>>
 <<set $eddyOpinion to 0>>
 
+<<set $natVisited to false>>
+<<set $natLastMuscle to $muscle>>
+<<set $natLastFat to $fat>>
+<<set $natLastBreasts to $breasts>>
+<<set $natLastDick to $dick>>
+<<set $natLastHeight to $height>>
+<<set $natAmountVisited to 0>>
+<<set $natOpinion to 0>>
+
 
 :: updateNPCLastSeen [nobr widget] {"position":"325,1950","size":"100,100"}
 <<widget "updateNPCLastSeen">>
