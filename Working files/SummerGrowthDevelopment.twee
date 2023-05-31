@@ -9494,7 +9494,7 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
 	},
     {
 		name: 'NatWristInjury-start',
-		locationTags: ['outside'],
+		locationTags: ['gym'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatPhoneInterlude'),
 		    () => State.variables.daysPlayed >= 42
