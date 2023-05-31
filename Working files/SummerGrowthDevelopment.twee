@@ -9463,6 +9463,20 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
         <</PersonalityCheck>>
     </span>
 <</if>>`
+	},
+    {
+		name: 'NatPhoneInterlude',
+		locationTags: ['outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatVsKrisAtCoffeeCorner'),
+		    () => State.variables.daysPlayed >= 40,
+		    () => false/*FIXME waiting for DONE status*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `FIXME waiting for DONE status`
 	}
 )>>
 
