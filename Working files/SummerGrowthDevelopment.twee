@@ -8593,11 +8593,25 @@ Determines the measurement system used in the game.
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it was great seeing you. And looking forward to the next time!"<</Dialogue>><br><br>
             And with that, you say your goodbyes and leave.`
 	},
+	{
+		name: 'ProtagonistDreamsPotionReaction',
+		locationTags: ['home'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatSavedByProtagonist'),
+		    () => State.variables.daysPlayed >= 10,
+		    () => false /*FIXME waiting for DONE status*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: [],
+		content: `FIXME waiting for DONE status`
+	},
     {
 		name: 'NatFirstTapingBodybuildingDocumentary',
-		locationTags: [],
+		locationTags: ['outside'],
 		conditions: [
-            () => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet*/),
+            () => setup.hasEventBeenTriggered('ProtagonistDreamsPotionReaction'),
 		    () => State.variables.daysPlayed >= 15
 		],
 		repeatable: false,
@@ -24595,8 +24609,8 @@ You reach down to feel a certain slickness between your legs, the sensation of a
     locationTags: ['secondHandStore'],
     conditions: [
             () => State.variables.mainQuestProgressMade,
-            () => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet*/),
-            () => State.variables.daysPlayed >= 10
+            () => setup.hasEventBeenTriggered('ProtagonistDreamsPotionReaction'),
+            () => State.variables.daysPlayed >= 10,
         ],
 repeatable: false,
     retriggerable: false,
