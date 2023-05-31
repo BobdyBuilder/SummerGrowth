@@ -9491,6 +9491,42 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
 		priority: 'immediate',
         npc: ['nat'],
 		content: `FIXME waiting for DONE status`
+	},
+    {
+		name: 'NatWristInjury-start',
+		locationTags: ['outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatPhoneInterlude'),
+		    () => State.variables.daysPlayed >= 42
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `Today is the day you set with Nat to be <<rivalMy>> workout partner! Looking in your closet, you pick your cutest leotard and prepare your gym back as you leave to meet <<rivalMe>>. The idea of having a training partner is pretty cool, and you are looking forward to spend some time with your old friend.<br><br>
+Once you get to the gym, you see Nat standing by the reception desk, already in <<rivalMy>> workout gear, talking to a small group of people.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"I usually do a push-pull split on my routines, but I've been changing it up lately, trying to stimulate development - and you can't argue with the results."<</Dialogue>><br><br>
+<<RivalI>> says that while <<rivalI>> flexes <<rivalMy>> impressive quads, which makes the crowd go “oooooh!” You don't remember Nat being this much of a show-off, but maybe <<rivalI>> just got approached by people who recognized <<rivalMy>> modeling work? You decide it's better not to start judging without knowing the context.<br><br>
+<<if $muscle >= 41 && $shyConfident > 1>>
+<<Dialogue "player" "You">>"Nice thighs you got there, Nat, but how do you like these pythons?"<</Dialogue>><br><br>
+You shake your relaxed leg, letting the meat wobble to emphasize its mass - and then you give a massive flex, making it expand and harden into a veritable statuesque display of definition and vascularity - namely, you steal Nat's thunder with your own thunder thighs. The crowd reconvenes around you, prompting you to jokingly flex while you point and say:<br><br>
+<<Dialogue "player" "You">>"Hello there, is THIS the way to the GUN SHOW?"<</Dialogue>><br><br>
+Your playful advance does not please Nat, who just sulks.
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, we ought to get start training, we can't just keep losing time with idle chit-chat…"<</Dialogue>><br><br>
+Ohhhh… can you say “sore loser”?<br><br>
+<<else>>
+You approach the crowd, and Nat sees you right away.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Sup, <<print $playerFirstName>>. Everyone, this is my friend… and new workout partner!"<</Dialogue>><br><br>
+The little audience seems divided into people who are excited about you… and a few who seem to be jealous of your proximity with Nat. I mean, it's no exaggeration that <<rivalMy>> physique is enough to have some people just becoming instant fans - but it's still a bit hard for you to truly accept the idea <<rivalI>>'s a bit of a celebrity.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, no time like the present. Let's go pump some iron!"<</Dialogue>><br><br>
+<</if>>
+You change into your leotard, and meet Nat, eager to see what <<rivalI>> has in store for today's session.
+
+<<if $muscle >= 60>>
+    <<link "continue">><<playNatEvent 'NatWristInjury-NatShowOffTooHard'>><</link>>
+<<else>>
+    <<link "continue">><<playNatEvent 'NatWristInjury-NatShowOff'>><</link>>
+<</if>>`
 	}
 )>>
 
