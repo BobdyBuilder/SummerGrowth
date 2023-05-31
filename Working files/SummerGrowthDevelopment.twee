@@ -9465,6 +9465,20 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
 <</if>>`
 	},
     {
+		name: 'TashaTeachesProtagonistPotions',
+		locationTags: ['secondHandStore'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('mainQuest1Progress'),
+		    () => State.variables.daysPlayed >= 30,
+		    () => false/*FIXME waiting for DONE status*/
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `FIXME waiting for DONE status https://docs.google.com/document/d/13OhuHIp5tm8vQw0fVjXPk83vXRyICTofcM7GohexZbE/edit#heading=h.flc1uyh8pnpo`
+	},
+    {
 		name: 'NatPhoneInterlude',
 		locationTags: ['outside'],
 		conditions: [
