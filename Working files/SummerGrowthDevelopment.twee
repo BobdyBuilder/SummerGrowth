@@ -3356,12 +3356,25 @@ $(".macro-live").trigger(":liveupdateinternal");
 
 :: Lab [nobr home] {"position":"1225,900","size":"100,100"}
 <<if $fullBrewingUnlocked is true>>
+<<if $firstTimeFullBreweing != true>>Alright, Tasha gave your the primer you needed. Now you know what to do with the distilled components. It’s time to start mixing and matching. Hmmm, you could get those and combine them with each other, or maybe even add them to existing potions? It’s time to experiment! You crack your knuckles, feeling a bit like a mad scientist from a horror movie - and just as eager to do some SCIENCE! <<set $firstTimeFullBreweing to true>><<else>>Here you are, back in the lab. It's time to do some SCIENCE! Hell yeah!<</if>>
+
+<<LabWidget true>>
 
 <<else>>
 Well, here you are. At your new chemistry still; it makes your kitchen look more like a junkey's lab than a normal ktichen, but hey you're in college. Time to experiment right! Now, tasha taught you how to do the basics. Time to put a potion in here, and have some fun!
 
-<br><br>
+<<LabWidget false>>
 
+<br><br>
+<</if>>
+
+
+
+<<link "Go back" "Kitchen">><</link>>
+
+:: LabWidget [widget nobr] {"position":"800,100","size":"100,100"}
+<<nobr>>
+<<widget "LabWidget">>
 <<set _potions to $consumables.filter(potion => potion.amount > 0).map(x => x.name + " (" + x.amount + ")")>>
 <<set _selectionPotionName to 0>>
 <<set _selectedIngredientName to 0>>
@@ -3435,49 +3448,52 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
                 border-right: solid;      
                     border-bottom: solid;   
         ">
-        <<listbox "_selectedIngredientNameOne">>
-            <<optionsfrom _ingredientAndPotionsDisplay()>>
-        <</listbox>>
-        
-        <<listbox "_selectedIngredientNameTwo">>
-            <<optionsfrom _ingredientAndPotionsDisplay()>>
-        <</listbox>>
-        <br>
-        <h1 style="text-align: center;"><<button "▼">>
-            <<script>>
-var effective = false;
+        <<if $args[0] == true>>
+            <<listbox "_selectedIngredientNameOne">>
+                <<optionsfrom _ingredientAndPotionsDisplay()>>
+            <</listbox>>
+            
+            <<listbox "_selectedIngredientNameTwo">>
+                <<optionsfrom _ingredientAndPotionsDisplay()>>
+            <</listbox>>
+            <br>
+            <h1 style="text-align: center;"><<button "▼">>
+                <<script>>
+    var effective = false;
 
-             for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
-                    if(State.temporary.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
-                        State.temporary.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
-                    ){
-                        effective = true;
-                        State.variables.potionIngredientCombinations[i].discovered = true;
-                        State.variables.potionIngredientCombinations[i].effect();
-                        if (Dialog.isOpen() == false) {
-                            var dialog = Dialog.setup("SUCCES!");
-                            new Wikifier(dialog, "You learned a new combination! You note it down;" +
-                                State.temporary.selectedIngredientNameOne + " + " +
-                                State.temporary.selectedIngredientNameTwo + "= <br>" +
-                                 State.variables.potionIngredientCombinations[i].resultDesc
-                            );
-                            Dialog.open();
-                        }
+                for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
+                        if(State.temporary.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
+                            State.temporary.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
+                        ){
+                            effective = true;
+                            State.variables.potionIngredientCombinations[i].discovered = true;
+                            State.variables.potionIngredientCombinations[i].effect();
+                            if (Dialog.isOpen() == false) {
+                                var dialog = Dialog.setup("SUCCES!");
+                                new Wikifier(dialog, "You learned a new combination! You note it down;" +
+                                    State.temporary.selectedIngredientNameOne + " + " +
+                                    State.temporary.selectedIngredientNameTwo + "= <br>" +
+                                    State.variables.potionIngredientCombinations[i].resultDesc
+                                );
+                                Dialog.open();
+                            }
 
-                        break;
-                    }         
-                }                
-                if (!effective && Dialog.isOpen() == false) {
-                    var dialog = Dialog.setup("It fizzled");
-                    new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
-                    );
-                    Dialog.open();
-                }
-            <</script>>  
-            <<goto "Lab">> 
-        <</button>></h1>
-        <br>
-        ???
+                            break;
+                        }         
+                    }                
+                    if (!effective && Dialog.isOpen() == false) {
+                        var dialog = Dialog.setup("It fizzled");
+                        new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
+                        );
+                        Dialog.open();
+                    }
+                <</script>>  
+                <<addMinutes 10>>
+                <<goto "Lab">> 
+            <</button>></h1>
+            <br>
+            ???
+        <</if>>
     </div>
 
     <div id="rightPortion" style="
@@ -3499,21 +3515,31 @@ var effective = false;
                     if(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")"  == State.temporary.selectionPotionName){
                         State.variables.consumables[i].amount -= 1;
                         State.variables.potionIngredients = State.variables.potionIngredients.concat(State.variables.consumables[i].ingredients);
-
-                        if (Dialog.isOpen() == false) {
-                            var dialog = Dialog.setup("Potion distilled");
-                            new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
-                                State.variables.consumables[i].ingredients[0] + "<br> -" +
-                                State.variables.consumables[i].ingredients[1] + "<br> -" +
-                                State.variables.consumables[i].ingredients[2] + "<br> -" +
-                                State.variables.consumables[i].ingredients[3] + "<br>"
-                            );
-                            Dialog.open();
+                        if(State.variables.args[0] == true){
+                            if (Dialog.isOpen() == false) {
+                                var dialog = Dialog.setup("Potion distilled");
+                                new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
+                                    State.variables.consumables[i].ingredients[0] + "<br> -" +
+                                    State.variables.consumables[i].ingredients[1] + "<br> -" +
+                                    State.variables.consumables[i].ingredients[2] + "<br> -" +
+                                    State.variables.consumables[i].ingredients[3] + "<br>" +
+                                    "<<goto 'Lab'>>"
+                                );
+                                Dialog.open();
+                            }
                         }
+                        else {
+                            if (Dialog.isOpen() == false) {
+                                var dialog = Dialog.setup("Potion distilled");
+                                new Wikifier(dialog, "Eureka! It worked! Just as Tasha instructed you, the potion was split into various components! There are liquids here of all kinds of colors, and you wonder which one try first. You grab one and bring it to your lips, and your nose just picks up that yes, this is the good stuff. Yu swig it back, expecting something to happen but... no. Nothing happens. Normally when you drink you feel an odd sensation, an experience. Now you don't feel anything... odd. You drink the second liquid you got from it; once more you get the smell that it should be special, and then a whole lot of nothing. This continues with the other two, nothing happening. This has to be right, right?! You listened to Tasha's explanation, you did everything right, you even double checked the machine! This isn't working... perhaps you should pay Tasha another visit, see what went wrong. <<goto 'TashaSecondChemistryDiscussion'>><<addMinutes 60>>"
+                                );
+                                Dialog.open();
+                            }
+                        }                        
                     }         
                 }   
             <</script>>
-            <<goto "Lab">>
+            <<addMinutes 10>>
         <</button>></h1>
         <<liveblock>>
         <table id="store" style="
@@ -3533,21 +3559,22 @@ var effective = false;
         <</liveblock>>
     </div>
 </div>
-
-<table id="store">
-    <tr>
-        <th>Discovered combinations</th>
-    </tr>
-    <<for _i to 0; _i < $potionIngredientCombinations.length; _i ++>>
-        <<capture _i>>
-            <<if $potionIngredientCombinations[_i].discovered == true>>
-                <tr>
-                    <td><<print $potionIngredientCombinations[_i].ingredientOne>> + <<print $potionIngredientCombinations[_i].ingredientTwo>> = <<print $potionIngredientCombinations[_i].resultDesc>></td>
-                </tr>   
-            <</if>>
-        <</capture>>
-    <</for>>
-</table>
+<<if $args[0] == true>>
+    <table id="store">
+        <tr>
+            <th>Discovered combinations</th>
+        </tr>
+        <<for _i to 0; _i < $potionIngredientCombinations.length; _i ++>>
+            <<capture _i>>
+                <<if $potionIngredientCombinations[_i].discovered == true>>
+                    <tr>
+                        <td><<print $potionIngredientCombinations[_i].ingredientOne>> + <<print $potionIngredientCombinations[_i].ingredientTwo>> = <<print $potionIngredientCombinations[_i].resultDesc>></td>
+                    </tr>   
+                <</if>>
+            <</capture>>
+        <</for>>
+    </table>
+<</if>>
 
 
 <<timed 0s>><<script>>
@@ -3557,10 +3584,10 @@ var effective = false;
     });
 <</script>><</timed>>
   
-<</if>>
 
+<</widget>>
+<</nobr>>
 
-<<link "Go back" "Kitchen">><</link>>
 
 :: Bedroom [nobr home] {"position":"1225,900","size":"100,100"}
 The one place in your home that is 100% you: neatly arranged and well decorated, it has quickly become your little corner away from the world. Inside here you can shut out all outside noises and just relax. With a big bed and your desk, you have everything you need. Well, other than perhaps a small fridge.
@@ -4643,6 +4670,54 @@ Like the rest of you, they look nothing short of restless, monstrous even. They 
 <</linkreplace>>
 
 <<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+:: TashaSecondChemistryDiscussion [] {"position":"2500,1625","size":"100,100"}
+
+You rush back to Tasha, questions about the process still in your mind. You can't find her behind the counter, or in the store... you call out, needing the anwsers.
+
+<<Dialogue "player" "You">>"Tasha? You there? Hello?"<</Dialogue>>
+
+You turn a corner and almost bump into the diminutive shopkeeper, who seems to have materialized like a cartoon character. She smiles brightly at you, almost mischievously.
+
+<<Dialogue "Tasha" "Tasha">>"Hello, dearie. Looking for something?"<</Dialogue>>
+
+You almost can’t catch your breath as you start retelling your little chemistry bizarre journey, retracing every step of how you broke down the liquid into different-colored components (but omitting the part where you drank the product of your labor, you don’t want to worry her with your crazy exploits).
+
+<<Dialogue "player" "You">>"And yet, I got this crazy-looking liquid, but it seemed, I don’t know, inert?"<</Dialogue>>
+
+A small white lie, right?
+
+Tasha, in an unusual turn from her usual cheery demeanor, raises an eyebrow and looks you in the eyes. Does she know? Nah, there’s no way.
+
+<<Dialogue "Tasha" "Tasha">>"Well, you see, chemistry is a really elegant science, my dear. Let’s take this from the top, shall we?"<</Dialogue>>
+
+She walks down to another aisle, and you follow her tiny footsteps, confused. She grabs a rolled up poster, and hands it to you, pointing commandingly to an empty wall surface. It takes a second for it dawn on you that she wants you to put it up, which you do. You see a familiar periodic table of elements. She grabs a nearby pool cue, and uses it to point at the top two elements on opposite sides of the chart.
+
+<<Dialogue "Tasha" "Tasha">>"These two, hydrogen and helium, are two different elements. Hydrogen has one proton in its composition, and helium has two. Two of the same thing, yet they are totally different elements. And going even further, hydrogen gas is composed of two hydrogen atoms, so it’s also two protons."<</Dialogue>>
+
+Your eyes widen in confusion. Where is she going with this?
+
+<<Dialogue "Tasha" "Tasha">>"That is to say, in chemistry, the sum of the products is so much more than a simple addition of the parts. You may have the same components, but their interactions can take many different forms, and act completely differently."<</Dialogue>>
+
+Your head starts slowly tilting, and hurting a bit. But as confusion settles in, Tasha laughs loudly, and sighs.
+
+<<Dialogue "Tasha" "Tasha">>"The real magic comes in from the interaction between things. All these particles are like planets orbiting over the sun, influenced by the forces that bind them together like gravity and electromagnetism. Hydrogen gas is a simple molecule, but organic molecules can take very large sizes, like a huge honeycomb of connections - and these connections allow them to react with other molecules."<</Dialogue>>
+
+Tasha looks at you, and you can only imagine your confusion is quite clear.
+
+<<Dialogue "Tasha" "Tasha">>"I mean, you had chemistry classes in high school, right? You learned how you can mix an acid and a base, in order to get water and a salt? Certain types of chemicals won’t react with each other at all, but some will, and create completely different substances."<</Dialogue>>
+
+You are silent for a second, trying to digest all of this, when it hits you like a truck!
+
+<<Dialogue "player" "You">>"Wait, so, what you are saying is that chemical components need to react with each other to have an effect? So, maybe mixing things up will cause them to be MORE reactive?!?"<</Dialogue>>
+
+<<Dialogue "Tasha" "Tasha">>"Uh, no, that is not what I am saying at all? What I mean is..."<</Dialogue>>
+
+But before she can complete that thought, you are already out the door, thinking about the possibilities. Duh, how could you not think of that before? You need to mix and match the components you broke down before they actually do something!
+
+You are going to need to try doing chemistry again. Your heart beats faster in anticipation, knowing you are finally getting closer to getting results.
+
+<<link "Continue" "Lab">><<set $fullBrewingUnlocked to true>><<addMinutes 60>><</link>>
 
 :: TashaChemistryDiscussion [] {"position":"2500,1625","size":"100,100"}
 
@@ -5792,7 +5867,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "Opposium",
             "FeminineIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -5833,7 +5910,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "Opposium",
             "FeminineIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 40,
         forSale: 0,
@@ -5874,7 +5953,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "FutaIngredient",
             "MuscleIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 40,
         forSale: 0,
@@ -5912,7 +5993,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ingredients: [
             
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -5952,7 +6035,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "InstantIngredient",
             "SlowIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -5992,7 +6077,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "SlowIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6033,7 +6120,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "SlowIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6074,7 +6163,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "SlowIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6115,7 +6206,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "LiquidIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6142,7 +6235,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "HeightIngredient",
             "FutaIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6169,7 +6264,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "SlowIngredient",
             "FutaIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6196,7 +6293,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "SlowIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6237,7 +6336,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "Opposium",
             "MuscleIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6272,7 +6373,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "ASS-69",
         description: "A rather bottom-heavy bottle filled with a sweet, peach-like substance. Subtle.",
         transform: "instantAssIncrease",
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 20,
         forSale: 0,
@@ -6299,7 +6402,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "CarefulIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6333,7 +6438,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "MuscleIngredient",
             "FatIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 25,
         forSale: 0,
@@ -6367,7 +6474,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "CarefulIngredient",
             "InstantIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6394,7 +6503,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "InstantIngredient",
             "ShyIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6421,7 +6532,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "HeightIngredient",
             "LiquidIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6448,7 +6561,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "MuscleIngredient",
             "FatIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 15,
         forSale: 0,
@@ -6475,7 +6590,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "MuscleIngredient",
             "FatIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6502,7 +6619,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "MuscleIngredient",
             "FatIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6529,7 +6648,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "CarefulIngredient",
             "ConfidentIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6556,7 +6677,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "CarefulIngredient",
             "ConfidentIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6583,7 +6706,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "CarefulIngredient",
             "ConfidentIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6610,7 +6735,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             "SubmissiveIngredient",
             "ShyIngredient"
         ],
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6631,7 +6758,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-Dom",
         description: "A bold, strong drink in an aluminum can. The label warns that it can temporarily change your personality.",
         transform: "instantTempDominant",
-        amount: 0,
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -25203,7 +25332,7 @@ Selfie.png password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[0] to true>>
         <<script>>
@@ -25252,7 +25381,7 @@ Experiment_log_01.txt password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[1] to true>>
         <<script>>
@@ -25302,7 +25431,7 @@ selfie2.png password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[2] to true>>
         <<script>>
@@ -25354,7 +25483,7 @@ experiment_log_2.txt password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[3] to true>>
         <<script>>
@@ -25404,7 +25533,7 @@ inventory.txt password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[4] to true>>
         <<script>>
@@ -25454,7 +25583,7 @@ Doctors note.txt password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[5] to true>>
         <<script>>
@@ -25504,7 +25633,7 @@ Chemistry notes.docx password:
 <<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
 <<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
 	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
-	<<if $hackingProgress > 100>>
+	<<if $hackingProgress > 50>>
     	<<set $hackingProgress to 0>>
         <<set $usbPasswordUnlocked[6] to true>>
         <<script>>
