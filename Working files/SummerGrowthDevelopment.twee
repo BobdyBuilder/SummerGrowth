@@ -8814,6 +8814,37 @@ That is A LOT to process!<br><br>
 	<</link>>
 </span>`
 	},
+	{
+		name: 'PlayerDreamsPotionReaction3',
+		locationTags: ['home'],
+		conditions: [
+            () => false /* Triggered manually by other event */
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: [],
+		content: `<<if $flag.nat.playerPotionDreamProactive && !$flag.nat.playerPotionDreamExcited>>
+    That’s it! You’ve made your mind! You need to collect as much information possible about these weird liquids, and figure out exactly how they work and what they do. Dozens of questions are already forming in your mind, as is the desire to get to the very bottom of this - even if it means being a guinea pig in the process!<br><br>
+    You hold the crumpled metallic canister in your hand, wondering what your next step should be. <<if ALREADY MET TASHA>>Well, there is one person in town who, despite being very scatterbrained, seems to have somehow have contact with a ton of people in operating her store. Maybe that’s the next step in your investigation...<else>You will need to track down someone who somehow acts as a lynchpin in this town, someone who everyone at some point or another ends up going to. Maybe someone who runs a store? But what is the type of store EVERYONE goes to, especially college students? Hmmm...
+
+<<elseif $flag.nat.playerPotionDreamProactive && $flag.nat.playerPotionDreamExcited>>
+    You salivate at the thought. Part of you had always felt like something was lacking, and now you realize, you just aren’t truly happy in this body. But now you know for a fact that it can change... radically. And you are committed to figuring out what the limits of your transformation are - if any!<br><br>
+    This will mean tracking and downing every one of those metallic canisters you can get your hands on. And now you are woman on a mission, and you won’t rest until you have found every single one of them. But where to start? Maybe somewhere where people go to sell off unwanted things?
+
+<<elseif !$flag.nat.playerPotionDreamProactive && !$flag.nat.playerPotionDreamExcited>>
+    You feel your chest pounding as you shudder to think of all the side-effects and long-term implications of the concoction you drank. And now you are sure there are more of these around the campus. Are you even you still at this point? Could it be that your personality is not who you used to be before anymore? And what if the physiological changes also affect you in ways you cannot foresee? The thought terrifies you.<br><br>
+    And then it downs on you - there could be other victims of these canisters out there. Maybe you should go out and start hoarding them to make sure no one accidentally succumbs to their effects by mistake. And the best thing would be to go track them down somewhere where people might take those to get rid of them...
+
+<<elseif !$flag.nat.playerPotionDreamProactive && $flag.nat.playerPotionDreamExcited>>
+    The mere THOUGHT of having your body undergo these changes makes your stomach queasy - to think that your personality AND your physiology are both malleable and could turn on a dime? You don’t like the philosophical implications at all, even if you have enjoyed its byproducts.<br><br>
+    But the truth of the matter is, you are going to be thinking twice before drinking your next potion, especially before you figure out what exactly it does. And maybe you should make sure that no one else falls victim to them - maybe a visit to the thrift store is in order to check if there’s more of these canisters there - or maybe even figure out where they came from?
+
+<<else>>
+    ERROR - this path shouldn't be reachable: $flag.nat.playerPotionDreamProactive , $flag.nat.playerPotionDreamExcited
+<</if>>
+`
+	},
     {
 		name: 'NatFirstTapingBodybuildingDocumentary',
 		locationTags: ['outside'],
