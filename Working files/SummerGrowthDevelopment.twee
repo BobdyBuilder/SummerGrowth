@@ -8662,7 +8662,7 @@ Determines the measurement system used in the game.
             You blush, still embarrassed, and get on your way.`
 	},
 	{
-		name: 'NatSavedByProtagonist',
+		name: 'NatSavedByPlayer',
 		locationTags: ['outside'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatMovingIn'),
@@ -8744,7 +8744,7 @@ Determines the measurement system used in the game.
 		name: 'PlayerDreamsPotionReaction1',
 		locationTags: ['home'],
 		conditions: [
-            () => setup.hasEventBeenTriggered('NatSavedByProtagonist'),
+            () => setup.hasEventBeenTriggered('NatSavedByPlayer'),
 		    () => State.variables.daysPlayed >= 10,
 		],
 		repeatable: false,
@@ -9703,7 +9703,7 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
 <</if>>`
 	},
     {
-		name: 'TashaTeachesProtagonistPotions',
+		name: 'TashaTeachesPlayerPotions',
 		locationTags: ['secondHandStore'],
 		conditions: [
             () => setup.hasEventBeenTriggered('mainQuest1Progress'),
