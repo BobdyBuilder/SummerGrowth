@@ -412,6 +412,24 @@ text-align: left;
 	background-image: var(--randoIcon);
 }
 
+.Natalie {
+	background-color: #9E6413;
+}
+
+.Natalie .avatar {
+	background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Nate_fem.png);
+}
+
+.Nathan {
+	background-color: #9E6413;
+}
+
+.Nathan .avatar {
+	background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Nate_mal.png);
+}
+
 .\?\?\? {
 	background-color: #4d4d4d;
 }
