@@ -8741,24 +8741,43 @@ Determines the measurement system used in the game.
             And with that, you say your goodbyes and leave.`
 	},
 	{
-		name: 'ProtagonistDreamsPotionReaction',
+		name: 'PlayerDreamsPotionReaction',
 		locationTags: ['home'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatSavedByProtagonist'),
 		    () => State.variables.daysPlayed >= 10,
-		    () => false /*FIXME waiting for DONE status*/
 		],
 		repeatable: false,
 		retriggerable: false,
 		priority: 'immediate',
         npc: [],
-		content: `FIXME waiting for DONE status`
+		content: `You feel restless as the heat makes you toss and turn, but it isn’t until you start coughing that you realize something is wrong. You are terrorized when you realize the smoke is coming from your burning apartment!<br><br>
+You look around, panicked, as flames lick from every viable escape route - leaving you stuck in the cramped and scalding bedroom as the dark smog quickly impairs visibility.<br><br>
+You tell yourself to stay calm as you figure your next step - trying frantically to remember all the lessons you were told about what to do in the case of a fire. But your brain is overheated and in overdrive, and you are having a hard time making sense of the situation. As you scream for help, you lungs fill with the suffocating smoke, making you cough even more. You put your hands on your forehead and try to come up with the best plan possible.<br><br>
+<span id="choice">
+	<<link "I’ll wait for help under my bed - it’s the safest place right now!">>
+		<<replace "#choice">>
+		    <<set $flag.nat.player.dreamPassive to true>>
+            Trying your best to remember all the lessons you learned about fire safety, you wet your pillowcase with your water bottle, place it over your mouth and tuck yourself under the bed. You watch in horror as everything around you is engulfed in the dark smoke, and you try to listen to anything that isn’t the crackling of flames, hoping for the sound of an alarm, people shouting… and hopefully, the fire brigade coming to your rescue.<br><br>
+            But as you do, the walls seem to start cracking around, as you see bits of it falling from the ceiling. Crying, you assume a fetal position as you grit your teeth, telling yourself that this can’t possibly be happening!<<GO TO PART 2>>
+		<</replace>>
+	<</link>>
+
+	<<link "Running through the flames is my only option to survive!">>
+		<<replace "#choice">>
+		    <<set $flag.nat.player.dreamProactive to true>>
+            You grab your still-moist towel and empty your bedside water bottle over it, using it a cape as you psyche yourself before running headfirst into the wall of flames that comes from the bedroom door. You struggle to make sense of the situation, but you can’t help yourself as your senses are overwhelmed by this unthinkable situation. Frustrated, you wave your arm back and fiercely hit the concrete wall to your side with a loud THUD!<br><br>
+            You cannot believe your eyes, as your fist just breaks through the thick solid concrete, revealing the dirt from the soil outside your basement apartment. And as if things could not get worse, a landslide starts filling your bedroom, burying you as the diminutive space is quickly filled with it! <<GO TO PART 2>>
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+</span>`
 	},
     {
 		name: 'NatFirstTapingBodybuildingDocumentary',
 		locationTags: ['outside'],
 		conditions: [
-            () => setup.hasEventBeenTriggered('ProtagonistDreamsPotionReaction'),
+            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction'),
 		    () => State.variables.daysPlayed >= 15
 		],
 		repeatable: false,
@@ -24904,7 +24923,7 @@ You reach down to feel a certain slickness between your legs, the sensation of a
     locationTags: ['secondHandStore'],
     conditions: [
             () => State.variables.mainQuestProgressMade,
-            () => setup.hasEventBeenTriggered('ProtagonistDreamsPotionReaction'),
+            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction'),
             () => State.variables.daysPlayed >= 10,
         ],
 repeatable: false,
