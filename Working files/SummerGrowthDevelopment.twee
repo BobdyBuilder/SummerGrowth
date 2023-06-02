@@ -14325,28 +14325,6 @@ X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
     return sizeNames;
 }>>
 
-/* The names for the sizes listed in setup.sizeDatabase*/
-/* TODO deprecated. Use setup.getSizeName(sizeIndex) or setup.getAllSizeNames() instead. Remove this when possible - waffle */
-<<set setup.sizeStrings to [ /**/
-	'XS',
-    'S',
-    'M',
-    'L',
-    'XL',
-    'XXL',
-    'XXXL',
-    '4XL',
-    '5XL',
-    '6XL',
-    '7XL',
-    '8XL',
-    '9XL',
-    '10XL',
-    '11XL',
-    '13XL',
-    '14XL',
-    '15XL'
-]>>
 
 /* Central list of all clothing in the game. From this objects will be
 added to the stores. Divided by category. undefined values are intended,
