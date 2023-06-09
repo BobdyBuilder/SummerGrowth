@@ -328,3 +328,7 @@ sugarcube-2:
       name: playNatEvent
       parameters:
         - string
+    LabWidget:
+      name: LabWidget
+      parameters:
+        - bool
