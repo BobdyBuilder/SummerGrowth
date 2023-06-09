@@ -412,6 +412,24 @@ text-align: left;
 	background-image: var(--randoIcon);
 }
 
+.johanFriend1 {
+	background-color: #676767;
+}
+
+.johanFriend1 .avatar {
+	background-color: white;
+	background-image: url(--randoIcon);
+}
+
+.johanFriend2 {
+	background-color: #676767;
+}
+
+.johanFriend2 .avatar {
+	background-color: white;
+	background-image: url(--randoIcon);
+}
+
 .Natalie {
 	background-color: #9E6413;
 }
