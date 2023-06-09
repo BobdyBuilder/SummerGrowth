@@ -3396,6 +3396,9 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
 <<set _potions to $consumables.filter(potion => potion.amount > 0).map(x => x.name + " (" + x.amount + ")")>>
 <<set _selectionPotionName to 0>>
 <<set _selectedIngredientName to 0>>
+<<if $ineffectiveRecipeCount == undefined>>
+    <<set $ineffectiveRecipeCount to 0>>
+<</if>>
 <<set _selectedPotion to function() {
     for (let i = 0; i < State.variables.consumables.length; i++) {
         if(State.variables.consumables[i].name  + " (" + State.variables.consumables[i].amount + ")" == State.temporary.selectionPotionName){
@@ -3405,7 +3408,11 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
 }>>
 
 <<set _ingredientsDisplay to function() {
-    var list = State.variables.potionIngredients.slice();;
+    var list = State.variables.potionIngredients.slice();
+
+    if(list.length == 0){
+        return ["-"];
+    }
 
     var count = {};
     list.reduce((prev, next) => {
@@ -3418,29 +3425,6 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
     for (const key in count) {
         displayList.push(key + " (" + count[key] + ")");
     }
-    return displayList;
-}>>
-
-<<set _ingredientAndPotionsDisplay to function() {
-    var list = State.variables.potionIngredients.slice();;
-
-    var count = {};
-    list.reduce((prev, next) => {
-        count[next] = (count[next] || 0) + 1;
-        return prev;
-    }, {});
-
-    var displayList = [];
-
-    for (const key in count) {
-        displayList.push(key + " (" + count[key] + ")");
-    }
-
-    for (let i = 0; i < State.variables.consumables.length; i++) {
-        if(State.variables.consumables[i].amount > 0){
-            displayList.push(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")");    
-        }         
-    }   
     return displayList;
 }>>
 
@@ -3467,48 +3451,108 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
                     border-bottom: solid;   
         ">
         <<if $args[0] == true>>
-            <<listbox "_selectedIngredientNameOne">>
-                <<optionsfrom _ingredientAndPotionsDisplay()>>
+            <<listbox "$selectedIngredientNameOne">>
+                <<optionsfrom _ingredientsDisplay()>>
             <</listbox>>
             
-            <<listbox "_selectedIngredientNameTwo">>
-                <<optionsfrom _ingredientAndPotionsDisplay()>>
+            <<listbox "$selectedIngredientNameTwo">>
+                <<optionsfrom _ingredientsDisplay()>>
             <</listbox>>
             <br>
-            <h1 style="text-align: center;"><<button "▼">>
+            <h1 style="text-align: center;"><<if _ingredientsDisplay()[0] != "-">><<button "▼">>
+                <<addExhaustion 2>>
+                <<addMinutes 5>>
                 <<script>>
     var effective = false;
 
                 for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
-                        if(State.temporary.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
-                            State.temporary.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
+                        if(State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
+                            State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
                         ){
                             effective = true;
-                            State.variables.potionIngredientCombinations[i].discovered = true;
-                            State.variables.potionIngredientCombinations[i].effect();
+                            
                             if (Dialog.isOpen() == false) {
                                 var dialog = Dialog.setup("SUCCES!");
-                                new Wikifier(dialog, "You learned a new combination! You note it down;" +
-                                    State.temporary.selectedIngredientNameOne + " + " +
-                                    State.temporary.selectedIngredientNameTwo + "= <br>" +
-                                    State.variables.potionIngredientCombinations[i].resultDesc
-                                );
+                                if(State.variables.potionIngredientCombinations[i].discovered == true){
+                                    new Wikifier(dialog, "You succesfully made " +
+                                        State.variables.potionIngredientCombinations[i].resultDesc
+                                    );
+                                }
+                                else{
+                                    var index = State.variables.consumables.findIndex(c => c.name === State.variables.potionIngredientCombinations[i].resultDesc);
+                                    var text = "";
+                                    
+                                    if(index != -1){
+                                        text = "<br><br>" + State.variables.consumables[index].CraftingDescription;
+                                    }
+
+                                    new Wikifier(dialog, "You learned a new combination! You note it down; <br>" +
+                                        State.variables.selectedIngredientNameOne + " + " +
+                                        State.variables.selectedIngredientNameTwo + "= <br>" +
+                                        State.variables.potionIngredientCombinations[i].resultDesc + text
+                                    );
+                                }
+                                
                                 Dialog.open();
                             }
 
+                            State.variables.potionIngredientCombinations[i].discovered = true;
+                            State.variables.potionIngredientCombinations[i].effect();
+
                             break;
                         }         
-                    }                
+                    }   
+                    
+                    /* If nothing happened. */
                     if (!effective && Dialog.isOpen() == false) {
                         var dialog = Dialog.setup("It fizzled");
                         new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
                         );
-                        Dialog.open();
+                        Dialog.open();                        
                     }
+
+                    State.variables.ineffectiveRecipeCount += Math.floor(Math.random() * (3 - 1 + 1) + 1);
+                    if(State.variables.ineffectiveRecipeCount >= 10){
+                        var optionsForDiscovery = [];
+                        for (let j = 0; j < State.variables.potionIngredientCombinations.length; j++) {
+                            if(!State.variables.potionIngredientCombinations[j].discovered && (
+                                (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[j].ingredientOne)) ||
+                                (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[j].ingredientTwo)))){
+                                optionsForDiscovery.push(j);
+                            }
+                        }
+                        var discoveryIndex = optionsForDiscovery[Math.floor(Math.random() * optionsForDiscovery.length)];
+
+                        Dialog.append("<br><br>But with this new attempt, you do think you learned something new! <br>" +
+                            State.variables.potionIngredientCombinations[discoveryIndex].ingredientOne + "<br>" +
+                            State.variables.potionIngredientCombinations[discoveryIndex].ingredientTwo + " = <br>" +
+                            "???");
+                        State.variables.potionIngredientCombinations[discoveryIndex].discovered = "partial";
+                        State.variables.ineffectiveRecipeCount = 0;
+                    } 
+
+                    /* From here we delete the ingredients. */
+                    var firstIngredientIndex = 0;
+                    var secondIngredientIndex = 0;
+
+                    for (let i = 0; i < State.variables.potionIngredients.length; i++) {
+                        if (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredients[i])) {
+                            firstIngredientIndex = i;
+                        }
+                        if (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredients[i])) {
+                            secondIngredientIndex = i;                            
+                        }
+
+                        if(firstIngredientIndex != 0 && secondIngredientIndex != 0){
+                            break;
+                        }
+                    }
+
+                    State.variables.potionIngredients.splice(firstIngredientIndex, 1);
+                    State.variables.potionIngredients.splice(secondIngredientIndex, 1);
                 <</script>>  
-                <<addMinutes 10>>
                 <<goto "Lab">> 
-            <</button>></h1>
+            <</button>><</if>></h1>
             <br>
             ???
         <</if>>
@@ -3584,9 +3628,9 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
         </tr>
         <<for _i to 0; _i < $potionIngredientCombinations.length; _i ++>>
             <<capture _i>>
-                <<if $potionIngredientCombinations[_i].discovered == true>>
+                <<if $potionIngredientCombinations[_i].discovered == true || $potionIngredientCombinations[_i].discovered == "partial">>
                     <tr>
-                        <td><<print $potionIngredientCombinations[_i].ingredientOne>> + <<print $potionIngredientCombinations[_i].ingredientTwo>> = <<print $potionIngredientCombinations[_i].resultDesc>></td>
+                        <td><<print $potionIngredientCombinations[_i].ingredientOne>> + <<print $potionIngredientCombinations[_i].ingredientTwo>> = <<if $potionIngredientCombinations[_i].discovered == true>><<print $potionIngredientCombinations[_i].resultDesc>><<else>>???<</if>></td>
                     </tr>   
                 <</if>>
             <</capture>>
@@ -5877,7 +5921,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
 <<set $consumables to [
     {
         name: "Taste-improver",
-        description: "Right, this is a weird one. It looks similar to the bottle you found in your fridge, but the side effects note \'increased taste and tongue feel\'.",
+        description: "Looking at it, you might almost mistake it for a gel instead of a liquid. It doesn’t slosh as you shake it, but more like… unfurls like a carpet?",
         transform: "instantTongueGrowth",
         ingredients: [
             "CarefreeIngredient",
@@ -5887,7 +5931,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As the ingredients mix, they seem to gel and solidify, rolling into themselves like waves. It takes a while to transfer the substance into its final container, but you watch, mesmerized, as it unfurls itself to its destination.",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -5904,14 +5948,14 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             },
             {
                 code: () => "<<set $tongueLenght += 1>>",
-                description: () => " As the aftertaste lingers and you make weird movements with your mouth, it takes a second for you to realize what's wrong; your tongue just feels... too big for your mouth! It only lasts for a second, but somehow it's strangely different!",
+                description: () => " As the aftertaste lingers and you make weird movements in your mouth, it takes a second for you to realize what's wrong; it feels very cramped, like it can barely contain your tongue! It only lasts for a second, but it's hard to ignore!",
                 shortDescription: () => "Lenghtens tongue",
                 chance: 0.5,
                 discovered: false
             },
             {
                 code: () => "<<set $lips += 1>>",
-                description: () => " You make a puckering motion as you realize something's wrong; your lips just feel... fuller! It only lasts for a second, but you're sure something feels different!",
+                description: () => " You make an involuntary puckering motion as you realize something's wrong; your lips just feel... bloated! It only lasts for a second, but you're sure something feels different!",
                 shortDescription: () => "Thickens lips",
                 chance: 0.5,
                 discovered: false
@@ -5920,7 +5964,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "END 001A booster",
-        description: "Another bottle in the same style of the one you found in your home. On the label is nothing but the weird name, and for some reason some small scribbling noting side-effects such as \'enlarged lips, chest, hips and distraction\'...?",
+        description: "According to Toshi’s spectrograph notes, this one has a weird name, and notes side-effects such as \'enlarged lips, chest, hips and distraction\'...?",
         transform: "instantBimboJuice",
         ingredients: [
             "CarefreeIngredient",
@@ -5930,7 +5974,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, your glass stirrer rod starts sticking more and more, like you have dipped it in bubblegum. It takes some effort to scrape it all off the beaker, but you successfully transfer it to the container.",
         uses: 0,
         price: 40,
         forSale: 0,
@@ -5947,15 +5991,15 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             },
             {
                 code: () =>  "<<set $motivation += 10>><<set $hips += 1>>",
-                description: () =>  " A heat washes over your body, traveling down your stomach into your legs. Some of it rises to your chest again, making sweat break out over your entire body as you feel amazing. The heat lingers in your chest and hips, almost like they are pushing outwards.",
+                description: () =>  "A heat washes over your body, traveling down your stomach into your legs. Some of it rises to your chest again, making sweat break out over your entire body as you feel nothing short of amazing. The heat lingers in your chest and hips, almost like they are pushing outwards.",
                 shortDescription: () =>  "Increases motivation and grows hips, breasts and fat",
                 chance: 0.66,
                 discovered: false
             },
             {
                 code: () => State.variables.lactationSetting ? "<<set $lips += 1>><<set $breasts += setup.balance.breastAllowancePerDay>><<addFatSlow 3>><<set $lactationUnlockedPoints += 1>>" : "<<set $lips += 1>><<set $breasts += setup.balance.breastAllowancePerDay>><<addFatSlow 3>>",
-                description: () =>  " The taste remains on your lips for a long time, though it's rather pleasant and smooth. They almost feel softer and... fuller? ... after you drank it.",
-                shortDescription: () => State.variables.lactationSetting ? "Grows lips, breasts and fat, adds lactation" : "Grows lips, breasts and fat",
+                description: () =>  "The taste remains on your lips for a long time, though it's rather pleasant and smooth. They almost feel softer and... fuller?",
+                shortDescription: () => State.variables.lactationSetting ? "From Toshis’s notations: Grows lips, breasts and fat, adds lactation" : "Grows lips, breasts and fat",
                 chance: 0.33,
                 discovered: false
             }
@@ -5963,7 +6007,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "T-booster 29D",
-        description: "Another weird chemical in a bottle, probably from the same source as the one in your room. It feels heavy, and the liquid inside somehow feels heavier, and strong. <b>Better be careful with this one, because it might cause some odd changes if you take too many at once!</b>",
+        description: "Another weird name from Toshi’s notes. It feels heavy, and the liquid inside somehow feels heavier, and strong. <b>Better be careful with this one, because it might cause some odd changes if you take too many at once!</b>",
         transform: "instantBullJuice",
         ingredients: [
             "DominantIngredient",
@@ -5973,7 +6017,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "The ingredients mix quickly, but the beaker seems to get heavier as you do, which seems to go against all laws of physics you are aware of. You carefully dump the results in the appropriate container.",
         uses: 0,
         price: 40,
         forSale: 0,
@@ -5991,7 +6035,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             {
                 code: () => "<<set $motivation -= 10>><< set $gut += 1>><< set $fat += 1>><< set $tiredness += 10>>",
                 description: () => " Immediately, your stomach churns, and you almost collapse, feeling bloated and painful. A sick feeling travels through your belly and spreads from there to the rest of your body. Oddly enough, your muscles feel tighter afterwards, the rest of the feeling just gone. But you can't shake the feeling of your body feeling... heavier.",
-                shortDescription: () => "Removes motivation, adds tiredness, and adds fat",
+                shortDescription: () => "Removes motivation, adds tiredness and fat",
                 chance: 0.66,
                 discovered: false
             },
@@ -6006,14 +6050,14 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Lact-aid",
-        description: "It looks like a bottle of milk, except it's just... half full? What the hell? It looks like another bottle of the weird experiment.",
+        description: "There’s something very milky about this liquid... but somehow it makes you want to fill the container more so than consume it...",
         transform: "instantLactaid",
         ingredients: [
             
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "The solution turns opaque and milky as you mix the ingredients in, and before you know, your tongue is making an involuntary sucking motion. You transfer the final product to its container, and resist the urge to fill it to the brim with something else.",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6023,21 +6067,21 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $motivation += 20>>",
-                description: () => "This... tastes quite good! Warm, refreshing, creamy, and not too sweet! Licking your lips, you get the feeling you should have this more often!",
+                description: () => "This... tastes quite good! Warm, refreshing, creamy, and not too sweet! Licking your lips, you feel like you can’t have more of it soon enough!",
                 shortDescription: () => "Adds motivation",
                 chance: 1,
                 discovered: false
             },
             {
                 code: () => State.variables.lactationSetting ? "<<addBreastsSlow setup.balance.breastAllowancePerDay>><<set $lactationUnlockedPoints += 1>><<if $lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor>><< set $milkProduction += 1>><</if>>" : "<<addBreastsSlow setup.balance.breastAllowancePerDay>>",
-                description: () => State.variables.lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor ? " You feel refreshed, like you just had a nourishing meal. You should get more of this stuff!  Your nipples swell up a bit, with a pleasant heat. You're quite sure your breasts just got more productive again!" : " You feel refreshed and like you just had a nourishing meal. You should get more of this stuff!",
+                description: () => State.variables.lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor ? " You feel refreshed, like you just had a nourishing meal. You should get more of this stuff!  Your nipples swell up a bit, with a pleasant heat. You intuitively know your breasts got more productive!" : " You feel refreshed and like you just had a nourishing meal. You should get more of this stuff!",
                 shortDescription: () => State.variables.lactationSetting ? "Adds to lactation, and grows breasts" : "Grows breasts",
                 chance: 0.66,
                 discovered: false
             },
             {
                 code: () => State.variables.lactationSetting ? "<<set $lactationUnlockedPoints += 1>><<if $lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor>><< set $milkProduction += 1>><</if>><<addFatSlow 5>>" : "<<addFatSlow 5>>",
-                description: () => " And you don't know why, but you just WANT more! Your body just kind of screams for it, begging more more! Maybe it's time for a nice snack, something nice, creamy and buttery!",
+                description: () => " And you don't know why, but you just want MORE! Your body screams for it, begging for it! Maybe it's time for a snack, something nice, creamy and buttery!",
                 shortDescription: () => State.variables.lactationSetting ? "Adds to lactation, and slowly adds fat" : "Slowly adds fat",
                 chance: 0.33,
                 discovered: false
@@ -6046,7 +6090,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Puberty++, 001C",
-        description: "...What an unusually weird name. It's in a fairly standard plastic bottle, but the liquid inside it is... bizarre. Bright orange with white streaks in it, almost like one of those old-fashioned lava lamps. It seems to be swirling in constant in motion, and the smell cannot be described as anything but 'awkward'.",
+        description: "...What an unusually weird name. The liquid is just so... bizarre. Bright orange with white streaks in it, almost like one of those old-fashioned lava lamps. It seems to be swirling in constant in motion, and the smell cannot be described as anything but 'awkward'.",
         transform: "instantPuberty",
         ingredients: [
             "HeightIngredient",
@@ -6055,7 +6099,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "You add the reagents into the beaker, but instead of getting a homogenous solution, the resulting substance seems to be bright orange with white streaks. Huh. You try to dissolve it completely, but it stubborn and awkwardly refuses. You dump what you got into a container, squinting confusedly.",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6065,20 +6109,20 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "",
-                description: () => "Drinking the liquid feels just... awkward. Some parts of the liquid are thicker than others, and some dribbles on your chin while the overly sweet and sour taste just lingers far too long on your lips. If you had to take a guess at what this was, you'd guess someone boiled a crab in soda and added a pineapple, straining it through their socks. As the oily liquid glides down, it takes a lot of effort to not throw up.",
+                description: () => "Drinking the liquid feels just... awkward. The density and viscosity is completely uneven, and some dribbles on your chin as you try to chug it. The overly sweet and sour taste just lingers far too long on your lips. If you had to take a guess at what this was, you'd guess someone boiled a crab in soda and added a pineapple, straining it through a dirty sock. As the oily liquid glides down, it takes a lot of effort to not throw up.",
                 shortDescription: () => "",
                 chance: 1,
                 discovered: false
             },
             {
                 code: () => "<<addHeightSlow setup.balance.heightAllowancePerDay>><<set $tiredness += 10>>",
-                description: () => " The odd, almost sickening feeling travels through your body and spreads, lingering in your limbs. They feel awkward and dull, bringing flashbacks of your early teens. Even the soreness is the same.",
+                description: () => " The odd, almost sickening feeling travels through your body and spreads, lingering in your limbs. They feel awkward and dull, bringing flashbacks of teenage years gone by. Even the soreness is familiar.",
                 shortDescription: () => "Adds height and tiredness",
                 chance: 0.66,
                 discovered: false
             }, {
                 code: () => "<<if $futa>><<addDickSlow 2>><</if>><<if $lactationSetting>><<set $lactationUnlockedPoints += 1>><</if>><<set $tiredness += 10>><<addBreastsSlow setup.balance.breastAllowancePerDay>>",
-                description: () => " A haze washes over your mind, making concentrating hard. A bunch of lewd thoughts surface violently on your mind as you start sweating buckets. It is over just as quickly as it came, but they will keep coming back occasionally for the rest of the day.",
+                description: () => "A haze washes over your mind, and concentrating becomes a challenge. A bunch of lewd thoughts surface violently on your mind as you start sweating buckets. It is over just as quickly as it came, but they will keep coming back occasionally for the rest of the day.",
                 shortDescription: () => "<<if $futa>>Grows dick, <</if>> grows breasts, adds tiredness <<if $lactationSetting>>adds lactation<</if>>",
                 chance: 0.33,
                 discovered: false
@@ -6087,7 +6131,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Muscle Boost 29D",
-        description: "This time it's a black can with the words 'muscle booster' in bright red letters. Smelling the liquid almost reminds you of beef jerky, and not in a pleasant way.",
+        description: "While the name from Toshi’s notes is very self-explanatory, somehow looking at the mixture intuitively gives you an aura of sheer power. The smell of the liquid reminds you of beef jerky, and not in a pleasant way.",
         transform: "instantMuscleBoost",
         ingredients: [
             "ConfidentIngredient",
@@ -6097,7 +6141,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you stir the contents, the smell of beef jerky permeates the air, and there’s a bizarre electric feeling going up your arm, almost as if it was generating a static charge as it thickens. You carefully transfer it to a container, feeling like you are handling radioactive material.",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6114,14 +6158,14 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             },
             {
                 code: () => "<<set $muscle += setup.balance.musclePotionsAllowancePerDay>><<addMuscleSlow setup.balance.musclePotionsAllowancePerDay>>",
-                description: () => " The tense, sickening feeling continues to travel through your body as all your muscles contract in unison. Though it should feel horrible, somehow it feels like the most intense workout ever conceived, all your muscles just feeling BIG!",
+                description: () => "The tense, sickening feeling continues to travel through your body as all your muscles contract in unison. It might sound horrible, but somehow it feels like the most intense workout ever conceived, all your muscles just feel HUGE AND SOLID!",
                 shortDescription: () => "Adds instant muscle, and adds muscle over the next few days",
                 chance: 0.66,
                 discovered: false
             },
             {
                 code: () => "<<set $breasts -= random(5,10)>><<set $fat -= random(1,5)>>",
-                description: () => " As the feeling recedes, you can't help but attempting an impromptu flex. A new, pronounced vein pops up on your arm. GOD, this felt good! You feel lighter, nimbler, just... better!",
+                description: () => "As the feeling subsides, you can't help but performing an impromptu flex. A new, pronounced vein pops up on your arm. GOD, this feels SO GOOD! You feel lighter, nimbler, just... better!",
                 shortDescription: () => "Reduces fat and breasts",
                 chance: 0.33,
                 discovered: false
@@ -6130,7 +6174,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "FA-LOSS 133X",
-        description: "The liquid in this bottle looks... thin. Thinner than water, somehow. You have no idea how that can be, but it seems this slim bottle holds quite a surprise.",
+        description: "The liquid in this container looks... thin. Thinner and somehow more liquid than even water? You have no idea how that can be, but it seems this bottle hides quite a surprise.",
         transform: "instantFatLoss",
         ingredients: [
             "Opposium",
@@ -6140,7 +6184,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you stir the reagents together, it’s almost like they are dissolving? For a second you could swear the liquid evaporated, but no, it just feel like it’s losing density somehow? You transfer it to a proper storage container, with a strange feeling like you are dumping a gaseous substance instead of a solution.",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6150,7 +6194,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $fat -= 1>>",
-                description: () => "Damn, this is sour! Is this a drink or some kind of washing detergent?! The aftertaste only gets worse as it almost seeps into your tongue. Immediately, you feel... off. Somehow, a heatwave over you, like your entire body is boiling from the bottom up. And you can't shake the feeling you're a bit lighter.",
+                description: () => "Damn, this is sour! Is this a drink or some kind of washing detergent?! The aftertaste only gets worse as it almost seeps into your tongue. Immediately, you feel... off. Somehow, a heatwave washes over you, like your entire body is boiling from the bottom up. And you can't shake the feeling you're a bit lighter.",
                 shortDescription: () => "Reduces fat",
                 chance: 1,
                 discovered: false
@@ -6173,7 +6217,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "FA-GAIN 23A",
-        description: "You wonder how a liquid can look so thick. It's almost like butter, but someone still thicker while being a liquid. It looks strangely appetizing, though!",
+        description: "You wonder how a liquid can look so thick. It's almost like butter, but somehow still thicker while still being a liquid. Seems curiously appetizing, though!",
         transform: "instantFatGain",
         ingredients: [
             "FatIngredient",
@@ -6183,7 +6227,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As the sulution thickens while stirring the ingredients together, you find yourself salivating and resisting an urge to just dump the results straight into your mouth. With restraint, you keep it in a container, biting your lips as you admire the buttery concoction.",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6193,14 +6237,14 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "",
-                description: () => "It almost comes out in a glob but DAMN, is this tasty! It's the most buttery cream or most creamy butter you ever had, and though you can almost feel yourself fattening up, this stuff is just HEAVENLY!",
+                description: () => "It almost comes out in a glob but DAMN, is this tasty! It's the most buttery cream or most creamy butter you ever had, and though you can almost feel yourself fattening as you consume it, this stuff is just HEAVENLY!",
                 shortDescription: () => "",
                 chance: 1,
                 discovered: false
             },
             {
                 code: () => "<<addFatSlow 2>><<set $fat += 2>>",
-                description: () => "You keep chugging it, letting it drip down your chin and seep into your clothing. This stuff is just better than the best meal you ever had!",
+                description: () => "You keep chugging it, letting it drip down your chin as it seeps into your clothing. This stuff is just better than the best meal you ever had!",
                 shortDescription: () => "Adds fat over the next few days",
                 chance: 0.66,
                 discovered: false
@@ -6216,7 +6260,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "SPHE-GRO-001",
-        description: "This liquid is white, chunky, and has floating orbs in it. The look of it is just insane and it starkly contrasts with the plain and simple bottle that contains it. If you didn't see the telltale label, you might've thought this was a miniature lava lamp.",
+        description: "This liquid is white, chunky, and has floating orbs in it. Its appearance is just insane, starkly contrasting with the plain container it is stored in. It could even pass for a miniature lava lamp.",
         transform: "instantBallGrow",
         ingredients: [
             "FutaIngredient",
@@ -6226,7 +6270,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As the reagents mix, small orbs start gelling into existence, kinda like the pearls in bubble tea? You try to dissolve them, but to no avail. They plop loudly as you transfer the final product into its container, shaking it as you observe the floating balls with curiosity.",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6236,7 +6280,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<if $dickActive is false and $futa>><<set $dickStore += 1>> <<elseif $dickActive and $futa>><<set $balls += 1>><</if>>",
-                description: () => "<<if $dickActive is false and $futa>>Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet, the taste is not too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly, afraid it won't go down well. But as quickly as it came, it fades, that unusual feeling instead traveling directly into your groin. A warm feeling spreads through it, giving you the sensation that it's building up, rolling into itself. <<elseif $dickActive and $futa>> Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet the taste is not too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly afraid it won't go down well. But as quickly as it came, it just fades, the unusual feeling instead traveling down into your groin. Suddenly, you feel a sharp stab in your balls, pressure building up inside them. As you buckle over, you can practically feel them throbbing.<</if>>",
+                description: () => "<<if $dickActive is false and $futa>>Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet, the taste ain’t too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly, afraid it won't go down well. But it fades as quickly as it came, leaving you with a bizarre tingling in your groin. A warm feeling spreads through it, giving you the sensation that it's building up, almost like rolling into itself? <<elseif $dickActive and $futa>>Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet, the taste ain’t too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly, afraid it won't go down well. But it fades as quickly as it came, leaving you with a bizarre tingling in your groin. Suddenly, you feel a sharp stab in your balls, pressure building up inside them. As you buckle over, you can practically feel them throbbing.<</if>>",
                 shortDescription: () => "<<if $dickActive is false and $futa>>Can cause Futa <<elseif $dickActive and $futa>>Grows balls <</if>>",
                 chance: 1,
                 discovered: false
@@ -6245,7 +6289,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Girth grow",
-        description: "This bottle is THICC. From the outside, it looks like any can of soda, except for the odd proportions and the homemade label. Still, it's weird that how much this bottle feels girthy in your hands.",
+        description: "It just screams THICC. Even from just holding the container it feels like your fingers are being forcefully being spread apart. It's weird that how girthy it is in your hand.",
         transform: "instantGirthIncrease",
         ingredients: [
             "FutaIngredient",
@@ -6255,7 +6299,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "You dutifully stir the reagents together, and the process reminds you of a liquid version of rising bread dough - which makes no sense, but it’s almost like its expanding as you do. You get slightly panicked, assuming it will just overflow the beaker, but it never does. You transfer it to a proper container, almost swearing it’s spreading your fingers apart as you do.",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6265,7 +6309,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<if $dickActive is false and $futa>><<set $dickStore += 1>> <<elseif $dickActive and $futa>><<set $dickGirthMod += 0.1>> <</if>>",
-                description: () => "<<if $dickActive is false and $futa>>The taste is not the worst, best described as... almost like a carrot? But like a really THICK carrot, though you have NO idea how you got that mental image from taste alone. A warm feeling spreads through your groin, giving you the sensation of something bulging. <<elseif $dickActive and $futa>> The taste of it is not the worst, best described as... almost like a carrot? But like a really THICK carrot, though you have NO idea how you got that mental image from the taste alone. A warm feeling spreads through your groin, making your dick throb. Oddly enough, it does not feel like it is lengthening.<</if>>",
+                description: () => "<<if $dickActive is false and $futa>>The taste is not the worst, best described as... almost carrot-like? But like a really THICK carrot, though you have NO idea how you got that mental image from taste alone. A warm feeling spreads through your groin, giving you the sensation of something bulging. <<elseif $dickActive and $futa>> The taste ain’t the worst, best described as... almost carroty? But like a really THICK carrot, though you have NO idea how you got that mental image from the taste alone. A warm feeling spreads through your groin, making your dick throb. Oddly enough, it does not feel like it is lengthening.<</if>>",
                 shortDescription: () => "<<if $dickActive is false and $futa>> Adds to futa<<elseif $dickActive and $futa>> Thickens dick<</if>>",
                 chance: 1,
                 discovered: false
@@ -6274,7 +6318,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Erecto-10",
-        description: "It's a tall bottle with a vivid blue liquid in it. You half expect it to glow in the dark, but no luck. Why would the bottle have such a long neck, though?",
+        description: "The vivid blue liquid lives up to its Toshi-given name, having an indescribable floaty vibe. You half expect it to glow in the dark. Is it your eyes or is it almost like it’s making the container itself stretch?",
         transform: "instantErectionIncrease",
         ingredients: [
             "HeightIngredient",
@@ -6284,7 +6328,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "You observe the mixture with rapt attention as you mix it, and you could almost swear it has a faint glow? You get a confusing impression that the beaker is stretching like it was warping reality, but you just blink forcefully, realizing it’s just your imagination. Still, you pour the vivid blue liquid into its container, wondering it’s properly sealed after you put the cap on.",
         uses: 0,
         price: 50,
         forSale: 0,
@@ -6294,7 +6338,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<if $dickActive is false and $futa>> <<set $dickStore += 1>><<elseif $dickActive and $futa>><<set $dickErectionMod += 0.1>> <</if>>",
-                description: () => "<<if $dickActive is false and $futa>>The bright blue liquid easily slips down your throat, though the long neck is awkward to drink from. The taste is odd, almost medicinal like a fruit-flavored multivitamin. There's something bubbly about it, rising and falling only to become stronger after you drink it. A warm feeling spreads through your groin, giving you the impression of something extending out of nowhere. <<elseif $dickActive and $futa>> The bright blue liquid easily slips down your throat, though the long neck is awkward to drink from. The taste is odd, almost medicinal like a fruit-flavored multivitamin. The taste is almost bubbly, rising and falling only to become stronger after you drink it. In your pants, though, you feel some... movement. You feel something stirring as your dick slowly starts hardening, pushing against your clothes. It keeps growing more and more erect, but something is off. It's getting bigger WAY faster than it's getting harder! The feeling coming from it is insane, radiating an indescribable heat. As you clutch it with both hands, your tongue hangs from your mouth and eyes roll up, and you know you are in for an intense ride. Your hands spread outwards, your dick expanding outwards in all directions.<</if>>",
+                description: () => "<<if $dickActive is false and $futa>>The bright blue liquid easily slips down your throat, but the rim of the container seems almost unwielding. The taste is odd, almost medicinal, like a fruit-flavored multivitamin. There's something bubbly about it, rising and falling only to become stronger after you drink it. A warm feeling spreads through your groin, giving you the impression of something telescoping out of nowhere. <<elseif $dickActive and $futa>>The bright blue liquid easily slips down your throat, but the rim of the container seems almost unwielding. The taste is odd, almost medicinal like a fruit-flavored multivitamin. It is almost bubbly, rising and falling only to become stronger after you drink it. In your pants, though, you feel some... movement. You feel something stirring as your dick slowly starts hardening, pushing against your clothes. It keeps growing more and more erect, but something is off. It's getting bigger WAY faster than it's getting harder! The feeling is insane, radiating an indescribable heat. As you clutch it with both hands, your tongue hangs from your mouth and eyes roll up, and you know you are in for an intense ride. Your hands spread outwards, your dick expanding outwards in all directions.<</if>>",
                 shortDescription: () => "<<if $dickActive is false and $futa>>Adds to futa <<elseif $dickActive and $futa>>Makes erections bigger <</if>>",
                 chance: 1,
                 discovered: false
@@ -6303,7 +6347,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "B-shrink",
-        description: "A simple, small bottle filled with something that feels oddly heavy, almost like it has been compressed.",
+        description: "The liquid fills the container feeling oddly heavy, almost like it had been compressed.",
         transform: "instantBodyShrink",
         ingredients: [
             "Opposium",
@@ -6313,7 +6357,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "After pouring the ingredients into the beaker and stirring, you get the confounding sensation that you ended up with LESS liquid than you poured in. How is that even possible? You take a whiff, expecting that it somehow evaporated, but there’s no sign of that. Weird. You transfer it into a container and double-check that the lid is perfectly airtight.",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6323,14 +6367,14 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $height -= 5>>",
-                description: () => "Well, at least the bottle is tiny? You can down it in a single sip, barely any liquid in it. The drink goes down smoothly but feels incredibly heavy on your stomach. So heavy, in fact, you get the feeling your entire body just sinks in a bit.",
+                description: () => "Well, this makes the bottle feel tinier than it actually is? You can down it in a single sip, like it’s no more than a shot. The drink goes down smoothly but feels incredibly heavy in your stomach. So heavy, in fact, you get the feeling your entire body just sinks into itself a bit.",
                 shortDescription: () => "Makes you shorter",
                 chance: 1,
                 discovered: true
             },
             {
                 code: () => "<<addMuscleSlow 2>><<addFatSlow 2>>",
-                description: () => " The feeling doesn't subside, your body just feels compressed somehow.",
+                description: () => "The feeling doesn't subside, your body just feels like it’s being compressed.",
                 shortDescription: () => "Adds muscle and fat over the next few days",
                 chance: 0.66,
                 discovered: false
@@ -6346,7 +6390,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "B-gr0w",
-        description: "An insanely long and tall bottle, filled with a sort of jelly-like drink.",
+        description: "The contents wobble within the container, a sort of jelly-like drink.",
         transform: "instantBodyGrow",
         ingredients: [
             "HeightIngredient",
@@ -6356,7 +6400,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you stir the ingredients together, the rod starts weirdly gripping the resulting substance, which feels almost... rubbery? You could almost swear it requires extra effort to dislodge the rod from it, which you accomplish carefully. Even pouring it into another container feels like there’s a wobbly jelly-like grip to it.",
         uses: 0,
         price: 30,
         forSale: 0,
@@ -6366,14 +6410,14 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<addHeightSlow setup.balance.heightAllowancePerDay>>",
-                description: () => "The tall, slim bottle looks rather inviting. But it makes for an incredibly awkward drink. Hell, you even wonder where the bottles themselves came from, let alone the liquids inside! Though is this one even a liquid? Going down, it felt more like jelly than an actual beverage.",
+                description: () => "The drink looks rather inviting. But it makes for an incredibly awkward gulping experience. Is this one even a liquid? Going down, it felt almost rubbery.",
                 shortDescription: () => "Makes you taller over the next few days",
                 chance: 1,
                 discovered: false
             },
             {
                 code: () => "<<set $muscle -= 3>><<set $fat -=3>>",
-                description: () => " A shudder goes through you, and for some odd reason you get a sensation that can only be described as stretching. Your entire body just feels a little bit thinner",
+                description: () => " A shudder goes through you, and for some odd reason you get a sensation that can only be described as stretching. Your entire body just feels a little bit... thinner?",
                 shortDescription: () => "Removes muscle and fat",
                 chance: 0.66,
                 discovered: false
@@ -6389,11 +6433,11 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "ASS-69",
-        description: "A rather bottom-heavy bottle filled with a sweet, peach-like substance. Subtle.",
+        description: "The container feels bottom-heavy in your hands, with a sweet, peach-like substance. Subtle.",
         transform: "instantAssIncrease",
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you stir the rod around the mixing ingredients, the resulting solution feels clearly uneven, like the bottom part is denser than the layer above it. Still, a sweet scent almost distracts you from that as you transfer it, confirming your impression that there the solution feels layered and heterogenous.",
         uses: 0,
         price: 20,
         forSale: 0,
@@ -6403,7 +6447,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $ass += 1>>",
-                description: () => "Jesus, this drink is sweet! You expected something like this from the smell but it's almost like concentrated sugar syrup! It sticks to your lips, and you can almost feel it slither down your throat... yet, somehow, the feeling keeps going lower and lower...",
+                description: () => "Geez, this drink is sweet! You half-expected it from the smell alone, but it's almost like concentrated sugar syrup! It sticks to your lips, and you can almost feel it slither down your throat... yet, the feeling keeps travelling lower and lower...",
                 shortDescription: () => "Increases ass",
                 chance: 1,
                 discovered: false
@@ -6412,7 +6456,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Mot-V10",
-        description: "A tin can filled with a bright-green liquid that somehow never quite stops moving.",
+        description: "The bright-green liquid stands out quite a bit, and seems like it never stops moving.",
         transform: "instantMotivation",
         ingredients: [
             "Opposium",
@@ -6422,7 +6466,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "You start stirring the solution, but as you do, you could swear you need less and less effort to do so with each swirl, almost like substance is stirring itself? You shake your head as you look at the bright green liquid, which you almost spill as it shows a life of its own while you transfer it into the proper container.",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6432,7 +6476,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $motivation += 50>>",
-                description: () => "It's odd how the green liquid almost seems to have a life of its own. It just keeps swirling frantically, even when you don't touch the bottle at all. Downing it isn't unpleasant either, reminding you of a nice cup of matcha tea.",
+                description: () => "It's odd how the green liquid seems to have a life of its own. It just keeps swirling frantically, even when you don't touch the bottle at all. Downing it isn't unpleasant either, reminding you of a nice cup of matcha tea.",
                 shortDescription: () => "Adds motivation",
                 chance: 1,
                 discovered: false
@@ -6448,7 +6492,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Exhaust-B-g0n3",
-        description: "A simple plastic bottle with a vibrant, sugary liquid inside",
+        description: "A rather unassuming substance with a vibrant and sirupy appearance.",
         transform: "instantExhaustion",
         ingredients: [
             "Opposium",
@@ -6458,7 +6502,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "You carefully eyedrop the reagents into the beaker, which seems to interact instantly and require no stirring, despite becoming slightly viscous. You pour the sirupy result into a container, feeling quite excited and anxious to try it out.",
         uses: 0,
         price: 25,
         forSale: 0,
@@ -6468,7 +6512,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $exhaustion -= 50>>",
-                description: () => "Shaking the almost vibrant yellow liquid, you wonder whether this really is safe to drink. But... here goes nothing! Downing it, you immediately feel your throat burning, but it's a good burn; a burn that reinvigorates you, a burn that sweeps the tiredness away. ",
+                description: () => "Shaking the almost vibrant yellow liquid, you wonder whether this really is safe to drink. But... here goes nothing! Downing it, you immediately feel your throat burning, but it's a good burn; a burn that reinvigorates you, a burn that sweeps the tiredness away.",
                 shortDescription: () => "Removes exhaustion",
                 chance: 1,
                 discovered: false
@@ -6484,7 +6528,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "BRA-SHRINK-T1",
-        description: "A surprisingly small, almost condensed bottle that only contains a few drops of a clear liquid, smelling strongly of lemon.",
+        description: "A rather small serving of just a few drops of clear liquid, smelling strongly of lemon.",
         transform: "instantBreastShrink",
         ingredients: [
             "Opposium",
@@ -6504,7 +6548,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => !State.variables.lactationUnlocked ? "<<set $breasts *= 0.9>>" : "<<set $breasts *= 0.9>><<if $milkProduction != 0>><< set $milkProduction -= 1>><</if>>",
-                description: () => !State.variables.lactationUnlocked ? "The surprisingly small bottle is quickly emptied, and immediately your hands tighten involuntarily. You feel like you're going to crush the small fragile container, such was the punch of this small drink. It's so incredibly sour that your lips pucker up. Yet, it doesn't linger very long; the feeling somehow travels across your body, especially around your chest. You have no idea how, but somehow it makes you feel like your chest is just tightening! And as you look down, it is much more than a feeling: your chest actually seems to shrink before your eyes!" : " The surprisingly small bottle is quickly emptied, and immediately your hands tighten involuntarily. You feel like you're going to crush the small fragile container, such was the punch of this small drink. It's so incredibly sour that your lips pucker up. Yet, it doesn't linger very long; the feeling somehow travels across your body, especially around your chest. You have no idea how, but somehow it makes you feel like your chest is just tightening! And as you look down, it is much more than a feeling: your chest actually seems to shrink before your eyes! After the feeling is gone, you prod your chest tentatively, making sure they are fine. Heh... well, they feel normal again. Normal, and a bit less tight. Maybe it has lessened how much milk your tits produce, too!",
+                description: () => !State.variables.lactationUnlocked ? "The surprisingly small serving barely wets your tongue, and immediately your hands involuntarily tighten. You feel like you're going to crush the container, such was the punch of this small drink. It's so incredibly sour that your lips pucker up. Yet, it doesn't linger very long; the feeling somehow travels across your body, especially around your chest. You have no idea how, but somehow it makes you feel like your chest is tightening, along with your breath! And as you look down, it is much more than a feeling: your chest actually seems to shrink before your eyes!" : " The surprisingly small bottle is quickly emptied, and immediately your hands tighten involuntarily. You feel like you're going to crush the container, such was the punch of this small drink. It's so incredibly sour that your lips pucker up. Yet, it doesn't linger very long; the feeling somehow travels across your body, especially around your chest. You have no idea how, but somehow it makes you feel like your chest is just tightening, along with your breath! And as you look down, it is much more than a feeling: your chest actually seems to shrink before your eyes! After the feeling is gone, you prod your chest tentatively, making sure your boobs are fine. Heh... well, they feel normal again. Normal, and a bit less tight. Maybe it has diminished your milk production?",
                 shortDescription: () => !State.variables.lactationUnlocked ? "Shrinks breasts" : "Shrinks breasts and reduces lactation",
                 chance: 1,
                 discovered: false
@@ -6513,7 +6557,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Milk--",
-        description: "At first glance, it smells like a cleaning liquid, but it has a nice, lemony scent to it. Normally, you'd never consider drinking this, but when you think of the other drinks...",
+        description: "At first glance, it smells like a cleaning liquid, but it has a nice, lemony scent to it. Normally, you'd never consider drinking this, but when you think of the other concoctions...",
         transform: "instantLactationRemoval",
         ingredients: [
             "MuscleIngredient",
@@ -6523,7 +6567,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "After carefully pouring all ingredients together, you immediately sense an aroma that makes you think of medical clinics - it’s that remarkable citric smell of cleaning products that feels immediately recognizable. Instinctually, you feel like its not quite fit for consumption, but it still gives you a super-familiar vibe as you pour it into its proper storage.",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6552,7 +6596,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "You carefully mix the reagents into the beaker, and the solution almost immediately turns white and opaque, and feels very creamy as you stir it up. It somehow brings a nostalgic feeling of childhood mornings as it finishes mixing, and you smile as you transfer it to its storage container.",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6562,7 +6606,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => State.variables.lactationUnlocked ? "<<set $milkCapacityModifier += 0.1>>" : "",
-                description: () => State.variables.lactationUnlocked ? "As you expected, this drink is not just sugary, it's almost sickeningly sweet. Even refined sugar isn't this sweet, but even though you almost gag while drinking it, the taste slowly grows on you. It travels down, feeling more pleasant as the flavor slowly softens, with even a hint of almonds coming in. All in all, very pleasant experience, ending as a shudder travels over your entire body. And as you relax, the pressure in your chest lessens, and they don't feel any less bloated. Odd." : "You expected this would taste extremely sweet, yet when it hits your tongue... nothing. Odd.",
+                description: () => State.variables.lactationUnlocked ? "As you expected, this drink is not just sugary, it's almost sickeningly sweet. Even refined sugar isn't this sweet, but despite you almost gagging while drinking it, the taste slowly grows on you. It travels down, feeling more pleasant as the flavor slowly softens, with a hint of almond. All in all, very pleasant experience, ending as a shudder travels over your entire body. And as you relax, the pressure in your chest lessens, but your boobs don't feel any less bloated. Odd." : "You expected this would taste extremely sweet, yet when it hits your tongue... nothing. Odd.",
                 shortDescription: () => State.variables.lactationUnlocked ? "Reduces the capacity of your breasts" : "Nothing",
                 chance: 1,
                 discovered: false
@@ -6571,7 +6615,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Ton-shrink//01",
-        description: "This one gives a vibe of being very tasty. It has a bright blue hue and it's in an unremarkable bottle. Frankly, you're almost salivating just looking at it!",
+        description: "This one gives a vibe of being very tasty. It has a bright blue hue, but is otherwise unremarkable. However, you're almost salivating just looking at it!",
         transform: "instantTongueShrink",
         ingredients: [
             "MasculineIngredient",
@@ -6581,7 +6625,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "The reagents mix with ease as they are poured into the beaker, and almost immediately acquire a bright blue hue. It doesn’t feel particularly weird or unusual, though it seems to effortlessly whet your appetite just looking at it. But you dutifully place the result into a proper container, eager to try it later.",
         uses: 0,
         price: 15,
         forSale: 0,
@@ -6600,7 +6644,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "lip-shrink//XX",
-        description: "A small case of lip balm, made of aluminum bearing no distinguishing markings, except for its homemade label.",
+        description: "Instead of a liquid, this one is a waxy substance, perfect to be applied like a lip balm.",
         transform: "instantLipShrink",
         ingredients: [
             "MuscleIngredient",
@@ -6610,7 +6654,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As the reagents interact they quickly morph into a waxy yet oily paste, which sticks to the bottom of the beaker. You reach for the proper scraper, transfering into an appropriate storage container, thinking this should probably work better as a balm instead of a drink.",
         uses: 0,
         price: 10,
         forSale: 0,
@@ -6620,7 +6664,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => State.variables.lips > 1 ? "<<set $lips -= 1>>" : "",
-                description: () => State.variables.lips > 1 ? "This one is not so much a drink as some sort of lipstick? Opening the small container, you find only a little bit of it left, looking extremely dried up. It reminds you of lip balm... well, why not give it a try? As you put it on, it feels really refreshing; that strong scent of menthol like in those analgesic heat rub sprays. It's quite nice, and your lips feel tight, but tingly!" : " This one is not so much a drink as some sort of lipstick? Opening the small container, you find only a little bit of it left, looking extremely dried up. It reminds you of lip balm... well, why not give it a try? As you put it on, it feels really refreshing, but that's it. A bit anticlimactic...",
+                description: () => State.variables.lips > 1 ? "This one is not so much a drink as some sort of lip balm? You reach for the waxy substance, which feels oily and dry. Well, why not apply some to your lips? As you put it on, it feels really refreshing; like that strong scent of menthol from analgesic heat rub sprays. It's quite nice, and your lips feel tight, but tingly!" : " This one is not so much a drink as some sort of lip balm? Opening the small container, you find only a little bit of it left, looking extremely dried up. Well, why not apply some to your lips? As you put it on, it feels really refreshing, but that's it. A bit anticlimactic...",
                 shortDescription: () => State.variables.lips > 1 ? "Shrinks lips" : "Nothing",
                 chance: 1,
                 discovered: false
@@ -6629,7 +6673,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Temp-Caring",
-        description: "An aluminum can filled with a clear, sharp-tasting liquid. The label warns that it can temporarily change your personality.",
+        description: "A clear liquid with a very sharp aroma. Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempCareful",
         ingredients: [
             "Opposium",
@@ -6639,7 +6683,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. You end up with a clear liquid, distinguishable by its very sharp aroma. You can’t help but wonder if this warmth means something specific...",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6649,7 +6693,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $temporaryPersonalityGains.carefreeCarefull += 1>><<set $carefreeCarefull += 1>>",
-                description: () => "The taste of this drink is very... precise? You get a sharp taste of lemon, and very clear sweet notes. Not actual sugar, rather, some replacement with a slightly bitter aftertaste. It's pleasant, but gives you the urge to document and annotate everything, your brain suddenly feeling more active.",
+                description: () => "The taste of this drink is, how to even put it?!? Very... precise? You get a sharp taste of lemon, and very clear sweet notes. Not actual sugar, rather, some hard to explain alternative with a slightly bitter aftertaste. It's pleasant, but gives you the urge to document and annotate everything, your brain suddenly feeling more active.",
                 shortDescription: () => "Makes you temporarily more careful",
                 chance: 1,
                 discovered: false
@@ -6658,7 +6702,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Temp-shy",
-        description: "A aluminum can, filled with a pleasantly understated liquid. The label warns that it can temporarily change your personality.",
+        description: "A pleasantly understated liquid. Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempShy",
         ingredients: [
             "SlowIngredient",
@@ -6668,7 +6712,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. You end up with a liquid so discreet, you almost forget that it’s there. You can’t help but wonder if this warmth means something specific...",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6678,7 +6722,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $temporaryPersonalityGains.shyConfident -= 1>><<set $shyConfident -= 1>>",
-                description: () => "You remove the cork, and give it a tentative sniff. Odd, no discernible smell. Carefully, you give it a lick. Again, doesn't seem to taste like anything. Yet, when you chug it down, it blossoms from nowhere. The mildest hint of vanilla, hidden in the milky drink. It's quite nice and makes you relax, despite the headache you feel incoming.",
+                description: () => "You give it a tentative sniff. Odd, no discernible smell. Carefully, you give it a lick. Again, doesn't seem to taste like anything. Yet, when you chug it down, it blossoms from nowhere. The mildest hint of vanilla, hidden in its milky consistency. It's quite nice and makes you relax, despite an incoming headache.",
                 shortDescription: () => "Makes you temporarily shyer",
                 chance: 1,
                 discovered: false
@@ -6687,7 +6731,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Temp-Con",
-        description: "This aluminum can is filled with something smelling bold and strong. The label warns that it can temporarily change your personality.",
+        description: "This substance smells bold and strong. Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempConfidence",
         ingredients: [
             "SlowIngredient",
@@ -6697,7 +6741,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. A bold aroma immediately fills the room and makes itself impossible to ignore. You can’t help but wonder if this warmth means something specific...",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6707,7 +6751,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $temporaryPersonalityGains.shyConfident += 1>><<set $shyConfident += 1>>",
-                description: () => "This drink just feels... strong. It has hints of coffee and cocoa, tastes you won't soon forget. The little container brings a smirk to your face. This feels... good. Real good. The caffeine triggers a mild headache, but fuck it! You can deal with that, no problem!",
+                description: () => "This drink just feels... strong. It has hints of coffee and cocoa, tastes you won't soon forget. It brings a smirk to your face. This feels... good. Real good. The caffeine triggers a mild headache, but fuck it! You can deal with that, no problem!",
                 shortDescription: () => "Makes you temporarily more confident",
                 chance: 1,
                 discovered: false
@@ -6716,7 +6760,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Temp-Care",
-        description: "A aluminum can with a liquid with the most confounding smell. The label warns that it can temporarily change your personality.",
+        description: "This liquid has the most confounding smell. Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempCarefree",
         ingredients: [
             "SlowIngredient",
@@ -6726,7 +6770,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. Before you know it, an unexpected pleasant but hard-to-describe smell assails your nostrils. You can’t help but wonder if this warmth means something specific...",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6736,7 +6780,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $carefreeCarefull -= 1>><<set $temporaryPersonalityGains.carefreeCarefull -= 1>>",
-                description: () => "It's hard to nail the taste of this drink. Not that you really care. It feels good and goes down smoothly, and it refreshes you. Why even care about the taste? You can't even be bothered by the incoming headache. Who gives a fuck?",
+                description: () => "It's hard to nail the taste of this drink. Not that you really care. It feels good and goes down smoothly, while refreshing you at the same time. Why even care about the taste? You can't even be bothered by the incoming headache. Who gives a fuck?",
                 shortDescription: () => "Temporarily makes you more carefree",
                 chance: 1,
                 discovered: false
@@ -6745,7 +6789,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Temp-sub",
-        description: "A simple can filled with a liquid that seems to conform to your palate. The label warns that it can temporarily change your personality.",
+        description: "A whiff of this liquid gives you the strange impression that it will conform to your palate? It feels predictable somehow. Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempSubmissive",
         ingredients: [
             "SlowIngredient",
@@ -6755,7 +6799,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. You end up with a clear liquid, which generates an unexpected wave of... not nostalgia, but this feeling that it’s supposed to taste just like you expect it to, whatever that is. You can’t help but wonder if this warmth means something specific...",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6765,7 +6809,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $temporaryPersonalityGains.submissiveDominant -= 1>><<set $submissiveDominant -= 1>>",
-                description: () => "The drink goes down smoothly, and has a really nice, pleasant taste. It's... sweet, though a bit understated. Nice and fresh, almost like the taste was tailor-made for you. It's comfort in a bottle, you realize. And you feel... well, you feel very comfortable, calmer and despondent. You feel a mild headache coming on, but you just go with the flow. At least for the time being.",
+                description: () => "The drink goes down smoothly, and has a really nice, pleasant taste. It's... sweet, though a bit understated. Nice and fresh, almost like the taste was tailor-made for you. It's comfort in a bottle, you realize. And you feel... well, you feel very comfortable, calmer and despondent. There’s a mild headache coming on, but you just go with the flow. At least for the time being.",
                 shortDescription: () => "Temporarily makes you more submissive",
                 chance: 1,
                 discovered: false
@@ -6774,11 +6818,11 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Temp-Dom",
-        description: "A bold, strong drink in an aluminum can. The label warns that it can temporarily change your personality.",
+        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempDominant",
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "",
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -6788,7 +6832,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         effects: [
             {
                 code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
-                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... vitality. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
+                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
                 shortDescription: () => "Temporarily makes you more dominant",
                 chance: 1,
                 discovered: false
@@ -24742,7 +24786,7 @@ You reach down to feel a certain slickness between your legs, the sensation of a
     locationTags: ['secondHandStore'],
     conditions: [
             () => State.variables.mainQuestProgressMade,
-            () => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet*/),
+            /*() => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet),*/
             () => State.variables.daysPlayed >= 10
         ],
 repeatable: false,
