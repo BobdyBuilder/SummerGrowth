@@ -3398,7 +3398,7 @@ $(".macro-live").trigger(":liveupdateinternal");
     Well, here you are. At your new chemistry still; it makes your kitchen look more like a junkey's lab than a normal ktichen, but hey you're in college. Time to experiment right! Now, tasha taught you how to do the basics. Time to put a potion in here, and have some fun!
 <</if>><br><br>
 
-<span class="important">You can craft or break a potion here. Use the left panel to craft a potion by mixing 2 ingredients (You might need to blindly mix ingredients at first). Every attempt you make will have a chance reveal a recipe if failed. You can checked the recipe under the table. Use the right panel to break down a potion into ingredients.</span><br>
+<span class="important">You can craft or break down a potion here. Use the left panel to craft a potion by mixing 2 ingredients (You might need to blindly mix ingredients at first). Every failed attempt will have a chance to reveal a recipe. Found recipes will be saved and you can check at the bottom of this page. Use the right panel to break down a potion into ingredients.</span><br>
 
 <<LabWidget $fullBrewingUnlocked>>
 
