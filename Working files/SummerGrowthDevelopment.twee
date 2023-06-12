@@ -6073,7 +6073,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         description: "There’s something very milky about this liquid... but somehow it makes you want to fill the container more so than consume it...",
         transform: "instantLactaid",
         ingredients: [
-            
+            /* FIXME add ingredients */
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
@@ -6455,6 +6455,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "ASS-69",
         description: "The container feels bottom-heavy in your hands, with a sweet, peach-like substance. Subtle.",
         transform: "instantAssIncrease",
+        ingredients: [
+            /* FIXME add ingredients */
+        ],
         amount: 0, 
 		FirstTimeDrink: true, 
 		CraftingDescription: "As you stir the rod around the mixing ingredients, the resulting solution feels clearly uneven, like the bottom part is denser than the layer above it. Still, a sweet scent almost distracts you from that as you transfer it, confirming your impression that there the solution feels layered and heterogenous.",
@@ -6840,6 +6843,9 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempDominant",
+        ingredients: [
+            /* FIXME add ingredients */
+        ],
         amount: 0, 
 		FirstTimeDrink: true, 
 		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
