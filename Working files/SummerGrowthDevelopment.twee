@@ -3450,12 +3450,13 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
     if(State.temporary.selectionPotionName == "-"){
         return "-";
     }
-    else if(State.variables.potionIngredients.contains(State.temporary.selectedPotion().ingredients[position])){
-        return State.temporary.selectedPotion().ingredients[position];
+
+    let selectedPotion = State.temporary.selectedPotion();
+    if(State.variables.potionIngredients.contains(selectedPotion?.ingredients[position])){
+        return selectedPotion.ingredients[position];
     }
-    else{
-        return "???"
-    }
+
+    return "???"
 }>>
 <div id="potionCreation" style="
     width: 100%;
@@ -3583,44 +3584,49 @@ Well, here you are. At your new chemistry still; it makes your kitchen look more
         margin-left: 0px;
         border-bottom: solid;
     ">
-        <div id="dropdownListBox" style="width: 50%;left: 25%;position: relative;">
-            <<listbox "_selectionPotionName">>
-                <<optionsfrom _potions>>
-            <</listbox>>
-        </div>
+        <<if _potions != null && _potions.length > 0>>
+            <<set console.log(_potions)>>
+            <div id="dropdownListBox" style="width: 50%;left: 25%;position: relative;">
+                <<listbox "_selectionPotionName">>
+                    <<optionsfrom _potions>>
+                <</listbox>>
+            </div>
+        <<else>>
+            No potion available for braking down
+        <</if>>
 
-        <h1 style="text-align: center;"><<button "▼">>
-            <<script>>        
-                for (let i = 0; i < State.variables.consumables.length; i++) {
-                    if(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")"  == State.temporary.selectionPotionName){
-                        State.variables.consumables[i].amount -= 1;
-                        State.variables.potionIngredients = State.variables.potionIngredients.concat(State.variables.consumables[i].ingredients);
-                        if(State.variables.args[0] == true){
-                            if (Dialog.isOpen() == false) {
-                                var dialog = Dialog.setup("Potion distilled");
-                                new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
-                                    State.variables.consumables[i].ingredients[0] + "<br> -" +
-                                    State.variables.consumables[i].ingredients[1] + "<br> -" +
-                                    State.variables.consumables[i].ingredients[2] + "<br> -" +
-                                    State.variables.consumables[i].ingredients[3] + "<br>" +
-                                    "<<goto 'Lab'>>"
-                                );
-                                Dialog.open();
+            <h1 style="text-align: center;"><<button "▼">>
+                <<script>>        
+                    for (let i = 0; i < State.variables.consumables.length; i++) {
+                        if(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")"  == State.temporary.selectionPotionName){
+                            State.variables.consumables[i].amount -= 1;
+                            State.variables.potionIngredients = State.variables.potionIngredients.concat(State.variables.consumables[i].ingredients);
+                            if(State.variables.args[0] == true){
+                                if (Dialog.isOpen() == false) {
+                                    var dialog = Dialog.setup("Potion distilled");
+                                    new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
+                                        State.variables.consumables[i].ingredients[0] + "<br> -" +
+                                        State.variables.consumables[i].ingredients[1] + "<br> -" +
+                                        State.variables.consumables[i].ingredients[2] + "<br> -" +
+                                        State.variables.consumables[i].ingredients[3] + "<br>" +
+                                        "<<goto 'Lab'>>"
+                                    );
+                                    Dialog.open();
+                                }
                             }
-                        }
-                        else {
-                            if (Dialog.isOpen() == false) {
-                                var dialog = Dialog.setup("Potion distilled");
-                                new Wikifier(dialog, "Eureka! It worked! Just as Tasha instructed you, the potion was split into various components! There are liquids here of all kinds of colors, and you wonder which one try first. You grab one and bring it to your lips, and your nose just picks up that yes, this is the good stuff. Yu swig it back, expecting something to happen but... no. Nothing happens. Normally when you drink you feel an odd sensation, an experience. Now you don't feel anything... odd. You drink the second liquid you got from it; once more you get the smell that it should be special, and then a whole lot of nothing. This continues with the other two, nothing happening. This has to be right, right?! You listened to Tasha's explanation, you did everything right, you even double checked the machine! This isn't working... perhaps you should pay Tasha another visit, see what went wrong. <<goto 'TashaSecondChemistryDiscussion'>><<addMinutes 60>>"
-                                );
-                                Dialog.open();
-                            }
-                        }                        
-                    }         
-                }   
-            <</script>>
-            <<addMinutes 10>>
-        <</button>></h1>
+                            else {
+                                if (Dialog.isOpen() == false) {
+                                    var dialog = Dialog.setup("Potion distilled");
+                                    new Wikifier(dialog, "Eureka! It worked! Just as Tasha instructed you, the potion was split into various components! There are liquids here of all kinds of colors, and you wonder which one try first. You grab one and bring it to your lips, and your nose just picks up that yes, this is the good stuff. Yu swig it back, expecting something to happen but... no. Nothing happens. Normally when you drink you feel an odd sensation, an experience. Now you don't feel anything... odd. You drink the second liquid you got from it; once more you get the smell that it should be special, and then a whole lot of nothing. This continues with the other two, nothing happening. This has to be right, right?! You listened to Tasha's explanation, you did everything right, you even double checked the machine! This isn't working... perhaps you should pay Tasha another visit, see what went wrong. <<goto 'TashaSecondChemistryDiscussion'>><<addMinutes 60>>"
+                                    );
+                                    Dialog.open();
+                                }
+                            }                        
+                        }         
+                    }   
+                <</script>>
+                <<addMinutes 10>>
+            <</button>></h1>
         <<liveblock>>
         <table id="store" style="
                 width: 90%;
