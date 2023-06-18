@@ -2913,6 +2913,7 @@ The goal of the game is to keep up with your growing body and make the best of i
 <<nobr>>
 
 <<set $difficulty to "medium">>
+<<set $rivalGender to 'male'>>
 <<set $growthMod to 1>>
 <<set $muscleGrowthStyle to "Fantasy">>
 <<set $measurementSystem to "imperial">>
@@ -3391,6 +3392,7 @@ $(".macro-live").trigger(":liveupdateinternal");
 <<link "Go back" "Home">><</link>>
 
 :: Lab [nobr home] {"position":"1225,900","size":"100,100"}
+<<set $skills[5].hidden = false>>
 <<if $fullBrewingUnlocked is true>>
     <<if $firstTimeFullBreweing != true>>Alright, Tasha gave your the primer you needed. Now you know what to do with the distilled components. It’s time to start mixing and matching. Hmmm, you could get those and combine them with each other, or maybe even add them to existing potions? It’s time to experiment! You crack your knuckles, feeling a bit like a mad scientist from a horror movie - and just as eager to do some SCIENCE!
     <<set $firstTimeFullBreweing to true>><<else>>Here you are, back in the lab. It's time to do some SCIENCE! Hell yeah!<</if>>
@@ -3476,6 +3478,7 @@ $(".macro-live").trigger(":liveupdateinternal");
             <br>
             <h1 style="text-align: center;"><<if _ingredientsDisplay()[0] != "-">><<button "▼">>
                 <<addExhaustion 2>>
+                <<set $skills[5].experience += 2>>
                 <<addMinutes 5>>
                 <<script>>
     var effective = false;
@@ -3485,7 +3488,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                             State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
                         ){
                             effective = true;
-                            
+                            State.variables.skills[5].experience += 8;
                             if (Dialog.isOpen() == false) {
                                 var dialog = Dialog.setup("SUCCES!");
                                 if(State.variables.potionIngredientCombinations[i].discovered == true){
@@ -3520,6 +3523,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                     
                     /* If nothing happened. */
                     if (!effective && Dialog.isOpen() == false) {
+                        State.variables.skills[5].experience += 1;
                         var dialog = Dialog.setup("It fizzled");
                         new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
                         );
@@ -3537,7 +3541,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                             }
                         }
                         var discoveryIndex = optionsForDiscovery[Math.floor(Math.random() * optionsForDiscovery.length)];
-
+                        State.variables.skills[5].experience += 4;
                         Dialog.append("<br><br>But with this new attempt, you do think you learned something new! <br>" +
                             State.variables.potionIngredientCombinations[discoveryIndex].ingredientOne + "<br>" +
                             State.variables.potionIngredientCombinations[discoveryIndex].ingredientTwo + " = <br>" +
@@ -3595,6 +3599,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                 <<script>>        
                     for (let i = 0; i < State.variables.consumables.length; i++) {
                         if(State.variables.consumables[i].name + " (" + State.variables.consumables[i].amount + ")"  == State.temporary.selectionPotionName){
+                            State.variables.skills[5].experience += 10;
                             State.variables.consumables[i].amount -= 1;
                             State.variables.potionIngredients = State.variables.potionIngredients.concat(State.variables.consumables[i].ingredients);
                             if(State.variables.args[0] == true){
@@ -5266,6 +5271,11 @@ When this is on, the player may start leaking milk
 <<radiobutton "$lactationSetting" true autocheck>> on
 <<radiobutton "$lactationSetting" false autocheck>> off
 
+<h2>Rival gender</h2>
+This determines the gender of the rival you will encounter.
+<<radiobutton "$rivalGender" 'male' autocheck>> Male
+<<radiobutton "$rivalGender" 'female' autocheck>> Female
+
 <<link "return" $return>>
 
 <<if $difficulty is "sandbox">>
@@ -5353,6 +5363,10 @@ When this is on, the player may start leaking milk
 			  minimumExhaustion: 10,
 			  description: "This lean diet is perfect for maintaining muscle, while still losing weight."})>>
 	  <</if>>
+      <<if $skills[$skillIndexGained].name is "Alchemy">>
+			<<set _added to "<br> And not only that, you can now buy some of the ingredients online!">>
+			<<set $alchemyOnlineShopping to true>>
+	  <</if>>
 	  
 <<elseif $skills[$skillIndexGained].level is 2>>
 	<<if $skills[$skillIndexGained].name is "Working out">>
@@ -5376,6 +5390,10 @@ When this is on, the player may start leaking milk
 			  happinessGain: -30, 
 			  minimumExhaustion: -20,
 			  description: "With this, you'll really challenge your cooking skills. It won't be cheap or healthy, but it'll be FUN."})>>
+	  <</if>>
+      <<if $skills[$skillIndexGained].name is "Alchemy">>
+			<<set _added to "<br> And not only that, you now can order more ingredients online!">>
+			<<set $alchemyOnlineShopping2 to true>>
 	  <</if>>
 		
 	<<set _skillLevel to "intermediate">>
@@ -5412,6 +5430,10 @@ When this is on, the player may start leaking milk
 			  minimumExhaustion: -20,
 			  description: "This diet is tailor-made for minimizing muscle loss and maximizing fat loss."})>>
 	  <</if>>
+      <<if $skills[$skillIndexGained].name is "Alchemy">>
+			<<set _added to "<br> And not only that, you now have a chance of creating an additional random ingredient when splitting a potion!">>
+			<<set $alchemySplitbonus to true>>
+	  <</if>>
 	  
 	<<set _skillLevel to "expert">>
 <<elseif $skills[$skillIndexGained].level is 4>>
@@ -5439,6 +5461,10 @@ When this is on, the player may start leaking milk
 		<<set _added to "<br> And not only that, you got the feeling that all this knowledge about tracking finances has made you more aware of risks. +1 Carefulness.">>
 		<<addTrigger "expertBookKeeping" false false>>
 	<</if>>
+    <<if $skills[$skillIndexGained].name is "Alchemy">>
+			<<set _added to "<br> And not only that, You can now buy all ingredients online through your computer!">>
+			<<set $alchemySplitbonus to true>>
+	  <</if>>
 <</if>>
 
 <<set _text to "Your skill in " + $skills[$skillIndexGained].name + " improved! You're now a " + _skillLevel + ".">>
@@ -5501,9 +5527,50 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
 
 <</linkreplace>><br><br>
 
+<<if $alchemyOnlineShopping>>
+    <<linkreplace "Shop for Alchemy ingredients online - 00:15 🕛">><<addMinutes 15>>
+    Now that you know a bit about how the weird concoctions are made, you can find some of the ingredients online. <br>
+
+    <<update>><br>
+
+    <<potionIngredientPurchase $onlineInventory>>
+
+    <</linkreplace>><br><br>
+<</if>>
 
 
 <<link "That's enough of that" "Bedroom">><</link>>
+
+:: potionIngredientPurchaseWidget [widget, nobr] {"position":"1325,1000","size":"100,100"}
+<<widget "potionIngredientPurchase">>
+<<set _ingredientsAvailable to [
+    {
+        name: "Opposium",
+        pricePerPiece: 10,
+        inInventory: () => /* some method to see how many the player already has. */,
+        playerbuys: 0
+    },
+    {
+        name: "MasculineIngredient",
+        pricePerPiece: 10,
+        inInventory: () => /* some method to see how many the player already has. */,
+        playerbuys: 0
+    }
+
+]>>
+<table id="store">
+  <tr>
+    <th>Ingredient</th>
+	<th>Currently in inventory</th>
+	<th>Amount to buy</th>
+	<th>Price per piece</th>
+	<th>total cost</th>
+  </tr>
+  <tr>
+  <td></td>
+  </tr>
+</table>
+<</widget>>
 
 
 :: gaming [noReturn] {"position":"1325,1000","size":"100,100"}
@@ -8600,7 +8667,13 @@ Determines the measurement system used in the game.
 <br>
 <<radiobutton "$measurementSystem" "metric" autocheck>> Metric
 <br><br>
-
+<h2>Rival gender</h2>
+This determines the gender of the rival you will encounter.
+<br>
+<<radiobutton "$rivalGender" 'male' autocheck>> Male
+<br>
+<<radiobutton "$rivalGender" 'female' autocheck>> Female
+<br><br>
 
 <<button [[Go on|startPoints]]>><</button>>
 
@@ -11223,42 +11296,49 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
         "name": "Working out",
         "level": 0,
         "experience": 0,
+        "hidden" : false,
         "description": "Experience in working out will allow you to build muscle quicker and with less effort. Once you're experienced enough, you might even be able to work as a personal trainer, or make a career out of it!",
         "unlocks": ["• Workouts take 25% less time<br>• Gain muscles 10% faster<br>• Working out gives 10% less exhaustion", "• Gain muscles 10% faster<br>• Gained +1 confidence", "• Gain muscles 20% faster<br>• Working out gives 20% less exhaustion", "• Workouts take 25% less time<br>•Gain muscles 10% faster<br>• Gained +1 confidence"]
     }, {
         "name": "Cooking",
         "level": 0,
         "experience": 0,
+        "hidden" : false,
         "description": "Cooking will help you cook healthy meals while making them cost less. You might also be able to put yourself on special diets to better shape your body!",
         "unlocks": ["• Cooking is 10% cheaper<br>• Adds an extra 10% to motivation gains from meals","• Cooking is 10% quicker","• Allows you to store prepared meals","• Cooking is 20% quicker", "• Cooking is 20% cheaper<br>• Adds an extra 20% to motivation gains from meals"]
     }, {
         "name": "Book keeping",
         "level": 0,
         "experience": 0,
+        "hidden" : false,
         "description": "Book keeping will help you track your expenses and help you with your finances.",
         "unlocks": ["• Not implemented yet", "• Not implemented yet", "• Gained +1 carefulness", "• Not implemented yet", "• Gained +1 carefulness"]
     }, {
         "name": "gaming",
         "level": 0,
         "experience": 0,
+        "hidden" : false,
         "description": "Hey, playing video games is a skill, alright? Shame you can't make money with it... or can you?",
         "unlocks": ["• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
         "name": "modelling",
         "level": 0,
         "experience": 0,
+        "hidden" : true,
         "description": "Striking the right poses and looking good, there must be a way to make a career out of this!",
         "unlocks": ["•Not implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
-        "name": "potion brewing",
+        "name": "chemistry",
         "level": 0,
         "experience": 0,
+        "hidden" : true,
         "description": "It's not so much science as trying to decipher some poorly written recipes.",
         "unlocks": ["•Not implemented yet", "•Not implemented yet", "•Not implemented yet", "•Not implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
         "name": "Sewing",
         "level": 0,
         "experience": 0,
+        "hidden" : false,
         "description": "Got to make fitting clothes somehow.",
         "unlocks": ["• Scrapping a project returns 50% more fabric", "• Clothing can now be made from scratch from a sewing machine", "• Scrapping a project returns 75% more fabric","• Sewing takes 33% less time"]
     }
@@ -17352,63 +17432,65 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
 <h3>Skills:</h3>
 <<for _i to 0; _i < $skills.length; _i ++>><<nobr>>
 <<capture _i>>
-	<h3><<print $skills[_i].name>>: 
-	<<if $skills[_i].level is 0>>inexperienced
-	<<elseif $skills[_i].level is 1>>beginner
-	<<elseif $skills[_i].level is 2>>intermediate
-	<<elseif $skills[_i].level is 3>>expert
-	<<elseif $skills[_i].level is 4>>master
-	<</if>>	</h3>
-	
-	<table class="skill" @data-num="_i" style="width:100%;">
-	<tr>
-	<<if $skills[_i].level >= 0>>
-		<td class="skillbar" @data-num="_i" style=" background:Crimson;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 1>>
-		<td class="skillbar" @data-num="_i" style="background:Tomato;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 2>>
-		<td class="skillbar" @data-num="_i" style="background:Orangered;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 3>>
-		<td class="skillbar" @data-num="_i" style="background:yellow;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 4>>
-		<td class="skillbar" @data-num="_i" style="background:gold;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	</tr>
-	</table>
-	<<print $skills[_i].description>>
-	<br>	
-	Unlocked skill benefits:
-	<br>
-	<<for _iSkillLevel to 0; _iSkillLevel < $skills[_i].level; _iSkillLevel ++>>
-		<<capture _iSkillLevel>>
-				<<print $skills[_i].unlocks[_iSkillLevel + 0]>><br>
-		<</capture>>
-	<</for>>
-	<br>
+    <<if $skills[_i].hidden == false>>
+        <h3><<print $skills[_i].name>>: 
+        <<if $skills[_i].level is 0>>inexperienced
+        <<elseif $skills[_i].level is 1>>beginner
+        <<elseif $skills[_i].level is 2>>intermediate
+        <<elseif $skills[_i].level is 3>>expert
+        <<elseif $skills[_i].level is 4>>master
+        <</if>>	</h3>
+        
+        <table class="skill" @data-num="_i" style="width:100%;">
+        <tr>
+        <<if $skills[_i].level >= 0>>
+            <td class="skillbar" @data-num="_i" style=" background:Crimson;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 1>>
+            <td class="skillbar" @data-num="_i" style="background:Tomato;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 2>>
+            <td class="skillbar" @data-num="_i" style="background:Orangered;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 3>>
+            <td class="skillbar" @data-num="_i" style="background:yellow;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 4>>
+            <td class="skillbar" @data-num="_i" style="background:gold;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        </tr>
+        </table>
+        <<print $skills[_i].description>>
+        <br>	
+        Unlocked skill benefits:
+        <br>
+        <<for _iSkillLevel to 0; _iSkillLevel < $skills[_i].level; _iSkillLevel ++>>
+            <<capture _iSkillLevel>>
+                    <<print $skills[_i].unlocks[_iSkillLevel + 0]>><br>
+            <</capture>>
+        <</for>>
+        <br>
+    <</if>>
 <</capture>><</nobr>>
 <</for>>
 </div>
@@ -21488,89 +21570,91 @@ Before we begin the game, you can customize your starting character a bit. You c
 <h2>Skills:</h2>
 <<for _i to 0; _i < $skills.length; _i ++>><<nobr>>
 <<capture _i>>
-	<h3><<print $skills[_i].name>>: 
-	<<if $skills[_i].level is 0>>inexperienced
-	<<elseif $skills[_i].level is 1>>beginner
-	<<elseif $skills[_i].level is 2>>intermediate
-	<<elseif $skills[_i].level is 3>>expert
-	<<elseif $skills[_i].level is 4>>master
-	<</if>>
-	
-	<<if $startingSkillPoints > 0>>
-	<<link "➕" "startPoints">>
-		<<set $skills[_i].level +=1>>
-		<<set $startingSkillPoints -= 1>>
-		<<if $skills[_i].level is 1>>
-			<<set $skills[_i].experience  to 50>>
-		<<elseif $skills[_i].level is 2>>
-			<<set $skills[_i].experience  to 150>>
-		<</if>>
-	<</link>>
-	<</if>>
-	<<if $skills[_i].level > 0>>
-	<<link "➖" "startPoints">>
-		<<set $skills[_i].level -=1>>
-		<<set $startingSkillPoints += 1>>
-		<<if $skills[_i].level is 1>>
-			<<set $skills[_i].experience  to 50>>
-		<<elseif $skills[_i].level is 0>>
-			<<set $skills[_i].experience  to 0>>
-		<</if>>
-	<</link>>
-	<</if>>
-	
-	</h3>
-	
-	<table class="skill" @data-num="_i" style="width:100%;">
-	<tr>
-	<<if $skills[_i].level >= 0>>
-		<td class="skillbar" @data-num="_i" style=" background:Crimson;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 1>>
-		<td class="skillbar" @data-num="_i" style="background:Tomato;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 2>>
-		<td class="skillbar" @data-num="_i" style="background:Orangered;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 3>>
-		<td class="skillbar" @data-num="_i" style="background:yellow;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	<<if $skills[_i].level >= 4>>
-		<td class="skillbar" @data-num="_i" style="background:gold;">&nbsp;
-		</td>
-	<<else>>
-		<td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
-		</td>
-	<</if>>
-	</tr>
-	</table>
-	<br>
-	<<print $skills[_i].description>>
-	<br>
-	Unlocked skill benefits:
-	<br>
-	<<for _iSkillLevel to 0; _iSkillLevel < $skills[_i].level; _iSkillLevel ++>>
-		<<capture _iSkillLevel>>
-				<<print $skills[_i].unlocks[_iSkillLevel + 0]>><br>
-		<</capture>>
-	<</for>>
-	<br>
+    <<if $skills[_i].hidden == false>>
+        <h3><<print $skills[_i].name>>: 
+        <<if $skills[_i].level is 0>>inexperienced
+        <<elseif $skills[_i].level is 1>>beginner
+        <<elseif $skills[_i].level is 2>>intermediate
+        <<elseif $skills[_i].level is 3>>expert
+        <<elseif $skills[_i].level is 4>>master
+        <</if>>
+        
+        <<if $startingSkillPoints > 0>>
+        <<link "➕" "startPoints">>
+            <<set $skills[_i].level +=1>>
+            <<set $startingSkillPoints -= 1>>
+            <<if $skills[_i].level is 1>>
+                <<set $skills[_i].experience  to 50>>
+            <<elseif $skills[_i].level is 2>>
+                <<set $skills[_i].experience  to 150>>
+            <</if>>
+        <</link>>
+        <</if>>
+        <<if $skills[_i].level > 0>>
+        <<link "➖" "startPoints">>
+            <<set $skills[_i].level -=1>>
+            <<set $startingSkillPoints += 1>>
+            <<if $skills[_i].level is 1>>
+                <<set $skills[_i].experience  to 50>>
+            <<elseif $skills[_i].level is 0>>
+                <<set $skills[_i].experience  to 0>>
+            <</if>>
+        <</link>>
+        <</if>>
+        
+        </h3>
+        
+        <table class="skill" @data-num="_i" style="width:100%;">
+        <tr>
+        <<if $skills[_i].level >= 0>>
+            <td class="skillbar" @data-num="_i" style=" background:Crimson;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 1>>
+            <td class="skillbar" @data-num="_i" style="background:Tomato;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 2>>
+            <td class="skillbar" @data-num="_i" style="background:Orangered;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 3>>
+            <td class="skillbar" @data-num="_i" style="background:yellow;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 4>>
+            <td class="skillbar" @data-num="_i" style="background:gold;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        </tr>
+        </table>
+        <br>
+        <<print $skills[_i].description>>
+        <br>
+        Unlocked skill benefits:
+        <br>
+        <<for _iSkillLevel to 0; _iSkillLevel < $skills[_i].level; _iSkillLevel ++>>
+            <<capture _iSkillLevel>>
+                    <<print $skills[_i].unlocks[_iSkillLevel + 0]>><br>
+            <</capture>>
+        <</for>>
+        <br>
+    <</if>>
 <</capture>><</nobr>>
 <</for>>
 </div>
