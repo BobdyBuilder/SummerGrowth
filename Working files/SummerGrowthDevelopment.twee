@@ -659,6 +659,22 @@ window.Health = function (motivation, maxMotivation, BarID, Horizontal, Containe
 };
 /* Health Bar code - End */
 
+window.getPotionIngredientsCountByName = function (name) {
+    let count = 0;
+    for (const potionIngredient of State.variables.potionIngredients) {
+        if (name === potionIngredient) { count++; }
+    }
+    return count;
+}
+
+window.getPotionIngredientsOnDeliveryCountByName = function (name) {
+    let count = 0;
+    for (const potionIngredient of State.variables.ingredientOnlineBoughtDelay) {
+        if (name === potionIngredient) { count++; }
+    }
+    return count;
+}
+
 Macro.add('Dialogue', {
     tags: null,
     handler: function () {
@@ -1952,6 +1968,19 @@ You're too tired to go anywhere.
 	<</script>>
 	<<set $wardrobe to $wardrobe.concat($storeOnlineBought)>>
 	<<set $storeOnlineBought to []>>		  
+<</if>>
+
+<<if $ingredientOnlineBought.length > 0 and $gameDate.getHours() >= 9>>
+    <<script>>
+        if (Dialog.isOpen() == false) {
+            var dialog = Dialog.setup("Order delivered");
+            new Wikifier(dialog, "A package was left for you, with all the stuff you ordered in it.");
+            Dialog.open();
+        }
+        
+        State.variables.potionIngredients.push(...State.variables.ingredientOnlineBought);
+        State.variables.ingredientOnlineBought = [];
+    <</script>>
 <</if>>
 
 
@@ -3942,6 +3971,8 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
 
 <<set $storeOnlineBought to $storeOnlineBoughtDelay>>
 <<set $storeOnlineBoughtDelay to []>>
+<<set $ingredientOnlineBought to $ingredientOnlineBoughtDelay>>
+<<set $ingredientOnlineBoughtDelay to []>>
 
 
 <<set $bimbo -= 1>>
@@ -5529,11 +5560,11 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
 
 <<if $alchemyOnlineShopping>>
     <<linkreplace "Shop for Alchemy ingredients online - 00:15 🕛">><<addMinutes 15>>
-    Now that you know a bit about how the weird concoctions are made, you can find some of the ingredients online. <br>
+    Now that you know a bit about how the weird concoctions are made, you can find some of the ingredients online. The shipment will be arrived in a day.<br>
 
     <<update>><br>
 
-    <<potionIngredientPurchase $onlineInventory>>
+    <<potionIngredientPurchaseWidget $onlineInventory>>
 
     <</linkreplace>><br><br>
 <</if>>
@@ -5541,36 +5572,106 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
 
 <<link "That's enough of that" "Bedroom">><</link>>
 
-:: potionIngredientPurchaseWidget [widget, nobr] {"position":"1325,1000","size":"100,100"}
-<<widget "potionIngredientPurchase">>
+:: potionIngredientPurchaseWidget [widget] {"position":"1325,1000","size":"100,100"}
+<<nobr>> <<widget "potionIngredientPurchaseWidget">>
+
 <<set _ingredientsAvailable to [
     {
         name: "Opposium",
         pricePerPiece: 10,
-        inInventory: () => /* some method to see how many the player already has. */,
         playerbuys: 0
     },
     {
         name: "MasculineIngredient",
         pricePerPiece: 10,
-        inInventory: () => /* some method to see how many the player already has. */,
         playerbuys: 0
     }
+].sort(function(a,b) {
+    if(a.name === b.name) return;
+    return a.name > b.name ? 1 : -1;
+})>>
 
-]>>
 <table id="store">
-  <tr>
-    <th>Ingredient</th>
-	<th>Currently in inventory</th>
-	<th>Amount to buy</th>
-	<th>Price per piece</th>
-	<th>total cost</th>
-  </tr>
-  <tr>
-  <td></td>
-  </tr>
+    <tr>
+        <th>Ingredient</th>
+        <th>You have</th>
+        <th>On delivery</th>
+        <th>Amount to buy</th>
+        <th>Price per piece</th>
+        <th>total cost</th>
+    </tr>
+    <<for _ingredient range _ingredientsAvailable>>
+        <tr class="ingredientTr">
+            <td class="ingredientName">_ingredient.name</td>
+            <td><<print window.getPotionIngredientsCountByName(_ingredient.name)>></td>
+            <td class="ingredientOnDelivery"><<print window.getPotionIngredientsOnDeliveryCountByName(_ingredient.name)>></td>
+            <td><input class="ingredientAmount" type="number" value="0" min="0"></td>
+            <td>_ingredient.pricePerPiece</td>
+            <td class="ingredientPriceSubtotal">0</td>
+        </tr>
+    <</for>>
+    <tr>
+        <td colspan="5"></td>
+        <td id="ingredientPriceTotal">0</td>
+    </tr>
+    <tr>
+        <td colspan="5" style="border: hidden; border-top: unset;"></td>
+        <td style="border: hidden; border-top: unset;"><<button "Buy">>
+            <<script>>
+                const $ingredientTr = $('.ingredientTr');
+                let totalAmount = 0;
+                for (const tr of $ingredientTr) {
+                  const $tr = $(tr);
+                  const trName = $tr.find('.ingredientName')[0].innerText;
+                  const trAmount = Number($tr.find('.ingredientAmount')[0].value);
+                  totalAmount += trAmount;
+                
+                  /*add to delivery*/
+                  for (let i = 0; i < trAmount; i++) {
+                    State.variables.ingredientOnlineBoughtDelay.push(trName);
+                  }
+                
+                  /*update on delivery count*/
+                  $tr.find('.ingredientOnDelivery').text(getPotionIngredientsOnDeliveryCountByName(trName));
+                }
+                
+                if (totalAmount > 0) {
+                  State.variables.money -= Number($('#ingredientPriceTotal').text());
+                
+                  /* update to refresh money */
+                  $('.macro-live').trigger(':liveupdateinternal');
+                  
+                  /*dialog*/
+                  new Wikifier(Dialog.setup('Ingredients bought'), 'Ingredients will be delivered soon.');
+                  Dialog.open();
+                }
+            <</script>>
+        <</button>></td>
+    </tr>
 </table>
-<</widget>>
+
+<<timed 0s>> <<script>>
+$('.ingredientAmount').on('change', function () {
+  let totalPrice = 0;
+  for (const tr of $('.ingredientTr')) {
+    /*subtotal*/
+    const $tr = $(tr);
+    const trName = $tr.find('.ingredientName')[0].innerText;
+    const trAmount = Number($tr.find('.ingredientAmount')[0].value);
+    
+    const ingredient = State.temporary.ingredientsAvailable.find(i => i.name === trName);
+    const subTotal = ingredient.pricePerPiece * trAmount;
+    $tr.find('.ingredientPriceSubtotal').text(subTotal);
+
+    /*total*/
+    totalPrice += subTotal;
+  }
+
+  $('#ingredientPriceTotal').text(totalPrice);
+});
+<</script>> <</timed>>
+
+<</widget>> <</nobr>>
 
 
 :: gaming [noReturn] {"position":"1325,1000","size":"100,100"}
@@ -5738,6 +5839,8 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
 :: initInstantConsumables [nobr] {"position":"200,500","size":"100,100"}
 <<set $storeOnlineBought to []>>
 <<set $storeOnlineBoughtDelay to []>>
+<<set $ingredientOnlineBought to []>>
+<<set $ingredientOnlineBoughtDelay to []>>
 
 /* Transformables */
 <<set $potionIngredients to []>>
