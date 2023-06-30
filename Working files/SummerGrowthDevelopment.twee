@@ -6203,12 +6203,100 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         resultDesc: 'Temp-sub'
     },
     {
-        ingredientOne: 'SlowIngredient',
+        ingredientOne: 'PermanentIngredient',
         ingredientTwo: 'DominantIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Dom").amount += 1},
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Dom").amount += 1},
         discovered: false,
         pinned: false,
-        resultDesc: 'Temp-Dom'
+        resultDesc: 'Perm-Dom'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'SubmissiveIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Sub").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Sub'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Con").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Con'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'ShyIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Shy").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Shy'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'CarefullIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Carl").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Carl'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Care").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Care'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-muscle").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-muscle'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'HeightIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-height").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-height'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-breasts").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-breasts'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'FutaIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-dick").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-dick'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'LiquidIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-balls").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-balls'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-fat").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-fat'
     }
     
 ]>>
@@ -7119,7 +7207,10 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
         transform: "instantTempDominant",
         ingredients: [
-            /* FIXME add ingredients */
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
@@ -7139,7 +7230,200 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
                 discovered: false
             }
         ]
-    }]>>
+    },
+    {
+        name: "Perm-Dom",
+        description: "A bold, strong drink with a bit of a kick to it. It makes you feel bold, alive, like it has too much caffeine? Given what you know of this alchemy stuff, it probably will change your personality. Not something to be taken lightly...",
+        transform: "instantPermDominant",
+        ingredients: [
+            "PermanentIngredient",
+            "DominantIngredient",
+            "DominantIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The ingredients mix rather violently, almost boiling over. The black smoke coming out of it warns you that whatever this is, it is rather serious. It looks like coffee, but the kind of coffee you can barely remember but still talk about decades later.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>>",
+                description: () => "The moment you drink it it feels like you got punched in the good. But it is the good kind of punch, the kind of punch that wakes you up and makes you want to rip your shirt off and fight someone on a skyscraper. Life can BRING IT. Slowly you crush the can, smirking at it.",
+                shortDescription: () => "Permanently makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-sub",
+        description: "A rather understated drink, that despite its seemingly simple taste has hidden notes to it. It feels mellow and relaxing, but also safe.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "InstantIngredient",
+            "ConfidentIngredient",
+            "SubmissiveIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The mixing here feels forgiving, easy, and relaxing. It is almost like the concoction wants to be mixed, the incredients combining and inviting you in. It does preciesly what you want, and before you realize it you're done.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant -= 1>>",
+                description: () => "You barely remember drinking this. But when you're done you feel your shoulders releave their tension, and your body almost melting into the room with how calm you are. Yeah. If you had to bend or break, you'd bend with anything now.",
+                shortDescription: () => "Permanently makes you more submissive",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    /* Work from here bob 
+    
+    perm-shy
+perm-con
+perm-care
+perm-carl
+
+Insta-muscle
+Insta-height
+Insta-breasts
+Insta-dick
+Insta-balls
+Insta-fat*/
+
+    
+    
+    
+    {
+        name: "Temp-Dom",
+        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
+                shortDescription: () => "Temporarily makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },,
+    {
+        name: "Temp-Dom",
+        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
+                shortDescription: () => "Temporarily makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },,
+    {
+        name: "Temp-Dom",
+        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
+                shortDescription: () => "Temporarily makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },,
+    {
+        name: "Temp-Dom",
+        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
+                shortDescription: () => "Temporarily makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+
+    ]>>
 
 /* consumables deck */
 <<set _settings to []>>
