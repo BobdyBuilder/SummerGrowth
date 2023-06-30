@@ -5494,7 +5494,7 @@ This determines the gender of the rival you will encounter.
 	<</if>>
     <<if $skills[$skillIndexGained].name is "Alchemy">>
 			<<set _added to "<br> And not only that, You can now buy all ingredients online through your computer!">>
-			<<set $alchemySplitbonus to true>>
+			<<set $alchemyOnlineShopping3 to true>>
 	  <</if>>
 <</if>>
 
@@ -5577,12 +5577,32 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
 
 <<set _ingredientsAvailable to [
     {
-        name: "Opposium",
+        name: "MuscleIngredient",
         pricePerPiece: 10,
         playerbuys: 0
     },
     {
-        name: "MasculineIngredient",
+        name: "Opposium",
+        pricePerPiece: 20,
+        playerbuys: 0
+    },
+    {
+        name: "HeightIngredient",
+        pricePerPiece: 15,
+        playerbuys: 0
+    },
+    {
+        name: "FatIngredient",
+        pricePerPiece: 15,
+        playerbuys: 0
+    },
+    {
+        name: "LiquidIngredient",
+        pricePerPiece: 10,
+        playerbuys: 0
+    },
+    {
+        name: "Opposium",
         pricePerPiece: 10,
         playerbuys: 0
     }
@@ -5590,6 +5610,91 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
     if(a.name === b.name) return;
     return a.name > b.name ? 1 : -1;
 })>>
+
+<<if $alchemyOnlineShopping2>>
+    <<set _ingredientsAvailable = _ingredientsAvailable.concat(
+        [
+            {
+            name: "FeminineIngredient",
+            pricePerPiece: 10,
+            playerbuys: 0
+            },
+            {
+            name: "MasculineIngredient",
+            pricePerPiece: 10,
+            playerbuys: 0
+            },
+            {
+            name: "FutaIngredient",
+            pricePerPiece: 15,
+            playerbuys: 0
+            },
+            {
+            name: "SlowIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "InstantIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "LiquidIngredient",
+            pricePerPiece: 8,
+            playerbuys: 0
+            }
+        ].sort(function(a,b) {
+            if(a.name === b.name) return;
+            return a.name > b.name ? 1 : -1;
+        })
+    )>>
+<</if>>
+
+<<if $alchemyOnlineShopping3>>
+    <<set _ingredientsAvailable = _ingredientsAvailable.concat(
+        [
+            {
+            name: "CarefreeIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "CarefullIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "ConfidentIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "ShyIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "DominantIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "SubmissiveIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "PermanentIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            }
+        ].sort(function(a,b) {
+            if(a.name === b.name) return;
+            return a.name > b.name ? 1 : -1;
+        })
+    )>>
+<</if>>
 
 <table id="store">
     <tr>
@@ -11436,7 +11541,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
         "experience": 0,
         "hidden" : true,
         "description": "It's not so much science as trying to decipher some poorly written recipes.",
-        "unlocks": ["•Not implemented yet", "•Not implemented yet", "•Not implemented yet", "•Not implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
+        "unlocks": ["•You can now aquire some ingredients online", "•You can aquire more advanced incredients online", "•Splitting potions now has a chance to give more ingredients.", "•All ingredients can now be aquired at stores.", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
         "name": "Sewing",
         "level": 0,
