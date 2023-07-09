@@ -1790,6 +1790,8 @@ Money: $<<live Math.round($money)>>
 <<set $history to 5>>
 <<run Config.history.maxStates = 3;>>
 <<run Config.history.controls = true;>>
+
+asdf
 <<include "StoreRefresh">>
 
 <<set $workingOutBonus to setup.balance.muscleAllowancePerDay>>
@@ -7334,7 +7336,7 @@ Insta-fat*/
                 discovered: false
             }
         ]
-    },,
+    },
     {
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
@@ -7363,7 +7365,7 @@ Insta-fat*/
                 discovered: false
             }
         ]
-    },,
+    },
     {
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
@@ -7392,7 +7394,7 @@ Insta-fat*/
                 discovered: false
             }
         ]
-    },,
+    },
     {
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
