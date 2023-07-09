@@ -18723,7 +18723,7 @@ Arriving at a booth, you sit down<<if $muscle >50 || $fat > 50 || $breasts > 50 
 
 <<Dialogue "KrisCasualObsessed" "Kris">>"... Fuck, I love every bit of you. So, how was your day? Lifted plenty? Ate enough?"<</Dialogue>>
 
-<<PersonalityCheck $shyConfident > 1 "Show off">><<goto "KrisShowOff">><<Failed>><<goto "KrisShowOff">><</PersonalityCheck>>
+<<PersonalityCheck $shyConfident >= 2 "Show off">><<goto "KrisShowOff">><<Failed>><<goto "KrisShowOff">><</PersonalityCheck>>
 
 [[KrisTalk<-Tell her about your day]]
 
@@ -24106,7 +24106,7 @@ Kris walks off, blowing you a small kiss. Well, tonight wasn't a total bust. But
 <<link "Go home" "Home">><<addMinutes 15>><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "Demand respect">><<replace "#choice">>
+<<PersonalityCheck $submissiveDominant >= 2 "Demand respect">><<replace "#choice">>
 
 <<Dialogue "player" "You">>"Kris. You'll stop playing games right now. Or I'm out."<</Dialogue>>
 
@@ -29758,7 +29758,7 @@ With a smile, you grab the mouse and put the amazonian woman poster in the cart,
 <<link "Continue" "Home">><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "What, feeling a bit intimidated by little old me?">><<replace "#choice2">>
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice2">>
 You place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
 
 <<Dialogue "player" "You">>"What, are you feeling intimidated by your very in-house barbarian? I thought you enjoyed that kind of character..."<</Dialogue>>
@@ -29788,7 +29788,7 @@ You probably should have done something a bit more in-character if your goal was
 <</replace>>
 <</PersonalityCheck>>
 
-<<PersonalityCheck $shyConfident > 1 "H-hey, don’t look at me like that, it’s weird!">><<replace "#choice2">>
+<<PersonalityCheck $shyConfident >= 2 "H-hey, don’t look at me like that, it’s weird!">><<replace "#choice2">>
 <<Dialogue "player" "You">>"Uhhhhhh...!"<</Dialogue>>
 
 As it dawns on you that he seems to be fantasizing about, well, YOU... your reaction is to turn your chair to look away from him, hands crossed over your lap, as you blush a deep red.
@@ -29893,7 +29893,7 @@ With a smile, you grab the mouse and put the giant woman poster in the cart, bef
 <<link "Continue" "Home">><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "What, feeling a bit intimidated by little old me?">><<replace "#choice3">>
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice3">>
 You lean down and place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
 
 <<Dialogue "player" "You">>"What, are you feeling intimidated by your tall girl next door? I thought you enjoyed that kind of character..."<</Dialogue>>
@@ -30027,7 +30027,7 @@ With a smile, you grab the mouse and put one of the movie posters with a busty l
 <<link "Continue" "Home">><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "What, feeling a bit intimidated by little old me?">><<replace "#choice4">>
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice4">>
 You place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
 
 <<Dialogue "player" "You">>"What, are you feeling intimidated by your hot girl next door? I thought you enjoyed that kind of character..."<</Dialogue>>
