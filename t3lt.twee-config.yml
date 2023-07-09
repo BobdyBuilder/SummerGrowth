@@ -15,7 +15,7 @@ sugarcube-2:
         - "'Natalie' &+ 'Natalie'"
         - "'toshiUnknown' &+ 'Toshi'"
         - "'Eddy' &+ 'Eddy'"
-        - "'randomPerson' &+ string"
+        - "'randomPerson'|'johanFriend1'|'johanFriend2' &+ string"
         - "'???' &+ '???'"
         - "'quest' &+ '_line'|'New Goal'"
     PersonalityCheck:
@@ -328,3 +328,7 @@ sugarcube-2:
       name: playNatEvent
       parameters:
         - string
+    LabWidget:
+      name: LabWidget
+      parameters:
+        - bool
