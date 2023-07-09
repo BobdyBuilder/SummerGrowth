@@ -1790,8 +1790,6 @@ Money: $<<live Math.round($money)>>
 <<set $history to 5>>
 <<run Config.history.maxStates = 3;>>
 <<run Config.history.controls = true;>>
-
-asdf
 <<include "StoreRefresh">>
 
 <<set $workingOutBonus to setup.balance.muscleAllowancePerDay>>
