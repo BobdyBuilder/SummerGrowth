@@ -30343,3 +30343,27 @@ It’s your turn to freeze completely. Oh. Yeah. You are going to have to tackle
     <</link>>
 </span>
 
+:: johanOverwhelmedByDateIdea-discourage [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"No, I mean, I am just surprised. I didn’t expect you to have landed a date, is all."<</Dialogue>><br><br>
+You watch as Johan shrinks even more. He can’t bear to look you in the eye as he starts nervously wringing his hands. Shit, you didn’t mean to make this worse!<br><br>
+<<if $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Oh, come on, Johan, you can’t let yourself get down because of a date. Grow some balls, dude!"<</Dialogue>><br><br>
+<<else>><<Dialogue "player" "You">>"I mean, I get it, I am not exactly one to talk, I don’t have the nerve to make a move, so I know this whole dating thing can be messy."<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "Johan" "Johan">>"I mean, I’m really not cut out for the dating scene, I suppose..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"But, you know, who cares about all these girls who look down upon guys like you? It means I can get you as a friend all for myself!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"A... friend?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, you like a brother to me, Johan! My ride or die! And I’d watch horror movies and play fighting games with you all day if I could!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"A brother...?"<</Dialogue>><br><br>
+Yeah, maybe you can cheer him up reminding him that he still has you! And that he is cool in his own way.<br><br>
+<<Dialogue "player" "You">>"Come on, Johan! Don’t let those vapid people get you down! You are pretty awesome in your own way! You can play Slap Bros. like it’s nobody’s business, and you paint a mean Battlehammer figure!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Sure, but, uh, I don’t think that will be helping that much with the ladies..."<</Dialogue>><br><br>
+Putting your hands on your hips, you look at him disapprovingly. <<if $submissiveDominant > 1>>Come on, grow a damn spine, dude!<br><br>
+<<Dialogue "player" "You">>"Man up, Johan! Own your nerdy nature! Fuck these people and what they think about you. Do you care that you are not a big stud?"<</Dialogue>>
+<<else>>You sigh, in frustration, unsure on how to lift his spirits.
+<<Dialogue "player" "You">>"What does it even matter? Aren’t you happy doing your nerdy stuff anyway? Why do you even need more than that?"<</Dialogue>><</if>>
+<br><br>
+You can see his lip quivering, and his eyes watering up. Oh, you may have gone a bit too far here.<br><br>
+
+<<link "Uh, Johan, I’m sorry, I didn’t mean that. Come here, ya goof!" "johanOverwhelmedByDateIdea-apologizeAndHug">><</link>>
+<<link "I can’t deal with this! Be more assertive, damn it!" "johanOverwhelmedByDateIdea-leaveIrritated">> <</link>>
