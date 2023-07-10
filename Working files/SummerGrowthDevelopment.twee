@@ -9258,7 +9258,7 @@ This determines the gender of the rival you will encounter.
 	<</if>>
 <</if>>
 
-<<if $gameDate.getDate() is $flag.johanOverwhelmedByDateIdeaDate.getDate()>>
+<<if $gameDate.getDate() is $flag.johanOverwhelmedByDateIdeaDate?.getDate()>>
     <<addToLog "<b>You have a date with Johan TODAY!</b>">>
 <</if>>
 
