@@ -675,6 +675,18 @@ window.getPotionIngredientsOnDeliveryCountByName = function (name) {
     return count;
 }
 
+/**
+ * @param day {number} 0 = Sunday
+ * @return {Date} next week of the day, based on `day`
+ */
+window.getNextDayOfTheWeek = function (day) {
+  let nextWeekOfTheDay = new Date(State.variables.gameDate);
+  nextWeekOfTheDay.setDate(nextWeekOfTheDay.getDate() + 1);
+  nextWeekOfTheDay.setDate(nextWeekOfTheDay.getDate() + (day + 7 - nextWeekOfTheDay.getDay()) % 7);
+  nextWeekOfTheDay.setHours(0, 0, 0, 0);
+  return nextWeekOfTheDay
+}
+
 Macro.add('Dialogue', {
     tags: null,
     handler: function () {
@@ -30276,10 +30288,7 @@ It’s your turn to freeze completely. Oh. Yeah. You are going to have to tackle
 <span id="choice">
     <<link "Agree to date">>
         <<replace "#choice">>
-            /* get next tuesday */
-            <<set _d to new Date($gameDate)>>
-            <<set _d.setDate(_d.getDate() + 1)>> /* except today */
-            <<set _d.setDate(_d.getDate() + (2 + 7 - _d.getDay()) % 7)>> /* get next tuesday */
+            <<set _d to window.getNextDayOfTheWeek(2)>> /* get next tuesday */
 
             <<Dialogue "player" "You">>"I mean, yeah! I would be honored. Sounds like a good time!"<</Dialogue>><br><br>
             <<Dialogue "Johan" "Johan">>"OK, then, it’s a date. Will next tuesday work? Around, let’s say, 7:30?"<</Dialogue>><br><br>
@@ -30302,7 +30311,7 @@ It’s your turn to freeze completely. Oh. Yeah. You are going to have to tackle
             <<Dialogue "player" "You">>"Buh-bye!"<</Dialogue>><br><br>
             You walk out of the apartment and close the door completely for a change. Still leaning against it, you have to pinch yourself to make sure this wasn’t a dream.<br><br>
             Wow. This is for real. A date with Johan.<br><br>
-            You’ll probably be spending a lot of time looking at the calendar in the next coming days… (_d)
+            You’ll probably be spending a lot of time looking at the calendar in the next coming days… (on <<print _d.toLocaleDateString()>>)
             
             <<link "Continue" "Home">>
                 <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
@@ -30403,3 +30412,126 @@ OH!<br><br>
 Shit. How dense can you be?!?<br><br>
 
 <<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>>
+
+:: johanOverwhelmedByDateIdea-apologizeAndHug [nobr] {"position":"0,0","size":"100,100"}
+Realizing you crossed a line, your eyes start watering as well, and you let out a whimper, mumbling a silent sorry. Instinctively, you reach in for a hug, <<if $height >= 175 && $muscle >= 45>>lifting Johan clean off the ground like a doll,<</if>>holding your friend tight.<br><br>
+<<Dialogue "player" "You">>"Oh, Johan, I went too far there, I’m so sorry. I just... let my jealousy get the best of me. That was way outta line. Can you find it in your heart to forgive me?"<</Dialogue>><br><br>
+As your brain starts processing things again, you note that Johan is actually also clinging to you way tighter than usual, like his life depended on it. He lets out a bittersweet sob before replying:<br><br>
+<<Dialogue "Johan" "Johan">>"No, you are right. I should be more assertive. I have no idea how you put up with me, frankly."<</Dialogue>><br><br>
+You let go off him as anxiety builds up, and words fail you while a feeble attempt to explain yourself is stuck in your throat.<br><br>
+<<Dialogue "player" "You">>"No, Johan, I don’t know where that came from. Actually, I do, and it was not sincere. It came from a place of pettiness and it could not be further from the truth. I really, really admire and value you and your friendship, and it was stupid to lash out like that. And I apologize."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Nah, I needed to get my ass kicked. And it’s just a reminder that you won’t mince words with me, which is all the more reason for me to trust you. I really appreciate that, <<print $playerFirstName>>."<</Dialogue>><br><br>
+You feel a knot the size of an iceberg in your throat. Just say it, <<print $playerFirstName>>! Tell him about your feelings!!!
+
+<span id="choice">
+	<<PersonalityCheck $shyConfident >= 2 "Johan! I… I have feelings for you!">>
+		<<replace "#choice">>
+            <<set _d to window.getNextDayOfTheWeek(2)>> /* get next tuesday */
+            <<Dialogue "player" "You">>"JOHAN! I LIKE YOU!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, you’re like my best friend too!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"No, Johan! Like… I like, like you!"<</Dialogue>><br><br>
+            It takes a second for that sink in. And then you can see his eyes widen and then light up.<br><br>
+            <<Dialogue "Johan" "Johan">>"Oh! OH! OOOOOH!"<</Dialogue>><br><br>
+            It looks like he might have a heart attack in front of you. You look at him, expectantly and doe-eyed, as he gather his thoughts.<br><br>
+            <<Dialogue "Johan" "Johan">>"S-so you would come with me to Chez Manon?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"But what about your date?"<</Dialogue>><br><br> 
+            <<Dialogue "Johan" "Johan">>"Duh, <<print $playerFirstName>>, you thought it was someone else? It was YOU I wanted to invite, you silly goose!"<</Dialogue>><br><br>
+            You slap your forehead, feeling like the most stupid person on the planet. But the feeling doesn’t linger much, because your heart is now racing, your stomach is doing backflips and your feet start tip-tapping as excitement explodes inside you. You squeeze Johan hard, <<if $muscle >= 50>>making a few bones creak in the process, <</if>>giggling like a schoolgirl as you smooch him on the lips.<br><br>
+            <<Dialogue "player" "You">>"Oh, Johan, YES! Thank you!"<</Dialogue>><br><br>
+            As you let go of him, he’s got the silliest smile and seems to be on cloud nine. He literally seems to be in another dimension as you wave your hand in front of his eyes. With a laugh, you give him another peck on <<if $height >= 175>>on the forehead<<else>>on the cheek<</if>> before leaving, skipping and jumping, already making plans on what you are going to wear to your upcoming date(on <<print _d.toLocaleDateString()>>)! 
+            <<link "Continue" "Home">>
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+            <</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Jolahkyuuu!"<</Dialogue>><br><br>
+            Your attempt at telling him that you like him comes out so garbled it barely qualifies as actual speech. It makes him snort and giggle, and you blush deeply, unable to properly express your feelings.<br><br>
+            <<Dialogue "Johan" "Johan">>"Thanks for the pep talk, <<print $playerFirstName>>, I needed that!"<</Dialogue>><br><br>
+            You blurt another unintelligible mumble, and Johan taps you on the back, smiling.<br><br>
+            <<Dialogue "Johan" "Johan">>"I have no idea what I would do without you!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Mbrllgh!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, I know! I will stop being silly, I promise!"<</Dialogue>><br><br>
+            With his arm around your back, he escorts you to the corridor outside of his apartment, while you continue to just roll your tongue with random phonetic utterances. Johan taps you on the back one last time before returning to his apartment, and you just stand there, protesting with nonsensical noises.<br><br>
+            As it turns out, you were the one who needed to grow a spine. Defeated, you go back to your apartment.
+            <<link "Continue" "Home">><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+
+	<<PersonalityCheck $carefreeCarefull <= -2 "Johan! I… I have feelings for you!">>
+		<<replace "#choice">>
+		    <<set _d to window.getNextDayOfTheWeek(2)>> /* get next tuesday */
+            <<Dialogue "player" "You">>"JOHAN! I LIKE YOU!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, you’re like my best friend too!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"No, Johan! Like… I like, like you!"<</Dialogue>><br><br>
+            It takes a second for that sink in. And then you can see his eyes widen and then light up.<br><br>
+            <<Dialogue "Johan" "Johan">>"Oh! OH! OOOOOH!"<</Dialogue>><br><br>
+            It looks like he might have a heart attack in front of you. You look at him, expectantly and doe-eyed, as he gather his thoughts.<br><br>
+            <<Dialogue "Johan" "Johan">>"S-so you would come with me to Chez Manon?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"But what about your date?"<</Dialogue>><br><br> 
+            <<Dialogue "Johan" "Johan">>"Duh, <<print $playerFirstName>>, you thought it was someone else? It was YOU I wanted to invite, you silly goose!"<</Dialogue>><br><br>
+            You slap your forehead, feeling like the most stupid person on the planet. But the feeling doesn’t linger much, because your heart is now racing, your stomach is doing backflips and your feet start tip-tapping as excitement explodes inside you. You squeeze Johan hard, <<if $muscle >= 50>>making a few bones creak in the process, <</if>>giggling like a schoolgirl as you smooch him on the lips.<br><br>
+            <<Dialogue "player" "You">>"Oh, Johan, YES! Thank you!"<</Dialogue>><br><br>
+            As you let go of him, he’s got the silliest smile and seems to be on cloud nine. He literally seems to be in another dimension as you wave your hand in front of his eyes. With a laugh, you give him another peck on <<if $height >= 175>>on the forehead<<else>>on the cheek<</if>> before leaving, skipping and jumping, already making plans on what you are going to wear to your upcoming date(on <<print _d.toLocaleDateString()>>)!
+            <<link "Continue" "Home">>
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+            <</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Jolahkyuuu!"<</Dialogue>><br><br>
+            Your attempt at telling him that you like him comes out so garbled it barely qualifies as actual speech. It makes him snort and giggle, and you blush deeply, unable to properly express your feelings.<br><br>
+            <<Dialogue "Johan" "Johan">>"Thanks for the pep talk, <<print $playerFirstName>>, I needed that!"<</Dialogue>><br><br>
+            You blurt another unintelligible mumble, and Johan taps you on the back, smiling.<br><br>
+            <<Dialogue "Johan" "Johan">>"I have no idea what I would do without you!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Mbrllgh!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, I know! I will stop being silly, I promise!"<</Dialogue>><br><br>
+            With his arm around your back, he escorts you to the corridor outside of his apartment, while you continue to just roll your tongue with random phonetic utterances. Johan taps you on the back one last time before returning to his apartment, and you just stand there, protesting with nonsensical noises.<br><br>
+            As it turns out, you were the one who needed to grow a spine. Defeated, you go back to your apartment.
+            <<link "Continue" "Home">><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+    
+	<<PersonalityCheck $submissiveDominant >= 2 "Johan! I… I have feelings for you!">>
+		<<replace "#choice">>
+		    <<set _d to window.getNextDayOfTheWeek(2)>> /* get next tuesday */
+            <<Dialogue "player" "You">>"JOHAN! I LIKE YOU!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, you’re like my best friend too!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"No, Johan! Like… I like, like you!"<</Dialogue>><br><br>
+            It takes a second for that sink in. And then you can see his eyes widen and then light up.<br><br>
+            <<Dialogue "Johan" "Johan">>"Oh! OH! OOOOOH!"<</Dialogue>><br><br>
+            It looks like he might have a heart attack in front of you. You look at him, expectantly and doe-eyed, as he gather his thoughts.<br><br>
+            <<Dialogue "Johan" "Johan">>"S-so you would come with me to Chez Manon?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"But what about your date?"<</Dialogue>><br><br> 
+            <<Dialogue "Johan" "Johan">>"Duh, <<print $playerFirstName>>, you thought it was someone else? It was YOU I wanted to invite, you silly goose!"<</Dialogue>><br><br>
+            You slap your forehead, feeling like the most stupid person on the planet. But the feeling doesn’t linger much, because your heart is now racing, your stomach is doing backflips and your feet start tip-tapping as excitement explodes inside you. You squeeze Johan hard, <<if $muscle >= 50>>making a few bones creak in the process, <</if>>giggling like a schoolgirl as you smooch him on the lips.<br><br>
+            <<Dialogue "player" "You">>"Oh, Johan, YES! Thank you!"<</Dialogue>><br><br>
+            As you let go of him, he’s got the silliest smile and seems to be on cloud nine. He literally seems to be in another dimension as you wave your hand in front of his eyes. With a laugh, you give him another peck on <<if $height >= 175>>on the forehead<<else>>on the cheek<</if>> before leaving, skipping and jumping, already making plans on what you are going to wear to your upcoming date(on <<print _d.toLocaleDateString()>>)!
+            <<link "Continue" "Home">>
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+            <</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Jolahkyuuu!"<</Dialogue>><br><br>
+            Your attempt at telling him that you like him comes out so garbled it barely qualifies as actual speech. It makes him snort and giggle, and you blush deeply, unable to properly express your feelings.<br><br>
+            <<Dialogue "Johan" "Johan">>"Thanks for the pep talk, <<print $playerFirstName>>, I needed that!"<</Dialogue>><br><br>
+            You blurt another unintelligible mumble, and Johan taps you on the back, smiling.<br><br>
+            <<Dialogue "Johan" "Johan">>"I have no idea what I would do without you!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Mbrllgh!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Yeah, I know! I will stop being silly, I promise!"<</Dialogue>><br><br>
+            With his arm around your back, he escorts you to the corridor outside of his apartment, while you continue to just roll your tongue with random phonetic utterances. Johan taps you on the back one last time before returning to his apartment, and you just stand there, protesting with nonsensical noises.<br><br>
+            As it turns out, you were the one who needed to grow a spine. Defeated, you go back to your apartment.
+            <<link "Continue" "Home">><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+
+    <<link "No, this friendship is too valuable to mess with.">>
+        <<replace "#choice">>
+            You bite your lips, before sucking air through your teeth. No, you can’t risk this friendship being this selfish. So you go along in the dreaded friendzone.<br><br>
+            <<Dialogue "player" "You">>"Haha, yeah! We are both so silly. It’s great to be friends like this! We are so lucky!"<</Dialogue>><br><br>
+            You say, painfully lying. Johan seems so glad, though. He taps you on the back, and reinforces how precious your friendship is. You just nod in silence, trying to hold your smile as well as you can. He goes on thanking you, but you just create an excuse to get out of there as soon as you possibly can, and he waves goodbye. As soon as you step out, you lean against the wall and slap your forehead. Way to go, <<print $playerFirstName>>. But it was probably for the best. Johan is too precious for this world, you tell yourself, as you walk back to your apartment, trying to find solace in knowing how lucky you are to have him as a friend - and convincing yourself that you just didn’t screw yourself in the process.
+			<<link "Continue" "Home">><</link>>
+        <</replace>>
+    <</link>>
+</span>
