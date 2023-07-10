@@ -9258,6 +9258,10 @@ This determines the gender of the rival you will encounter.
 	<</if>>
 <</if>>
 
+<<if $gameDate.getDate() is $flag.johanOverwhelmedByDateIdeaDate.getDate()>>
+    <<addToLog "<b>You have a date with Johan TODAY!</b>">>
+<</if>>
+
 <</if>>
 
 
@@ -30314,7 +30318,7 @@ It’s your turn to freeze completely. Oh. Yeah. You are going to have to tackle
             You’ll probably be spending a lot of time looking at the calendar in the next coming days… (on <<print _d.toLocaleDateString()>>)
             
             <<link "Continue" "Home">>
-                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>>
             <</link>>
         <</replace>>
     <</link>>
@@ -30440,7 +30444,7 @@ You feel a knot the size of an iceberg in your throat. Just say it, <<print $pla
             <<Dialogue "player" "You">>"Oh, Johan, YES! Thank you!"<</Dialogue>><br><br>
             As you let go of him, he’s got the silliest smile and seems to be on cloud nine. He literally seems to be in another dimension as you wave your hand in front of his eyes. With a laugh, you give him another peck on <<if $height >= 175>>on the forehead<<else>>on the cheek<</if>> before leaving, skipping and jumping, already making plans on what you are going to wear to your upcoming date(on <<print _d.toLocaleDateString()>>)! 
             <<link "Continue" "Home">>
-                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>>
             <</link>>
 		<</replace>>
 	<<Failed>>
@@ -30474,7 +30478,7 @@ You feel a knot the size of an iceberg in your throat. Just say it, <<print $pla
             <<Dialogue "player" "You">>"Oh, Johan, YES! Thank you!"<</Dialogue>><br><br>
             As you let go of him, he’s got the silliest smile and seems to be on cloud nine. He literally seems to be in another dimension as you wave your hand in front of his eyes. With a laugh, you give him another peck on <<if $height >= 175>>on the forehead<<else>>on the cheek<</if>> before leaving, skipping and jumping, already making plans on what you are going to wear to your upcoming date(on <<print _d.toLocaleDateString()>>)!
             <<link "Continue" "Home">>
-                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>>
             <</link>>
 		<</replace>>
 	<<Failed>>
@@ -30508,7 +30512,7 @@ You feel a knot the size of an iceberg in your throat. Just say it, <<print $pla
             <<Dialogue "player" "You">>"Oh, Johan, YES! Thank you!"<</Dialogue>><br><br>
             As you let go of him, he’s got the silliest smile and seems to be on cloud nine. He literally seems to be in another dimension as you wave your hand in front of his eyes. With a laugh, you give him another peck on <<if $height >= 175>>on the forehead<<else>>on the cheek<</if>> before leaving, skipping and jumping, already making plans on what you are going to wear to your upcoming date(on <<print _d.toLocaleDateString()>>)!
             <<link "Continue" "Home">>
-                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>>
             <</link>>
 		<</replace>>
 	<<Failed>>
