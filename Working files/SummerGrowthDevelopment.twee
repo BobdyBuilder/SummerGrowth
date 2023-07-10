@@ -30535,3 +30535,17 @@ You feel a knot the size of an iceberg in your throat. Just say it, <<print $pla
         <</replace>>
     <</link>>
 </span>
+
+:: johanOverwhelmedByDateIdea-leaveIrritated [nobr] {"position":"0,0","size":"100,100"}
+You stomp your foot angrily<<if $muscle >= 55 || $fat >= 60>>, making the entire apartment shake<</if>>, while you say with enough frustration to sink an aircraft carrier:<br><br>
+<<Dialogue "player" "You">>"DAMMIT, JOHAN, GROW A GODDAMN SPINE, WILL YOU?"<</Dialogue>><br><br>
+Johan is now beyond the verge of tears, biting his lips and looking angry at himself even more so than sad. You roll your eyes, throwing your hands to the air with a defeat sigh. Turning around, you just give up on this exercise in futility as your jealousy gets the best of you and head straight to the door.<br><br>
+As you slam it behind you, you want to hit yourself as you turn the corner away from his view and lean against the wall, bringing your hands to your face as you slowly slide down until you are sitting on the ground sobbing.<br><br>
+Damn it, <<print $playerFirstName>>, how did you let this get to this point? Can’t you get a hold of yourself? Saddened, you just stew there for a few minutes, figuratively kicking yourself over this stupid episode, wishing things had gone differently. It’s probably going to be awkward for a while, but you can only hope things will get back to normal after you let it cool down - but some apologies will probably be in order.
+
+/* SET FLAG FOR JO32 APOLOGY EVENT AFTER 3 DAYS LOCKING OUT VISITING HIM */
+<<set _d to new Date($gameDate)>>
+<<set _d.setDate(_d.getDate() + 3)>>
+<<set _d.setHours(0,0,0,0)>>
+<<set $flag.johanOverwhelmedByDateIdeaApologyDate to _d>>
+<<link "Continue" "Home">><</link>>
