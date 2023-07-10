@@ -7334,7 +7334,7 @@ Insta-fat*/
                 discovered: false
             }
         ]
-    },,
+    },
     {
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
@@ -7363,7 +7363,7 @@ Insta-fat*/
                 discovered: false
             }
         ]
-    },,
+    },
     {
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
@@ -7392,7 +7392,7 @@ Insta-fat*/
                 discovered: false
             }
         ]
-    },,
+    },
     {
         name: "Temp-Dom",
         description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
@@ -9259,8 +9259,6 @@ This determines the gender of the rival you will encounter.
 
 :: NatEvents [nobr] {"position":"1300,2425","size":"100,100"}
 <<set setup.natEvents to []>>
-<<set $flag.nat to {}>>
-
 <<set setup.natEvents.push(
     {
 		name: 'NatMovingIn',
@@ -9557,7 +9555,7 @@ That is A LOT to process!<br><br>
                 <<link "Continue" $currentScene>><</link>>
             <<else>>
                 However, she doesn't face Nat, but you.<br><br>
-                <<set $flag.nat.docnotice to true>>
+                <<set $flag.natDocNotice to true>>
                 <<Dialogue "randomPerson" "Random guy">>"Wow! You look amazing! What's your name?"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Errrr… no, I'm not the participant, it's him!"<</Dialogue>><br><br>
                 The director inspects the two of you.<br><br>
@@ -9578,7 +9576,7 @@ That is A LOT to process!<br><br>
                 <span id="choice">
                     <<PersonalityCheck $shyConfident >= 1 "Actually, competing doesn't sound like the worst idea…">>
                         <<replace "#choice">>
-                            <<set $flag.nat.competebb to true>>
+                            <<set $flag.natCompetebb to true>>
                             <<Dialogue "player" "You">>"Well, actually, I've been dabbling a bit in weight training, and I'm kind of an easy gainer…"<</Dialogue>><br><br>
                             You do a tentative double biceps pose, and notice several eyes turning your way in the crowd. Quite a few females seem downright intimidated.<br><br>
                             <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, sure, you could probably place in <<if $rivalGender === 'male'>>the female<<else>>a lighter<</if>> division, you certainly look good. But let's face it, I've known since you were a kid - you are not cut for the bodybuilding lifestyle, <<print $playerFirstName>>."<</Dialogue>><br><br>
@@ -9757,7 +9755,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Your… muscular physique… this POWER you exude… wait… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this Greek goddess here? I need to send a preview to the client… I think this will work wonder!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.nat.modelPath to true>>
+    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.natModelPath to true>>
 
 <<elseif $muscle >= 35 && $breasts >= 40 && $height >= 185 && $fat <=25 >>
     <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
@@ -9765,7 +9763,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Hmmm… looking at the two of you… this raw vibe of fury from your fitness… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this statuesque athlete here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.nat.modelPath to true>>
+    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.natModelPath to true>>
 
 <<elseif $hipsSize >= 50 && $breasts >= 40 && $height >= 180 && $fat <=25 >>
     <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
@@ -9773,7 +9771,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Hmmm… girl, your proportions… sexy sells, and you, my darling, have a body that could sell umbrellas in the Sahara… I'm having a moment here… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit this supermodel-in-the-making here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.nat.modelPath to true>>
+    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.natModelPath to true>>
     
 <<elseif $height >= 180 && $fat <=20 && $skills[4].level > 2 && $shyConfident > 1>>
     <<Dialogue "randomPerson" "Art Director">>"Wait… who is this girl?"<</Dialogue>><br><br>
@@ -9781,14 +9779,14 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"Hmmm… girl, I've discovered many models in my time, and YOU… you have IT! I can't let an opportunity like that pass me by… WARDROOOOOBE!!!"<</Dialogue>><br><br>
     A small girl comes rushing in, holding up a few pieces of clothing in hangers.<br><br>
     <<Dialogue "randomPerson" "Art Director">>"Babe, can you find another jumpsuit that would fit our next great up-and-coming supermodel here? I need to send a preview to the client… I think this will work wonders!"<</Dialogue>><br><br>
-    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.nat.modelPath to true>>
+    The girl nods, and goes out running as fast as she came.<br><br><<set $flag.natModelPath to true>>
 
 <<else>>
     <<Dialogue "randomPerson" "Art Director">>"Well, you didn't tell me you were going to bring your girlfriend to the shoot."<</Dialogue>><br><br>
-    You and Nat quickly dismiss the notion that you are dating, in a clumsy and embarrassed fashion. It's actually kinda cute.<br><br><<set $flag.nat.modelPath to false>>
+    You and Nat quickly dismiss the notion that you are dating, in a clumsy and embarrassed fashion. It's actually kinda cute.<br><br><<set $flag.natModelPath to false>>
 <</if>>
 
-<<if $flag.nat.modelPath>>
+<<if $flag.natModelPath>>
     <<rivalName>> seems to fidget on <<rivalMy>> seat from this development, which is quite a difference from <<rivalMy>> complete peace before. The art director continues to appraise you and even take some candid shots with her phone as she mumbles to herself and takes notes. This feels a bit weird, to be sincere… but you don't want to be any more disruptive of this environment you've been invited to.<br><br>
     Soon the wardrobe girl comes back with an enormous frayed denim jumpsuit. 
     <<if $height >= 180 && $fat <=20 && $skills[4].level > 2 && $shyConfident > 1>>
@@ -9807,13 +9805,13 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <<Dialogue "randomPerson" "Art Director">>"<<print $playerFirstName>>, I am not taking ‘no' for an answer, you MUST feature in this shoot with Nat. The two of you will look GORGEOUS. I will match <<rivalMy>> salary if I have to, and will have a contract in here for you to sign shortly."<</Dialogue>><br><br>
     Well, that escalated quickly. Things literally flash before your eyes, and when you finally realize what just happened, you and Nat are posing in front of the car.
     <<if $skills[4].level > 2 && $shyConfident > 1>>
-    Somehow, you feel right at home, and without putting any effort, you find yourself in the sexiest poses you could possibly imagine. The camera just naturally gravitates towards you all the time, which makes Nat increasingly irritated as you quickly become the focus of the shoot instead of <<rivalMe>>, who is now playing second fiddle.<<set $flag.nat.na6route = 1>>
+    Somehow, you feel right at home, and without putting any effort, you find yourself in the sexiest poses you could possibly imagine. The camera just naturally gravitates towards you all the time, which makes Nat increasingly irritated as you quickly become the focus of the shoot instead of <<rivalMe>>, who is now playing second fiddle.<<set $flag.natNa6route = 1>>
     <<elseif $muscle >= 50 || $breasts >= 40 || $height >= 180 || $hipsSize >= 50>>
-    It takes a little bit for you to figure it out, but with the help of the amazing photographer and director, you quickly find out that your physical gifts allow you to stand just as prominently in the shoot as Nat. They alternate between the two of you, emphasizing each one's best assets. The director makes it a point to have you interact with each other <<if $shyConfident >1>> and the chemistry is instantaneous, resulting in very tantalizing poses that make everyone there drool.<<else>> despite it making you a bit uncomfortable - but Nat is so professional that <<rivalI>> manages to make it work.<</if>><<set $flag.nat.na6route = 2>>
+    It takes a little bit for you to figure it out, but with the help of the amazing photographer and director, you quickly find out that your physical gifts allow you to stand just as prominently in the shoot as Nat. They alternate between the two of you, emphasizing each one's best assets. The director makes it a point to have you interact with each other <<if $shyConfident >1>> and the chemistry is instantaneous, resulting in very tantalizing poses that make everyone there drool.<<else>> despite it making you a bit uncomfortable - but Nat is so professional that <<rivalI>> manages to make it work.<</if>><<set $flag.natNa6route = 2>>
     <<elseif $shyConfident < 0 && $skills[4].level < 2>>
-    You try your hardest, but despite your good looks, actually being in a revealing outfit in front of so many people makes you pretty uncomfortable. Nat is forced to pick up the slack, which <<rivalI>> does effortlessly and magnifically: you end up being sort of background window dressing to <<rivalMy>> starring role in the shoot - which suits you well enough. At times, the director has the two of you interacting directly with one another, which makes you very thankful for the heavy make-up, because you suspect your cheeks might be PURPLE under all that as they pose you rubbing <<rivalMy>> <<if $rivalGender === 'male'>>muscular chest<<else>>prominent abs and forearms<</if>>.<<set $flag.nat.na6route = 3>>
+    You try your hardest, but despite your good looks, actually being in a revealing outfit in front of so many people makes you pretty uncomfortable. Nat is forced to pick up the slack, which <<rivalI>> does effortlessly and magnifically: you end up being sort of background window dressing to <<rivalMy>> starring role in the shoot - which suits you well enough. At times, the director has the two of you interacting directly with one another, which makes you very thankful for the heavy make-up, because you suspect your cheeks might be PURPLE under all that as they pose you rubbing <<rivalMy>> <<if $rivalGender === 'male'>>muscular chest<<else>>prominent abs and forearms<</if>>.<<set $flag.natNa6route = 3>>
     <<else>>
-    The shoot is an incredible experience - Nat shines as the star, and you just help prop <<rivalMe>> up with your own great assets. The photographer and director are much more demanding of <<rivalMe>>… obviously… but they take great care in using you in the background, and you realize working as a model IS indeed as hard as you expected, maybe even more so. Yet, you have fun doing it.<<set $flag.nat.na6route = 3>>
+    The shoot is an incredible experience - Nat shines as the star, and you just help prop <<rivalMe>> up with your own great assets. The photographer and director are much more demanding of <<rivalMe>>… obviously… but they take great care in using you in the background, and you realize working as a model IS indeed as hard as you expected, maybe even more so. Yet, you have fun doing it.<<set $flag.natNa6route = 3>>
     <</if>>
     <<if $muscle >= 75 && $shyConfident > 2>>
     As the shoot is coming to an end, the director asks for a last shot of Nat laying under the car, as you watch from over the hood. However, they realize they don't have enough clearance for a proper shot - so the assistant is called to bring in a jack to lift the car.<br><br>
@@ -9825,7 +9823,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
     <</if>>
     With the shooting done, the photographer and director come to congratulate the two of you.<br><br>
     
-    <<if $flag.nat.na6route === 1>>
+    <<if $flag.natNa6route === 1>>
         <<Dialogue "randomPerson" "Art Director">>"So, <<print $playerFirstName>>, do you have an agent already? Because, if you don't, you MUST let me suggest someone - it's a SIN that you are not in this business professionally yet. Because I know I will be requesting you again…"<</Dialogue>><br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, you were great."<</Dialogue>><br><br>
         Nat says that rather unenthusiastically - probably just to please the director, you suspect. No matter, you feel like a million bucks right now.<br><br>
@@ -9843,7 +9841,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Sure, whatever."<</Dialogue>><br><br>
         Nat just finishes dressing up and leaves without saying another word. Huh.
     
-    <<elseif $flag.nat.na6route === 2>>
+    <<elseif $flag.natNa6route === 2>>
         <<Dialogue "randomPerson" "Art Director">>"Wow, you two work great together. <<rivalName>>, does your agent also represent her? Because, if not, I would get them in touch - you two would make an incredible package deal!"<</Dialogue>><br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Uh, I guess I could introduce them..."<</Dialogue>><br><br>
         The director proceeds to give feedback to you two, mostly complimenting your synergy and how well the session went. Nat seems uneasy at sharing the credit, but tries to do so as gracefully as <<rivalI>> can.<br><br>
@@ -9858,7 +9856,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, I'll drop you a line or something."<</Dialogue>><br><br>
         Nat just finishes dressing up and leaves with a curt “bye”.
     
-    <<else>> /* $flag.nat.na6route === 3 */
+    <<else>> /* $flag.natNa6route === 3 */
         <<Dialogue "randomPerson" "Art Director">>"See, <<print $playerFirstName>>, that's why we pay <<rivalName>> the big bucks!"<</Dialogue>><br><br>
         You nod, proud of your friend, who gladly accepts the praise. The director proceeds to give feedback, mostly positive, and reinforcing just how good Nat is at <<rivalMy>> job. It's a joy to see, really, and you find yourself learning a lot from it.<br><br>
         As they are done, the two of you go back to the dressing area to put your street clothes back on and remove the make-up.<br><br>
@@ -9904,7 +9902,7 @@ This very nicely-dressed woman walks into the make-up station, holding a big fol
 		conditions: [
 		    () => setup.hasEventBeenTriggered('NatModelingGig'),
 		    () => State.variables.daysPlayed >= 30,
-		    () => [1, 2].includes(State.variables.flag.nat.na6route)
+		    () => [1, 2].includes(State.variables.flag.natNa6route)
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -9917,7 +9915,7 @@ You wave at <<rivalMe>>, and <<rivalI>> does a double-take, as if <<rivalI>>does
 <<rivalMy>> agent gives <<rivalMe>> some guff about “holding out on the goods” about you, and Nat just gives the fakest laugh you ever heard. Well, at least <<rivalI>>'s trying to be nice about it?<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, uh, nice to see you here, but I think I really should engage with the documentary crew. I don't want to be rude, of course."<</Dialogue>><br><br>
 Well, mission failed, Nat! Is that how you treat your childhood friend? You watch as <<rivalI>> goes up to the crew, and while they talk, you see the director shooting some glances at you, and Nat grows more bothered by the second, until all of them come to you.<br><br>
-<<if $flag.nat.docnotice>>
+<<if $flag.natDocNotice>>
 <<Dialogue "randomPerson" "Documentary Director">>"Hey, I was telling <<rivalName>> that I remember you from sign-ups at the town hall. You sure know how to catch an eye!"<</Dialogue>><br><br>
 <<if $shyConfident > 1>><<Dialogue "player" "You">>"Yeah, I came over to give Nat some moral support - not that <<rivalI>> needs it, just look at this <<if $rivalGender === 'male'>>hunk<<else>>babe<</if>>!"<</Dialogue>><br><br>
 <<else>>
@@ -9936,7 +9934,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 		conditions: [
             () => setup.hasEventBeenTriggered('NatModelingGig'),
 		    () => State.variables.daysPlayed >= 30,
-		    () => State.variables.flag.nat.na6route === 3 || State.variables.flag.nat.modelPath === false
+		    () => State.variables.flag.natNa6route === 3 || State.variables.flag.natModelPath === false
 		],
 		repeatable: false,
 		retriggerable: false,
@@ -9950,7 +9948,7 @@ The commotion is not quite as big as during the modeling shoot, but despite the 
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, why don't we go meet the documentary crew?"<</Dialogue>><br><br>
 The two of you go talk to them as they put that last touches on their filming setup.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Seems like you are almost done with the setup, I'm good to go as well. By the way, this is an old friend of mine, <<print $playerFirstName>>, I invited her to watch, I hope that's not a problem."<</Dialogue>><br><br>
-<<if $flag.nat.docnotice>>
+<<if $flag.natDocNotice>>
 <<Dialogue "randomPerson" "Documentary Director">>"Hey, I remember you… weren't you there at the town hall when we were getting the forms?"<</Dialogue>><br><br>
 <<if $shyConfident > 1>><<Dialogue "player" "You">>"Yup! Still giving Nat some moral support - not that <<rivalI>> needs it, just look at this <<if $rivalGender === 'male'>>hunk<<else>>babe<</if>>!"<</Dialogue>><br><br>
 <<else>>
@@ -9973,7 +9971,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 		retriggerable: false,
 		priority: 'immediate',
         npc: ['nat'],
-		content: `<<if $muscle >= 55  && $flag.nat.docnotice>> 
+		content: `<<if $muscle >= 55  && $flag.natDocNotice>> 
     She squints as she gets a really good look at you.<br><br>
     <<Dialogue "randomPerson" "Documentary Director">>"Is my mind playing tricks on me, I remember you looked pretty muscular then… but I could swear you are noticeably bigger now? I'd like to say IMPOSSIBLY so…?"<</Dialogue>><br><br>
     <<if $shyConfident > 1>>
@@ -9991,10 +9989,10 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
     <</if>>
     <<link "continue">><<playEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
 
-<<elseif $muscle >= 55  && !$flag.nat.docnotice>>
+<<elseif $muscle >= 55  && !$flag.natDocNotice>>
     She squints as she gets a really good look at you.<br><br>
     <<Dialogue "randomPerson" "Documentary Director">>"Well, I couldn't help but notice, but you seem like you might be the main contender for the bodybuilding contest - how come we didn't get your release? Don't you want to be in the documentary?"<</Dialogue>><br><br>
-    <<if $flag.nat.competebb>>
+    <<if $flag.natCompetebb>>
         <<Dialogue "player" "You">>"Well, I hadn't given much thought about the documentary, to be sincere… even my plans to compete were still a bit on the tentative side… but, I suppose my gains would be right at home on this film."<</Dialogue>><br><br>
         <<else>>
         <<Dialogue "player" "You">>"To be sincere, I wasn't planning to compete… not yet, anyways…"<</Dialogue>><br><br>
@@ -11670,6 +11668,89 @@ Was that a nosebleed?<</if>>
         priority: 'immediate',
         npc: ["johan"],
         content: '<<goto "johanPinUpArt">>'
+    },
+    {
+        name: 'johanOverwhelmedByDateIdea',
+        locationTags: ['home'],
+        conditions: [	
+            () => setup.hasEventBeenTriggered('johanPinUpArt'),
+            () => State.variables.flag.johanPinUpArtSuccess
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ["johan"],
+        content: `You decide to go check the building’s mailbox, and you find a cardboard tube that doesn’t fit just laying on the ground next to it. A quick glance reveals that it belongs to Johan - it must be the pin-up poster he ordered the other day. <<if $shyConfident > 1>> While there’s very few people coming and going in this building, you’d rather bring that to his apartment than leave it exposed there, where it could easily be nabbed by someone else. <<else>>You hesitate for a moment, trying to convince yourself if you should just grab his mail like that, but you wouldn’t want someone else stealing his precious (and possibly embarrassing) art, right?<</if>>So you grab the tube, and lean it against your shoulder as you make you way to Johan’s.<br><br>
+<<if $shyConfident > 1>>Humming as you climb the stairs, you entertain the idea of coming in holding the unfurled poster in front of you, making a funny voice like it was the pin-up girl talking... but you decide that maybe going into someone else’s mail is crossing a line. Still, the idea brings a smile to your face. <<else>>As you slowly make your way up the stairs, you question whether he might feel embarrassed with you handling the poster. Actually, is it going to be awkward if you just show up with it? Maybe you should just pretend you think it’s something else completely unrelated, maybe make a joke about his art supplies - and spare everyone the embarrassment? <</if>>You realize that Johan really brings out this playful side in you, and you feel blessed for having him as a friend.<br><br>
+But as you ponder how special the little guy is to you, you approach his door and hear a rhythmic thumping coming from inside. You can’t quite explain, but you can sense a weird vibe coming from inside - instead of the usual energetic and excitable one that his apartment exudes, there’s now frustration. The door is ajar, as per custom, but this time your sixth sense tells you to take a discreet peek before going in.<br><br>
+You tilt your head and see Johan sitting down by his computer, slowly hitting his forehead against the desk next to his laptop, eyes closed. He seems incredibly frustrated and disappointed, which by itself is somewhat shocking. You resist the urge to go there and help the inconsolable student, trying to first figure out what is wrong. He bellows a very loud sigh, which transitions into a snickering sob. He raises his head, only to rest it against his hand, looking sideways at the computer screen, before talking to himself.<br><br>
+<<Dialogue "Johan" "Johan">>"Come on, Johan, you can do this. This isn’t rocket science. Though actually, I kinda wish it was - I probably know more about that than picking a place for a date. Girls are HARD, man!"<</Dialogue>><br><br>
+You blush, taking a step back as your heart accelerates and your eyes widen. Johan has a girlfriend? I mean, you are glad about that, he certainly deserves to be happy. So why does it make you uncomfortable? You find yourself clenching your jaw and hand, <<if $muscle >= 45>>accidentally crushing the thick cardboard tube like it was made of paper, <</if>>surprising yourself at how upset you are by that. Still, he’s your friend. You should give him your full support... right?<br><br>
+As you approach the door again, he continues to talk to himself, and you end up observing more before barging in, curiosity getting the best of you.<br><br>
+<<Dialogue "Johan" "Johan">>"How can I be so pathetic? I’m sure most guys just do this without even thinking, and here I am, unable to pick a simple idea for a date. God, Johan, you are pathetic."<</Dialogue>><br><br>
+He hits his forehead against the table once again, and it just about breaks your heart.<br><br>
+<<Dialogue "Johan" "Johan">>"I mean, yeah, there’s all the obvious stuff, like dinner and a movie kinda thing, but she’s so special - she deserves something extraordinary. Like herself. I can’t just phone in this one! No, I gotta knock this one out of the park, because she’s going to laugh at me if I do something lame like that - I bet she gets asked for all kinds of amazing stuff. She’s just so cool..."<</Dialogue>><br><br>
+You find yourself banging your free fist against the wall instinctively... <<if $muscle >= 70>>cracking the structure and making the ground shake. This startles Johan, who rushes towards his shelf full of figures, prepared to cushion them should some fall from the unexpected tremor. Oops.<<elseif $muscle >= 45>>it makes a very loud noise, and Johan immediately looks at the door. Uh oh! But luckily he seems too stressed to follow up. Phew!<<else>>Oops! You shrink, hoping Johan didn’t hear that. You wait a second before sneaking a peek, but it seems like you are safe.<</if>><br><br>
+Johan takes a deep breath, and goes back to his search, staring glumly at the cold screen. You bite your lip so hard it almost bleeds, and decide that enough is enough. You can’t let him suffer like that. Despite your best judgement, you decide to intervene. Closing your eyes, you sigh, and step into the apartment.<br><br>
+<<Dialogue "player" "You">>"Hey, Johan! You’ve got mail!"<</Dialogue>><br><br>
+Johan looks like a deer under headlights, and immediately closes his browser as you approach. Unsurprisingly, he is really bad at trying to pretend he was doing something else, as he suspiciously crosses his legs, starts whistling and starts a racing game. You make your way to his desk to drop the cardboard tube, while he turns at you with a very forced smile.<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, hey, <<print $playerFirstName>>, didn’t see you there! Sup?"<</Dialogue>><br><br>
+You can’t even get mad at him, he looks totally adorable trying to pretend he was doing something else.<br><br>
+<<Dialogue "player" "You">>"So, what are you up to? Just chilling with your, huh, racing game? Thought you were more in the fighting scene."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"No, I’m SUPER serious about racing. Like, all the cylinders, and the, huh, laps, with uh, the stripped flag, you know?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"You mean checkered flag?"<</Dialogue>><br><br>
+Johan’s face blushes, and he stutters as the game finishes loading - and crashes just as hard as his excuse. As the window closes, there’s another browser behind it, showing the homepage for a fancy restaurant in town, with a reservation form being filled out.<br><br>
+<<Dialogue "player" "You">>"Chez Manon? Isn’t this that fancy French restaurant with that famous chef that opened here in town? I hear she’s got so many stars she doesn’t even know what to do with them. But just like racing games, not something I expected from you..."<</Dialogue>><br><br>
+Johan gets really stiff and tense, and you can practically hear the gears in his brain grinding.<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, yeah, no, my cousin is coming to visit, and she was asking if there were any nice places to eat."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I suppose, but it seems like it’s a really romantic place, you don’t want to give her the wrong idea, right? I mean, which girl wouldn’t love being asked on a date there?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Y-y-you really think so?"<</Dialogue>><br><br>
+His blush deepens, getting dangerously close to purple territory, but his panic is replaced by hope as he seems truly relieved to get your approval.<br><br>
+
+
+<span id="choice">
+	<<PersonalityCheck $submissiveDominant >= 2 "Am I reading this wrong or did the ubergeek nab himself a date? Who would’ve thought this day would come?">>
+		<<replace "#choice">>
+
+            <<Dialogue "player" "You">>"Wait, are you telling me YOU have a date?
+            With, like, a real person, not a dating simulator waifu or a body pillow?"<</Dialogue>><br><br>
+            <<if $submissiveDominant < 1>>Before the words are out of your mouth, you already start kicking yourself mentally at how insensitive that comment was. It doesn’t matter that you wear the cringe on your face, the damage is done. <</if>>Johan’s response is immediate, and it’s obvious that you just hurt him, big time. He has the biggest puppy eyes, and his sad pouting could pierce an iceberg. His shoulders slump, and he looks like a balloon in the process of deflating.<br><br>
+            <<Dialogue "Johan" "Johan">>"O-oh. I guess you are right. No girl in their right mind would ever go out with a dweeb like me."<</Dialogue>><br><br>
+            You can’t help but feel a little petty, yet, you’d be lying if you said that there wasn’t a sliver of relief for chopping any competition you might’ve had in the process. Huh. It turns out, you might be a lot more possessive of Johan than you realized.<br><br>
+            Still, that doesn’t change the fact that you’ve never seen Johan feeling this dejected before. You can almost feel the weight of the little devil and the little angel on your shoulders. Torn, you waffle between the options ahead of you, nervously pondering what you should do next.<br><br>
+
+            <span id="choice">
+                <<link "I mean, who would care for him as much as me? There... there can’t be another person. Right?!?" "johanOverwhelmedByDateIdea-discourage">> <</link>>
+                <<link "Sorry, Johan, not about to let you feel sorry for yourself, you can do better than that!" "johanOverwhelmedByDateIdea-toughLove">> <</link>>
+                <<link "He is such a sweetie, I can’t let him feel bad - time to cheer Johan up!" "johanOverwhelmedByDateIdea-boostHisEgo">> <</link>>
+            </span>
+		<</replace>>
+
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Oh... so, you HAVE someone you want to take to a romantic restaurant? Someone that actually agreed to go out with you?"<</Dialogue>><br><br>
+            Your original instinct was to emphasize that you were surprised someone agreed to go out with him, but it came out all wrong - it should be pretty obvious that you are more annoyed by the fact he might be doing so. You can only hope his obliviousness won’t detect the not-so-subtle edge of jealousy in your line. Thankfully, it’s Johan we’re talking about...<br><br>
+            <<Dialogue "Johan" "Johan">>"Well, I haven’t quite made the invitation per se, I guess. I’m kind of a planner type of person, so I wanted to, you know, have something special to offer before I, huh..."<</Dialogue>><br><br>
+            Ugh! How can this nerd be so adorable?!? It’s like he’s not even trying! While you still kind of didn’t want to see him going out with whoever the lucky girl or guy is, you roll your eyes and realize you aren’t mean enough stand in the way of the lil’ guy’s happiness.<br><br>
+            <<Dialogue "player" "You">>"Well, I guess I’m happy for you. Do you need help? Someone to gather intelligence or deliver a note or something? <<if $shyConfident > 1>>Or maybe you just want a wingwoman, someone cool like yours truly to make you extra-desirable when you go sell your spiel?<</if>>"<</Dialogue>><br><br>
+            Johan looks even more awkward as you make these half-hearted offers, fiddling and stuttering as he avoids direct eye contact. You just wait there, impatiently and mildly bothered by his demeanor until he actually manages to produce his next sentence.<br><br>
+            <<Dialogue "Johan" "Johan">>"Well, you see, I don’t think I will need much help, I see this girl all the time, you know, because she lives here in the building, and we basically treat each other’s apartment like a second home as it is."<</Dialogue>><br><br>
+            Dang, there’s another student in this building that you don’t know? And someone who’s so at home here, how come you never met her? You are here like LITERALLY ALL THE TIME! It IS like your second home too...<br><br>
+            <br>
+            ...<br><br>
+            Oh.<br><br>
+            OH!<br><br>
+            <br>
+            Shit. How dense can you be?!?<br><br>
+
+			<<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>> /*TODO check if this fix correct*/
+		<</replace>>
+	<</PersonalityCheck>>
+
+    <<link "Why, you look glad to hear that - are you eyeing to bring someone special there? Can’t hide that from me, you gotta share the deets!" "johanOverwhelmedByDateIdea-shareTheDeets">> <</link>>
+
+    <<link "I would love if someone invited me to go there..." "johanOverwhelmedByDateIdea-wishSomeoneInvitedMe">> <</link>>
+</span>`
     }
 )>>
 
@@ -18974,7 +19055,7 @@ Arriving at a booth, you sit down<<if $muscle >50 || $fat > 50 || $breasts > 50 
 
 <<Dialogue "KrisCasualObsessed" "Kris">>"... Fuck, I love every bit of you. So, how was your day? Lifted plenty? Ate enough?"<</Dialogue>>
 
-<<PersonalityCheck $shyConfident > 1 "Show off">><<goto "KrisShowOff">><<Failed>><<goto "KrisShowOff">><</PersonalityCheck>>
+<<PersonalityCheck $shyConfident >= 2 "Show off">><<goto "KrisShowOff">><<Failed>><<goto "KrisShowOff">><</PersonalityCheck>>
 
 [[KrisTalk<-Tell her about your day]]
 
@@ -24357,7 +24438,7 @@ Kris walks off, blowing you a small kiss. Well, tonight wasn't a total bust. But
 <<link "Go home" "Home">><<addMinutes 15>><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "Demand respect">><<replace "#choice">>
+<<PersonalityCheck $submissiveDominant >= 2 "Demand respect">><<replace "#choice">>
 
 <<Dialogue "player" "You">>"Kris. You'll stop playing games right now. Or I'm out."<</Dialogue>>
 
@@ -30006,10 +30087,10 @@ The briefest eternity passes as you open your eyes, only to find Johan frozen, e
 With a smile, you grab the mouse and put the amazonian woman poster in the cart, before winking and standing up, getting ready to return to your apartment.
 
 <<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "What, feeling a bit intimidated by little old me?">><<replace "#choice2">>
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice2">>
 You place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
 
 <<Dialogue "player" "You">>"What, are you feeling intimidated by your very in-house barbarian? I thought you enjoyed that kind of character..."<</Dialogue>>
@@ -30024,7 +30105,7 @@ With a smile, you grab the mouse and put the amazonian woman poster in the cart,
 
 <<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 
 <</replace>>
 <<Failed>>
@@ -30039,7 +30120,7 @@ You probably should have done something a bit more in-character if your goal was
 <</replace>>
 <</PersonalityCheck>>
 
-<<PersonalityCheck $shyConfident > 1 "H-hey, don’t look at me like that, it’s weird!">><<replace "#choice2">>
+<<PersonalityCheck $shyConfident >= 2 "H-hey, don’t look at me like that, it’s weird!">><<replace "#choice2">>
 <<Dialogue "player" "You">>"Uhhhhhh...!"<</Dialogue>>
 
 As it dawns on you that he seems to be fantasizing about, well, YOU... your reaction is to turn your chair to look away from him, hands crossed over your lap, as you blush a deep red.
@@ -30058,7 +30139,7 @@ At first Johan tenses completely, but then he melts like butter under your hands
 
 You give him a suggestive wink, and proceed to add the barbarian woman poster to his cart, as you turn around and leave, hopping with joy, back to your apartment.’
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>><<Failed>><<replace "#choice2">>
 Trying to act embarrassed and demure, you turn around, but your hormones get the better of you, and you can’t resist looking back with the corner of your eye. It must have looked kind of awkward, because Johan snorts and can’t suppress a laugh. Ouch. In his defense, it must have looked rather pathetic. And now the mood is gone. Dang.
 
@@ -30141,10 +30222,10 @@ With a smile, you grab the mouse and put the giant woman poster in the cart, bef
 
 <<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "What, feeling a bit intimidated by little old me?">><<replace "#choice3">>
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice3">>
 You lean down and place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
 
 <<Dialogue "player" "You">>"What, are you feeling intimidated by your tall girl next door? I thought you enjoyed that kind of character..."<</Dialogue>>
@@ -30159,7 +30240,7 @@ With a smile, you grab the mouse and put the giant woman poster in the cart, bef
 
 <<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>>
 <<Failed>><<replace "#choice3">>
 You lean down and put your hand on Johan’s armrest, trying to seductively get closer to him, but it’s an awkward position, and as you try to lean your weight to approach, his chair slides and you slip, twisting and falling to the ground on your back.
@@ -30191,7 +30272,7 @@ At first Johan tenses completely, but then he melts like butter under your hands
 
 You give him a suggestive wink, and proceed to add the giant woman poster to his cart, as you turn around and leave, hopping with joy, back to your apartment.’
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>>
 <<Failed>><<replace "#choice3">>
 Trying to act embarrassed and demure, you sit down and turn around, but your hormones get the better of you, and you can’t resist looking back with the corner of your eye. It must have looked kind of awkward, because Johan snorts and can’t suppress a laugh. Ouch. In his defense, it must have looked rather pathetic. And now the mood is gone. Dang.
@@ -30275,10 +30356,10 @@ With a smile, you grab the mouse and put one of the movie posters with a busty l
 
 <<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>><</link>>
 
-<<PersonalityCheck $submissiveDominant > 1 "What, feeling a bit intimidated by little old me?">><<replace "#choice4">>
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice4">>
 You place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
 
 <<Dialogue "player" "You">>"What, are you feeling intimidated by your hot girl next door? I thought you enjoyed that kind of character..."<</Dialogue>>
@@ -30293,7 +30374,7 @@ With a smile, you grab the mouse and put one of the movie posters with a busty l
 
 <<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>>
 <<Failed>><<replace "#choice4">>
 You put your hand on Johan’s armrest, trying to seductively get closer to him, but you hesitate a bit, and as you try to lean your weight to approach, his chair slides and you slip, twisting and falling to the ground on your back.
@@ -30325,7 +30406,7 @@ At first Johan tenses completely, but then he melts like butter under your hands
 
 You give him a suggestive wink, and proceed to add one of the movie posters with a busty lady to his cart, as you turn around and leave, hopping with joy, back to your apartment.’
 
-<<link "Continue" "Home">><</link>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
 <</replace>>
 <<Failed>><<replace "#choice4">>
 Trying to act embarrassed and demure, you turn around, but your hormones get the better of you, and you can’t resist looking back with the corner of your eye. It must have looked kind of awkward, because Johan snorts and can’t suppress a laugh. Ouch. In his defense, it must have looked rather pathetic. And now the mood is gone. Dang.
@@ -30413,4 +30494,103 @@ for (let i = 0; i < setup.endings.length; i++) {
 
 <<print $ending>>
 
+:: johanOverwhelmedByDateIdea-shareTheDeets [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Oh, no, you didn’t. You are interested in someone and you didn’t tell me? Seriously, Johan, I thought I was like one of your best friends!"<</Dialogue>><br><br>
+<<if $muscle > 55>>With very little hesitation, you grab Johan by the armpits and just toss him on his sofa like a ragdoll, before ploppling into a crosslegged sit in front of him on the ground, elbows on your knees and holding your head, anxious to get the tea.<<else>>You unceremoniously turn his chair around, placing your hands on his shoulders and looking him in the eyes, expectantly trying to extricate this hot bit of gossip as you smile like a deranged lunatic.<</if>><br><br>
+<<Dialogue "player" "You">>"Come on, I’m waiting. Who’s the lucky girl... or guy!! Do I know them? You can’t leave me hanging, bro!"<</Dialogue>><br><br>
+Johan fiddles uncomfortably, with a very nervous smile as he puts his hand on the back of his neck and avoids your gaze as he stutters in an attempt to say something.<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, errr, she’s great, don’t get me wrong. She still surprises me everyday with how awesome she is... but I still need to gather the guts to invite her out, though!"<</Dialogue>><br><br>
+You hear your knuckles cracking as you grit your teeth and try to keep a smile on your face, but you are pretty sure you must look a bit deranged right now. You are happy for Johan, <<print $playerFirstName>>, you keep telling yourself.<br><br>
+<<Dialogue "player" "You">>"Wow, she sounds awesome!"<</Dialogue>><br><br>
+You manage to say through your tense jaw, teeth still touching as your cheeks and lips struggle to maintain that forced smile. You are pretty lucky Johan must be one of the most oblivious people on the planet, anyone else would probably have called you out by now.<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, she absolutely is! <<if $shyConfident > 1>>Her confidence is such an inspiration for me.<<else>>She’s a bit shy, but it only makes her more adorable.<</if>><<if $carefreeCarefull < 0>>Such a carefree soul, it’s amazing how she makes me feel at ease with my quirky geek nature, you know?<<else>>Because of her somewhat reserved nature, I don’t want to impose myself too much, but she makes me feel accepted for who I am.<</if>> <<if $height <= 150>>She’s such a cutie, it makes me want to just cuddle her in my arms like a teddy bear.<<elseif $height <= 170>>She’s just about my height, it’s like we were made for each other!<<elseif $height <=190>>I just hope she doesn’t mind that I’m shorter than her...<<else>>She’s like super-tall! It’s amazing!<</if>> <<if $muscle <= 25 && $fat <= 25 && $breasts <= 25 && $height <= 150>>I can’t help but love her petite charm, makes me want to protect her, she’s so precious to me.<<elseif $muscle <= 25 && $fat <= 25 && $breasts >= 35>>She’s got this great figure, I bet so many people are attracted to her hourglass figure!<<elseif $muscle <= 40 && $fat <= 25>>She’s in great shape, I’m envious of her physique and it makes me so proud of her dedication!<<elseif $muscle <= 60>>She’s so buff, she could easily be in one of my comics as a superheroine! It’s unbelievable!<<elseif $muscle > 60>>She must be like the strongest person I’ve ever seen, I seriously suspect she’s superhuman - to the point I sometimes fantasize about being the plucky sidekick like in comics!<</if>> <<if $dick > 7>>And she, huh, may have awakened some stuff in me I didn’t even realize was there...<</if>>"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Whoa, that does sound amazing!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Oh, she absolutely is, and then some."<</Dialogue>><br><br>
+It’s your turn to be dejected, as you look at Johan longingly. Unexpectedly, he’s looking back at you just as longingly.<br><br>
+...<br><br>
+Oh.<br><br>
+OH!<br><br>
+<br>
+Shit. How dense can you be?!?<br><br>
+
+<<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>>
+
+:: johanOverwhelmedByDateIdea-itWasYouAllAlong [nobr] {"position":"0,0","size":"100,100"}
+Boy, that’s awkward.<br><br>
+Both of you kind of stay there, speechless, not sure how to make the next move. It’s endearing, if a bit pathetic. But as the stalemate continues for what feels like an eternity, you eventually both simultaneously unfreeze with stupid smiles and start laughing loudly, leaning against each other.<br><br>
+<<Dialogue "player" "You">>"I feel so dumb! I can’t believe... I thought... wow!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"I know, right? I guess we are two dum-dums. I thought all those TV shows were ridiculous, but I guess reality truly is stranger than fiction, huh?"<</Dialogue>><br><br>
+The laughter eventually starts to subside as the elephant of the situation comes back into the room. But this time, Johan seems to act and be assertive.<br><br>
+<<Dialogue "Johan" "Johan">>"So, what do you say? Are you still up for a date?"<</Dialogue>><br><br>
+It’s your turn to freeze completely. Oh. Yeah. You are going to have to tackle this one now. You straighten and stiffen as he looks expectantly at you, waiting for your reply. Oh shit!<br><br>
+
+<span id="choice">
+    <<link "Agree to date">>
+        <<replace "#choice">>
+            /* get next tuesday */
+            <<set _d to new Date($gameDate)>>
+            <<set _d.setDate(_d.getDate() + 1)>> /* except today */
+            <<set _d.setDate(_d.getDate() + (2 + 7 - _d.getDay()) % 7)>> /* get next tuesday */
+
+            <<Dialogue "player" "You">>"I mean, yeah! I would be honored. Sounds like a good time!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"OK, then, it’s a date. Will next tuesday work? Around, let’s say, 7:30?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Sounds delightful! I can’t wait!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"I know, me neither!"<</Dialogue>><br><br>
+            He puts his hands in his pockets and sways around on his feet, while you awkwardly hold yours behind your back, the two of you looking silly and happy while looking at each other like two giddy monkeys.<br><br>
+            A couple minutes pass. Both of you want this moment to last forever, but also want it to just be tuesday already.<br><br>
+            <<Dialogue "player" "You">>"So, I guess... I should get going."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Right, right. You take care, you hear?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I will. You too, OK?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"For sure, for sure."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"T-thanks. For everything. I mean."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, thank YOU. Really."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I... I guess I need to actually go."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Y-yeah. I should... I have other stuff to do too."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"OK, so off I go! Heh."<</Dialogue>><br><br>
+            ...
+            <<Dialogue "player" "You">>"OK, this is the wrong way. The door is that way. Hehe."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Ah. Haha. See ya."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Buh-bye!"<</Dialogue>><br><br>
+            You walk out of the apartment and close the door completely for a change. Still leaning against it, you have to pinch yourself to make sure this wasn’t a dream.<br><br>
+            Wow. This is for real. A date with Johan.<br><br>
+            You’ll probably be spending a lot of time looking at the calendar in the next coming days… (_d)
+            
+            <<link "Continue" "Home">>
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>> /* TODO need to set an alert for the date */
+            <</link>>
+        <</replace>>
+    <</link>>
+
+    <<link "Turn him down">>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"Oh, Johan... that sounds delightful..."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"So you’ll do it?!?"<</Dialogue>><br><br>
+            He looks so eager, so happy. You sigh deeply, and frown, closing your eyes. What is the best way to let him down with the least pain?<br><br>
+            <<Dialogue "player" "You">>"You are amazing, Johan. Really, one of the best things that happened since I moved here - I am not sure I would’ve made this far without you. You are like my partner in crime in all this mess, with all the crazy stuff that has been happening - but, it’s just, like, too soon? I’m still figuring out so much stuff, and I REALLY don’t want to complicate things right now?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh."<</Dialogue>><br><br>
+            He seems really disappointed. You just want to rip the bandage, not twist the knife, and before you know your mouth is opening again.<br><br>
+            <<Dialogue "player" "You">>"But that doesn’t mean anything has to change. The opposite, actually, I’m saying this because I can’t do this without you, you know? And I am afraid that romance would just... make everything messy. And I can’t afford that right now, not while I’m still trying to understand what is happening to me, and getting ready for college life. You get it, right?"<</Dialogue>><br><br>
+            He nods nervously.<br><br>
+            <<Dialogue "Johan" "Johan">>"Totally. Of course. I totally get it, like, geez, yeah, been there, done that, girl. Oh, phew, you wouldn’t believe how many girls I turned down for that exact reason. Oh, I get it."<</Dialogue>><br><br>
+            It’s clear he’s lying to make you feel better, and it breaks your heart even more. You come in for a hug, which confuses him at first, but soon he’s gripping you just as tight in return.<br><br>
+            <<Dialogue "player" "You">>"Thank you, Johan. You really are my rock, my best friend. Thank you for being there, and for understanding. I just couldn’t do this without you."<</Dialogue>><br><br>
+            He gives your back a couple of taps and sighs, a bittersweet contentment coming through loud and clear. You sigh back.<br><br>
+            <<Dialogue "player" "You">>"Look, maybe in the future? I just... need some time right now. You understand, right?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, absolutely. I mean, ha, really, what was I thinking? You, going out with ME? Haha, what a joke!"<</Dialogue>><br><br>
+            You tilt your head, concerned.<br><br>
+            <<Dialogue "player" "You">>"No, Johan, you are amazing. I mean it when I say I am blessed to have you on my corner, and I know for a fact you are going to make a girl... or a guy... very happy someday. Don’t sell yourself short, or I’ll beat the crap out of you!"<</Dialogue>><br><br>
+            He shakes his head, smiling.<br><br>
+            <<Dialogue "Johan" "Johan">>"Yea, yeah. Guess I’m just used to being the stereotype. But you are right, you make me feel special, so maybe there’s more to me than even I knew.<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Exactly! And I’ll be back around often to get me another dose of my favorite geek. So don’t change, you listen?"<</Dialogue>><br><br>
+            He gives a very goofy military salute, and smiles at you. Oh, that smile is so warm and comforting!<br><br>
+            <<Dialogue "Johan" "Johan">>"Aye, aye, Cap’n.<</Dialogue>><br><br>
+            You tussle his hair and give him a peck on the cheek.<br><br>
+            <<Dialogue "player" "You">>"I should get going now, champ. But you know, my door is also always open."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Understood!"<</Dialogue>><br><br>
+            And with that, you take a theatrical bow, like you were a ballerina, and walk backwards toward the door without breaking eye contact. You close the door, sighing, and hoping this doesn’t have any lasting impact on your friendship.
+            
+            <<link "Continue" "Home">><</link>>
+        <</replace>>
+    <</link>>
+</span>
 
