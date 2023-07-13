@@ -11508,7 +11508,7 @@ His blush deepens, getting dangerously close to purple territory, but his panic 
             <br>
             Shit. How dense can you be?!?<br><br>
 
-			<<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>> /*TODO check if this fix correct*/
+			<<link "One internal facepalm later..." "johanOverwhelmedByDateIdea-boostHisEgo">><</link>>
 		<</replace>>
 	<</PersonalityCheck>>
 
