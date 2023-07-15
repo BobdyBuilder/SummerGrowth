@@ -30888,3 +30888,29 @@ Johan sighs, as the superintendent starts chastising him for making him wait for
 Before you can answer, he’s off. You just stand there for another 5 minutes, winding down and trying to accept what just happened. You end up laughing so you don’t cry as you return to your apartment, figuring you might just have to play with yourself to burn all this sexual energy that you built up.<br><br>
 <<Dialogue "player" "You">>"Johan, you doofus!"<</Dialogue>><br><br>
 <<link "Go home" "Home">><<addMinutes 90>><</link>>
+
+:: johanDate-mildRoute [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Hey, hey, big boy, hold your horses, alright? We’ll have plenty of time to take care of this. We’re still in the middle of downtown, even if there’s no one around right now."<</Dialogue>><br><br>
+Johan apologizes, but you reassure him that it’s okay.<br><br>
+<<if $shyConfident > 1 || $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Oh, don’t get me wrong, I am looking forward to doing UNSPEAKABLE stuff with you, I just don’t want to rush it."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"It’s no big deal, I’m just... a little nervous, is all. I want to really enjoy this. And so far, tiger, you’ve played all your cards right."<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "Johan" "Johan">>"Actually, I’m kinda glad myself, <<print $playerFirstName>>. I don’t think I’ve ever gone out and had such a great time. And I want to savor this."<</Dialogue>><br><br>
+It’s sort of amazing, you feel really in tune with Johan. Holding his hand, you start making your way back to the apartment, as he points out how clear the sky is.<br><br>
+<<Dialogue "player" "You">>"Look at all these stars. I kinda miss the night sky from living in the suburbs."<</Dialogue>><br><br> 
+<<Dialogue "Johan" "Johan">>"Look! It’s a shooting star!"<</Dialogue>><br><br>
+It’s gone in an instant, but the flashing line rips through the sky making for a perfect moment to top the evening.<br><br>
+<<Dialogue "player" "You">>"Make a wish!"<</Dialogue>><br><br> 
+<<Dialogue "Johan" "Johan">>"Oh, I already have!"<</Dialogue>><br><br>
+You know better than to ask, but you know what your wish is. Again, you can’t quite put it in words, but you just feel all fuzzy and warm inside, feeling like you are the biggest treasure in the world as he holds your hand and escorts you back to the building. He briefly runs his hand through your hair, and it’s like you put your finger in an electrical socket! You shiver, and can’t help but smiling so much your cheeks hurt.<br><br>
+But all good things must come to an end, and eventually you reach the block where the building is.<br><br>
+Johan turns you to face him, and looks in your eyes as he tells you:<br><br>
+<<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>, you just gave me the best night I’ve ever had in my entire life. Thank you so much for spending time with me. I... I think you are amazing."<</Dialogue>><br><br>
+Before you can answer, Johan<<if $height >= 190>> gets on his tiptoes and <</if>>reaches for your head, bringing you in for the most passionate kiss you’ve ever experienced. He hugs you and just gives you the sweetest, most caring and delectable smooch you could conceive of, and you return it as you feel fireworks going on inside of you.<br><br>
+<<Dialogue "Johan" "Johan">>"You are the best. I’m looking forward to the next time we meet."<</Dialogue>><br><br>
+And with that, he escorts you back to your apartment, taking the shorter route through the back entrance that leads directly to the sublevel. He opens the door for you like a gentleman, and closes it behind him. You can hear him shouting with great enthusiasm and running up to his apartment jumping with joy.<br><br>
+Johan really is one in a million. You feel extremely lucky having met him... but you also can’t wait for the next time so you can take things to the next level!<br><br>
+With a sigh, you grab a cold drink from the fridge and fall to your recliner, trying your best to not just fantasize about the unspeakable things you are going to do to him when you get a chance!
+<<link "Go home" "Home">><<addMinutes 90>><</link>>
