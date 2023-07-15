@@ -30780,7 +30780,7 @@ While people are trying to be somewhat discreet, the comments make your blood bo
     It does not help that he was already dealing with his whole insecurity on the way there - you can see that is getting into that same introspective mood... he’s not even attacking the breadsticks anymore.<br><br>
     Yeah, the atmosphere has clearly changed. It’s a lot more tense in here, and try as you might, it’s very hard to ignore how uncomfortable you two are. Try as you might, it feels like you are some sort of sideshow in this fancy place, and it really bothers you. But what can you do about that?<br><br>
     <span id="choice">
-        <<link "Alright, everyone, this ain’t the circus! Have you never seen a grown woman before?" "johanDate-protagonistStandsUpForHerself">><</link>><br><br>
+        <<link "Alright, everyone, this ain’t the circus! Have you never seen a grown woman before?" "johanDate-protagonistStandsUpForHerself">><</link>>
         <<link "Calling more attention to myself isn’t going to help anything..." "johanDate-johanDefendsProtagonist">><</link>>
     </span>
 <<else>>
@@ -30851,5 +30851,40 @@ It doesn’t take long for both of you to finish your desserts, and Johan hurrie
 <<Dialogue "Johan" "Johan">>"Coffee. Coffee? No? CHECK, PLEASE?!?"<</Dialogue>><br><br>
 As he anxiously waves both his arms for the waiter. You seem to have really done a number on the little guy. Heh. As the bill arrives, he quickly places a wad of cash (with a generous tip) and before you know it, he’s escorting you out back to the apartment.<br><br>
 The sun has now set, and the two of you walk back under the cover of night, most of the light provided by the streetlamps along the sidewalk. You enjoy the chillier atmosphere, as Johan wraps his arm around yours, and his warmth feels extremely inviting. He is surprisingly quiet (especially given who we’re talking about), but he squeezes your hand firmly and his expression makes it crystal clear that he’s got you in his thoughts.<br><br>
-<<link "Well, I suppose I ought to give him a little taste of what’s to come..." "johanDate-spicyRoute">><</link>><br><br>
+<<link "Well, I suppose I ought to give him a little taste of what’s to come..." "johanDate-spicyRoute">><</link>>
 <<link "I can’t let my desire get the best of me, better takes things slow, right?" "johanDate-mildRoute">><</link>>
+
+:: johanDate-spicyRoute [nobr] {"position":"0,0","size":"100,100"}
+Naughty thoughts flood your mind, and you feel friskier by the second. <<if $muscle >= 50>>Before you know, you are flexing the muscles on your arm that is being held by Johan, expanding them to the width and firmness of a tree trunk, and Johan immediately reacts to that, squeezing you tighter. It seems to turn both of you on, as you can see small puffs of smoke from Johan’s shallow panting.<</if>> You let your hand glide towards his chest, and as you caress him, you can feel his nipples fully engorged through the shirt. His eyes seem to become unfocused as you witness one by one all the signs of arousal...<br><br>
+... which culminate on a growing bulge on his crotch. And it’s not a small bulge, by any means! You lick your lips, almost salivating, <<if $height >= 195>>as you curve down due to your height to reach below his waist<</if>> as you let your hand just hover caress Johan’s rising member - the firm piece of meat just barely distinguishable under the cloth, but the effect is enough to make Johan shudder violently with a deep breath. He closes his eyes and turns to you with puckered lips, and you meet him halfway for a passionate session of smooshing and probing tongues. You hold each other in a dark spot between streetlights, despite the street being mostly deserted, keeping it discreet not to cause a scene.<br><br>
+Johan runs his hand through your hair, as his lips unlock from yours, and he whispers in your ear:<br><br><<Dialogue "Johan" "Johan">>"You feel so good... hmmmmm!"<</Dialogue>>
+<<if $muscle >= 55>><<Dialogue "Johan" "Johan">>"Can you carry me in your arms?"<</Dialogue>><br><br>
+With a smile, you scoop Johan with ease, surprising yourself at how much you enjoy doing your very own princess carry. He feels snug in your arms, and it’s strangely arousing the idea that you can just treat him like a toy. Your mind starts reeling with the possibilities, as you fantasize about all the crazy positions...<br><br>
+<<Dialogue "Johan" "Johan">>"I can hardly wait to get home!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Tell me about it!"<</Dialogue>><br><br>
+You say, as you start increasing your pace to return to the apartment building, once again surprising at the fact you are barely winded carrying a grown man in your arms.
+<<elseif $height >=200>><<Dialogue "Johan" "Johan">>"Can I ride on you, piggyback?"<</Dialogue>><br><br>
+With a smile, you squat and let him up, stretching your legs. Johan reaches for your breasts, and both of you sport enormous smiles as you carry him back to the apartment.
+<<elseif $breasts >= 50>><<Dialogue "Johan" "Johan">>"Can I dig my face in your boobs?"<</Dialogue>><br><br>
+Without hesitating, you pull Johan into your bosom, and the geek’s dreams come true as he just gets caved in by your enormous mamaries, and he rests his face against your meat pillows, before blowing a raspberry, which elicits a few laughs before he starts kneading them - which makes you gasp as it arouses you more than you expected. You feel yourself moisten, and before you know, you are rushing Johan back to the apartment.
+<<elseif $dick >= 6>><<Dialogue "Johan" "Johan">>"Can I return the favor?"<</Dialogue>><br><br>
+You look at him, confused, but eagerly nodding, as he reaches for your crotch, and starts playing with your newly-acquired penis - and BOY, this guy knows how to work that shaft! Even through the fabric, he seem to hone in on the most sensitive parts in a way you didn’t even realize was possible. Each wave of his hand seems to elicit a new shockwave of pleasure, making you squirm and squeeze him hard against your own body. His lips meet yours, and both of you kiss the other desperately between the heavy panting - as you slowly descend into an out-of-body experience, like your entire conscience (and probably blood!) rushes entirely into your dick, like the rest of the universe is fizzing out like bubbles on soda pop.<br><br>
+The elation escapes describing, and you find yourself melting as he deftly handles your meat, your trembling beneath his hands slowly increasing like a volcano about to explode. Your lizard brain starts taking over, and you almost start undressing right there and then, but that threshold sparks your common sense, and you just push Johan, urging to get back to the apartment building so you can take this further without getting in trouble for indecent exposure.
+<<elseif $tongueSize > 9>><<Dialogue "Johan" "Johan">>"Hmmm, I like it when you kiss my neck..."<</Dialogue>><br><br>
+Knowing exactly what to do, you suck on his neck, before unleashing your tongue all around. It lashes seductively, before going for his ear, and his knees shake so much he almost falls. Soon you are both rushing back to the apartment building, looking to take this to the next level.
+<<else>>
+You pin Johan against the nearby brick wall, and start groping each other as the kissing continues. Your mind goes foggy as your desire takes over and you feel yourself preparing to undress as you snap back into reality, and against all your instincts say:<br><br>
+<<Dialogue "player" "You">>"Why don’t we take this back to your place where we can get more comfortable?"<</Dialogue>><br><br>
+Johan doesn’t even dignify that with an answer - he takes your hand and starts dragging you back to the building like his pants were on fire. Well, there’s something cooking in there, you think to yourself as you follow him.
+<</if>><br><br>
+The rather short trip seems to take forever as your mind can only think of one thing, and soon enough you are both practically running. You aren’t sure if you are hyperventilating due to the aerobic workout or your increasing arousal, but you don’t really care either, all you can think of is...<br><br>
+The superintendent looking angrily at Johan in front of the building?<br><br>
+<<Dialogue "Johan" "Johan">>"Shit, I completely forgot!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"WHAT?!?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Yeah, I’m supposed to go check the plumbing problems in my apartment with the super, I had scheduled that a few weeks ago, totally slipped my mind."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Please tell me that is just a stupid attempt at some porn movie reference joke?"<</Dialogue>><br><br>
+Johan sighs, as the superintendent starts chastising him for making him wait for almost an hour. Johan follows the man to his apartment, while turning his head to look at you as he leaves.<br><br>
+<<Dialogue "Johan" "Johan">>"I had the time of my life, <<print $playerFirstName>>! Show up at my place anytime... please?"<</Dialogue>><br><br>
+Before you can answer, he’s off. You just stand there for another 5 minutes, winding down and trying to accept what just happened. You end up laughing so you don’t cry as you return to your apartment, figuring you might just have to play with yourself to burn all this sexual energy that you built up.<br><br>
+<<Dialogue "player" "You">>"Johan, you doofus!"<</Dialogue>><br><br>
+<<link "Go home" "Home">><<addMinutes 90>><</link>>
