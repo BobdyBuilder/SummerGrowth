@@ -17612,6 +17612,140 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
        priority: 'immediate',
        npc: ['kris'],
         content: '<<Dialogue "Kris" "Kris">>"Hey, <<print $playerFirstName>>! Here, I have something for you!"<</Dialogue>><br><br>Kris approaches you, hand inside the pocket of her apron, where you see a conspicuous potion-shaped bulge.<br><br>Well, this is going to be awkward.<br><br><<Dialogue "player" "You">>"I saw you at Tasha’s, Kris."<</Dialogue>><br><br>Kris is speechless, her face turns white, and her mouth droops, looking surprised and slightly… afraid? It almost seems like a different person.<br><br><<Dialogue "Kris" "Kris">>"What? No, it can’t be. I never go there! It must have been someone else… I have… a very common face, you know?"<</Dialogue>><br><br><<if $shyConfident > 1 || $submissiveDominant >1>><<Dialogue "player" "You">>"Skull tattoo on the arm, lots of ear piercings, dark hair with highlights, curative on the cheek, wearing a very tight black shirt and a choker? Pretty sure that slims down the matches in the entire city to one."<</Dialogue>><br><br><<else>><<Dialogue "player" "You">>"I mean, I think I know you well enough, and it’s not like this mall has THAT many clients - let alone that thrift store."<</Dialogue>><br><br><</if>>Kris tries to dance around the issue, but is visibly nervous - this whole situation is so weird that you can’t help but feel uneasy about the serious accusation you are about to make.<br><br><<Dialogue "player" "You">>"Look, I saw you shoplifting that potion. Put it right in your apron and just walk away."<</Dialogue>><br><br>The barista knew it was coming, but it still clearly stung. She protests:<br><br><<Dialogue "Kris" "Kris">>"No, that’s not what… it’s… just a misunderstanding, really. You see…"<</Dialogue>><br><br><<if $shyConfident > 1 || $submissiveDominant >1>>You grab her upper arm, and give it a light squeeze.<br><br><<Dialogue "player" "You">>"It seems pretty obvious to me you aren’t consuming them yourself… which means…"<</Dialogue>><br><br><<elseif $height >= 161>>You look down at her.<br><br><<Dialogue "player" "You">>"It seems pretty obvious to me you aren’t consuming them yourself… which means…"<</Dialogue>><br><br><<else>>You inspect her figure, tilting your head while squinting.<br><br><<Dialogue "player" "You">>"Pretty sure you aren’t consuming them yourself… which means…"<</Dialogue>><br><br><</if>>You sigh, there’s no turning back now.<br><br><<Dialogue "player" "You">>"All those gifts you gave me… they were all stolen potions from Tasha’s, isn’t it?"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">>"You got this all wrong! It really is not what you think!"<</Dialogue>><br><br>Kris feigns an indignant look at the accusation, but she’s not particularly good at it. Which means it’s the moment of truth.<br><br><span id="choice"><<PersonalityCheck $submissiveDominant >= 2 "Look, this has to stop!">><<replace "#choice">><<Dialogue "player" "You">>"This is wrong, Kris. There is no excuse you can give me that will justify stealing from Tasha!"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">>"But…"<</Dialogue>><br><br><<Dialogue "player" "You">>"No, Kris. No buts, no ifs… You are going to go back there, confess to what you did, and apologize to her. I’m pretty sure she will understand… actually, she probably won’t - not as in “she won’t forgive you”, more like she will be confused and think you are trying to say something else - but you are going to do it anyway, even if I have to physically carry you there. Understood?"<</Dialogue>><br><br>Kris gets serious all of a sudden, and she nods.<br><br><<Dialogue "Kris" "Kris">>"Still… how are you going to keep growing…?"<</Dialogue>><br><br>You can’t help but feel some pity for her, you can tell Kris feels genuinely bad about it.<br><br><<Dialogue "player" "You">>"(Sigh) Tell you what… you apologize and stop stealing… and I promise you I will make it worth your time."<</Dialogue>><br><br><<if $height >= 161>>You say this, as you take a step closer, no pretense of respecting her personal space, looking down at her with your fiercest expression. <br><br><<elseif $muscle >= 45>>/* changed "if" to "elseif" - waffle */You say this, as you take a step closer, no pretense of respecting her personal space. You flex your pectorals, making your chest raise in a powerful display of intimidation.<br><br> <<else>>You say this, as you take a step closer, no pretense of respecting her personal space. You stare deep into her eyes, and you can feel the fire of your resolve brimming<</if>>.<<Dialogue "Kris" "Kris">>"Y-yes, miss!"<</Dialogue>><br><br><<Dialogue "player" "You">>"That will be all."<</Dialogue>><br><br>Kris whimpers, but you can also detect a hint of relief. It seems like you have gotten your point across. No more free potions… but at least Tasha won’t suffer for it.<<link "Continue" $currentScene>><<set $krisStopsGivingPotions to true>><<set $krisObsessedOpinin += 5>><</link>><</replace>><<Failed>><<replace "#choice">>You waggle your finger towards her nose, and say menacingly:<br><br><<Dialogue "player" "You">>"Just cut it out, alright?"<</Dialogue>><br><br>It somehow doesn’t come out nearly as scary as it seemed like it would on your head. In fact, you feel like a 6-year old scolding their parent. Kris scoffs.<br><br><<Dialogue "Kris" "Kris">>"Pffft. Make me!"<</Dialogue>><br><br>You open your mouth, but Kris just interrupts you.<br><br><<Dialogue "Kris" "Kris">>"Look, You got me. I will stop stealing the potions, alright? Geez, I just can’t wait all my life for you to grow bigger for me."<</Dialogue>><br><br>She slides her hand and pinches your butt sharply. You give a little jump.<br><br><<Dialogue "Kris" "Kris">>"Yeah, jump for me, girl. I’ll make sure you get HUGE, even if I have to rob a bank to make sure it happens."<</Dialogue>><br><br>She walks away, not allowing you to get a word in edgewise. Well, it would seem like she will stop with the shoplifting, but you can’t help but shake the feeling her respect in your was shaken by this incident. <<link "Continue" $currentScene>><<set $krisStopsGivingPotions to true>><<set $krisObsessedOpinin += 1>><</link>><</replace>><</PersonalityCheck>><<link "That’s really sweet.">><<replace "#choice">><<Dialogue "player" "You">>"You… you really want to see me grow?"<</Dialogue>><br><br><<Dialogue "Kris" "Kris">>"Not just grow. Get HUGE. ENORMOUS. GIGANTIC!"<</Dialogue>><br><br>Her breathing gets deeper, and her chest visibly raises and lowers. She is eating you with her eyes, visibly pleased with her current progress, but also thinking there’s quite a way to go.<br><br><<Dialogue "player" "You">>"Well… I guess Tasha deals mostly with donated goods anyway - it’s not like it’s going to bankrupt her…"<</Dialogue>><br><br>You try to reason with yourself, but Kris is already fishing the metal container she had in her pocket, pushing it quite violently against your chest.<br><br><<Dialogue "Kris" "Kris">>"Yeah, victimless crime. The bigger crime is leaving all those potions collection dust there. Now TAKE it. I need you to keep growing. Like, YESTERDAY."<</Dialogue>><br><br>You nab the potion. You can’t fault her dedication, even if her ethics and manners are deplorable. While you examine the container, Kris just watches you anxiously, probably expecting you to drink it right in front of her.<br><br><<Dialogue "player" "You">>"Uh… I’ll… just take this home."<</Dialogue>><br><br>It doesn’t even faze her. She knows you are going to drink it, and get bigger for her. And she will keep stealing more and giving them to you. Your conscience is hammering your mind, telling you it’s wrong…<br><br>But the little devil makes you picture yourself getting big, and Kris adoring you like a deity. And it makes you smile with delight and anticipation. Maybe you’ll just have to find other ways to punish her for her transgressions…<<link "Continue" $currentScene>><<set $krisObsessedOpinin += 5>><</link>><</replace>><</link>></span>'
+    },
+    {
+        name: 'krisSteamyNight',
+        locationTags: ['kris'],
+        conditions: [
+            () => false /* TODO FIXME */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `You knock at the door of the apartment, a hint of butterflies on your stomach. You are not used to leading with Kris quite yet, but that doesn’t mean there is no anticipation.<br><br>
+She opens the door, visibly surprised (but absolutely not displeased) to see you there. Biting her lip, she practically drags you in.<br><br>
+<<Dialogue "Kris" "Kris">>"So… I guess I left you wanting more?"<</Dialogue>><br><br>
+She smiles with satisfaction, while drinking in your hulking silhouette, eyes dripping with desire.<br><br>
+<<if $submissiveDominant > 2>>You push Kris down onto her sofa, and she gasps with anticipation, her fists tightening. Without saying a word, you aggressively disrobe down to your birthday suit. You make a point to maintain constant eye contact, and Kris is having a hard time - she wants to look into your steely gaze, but her eyes keep drifting to different parts of your well-developed physique.<br><br>
+    <<Dialogue "player" "You">>"What’s wrong? Afraid of my eyes?"<</Dialogue>><br><br>
+    She shakes her head in short bursts, and looks back into your eyes alone.<br><br>
+    <<Dialogue "player" "You">>"Though… I suppose it would be a pity if you did not get a proper taste of all of these?"<</Dialogue>><br><br>
+    You kneel down like Rodin’s Thinker right on her face, giving Kris full display of your quads and biceps. You twist your palm, making the muscles on your arm bounce.<br><br>
+    <<Dialogue "player" "You">>"Look how my muscles dance… I bet they taste great."<</Dialogue>><br><br>
+<<elseif $submissiveDominant > 0>>
+    You sit down and make yourself comfortable, while Kris closes and locks the door behind you. How is it that everything she does just feels mischievous? She approaches you from behind, and starts massaging your shoulders<<if $height >= 215>>. Even sitting down, she has to reach up for that.<</if>>.<br><br>
+    <<Dialogue "Kris" "Kris">>"Hmmm… so hard… I can barely wait to start biting into those…"<</Dialogue>><br><br>
+    You smile. Didn’t take her long to make this sexual. But you don’t really mind. You slip out of your <<print $outfit.top().name>>, and she starts to just lick, nibble and suck on your shoulders and neck, and you crane your neck, giving her better access, as you close your eyes and moan with pleasure. Slowly, your work your way out of your remaining clothes, trying your best not to interrupt her.<br><br>
+<<else>>
+    <<Dialogue "player" "You">>"Hmmm… I like what you did with your place… it’s… cozy?"<</Dialogue>><br><br>
+    You say, trying to make small talk. Kris just starts ripping the clothes off your body, and you find yourself unable to resist despite your pronounced size difference. Piece after piece, she undresses you, and starts working her tongue around every crevice of your body.<br><br>
+    <<Dialogue "Kris" "Kris">>"Hmmm… flex… hmmm… those muscles for me… hmmmm… right now!"<</Dialogue>><br><br>
+    You find yourself unable to disobey, and quickly she’s all over you, no matter what part you use to give her a show, her tongue is quickly there, making you tingle all over and get very wet in no time.<<if $height >= 200>> She’s literally climbing you like a mountain to get better access to your shoulders and neck.<</if>><br><br>
+    <<Dialogue "Kris" "Kris">>"Just… just sit down, so I can gobble all of you up!"<</Dialogue>><br><br>
+    You comply, laying down on your back on the sofa, serving yourself as quite the banquet for the eager off-duty barista.<br><br>
+<</if>>
+Kris starts to get out of her own clothes. 
+<<if $submissiveDominant > 2>>
+    <<Dialogue "player" "You">>"DID I GIVE YOU PERMISSION TO TAKE THOSE OFF?"<</Dialogue>><br><br>
+    You say with a booming voice, consistent with your size. She stops on her tracks.<br><br>
+    <<Dialogue "Kris" "Kris">>"I… I apologize."<</Dialogue>><br><br>
+    You put your index finger under her crotch, and tickle it very lightly through her clothes. You can sense the moisture.<br><br>
+    <<Dialogue "player" "You">>"I suppose you have behaved nicely so far. You have permission to disrobe."<</Dialogue>><br><br>
+    Kris is virtually tearing whatever she has on. You watch, admiring her naked form. Despite her small stature, she is surprisingly fit for a slacker. But you don’t think it’s quite the time to give her that satisfaction.<br><br>
+    <<Dialogue "player" "You">>"Do you like what you see?"<</Dialogue>><br><br>
+    You question, in a defiant tone. She can barely articulate, nodding frantically.<br><br>
+    <<Dialogue "player" "You">>"I asked a question."<</Dialogue>><br><br>
+    <<Dialogue "Kris" "Kris">>"Yes, mistress!"<</Dialogue>><br><br>
+    She snaps, immediately.<br><br>
+    <<Dialogue "player" "You">>"Well, why don’t we compare how we stack up? I’ll even let you decide where to start…"<</Dialogue>><br><br>
+    <<Dialogue "Kris" "Kris">>"Uh… y-your abdominals?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Perfect choice…"<</Dialogue>><br><br>
+    You say with a provocative wink, as you put your arms behind your head and raise your legs up, tightening your core.<<if $muscle > 65>> A veritable wall of hard bricks juts out, with deep, veined indentations that just suck Kris in like a black hole. <<elseif $muscle > 45>>Your defined stomach is enviable, with six plates giving it an extremely athletic look.<</if>>
+    <<Dialogue "player" "You">>"I show you mine… your turn…"<</Dialogue>><br><br>
+    Still standing up, Kris - in complete silence - shows you her own midriff, straining like a little puppy trying to please its master. She has a perfectly flat stomach, but you can see a hint of muscle as she puts great effort on her abs.<br><br>
+    <<Dialogue "player" "You">>"Not bad, not bad… you get a reward… you can play with mine now, let your tongue run crazy!"<</Dialogue>><br><br>
+    <<elseif $submissiveDominant > 0>>
+    You watch as she disrobes, damn, the girl is surprisingly fit for a slacker, and it looks even better on her petite frame - small but defined muscles make her downright delectable, and you just want to smother all of her.<br><br>
+    <<Dialogue "player" "You">>"You don’t look bad yourself, Kris."<</Dialogue>><br><br>
+    Something you never possible happens: she beams with pride.<br><br>
+    <<Dialogue "Kris" "Kris">>"I mean, I can’t possibly compare to you…"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Maybe not compare… but you can surely please. Actually, I take that back… why don’t we do some comparing, eh?"<</Dialogue>><br><br>
+    Her eyes light up.<br><br>
+    <<Dialogue "Kris" "Kris">>"Can I see your abs?"<</Dialogue>><br><br>
+    She is practically begging, licking her lips while eagerly waiting for your response.<br><br>
+    You smile back, 
+    as you put your arms behind your head and raise your legs up, tightening your core.<<if $muscle > 65>> A veritable wall of hard bricks juts out, with deep, veined indentations that just suck Kris in like a black hole. <<elseif $muscle > 45>>Your defined stomach is enviable, with six plates giving it an extremely athletic look.<</if>>
+    <<Dialogue "player" "You">>"I show you mine… your turn…"<</Dialogue>><br><br>
+    Still standing up, Kris - in complete silence - shows you her own midriff, straining like a little puppy trying to please its master. She has a perfectly flat stomach, but you can see a hint of muscle as she puts great effort on her abs.<br><br>
+    <<Dialogue "player" "You">>"Do you like what you see? They are quite sensitive too, I bet your could make me squirm with your tongue."<</Dialogue>><br><br>
+<<else>>
+    You watch her taking her clothes off, surprised at her speed and thirsty determination. Under the fabric hid a surprisingly petite fit body, which betrays her slacker attitude. You can’t help but bite your lips as you fight an urge to just take her.<br><br>
+    <<Dialogue "player" "You">>"Damn, girl… you rock that petite body of yours."<</Dialogue>><br><br> 
+    <<Dialogue "Kris" "Kris">>"You say rock - but the only thing that hard here is you!"<</Dialogue>><br><br>
+<</if>>
+She immediately jumps you, her tongue all over your abs, making you squirm and contract your core - which in turn just makes all of your abdominal muscles get even more defined - and drives Kris even crazier.<br><br>
+<<Dialogue "Kris" "Kris">>"OH MY GOD! SLURP! YOU ARE SO HUGE! Hmmmm… AND SO HARD! SLURP!"<</Dialogue>><br><br>
+<<if $submissiveDominant < 0>>if You bite your knuckles - despite being so big, you are apparently quite defenseless against Kris, and she’s just having her way with you.<br><br>
+<<else>>
+    You feel her tongue exploring every nook and cranny of your midsection, as her hands squeeze your hamstring and shoulder. Every lash of her tongue is like a feather, a mix of tickling and pleasure you can barely describe. You place a powerful palm over her back, encouraging her even more. You find yourself already climaxing, as your entire body trembles under her, and she trembles right back, her breath becoming ragged as yours. But neither of you are quite done yet.
+<</if>>
+After a while, she turns her gaze back to your eyes, wanting more.<br><br>
+<<if $submissiveDominant > 2>>
+    <<Dialogue "player" "You">>"Good girl. You get one more request."<</Dialogue>><br><br>
+    You are rocking her world. It seems like her brain could just explode right this second, as her eyes flutter between your legs and arms. You give them very faint flexes, just to titillate the poor barista even more. She eventually settles.<br><br>
+    <<Dialogue "Kris" "Kris">>"Can I worship your gigantic biceps?"<</Dialogue>><br><br>
+<<elseif $submissiveDominant > 0>>
+    You both comment in unison:<br><br>
+    <<Dialogue "player" "You">>"Wow."<</Dialogue>><br><br>
+    <<Dialogue "Kris" "Kris">>"Wow."<</Dialogue>><br><br>
+    There’s a moment of silence, before she says, tentatively:<br><br>
+    <<Dialogue "Kris" "Kris">>"I must have your gigantic biceps, show me how much stronger than me you are."<</Dialogue>><br><br>
+<<else>>
+    She grabs your upper arms with her hungry hands, and starts squeezing them with enough force that she could probably crush an apple. Thankfully, your biceps are much, MUCH firmer.<br><br>
+    <<Dialogue "Kris" "Kris">>"Flex for me, now!!!."<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "player" "You">>"You first."<</Dialogue>><br><br>
+You say, in a provocative tone.<br><br>
+Kris smirks, and lays down on your torso, showing you her own biceps. Again, she’s not that big… but a very pronounced ball raises from her thin arms. You find it quite scrumptious.<br><br>
+<<if $submissiveDominant > 2>>
+    <<Dialogue "player" "You">>"Now let me show you what a real woman looks like…"<</Dialogue>><br><br>
+<<elseif $submissiveDominant > 0>>
+    <<Dialogue "player" "You">>"That’s very nice… but I think I might be just a bit bigger."<</Dialogue>><br><br>
+    You say, in a teasing tone.
+<<else>>
+    You bite your lips, and it’s your turn to feel mischievous.
+<</if>>
+Wrapping your shoulder around her, you place your arm next to hers. Immediately, the sheer girth of your relaxed arm is already a stark contrast… but you haven’t even started. You just ball your fist, then bend your elbow to the same position. And now, very slowly, you start the slowest flex of your biceps you have ever performed. The mountain rises, like an erupting volcano, completely eclipsing Kris. <<if $muscle > 60 && fat < 35>>And much like a mountain, it has a magnificent and defined peak at the top, along with valleys of definition where it meets your triceps and deltoids.<</if>><br><br>
+Unable to resist, Kris once again unleashes her tongue, just lubricating your entire arm with her saliva. She hungrily raises herself and places her hands on your shoulder and elbow, consuming your biceps like a lustful piece of corn on the cob. She licks and nibbles at first, but eventually starts biting harder and harder. <<if $muscle > 60>>It just makes you instinctively flex harder, and you two start a tug of war between teeth and muscle as she bites harder - but you, expectantly, emerge victorious… but just in the sense that you are harder, because both of you tremble and climax once again. 
+<<else>>It hurts a bit… but it is also strangely erogenous. You don’t dare relax, as she just digs her teeth in. You can’t say who is getting the most pleasure out of it, but you really couldn’t beg for more.
+<</if>>
+You can feel the heartbeats from Kris laying on your, her blood about to boil. Maybe it’s time for the main attraction.<br><br>
+
+<span id="choice">
+	<<link "You have behaved well. How about I finish you off now?">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"That’s a good girl. How about I give you a little reward now?"<</Dialogue>><br><br>
+            You stand up, holding Kris up by the armpits with ease. She is momentarily confused, but clearly very aroused. You pin her against the wall, and dig into her mound with your tongue, finding it completely gushy from all the foreplay. She squirms and struggles, every muscle in her body spasming as you study her vagina to learn what makes her tick. She is no more than a doll in your hands, and you both find that fact incredibly arousing.<br><br>
+            It doesn’t take much longer for the two of you to climax once more. Sweaty and exhausted, you still hold her up against the wall.<br><br>
+            <<Dialogue "Kris" "Kris">>"Are… huff… are you going to let me down? Puff!"<</Dialogue>><br><br>
+            You smirk.<br><br>
+            <<Dialogue "player" "You">>"Maybe if you beg me to…"<</Dialogue>><br><br>
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "I think I’ve given you quite a show, how about you show some gratitude?">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"I’ve done my part… your turn."<</Dialogue>><br><br>
+            You say, as you place your elbows behind you and spread your legs. You don’t need to say another single word - she jumps there, eager to please you. And, oh boy, does she!<br><br>
+            Kris proves that her tongue is capable of so much more than just worshiping your muscles and height. Finding your pussy already very wet, she really digs in, moving over each and every erogenous crevice like a professional spelunker. But it’s not about how deep and voraciously she goes - no, she seems to react to your every squirm, making you arch your back as she sends jolt after jolt of pleasure up your spine. You moan and shake, until she brings you to a climax once again, shaking very strongly for a full ten seconds. And then you go limp, fulfilled and exhausted, as she turns around and rests her nose against yours.<br><br>
+            <<Dialogue "Kris" "Kris">>"Was that to your liking?"<</Dialogue>><br><br>
+            With wide eyes, you nod emphatically as you catch your breath.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+</span>`
     }
 )>>
 
