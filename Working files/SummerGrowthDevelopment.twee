@@ -31624,3 +31624,45 @@ Again, without taking her head out, she nods excitedly. Why is this such a turn 
 <<Dialogue "player" "You">>"You don’t skip a beat, do you?"<</Dialogue>><br><br>
 <<Dialogue "Kris" "Kris">>"You know me too well…"<</Dialogue>><br><br>
 <<link "Enough already!" "KrisCasualHookupGoesWrong-throwHerOnTheBed">><</link>>
+
+:: KrisCasualHookupGoesWrong-talkAboutIt [nobr] {"position":"0,0","size":"100,100"}
+Tentatively, you suggest in a soft tone:<br><br>
+<<Dialogue "player" "You">>"Hey, uh… do you want to talk?"<</Dialogue>><br><br>
+Kris shakes her head, her face dug deep into your bosom. You play with her hair.<br><br>
+<<Dialogue "player" "You">>"It might make you feel better. You know, letting it out?"<</Dialogue>><br><br>
+Kris sighs, dejectedly. <<if $height >= 170>>She looks up at you, craning her neck back. 
+<<else>> She removes her head from your torso and looks you in the eyes.
+<</if>><br><br>
+<<Dialogue "Kris" "Kris">>"You can be such a pain sometimes…"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Look who is talking?!?"<</Dialogue>><br><br>
+You two laugh. Kris squeezes you tighter, and then lets go of you. She places a hand candidly on your upper arm, looking away.<br><br>
+<<Dialogue "Kris" "Kris">>"I… I don’t know what comes over me sometimes. And I don’t mean the lewd stuff."<</Dialogue>><br><br>
+You sit down on the bed, and tap your side so she can join you. She leans her head on your shoulder.<br><br>
+<<Dialogue "Kris" "Kris">>"I actually wasn’t always the slacker I am today. You’d be surprised if you saw me as a kid - my mom used to dress me in these girly dresses, I am embarrassed just looking at pictures. Heh."<</Dialogue>><br><br>
+The mental image of a young Kris in a frilly pink dress makes you join her in the laugh.<br><br>
+<<Dialogue "Kris" "Kris">>"I was a real people-pleaser too. Kept doing stuff to make people around me happy. But high school was rough - my grades dropped, and I got really anxious because I knew I was disappointing my parents… and the anxiety grew so much that at some point, something snapped, and I stopped giving a fuck. About everything. I envied the emo kids, and just started acting like them. And it felt SOOOOO GOOD. I felt free, for the first time in my life."<</Dialogue>><br><br>
+You squeeze Kris’s hand. She smiles warmly, but melancholic.<br><br>
+<<Dialogue "Kris" "Kris">>"And I guess that was it. I kinda learned then that it was easier not giving a fuck about anything. Because whenever I did, the anxiety just hit back with a vengeance. But… it’s always there, you know, on the back of my mind."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What is?"<</Dialogue>><br><br>
+You ask, inquisitively tilting your head.<br><br>
+<<Dialogue "Kris" "Kris">>"The feeling that I lost control of my life. It rears its ugly head every now and then when I try to get a new job, clean the apartment, control my urges… you know how it goes."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, I guess I certainly know about the urges, that’s for sure!"<</Dialogue>><br><br>
+She laughs and squeezes your hand back.<br><br>
+<<Dialogue "Kris" "Kris">>"What… witchcraft is this? I never told anyone about this before. I thought it would make me more anxious, but you were right… it’s… weirdly liberating, somehow."<</Dialogue>><br><br>
+You give Kris another hug.<br><br>
+<<Dialogue "player" "You">>"Yeah, who would’ve thought I’m good for anything else except my height and muscles, right?!?"<</Dialogue>><br><br>
+Your sarcastic tone amuses her, but you can tell she feels slightly bad about it. Holy shit, did you just make Kris feel guilty about her fetishes?<br><br>
+<<if $shyConfident > 0>>You bring her hand to your leg, contracting the muscles so she can feel the firm sinew, as a non-verbal reminder that you are okay with her lusting over your body.
+<<else>>
+<<Dialogue "player" "You">>"Not that I mind… it’s actually kinda hot to be lusted after."<</Dialogue>><br><br>
+<</if>>
+She turns her face, looking deeply into your eyes. For once, she doesn’t seem to look at you for your body… she’s looking at who you are. You close your eyes and the two of you share a very tender kiss, her hands embracing you with a different kind of passion instead of just lust. As the kiss lingers, your foreheads touch, and after your lips part, she sighs.<br><br>
+<<Dialogue "Kris" "Kris">>"T-thank you, <<print $playerFirstName>>. I… I guess talking does have its merits after all."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, but don’t go thinking I don’t want to keep fucking you silly."<</Dialogue>><br><br>
+She makes a playful face of mock indignation.<br><br>
+<<Dialogue "Kris" "Kris">>"What, me? Never! Besides, you are really stupid if you think I’m giving up on my dream to make you into my very personal giantess!"<</Dialogue>><br><br>
+You two laugh heartily, but eventually the awkwardness settles back in, as you realize that the mood for sexual activities is gone.<br><br>
+<<Dialogue "player" "You">>"I guess I should be going."<</Dialogue>><br><br>
+Kris grabs your hand desperately as her eyes widen. You can see her soul is begging for you to stay, and you feel strangely divided, having originally visited just for some casual sex. Part of you wants to stay and cuddle… but part of you still feels weird about making this into a thing.<br><br>
+You get up as her hand slips away, and go get dressed to get back home. You can hear Kris sighing as you close the door, and feel something tight on your chest as you make your way to the elevator.
+<<link "Go home" "Home">><<addMinutes 60>><</link>>
