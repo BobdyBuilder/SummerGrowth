@@ -17893,6 +17893,59 @@ Kris just falls to the ground, completely spent and satiated.
 <<if $muscle >=35>>You carry her back to bed, and cover her.
 <</if>>
 You watch her content smile under her closed eyes, face completely covered in sweat. Her breathing is still ragged, but she couldn’t look any happier. You run your hand through her hair and give her a quick peck on the forehead before putting your clothes back on… and stealing her bottle of whipped cream on your way out.`
+    },
+    {
+        name: 'krisCasualHookupGoesWrong',
+        locationTags: ['kris'],
+        conditions: [
+            () => false /* TODO FIXME */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `You decide to surprise Kris for some impromptu fun time - so you just arrive at her apartment unannounced. Arriving at the door, you try the doorknob, and find the door (unsurprisingly) locked. <<if $submissiveDominant > 1 && $muscle >= 70>>With a smirk, you just force it open, and the solid wood around the handle cracks with ease, the knob left with an imprint of your mighty hand.<br><br>
+<<elseif $submissiveDominant > 1 && $muscle >= 50>>You brace yourself firmly to the ground, and apply significant pressure on the handle, your legs and arms flare up as you hear a satisfying “crack!” and the door swings open, the doorknob slightly bent in the process.<br><br>
+<<else>>You knock, eagerly anticipating a response… but there is none. You insist, knocking faster and harder. A muffled response comes.<br><br>
+<<Dialogue "Kris" "Kris">>"Hold your horses - I’m in the middle of something!"<</Dialogue>><br><br>
+You hear quick steps approaching, the lock opening, and then more steps running away.<br><br>
+<<Dialogue "Kris" "Kris">>"If it’s another delivery, just leave it inside and close the door!"<</Dialogue>><br><br>
+You shrug, confused, and make your way inside.<br><br>
+<</if>>
+You enter the messy apartment, which seems even more littered with dirty plates and other leftovers than usual. You hear some whirring noises coming from Kris’s bedroom. She shouts:<br><br>
+<<Dialogue "Kris" "Kris">>"KINDA BUSY RIGHT NOW - JUST LEAVE THE STUFF THERE AND CLOSE THE DOOR ON YOUR WAY OUT, ALRIGHT?"<</Dialogue>><br><br>
+Feeling cheeky, you start undressing to your underwear, admiring your gains on Kris’s serendipitous large mirror: <<if $height >= 250>>Your gigantic height makes you feel downright out of scale with your surrounding.<<elseif $height >= 210>>Your towering height gives you a strange electric high, with the awareness that you went from below average to top percentile in such a short time.<<elseif $height >= 175>>You delight in your new heightened stature, your days as “the short girl” a thing of the past.<</if>> <<if $muscle >= 75>>The absurd amount of muscle you now pack glares right back at you, as even relaxed, you look like you might just be able to bench press an automobile, making both your lips and genitals moisten as you fantasize about doing just that. <<elseif $muscle >= 50>>The seminude sexy bodybuilder who looks back at you tantalizes your senses as you playfully bounce your pecs, delighting on the unbridled strength you realize you have at your command. <<elseif $muscle >= 35>>You find yourself sneaking a sampling of flexes, even letting an unexpected gasp as you realize how buff you’re becoming… and that’s just the beginning…<</if>><br><br>
+<<Dialogue "player" "You">>"Hey, baby… surpriiiiiiise!"<</Dialogue>><br><br>
+You hear the whirring subside in instants, as something drops with a thud. After some scuffling, Kris comes out of her room, crawling on the floor hastily. You can see in her eyes that she likes what she sees…<br><br>
+<<Dialogue "Kris" "Kris">>"Ooooh, you naughty girl, that’s my kind of surprise, alright!"<</Dialogue>><br><br>
+<<if $submissiveDominant > 1>>You take a few very decisive steps towards her, looking from above, as you see her melting with desire as she literally idolizes you from the ground, a true goddess before her.
+<<else>>You walk towards her, and she just eats you up from the ground, basking on the enormous woman before her, wriggling like a worm.
+<</if>>
+<br><br>
+You kneel, and she reaches with her grabby digits, eager to worship you. With surprising care, you grab her by the neck and armpit, lifting her clear off the ground. Her breathing is labored due to the partially constricted windpipe, but you can feel from her raising hair how turned on Kris is getting as her face blushes wildly - and her clear incapacity to stop feeling the ridges of your defined forearms. As you put her down, her anxiety seems to multiply exponentially, clearly struggling to decide whether she would rather undress or keep groping you.<br><br>
+<<if $submissiveDominant > 1>>Without hesitation, you just place your hands on her collar, and rip her oversized band T-shirt clean in half with a swift motion. It sends chills down her spine - and without even looking, you toss both halves to the side… except, in your attempt to look cool, you end up hitting a table lamp, which falls to the ground and shatters with a loud crash - hundreds of pieces of ceramic spreading everywhere on the already messy floor.<br><br>
+<<else>>
+You motion for her to remove her oversized band T-shirt, which she does so fast that it seems like she almost phased out of it. But as Kris tosses it to the side, it ends up hitting a table lamp, which falls to the ground and shatters with a loud crash - hundreds of pieces of ceramic spreading everywhere on the already messy floor.<br><br>
+<</if>>
+You hesitate for a moment, but Kris quickly gets back to her dismissive pattern:<br><br>
+<<Dialogue "Kris" "Kris">>"Fuck that lampshade. Actually, fuck me, but just don’t worry about it!"<</Dialogue>><br><br>
+You proceed to plant a passionate kiss on her lips, the now darker room feeling even more romantic as you can now only see a general outline of each other from the light coming from her bedroom. You start pushing Kris towards the wall, with the intent of ravaging her, but while your resilient feet seem mostly unaffected by the ceramic shrapnel from the lamp, you notice Kris wincing as her bare feet step over the debris - bringing her a mix of pain and pleasure that keep you from stopping.<br><br>
+However, Kris seems to once again have gone a bit too far: she slips and falls, her feet actively bleeding from the cuts and making the floor dangerously slick.<br><br>
+<<Dialogue "Kris" "Kris">>"FUCK!"<</Dialogue>><br><br>
+Concerned, you stop and turn on the room’s main light, and see the trail of blood. Kris is mostly unfazed, but you are now getting concerned while she still seems to be intent on fucking you.<br><br>
+She crawls and attaches herself to your torso, as the ground starts trembling.<br><br>
+<<Dialogue "randomPerson" "Random Woman">>"CAN YOU STOP WITH ALL THE NOISE? DO YOU HAVE A ZOO UPSTAIRS OR SOMETHING?"<</Dialogue>><br><br>
+You hear the downstairs neighbors shouting, presumably hitting their ceiling in protest over the racket you are doing.<br><br>
+<<Dialogue "Kris" "Kris">>"FUCK YOU! I DON’T CARE!"<</Dialogue>><br><br>
+Kris demands to be carried to the bedroom, and while you are still somewhat in shock with the whole thing, you find yourself unable not to comply. The ceramic chunks crumble beneath your powerful feet, and you carefully avoid the puddle of blood, still worried as you wonder if Kris is injured, but at least she doesn’t seem to be actively bleeding anymore.<br><br>
+As you make your way to the room, you realize what she’d been working on - on top of her other little fetish ventures, you find what she was up to: attaching an enormous fist-sized motorized dildo to the wall with screws. The electric screwdriver is still on the ground near where she must have dropped it when you announced yourself. She looks at it, and then into your eyes, her pupils glistening with childish delight and a hungry sexual appetite.<br><br>
+You put Kris down, and she wobbles on her hurt feet, plugging her new toy to the outlet, and eagerly throws the switch…<br><br>
+Which immediately causes a fuse to fail, and make the whole room go dark, the only light coming from the external lights from the window.<br><br>
+<<Dialogue "Kris" "Kris">>"HOLY SHIT! WHAT THE FUCK! I JUST WANT TO HAVE SOME FUN!"<</Dialogue>><br><br>
+Kris’s demeanor changes abruptly, and she becomes unrecognizable as she starts punching and kicking the device on the wall, filled with rage. You’ve never witnessed this side of her, as she violently attacks the motorized pump with reckless abandon - and you become increasingly concerned that she is just going to hurt herself.<br><br>
+<<Dialogue "Kris" "Kris">>"CUNT! SHIT, FUCK! GODDAMN! YOU PRICK!"<</Dialogue>><br><br>
+<<link "Hey, calm down, Kris, don't sweat this" "KrisCasualHookupGoesWrong-worryAboutHer">><</link>><br>
+<<link "Fuck the toy, we don't need it to have a good time" "KrisCasualHookupGoesWrong-nevermind">><</link>>`
     }
 )>>
 
