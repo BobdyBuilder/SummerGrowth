@@ -11523,7 +11523,7 @@ His blush deepens, getting dangerously close to purple territory, but his panic 
         locationTags: ['home'],
         conditions: [	
             () => setup.hasEventBeenTriggered('johanOverwhelmedByDateIdea'),
-            () => State.variables.flag.gameDate.getDate() == State.variables.flag.johanOverwhelmedByDateIdeaDate.getDate()
+            () => State.variables.gameDate.getDate() == State.variables.flag?.johanOverwhelmedByDateIdeaDate?.getDate()
         ],
         repeatable: false,
         retriggerable: false,
@@ -11646,7 +11646,7 @@ That changes, however, once Johan puts his hand free hand in his pants pocket. Y
         name: 'johanDateAplogyMishap',
         locationTags: ['home'],
         conditions: [	
-            () => State.variables.flag.gameDate.getDate() == State.variables.flag.johanOverwhelmedByDateIdeaApologyDate.getDate()
+            () => State.variables.gameDate.getDate() == State.variables.flag?.johanOverwhelmedByDateIdeaApologyDate?.getDate()
         ],
         repeatable: false,
         retriggerable: false,
