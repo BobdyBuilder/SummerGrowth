@@ -31444,7 +31444,7 @@ You thought you had her, but she betrays herself with her distraction. You can s
             You would probably never admit it to her… but you kind of enjoy this more emotional connection with her. The sex has been so great that you kind of forgot that you might genuinely care about Kris. Huh.<br><br>
             Unsure of what else to do, you decide to leave her a note, and just go back home. So you make your way to the door, sighing.<br><br>
             You chalk up this disastrous date to some unknown cosmic conflagration, and return home feeling regret and guilt.
-            <<link "Go home" "Home">><<addMinutes 60>><</link>>
+            <<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'A'>><</link>>
 		<</replace>>
 	<</PersonalityCheck>>
 </span>
@@ -31486,7 +31486,7 @@ Spent, you drop down your hips, and the bed trembles under the two of you. Slowl
 Running your fingers through her hair, you respond, contently:<br><br>
 <<Dialogue "player" "You">>"Good? You were amazing, Kris."<</Dialogue>><br><br>
 And so you two end up falling asleep, forgetting the big mess left behind.<br><br>
-<<link "Go home" "Home">><<addMinutes 60>><</link>>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'B'>><</link>>
 
 :: KrisCasualHookupGoesWrong-forgetAllOfThis [nobr] {"position":"0,0","size":"100,100"}
 <<Dialogue "player" "You">>"Come on, Kris, where’s that spirit of not giving any fucks?"<</Dialogue>><br><br>
@@ -31555,7 +31555,7 @@ Kris hugs you tight, but it just feels wrong. You apologize for the confusion, a
 You try to put your clothes back on, but they feel tighter than you remember. Awkwardly, you say your goodbyes and head back home, and figured it just wasn’t your day today. Maybe you should start reading your horoscope in the future… geez.
 <</if>>
 <br><br>
-<<link "Go home" "Home">><<addMinutes 60>><</link>>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'A'>><</link>>
 
 :: KrisCasualHookupGoesWrong-imOut [nobr] {"position":"0,0","size":"100,100"}
 You look at Kris one more time. Yeah.<br><br>
@@ -31573,7 +31573,7 @@ Kris pouts and sighs, crossing her arms under her pert breasts.<br><br>
 <<Dialogue "player" "You">>"Now go clean up. I’ll be back before you know it."<</Dialogue>><br><br>
 And with that, you leave. Somehow, you feel some relief, knowing that forcing things would probably have led to a much sourer outcome.
 <br><br>
-<<link "Go home" "Home">><</link>>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'A'>><</link>>
 
 :: KrisCasualHookupGoesWrong-calmHerDown [nobr] {"position":"0,0","size":"100,100"}
 Almost by instinct, you wrap your arms around Kris in a caring and warm hug. At first, she stiffens completely, almost panicking as her brain seems unable to properly process what is going on. But slowly she melts in your arms, hugging you back with desperate abandon. You feel her breathing getting shallower and faster - is she trying to hold herself from sobbing?<br><br>
@@ -31610,7 +31610,7 @@ This seems to catch her attention. And so you playfully grab your clothes and ge
 <<Dialogue "player" "You">>"Hahaha! Kris, you are impossible, you know that?"<</Dialogue>><br><br>
 <<Dialogue "Kris" "Kris">>"It’s the reason you can’t resist me."<</Dialogue>><br><br>
 With more laughter, you make your way out. Kris watches you all the way into the elevator, and you do hope that next time things work a little better.
-<<link "Go home" "Home">><<addMinutes 60>><</link>>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'B'>><</link>>
 
 :: KrisCasualHookupGoesWrong-forgetAboutIt [nobr] {"position":"0,0","size":"100,100"}
 <<Dialogue "player" "You">>"You know what the doctor prescribed for the grumps?"<</Dialogue>><br><br>
@@ -31665,4 +31665,4 @@ You two laugh heartily, but eventually the awkwardness settles back in, as you r
 <<Dialogue "player" "You">>"I guess I should be going."<</Dialogue>><br><br>
 Kris grabs your hand desperately as her eyes widen. You can see her soul is begging for you to stay, and you feel strangely divided, having originally visited just for some casual sex. Part of you wants to stay and cuddle… but part of you still feels weird about making this into a thing.<br><br>
 You get up as her hand slips away, and go get dressed to get back home. You can hear Kris sighing as you close the door, and feel something tight on your chest as you make your way to the elevator.
-<<link "Go home" "Home">><<addMinutes 60>><</link>>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'A'>><</link>>
