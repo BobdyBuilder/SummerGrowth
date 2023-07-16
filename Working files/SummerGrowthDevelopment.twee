@@ -17746,6 +17746,76 @@ You can feel the heartbeats from Kris laying on your, her blood about to boil. M
 		<</replace>>
 	<</link>>
 </span>`
+    },
+    {
+        name: 'krisWorshipsSize',
+        locationTags: ['kris'],
+        conditions: [
+            () => false /* TODO FIXME */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `Feeling a bit frisky, you decide to pay Kris a visit. As you reach the door, you hesitate for a second before knocking… maybe you should think of what to say? Before you can settle, however, the door flings open. Wait, what?<br><br>
+<<Dialogue "Kris" "Kris">>"Hello, there, sweet cheeks!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Huh? How did you know I was…"<</Dialogue>><br><br>
+Before you can complete your sentence, Kris is hurrying you inside. She directs you to the middle of her living room, and she leaves, dimming the lights on her way to her bedroom.<br><br>
+You wait a few seconds, still thinking about what to say when…<br><br>
+Kris comes out of her room with this skimpy black and red babydoll - the see through piece looks ridiculously big in contrast to her small stature, as she holds it up to your eye level<br><br>
+<<Dialogue "Kris" "Kris">>"Let’s see how good I am at guessing the size of my little sex toy…"<</Dialogue>><br><br>
+<<if $submissiveDominant > 1>>You nab the piece from her hands with an aggressive swipe, and she starts hyperventilating.<br><br>
+<<Dialogue "player" "You">>"Who said you earned the right to dictate what I wear? Also, let me make something clear - I am no one’s toy… but… I AM willing to take you as my little side project for a casual evening of fun…"<</Dialogue>><br><br>
+<<elseif $submissiveDominant > -1>>You take the sensual article of clothing in your hand, inspecting it carefully. <<if $shyConfident > 1>>Yes, it is quite sexy and a lot of fun, and you are eager to try it on.<<else>>This VERY transparent piece of clothing is a bit too racy for your taste (is that a hole where your… oh my…!), but you see how eager Kris looks, and figure it might be worth a try.<</if>>
+<<else>>Kris pushes the delicate nightgown into your hands, and starts fidgeting, her expression of thirst and anticipation reinforced by the puffs of hot vapor coming from her mouth. Unable to say no to her, you start undressing.
+<</if>><br><br>
+You decide to go change in the bathroom, where not only you get some extra privacy, but you get to make a splash when you reveal yourself. Closing the door behind you, you undress, looking at yourself in the mirror. Well, if Kris likes big girls, she is certainly in for a treat! <<if $muscle >65 || $height >195>>You are actually surprised that the gown is a bit too small, having to struggle a bit to fit it on your torso and hips given how easy it could tear.<<else>>The babydoll fits just right, and makes you wonder how Kris managed to guess that… but then again, you have a sneaky suspicion she could recite your measurements on a whim.<</if>><br><br>
+You check yourself again in the mirror. <<if $shyConfident > 1>>Damn, you looking fucking SIZZLING in this!<<else>>You feel a little out of your element, but you’d be lying if you said it didn’t really bring out your developed physique.<</if>> Your muscular arms and legs are fully exposed, while your breasts are comfortably housed in the underwires, and majestically displayed in the see-through cups, playing second fiddle to your burgeoning pecs. Your abs are delectably hinted behind the mesh, leaving just enough to the imagination. But the real show is reserved for the lower part, tastefully emphasized by the red detailing, with a hole revealing your glorious pubic mound. You find your own mouth salivating a bit at your own sight, modesty be damned!<br><br>
+<<if $submissiveDominant > 1>>You slowly open the door just a bit, and reveal the tips of your fingers, slowly raising them all the way over the door. You put a leg out, stretching your foot to show a fully pumped calf - and then, placing your foot on the ground, you reveal a massive thigh. At this point, you can hear Kris and hear heavy breathing.<br><br>
+<<Dialogue "player" "You">>"You better behave, or I am stopping this right now, you hear?"<</Dialogue>><br><br>
+You hear a loud GASP, and the breathing becomes more faint. Good, it confirms that you have full control of her drawstrings. You put out an extended arm, with its respectably defined forearm, which you slowly raise as your upper arm comes along an ground-breaking biceps flex. You hook your calf around the door, and then rest your back against the edge of the door, your glutes making quite a splash as you reveal yourself in the babydoll.
+<<elseif $submissiveDominant > -1>>You open the door quickly, revealing your body, and Kris’s eyes almost pop out of her skull. You raise your arms and pull a slow and seductive squat, your head turned sideways with a lustful expression to tease her. Kris nearly falls from her chair, but you shake your finger in a “no” sign as you wink at her seductively.  
+<<else>>You meekly open the door, Kris howls at you, falling to her knees from the chair she was sitting on, and crawling all the way to you. She starts caressing your calves, and you find yourself standing at the tip of your toe, making the muscle explode under her hands. It’s a bit much for her, and she falls back, squirming and reaching for her crotch. You take a step back, giving yourself some space - her sheer admiration is actually a huge turn on, and you find yourself getting wet as well… but maybe you need to pace yourself a bit here.
+<</if>><br><br>
+<<Dialogue "player" "You">>"So, what do you think? Do I look good in this?"<</Dialogue>><br><br>
+Kris does respond, but it is little more than an incomprehensible groan of pleasure.<br><br>
+<<if $submissiveDominant > 1>><<Dialogue "player" "You">>"You are to respond when spoken to, am I clear?"<</Dialogue>><br><br>
+Your voice booms with command, and Kris is shocked into attention, her posture going right up.<br><br>
+<<Dialogue "Kris" "Kris">>"YES, MA’M!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Good. Don’t make me remind you… or I might have to punish you."<</Dialogue>><br><br>
+Kris gulps, and you are pretty sure she is divided between following your order… and the prospect of punishment. But enough for the stick… time for the carrot.
+<<elseif $submissiveDominant > -1>><<Dialogue "player" "You">>"Well… I think I look pretty good… I’d say, enough to be adored… maybe even… worshiped?"<</Dialogue>><br><br>
+<<else>>You let an amused giggle escape, as your hands explore the statuesque body on display.
+<</if>><br><br>
+You arch your arms up and put a leg forward, giving your entire physique a major pump that greatly emphasizes your hourglass shape, and makes you look like a classic sculpture..
+<<Dialogue "player" "You">>"I do feel like a Greek goddess… in fact, maybe I look even better than those statues…"<</Dialogue>><br><br> 
+You stretch one arm as you flex the other on a heavenward pose, making your biceps boom.<br><br>
+<<Dialogue "player" "You">>"I’d be willing to bet I’m bigger… and harder… than any of them. So… "<</Dialogue>><br><br>
+Systematically, you start pumping every muscle group in seductive repeated motions, engorging every muscle little by little until they reach their full potential. You feel yourself getting warmer, bigger, harder… and wetter. MUCH wetter.<br><br>
+<<Dialogue "player" "You">>"This blood… it blesses each and every part of my body - making me grow before your very eyes… do you wonder just how big I can get?"<</Dialogue>><br><br>
+You turn your face and gaze deep into Kris’s eyes. Her skin is dripping with sweat, and you would not be surprised if she just started melting. You aren’t quite done yet, though… maybe it’s time to get a bit creative…<br><br>
+<<if $submissiveDominant > 2>><<Dialogue "player" "You">>"I COMMAND YOU TO START MASTURBATING FOR YOUR GODDESS. I WANT TO SEE YOU FINGERING YOURSELF FURIOUSLY, PLEASURING YOURSELF AT MY DIVINE SIGHT!"<</Dialogue>><br><br>
+With no hesitation, Kris digs her hand forcefully into her pants, as she brings her middle and ring fingers from her other hand into her mouth. Her face turns red instantly, and she starts heaving up and down, her eyes inexorably stuck to your continuous posing.<br><br>
+You alternate between looking at your every hardened muscle, covered by the glistening sheen of sweat, and Kris’s undisputed lustful adoration. <<if $muscle >65 || $height >195>>As your blood pumps your entire body to ridiculous proportions, you feel the babydoll ripping, and you give it an extra flex to tear it into two as you roar, making Kris massage her clitoris even more furiously, and bringing her other hand to stimulate her now fully-erect nipples.<</if>><br><br>
+You can feel Kris is on the verge of climaxing.<br><br>
+<<Dialogue "player" "You">>"STOP!"<</Dialogue>><br><br>
+You order with the undisputed authority you deserve, and Kris freezes, still trembling from the mounting desire.<br><br>
+<<Dialogue "player" "You">>"You are not allowed to cum without my say-so!"<</Dialogue>><br><br>
+And with that, you walk, fierce like a lioness, putting one thunderous thigh in front of the other, and you lift Kris up by her collar in the air. With uninterrupted eye contact, you rip her pants off with your free hand, and start fingering her.<br><br>
+<<Dialogue "player" "You">>"You may now touch my arms as I toy with you."<</Dialogue>><br><br>
+With no hesitation, Kris reaches for your tensed forearms, biceps and triceps. You smile as you explore her wet pussy with your middle and index fingers, your thumb resting on her V-shaped trimmed bush, feeling her squirm under your absolute control.
+<<elseif $submissiveDominant > -1>>
+<<Dialogue "player" "You">>"Let’s take this to the next level… you may still not touch ME… but how about you get yourself off and tell me how amazing I am?"<</Dialogue>><br><br>
+Kris stutters for a second as you resume your little show. You continue posing, but all you can see if her, fingering herself with the fury of a thousand suns, as she gazes deep into your soul and proclaims her adoration loudly:<br><br>
+<<Dialogue "Kris" "Kris">>"You are so strong, so beautiful… pure perfection in female form… hmmmmmmm… and you make me so wet and horny… you truly are a goddess. I live to serve you… I want to feel your… (ugh) power… your incomparable strength… (huff)... those hard as diamond muscles… Ahhhhhh!"<</Dialogue>><br><br>
+You continue flexing harder and harder, tensing as you feel yourself getting equally aroused… to the point where it’s getting hard to maintain your composure. <<if $muscle >65 || $height >195>>As your blood pumps your entire body to ridiculous proportions, you feel a ripping propagating through the taut babydoll, which sends your thrall over the edge.<</if>><br><br> Kris starts viciously squirming as her pussy gushes, and you find yourself joining her in her climax - a more controlled and dignified tremor, as you bite your lip in ultimate carnal desire.  
+<<else>>
+<<Dialogue "player" "You">>"So… is that what you call worshiping? I’m frankly a bit disappointed…"<</Dialogue>><br><br>
+You say with a pout, and Kris immediately springs on you like a lynx in heat, wrapping herself around your barely-covered torso as her fingers explore your entire body. In time, you flex each and every muscle she decides to caress, the hardening sending jolts through the girl - and making her start an uncontrollable dry-humping. She rips the babydoll off of you, and soon she can’t help herself and just puts her tiny hand deep into your pussy, fingering you as she sucks your nipples with unmatched ardor.<br><br>
+The two of you squirm in unison, your back arching as she accelerates both the touching and the sucking, and as you approach your climax, she just nibbles your fully-erect nipples. You start shaking so hard from the explosion of pleasure that Kris almost latches off, but her hand digs deep into your back, her nails failing to pierce the rock-hard wings of your wide posterior.
+<</if>>
+Kris eventually just tumbles onto the ground, completely spent. Frankly, you are not too far behind, but you make a point in keeping your posture as imposing as you can. You watched the puddle of what’s left of her, fingers still slightly trembling. You return to the bathroom to put your clothes back on, and make your way out of the apartment, as you exclaim:<br><br>
+<<Dialogue "player" "You">>"I hope you enjoyed that… I know I sure did!"<</Dialogue>><br><br>`
     }
 )>>
 
@@ -31349,7 +31419,3 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
         <</link>>
 	<</PersonalityCheck>>
 </span>
-
-
-
-
