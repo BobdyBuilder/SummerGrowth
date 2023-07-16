@@ -31501,3 +31501,58 @@ But her eyes still linger on the toy, while she winces and pokes her injured foo
 
 <<link "Geez, you can be such a brat! Alright, I'll fix your electric, give me a second..." "KrisCasualHookupGoesWrong-fixTheFuse">><</link>>
 <<link "Your heart is not really into it, maybe we should get a rain check." "KrisCasualHookupGoesWrong-imOut">><</link>>
+
+:: KrisCasualHookupGoesWrong-fixTheFuse [nobr] {"position":"0,0","size":"100,100"}
+You sigh, get up and ask:<br><br>
+<<Dialogue "player" "You">>"Alright, I’m going to just fix the electricity. Where’s your breaker box? "<</Dialogue>><br><br>
+Confused, Kris points you to the kitchen. You walk there in the dark, your eyes getting used to it, as you find the metal plate on the wall. As you open, the mechanism can better be described as “ancient” - instead of modern breakers, you find really antiquated fuses - and that weird burnt smell of ozone.<br><br> 
+<<Dialogue "player" "You">>"Damn, Kris, how old is this apartment? My grandpa had wiring that was more modern than this!"<</Dialogue>><br><br>
+The round and colorful metallic rods sit there on their respective contacts, with some spares laying on the bottom of the board. You squint, hoping to see enough to figure which one is the culprit.<br><br>
+<<Dialogue "Kris" "Kris">>"Yeah, this place is a bit of a dump, but the rent is really cheap!"<</Dialogue>><br><br>
+Once again you sigh, and figure you will just hope one of the fuses laying around is working. You carefully remove what you believe to be the defective one, and try to plug the replacement when…<br><br>
+BZZZAP!<br><br>
+You are shocked, both figuratively and literally, as you inadvertently close the contact on the board while trying to replace the fuse. Your entire body involuntarily contracts at once, and your strength actually manifests as a curse, as the entirety of it now holds you firmly against the very real threat!<br><br>
+You feel your entire being exerting itself, every muscle brought to its maximum tautness as your teeth grit and your vision becomes unfocused and fuzzy. You can barely make out Kris’s desperate voice as the lights come back on, using your body as part of a conduit, and she comes to your rescue - but unsure of what to do, just shouting in panic.<br><br>
+Your thoughts quickly become as hazy as your vision, your only concern being somehow letting go of the electric panel, but your muscles disrespect the orders from your brain as they kneel for the electricity that demands their absolute contraction. You cannot breathe, and you are not even sure if your heart is still beating.<br><br>
+<<if $muscle >= 80>>Thankfully, your strength is so massive that, when it’s all called upon like this, you literally rip the panel off the wall, the contacts crumbling under your touch as you fall on your ass - the fuse literally squeezed flat between your fingers.<br><br>
+<<Dialogue "Kris" "Kris">>"... abe? Babe? Are you okay? Can you hear me?"<</Dialogue>><br><br> 
+You cough and take a deep breath, waiting anxiously to make sure your heart is still beating. You can feel the blood flowing as it thumps through your ears, somehow feeling a beating even stronger than before as it almost drowns Kris’s voice. Despite the dark, you see your blackened hands as you turn to the mirror, your hair standing straight up as you finally manage to relax somewhat.
+Kris hugs you, with real fear in her eyes.<br><br>
+<<Dialogue "player" "You">>"*Cough!* I… I think I’m okay… sorry about the fuse box…"<</Dialogue>><br><br>
+You say, still a bit disoriented.<br><br>
+<<Dialogue "Kris" "Kris">>"Fuck the fuse box! Are you alright? Geez, you almost gave me a heart attack… but…"<</Dialogue>><br><br>
+She places her ear on your chest, as she holds your wrist. After making sure your heart is okay, she sighs with relief.<br><br>
+<<Dialogue "Kris" "Kris">>"Don’t you EVER scare me like this again, you hear?!?"<</Dialogue>><br><br>
+She slaps your back aggressively, which feels tighter than ever. Ugh, you hope maybe Simon would be willing to give you a massage?<br><br>
+<<Dialogue "player" "You">>"Yeah, uh, my bad. I guess we should have a professional look at that."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"I’ll call the super. He doesn’t like me… I want to see his face when he sees the damage - I bet his face will be priceless."<</Dialogue>><br><br>
+You both laugh nervously.<br><br>
+<<Dialogue "player" "You">>"I, uh, think I’ll be going. That was enough emotion for the whole week."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Are you POSITIVE you are alright?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, yeah. No worries. I’m made of sterner stuff."<</Dialogue>><br><br>
+You say, but still somewhat unsure of it yourself. Still, you decide to get dressed and just go back home and let destiny have its way before you risk your life any further for some sexy times.
+<<else>>
+But as Kris voice seems to fade, so does your vision. Your thoughts go next as oblivion takes over. All you can think is “stupid electricity” before it all goes dark.<br><br>
+…<br><br>
+With a massive headache, you open your eyes. You find yourself in Kris’s apartment… oh yeah, the fuse box. Ugh! Your entire body hurts like crazy, like you had just had the most grueling workout in your entire life… multiplied that by 10… and then had a soreness that was twice as bad as usual.<br><br>
+<<Dialogue "Kris" "Kris">>"<<print $playerFirstName>>?!?"<</Dialogue>><br><br>
+Kris is cradling your head on her lap, tears streaming down her face. She feels even colder than usual… or are you just running hotter? You can’t really tell.<br><br>
+<<Dialogue "Kris" "Kris">>"<<print $playerFirstName>>, can you hear me? Are you OK?"<</Dialogue>><br><br>
+You sit up, your entire body feeling absurdly tense - it’s like the electricity never left, and you still are having a hard time relaxing. You can smell burning, as you notice that your hair is standing on end and your hands are covered in soot - but thankfully don’t seem to be badly burned or anything.<br><br>
+<<Dialogue "player" "You">>"Kris? *Cough!* What happened?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"What happened? WHAT HAPPENED? What happened was that you just got electrocuted and lit up like a christmas tree! I knew better than to touch you, so I looked for a broom to try and hit your hand off the circuit…"<</Dialogue>><br><br>
+She points toward a broom handle, broken clean off into two parts on the ground.<br><br>
+<<Dialogue "Kris" "Kris">>"Thank GOD that you apparently managed to trip the breaker of the entire floor after a while. You fell to the floor, stiff like a tree, the whole apartment shook!"<</Dialogue>><br><br>
+You blink a few times, and try to get up. Your entire body hurts, and feels as stiff as Kris just described. As you lean against your leg, your body feels harder than you ever remember, like you were made of stone. You shake your head, as slowly the world floods back into focus.<br><br>
+<<Dialogue "player" "You">>"Do you have some aspirin or something?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Are you fucking kidding me right now? I called 911, there should be an ambulance coming as we speak."<</Dialogue>><br><br>
+As you fight the headache and go wash the soot off your hands, you tell her not to worry:<br><br>
+<<Dialogue "player" "You">>"Nah, just cancel that, I’m fine, really. Besides, we are not even decent and your apartment is a mess. Last thing you want is a bunch of onlookers."<</Dialogue>><br><br>
+Kris hugs you tight, but it just feels wrong. You apologize for the confusion, and start getting dressed.<br><br>
+<<Dialogue "Kris" "Kris">>"You… are just leaving?!?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, sorry, not in the mood anymore. Maybe next time."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"That’s… not what I meant…"<</Dialogue>><br><br>
+You try to put your clothes back on, but they feel tighter than you remember. Awkwardly, you say your goodbyes and head back home, and figured it just wasn’t your day today. Maybe you should start reading your horoscope in the future… geez.
+<</if>>
+<br><br>
+<<link "Go home" "Home">><</link>>
