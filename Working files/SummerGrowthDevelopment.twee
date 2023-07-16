@@ -31574,3 +31574,14 @@ Kris pouts and sighs, crossing her arms under her pert breasts.<br><br>
 And with that, you leave. Somehow, you feel some relief, knowing that forcing things would probably have led to a much sourer outcome.
 <br><br>
 <<link "Go home" "Home">><</link>>
+
+:: KrisCasualHookupGoesWrong-calmHerDown [nobr] {"position":"0,0","size":"100,100"}
+Almost by instinct, you wrap your arms around Kris in a caring and warm hug. At first, she stiffens completely, almost panicking as her brain seems unable to properly process what is going on. But slowly she melts in your arms, hugging you back with desperate abandon. You feel her breathing getting shallower and faster - is she trying to hold herself from sobbing?<br><br>
+<<Dialogue "player" "You">>"Shhhh! Hey, it’s okay, Kris. I’m here for you, you know?"<</Dialogue>><br><br>
+You feel her grip tightening, as she squeezes you more and more. It is such an unusual side of her, and it takes every bit of your brain to believe this is actually the same carefree and impulsive woman you’ve been dealing with all along.<br><br>
+<<Dialogue "Kris" "Kris">>"Argh! I feel so silly. Why do I keep doing this? But… the bigger question is: how do you just keep making me feel so much better?"<</Dialogue>><br><br>
+Did she just compliment you about something that isn’t a physical attribute? It must be snowing in hell… no, <<print $playerFirstName>>, that’s not a nice thing to think about her.<br><br>
+<<Dialogue "player" "You">>"Do you need a moment?"<</Dialogue>><br><br>
+Kris mumbles something, her lips squished against your torso. You hold her tighter for a second.<br><br>
+<<link "Kris, do you want to talk about this?" "KrisCasualHookupGoesWrong-talkAboutIt">><</link>>
+<<link "Just let it go, Kris. We are here to have fun, am I right?" "KrisCasualHookupGoesWrong-forgetAboutIt">><</link>>
