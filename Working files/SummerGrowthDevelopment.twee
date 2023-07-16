@@ -31555,7 +31555,7 @@ Kris hugs you tight, but it just feels wrong. You apologize for the confusion, a
 You try to put your clothes back on, but they feel tighter than you remember. Awkwardly, you say your goodbyes and head back home, and figured it just wasn’t your day today. Maybe you should start reading your horoscope in the future… geez.
 <</if>>
 <br><br>
-<<link "Go home" "Home">><</link>>
+<<link "Go home" "Home">><<addMinutes 60>><</link>>
 
 :: KrisCasualHookupGoesWrong-imOut [nobr] {"position":"0,0","size":"100,100"}
 You look at Kris one more time. Yeah.<br><br>
@@ -31611,3 +31611,16 @@ This seems to catch her attention. And so you playfully grab your clothes and ge
 <<Dialogue "Kris" "Kris">>"It’s the reason you can’t resist me."<</Dialogue>><br><br>
 With more laughter, you make your way out. Kris watches you all the way into the elevator, and you do hope that next time things work a little better.
 <<link "Go home" "Home">><<addMinutes 60>><</link>>
+
+:: KrisCasualHookupGoesWrong-forgetAboutIt [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"You know what the doctor prescribed for the grumps?"<</Dialogue>><br><br>
+Kris shakes her head, her snout still digging into your bosom.<br><br>
+<<Dialogue "player" "You">>"Some hard fucking. What do you say?"<</Dialogue>><br><br>
+Again, without taking her head out, she nods excitedly. Why is this such a turn on? You are not sure, but something about this scenario is strangely enticing. You first lift her off the ground, then, with ease, cradle her in your arms like a baby.<br><br>
+<<Dialogue "player" "You">>"Damn, I’m just too soft on you sometimes."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"You absolutely don’t have to be. In fact, I insist that you don’t."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Cheeky bastard, aren’t you?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Well, what are you going to do about it? I could use some punishment…"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"You don’t skip a beat, do you?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"You know me too well…"<</Dialogue>><br><br>
+<<link "Enough already!" "KrisCasualHookupGoesWrong-throwHerOnTheBed">><</link>>
