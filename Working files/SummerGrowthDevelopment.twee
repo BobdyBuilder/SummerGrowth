@@ -17821,7 +17821,7 @@ Kris eventually just tumbles onto the ground, completely spent. Frankly, you are
         name: 'krisSpecialOccasionPenis',
         locationTags: ['kris'],
         conditions: [
-            () => false /* TODO FIXME */
+            () => setup.hasEventBeenTriggered('KrisNoticeBulge')
         ],
         repeatable: false,
         retriggerable: false,
