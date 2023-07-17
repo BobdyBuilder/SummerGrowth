@@ -8559,7 +8559,7 @@ Unfortunately, you're just too tired to clean.
 <</if>>
 
 
-:: streaming [nobr noReturn] {"position":"1325,1100","size":"100,100"}
+:: streaming [nobr noReturn streaming] {"position":"1325,1100","size":"100,100"}
 <<for _i to 0; _i < $skills.length; _i ++>>
 <<capture _i>>
 	<<if $skills[_i].name is "gaming">>
@@ -18043,6 +18043,71 @@ Kris pouts like a little girl.<br><br>
             <<link "Continue" $currentScene>><</link>>
         <</replace>>
     <</link>>
+</span>`
+    },
+    {
+        name: 'krisRileUpStream',
+        locationTags: ['streaming'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('krisStreamed')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `You put on the headset and click the button to go live. You still get some butterflies on your stomach every time, a mix of excitement and anxiety. As the viewers pour in, you start talking about your day, as usual. <<if $shyConfident > 1>>You boast quite freely about the stuff you’ve been doing, your workouts and gains, and in general just won’t miss a chance to make some suggestive poses - and the audience gobbles it right up.<<elseif $shyConfident > -1>>You just go through a quick recap, and your sincerity is one of the things that brought you such a big audience - people relate to your ‘girl next door’ naturality. You interact with the people in the comments, and it feels like a very carefree conversation - which everyone enjoys.<<else>>Your anxiety builds up, however, as you are still quite shy, and people in the comments make a point of saying things to make you blush and react - and they gobble every reaction up. Some have started calling you Queen RedCheeks, which is both endearing and embarrassing.<</if>><br><br>
+But as the session goes on, someone starts monopolizing the chat. The person goes by the username ‘<b class="KrisMessage">SizeLuvrxxx69xxx</b>’ and there’s no way to describe it as anything but spamming, given the amount of messages being dumped. It started with some simple comments about your sleeves being a tad too tight, then wondering if you ever ripped them by mistake... and now this person will not rest until you actually try to rip them with a flex.<br><br>
+The problem is - this person apparently has commandered the chat. And not in the sense that they are monopolizing the messages. No, now EVERYONE in the chat seems to have gone along with the idea that you SHOULD stop telling about your day, and get to some quality muscle demonstration. And to put their wallet where their mouth (or typing fingers, in this case?), a $10 donation is made. “<b class="KrisMessage">Come on, everyone, let’s show her how much we want to see that sleeve torn to shreds, everyone, give a her a tip!</b>”.<br><br>
+And with that, dozens and dozens of $1 donations start popping up. A few $5 here and there… and someone says they’ll send $100 if you show your abs as well. Uhhhh... this is getting out of control fast!<br><br>
+
+
+<span id="choice">
+<<PersonalityCheck $shyConfident >= 2 "Well, let’s give the crowd what they want, right?">>
+    <<replace "#choice">>
+            <<Dialogue "player" "You">>"<<if $shyConfident > 1>>So you guys want some girl muscle? I can accommodate that, sure!<<else>>Well, I suppose a little flex wouldn’t hurt...<</if>>"<</Dialogue>><br><br>
+            You take a deep breath, and your pecs involuntarily flex, already stretching your top in a manner that riles up the chat even more - comments start flying so fast you can’t read them anymore. But it’s time for the main event, and you slowly start raising your right arm into the view of the camera. <<if $shyConfident > 1>>With a confident smile, you look right into the lens and start tensing your arm.<<else>>You find yourself looking away from the screen, and fixing your eyes on your upper arm as you start a very slow flex<</if>>. Your biceps start expanding as you do, <<if $muscle >60>>ballooning to ridiculous proportions as the fabric of your sleeves first start becoming more transparent as they stretch to their very limit - and then you give it that extra PUMP and…<br><br>
+            RIIIIIIIP!<br><br>
+            That is one sleeve, gone!
+            <<elseif $muscle >45>>stretching the fabric very taut, it sticks to your arm like a second skin - you can even see that big vein through it. It doesn’t quite rip, but the sewing is definitely compromised, as you relax and the threads are now spaced apart from being stretched so much.
+            <<elseif $muscle >30>>making your muscle fill the clothing quite nicely, but not quite enough to make any real damage to the threads. Still, the chat seems quite pumped (pun intended) by your little demonstration, and they cheer you to continue training and report in on your progress.
+            <<else>>but not really enough to make a real impact. You grit your teeth and pump them as much as you can, but you end up having to roll your sleeves so they can see anything. Still, the chat acts super-nice and encouraging, and it inspires you.
+            <</if>><br><br>
+            You relax on your chair, but now <b class="KrisMessage">SizeLuvrxxx69xxx</b> has already gotten the crowd to chant “ABS NEXT!”. There’s a wall of the message on the chat. Oh, well, guess you aren’t quite done yet!<br><br>
+            You stand up, your face now out of frame, and you pull your top taut over your midriff, and start twisting your torso to better bring out your flexed abs. <<if $muscle >60>>Thankfully, you wore something pretty tight for the stream, and your muscle cling like very defined cobblestones, giving everyone a very nice show. You run your fingers between the crevices, and the crowd just goes nuts!
+            <<elseif $muscle >45>>Your nice abs make themselves noticed, small bumps poking through the fabric. It’s enough to drive people crazy, wondering just how nice your midriff looks under the clothing.
+            <<elseif $muscle >30>>You already have a hint of abs, but not quite enough to make an impression under your clothes. So you just raise your top very briefly to give everyone a peek for a split second, and the chat explodes!
+            <<else>>You don’t quite have abs yet, so you just raise your shirt for people to see your midriff. <<if $fat >30>>It makes you realize you could lose some weight before really getting people riled up, but it’s what’s there right now.<<else>>it’s a flat stomach, holding the promise of one day housing a proper six-pak - but for now, the chat will just have to wait for you to catch up - and they are very nice about it.<</if>>
+            <</if>><br><br>
+            And as if on cue, the chime of donations starts popping even faster. Everyone is contributing with varying amounts - included that promise hundred bucks! By the time you tally it all up, you’ve made a sweet $2000!<br><br><<set $money += 2000>>
+            But as you thank everyone, one message stands out.<br><br>
+            <b class="KrisMessage">SizeLuvrxxx69xxx: Oh, yeah, that’s the stuff, baby! KEEP GROWING FOR ME! I know you have it in you, <<print $playerFirstName>>.</b><br><br>
+            You don’t use your real name on the stream - so it’s gotta be someone you know. And that narrows it down quite considerably - ESPECIALLY given that username and message…<br><br>
+            Well, at least you made bank tonight, and collected a ton of new subs.
+        <<link "Continue" $currentScene>><</link>>
+    <</replace>>
+<<Failed>>
+    <<replace "#choice">>
+            Alright! Let’s give the crowd what they want!<br><br>
+            You start psyching yourself up for the task at hand, raising your arm and pulling your sleeve with your free hand, but then you realize people want to see that sleeve stretched, so you stop. But now you got the shoulder part of your top all bunched up, and you turn to the wrong side so it’s hard to see on the camera.<br><br>
+            Anxiety builds up as people start complaining on the chat. You turn back to the chat to apologize, but they get all riled up because you stopped flexing. You get even more apologetic and anxious, and things continue to escalate...<br>
+            Except <b class="KrisMessage">SizeLuvrxxx69xxx</b> starts teeling everyone to stop being a bunch of squeaky-voiced whiners, telling them to shut up so <<print $playerFirstName>> can work her magic. Wait, you never said your real name on the stream before.<br><br>
+            <<Dialogue "player" "You">>"Kris?"<</Dialogue>><br><br>
+            You mumble under your breath, and the so-far prolific <b class="KrisMessage">SizeLuvrxxx69xxx</b> now seems to have gone radio silent.<br><br>
+            Things have gotten out of control enough. You decide to end the stream early, even if it costs you some subscribers. That was a little too wild for your taste.
+        <<link "Continue" $currentScene>><</link>>
+    <</replace>>
+<</PersonalityCheck>>
+
+<<link "Guys, thanks for the support, but that’s not the focus of this channel">>
+    <<replace "#choice">>
+            You look at the camera with an apologetic expression, and shrug as you explain yourself:<br><br>
+            <<Dialogue "player" "You">>"This is very sweet, guys. I love that you appreciate my body and all, but I don’t want to run afoul of any rules from the platform. <<if $streamWarnings > 0>>I have already gotten in trouble the last time my clothes couldn’t keep up with my growth, and I can’t risk another one, or I might get banned!<<else>>I’m seriously concerned about the rules of the platform, not sure if they will be very tolerant of general wardrobe malfunctions, you know?<</if>>"<</Dialogue>><br><br>
+            The chat is not happy with that. A few people get rather rude, and the volunteer moderators quickly step in. Chaos! But as things start to get out of control, you notice one message:<br><br>
+            <b class="KrisMessage">SizeLuvrxxx69xxx: Awww, come on, I promise I’ll make your next macchiatto extra-special!</b><br><br>
+            As the confusion ensues, that message sticks in your head. You try to calm people down, with little success. This little maneuver costs your channel a few subs, but at least you kept your dignity and got no strikes, right?
+        <<link "Continue" $currentScene>><</link>>
+    <</replace>>
+<</link>>
 </span>`
     }
 )>>
