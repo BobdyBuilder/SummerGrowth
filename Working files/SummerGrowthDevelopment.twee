@@ -17946,6 +17946,104 @@ Kris’s demeanor changes abruptly, and she becomes unrecognizable as she starts
 <<Dialogue "Kris" "Kris">>"CUNT! SHIT, FUCK! GODDAMN! YOU PRICK!"<</Dialogue>><br><br>
 <<link "Hey, calm down, Kris, don't sweat this" "KrisCasualHookupGoesWrong-worryAboutHer">><</link>>
 <<link "Fuck the toy, we don't need it to have a good time" "KrisCasualHookupGoesWrong-nevermind">><</link>>`
+    },
+    {
+        name: 'krisSafeWord',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KrisDate1')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `<<if $shyConfident > 1 || $submissiveDominant > 1>>
+“You hold the flimsy cardboard cup decidedly, tapping your foot as you run the conversation in your head. 
+<<else>>
+“You hold the flimsy cardboard cup nervously, taking quick constant small sips as you run the conversation in your head. 
+<</if>>
+It’s a weird subject, and not something you have any experience with. You unconsciously bit your lip, not sure if it’s out of arousal or anxiety as you extrapolate the consequences of this conversation. But it is what it is.<br><br>
+<<Dialogue "Kris" "Kris">>"Sup, gorgeous, glad to see you around!"<</Dialogue>><br><br>
+Kris pops out of nowhere, her hand squeezing your shoulder firmly as she grins mischievously.
+You sigh, bracing for your chance to breach the subject.<br><br>
+<<Dialogue "player" "You">>"Hey, Kris. Good to see you…"<</Dialogue>><br><br>
+Before you can continue, explaining how much you enjoyed the date, she cuts in, squeezing harder.<br><br>
+<<Dialogue "Kris" "Kris">>"What do you say I ditch this joint and we go have some more fun? Better yet, I think we can have a quickie in the pantry in the back."<</Dialogue>><br><br>
+<<if $shyConfident > 1 || $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Well, I certainly won’t fault you for your enthusiasm, Kris… but actually, that’s sort of why I’m here."<</Dialogue>><br><br> 
+<<else>>
+<<Dialogue "player" "You">>"Uh, wow… I’m flattered, Kris… really. Actually, that’s sort of why I’m here…"<</Dialogue>><br><br>  
+<</if>>
+She giggles excitedly, but then realizes that you don’t mean another casual fling, cocking her head, in confusion as she squints.<br><br>
+<<Dialogue "player" "You">>"Don’t get me wrong, I had A LOT of fun last time. Like… A LOT A LOT."<</Dialogue>><br><br>
+You can’t help but have a stupid smile on your face as the memories of the last date flood back. But you shake your head, and remind yourself what you came here to do.<br><br>
+<<Dialogue "player" "You">>"Uh… and I did enjoy myself a lot. So… I do think we might want to keep the doors open for… future rendezvous… rendezvouses? Rendezvousi? Whatever - most casual escapades, you know what I mean!"<</Dialogue>><br><br>
+Her smile confirms that she knows EXACTLY what you mean. So do her hands, which are not actively caressing your arm and leg in the least discreet way possible. You steel yourself, and just say what you came to say:<br><br>
+<<Dialogue "player" "You">>"So, I’d like to keep going out, but I do think we should lay out some things. For one, I’d like to be able to show up at your house after work hours for… fun times, if you don’t mind."<</Dialogue>><br><br> 
+<<Dialogue "Kris" "Kris">>"Mind? HAHAHAHAHAHA! You are HILARIOUS. I fucking INSIST you just drop there whenever you want."<</Dialogue>><br><br>
+<<if $shyConfident > 1 || $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"And I plan to. But on my terms, and you need to agree to them if you want a piece of THIS."<</Dialogue>><br><br> 
+<<if $muscle >= 40>>You flex your biceps under her hands for emphasis, spreading her fingers apart, and making her jaw drop.<</if>>
+<<else>>
+<<Dialogue "player" "You">>"Yeah, yeah, I know. But we should probably lay some ground rules, you know?"<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "Kris" "Kris">>"Uh, excuse me? What do you mean? It’s fucking sex, I’m pretty sure it doesn’t take rules to fuck."<</Dialogue>><br><br>
+You roll your eyes at Kris and her stereotypical punk attitude, and continue:<br><br>
+<<Dialogue "player" "You">>"Listen, we can keep this simple, then. I want to pick a safe word for our… encounters."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Safe word? Pffffft. Girl, I don’t think you could reach my limits if you TRIED!"<</Dialogue>><br><br>
+You look at her, trying to keep your expression as serious as you can.<br><br>
+<<Dialogue "player" "You">>"Yeah, you are tough, I get it. But I’m growing. Fast. I am surprising myself with it, frankly. The whole “not knowing their own strength” thing? I am not sure you appreciate how much that applies to me."<</Dialogue>><br><br>
+Then, to prove your point, <<if $muscle >= 90>>you easily bend the metal table in front of you with a loud creaking sound, and then back to its original shape.
+<<elseif $muscle >= 65>>you squeeze the metal sugar container in front of you, leaving the impression of your hand on it.
+<<elseif $muscle >= 45>>you stand up, and casually bend the metal frame of your chair like it was made of plastic.
+<<else>>you bend the metal spoon with your fingertips as if it was made of plastic.
+<</if>>
+ <<if $shyConfident > 1 || $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"I know you are a badass, but if I get any stronger, I can break your skinny ass in two without breaking a sweat."<</Dialogue>><br><br> 
+<<else>>
+<<Dialogue "player" "You">>"Look, it’s hard enough for me to deal with my strength, I need you to help me here."<</Dialogue>><br><br>  
+<</if>>
+Kris pouts like a little girl.<br><br>
+<<Dialogue "Kris" "Kris">>"Why can’t you just go HARD on me? I hate that people just assume I can’t take it."<</Dialogue>><br><br>
+
+
+<span id="choice">
+    <<link "You got this backwards - the safe word is for the OPPOSITE of that!">>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"I don’t think you get this, Kris. The safe word is not for me to go easier on you. It allows me to not have to worry about putting any limits, because it will be up to you."<</Dialogue>><br><br>  
+            And as you say the magic words, her eyes twinkle with the epiphany of the meaning of that.<br><br>
+            <<Dialogue "Kris" "Kris">>"BROCCOLI!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"No, actually, it’s hazelnut I had on this one."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"No, dipshit. The safe word. Broccoli. And I fucking expect you to go all out on me, you fucking hear?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I wouldn’t have it any other way."<</Dialogue>><br><br>
+            And with a naughty smile, you leave the Coffee Corner, purposefully leaving Kris wanting more. Little by little, you are learning how to lead her on, and it’s strangely exciting.
+            <<link "Continue" $currentScene>><</link>>
+        <</replace>>
+    <</link>>
+    <<link "Come on, do this for me! Please?">>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"Come on, can’t you take one for the team? I come in with the muscle, you just need to pick a word! Doesn’t feel like a bad trade, right?"<</Dialogue>><br><br>
+            Kris crosses her arms, huffing and rolling her eyes.<br><br>
+            <<Dialogue "Kris" "Kris">>"I suppose."<</Dialogue>><br><br>
+            She looks around, seeming extremely bored at the prospect of it.<br><br>
+            <<Dialogue "Kris" "Kris">>"I dunno, beans?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I mean, I suppose that works, but maybe just get something that stands out just a bit more?"<</Dialogue>><br><br> 
+            <<Dialogue "Kris" "Kris">>"Alright, alright…"<</Dialogue>><br><br>
+            She actually frowns and squints, seeming to think hard about it.<br><br>
+            <<Dialogue "Kris" "Kris">>"Broccoli. I don’t think I’ve ever even used that word since I was 12."<</Dialogue>><br><br>
+            You give her a big hug, squeezing her with all your might.<br><br>
+            <<Dialogue "Kris" "Kris">>"Ugh! BROCCOLI, BROCCOLI. *cough!*"<</Dialogue>><br><br>
+            You put her down with a smile.<br><br>
+            <<Dialogue "player" "You">>"See? That wasn’t too hard, was it?"<</Dialogue>><br><br>
+            She pulls her apron down, just to signal her displeasure (even though you are pretty sure she enjoyed the squishing).<br><br>
+            <<Dialogue "player" "You">>"So… I’ll be seeing you at your place some time in the future?"<</Dialogue>><br><br>
+            You say with a wink, as you pinch her ass. Kris jumps, but now with that thirsty smile back on her face.
+            <<Dialogue "Kris" "Kris">>"I’ll fucking hold you to that!"<</Dialogue>><br><br>
+            That taken care of, you leave the Coffee Corner, satisfied.
+            <<link "Continue" $currentScene>><</link>>
+        <</replace>>
+    <</link>>
+</span>`
     }
 )>>
 
