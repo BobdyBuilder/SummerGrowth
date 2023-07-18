@@ -18109,6 +18109,74 @@ And with that, dozens and dozens of $1 donations start popping up. A few $5 here
     <</replace>>
 <</link>>
 </span>`
+    },
+    {
+        name: 'krisAndHomeSecurity',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KrisInvadesHome'),
+            () => money >= 200
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `Feeling a bit uneasy from Kris and her last break-in, you decide that it’s time to beef up security for your apartment. Thankfully, there was a deadbolt that you found left in the closet, and Johan was nice enough to get you a nice modern biometric lock that works with fingerprints he had around. Given her obsessive nature, it doesn’t make three separate locks feel like overkill.<br><br>
+The first deadbolt is a simple task - just something you can screw directly on the door and wall - <<if $muscle > 80>>which you need to do with your fingers, because you accidentally broke the screwdriver with your colossal strength… oops!<<elseif $muscle > 50>>and given your crazy strength, you might have been able to just twist the screws in with your fingers, but you humble yourself to use the screwdriver. Still, the concrete wall gives in like butter.<<elseif $muscle > 30>>thankfully the building has some tools the tenants can borrow, and the power drill comes in hand for fastening the deadbolt to the concrete wall - still, your newfound strength helps a ton as well.<<else>>Despite borrowing the building’s power drill, your middling strength makes the task of fastening the deadbolt to the concrete wall a hard chore, and you are a sweaty mess by the time you are done.<</if>><br><br>
+Phew! Alright, the deadbolt is in. Next, the fingerprint lock... you manage to get the device placed on the door, but you realize you have zero idea how to program it. Johan probably has a manual or something? I guess it’s time to hit him up.<br><br>
+You head to his apartment, unaware of the silhouette peeping at you from the corridor as you go up the stairs…<br><br>
+You chat with Johan briefly, and the lil’ motormouth can’t help but recount the story of how he came across the lock, a hand-me-down from one of the members of the AV Club, but he realized he never was one to lock his door anyway as he is a firm believer in a open-door policy. But eventually you manage to wrestle the manual from him, which he sends as an electronic document to your phone. Nice, with this, you should be able to program the lock!<br><br>
+Except, when you get back to your apartment… the door is locked - and the fingerprint device is engaged, somehow? What the what?!?<br><br>
+You reach for your key, and hear the expected click. Then, on a whim, you put your thumb on the biometric device - and it blinks green and makes a loud whizzing sound, unlocking the door. Huh? You open the door, but it stops in its tracks by the door chain, which only allows you to peer into the apartment.<br><br>
+...<br><br>
+You don’t have a door chain. Or, at least, you didn’t when you left to go to Johan’s. You try to squeeze your hand in to open it, but it’s out of reach.<br><br>
+<<Dialogue "Kris" "Kris">>"Need some help?"<</Dialogue>><br><br>
+You turn around scared, slamming the door closed in the process, only to find a certain smirking barista lurking in the shadows of the corridor.<br><br>
+<<Dialogue "player" "You">>"What?!?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Here, let the grown-ups (heh!) handle this..."<</Dialogue>><br><br>
+She motions you out of way forcefully... <br><br>
+
+<span id="choice">
+	<<link "Uh, please, can you help a girl out?">>
+		<<replace "#choice">>
+            You step back, and Kris opens the main lock with a pin (what?) and then uses her own thumb to open the digital lock (WHAT?), before easily reaching inside and undoing the chain like it was nothing! She swings the door open in a matter of seconds with the smuggest expression you’ve ever seen, and walks inside before plopping herself comfortably on your recliner.<br><br>
+            It takes you a minute to properly process everything.<br><br>
+            <<Dialogue "player" "You">>"Wait, did you program the fingerprint lock while I was away for like 5 minutes? And you installed a chain lock... that you can easily open? Wait... AND YOU REGISTERED MY OWN FINGERPRINT?!?"<</Dialogue>><br><br>
+            Kris blows a dismissive raspberry as she waves, suggesting that it was child’s play. You just bring your palm to your face as you realize the main reason you upgraded your security might just be a moot case after all.<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, I gotta protect my assets, you know? Don’t want just anyone having access to these <humph!> goods."<</Dialogue>><br><br>
+            She bites her lips as she looks at your behind, eating you with her eyes.<br><br>
+            You throw your hands up in the air, frustrated. Kris, once again, reveals herself to be the unstoppable force of nature you always knew she was.<br><br>
+            <<Dialogue "player" "You">>"Why do I even bother?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"<<if $muscle >45 || $height >190>>Not that a BIG GIRL like yourself couldn’t take care of any intruders. I’m pretty sure you could DOMINATE anyone who came in, am I right? Why, I’d volunteer if you think you should run a drill to see how you’d react with an unexpected interloper...<<else>>I do value your security. Why, I already corrected most safety flaws, so not just anyone will be getting in your apartment.<</if>>"<</Dialogue>><br><br>
+            Rolling your eyes, you sort of accept that your apartment just may never be completely Kris-free.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<PersonalityCheck $submissiveDominant >= 2 "WTF? Thanks, but I’ll take care of this myself">>
+		<<replace "#choice">>
+            You stand your ground, however, 
+            <<if $muscle >75>>making a point of staying completely unmovable as she tries to shove you aside to reach the door. You didn’t expect her to be TURNED ON by that, but it’s a side-effect you’ll have to live with. Never breaking eye contact with her, with your best judgemental face, you just yank the whole door clean off its hinges. Kris shivers, her hands over her nether region over your display of strength and dominance, falling to the floor, presumably quite moistened.<br><br>
+            <<elseif $muscle >50>>making a point of staying completely unmovable as she tries to shove you aside to reach the door. You didn’t expect her to be TURNED ON by that, but it’s a side-effect you’ll have to live with. Keeping her at arm’s length, you open both external locks and then just yank the door and break the steel chain clean off. Kris shivers, mouth gaping and steaming over your display of strength.<br><br>
+            <<elseif $muscle <35 || $height >185>>you glare from your taller stature, making her stop cold. Without breaking eye contact, with your best judgemental face, you reopen both external locks, then use your lengthy limbs and extraordinary limber joints to reach the chain latch. It’s tricky and takes a while, but you aren’t about to let Kris have this victory. Well, except for the fact she looks extremely turned on by the little display you just put out.
+            <<else>>
+            with a sigh, you realize you don’t have many options. You tell her to stand still while you go around to squeeze in through the rather cramped ground window. You make your way out of the building and lay down on the ground, trying to squish your torso through the only viable aperture. But as your eyes adapt to the darker environment, you spot Kris eating some popcorn on your recliner. Of course.<br><br>
+            You fall down on the ground with a thump, and Kris seems to have very much enjoyed the little show you put for her. As you clean yourself, she offers you a handful of popcorn.  
+            <</if>>
+            <<Dialogue "player" "You">>"Look, I’m sure you’ve had a lot of fun today, but now I’d like some privacy, so... out you go."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Ain’t you gonna say please?"<</Dialogue>><br><br>
+            She bats her eyes repeatedly, trying to look cute. But you are done with this Krisfestation, and just grab her by the collar and put her in the hallway, hoping it will be the last time you see her today. Not holding your breath on that one, however.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            You try to stop Kris by putting your hands up, but she deftly dodges your attempt with a masterful feint, and with some swift movements she just opens both external locks, undoes the chain latch from outside, and pops the door open, before motioning you in like some sort of punk British butler.<br><br>
+            You sigh and roll your eyes. There’s no stopping this Krisfestation, is there? You walk in, defeated, as she closes the door from outside. At least she had the decency of giving you some privacy right now. And so you fall backwards onto your favorite recliner, trying to find solace that at least you got the new locks in.<br><br>
+            Until out of nowhere, Kris plops a bowl of popcorn on your lap, explaining with her mouth still full, that she left a spare emergency key under your pillow. Yeah, might as well give up on this one.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+</span>`
     }
 )>>
 
