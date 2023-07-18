@@ -18177,6 +18177,53 @@ She motions you out of way forcefully... <br><br>
 		<</replace>>
 	<</PersonalityCheck>>
 </span>`
+    },
+    {
+        name: 'krisStepsInforTheProtagonist',
+        locationTags: ['kris'],
+        conditions: [
+            () => ['A', 'B'].includes(State.variables?.flag?.KrisCasualHookupGoesWrongEnding),
+            () => setup.hasEventBeenTriggered('krisSteamyNight')
+                   || setup.hasEventBeenTriggered('krisWorshipsSize')
+                   || setup.hasEventBeenTriggered('krisCasualHookupGoesWrong')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `You cherish the sweet arome of the pineapple passionfruit iced tea with coconut milk, bringing your freshly-brewed drink to the last empty table at the Coffee Corner... when a rather large man just walks right in front of the chair, hip-checking you out of your precious seat as he takes it unceremoniously. <<if $muscle >= 50>>While your mass prevents you from actually being pushed away, it’s still incredibly rude - and he would be the one in trouble had you not become more careful since you’ve been getting so incredibly strong. Still, it causes a portion of your drink to spill on the ground.<<elseif $muscle >= 40>>You only get pushed a couple steps to the side, but your beffudlement at his complete lack of manners hits worse than the physical injury. And now half of your drink has spilled on the ground.<<else>>You fall to your butt, spilling almost all but a few sips of your drink, as he completely disregards the (admiteddly minor, but still completely inconsiderate) bodily injury he just caused.<</if>> The guy just talks on his phone as you glare angrily at him, and he just rolls his eyes. You raise your hands in the clearest “what the hell, dude?” signal you can muster, and he apologizes...<br><br>
+... loudly to the person he is talking on the phone, saying that ‘some bitch is just giving him a cold stare’ and it’s really bothering him. You feel your blood boiling, as you take a deep breath. <<if $shyConfident > 1 || $submissiveDominant > 1>>You get right up in his personal space, now noticing that he is a rather big and buff dude under the oversized track jacket, and tap him on the shoulder.<<else>>You don’t want to be overly confrontational, but you still don’t want to just let this slip. So you just keep looking at him, expecting at the very least some sort of further acknowledgement directed your way.<</if>> He never even gives a hint that he knows you are there.<br><br>
+You take another deep breath, and try to figure out how you are going to deal with this situation.<br><br>
+
+<span id="choice">
+	<<PersonalityCheck $shyConfident >= 2 "Oh, you shook the hornet’s nest, buddy.">>
+		<<replace "#choice">>
+            You don’t even stop to think as your instincts take over, and you grab the rude patron by the collar of his track jacket. <<if $muscle >= 70>>Surprisingly, he doesn’t seem fazed at all by the fact that you could probably lift him one-handed<<elseif $muscle >= 50 && $height >= 185>>Surprisingly, he doesn’t seem fazed at all by the fact that you are bigger than him<<else>>Still unable to even acknowledge you<</if>>, he just shoves you back without skipping a beat of the phone call. So you just dump the remainder of your drink over his phone and shoulder. THIS gets his attention, as he stands up and starts fuming.<br><br>
+            But as his face goes beet-red and he inhales in preparation for a shouting match, you hear some unexpected angry steps and someone comes in between the two of you.<br><br> 
+            <<link "Continue" "krisStepsInforTheProtagonist-2">><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Errr, uh, sir, I think you didn’t notice me there..."<</Dialogue>><br><br>
+            The guy just raises a shushing finger towards you, without even turning his head. Seems like this call is really important. You hesitate, gulping some air as you intend to just give him a piece of your mind, but the words never surface. Frustrated, you tighten your fists, but before you can do anything, you hear some angry steps from behind you.<br><br>
+            <<link "Continue" "krisStepsInforTheProtagonist-2">><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+
+	<<link "You know what? This asshole doesn’t even deserve my time.">>
+		<<replace "#choice">>
+            Trying to cool down and deescalate the situation, you relax your shoulders and count to five in your head. There are several words stuck on your throat, but you miraculously manage to hold them there to avoid making a bigger scene. You bring a forced smile to your face, and prepare to back away, when you hear some angry footsteps and someone bumps you on the shoulder on the way over.<br><br>
+            <<link "Continue" "krisStepsInforTheProtagonist-2">><</link>>
+		<</replace>>
+	<</link>>
+	<<link "Demanding an apology is the bare minimum.">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Hey, mister, I am willing to let you have the table, but can I at least get an apology for the spilled drink?"<</Dialogue>><br><br>
+            He just raises his hand, indicating for you to stop, without even looking at you. You angrily tap at his shoulder, and he covers the phone and whispers something about an important phone call before turning back. You can’t see it, but your face is quickly getting redder as your muscles tense and your breathing accelerates. You open your mouth as you are about to raise your voice, but you are interrupted by the sound of angry steps as you get pushed aside.<br><br>
+            <<link "Continue" "krisStepsInforTheProtagonist-2">><</link>>
+		<</replace>>
+	<</link>>
+</span>`
     }
 )>>
 
