@@ -2,9 +2,11 @@ name: Build Summer Growth
 on:
   push:
     paths:
+      - ".github/**"
       - "Working Files/**"
   pull_request:
     paths:
+      - ".github/**"
       - "Working Files/**"
   workflow_dispatch:
 
