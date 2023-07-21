@@ -3159,6 +3159,12 @@ inputs.onchange = function () {
 		  <td></td>
 		  <td></td>
 		</tr>
+        <td>potion crafting</td>
+		  <td><<link "unlock potion crafting" "Cheats">><<set $furniture.push("distilation still")>><</link>></td>
+		  <td><<link "unlock all recipes" "Cheats">><<script>>State.variables.potionIngredientCombinations.forEach(e => e.discovered = true);<</script>><</link>></td>
+		  <td><<link "add 10 of every potion" "Cheats">><<script>>State.variables.consumables.forEach(element => element.amount = 5);<</script>><</link>></td>
+		  <td></td>
+		</tr>
 		<tr>
 </table>
 
@@ -3533,7 +3539,9 @@ $(".macro-live").trigger(":liveupdateinternal");
                                         text = "<br><br>" + State.variables.consumables[index].CraftingDescription;
                                     }
 
-                                    new Wikifier(dialog, "You learned a new combination! You note it down; <br>" +
+                                    new Wikifier(dialog,  +
+                                        
+                                        "You learned a new combination! You note it down; <br>" +
                                         State.variables.selectedIngredientNameOne + " + " +
                                         State.variables.selectedIngredientNameTwo + "= <br>" +
                                         State.variables.potionIngredientCombinations[i].resultDesc + text
@@ -6173,7 +6181,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     {
         ingredientOne: 'MuscleIngredient',
         ingredientTwo: 'FeminineIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Temp-shy").amount += 1},
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Shy").amount += 1},
         discovered: false,
         pinned: false,
         resultDesc: 'Temp-shy'
@@ -6197,7 +6205,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     {
         ingredientOne: 'SlowIngredient',
         ingredientTwo: 'SubmissiveIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Temp-sub").amount += 1},
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Sub").amount += 1},
         discovered: false,
         pinned: false,
         resultDesc: 'Temp-sub'
@@ -6297,6 +6305,15 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         discovered: false,
         pinned: false,
         resultDesc: 'Insta-fat'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'InstantIngredient',
+        effect: () => {State.variables.potionIngredients.push("PermanentIngredient");
+                State.variables.potionIngredients.push("PermanentIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'PermanentIngredient (2x)'
     }
     
 ]>>
@@ -7261,7 +7278,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ]
     },
     {
-        name: "Perm-sub",
+        name: "Perm-Sub",
         description: "A rather understated drink, that despite its seemingly simple taste has hidden notes to it. It feels mellow and relaxing, but also safe.",
         transform: "instantTempDominant",
         ingredients: [
@@ -7289,36 +7306,18 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
             }
         ]
     },
-    /* Work from here bob 
-    
-    perm-shy
-perm-con
-perm-care
-perm-carl
-
-Insta-muscle
-Insta-height
-Insta-breasts
-Insta-dick
-Insta-balls
-Insta-fat*/
-
-    
-    
-    
     {
-        name: "Temp-Dom",
-        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
-        transform: "instantTempDominant",
+        name: "Perm-Shy",
+        description: "This drink needs to be observed to really notice anything about it; neither thin nor thick, not really smelling of anything except maybe a hint of cinnemon. Yet for its lack of apperent flavor, there is plenty hidden there.",
         ingredients: [
-            "SlowIngredient",
-            "ConfidentIngredient",
+            "PermanentIngredient",
+            "ShyIngredient",
             "ConfidentIngredient",
             "ShyIngredient"
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
-		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
+		CraftingDescription: "The recipe is a bit harder to mix than the other variants; it's like the recipe hides a bit. But once you measure everything out, shake it a bit, it mixes quite easily.",
         uses: 0,
         price: 100,
         forSale: 0,
@@ -7327,102 +7326,202 @@ Insta-fat*/
         dropRate: 0.5,
         effects: [
             {
-                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
-                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
-                shortDescription: () => "Temporarily makes you more dominant",
-                chance: 1,
-                discovered: false
-            }
-        ]
-    },,
-    {
-        name: "Temp-Dom",
-        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
-        transform: "instantTempDominant",
-        ingredients: [
-            "SlowIngredient",
-            "ConfidentIngredient",
-            "ConfidentIngredient",
-            "ShyIngredient"
-        ],
-        amount: 0, 
-		FirstTimeDrink: true, 
-		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
-        uses: 0,
-        price: 100,
-        forSale: 0,
-        settings: [],
-        HideInStores: true,
-        dropRate: 0.5,
-        effects: [
-            {
-                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
-                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
-                shortDescription: () => "Temporarily makes you more dominant",
-                chance: 1,
-                discovered: false
-            }
-        ]
-    },,
-    {
-        name: "Temp-Dom",
-        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
-        transform: "instantTempDominant",
-        ingredients: [
-            "SlowIngredient",
-            "ConfidentIngredient",
-            "ConfidentIngredient",
-            "ShyIngredient"
-        ],
-        amount: 0, 
-		FirstTimeDrink: true, 
-		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
-        uses: 0,
-        price: 100,
-        forSale: 0,
-        settings: [],
-        HideInStores: true,
-        dropRate: 0.5,
-        effects: [
-            {
-                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
-                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
-                shortDescription: () => "Temporarily makes you more dominant",
-                chance: 1,
-                discovered: false
-            }
-        ]
-    },,
-    {
-        name: "Temp-Dom",
-        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
-        transform: "instantTempDominant",
-        ingredients: [
-            "SlowIngredient",
-            "ConfidentIngredient",
-            "ConfidentIngredient",
-            "ShyIngredient"
-        ],
-        amount: 0, 
-		FirstTimeDrink: true, 
-		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
-        uses: 0,
-        price: 100,
-        forSale: 0,
-        settings: [],
-        HideInStores: true,
-        dropRate: 0.5,
-        effects: [
-            {
-                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
-                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
-                shortDescription: () => "Temporarily makes you more dominant",
+                code: () => "<<set $shyConfident -= 1>>",
+                description: () => "Another really smooth, really PLEASANT drink. You feel more relaxed after, and your head feels clearer. A small headache lingers for a few seconds but fades, taking something with it though you can't quite place what.",
+                shortDescription: () => "Permanently makes you more shy.",
                 chance: 1,
                 discovered: false
             }
         ]
     },
+    {
+        name: "Perm-Con",
+        description: "Spicey, forward, and downright presenting itself. Yeah, with this drink you don't have to guess what the strong sour and sweet flavors mean; boldness. And you know its here to stay if you drink it.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "PermanentIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The moment you mix the ingredients together, the entire apperatus shakes and fizzles, before it utterly flattens down to tell you its done. Neat.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $shyConfident += 1>>",
+                description: () => "You knew what you were getting into when you drank this; the bold flavor, the lingering aftertaste, the small headache... as you drain it you grin, and know you can take on the world just that little bit better!",
+                shortDescription: () => "Permanently makes you more confident.",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Care",
+        description: "You don't care enough to really describe this. It tastes nice.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "How do you make this? yeah, you don't care to remember.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $carefreeCarefull -= 1>>",
+                description: () => "You drink it. And tbh, you throw the can away and don't care about how it tasted.",
+                shortDescription: () => "Makes you more carefree. or something.",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Carl",
+        description: "A precisely and accuretely measured drink.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you begin to mix the ingredients in your trusty jug, the first thing you notice is the faint smell of sweetness that fills the air. You carefully pour in a measure of the syrupy liquid, watching as it swirls around the jug, coating the sides with a thick film. The carbonation bubbles rise to meet the surface of the syrup, creating a delicate froth that clings to the rim of the jug. With a steady hand, you slowly sprinkle in a pinch of spices - a delicate mixture of nutmeg, cinnamon, and clove. Each spice adds its own distinct layer of flavor, blending together like a masterpiece of taste. The syrupy sweet smell of the liquid grows stronger as you stir the mixture, creating a fragrant aroma that fills the air.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                description: () => "As you raise the soda to your lips, the first thing you notice is the gentle fizz that dances along the rim of the glass. You take a small sip, letting the bubbles tickle the tip of your tongue before the flavor washes over your senses. At first, there's a delicate hint of sweetness, as though you're tasting the essence of a honeyed flower, but then a complex layer of spices unfolds - notes of citrus, ginger, and cloves swirl together, forming a symphony of flavor on my palate. The texture is smooth and airy, with a soft, creamy mouthfeel that blends perfectly with the delicate carbonation.",
+                shortDescription: () => "Permanently makes you more careful",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Insta-muscle",
+        description: "The drink is a bright blue color, almost like a gemstone or a priceless diamond. It sparkles with energy, and you can almost feel the carbonation fizzing on your tongue. The flavor is intense and intoxicating, like a combination of berry, vanilla, and mint, with a slight hint of peppermint.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "MuscleIngredient",
+            "PermanentIngredient",
+            "ConfidentIngredient",
+            "HeightIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You only need to do a bit of work for this drink, but the moments the fumes hit you you instantly feel alive. Strong. POWERFUL. Oh, you can't wait to drink this!",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => `<<set $muscle += 5>>`,
+                description: () => `As you take a sip of the soda, you feel a sensation unlike any other. The carbonation hits your tongue, and you can feel it bubbling like a volcano about to erupt. Then, something extraordinary begins to happen - your muscles start to grow at a breathtaking speed. In just a matter of seconds, you feel as though you've been pumped full of the strongest steroids imaginable.
 
+                Your shoulders broaden, and your chest swells outwards. The veins in your arms and biceps begin to bulge as though they're ready to burst at any moment. You can feel the power coursing through your body, and it's like you can do anything - run faster than a speeding train, lift a car with one arm, or brawl with a bear and win. It's like you're a superhero, and you can't get enough of this incredible sensation.
+
+                But the growth doesn't stop there - it only gets more intense. Your chest balloons out, and your biceps grow visibly bigger. You can feel the weight of your muscles pulling on your bones, and it's almost too much to bear. But you love it - you love the feeling of becoming something more than human, something more than mortal.
+
+                It's like you're a god, and anything is possible. You can do anything, go anywhere, and conquer whatever you set your mind to. You've never felt so alive, so powerful, so unstoppable - and it's all thanks to this incredible drink. After you've downed it all the feeling resides, and though you're not as big as you felt one thing is certain; you're bigger.`,
+                shortDescription: () => "Instantly adds more muscle",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Insta-height",
+        description: "The drink is rather milky, but has a nice smell to it. It almost reminds you of banana, but not the fake banana flavor; the genuine thing. ",
+        transform: "instantTempDominant",
+        ingredients: [
+            "MuscleIngredient",
+            "PermanentIngredient",
+            "ConfidentIngredient",
+            "HeightIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "This one is special; as you pour in the first ingredient, nothing much happens. But the moment you pour in the second, the first ingredient almost reaches out to gobble it up! A bit touches your hand, and you felt a small electric zapp!",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => `<<set $height += 5>>`,
+                description: () => `As you take a sip of the concoction, you feel a tingling sensation in your mouth, almost as though your tongue is being electrified. Your taste buds are assaulted by a riot of flavor, causing your senses to come alive in a way that you've never experienced before. The bubbles in the concoction burst against your tongue, releasing an explosion of flavor that radiates through your entire body like a wave of pure energy.
+
+                Suddenly, you feel a strange sensation in your bones. It's as though they're elongating, stretching your body like a piece of rubber. As you look in the mirror, you notice that you've grown two inches taller in a matter of seconds. Your muscles bulge, your chest swells, and your shoulders broaden. It's like you've been transformed into a superhero, with incredible strength and agility. The sensation is indescribable, a rush of power that fills you with excitement and a sense of accomplishment.
+
+                But the effects of the concoction don't stop there. You feel a sudden burst of energy that propels you forward, giving you the ability to run faster than you ever thought possible. Your movements are fluid and graceful, like a ballet dancer in full flight. The feeling quickly fades, but one thing doesn't; you being taller.`,
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Insta-breasts",
+        description: "This just smells and looks like double instant heavy cream! ",
+        transform: "instantTempDominant",
+        ingredients: [
+            "MuscleIngredient",
+            "PermanentIngredient",
+            "ConfidentIngredient",
+            "HeightIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "Though you're adding two clear ingredients together, adding them instantly makes them pale white and thicken into a thick cream. As you stir it you feel the weight and fattyness of it increasing - interesting.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => `<<set $breasts += 5>>`,
+                description: () => `As you swig the contents of the potion-like flask, you can feel its power coursing through your veins. It's as though the substance is alive, pulsing with energy as it flows through your body. And as you swallow, you feel a strange sensation in your chest. It's as though a force is acting upon your breasts, causing them to shift and expand. Suddenly, your chest grows bigger, puffing out and bulging in a way that makes you almost catch your breath.
+
+                The sensation is intense, almost overwhelming, as your body continues to grow and swell. Your breasts bulge and your skin stretches, causing your shirt to tighten around your chest. As the potion wears off you need to catch your breath, noticing how much heavier your breasts feel.`,
+                chance: 1,
+                discovered: false
+            }
+        ]
+    }
+    /* Work from here bob  
+Insta-dick
+Insta-balls
+Insta-fat*/
     ]>>
 
 /* consumables deck */
@@ -20148,31 +20247,102 @@ timeBox.addEventListener('change', (event) => {
 
 <<set setup.endings to [
     {
-        name: 'stuckWarning_1',
+        name: 'MuscleStuckWarning_1',
         header: 'Warning!',
         warning: true,
         triggers: [
-            () => false
+            () => State.variables.muscle >= 100
         ],
-        content: ''
+        content: `As you go about your daily life, you've been noticing more and more struggles with your huge frame. While the drinks you've been taking have changed your life, maintaining that life has become harder and harder. The amount of food, the amount of new clothing you need... and not only that, but you're drawing so much atteniton that a normal life is almost impossible. Youre having a lot of fun... but if you want to continue having fun with your summer growth it might be smart slow down, or its game over.`
     },
     {
-        name: 'stuckWarning_2',
-        header: '',
+        name: 'MuscleStuckWarning_2',
+        header: 'Warning!',
         warning: true,
         triggers: [
-            () => false
+            () => State.variables.muscle >= 120
         ],
-        content: ''
+        content: `Despite the earlier warning, you kept growing. And its really taking its toll now; slowly you're turning into a massive meatball, and despite what you though earlier its not THAT fun. Your mobility is starting to get restricted as your insane thighs rub together, your arms can only lower so much... If you want to continue your fun this summer, you GOT to stop. Otherwise, its game over.`
     },
     {
-        name: 'stuck_Ending',
+        name: 'Muscle_ending',
         header: 'Game Over!',
         warning: false,
         triggers: [
-            () => State.variables.money < 100 && setup.isOutfitNude() && State.variables.debug != "true"
+            () => tags().includes("home") && State.variables.muscle >= 130 && State.variables.debug != "true"
         ],
-        content: 'stuck'
+        content: `Well, here you are. At home. Somehow, with clothing that still fits you. But as you move your arm up as far as it will go, you realize you've made a bit of a mistake, and taken it too far. Sure, you've beaten every world record for size. You're the biggest woman, or man, or person, to have ever existed. You're a monstrous meatball of muscle. And thats good, sort of.
+        
+        But now? yeah, you're too big. Immobile. Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'FatStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.fat >= 90
+        ],
+        content: `With your recent increases in mass, you can't help but notice life is getting a BIT more difficult. Sure, you feel fine and your healt is good. But with the sheer girth of your body, doing everyday things is becoming a bit difficult to manage. You might want to tone it down a bit or loose some weight, or your summer of growth could be over for you.`
+    },
+    {
+        name: 'FatStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.fat >= 100
+        ],
+        content: `Your continued increasing your girth, and it has been having more and more of an impact. Things like doors are a remarkable challenge, together with finding the clothing to suite you or places you can fit. Yeah, this is getting out of hand and if you want your summer of growth to continue you need to slow down...
+        
+        or its game over.`
+    },
+    {
+        name: 'Fat_Ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.fat >= 120 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Somehow, with clothing that still fits you. Looking at the fridge that you cannot reach anymore due to your gigantic bulk. You know, its kinda hard to imagine this being your downfall; your own size. Though you gave a mighty struggle, you can no longer fit into normal life... you'd need help. This size used to be perfect.
+        
+        But now? yeah, you're too big. Immobile. Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'HeightStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.height >= 230
+        ],
+        content: `Lately you've been the talk of the town. Wherever you go, you'll find people talking about you, whispering as you stroll past. Each step makes you tower over people, and you're clearly the tallest in town. But, this attention is intervering with your day to day life now. Wherever you go, you're the center of attention. You don't fit through doors. Your bed is too small. And while these may be problems to solve in the long term, it might seriously intervere with your summer of growth.`
+    },
+    {
+        name: 'HeightStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.height >= 250
+        ],
+        content: `As your heigth has been increasing, so have your daily problems. Doors. Fitting in rooms. You're realizing you're very much forgetting what you came here for, and with a body this big it's almost become impossible to really fit in anymore. If you keep growing, most rooms won't fit you ESPECIALLY considering your general bulk. Yeah, if you want this summer of growth to continue, you got to slow this down.`
+    },
+    {
+        name: 'Height_Ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.fat >= 120 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Hunched over, sitting on the couch. Hands on your knees, and just kinda fiddling here. You got to, as there is very little you can otherwise do. You can no longer life in your own home, as it has gotten way too small. Everything is too small for you. Or you, you got too big. Looking around, pehaps it was an act of hubris getting this big as there is simply no way to do anything anymore. 
+        
+        Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'BreastsStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.breasts >= 100
+        ],
+        content: `Lately you've been the talk of the town. Wherever you go, you'll find people talking about you, whispering as you stroll past. Or rather, the two things on your chest. Its a small wonder people still recognize your face, considering how much those two massive tits seem to draw attention. Sometimes you feel like you're more tit than person to some people. `
     }
 ]>>
 
@@ -30104,7 +30274,7 @@ Rolling your eyes, you sigh and decide to leave before you say anything else eve
 
 :: EndingManager {"position":"1925,3500"}
 <<script>>
-if(State.variables.endingWarningsUsed = undefined){
+if(State.variables.endingWarningsUsed == undefined){
     State.variables.endingWarningsUsed = [];
 }
 
@@ -30114,6 +30284,10 @@ for (let i = 0; i < setup.endings.length; i++) {
         var ending = setup.endings[i];
 
         if (ending.content === "") {
+            continue;
+        }
+
+        if(State.variables.endingWarningsUsed.indexOf(ending.name) != -1){
             continue;
         }
 
@@ -30135,7 +30309,8 @@ for (let i = 0; i < setup.endings.length; i++) {
         }
 
         if(useable){
-            if(ending.warning && !State.variables.endingWarningsUsed.indexOf(ending.name) > -1){
+            console.log(ending);
+            if(ending.warning && State.variables.endingWarningsUsed.indexOf(ending.name) == -1){
                 if (Dialog.isOpen() == false) {
                     var dialog = Dialog.setup(ending.header);
                     new Wikifier(dialog, ending.content);
