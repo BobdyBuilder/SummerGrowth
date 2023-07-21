@@ -2655,6 +2655,11 @@ At <<heighNumeral>> tall, your height no longer makes any sense! You can walk ou
 :: travel [nobr] {"position":"1125,800","size":"100,100"}
 <<set _day to $gameDate.getDay()>>
 
+<<if (!setup.hasEventBeenTriggered(krisSteamyNight) || !setup.hasEventBeenTriggered(krisWorshipsSize) || !setup.hasEventBeenTriggered(krisCasualHookupGoesWrong) || !setup.hasEventBeenTriggered(krisSafeWord)) && $eventCounter > setup.eventTresshold>>
+    <<gameLink "You could visit Kris for some... FUN." "KrisHomeDialogScene" time:40>><</gameLink>>
+<br><br>
+<</if>>
+
 <<gameLink "Go visit the gym" "gym" time:20>><</gameLink>>
 <br><br>
 <<gameLink "Go Jogging" "Jogging" time:60 minExhaustion:20 exhaustion:30 motivation:20>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
@@ -17714,9 +17719,9 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
     },
     {
         name: 'krisSteamyNight',
-        locationTags: ['kris'],
+        locationTags: ['KrisHome'],
         conditions: [
-            () => false /* TODO FIXME */
+            () => setup.hasEventBeenTriggered('KrisDate1')
         ],
         repeatable: false,
         retriggerable: false,
@@ -17848,9 +17853,9 @@ You can feel the heartbeats from Kris laying on your, her blood about to boil. M
     },
     {
         name: 'krisWorshipsSize',
-        locationTags: ['kris'],
+        locationTags: ['KrisHome'],
         conditions: [
-            () => false /* TODO FIXME */
+            () => setup.hasEventBeenTriggered('KrisDate1')
         ],
         repeatable: false,
         retriggerable: false,
@@ -17995,9 +18000,9 @@ You watch her content smile under her closed eyes, face completely covered in sw
     },
     {
         name: 'krisCasualHookupGoesWrong',
-        locationTags: ['kris'],
+        locationTags: ['KrisHome'],
         conditions: [
-            () => false /* TODO FIXME */
+            () => setup.hasEventBeenTriggered('KrisDate1')
         ],
         repeatable: false,
         retriggerable: false,
@@ -18924,6 +18929,7 @@ As she walks, looking distractedly at you, Kris accidentally steps on the rope t
 
 :: KrisDialogScene [kris noReturnDialog] {"position":"2200,1625","size":"100,100"}
 
+:: KrisHomeDialogScene [KrisHome noReturnDialog] {"position":"2200,1625","size":"100,100"}
 
 :: removeTrigger [widget nobr] {"position":"125,2250","size":"100,100"}
 <<widget removeTrigger>>
