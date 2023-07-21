@@ -4035,7 +4035,17 @@ This is Allison's Apparel, one of the few remaining clothing stores here that's 
     <</script>>
 <</if>>
 
+<<if $moneyWarningCountDown == undefined>>
+    <<set $moneyWarningCountDown to 0>>
+<</if>>
 
+<<if $moneyWarningCountDown != undefined && $moneyWarningCountDown > 0>>
+    <<set $moneyWarningCountDown -= 1>>
+<</if>>
+
+<<if $money > (($muscle - 20) * 2 + ($fat -20) * 2 + ($height - 150) * 2)>>
+    <<set $moneyWarningCountDown to 99999>>
+<</if>>
 <</widget>>
 <</nobr>>
 
@@ -21363,7 +21373,7 @@ timeBox.addEventListener('change', (event) => {
         header: 'Game Over!',
         warning: false,
         triggers: [
-            () => tags().includes("home") && State.variables.fat >= 120 && State.variables.debug != "true"
+            () => tags().includes("home") && State.variables.height >= 120 && State.variables.debug != "true"
         ],
         content: `Well, here you are. At home. Hunched over, sitting on the couch. Hands on your knees, and just kinda fiddling here. You got to, as there is very little you can otherwise do. You can no longer life in your own home, as it has gotten way too small. Everything is too small for you. Or you, you got too big. Looking around, pehaps it was an act of hubris getting this big as there is simply no way to do anything anymore. 
         
@@ -21376,7 +21386,63 @@ timeBox.addEventListener('change', (event) => {
         triggers: [
             () => State.variables.breasts >= 100
         ],
-        content: `Lately you've been the talk of the town. Wherever you go, you'll find people talking about you, whispering as you stroll past. Or rather, the two things on your chest. Its a small wonder people still recognize your face, considering how much those two massive tits seem to draw attention. Sometimes you feel like you're more tit than person to some people. `
+        content: `Lately you've been the talk of the town. Wherever you go, you'll find people talking about you, whispering as you stroll past. Or rather, the two things on your chest. Its a small wonder people still recognize your face, considering how much those two massive tits seem to draw attention. Sometimes you feel like you're more tit than person to some people. Its a lot of fun, but if you want to continue your summer of growth than maybe you should lay off a bit.`
+    },
+    {
+        name: 'BreastsStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.breasts >= 120
+        ],
+        content: `Despite knowing you maybe should stop, you still kept expanding your chest. Reaching things has become a lot more difficult, and though you by some miracle still have a spine daily life is getting a lot more difficult. This is your last chance to decide to stop growing, or your summer of growth will be over...`
+    },
+    {
+        name: 'Breasts_Ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.breasts >= 120 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Standing in the doorframe with your tits resting against the doorframe. Well, that's quite the pickle. You jiggle a bit, back and forth. Yeah, this is not going to work. You're trapped in here. And even if your breasts could fit through, the way people treat you right now is not the most solid foundation for a summer of fun.  
+        
+        Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'Money_warning1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money
+        ],
+        content: `Your funds are starting to get really low. If you don't watch out, your summer of fun might come to a premature ending. <<set $moneyWarningCountDown to 2>><<set $moneyWarning1 to true>>`
+    },
+    {
+        name: 'Money_warning2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money && State.variables.moneyWarningCountDown != undefined && State.variables.moneyWarningCountDown <= 0 && State.variables.moneyWarning1 == true
+        ],
+        content: `Your funds are starting to get really low. If you don't watch out, your summer of fun might come to a premature ending. <<set $moneyWarningCountDown to 2>><<set $moneyWarning1 to true>>`
+    },
+    {
+        name: 'Money_warning3',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money && State.variables.moneyWarningCountDown != undefined && State.variables.moneyWarningCountDown <= 0 && State.variables.moneyWarning2 == true
+        ],
+        content: `Your funds are starting to get really low. If you don't watch out, your summer of fun might come to a premature ending. This is the final warning.<<set $moneyWarningCountDown to 2>><<set $moneyWarning3 to true>>`
+    },
+    {
+        name: 'MoneyEnding',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money && State.variables.moneyWarningCountDown != undefined && State.variables.moneyWarningCountDown <= 0 && State.variables.moneyWarning3 == true
+        ],
+        content: `You realize that you're out of funds. In the next few days its very likely that you won't have enough to buy clothing, rent, food... Before you collegue advenure started, you're broke and will have to go me. This is the end of your summer of growth...`
     }
 ]>>
 
