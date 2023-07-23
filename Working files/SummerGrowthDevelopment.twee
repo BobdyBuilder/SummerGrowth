@@ -2655,7 +2655,7 @@ At <<heighNumeral>> tall, your height no longer makes any sense! You can walk ou
 :: travel [nobr] {"position":"1125,800","size":"100,100"}
 <<set _day to $gameDate.getDay()>>
 
-<<if (!setup.hasEventBeenTriggered(krisSteamyNight) || !setup.hasEventBeenTriggered(krisWorshipsSize) || !setup.hasEventBeenTriggered(krisCasualHookupGoesWrong) || !setup.hasEventBeenTriggered(krisSafeWord)) && $eventCounter > setup.eventTresshold>>
+<<if (!setup.hasEventBeenTriggered("krisSteamyNight") || !setup.hasEventBeenTriggered("krisWorshipsSize") || !setup.hasEventBeenTriggered("krisCasualHookupGoesWrong") || !setup.hasEventBeenTriggered("krisSafeWord")) && $eventCounter > (setup.eventTresshold /2)>>
     <<gameLink "You could visit Kris for some... FUN." "KrisHomeDialogScene" time:40>><</gameLink>>
 <br><br>
 <</if>>
@@ -17729,7 +17729,7 @@ console.log("carefree/carefull: " + carefreeCarefullStat);
     },
     {
         name: 'krisSteamyNight',
-        locationTags: ['KrisHome'],
+        locationTags: ['KAppartment'],
         conditions: [
             () => setup.hasEventBeenTriggered('KrisDate1')
         ],
@@ -17863,7 +17863,7 @@ You can feel the heartbeats from Kris laying on your, her blood about to boil. M
     },
     {
         name: 'krisWorshipsSize',
-        locationTags: ['KrisHome'],
+        locationTags: ['KAppartment'],
         conditions: [
             () => setup.hasEventBeenTriggered('KrisDate1')
         ],
@@ -18010,7 +18010,7 @@ You watch her content smile under her closed eyes, face completely covered in sw
     },
     {
         name: 'krisCasualHookupGoesWrong',
-        locationTags: ['KrisHome'],
+        locationTags: ['KAppartment'],
         conditions: [
             () => setup.hasEventBeenTriggered('KrisDate1')
         ],
@@ -18939,7 +18939,7 @@ As she walks, looking distractedly at you, Kris accidentally steps on the rope t
 
 :: KrisDialogScene [kris noReturnDialog] {"position":"2200,1625","size":"100,100"}
 
-:: KrisHomeDialogScene [KrisHome noReturnDialog] {"position":"2200,1625","size":"100,100"}
+:: KrisHomeDialogScene [KAppartment noReturnDialog] {"position":"2200,1625","size":"100,100"}
 
 :: removeTrigger [widget nobr] {"position":"125,2250","size":"100,100"}
 <<widget removeTrigger>>
@@ -21373,7 +21373,7 @@ timeBox.addEventListener('change', (event) => {
         header: 'Game Over!',
         warning: false,
         triggers: [
-            () => tags().includes("home") && State.variables.height >= 120 && State.variables.debug != "true"
+            () => tags().includes("home") && State.variables.height >= 275 && State.variables.debug != "true"
         ],
         content: `Well, here you are. At home. Hunched over, sitting on the couch. Hands on your knees, and just kinda fiddling here. You got to, as there is very little you can otherwise do. You can no longer life in your own home, as it has gotten way too small. Everything is too small for you. Or you, you got too big. Looking around, pehaps it was an act of hubris getting this big as there is simply no way to do anything anymore. 
         
