@@ -7510,6 +7510,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
                 Suddenly, you feel a strange sensation in your bones. It's as though they're elongating, stretching your body like a piece of rubber. As you look in the mirror, you notice that you've grown two inches taller in a matter of seconds. Your muscles bulge, your chest swells, and your shoulders broaden. It's like you've been transformed into a superhero, with incredible strength and agility. The sensation is indescribable, a rush of power that fills you with excitement and a sense of accomplishment.
 
                 But the effects of the concoction don't stop there. You feel a sudden burst of energy that propels you forward, giving you the ability to run faster than you ever thought possible. Your movements are fluid and graceful, like a ballet dancer in full flight. The feeling quickly fades, but one thing doesn't; you being taller.`,
+                shortDescription: () => "Instantly increases height",
                 chance: 1,
                 discovered: false
             }
@@ -7540,6 +7541,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
                 description: () => `As you swig the contents of the potion-like flask, you can feel its power coursing through your veins. It's as though the substance is alive, pulsing with energy as it flows through your body. And as you swallow, you feel a strange sensation in your chest. It's as though a force is acting upon your breasts, causing them to shift and expand. Suddenly, your chest grows bigger, puffing out and bulging in a way that makes you almost catch your breath.
 
                 The sensation is intense, almost overwhelming, as your body continues to grow and swell. Your breasts bulge and your skin stretches, causing your shirt to tighten around your chest. As the potion wears off you need to catch your breath, noticing how much heavier your breasts feel.`,
+                shortDescription: () => "Instantly increases breast size.",
                 chance: 1,
                 discovered: false
             }
@@ -18229,7 +18231,7 @@ And with that, dozens and dozens of $1 donations start popping up. A few $5 here
         locationTags: ['kris'],
         conditions: [
             () => setup.hasEventBeenTriggered('KrisInvadesHome'),
-            () => money >= 200
+            () => State.variables.money >= 200
         ],
         repeatable: false,
         retriggerable: false,
@@ -21265,10 +21267,10 @@ timeBox.addEventListener('change', (event) => {
 	gymExhaustionPerWorkout: 35,
 	gymMinimumExhaustionPerWorkout: 30,
 	baseWorkoutTime: 90,
-	muscleAllowancePerDay: 1,
+	muscleAllowancePerDay: 0.9,
 	musclePotionsAllowancePerDay: 0.8,
-	heightAllowancePerDay: 4.5,
-	breastAllowancePerDay: 0.8,
+	heightAllowancePerDay: 4,
+	breastAllowancePerDay: 0.7,
 	/* money */
 	baseMoneyPerDay: 100,
     bulkBarnJobIncome: function () {
@@ -21277,8 +21279,8 @@ timeBox.addEventListener('change', (event) => {
            }
            return Math.round(100 + (100 / 3 * State.variables.skills[0].level) + (100 / 3 * State.variables.skills[1].level) + (100 / 5 * State.variables.skills[2].level));
        },
-	baseIncomePerStream: 5,
-	moneyPerBoxShifted: 3,
+	baseIncomePerStream: 4,
+	moneyPerBoxShifted: 4,
 	eventTresshold: 10,
 	/* Lactation */
 	lactationTressholdNeeded: 5,
