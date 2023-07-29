@@ -289,7 +289,7 @@ text-align: left;
 	background-size: contain;
 }
 
-.player {
+.player, .youngPlayer {
 	background-color: #13689E;
 }
 .player .avatar {
@@ -298,6 +298,14 @@ text-align: left;
   	float: left;
   	margin: 0px 10px 0px 0px;
 }
+
+.youngPlayer .avatar {
+  background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Young_mc.png);
+  	float: left;
+  	margin: 0px 10px 0px 0px;
+}
+
 .Johan, .JohanFancy {
 	background-color: #1C9E5B;
 }
@@ -434,7 +442,7 @@ text-align: left;
 	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/johanFriend2.png);
 }
 
-.Natalie {
+.Natalie, .youngNatalie{
 	background-color: #9E6413;
 }
 
@@ -443,13 +451,18 @@ text-align: left;
 	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Nate_fem.png);
 }
 
-.Nathan {
+.Nathan, .youngNat {
 	background-color: #9E6413;
 }
 
 .Nathan .avatar {
 	background-color: white;
 	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Nate_mal.png);
+}
+
+.youngNat .avatar{
+    background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/young_nate.png);
 }
 
 .\?\?\? {
@@ -8389,7 +8402,7 @@ Summer Growth
 <<if $gameStarted is true>>
 <<link "skills & traits" "CharacterSheet">><</link>>
 <<link "Goals" "questlog">><</link>>
-<<if $debug is "true">><<link "Cheats" "Cheats">><</link>><</if>>
+<<if $debug is "true">><<link "Debug commands">><<set _cheatPassword to prompt("Please input the password.")>><<if btoa(_cheatPassword) == "OVVOZ0FXPjVxNU5KL25TRA==">><<goto "Cheats">><</if>><</link>><</if>>
 <</if>>
 <<link "Settings" "Settings">><</link>>
 <<link "Credits" "Credits">><</link>>
@@ -9454,7 +9467,10 @@ This determines the gender of the rival you will encounter.
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow, owwwww… my hand!"<</Dialogue>><br><br>
             As <<rivalI>> opens <<rivalMy>> eyes, your noses almost touching, your gazes meet… and the two of you remember something that happened many years ago…
             <div class="boxShadow">You were 8 years old, having fun with your neighbor in the nearby woods. <<RivalI>> teased you for being a scaredy cat, and you decided to prove <<rivalMy>> wrong by climbing a tall tree. You were doing pretty well, too… but a squirrel ran past your hand… and you just remember the world turning into a blur.<br><br>
-            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<RivalI>> leans on top of you, hugging you and apologizing…</div>
+            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<RivalI>> leans on top of you, hugging you and apologizing…
+            <<Dialogue "youngPlayer" "Young you">>"Oh gosh I'm so sorry..."<</Dialogue>><br><br>
+            <<Dialogue "youngNat" setup.getRivalName()>>"O-Ow that hurts... M-my hand..."<</Dialogue>>
+            </div>
             <<Dialogue "player" "You">>"Nat?!?"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow… <<print $playerFirstName>>?!?"<</Dialogue>><br><br>
             You get off Nat's chest, and <<rivalI>>'s still rubbing <<rivalMy>> left wrist. <<RivalI>> seems to have landed awkwardly on it.<br><br>
@@ -11658,25 +11674,25 @@ His blush deepens, getting dangerously close to purple territory, but his panic 
     You make sure to pick a sporty and skin-hugging outfit that properly accentuates your best newfound assets - <<if $muscle >= 45>>and after a quick flex, you smile as you realize you can see every contour of your burgeoning muscles.<</if>><<if $dick > 9>>A quick look at your crotch confirms that your bulge is hard to ignore.<</if>> You give a last spin in front of the mirror, confident that your outfit will turn a few heads - or at least the specific one you want to.
 <</if>><br><br>
 Happy with your looks, you walk towards the building door, where you find someone waiting for you - but you need to do a double-take before you realize who it is. Whoa, it looks like Johan also went all out for this date!<br><br>
-<<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"<<print $playerFirstName>>?"<</Dialogue>><br><br>
 You smile as you approach Johan, who is wearing a formal white shirt (complete with pens in his pocket) and dress pants - he looks like the stereotype of an IT worker, which you assume to be his attempt at looking fancy. It’s kind of adorable, frankly. GASP! He even seems to have combed his hair (though it still maintains a certain air of unruliness, and you pity the poor brush that had to face such a mighty opponent). He also seems to have ditched his glasses in favor of contacts, and put on some nice cologne. You approach him, unable to hide your silly smile.<br><br>
-<<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>? Is that you? <<if $muscle >= 45 || $breasts >= 45 || $height >= 195>>I’m guessing so from your unique figure. <</if>>I am actually asking, I can’t really see very well without my glasses?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"<<print $playerFirstName>>? Is that you? <<if $muscle >= 45 || $breasts >= 45 || $height >= 195>>I’m guessing so from your unique figure. <</if>>I am actually asking, I can’t really see very well without my glasses?"<</Dialogue>><br><br>
 You notice his eyes having a hard time focusing on you, as he sort of squints while you approach.<br><br>
-<<Dialogue "Johan" "Johan">>"I tried ordering some contact lenses, but I lost them on the sink, and then I couldn’t find my glasses either, now I’m kinda lost here but... it IS you, right? I just feel like it is you."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"I tried ordering some contact lenses, but I lost them on the sink, and then I couldn’t find my glasses either, now I’m kinda lost here but... it IS you, right? I just feel like it is you."<</Dialogue>><br><br>
 You approach the little dork and give him a peck on the cheek. Wow, he REALLY went in for the cologne. It does smell good, it’s just... he seems to have applied it with a ladle instead of a sprayer.<br><br>
 <<Dialogue "player" "You">>"Yeah, it is me, silly. You look really nice, by the way."<</Dialogue>><br><br>
 Johan blushes, smiling in your general direction. It feels a bit like he’s looking at those hidden 3D images, not quite focusing on you.<br><br>
 <<Dialogue "player" "You">>"Do you want me to go up and find your glasses for you?"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Nah, I don’t want to be late for our reservation. Let’s just get going, I can see... mostly."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Nah, I don’t want to be late for our reservation. Let’s just get going, I can see... mostly."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"<<if $shyConfident > 1 || $submissiveDominant > 1>>Oh, no, I’m not going on a date with you and not letting you see how I look, here, give me your keys, I’ll find your stuff!<<else>>Sorry, I can’t in good conscience let you out without the ability to see. Can I have your keys? I’ll be in an out and we can get going - you won’t even notice.<</if>>"<</Dialogue>><br><br>
 He grabs the keys from his pocket and hands it to you. You rush up, anxious to get going, and after traversing a tactile cloud of cologne, you find a case of contact lenses on the bathroom sink, as he said, and bring it down to him. He fumbles it a little bit, but manages to get them on, and as he looks at you, his jaw drops. You blush a little bit, and extend your hand, which he gladly grabs as you two get going.<br><br>
 It’s surprisingly chilly for summer as the sun lowers in the horizon, <<if $shyConfident > 0>>and you just wrap your arm around Johan’s, coming closer to him. You can hear him audibly gulping, which just makes him seem even more adorable.<<else>>and you are giddy to hold hands with your favorite nerd. Both of you seem to avoid each other’s gaze, still somewhat embarrassed and unsure on how to proceed. But you give his hand a squeeze, and he squeezes back, bringing smiles to both of your faces.<</if>><br><br>
 It’s hard to describe why you are so excited, but you feel butterflies fluttering in your stomach from this simple act of just walking hand in hand. <<if $muscle >= 50 || $height >= 200>>It’s true that Johan’s palm is swimming in your larger hand, which makes you feel somewhat protective of him - it’s not something you ever thought of, but it also makes you feel all fuzzy. <<if $height >= 205>>The only downside is that the considerable height gap between the two of you makes leaning so he can hold your hand a bit awkward.<</if>><</if>> Occasionally, you two turn your heads to look at each other, taking turns at opening your mouths but never quite managing to say anything meaningful, and then sort of just giggling at how silly you are. If it was someone else, you might think they are crazy, but you two are in heaven during this stroll.<br><br>
 That changes, however, once Johan puts his hand free hand in his pants pocket. You can clearly see him getting more fiddly, and constantly checking it. Something is bothering him, and you can’t just ignore that.<br><br>
 <<Dialogue "player" "You">>"Is something wrong?"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"N-no, it’s nothing. Sorry."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"N-no, it’s nothing. Sorry."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Johan, what is bothering you? You can tell me."<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Ha, it’s silly. It’s just, this restaurant is a bit on the pricier side, so I took some money out to pay for dinner, and I’m just not used to walking around with so much cash - so I keep checking that I still got my wallet, y’know."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Ha, it’s silly. It’s just, this restaurant is a bit on the pricier side, so I took some money out to pay for dinner, and I’m just not used to walking around with so much cash - so I keep checking that I still got my wallet, y’know."<</Dialogue>><br><br>
 
 
 <span id="choice">
@@ -11685,24 +11701,24 @@ That changes, however, once Johan puts his hand free hand in his pants pocket. Y
             <<if $money >= 50>>
                 <<Dialogue "player" "You">>"I mean, I’m flattered, Johan, but I wasn’t expecting you to foot the bill all by yourself! Just because I’m a woman doesn’t mean I can’t afford my own meals!"<</Dialogue>><br><br>
                 This gets him completely off-guard. His entire body stiffens, and his eyes bug out even more than usual.<br><br>
-                <<Dialogue "Johan" "Johan">>"No, I wasn’t implying that you couldn’t, I just... wanted to do something nice, it has NOTHING to do with you being a woman. I mean, sure, I WAS trying to be a gentleman but... not in a sexist way or anything! I think you are just capable as I am! <<if $muscle >= 50>>If anything, you are probably twice as capable as I am in pretty much any physical task!<<elseif $skills[2].level > 3>>Heck, I am pretty sure you are better with finances than I am!<</if>>"<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"No, I wasn’t implying that you couldn’t, I just... wanted to do something nice, it has NOTHING to do with you being a woman. I mean, sure, I WAS trying to be a gentleman but... not in a sexist way or anything! I think you are just capable as I am! <<if $muscle >= 50>>If anything, you are probably twice as capable as I am in pretty much any physical task!<<elseif $skills[2].level > 3>>Heck, I am pretty sure you are better with finances than I am!<</if>>"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"<<if $shyConfident > 1>>You got that right! <<if $muscle >= 50>>Now I’m kinda hoping someone tries to mug us, I wouldn’t mind showing off these muscles I got!<</if>><<else>>Hey, don’t put yourself down, Johan! I certainly think you bring a lot to the table, all I am saying is that we can face this as partners, not like I depend on you, that’s all.<</if>>"<</Dialogue>><br><br>
                 Johan smiles and nods. But you can feel that something is changed - this exchange got him in a more pensive mood.<<set $flag.johanDatePensive to true>><br><br>
                 <<Dialogue "player" "You">>"Hey, cheer up!"<</Dialogue>><br><br>
                 Johan raises his chin, his bright smile fully restored.<br><br>
-                <<Dialogue "Johan" "Johan">>"No need to say that twice! I realize I am really blessed to have someone like you in my life!"<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"No need to say that twice! I realize I am really blessed to have someone like you in my life!"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Same here! I am really glad I met you, Johan!"<</Dialogue>><br><br>
                 He beams with pride, and squeezes your hand, as you finish making your way to the restaurant.<br><br>
             <<else>>
                 <<Dialogue "player" "You">>"I mean, I’m flattered, Johan, but I wasn’t expecting you to foot the bill all by yourself! Just because I’m a woman doesn’t mean I can’t a... fford... my... own... How much do you figure it’s going to cost?"<</Dialogue>><br><br>
-                <<Dialogue "Johan" "Johan">>"I checked the reviews online, I’m guessing it’s going to be like 50 bucks per person?"<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"I checked the reviews online, I’m guessing it’s going to be like 50 bucks per person?"<</Dialogue>><br><br>
                 You blush heavily, realizing that this might be a bit more than you can afford right now. Wincing, you didn’t expect to bite your tongue this early into the date.<br><br>
                 <<Dialogue "player" "You">>"I’m not imposing if I ask you to pay for me, right?"<</Dialogue>><br><br>
                 Johan smiles, proudly, as he says with a lot of gusto:<br><br>
-                <<Dialogue "Johan" "Johan">>"Hey, I was the one who invited you - I got this. Best money I have ever spent, if you ask me!"<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"Hey, I was the one who invited you - I got this. Best money I have ever spent, if you ask me!"<</Dialogue>><br><br>
                 You turn around in front of Johan, and just squeeze him into a tight hug<<if $height >= 180 && $muscle >= 50>>, lifting him off the ground in the process<</if>>. He lets out a wheezing laugh, and you let go of him, knowing deep inside that he wouldn’t make fun of your faux pas.<br><br>
                 <<Dialogue "player" "You">>"You sure this isn’t going to keep you from getting any figures you really wanted or anything like that?"<</Dialogue>><br><br>
-                <<Dialogue "Johan" "Johan">>"No figure, comic or LARPing accessory is worth missing an opportunity to spend some quality time with you, <<print $playerFirstName>>!"<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"No figure, comic or LARPing accessory is worth missing an opportunity to spend some quality time with you, <<print $playerFirstName>>!"<</Dialogue>><br><br>
                 He says it super casually, but you are almost floating on air right now. You squeeze his palm, as the both of you approach the restaurant.<br><br>
             <</if>>
 
@@ -11715,21 +11731,21 @@ That changes, however, once Johan puts his hand free hand in his pants pocket. Y
 		<<replace "#choice">>
             <<Dialogue "player" "You">>"Wow, look at the gentleman here! I should have performed a curtsy or something when I met you back at the building, milord!"<</Dialogue>><br><br>
             Johan starts doing a mock British accent and moving his elbows like a really bad impression of an elderly investment banker.<br><br>
-            <<Dialogue "Johan" "Johan">>"Why, me mum used to tell me that I was jolly good at treating the ladies, she did! Aye, tis a bloody shame that I haven’t taken one out for supper before!"<</Dialogue>><br><br>
+            <<Dialogue "JohanFancy" "Johan">>"Why, me mum used to tell me that I was jolly good at treating the ladies, she did! Aye, tis a bloody shame that I haven’t taken one out for supper before!"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"You have no idea how British people speak, do you?"<</Dialogue>><br><br>
-            <<Dialogue "Johan" "Johan">>"None whatso-fucking-ever!!!"<</Dialogue>><br><br>
+            <<Dialogue "JohanFancy" "Johan">>"None whatso-fucking-ever!!!"<</Dialogue>><br><br>
             He admits, before both of you laugh until you run out of breath.<br><br>
-            <<Dialogue "Johan" "Johan">>"But, in all seriousness, I do think it’s important to treat women right. There’s a lot of people in campus that aren’t exactly what I would describe as examples of maturity, and I’ve seen some girls being treated very poorly, and it makes me feel bad. You know, as someone who might kinda stand out as being a bit nerdy, I know pretty well what it’s like being treated poorly."<</Dialogue>><br><br>
+            <<Dialogue "JohanFancy" "Johan">>"But, in all seriousness, I do think it’s important to treat women right. There’s a lot of people in campus that aren’t exactly what I would describe as examples of maturity, and I’ve seen some girls being treated very poorly, and it makes me feel bad. You know, as someone who might kinda stand out as being a bit nerdy, I know pretty well what it’s like being treated poorly."<</Dialogue>><br><br>
             Whoa, things took a bit of a dark turn there. You wrap your arm around Johan’s shoulder and pull him in closer.<br><br>
             <<if $carefreeCarefull < -1>>
                 <<Dialogue "player" "You">>"Well, I’m making a promise to you, right here, right now!"<</Dialogue>><br><br>
                 Johan looks expectantly at you. With your most serious expression, you say, enunciating every word very clearly.<br><br>
                 <<Dialogue "player" "You">>"I am never gonna give you up, never gonna let you down, never gonna run around and desert you!"<</Dialogue>><br><br>
                 As you finish, you start doing a little dance. This makes Johan burst out in laughter.<br><br>
-                <<Dialogue "Johan" "Johan">>"You are so silly. I love it."<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"You are so silly. I love it."<</Dialogue>><br><br>
             <<else>>Johan still smiles, but there’s a sour note to it. Not quite willing to let this go, you tell him:<br><br>
                 <<Dialogue "player" "You">>"Well, you’ve always treated ME right. It was great that you were so excited to share all your passion for your hobbies with me. It would mean the world if you would let me return the favor."<</Dialogue>><br><br>
-                <<Dialogue "Johan" "Johan">>"Really? What are your hobbies?"<</Dialogue>><br><br>
+                <<Dialogue "JohanFancy" "Johan">>"Really? What are your hobbies?"<</Dialogue>><br><br>
                 He is genuinely curious. You didn’t quite think this through, though. What ARE your hobbies?
                 <<if $skills[1].level > 4>>
                     You really have gotten into cooking lately, and you realize just how much you’ve been enjoying that.<br><br>
@@ -11752,10 +11768,10 @@ That changes, however, once Johan puts his hand free hand in his pants pocket. Y
                     The more you think, the more you convince yourself you haven’t really followed anything you’ve done with the proper passion. It makes you anxious even thinking about it, and reminds you why you moved out of your parents’s house to go to college. You still need to find yourself, and it looks like you haven’t quite managed it yet.<br><br>
                 <</if>> 
             <</if>> 
-            <<Dialogue "Johan" "Johan">>"Not that it matters, I’d join you even if what you wanted to do was parachute into a pool of laser sharks."<</Dialogue>><br><br>
+            <<Dialogue "JohanFancy" "Johan">>"Not that it matters, I’d join you even if what you wanted to do was parachute into a pool of laser sharks."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Can you please stop being so charming? You are making me look bad!"<</Dialogue>><br><br>
             You say, blushing, as you cover your face.<br><br>
-            <<Dialogue "Johan" "Johan">>"Hey, not my fault you are so awesome, I’m just reporting you the fact."<</Dialogue>><br><br>
+            <<Dialogue "JohanFancy" "Johan">>"Hey, not my fault you are so awesome, I’m just reporting you the fact."<</Dialogue>><br><br>
             You sigh, deeply and content, and squeeze Johan’s hand. The restaurant is just a block away now, but you kinda wish this stroll could just last forever.<br><br>
             <<link "Continue" "johanDate2-atTheRestaurant">><</link>>
 		<</replace>>
@@ -11777,11 +11793,11 @@ Pretty much every fiber of your being is dreading making that trip up the stairs
 You get to his door, which is surprisingly fully closed. You raise your fist to knock, but once again hesitate. Taking a deep breath and raising yourself a dozen times to your tiptoes as you build courage, you grimace, and finally rap your knuckles against the door.<br><br>
 You think about calling his name, but you decide to give it some time, hoping he’ll just shout back casually. Instead, you hear some footsteps approaching. Each makes your stomach churn more, as you tighten your fists in anticipation.<br><br>
 The door finally opens slightly, with that familiar pair of blue eyes staring at you - but without the usual sparkle you got so used to.<br><br>
-<<Dialogue "JohanFancy" "Johan>>"Hey, <<print $playerFirstName>>, you need something?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan>>"Hey, <<print $playerFirstName>>, you need something?"<</Dialogue>><br><br>
 You feel no malice or resentment in his tone, but the guy is clearly not the energetic and excitable dude you would expect to find. He smiles at you, but it still feels like being stabbed in the chest, because you feel directly responsible for him not being that uncontrollable ball of nerd cheer.<br><br>
 <<Dialogue "player" "You">>"Uh, so, last time, I left and I said some stuff, I really didn’t want to leave things hanging like that."<</Dialogue>><br><br>
 Deep inside, you expected Johan to just laugh it off, but you can sense a bit of melancholy behind his happy façade. He still doesn’t fully open the door, which makes you painfully aware that he still feels hurt.<br><br>
-<<Dialogue "JohanFancy" "Johan>>"Nah, I think you were right. I do need to grow a spine. I had some time to think, and I suppose you were right - I might just have been barricading myself behind my hobbies, because deep inside I knew I wasn’t cut out for this."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan>>"Nah, I think you were right. I do need to grow a spine. I had some time to think, and I suppose you were right - I might just have been barricading myself behind my hobbies, because deep inside I knew I wasn’t cut out for this."<</Dialogue>><br><br>
 
 <span id="choice">
 	<<PersonalityCheck $shyConfident >= 2 "No, Johan, listen here, you need to start believing in yourself!">>
@@ -11790,16 +11806,16 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
             <<Dialogue "player" "You">>"I am not going to dance around it. I got jealous, okay? You know why? Because I was spooked you had found someone and wouldn’t have time for me anymore, and I didn’t want to have to deal with the idea of sharing you with someone else. You know why? Because you are a great guy - energetic, passionate, funny, REALLY smart, and just fun to be with. Am I making myself clear now?"<</Dialogue>><br><br>
             You find yourself almost panting, your breathing is so fast and deep, close to hyperventilation, <<if $muscle >= 50 && $height >= 170>>and you have involuntarily lifted the poor guy off the ground by his shoulders, <</if>>as Johan looks back at you, a mix of confusion, fear and bittersweet happiness. Before he can answer, you bring him in for a very tight hug.<br><br>
             Johan mumbles something, but he hugs you back before he actually properly articulates himself.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"T-t-thank you for the vote confidence. It does mean a lot to me, <<print $playerFirstName>>. But that doesn’t change the fact that I kinda had to hear that anyway. I had some time to think, and I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, you know, I guess made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"T-t-thank you for the vote confidence. It does mean a lot to me, <<print $playerFirstName>>. But that doesn’t change the fact that I kinda had to hear that anyway. I had some time to think, and I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, you know, I guess made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Johan..."<</Dialogue>><br><br>
             And then, as you let go of him, he takes a step back and you see the good old Johan, with a big smile as bright as the sun.<br><br>
             <<Dialogue "player" "You">>"Still, I do owe you an apology for saying hurtful things in a moment of weakness. You didn’t deserve that."<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"<<if $muscle >= 55>>You talking about a moment of weakness? Am I the only one to see the irony?<</if>> Uh, will you make you feel better if I say apology accepted?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"<<if $muscle >= 55>>You talking about a moment of weakness? Am I the only one to see the irony?<</if>> Uh, will you make you feel better if I say apology accepted?"<</Dialogue>><br><br>
             The comment makes both of you giggle. You feel a huge weight off your back, and the air seems to have cleared between the two of you.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Seriously, no worries. We are good. And maybe both of us learned important lessons, so it probably was for the better."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Seriously, no worries. We are good. And maybe both of us learned important lessons, so it probably was for the better."<</Dialogue>><br><br>
             You give Johan a playful mock punch on the shoulder. <<if $muscle >= 40 && $carefreeCarefull < 2>>Still, you don’t quite know your own constantly-increasing strength, and Johan takes a step back not to fall down. You really should be more careful with that.<</if>><br><br>
             <<Dialogue "player" "You">>"See, I told you how awesome you are, and here you go proving me right. Sooooo... we good for some hanging out this week?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"I wouldn’t want it any other way."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"I wouldn’t want it any other way."<</Dialogue>><br><br>
             You nod, and make your way back to your apartment, feeling much better about yourself. You really don’t deserve Johan.
 			<<link "Continue" $currentScene>><</link>>
 		<</replace>>
@@ -11808,28 +11824,28 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
             You awkwardly try to push your way into the apartment, <<if $muscle >= 45>>pushing the door and making Johan fall in the process. Dang, that’s no way to present an apology! You help him up, but it just seems to make him more hesitant.<<else>>attempting to shove your foot in the door to get in, but all you manage is to hit your forehead against the wood, which makes you scream in pain. Johan, concerned, opens the door and brings you in, trying to see if you are okay. Great! Not embarrassing at all, <<print $playerFirstName>>.<</if>><br><br>
             <<Dialogue "player" "You">>"Look, I’m making enough of a fool of myself here, Johan. My point is, I was being stupid because I was vulnerable, and I said stuff I shouldn’t have. It had NOTHING to do with who you are, which is my best friend since I moved here, okay?"<</Dialogue>><br><br>
             Johan looks at you, with increasing concern.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"You were worried about me?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"You were worried about me?"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"I mean, duh? You might not have noticed, but you’ve basically been my best friend and partner in crime since I moved here. You are my ride or die, Johan. Why do you think I freaked out when you suggested you were going on a date with someone else?!?"<</Dialogue>><br><br>
             And then you can see it in his eyes, something clicks when you say that, and he just started laughing. He slaps your back, and comes in for a hug.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Oh, <<print $playerFirstName>>, I guess this whole thing was just a big misunderstanding. Really, don’t sweat it, okay? We are good. Better than good, even!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Oh, <<print $playerFirstName>>, I guess this whole thing was just a big misunderstanding. Really, don’t sweat it, okay? We are good. Better than good, even!"<</Dialogue>><br><br>
             You take a step back, confused. Why is he being so nice? Not that you are going to question that, you just want to make it up to him right now. So you just try to make sure:<br><br>
             <<Dialogue "player" "You">>"Wait, so you aren’t made at me for saying all that shit? I still feel horrible, I really didn’t even mean that, it was just I was..."<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Don’t sweat it. I kinda had to hear that anyway, so it was for the best. I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Don’t sweat it. I kinda had to hear that anyway, so it was for the best. I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
             You blink repeatedly. Wow, Johan really is growing up. You don’t see the dorky teen, but a grown man. It does not make the sting of having flubbed that hurt any less, but you can’t help but feel good for the lil’ guy.<br><br>
             <<Dialogue "player" "You">>"So, we good?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"We more than good!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"We more than good!"<</Dialogue>><br><br>
             He offers his hand for a handshake. You kinda wanted something more, but it will have to do. You owe it to him. And so you offer your hand in return.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"<<if $muscle >= 45>>Wow, huh, that is one FIRM handshake! Did I ever mention that you are hella strong?!? Still...<</if>> Glad to settle this. Don’t lose sleep over it, at the end of the day, you helped me grow as a person. I really had to face that sooner or later."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"<<if $muscle >= 45>>Wow, huh, that is one FIRM handshake! Did I ever mention that you are hella strong?!? Still...<</if>> Glad to settle this. Don’t lose sleep over it, at the end of the day, you helped me grow as a person. I really had to face that sooner or later."<</Dialogue>><br><br>
             Your lips tighten as you try your best to look happy for him - which you are, even if you wanted a different outcome. You let go of him hand, and come in for a tight hug.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Oh, huh, okay. <<if $muscle >= 45>>Can you, just, loosen it a little bit? I can feel my vertebrae groaning a bit under the pressure...<</if>> Yeah, I’m good with a hug. Anyone ever tell you that you give the best hugs?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Oh, huh, okay. <<if $muscle >= 45>>Can you, just, loosen it a little bit? I can feel my vertebrae groaning a bit under the pressure...<</if>> Yeah, I’m good with a hug. Anyone ever tell you that you give the best hugs?"<</Dialogue>><br><br>
             You giggle, and let go of him. How is it that Johan just makes you feel good, no matter what?<br><br>
             <<Dialogue "player" "You">>"I came here trying to apologize and make you feel better, and in the end I was on the receiving end of the pep talk. How pathetic is that?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Hey, don’t go steal my thunder now! I’m supposed to be the adorkable one, remember? I ain’t relinquishing that title any time soon!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Hey, don’t go steal my thunder now! I’m supposed to be the adorkable one, remember? I ain’t relinquishing that title any time soon!"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"How come you always know exactly what to say to make me feel better?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"That goes both ways. I am really happy you moved here. I don’t think I tell you that enough."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"That goes both ways. I am really happy you moved here. I don’t think I tell you that enough."<</Dialogue>><br><br>
             An awkward pause goes on for forever as neither of you know what to say next.<br><br>
             <<Dialogue "player" "You">>"Well, uh, I need to go back to my apartment now... w-would you mind if I, huh, showed up later to hang out?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"You kiddin’ me? It hasn’t been the same here without you. Don’t you dare not to pop up unannounced like you always do!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"You kiddin’ me? It hasn’t been the same here without you. Don’t you dare not to pop up unannounced like you always do!"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Deal! I’ll see you around the, Johan. Take care!"<</Dialogue>><br><br>
             You leave, closing the door behind you. It is a huge weight off your shoulders, but why does it feel like a crappy resolution to this whole affair? Well, at least you still have your good friend to count on going forward.
 			<<link "Continue" $currentScene>><</link>>
@@ -11842,16 +11858,16 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
             <<Dialogue "player" "You">>"I am not going to dance around it. I got jealous, okay? You know why? Because I was spooked you had found someone and wouldn’t have time for me anymore, and I didn’t want to have to deal with the idea of sharing you with someone else. You know why? Because you are a great guy - energetic, passionate, funny, REALLY smart, and just fun to be with. Am I making myself clear now?"<</Dialogue>><br><br>
             You find yourself almost panting, your breathing is so fast and deep, close to hyperventilation, <<if $muscle >= 50 && $height >= 170>>and you have involuntarily lifted the poor guy off the ground by his shoulders, <</if>>as Johan looks back at you, a mix of confusion, fear and bittersweet happiness. Before he can answer, you bring him in for a very tight hug.<br><br>
             Johan mumbles something, but he hugs you back before he actually properly articulates himself.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"T-t-thank you for the vote confidence. It does mean a lot to me, <<print $playerFirstName>>. But that doesn’t change the fact that I kinda had to hear that anyway. I had some time to think, and I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, you know, I guess made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"T-t-thank you for the vote confidence. It does mean a lot to me, <<print $playerFirstName>>. But that doesn’t change the fact that I kinda had to hear that anyway. I had some time to think, and I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, you know, I guess made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Johan..."<</Dialogue>><br><br>
             And then, as you let go of him, he takes a step back and you see the good old Johan, with a big smile as bright as the sun.<br><br>
             <<Dialogue "player" "You">>"Still, I do owe you an apology for saying hurtful things in a moment of weakness. You didn’t deserve that."<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"<<if $muscle >= 55>>You talking about a moment of weakness? Am I the only one to see the irony?<</if>> Uh, will you make you feel better if I say apology accepted?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"<<if $muscle >= 55>>You talking about a moment of weakness? Am I the only one to see the irony?<</if>> Uh, will you make you feel better if I say apology accepted?"<</Dialogue>><br><br>
             The comment makes both of you giggle. You feel a huge weight off your back, and the air seems to have cleared between the two of you.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Seriously, no worries. We are good. And maybe both of us learned important lessons, so it probably was for the better."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Seriously, no worries. We are good. And maybe both of us learned important lessons, so it probably was for the better."<</Dialogue>><br><br>
             You give Johan a playful mock punch on the shoulder. <<if $muscle >= 40 && $carefreeCarefull < 2>>Still, you don’t quite know your own constantly-increasing strength, and Johan takes a step back not to fall down. You really should be more careful with that.<</if>><br><br>
             <<Dialogue "player" "You">>"See, I told you how awesome you are, and here you go proving me right. Sooooo... we good for some hanging out this week?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"I wouldn’t want it any other way."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"I wouldn’t want it any other way."<</Dialogue>><br><br>
             You nod, and make your way back to your apartment, feeling much better about yourself. You really don’t deserve Johan.
 			<<link "Continue" $currentScene>><</link>>
 		<</replace>>
@@ -11860,28 +11876,28 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
             You awkwardly try to push your way into the apartment, <<if $muscle >= 45>>pushing the door and making Johan fall in the process. Dang, that’s no way to present an apology! You help him up, but it just seems to make him more hesitant.<<else>>attempting to shove your foot in the door to get in, but all you manage is to hit your forehead against the wood, which makes you scream in pain. Johan, concerned, opens the door and brings you in, trying to see if you are okay. Great! Not embarrassing at all, <<print $playerFirstName>>.<</if>><br><br>
             <<Dialogue "player" "You">>"Look, I’m making enough of a fool of myself here, Johan. My point is, I was being stupid because I was vulnerable, and I said stuff I shouldn’t have. It had NOTHING to do with who you are, which is my best friend since I moved here, okay?"<</Dialogue>><br><br>
             Johan looks at you, with increasing concern.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"You were worried about me?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"You were worried about me?"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"I mean, duh? You might not have noticed, but you’ve basically been my best friend and partner in crime since I moved here. You are my ride or die, Johan. Why do you think I freaked out when you suggested you were going on a date with someone else?!?"<</Dialogue>><br><br>
             And then you can see it in his eyes, something clicks when you say that, and he just started laughing. He slaps your back, and comes in for a hug.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Oh, <<print $playerFirstName>>, I guess this whole thing was just a big misunderstanding. Really, don’t sweat it, okay? We are good. Better than good, even!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Oh, <<print $playerFirstName>>, I guess this whole thing was just a big misunderstanding. Really, don’t sweat it, okay? We are good. Better than good, even!"<</Dialogue>><br><br>
             You take a step back, confused. Why is he being so nice? Not that you are going to question that, you just want to make it up to him right now. So you just try to make sure:<br><br>
             <<Dialogue "player" "You">>"Wait, so you aren’t made at me for saying all that shit? I still feel horrible, I really didn’t even mean that, it was just I was..."<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Don’t sweat it. I kinda had to hear that anyway, so it was for the best. I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Don’t sweat it. I kinda had to hear that anyway, so it was for the best. I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, made me feel insecure. And it’s something I gotta deal with."<</Dialogue>><br><br>
             You blink repeatedly. Wow, Johan really is growing up. You don’t see the dorky teen, but a grown man. It does not make the sting of having flubbed that hurt any less, but you can’t help but feel good for the lil’ guy.<br><br>
             <<Dialogue "player" "You">>"So, we good?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"We more than good!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"We more than good!"<</Dialogue>><br><br>
             He offers his hand for a handshake. You kinda wanted something more, but it will have to do. You owe it to him. And so you offer your hand in return.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"<<if $muscle >= 45>>Wow, huh, that is one FIRM handshake! Did I ever mention that you are hella strong?!? Still...<</if>> Glad to settle this. Don’t lose sleep over it, at the end of the day, you helped me grow as a person. I really had to face that sooner or later."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"<<if $muscle >= 45>>Wow, huh, that is one FIRM handshake! Did I ever mention that you are hella strong?!? Still...<</if>> Glad to settle this. Don’t lose sleep over it, at the end of the day, you helped me grow as a person. I really had to face that sooner or later."<</Dialogue>><br><br>
             Your lips tighten as you try your best to look happy for him - which you are, even if you wanted a different outcome. You let go of him hand, and come in for a tight hug.<br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Oh, huh, okay. <<if $muscle >= 45>>Can you, just, loosen it a little bit? I can feel my vertebrae groaning a bit under the pressure...<</if>> Yeah, I’m good with a hug. Anyone ever tell you that you give the best hugs?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Oh, huh, okay. <<if $muscle >= 45>>Can you, just, loosen it a little bit? I can feel my vertebrae groaning a bit under the pressure...<</if>> Yeah, I’m good with a hug. Anyone ever tell you that you give the best hugs?"<</Dialogue>><br><br>
             You giggle, and let go of him. How is it that Johan just makes you feel good, no matter what?<br><br>
             <<Dialogue "player" "You">>"I came here trying to apologize and make you feel better, and in the end I was on the receiving end of the pep talk. How pathetic is that?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"Hey, don’t go steal my thunder now! I’m supposed to be the adorkable one, remember? I ain’t relinquishing that title any time soon!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"Hey, don’t go steal my thunder now! I’m supposed to be the adorkable one, remember? I ain’t relinquishing that title any time soon!"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"How come you always know exactly what to say to make me feel better?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"That goes both ways. I am really happy you moved here. I don’t think I tell you that enough."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"That goes both ways. I am really happy you moved here. I don’t think I tell you that enough."<</Dialogue>><br><br>
             An awkward pause goes on for forever as neither of you know what to say next.<br><br>
             <<Dialogue "player" "You">>"Well, uh, I need to go back to my apartment now... w-would you mind if I, huh, showed up later to hang out?"<</Dialogue>><br><br>
-            <<Dialogue "JohanFancy" "Johan>>"You kiddin’ me? It hasn’t been the same here without you. Don’t you dare not to pop up unannounced like you always do!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan>>"You kiddin’ me? It hasn’t been the same here without you. Don’t you dare not to pop up unannounced like you always do!"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Deal! I’ll see you around the, Johan. Take care!"<</Dialogue>><br><br>
             You leave, closing the door behind you. It is a huge weight off your shoulders, but why does it feel like a crappy resolution to this whole affair? Well, at least you still have your good friend to count on going forward.
 			<<link "Continue" $currentScene>><</link>>
@@ -11892,22 +11908,22 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
                 You throw your hands up, frustrated, as words start spewing off of your mouth before you can barely process what it is you are saying.<br><br>
                 <<Dialogue "player" "You">>"Look, Johan, I made a fool of myself, OK? I was being jealous because you had a date and here I am, still trying to figure out my college life in this town and I can’t see to do anything right, and what do I accomplish? I end up hurting my best friend because I don’t even know what I am doing with my life. I can’t even go a full day without drinking some stupid chemical that does God-knows-what and what do I accomplish? Fuck all, that’s what I did. I hurt my friend with stupid jealous comments because I can’t keep this stupid mouth shut, that’s my curse! I can’t even wait for classes to start so I can be the butt of every joke because I’ll be embarassing myself in front of the whole class everyday, surely, and at this point I won’t even be surprised if I make the news of how much cringe I’m going to be subject myself..."<</Dialogue>><br><br>
                 Johan, in an uncharacteristic moment of agency, places his index over your mouth, making you stop.<br><br>
-                <<Dialogue "JohanFancy" "Johan>>"Hey, I’m supposed to be the motormouth here, remember? Take it from a pro, you want to stop that rant about 20 seconds ago."<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"Hey, I’m supposed to be the motormouth here, remember? Take it from a pro, you want to stop that rant about 20 seconds ago."<</Dialogue>><br><br>
                 You pout, face beet-red, as he continues.<br><br>
-                <<Dialogue "JohanFancy" "Johan>>"<<print $playerFirstName>>, it’s okay, you know? Yeah, you might have said some stuff you didn’t mean to, but you know what? It was stuff I needed to hear. So, really, I am glad you did."<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"<<print $playerFirstName>>, it’s okay, you know? Yeah, you might have said some stuff you didn’t mean to, but you know what? It was stuff I needed to hear. So, really, I am glad you did."<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Wait, you what?!?"<</Dialogue>><br><br>
-                <<Dialogue "JohanFancy" "Johan>>"Like I said, you little speech? I think it couldn’t have come at a better time. I had some time to think, and I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, I guess made me feel insecure. And it’s something I gotta deal with. And thanks to you, I have."<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"Like I said, you little speech? I think it couldn’t have come at a better time. I had some time to think, and I realize I was a little too self-absorbed with my hobbies. I do have to put myself out there a bit more, get out of my comfort zone. Having someone like you around, who is literally evolving before my eyes, I guess made me feel insecure. And it’s something I gotta deal with. And thanks to you, I have."<</Dialogue>><br><br>
                 You tilt your head to the side, confused. This clearly amuses Johan, who guffaws loudly at your reaction.<br><br>
-                <<Dialogue "JohanFancy" "Johan>>"Hey, now, I’m supposed to be the socially awkward one! Don’t go stealing that from me! I can’t get by on my good looks alone! <<if $muscle >= 45 || $breasts >= 40 || $height >= 180>>And I surely cannot compete with your physical appearance!<<elseif <<if $skills[1].level > 3>>And hopefully I won’t have to compete with your cooking ability, because that would be a disaster!<<elseif $skills[3].level > 3>>Heck, I can barely keep up with you on videogames, which was one of the skills I prided myself in!<</if>>"<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"Hey, now, I’m supposed to be the socially awkward one! Don’t go stealing that from me! I can’t get by on my good looks alone! <<if $muscle >= 45 || $breasts >= 40 || $height >= 180>>And I surely cannot compete with your physical appearance!<<elseif <<if $skills[1].level > 3>>And hopefully I won’t have to compete with your cooking ability, because that would be a disaster!<<elseif $skills[3].level > 3>>Heck, I can barely keep up with you on videogames, which was one of the skills I prided myself in!<</if>>"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Well, you still paint a mean pewter figure, and you are, BY FAR, the best DM I’ve ever had."<</Dialogue>><br><br>
                 Johan cocks his head to the side, raising an eyebrow.<br><br>
-                <<Dialogue "JohanFancy" "Johan>>"And, pray tell, milady, how many DMs have you had the pleasure to play under?"<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"And, pray tell, milady, how many DMs have you had the pleasure to play under?"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Oh, well, uh, actually... IS THAT A THREE HEADED DRAGON BEHIND YOU?!?"<</Dialogue>><br><br>
                 You point behind Johan, who looks back at you amusedly.<br><br>
-                <<Dialogue "JohanFancy" "Johan>>"You ARE going to have to up your game if you want to deceive me, you mischievous rogue!"<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"You ARE going to have to up your game if you want to deceive me, you mischievous rogue!"<</Dialogue>><br><br>
                 Shrugging, you reply:<br><br>
                 <<Dialogue "player" "You">>"Meh, worth a try! Sooooooooo, we good?"<</Dialogue>><br><br>
-                <<Dialogue "JohanFancy" "Johan>>"It goes without saying. Heck, it would be rather boring here without you, so please do keep showing up unannounced. It’s what we do best, right?"<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan>>"It goes without saying. Heck, it would be rather boring here without you, so please do keep showing up unannounced. It’s what we do best, right?"<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"You said, not me! Alright, Johan, thanks for understanding. It DOES mean a lot to me."<</Dialogue>><br><br>
                 The geek smiles at you, and you are once again reminded why you enjoy his company so much. With an exaggerated curtsy, you take your leave and return to your apartment. You can’t help but wonder about Johan, though. There’s something hard to explain, this wholesome, exciting and comforting aura about him. While you fear you may have blown your chance to take this to the next level, you can rest assured that Johan will be there for you when you need a friendly shoulder - or some advice about genre fantasy!
                 <<link "Continue" $currentScene>><</link>>
@@ -31762,25 +31778,25 @@ Johan takes the initiative and approaches the girl who is at the reception, and 
 The waiter comes in, handing each one a menu, and makes some suggestions. Johan feels a bit overwhelmed initially, which is exacerbated when wine options are laid in front of him, but you rest your hand over his, and he calms down.<br><br>
 <<Dialogue "player" "You">>"I think we’re going to stick to non-alcoholic tonight, but thanks for offering those. We’ll have some water for now, but we’ll need some time to figure out the order."<</Dialogue>><br><br>
 The waiter nods, and leaves a basket of breadsticks before leaving the table. Johan grabs one and starts munching like a rabbit going through a carrot.<br><br>
-<<Dialogue "Johan" "Johan">>"Thanks for the save. I think I get a bit of decision paralysis on situations like this."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Thanks for the save. I think I get a bit of decision paralysis on situations like this."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"That is actually kind of adorable, but really, it’s just picking a meal. Anything catches your fancy?"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Well, I don’t really like fish, but I’m a really big fan of pasta..."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Well, I don’t really like fish, but I’m a really big fan of pasta..."<</Dialogue>><br><br>
 <<if $skills[1].level > 4>>
     <<Dialogue "player" "You">>"But what is it about fish you don’t like? I mean, there’s a lot of different kinds of fish dishes."<</Dialogue>><br><br>
-    <<Dialogue "Johan" "Johan">>"I dunno, it’s just that fishy taste that gets to me, my mom had a hard time trying to convince me to have fish sticks when I was a kid."<</Dialogue>><br><br> 
+    <<Dialogue "JohanFancy" "Johan">>"I dunno, it’s just that fishy taste that gets to me, my mom had a hard time trying to convince me to have fish sticks when I was a kid."<</Dialogue>><br><br> 
     <<Dialogue "player" "You">>"Weren’t you eating a tuna sandwich the other day?"<</Dialogue>><br><br>
-    <<Dialogue "Johan" "Johan">>"But that’s different, that’s like tuna salad, it’s not fishy."<</Dialogue>><br><br>
+    <<Dialogue "JohanFancy" "Johan">>"But that’s different, that’s like tuna salad, it’s not fishy."<</Dialogue>><br><br>
     <<Dialogue "player" "You">>"I’m guessing you might have an issue with the fish oil, why don’t you try something a bit different that you might like? They have this seared salmon with passion fruit sauce that I’m betting you are going to love."<</Dialogue>><br><br>
     Johan looks a bit insecure about this, looking at the menu with visible concern, but he looks back at you and feels much more reassured.<br><br>
-    <<Dialogue "Johan" "Johan">>"You know what? Nothing ventured, nothing gained. I’ll try it."<</Dialogue>><br><br> <<set $flag.johanDateSalmon to true>>
+    <<Dialogue "JohanFancy" "Johan">>"You know what? Nothing ventured, nothing gained. I’ll try it."<</Dialogue>><br><br> <<set $flag.johanDateSalmon to true>>
 <<elseif $skills[1].level > 1 || $shyConfident > 1>>
     <<Dialogue "player" "You">>"Well, this truffled spaghetti with meatballs may sound kinda boring, but I’m willing to bet it’s going to be the best pasta you ever had."<</Dialogue>><br><br>
-    <<Dialogue "Johan" "Johan">>"That is a very confident recommendation. I don’t think I’d ever order something like that in such a nice restaurant, but how could I refuse after this level of endorsement?"<</Dialogue>><br><br>
+    <<Dialogue "JohanFancy" "Johan">>"That is a very confident recommendation. I don’t think I’d ever order something like that in such a nice restaurant, but how could I refuse after this level of endorsement?"<</Dialogue>><br><br>
     <<Dialogue "player" "You">>"Pretty sure you won’t regret this."<</Dialogue>><br><br>
 <<else>>
     <<Dialogue "player" "You">>"Uh, wow. There’s a lot of options here. I’m not quite sure myself, everything sounds really appetizing."<</Dialogue>><br><br>
     Johan picks up on your indecisiveness, and discreetly pulls out his phone. He does a sneaky lookup of online reviews, and pockets the device once again, before confidently proclaiming:<br><br>
-    <<Dialogue "Johan" "Johan">>"Well, their ravioli di zucca sounds pretty good, would you like to share a portion? Otherwise I might just order that for myself."<</Dialogue>><br><br>
+    <<Dialogue "JohanFancy" "Johan">>"Well, their ravioli di zucca sounds pretty good, would you like to share a portion? Otherwise I might just order that for myself."<</Dialogue>><br><br>
     <<Dialogue "player" "You">>"Yum, that DOES sound delish..."<</Dialogue>><br><br> <<set $flag.johanDateRavioli to true>>
 <</if>>
 Even though he might have cheated a bit, this confident Johan is kind of a turn on. The pasta may not be the only delish thing on the menu tonight, you think to yourself as you lick your lips. <<if $lips >=6>>You are immediately reminded of how full your lips have become, partly due to Johan’s reaction, partly to how soft and plump they feel under your tongue. <<elseif $lips >=4>>Your engorged lips seem to really command Johan’s attention, and you feel giddy with how sexy they make you feel.
@@ -31799,23 +31815,23 @@ While you are more than willing to go with his suggestion, you aren’t really s
 <<elseif $skills[1].level > 3>>
 <<Dialogue "player" "You">>"I didn’t realize they did molecular gastronomy here - I’m actually very curious about this sea-themed one, look: table smoked tasmanian ocean trout with miso pearls, edible sand, and sea foam!"<</Dialogue>><br><br>
 Johan looks confused with what you just said, raising an eyebrow and staring at you like you’ve gone insane... but then he shrugs and answers:<br><br>
-<<Dialogue "Johan" "Johan">>"I have no idea how whatever you just said is a dish, but we don’t come to places like this everyday, so might as well go crazy, am I right?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"I have no idea how whatever you just said is a dish, but we don’t come to places like this everyday, so might as well go crazy, am I right?"<</Dialogue>><br><br>
 You really weren’t planning to sound like a snob, but the fact that Johan took it in such high spirits is endearing, and you can’t resist stretching over the table to give him a kiss on the forehead.<<set $flag.johanDateMolgas to true>>
 <<else>>
 <<Dialogue "player" "You">>"That sounds great!"<</Dialogue>><br><br>
 It does sound yummy, but let’s face it, you didn’t come here for the food, but for the company.
 <</if>><br><br>
 Johan flags one of the waiters and puts in the order for both of you. It’s a new side of him you didn’t really know before, and while it’s not really a big deal, you do feel cherished and taken care of in a way you weren’t really used to. You could almost swear his smile feels brighter and warmer. And as he turns his gaze back to you, he starts looking confused.<br><br>
-<<Dialogue "Johan" "Johan">>"Are you alright, <<print $playerFirstName>>? You have this funny expression, was it something I did?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Are you alright, <<print $playerFirstName>>? You have this funny expression, was it something I did?"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"It was, actually, you being so adorable I want to squish you."<</Dialogue>><br><br>
 Johan gulps, clearly not used to this kind of compliment. But takes it in good stride, and giggles, replying:<br><br>
-<<Dialogue "Johan" "Johan">>"I gotta admit, I don’t know why I even got worried - I thought this dating thing was a lot harder and scarier, but maybe I just had a false impression from all those Japanese dating simulators I played - they really make going out with a girl feel like some sort of arcade witchcraft - but this is pretty cool and chill. And this place may be fancier than what I am used to, but I’m loving it!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"I gotta admit, I don’t know why I even got worried - I thought this dating thing was a lot harder and scarier, but maybe I just had a false impression from all those Japanese dating simulators I played - they really make going out with a girl feel like some sort of arcade witchcraft - but this is pretty cool and chill. And this place may be fancier than what I am used to, but I’m loving it!"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Well, you are certainly enjoying those bread sticks, you should leave some for me!"<</Dialogue>><br><br>
 Johan freezes with a piece of bread almost inside his open mouth, looks at you, then silently passes it over. Giggling, you respond:<br><br>
 <<Dialogue "player" "You">>"Nah, it’s okay. I can always ask for more. Just make sure you save some space so we can have dessert!"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Oh, no worries about that!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Oh, no worries about that!"<</Dialogue>><br><br>
 Johan says, still chewing his bread.<br><br>
-<<Dialogue "Johan" "Johan">>"I would never skip dessert. I have a separate stomach for that! It’s quantum-shifted from my regular stomach in another dimension, so I can eat as much as I want and I’ll always have space for dessert!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"I would never skip dessert. I have a separate stomach for that! It’s quantum-shifted from my regular stomach in another dimension, so I can eat as much as I want and I’ll always have space for dessert!"<</Dialogue>><br><br>
 His sci-fi excuse is as crazy as it is endearing, but you still make a point to open and point at your mouth, and Johan quickly picks up what you are asking - he feeds you a breadstick, and you look at him with loving and hungry eyes.<br><br>
 <<if $muscle >= 50 || $breasts >= 45 || $ass >= 3 || $height >= 195>>
 However, your growth seems to have turned quite a few heads, as it becomes harder and harder to ignore the hubbub as a lot of the other patrons seem to be talking about you. You really make a point of trying to filter out, but it’s just impossible.<br><br>
@@ -31855,11 +31871,11 @@ That’s it! You can’t stand up for this any longer. <<if $shyConfident > 1 ||
 <<Dialogue "player" "You">>"It must be really easy to sit down and judge the two of us from there - I’m sure no one here has ever done something they are embarrassed about, and would know how unpleasant it is to be treated like a freak or pariah, right? I am sure you can imagine what it must be like to be on the receiving end, so do us the courtesy of keeping these thoughts to yourselves - it’s the least I would expect in a respectable establishment such as this one."<</Dialogue>><br><br>
 <</if>>
 You sit back down, and Johan just looks at you with eyes wide as saucers. Oops. You didn’t mean to make him even more embarassed about this! What are you even going to say to... <br><br>
-<<Dialogue "Johan" "Johan">>"WHOA! Nobody ever stood up for me like this before, <<print $playerFirstName>>!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"WHOA! Nobody ever stood up for me like this before, <<print $playerFirstName>>!"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"I didn’t want to make a scene I just..."<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"You weren’t making a scene, they started this! As far as I am concerned, you were just righting a wrong. And I think you might even have led some to rethink their attitude going forward. In my books, you are like a real-life superhero!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"You weren’t making a scene, they started this! As far as I am concerned, you were just righting a wrong. And I think you might even have led some to rethink their attitude going forward. In my books, you are like a real-life superhero!"<</Dialogue>><br><br>
 You blush, unsure how to take in such praise. To be sincere, you barely thought this true, and were mostly acting on instinct, but Johan does have a point. You can see the others who were making snide comments seem to be the ones embarrassed about what they did before.<br><br>
-<<Dialogue "Johan" "Johan">>"You know, that’s part of what I like so much about you. And I don’t even mean the sense of justice - which I love too, but it’s that you really care about the people around you! It makes me feel special and safe."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"You know, that’s part of what I like so much about you. And I don’t even mean the sense of justice - which I love too, but it’s that you really care about the people around you! It makes me feel special and safe."<</Dialogue>><br><br>
 The waiter comes in with the food, and you can’t even articulate an answer. You just mouth a silent thank you, while Johan marvels at the plates. It’s kind of ironic, really, because one of the reasons you like him so much is how treasured and cherished he makes you feel. Before he can dig in, you reach and hold his hand. He lets go of his fork, looking at you somewhat confused, but upon seeing the happiness on your face, he puts his other hand on top of yours and smiles back.<br><br>
 You share a moment of sheer contentment, just enjoying that instant in time and each other’s company. It’s brief, but feels like an eternity. But eventually the great aroma of the food and your hunger get the best of you, and you seal the moment with a peck on Johan’s lips, and once again he blushes.<br><br>
 As it turns out, the food is just as good as the reviews and buzz suggested, and soon both of you are digging in, sharing bites and making small talk. It’s as close to a perfect date as you could ever conceive - great company, a really cozy place, amazing food. What else could a girl want?<br><br>
@@ -31868,25 +31884,25 @@ You can think of two things. Dessert... and something to finish the night on a h
 
 :: johanDate2-johanDefendsProtagonist [nobr] {"position":"0,0","size":"100,100"}
 While you feel that leonine spirit bubbling inside you, you realize that your transformation might just escalate things, and you hold your tongue. What you DIDN’T expect, however, was Johan becoming serious. You can see it build up inside him, his closed fist shaking as he squints and frowns, until he suddenly gets up with a shout:<br><br>
-<<Dialogue "Johan" "Johan">>"FOR REAL? Y’all just gonna judge people because of the way they look? You all act like you know who we are, what we’ve been through, like we are some stereotypes just waiting to conform to your expectations. Well, guess what - we are both people made of flesh and bone. I can grab a knife here and nick my skin, and I’m going to bleed, the same as all of you. But you give a quick look at our physique, our clothes, the difference in our bodytypes and suddenly you know EVERYTHING about us. How do you think you’d feel if people started assuming things based on such shallow observations? Spoiler for all of you - it feels like crap. You just assume the worse, and fail to see the beauty in things. I will tell you all right now - this girl? She’s amazing!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"FOR REAL? Y’all just gonna judge people because of the way they look? You all act like you know who we are, what we’ve been through, like we are some stereotypes just waiting to conform to your expectations. Well, guess what - we are both people made of flesh and bone. I can grab a knife here and nick my skin, and I’m going to bleed, the same as all of you. But you give a quick look at our physique, our clothes, the difference in our bodytypes and suddenly you know EVERYTHING about us. How do you think you’d feel if people started assuming things based on such shallow observations? Spoiler for all of you - it feels like crap. You just assume the worse, and fail to see the beauty in things. I will tell you all right now - this girl? She’s amazing!"<</Dialogue>><br><br>
 The entire restaurant has turned to look at Johan, who is now giving a speech like he was a general about to lead his troops into battle. You are just as mesmerized.<br><br>
-<<Dialogue "Johan" "Johan">>"Not only she accepted me for who I am, but she’s always encouraging me to follow my passion and even when she thinks what I do is dorky, she will still give it a chance and try to understand why I like it so much. She indulged in my taste for comics, tabletop gaming, classic movies, anime and videogames, even when she wasn’t interested herself. <<if $flag.johanFinancialEmergencyHelped>>She loaned me some cash when I had an emergency without asking any questions!<</if>> <<if setup.hasEventBeenTriggered('JohanPassword')>>She trusted me with some really personal stuff despite the fact we had just met! <</if>><<if setup.hasEventBeenTriggered('JohanCaughtWithMusclePorn')>>She learned some of my embarrassing tastes and just went along with it, without shaming me for it!<</if>><<if setup.hasEventBeenTriggered('johanControllerFixed')>>She even took the time to make up for something that she broke that was really precious to me! <</if>><<if $muscle >= 50>>She doesn’t care that she could probably break my arm with her fingers and that I am the one that needs protection in this relationship - she’s not in this because she needs a big man.<</if>> I don’t care what she wears or what she looks like. I wouldn’t stop liking her if she lost an eye or got a disfiguring scar! I couldn’t ask for a better companion - there’s no one else I’d take on a perilous journey, and you should feel bad to just gossip about such an amazing person just from looking at her for a few seconds!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Not only she accepted me for who I am, but she’s always encouraging me to follow my passion and even when she thinks what I do is dorky, she will still give it a chance and try to understand why I like it so much. She indulged in my taste for comics, tabletop gaming, classic movies, anime and videogames, even when she wasn’t interested herself. <<if $flag.johanFinancialEmergencyHelped>>She loaned me some cash when I had an emergency without asking any questions!<</if>> <<if setup.hasEventBeenTriggered('JohanPassword')>>She trusted me with some really personal stuff despite the fact we had just met! <</if>><<if setup.hasEventBeenTriggered('JohanCaughtWithMusclePorn')>>She learned some of my embarrassing tastes and just went along with it, without shaming me for it!<</if>><<if setup.hasEventBeenTriggered('johanControllerFixed')>>She even took the time to make up for something that she broke that was really precious to me! <</if>><<if $muscle >= 50>>She doesn’t care that she could probably break my arm with her fingers and that I am the one that needs protection in this relationship - she’s not in this because she needs a big man.<</if>> I don’t care what she wears or what she looks like. I wouldn’t stop liking her if she lost an eye or got a disfiguring scar! I couldn’t ask for a better companion - there’s no one else I’d take on a perilous journey, and you should feel bad to just gossip about such an amazing person just from looking at her for a few seconds!"<</Dialogue>><br><br>
 Still huffing and puffing, he sits back down. A lone woman stands up and starts to clap, and soon others join in. You follow the example, and give Johan a big kiss on the lips, which seems to only make him freeze in place. You are not sure if he has even processed what happened.<br><br>
 <<Dialogue "player" "You">>"Johan, that was INCREDIBLE! Wow! I’m still speechless here! <<if $muscle >= 50>>You just made one mistake - you said you were the one who needed to be protected, but you just stood up for me like no one ever has!<</if>>"<</Dialogue>><br><br>
 Johan is still frozen. You aren’t sure if he’s even processed what happened. But as things start to settle and calm down, his breathing levels and he focuses his eyes back on you.<br><br>
 <<Dialogue "player" "You">>"Are you alright?"<</Dialogue>><br><br> 
 He nods, moving his mouth without saying anything. He seems to still be doubting he just did that. But he pinches himself, and looks at you in shock.<br><br>
-<<Dialogue "Johan" "Johan">>"D-d-did I just do what I think I did?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"D-d-did I just do what I think I did?"<</Dialogue>><br><br>
 You give him another kiss, and giggling, confirm that he did, and it was incredible. And as the waiter brings your dishes to the table, he also offers a bottle of sparkling wine, compliments of another table. He looks around, completely incredulous of this surprising turn of events.<br><br>
 You hand him the bubbly, but he is still shaky and unresponsive.<br><br>
 <<Dialogue "player" "You">>"Earth to Johan?"<</Dialogue>><br><br> 
-<<Dialogue "Johan" "Johan">>"Sorry. I’m still... did I really do that?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Sorry. I’m still... did I really do that?"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Oh, baby, have a sip of this, it’s great, and it seems like you need to unwind a bit there!"<</Dialogue>><br><br>
 Johan just dunks the entire contents of the flute into his gullet. He looks at you, apparently trying to measure your reaction, and he seems genuinely surprised that you seem very pleased with and proud of him.<br><br>
-<<Dialogue "Johan" "Johan">>"You aren’t mad at my outburst?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"You aren’t mad at my outburst?"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Are you serious right now? Johan, you were awesome there! And you stood up for me, despite the risk of embarrassing yourself! How could I not appreciate that?"<</Dialogue>><br><br>
 Johan seems to have a hard time believing that, so you give him a light kick under the table, and that seems to break him from this trance.<br><br>
-<<Dialogue "Johan" "Johan">>"Whoa, I guess I did like a whole superhero monologue there! Did you see me?"<</Dialogue>><br><br> 
+<<Dialogue "JohanFancy" "Johan">>"Whoa, I guess I did like a whole superhero monologue there! Did you see me?"<</Dialogue>><br><br> 
 <<Dialogue "player" "You">>"Didn’t I say that several times?"<</Dialogue>><br><br>
 Before you know, Johan is just vacuuming the food while speaking in his motormouth gear between chewing, as you slowly enjoy your food and watch his contagious excitement. Johan is something special, alright, and you are happy to just spectate as he starts talking about all these fictional characters who pulled amazing speeches and how he probably was inspired by them - his passion is so real, so heartwarming, it’s hard not to just get lost in it. You both enjoy your meals and each other’s company, as he inquires about your favorite movie scenes with rousing speeches. Neither of you notice as the time quickly passes, and both your plates are clean.<br><br>
 You tap your tummy, satisfied, and find yourself already thinking of dessert - and maybe what the night will bring after you are done.<br><br>
@@ -31894,20 +31910,20 @@ You tap your tummy, satisfied, and find yourself already thinking of dessert - a
 
 :: johanDate2-dessert [nobr] {"position":"0,0","size":"100,100"}
 After a short awkward pause in the conversation, both of you interrupt each other.<br><br>
-<<Dialogue "Johan" "Johan">>"Dessert?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Dessert?"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Dessert?"<</Dialogue>><br><br>
 After some laughter, Johan asks for the menu and you both seem to agree that the dark chocolate mouse topped with a red fruit reduction and whipped cream is the way to go. Johan orders one with two spoons, but you look at him with disapprovingly and he corrects himself, asking for a second serving of the delicacy, which elicits some more teasing.<br><br>
 <<Dialogue "player" "You">>"I bet chocolate is your favorite."<</Dialogue>><br><br> 
-<<Dialogue "Johan" "Johan">>"Surprisingly? Not my favorite dessert. I grew up with my grandma’s cherry cookies, and they sorta became this special treat for me, but they aren’t very common around here."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Surprisingly? Not my favorite dessert. I grew up with my grandma’s cherry cookies, and they sorta became this special treat for me, but they aren’t very common around here."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Oh, color me surprised!"<</Dialogue>><br><br>
 You can tell from his voice how much he misses those cookies. Understandable, you think back to how food creates such strong memories of your own childhood. Still, in his melancholy, Johan seems to have winded down a bit and stopped talking. <<if $carefreeCarefull < -1 || $submissiveDominant > 1>>Feeling a bit mischievous, you stretch your leg to caress Johan’s lower body from under the table, hidden from the eyes of the others by the tablecloth. <<if $height >= 190>>Given how long your legs are, you first start by running your calves all the way up his leg and over his thigh.<</if>>You smile hungrily at him as you watch his reaction of shock and pleasure, <<if $muscle >= 75>>before setting your foot under his seat and lifting him off the ground briefly, which causes him to audibly gasp, <<if $muscle >= 45>>and then placing your calves on his lap and flexing the powerful ball of muscle over his groin, as you seem to cause him to start getting an erection, which only broadens the smile on your face,<</if>><</if>> and you couldn’t enjoy his squirming more. You continue to seductively run your knee between his legs until he seems about to burst, before retracting your leg with a wink.<<else>>You reach for his hand, and playfully draw shapes on his palm. Johan gulps, as you look at him fervently and ask:<br><br>
 <<Dialogue "player" "You">>"So, um, this place is great and I’m really enjoying the meal, but I’m thinking, maybe we could, you know, go for something hotter later?"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Y-y-you mean, like, something spicy? Because all I can think to have after dessert is coffee..."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Y-y-you mean, like, something spicy? Because all I can think to have after dessert is coffee..."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Wwwwweeeeelllllll, coffee is nice, but I was thinking of... OTHER hot things, you know?"<</Dialogue>><br><br>
 You say, biting your lip and looking at him like you could just gobble him up right there and then. Johan gulps so loudly you are concerned the lump might get stuck on the collar of his shirt. You can’t deny that making him squirm like that is a bit of fun for you.<</if>><br><br>
 As the two cups of chocolate mousse arrive, Johan starts having a few spoonfuls, unable to take his eyes off of you. You respond in kind, maintaining uninterrupted eye contact, as you bring slow and suggestive portions of the mousse to your mouth, licking your lips <<if $tongueSize > 6>>fully extending your gigantic tongue for maximum impact<</if>> in a very seductive display of your barely-contained libido. And then, for extra impact, you start to lick the spoon clean - and you can see Johan’s eyes widening even more.<br><br>
 It doesn’t take long for both of you to finish your desserts, and Johan hurriedly inquires:<br><br>
-<<Dialogue "Johan" "Johan">>"Coffee. Coffee? No? CHECK, PLEASE?!?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Coffee. Coffee? No? CHECK, PLEASE?!?"<</Dialogue>><br><br>
 As he anxiously waves both his arms for the waiter. You seem to have really done a number on the little guy. Heh. As the bill arrives, he quickly places a wad of cash (with a generous tip) and before you know it, he’s escorting you out back to the apartment.<br><br>
 The sun has now set, and the two of you walk back under the cover of night, most of the light provided by the streetlamps along the sidewalk. You enjoy the chillier atmosphere, as Johan wraps his arm around yours, and his warmth feels extremely inviting. He is surprisingly quiet (especially given who we’re talking about), but he squeezes your hand firmly and his expression makes it crystal clear that he’s got you in his thoughts.<br><br>
 <<link "Well, I suppose I ought to give him a little taste of what’s to come..." "johanDate2-spicyRoute">><</link>>
@@ -31916,20 +31932,20 @@ The sun has now set, and the two of you walk back under the cover of night, most
 :: johanDate2-spicyRoute [nobr] {"position":"0,0","size":"100,100"}
 Naughty thoughts flood your mind, and you feel friskier by the second. <<if $muscle >= 50>>Before you know, you are flexing the muscles on your arm that is being held by Johan, expanding them to the width and firmness of a tree trunk, and Johan immediately reacts to that, squeezing you tighter. It seems to turn both of you on, as you can see small puffs of smoke from Johan’s shallow panting.<</if>> You let your hand glide towards his chest, and as you caress him, you can feel his nipples fully engorged through the shirt. His eyes seem to become unfocused as you witness one by one all the signs of arousal...<br><br>
 ... which culminate on a growing bulge on his crotch. And it’s not a small bulge, by any means! You lick your lips, almost salivating, <<if $height >= 195>>as you curve down due to your height to reach below his waist<</if>> as you let your hand just hover caress Johan’s rising member - the firm piece of meat just barely distinguishable under the cloth, but the effect is enough to make Johan shudder violently with a deep breath. He closes his eyes and turns to you with puckered lips, and you meet him halfway for a passionate session of smooshing and probing tongues. You hold each other in a dark spot between streetlights, despite the street being mostly deserted, keeping it discreet not to cause a scene.<br><br>
-Johan runs his hand through your hair, as his lips unlock from yours, and he whispers in your ear:<br><br><<Dialogue "Johan" "Johan">>"You feel so good... hmmmmm!"<</Dialogue>>
-<<if $muscle >= 55>><<Dialogue "Johan" "Johan">>"Can you carry me in your arms?"<</Dialogue>><br><br>
+Johan runs his hand through your hair, as his lips unlock from yours, and he whispers in your ear:<br><br><<Dialogue "JohanFancy" "Johan">>"You feel so good... hmmmmm!"<</Dialogue>>
+<<if $muscle >= 55>><<Dialogue "JohanFancy" "Johan">>"Can you carry me in your arms?"<</Dialogue>><br><br>
 With a smile, you scoop Johan with ease, surprising yourself at how much you enjoy doing your very own princess carry. He feels snug in your arms, and it’s strangely arousing the idea that you can just treat him like a toy. Your mind starts reeling with the possibilities, as you fantasize about all the crazy positions...<br><br>
-<<Dialogue "Johan" "Johan">>"I can hardly wait to get home!"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Tell me about it!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"I can hardly wait to get home!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Tell me about it!"<</Dialogue>><br><br>
 You say, as you start increasing your pace to return to the apartment building, once again surprising at the fact you are barely winded carrying a grown man in your arms.
-<<elseif $height >=200>><<Dialogue "Johan" "Johan">>"Can I ride on you, piggyback?"<</Dialogue>><br><br>
+<<elseif $height >=200>><<Dialogue "JohanFancy" "Johan">>"Can I ride on you, piggyback?"<</Dialogue>><br><br>
 With a smile, you squat and let him up, stretching your legs. Johan reaches for your breasts, and both of you sport enormous smiles as you carry him back to the apartment.
-<<elseif $breasts >= 50>><<Dialogue "Johan" "Johan">>"Can I dig my face in your boobs?"<</Dialogue>><br><br>
+<<elseif $breasts >= 50>><<Dialogue "JohanFancy" "Johan">>"Can I dig my face in your boobs?"<</Dialogue>><br><br>
 Without hesitating, you pull Johan into your bosom, and the geek’s dreams come true as he just gets caved in by your enormous mamaries, and he rests his face against your meat pillows, before blowing a raspberry, which elicits a few laughs before he starts kneading them - which makes you gasp as it arouses you more than you expected. You feel yourself moisten, and before you know, you are rushing Johan back to the apartment.
-<<elseif $dick >= 6>><<Dialogue "Johan" "Johan">>"Can I return the favor?"<</Dialogue>><br><br>
+<<elseif $dick >= 6>><<Dialogue "JohanFancy" "Johan">>"Can I return the favor?"<</Dialogue>><br><br>
 You look at him, confused, but eagerly nodding, as he reaches for your crotch, and starts playing with your newly-acquired penis - and BOY, this guy knows how to work that shaft! Even through the fabric, he seem to hone in on the most sensitive parts in a way you didn’t even realize was possible. Each wave of his hand seems to elicit a new shockwave of pleasure, making you squirm and squeeze him hard against your own body. His lips meet yours, and both of you kiss the other desperately between the heavy panting - as you slowly descend into an out-of-body experience, like your entire conscience (and probably blood!) rushes entirely into your dick, like the rest of the universe is fizzing out like bubbles on soda pop.<br><br>
 The elation escapes describing, and you find yourself melting as he deftly handles your meat, your trembling beneath his hands slowly increasing like a volcano about to explode. Your lizard brain starts taking over, and you almost start undressing right there and then, but that threshold sparks your common sense, and you just push Johan, urging to get back to the apartment building so you can take this further without getting in trouble for indecent exposure.
-<<elseif $tongueSize > 9>><<Dialogue "Johan" "Johan">>"Hmmm, I like it when you kiss my neck..."<</Dialogue>><br><br>
+<<elseif $tongueSize > 9>><<Dialogue "JohanFancy" "Johan">>"Hmmm, I like it when you kiss my neck..."<</Dialogue>><br><br>
 Knowing exactly what to do, you suck on his neck, before unleashing your tongue all around. It lashes seductively, before going for his ear, and his knees shake so much he almost falls. Soon you are both rushing back to the apartment building, looking to take this to the next level.
 <<else>>
 You pin Johan against the nearby brick wall, and start groping each other as the kissing continues. Your mind goes foggy as your desire takes over and you feel yourself preparing to undress as you snap back into reality, and against all your instincts say:<br><br>
@@ -31938,12 +31954,12 @@ Johan doesn’t even dignify that with an answer - he takes your hand and starts
 <</if>><br><br>
 The rather short trip seems to take forever as your mind can only think of one thing, and soon enough you are both practically running. You aren’t sure if you are hyperventilating due to the aerobic workout or your increasing arousal, but you don’t really care either, all you can think of is...<br><br>
 The superintendent looking angrily at Johan in front of the building?<br><br>
-<<Dialogue "Johan" "Johan">>"Shit, I completely forgot!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Shit, I completely forgot!"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"WHAT?!?"<</Dialogue>><br><br>
-<<Dialogue "Johan" "Johan">>"Yeah, I’m supposed to go check the plumbing problems in my apartment with the super, I had scheduled that a few weeks ago, totally slipped my mind."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Yeah, I’m supposed to go check the plumbing problems in my apartment with the super, I had scheduled that a few weeks ago, totally slipped my mind."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Please tell me that is just a stupid attempt at some porn movie reference joke?"<</Dialogue>><br><br>
 Johan sighs, as the superintendent starts chastising him for making him wait for almost an hour. Johan follows the man to his apartment, while turning his head to look at you as he leaves.<br><br>
-<<Dialogue "Johan" "Johan">>"I had the time of my life, <<print $playerFirstName>>! Show up at my place anytime... please?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"I had the time of my life, <<print $playerFirstName>>! Show up at my place anytime... please?"<</Dialogue>><br><br>
 Before you can answer, he’s off. You just stand there for another 5 minutes, winding down and trying to accept what just happened. You end up laughing so you don’t cry as you return to your apartment, figuring you might just have to play with yourself to burn all this sexual energy that you built up.<br><br>
 <<Dialogue "player" "You">>"Johan, you doofus!"<</Dialogue>><br><br>
 <<link "Go home" "Home">><<addMinutes 90>><</link>>
@@ -31956,19 +31972,19 @@ Johan apologizes, but you reassure him that it’s okay.<br><br>
 <<else>>
 <<Dialogue "player" "You">>"It’s no big deal, I’m just... a little nervous, is all. I want to really enjoy this. And so far, tiger, you’ve played all your cards right."<</Dialogue>><br><br>
 <</if>>
-<<Dialogue "Johan" "Johan">>"Actually, I’m kinda glad myself, <<print $playerFirstName>>. I don’t think I’ve ever gone out and had such a great time. And I want to savor this."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Actually, I’m kinda glad myself, <<print $playerFirstName>>. I don’t think I’ve ever gone out and had such a great time. And I want to savor this."<</Dialogue>><br><br>
 It’s sort of amazing, you feel really in tune with Johan. Holding his hand, you start making your way back to the apartment, as he points out how clear the sky is.<br><br>
 <<Dialogue "player" "You">>"Look at all these stars. I kinda miss the night sky from living in the suburbs."<</Dialogue>><br><br> 
-<<Dialogue "Johan" "Johan">>"Look! It’s a shooting star!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Look! It’s a shooting star!"<</Dialogue>><br><br>
 It’s gone in an instant, but the flashing line rips through the sky making for a perfect moment to top the evening.<br><br>
 <<Dialogue "player" "You">>"Make a wish!"<</Dialogue>><br><br> 
-<<Dialogue "Johan" "Johan">>"Oh, I already have!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Oh, I already have!"<</Dialogue>><br><br>
 You know better than to ask, but you know what your wish is. Again, you can’t quite put it in words, but you just feel all fuzzy and warm inside, feeling like you are the biggest treasure in the world as he holds your hand and escorts you back to the building. He briefly runs his hand through your hair, and it’s like you put your finger in an electrical socket! You shiver, and can’t help but smiling so much your cheeks hurt.<br><br>
 But all good things must come to an end, and eventually you reach the block where the building is.<br><br>
 Johan turns you to face him, and looks in your eyes as he tells you:<br><br>
-<<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>, you just gave me the best night I’ve ever had in my entire life. Thank you so much for spending time with me. I... I think you are amazing."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"<<print $playerFirstName>>, you just gave me the best night I’ve ever had in my entire life. Thank you so much for spending time with me. I... I think you are amazing."<</Dialogue>><br><br>
 Before you can answer, Johan<<if $height >= 190>> gets on his tiptoes and <</if>>reaches for your head, bringing you in for the most passionate kiss you’ve ever experienced. He hugs you and just gives you the sweetest, most caring and delectable smooch you could conceive of, and you return it as you feel fireworks going on inside of you.<br><br>
-<<Dialogue "Johan" "Johan">>"You are the best. I’m looking forward to the next time we meet."<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"You are the best. I’m looking forward to the next time we meet."<</Dialogue>><br><br>
 And with that, he escorts you back to your apartment, taking the shorter route through the back entrance that leads directly to the sublevel. He opens the door for you like a gentleman, and closes it behind him. You can hear him shouting with great enthusiasm and running up to his apartment jumping with joy.<br><br>
 Johan really is one in a million. You feel extremely lucky having met him... but you also can’t wait for the next time so you can take things to the next level!<br><br>
 With a sigh, you grab a cold drink from the fridge and fall to your recliner, trying your best to not just fantasize about the unspeakable things you are going to do to him when you get a chance!
