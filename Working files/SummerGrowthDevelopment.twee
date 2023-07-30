@@ -8402,7 +8402,7 @@ Summer Growth
 <<if $gameStarted is true>>
 <<link "skills & traits" "CharacterSheet">><</link>>
 <<link "Goals" "questlog">><</link>>
-<<if $debug is "true">><<link "Debug commands">><<set _cheatPassword to prompt("Please input the password.")>><<if btoa(_cheatPassword) == "OVVOZ0FXPjVxNU5KL25TRA==">><<goto "Cheats">><</if>><</link>><</if>>
+<<if $debug is "true">><<link "Debug commands">><<goto "Cheats">><</link>><</if>>
 <</if>>
 <<link "Settings" "Settings">><</link>>
 <<link "Credits" "Credits">><</link>>
