@@ -3548,7 +3548,7 @@ $(".macro-live").trigger(":liveupdateinternal");
             <h1 style="text-align: center;"><<if _ingredientsDisplay()[0] != "-">><<button "▼">>
                 <<addExhaustion 2>>
                 <<set $skills[5].experience += 2>>
-                <<addMinutes 5>>
+                <<addMinutes 20>>
                 <<script>>
     var effective = false;
 
@@ -3697,7 +3697,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                         }         
                     }   
                 <</script>>
-                <<addMinutes 10>>
+                <<addMinutes 30>>
             <</button>></h1>
         <<liveblock>>
         <table id="store" style="
@@ -7486,7 +7486,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         dropRate: 0.5,
         effects: [
             {
-                code: () => `<<set $muscle += 5>>`,
+                code: () => `<<set $muscle += (setup.balance.musclePotionsAllowancePerDay * 5)>>`,
                 description: () => `As you take a sip of the soda, you feel a sensation unlike any other. The carbonation hits your tongue, and you can feel it bubbling like a volcano about to erupt. Then, something extraordinary begins to happen - your muscles start to grow at a breathtaking speed. In just a matter of seconds, you feel as though you've been pumped full of the strongest steroids imaginable.
 
                 Your shoulders broaden, and your chest swells outwards. The veins in your arms and biceps begin to bulge as though they're ready to burst at any moment. You can feel the power coursing through your body, and it's like you can do anything - run faster than a speeding train, lift a car with one arm, or brawl with a bear and win. It's like you're a superhero, and you can't get enough of this incredible sensation.
@@ -7521,7 +7521,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         dropRate: 0.5,
         effects: [
             {
-                code: () => `<<set $height += 5>>`,
+                code: () => `<<set $height += 2.5>>`,
                 description: () => `As you take a sip of the concoction, you feel a tingling sensation in your mouth, almost as though your tongue is being electrified. Your taste buds are assaulted by a riot of flavor, causing your senses to come alive in a way that you've never experienced before. The bubbles in the concoction burst against your tongue, releasing an explosion of flavor that radiates through your entire body like a wave of pure energy.
 
                 Suddenly, you feel a strange sensation in your bones. It's as though they're elongating, stretching your body like a piece of rubber. As you look in the mirror, you notice that you've grown two inches taller in a matter of seconds. Your muscles bulge, your chest swells, and your shoulders broaden. It's like you've been transformed into a superhero, with incredible strength and agility. The sensation is indescribable, a rush of power that fills you with excitement and a sense of accomplishment.
@@ -21288,7 +21288,7 @@ timeBox.addEventListener('change', (event) => {
 	gymMinimumExhaustionPerWorkout: 30,
 	baseWorkoutTime: 90,
 	muscleAllowancePerDay: 0.9,
-	musclePotionsAllowancePerDay: 0.8,
+	musclePotionsAllowancePerDay: 0.5,
 	heightAllowancePerDay: 4,
 	breastAllowancePerDay: 0.7,
 	/* money */
