@@ -29291,6 +29291,16 @@ You give your pumped muscles a flex, showing off to him. Big Eddy smiles and sho
     <</script>>
 
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.8.3: Dates, Alchemy, & rivals ---
+● Added many new dialogs for all NPCs.
+● Added a rival for the player
+● Added alchemy as a fully implemented skill
+● Added a new way to make potions
+● Added new Dates for Kris
+● Added new dates for Johan
+● Added endings for when the player is stuck in their home
+● Reworked early growth rates
+● Rebalanced money and growth speed
 --- Version 0.7.9: Dates, Rewinds, & stabilisation ---
 ● Added many new dialogs for all NPCs.
 ● Added new interactions at the bulk barn job
