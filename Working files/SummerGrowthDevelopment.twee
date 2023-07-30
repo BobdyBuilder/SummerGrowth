@@ -18219,7 +18219,7 @@ And with that, dozens and dozens of $1 donations start popping up. A few $5 here
             <b class="KrisMessage">SizeLuvrxxx69xxx: Oh, yeah, that’s the stuff, baby! KEEP GROWING FOR ME! I know you have it in you, <<print $playerFirstName>>.</b><br><br>
             You don’t use your real name on the stream - so it’s gotta be someone you know. And that narrows it down quite considerably - ESPECIALLY given that username and message…<br><br>
             Well, at least you made bank tonight, and collected a ton of new subs.
-        <<link "Continue" $currentScene>><</link>>
+        <<link "Continue" "pc">><</link>>
     <</replace>>
 <<Failed>>
     <<replace "#choice">>
@@ -18230,7 +18230,7 @@ And with that, dozens and dozens of $1 donations start popping up. A few $5 here
             <<Dialogue "player" "You">>"Kris?"<</Dialogue>><br><br>
             You mumble under your breath, and the so-far prolific <b class="KrisMessage">SizeLuvrxxx69xxx</b> now seems to have gone radio silent.<br><br>
             Things have gotten out of control enough. You decide to end the stream early, even if it costs you some subscribers. That was a little too wild for your taste.
-        <<link "Continue" $currentScene>><</link>>
+        <<link "Continue" "pc">><</link>>
     <</replace>>
 <</PersonalityCheck>>
 
@@ -18241,7 +18241,7 @@ And with that, dozens and dozens of $1 donations start popping up. A few $5 here
             The chat is not happy with that. A few people get rather rude, and the volunteer moderators quickly step in. Chaos! But as things start to get out of control, you notice one message:<br><br>
             <b class="KrisMessage">SizeLuvrxxx69xxx: Awww, come on, I promise I’ll make your next macchiatto extra-special!</b><br><br>
             As the confusion ensues, that message sticks in your head. You try to calm people down, with little success. This little maneuver costs your channel a few subs, but at least you kept your dignity and got no strikes, right?
-        <<link "Continue" $currentScene>><</link>>
+        <<link "Continue" "pc">><</link>>
     <</replace>>
 <</link>>
 </span>`
