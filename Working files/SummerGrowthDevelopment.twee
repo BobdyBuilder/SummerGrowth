@@ -9537,7 +9537,7 @@ You tell yourself to stay calm as you figure your next step - trying frantically
 <span id="choice">
 	<<link "I’ll wait for help under my bed - it’s the safest place right now!">>
 		<<replace "#choice">>
-		    <<set $flag.nat.playerPotionDreamProactive to false>>
+		    <<set $flag.natPlayerPotionDreamProactive to false>>
             Trying your best to remember all the lessons you learned about fire safety, you wet your pillowcase with your water bottle, place it over your mouth and tuck yourself under the bed. You watch in horror as everything around you is engulfed in the dark smoke, and you try to listen to anything that isn’t the crackling of flames, hoping for the sound of an alarm, people shouting… and hopefully, the fire brigade coming to your rescue.<br><br>
             But as you do, the walls seem to start cracking around, as you see bits of it falling from the ceiling. Crying, you assume a fetal position as you grit your teeth, telling yourself that this can’t possibly be happening!<br><br>
             <<link "continue">><<playEvent 'PlayerDreamsPotionReaction2'>><</link>>
@@ -9546,7 +9546,7 @@ You tell yourself to stay calm as you figure your next step - trying frantically
 
 	<<link "Running through the flames is my only option to survive!">>
 		<<replace "#choice">>
-		    <<set $flag.nat.playerPotionDreamProactive to true>>
+		    <<set $flag.natPlayerPotionDreamProactive to true>>
             You grab your still-moist towel and empty your bedside water bottle over it, using it a cape as you psyche yourself before running headfirst into the wall of flames that comes from the bedroom door. You struggle to make sense of the situation, but you can’t help yourself as your senses are overwhelmed by this unthinkable situation. Frustrated, you wave your arm back and fiercely hit the concrete wall to your side with a loud THUD!<br><br>
             You cannot believe your eyes, as your fist just breaks through the thick solid concrete, revealing the dirt from the soil outside your basement apartment. And as if things could not get worse, a landslide starts filling your bedroom, burying you as the diminutive space is quickly filled with it!<br><br>
             <<link "continue">><<playEvent 'PlayerDreamsPotionReaction2'>><</link>>
@@ -9577,7 +9577,7 @@ That is A LOT to process!<br><br>
 <span id="choice">
 	<<link "Wait, did my body and personality change temporarily? These potions could be dangerous!">>
 		<<replace "#choice">>
-		    <<set $flag.nat.playerPotionDreamExcited to false>>
+		    <<set $flag.natPlayerPotionDreamExcited to false>>
             You feel a tinge of existential horror as you realize that you could possibly just have experienced a Mr. Hyde moment that you have no recollection of. The evidence is all there - and apparently the changes can be even more drastic than you ever realized. You are still figuring out how exactly these concoctions can affect you, as you ponder all implications. It seems like these can be much more powerful than you ever realized.<br><br>
             You don’t want to think about side-effects and how permanent some of these changes could be. There are so many possibilities, but the fact is, there is so much you don’t know yet... and you just can’t wave it all off like it doesn’t matter.<br><br>
             <<link "continue">><<playEvent 'PlayerDreamsPotionReaction3'>><</link>>
@@ -9586,7 +9586,7 @@ That is A LOT to process!<br><br>
 
 	<<link "Are there limits to what these potions can do? Just how big and strong can I get?">>
 		<<replace "#choice">>
-		    <<set $flag.nat.playerPotionDreamExcited to true>>
+		    <<set $flag.natPlayerPotionDreamExcited to true>>
             You look at your own hands, trying to wrap your head around the fact that you might have been, even if temporarily, like a freaking superheroine! Is that a sign that there is no upper limit to how much you can change? You feel your skin tingling at the thought of jumping over buildings or lifting cars... is that even possible? As your heart races faster and faster, your knuckles tighten as you fantasize about it.<br><br>
             You feel an urge to hunt down these metallic bottles, even if just to better understand them and keep them away from unsuspecting people who might not realize what they truly are.<br><br>
             <<link "continue">><<playEvent 'PlayerDreamsPotionReaction3'>><</link>>
@@ -9604,24 +9604,24 @@ That is A LOT to process!<br><br>
 		retriggerable: false,
 		priority: 'immediate',
         npc: [],
-		content: `<<if $flag.nat.playerPotionDreamProactive && !$flag.nat.playerPotionDreamExcited>>
+		content: `<<if $flag.natPlayerPotionDreamProactive && !$flag.natPlayerPotionDreamExcited>>
     That’s it! You’ve made your mind! You need to collect as much information possible about these weird liquids, and figure out exactly how they work and what they do. Dozens of questions are already forming in your mind, as is the desire to get to the very bottom of this - even if it means being a guinea pig in the process!<br><br>
     You hold the crumpled metallic canister in your hand, wondering what your next step should be. <<if $tashaOpinion > 0>>Well, there is one person in town who, despite being very scatterbrained, seems to have somehow have contact with a ton of people in operating her store. Maybe that’s the next step in your investigation...<<else>>You will need to track down someone who somehow acts as a lynchpin in this town, someone who everyone at some point or another ends up going to. Maybe someone who runs a store? But what is the type of store EVERYONE goes to, especially college students? Hmmm...<</if>>
 
-<<elseif $flag.nat.playerPotionDreamProactive && $flag.nat.playerPotionDreamExcited>>
+<<elseif $flag.natPlayerPotionDreamProactive && $flag.natPlayerPotionDreamExcited>>
     You salivate at the thought. Part of you had always felt like something was lacking, and now you realize, you just aren’t truly happy in this body. But now you know for a fact that it can change... radically. And you are committed to figuring out what the limits of your transformation are - if any!<br><br>
     This will mean tracking and downing every one of those metallic canisters you can get your hands on. And now you are woman on a mission, and you won’t rest until you have found every single one of them. But where to start? Maybe somewhere where people go to sell off unwanted things?
 
-<<elseif !$flag.nat.playerPotionDreamProactive && !$flag.nat.playerPotionDreamExcited>>
+<<elseif !$flag.natPlayerPotionDreamProactive && !$flag.natPlayerPotionDreamExcited>>
     You feel your chest pounding as you shudder to think of all the side-effects and long-term implications of the concoction you drank. And now you are sure there are more of these around the campus. Are you even you still at this point? Could it be that your personality is not who you used to be before anymore? And what if the physiological changes also affect you in ways you cannot foresee? The thought terrifies you.<br><br>
     And then it downs on you - there could be other victims of these canisters out there. Maybe you should go out and start hoarding them to make sure no one accidentally succumbs to their effects by mistake. And the best thing would be to go track them down somewhere where people might take those to get rid of them...
 
-<<elseif !$flag.nat.playerPotionDreamProactive && $flag.nat.playerPotionDreamExcited>>
+<<elseif !$flag.natPlayerPotionDreamProactive && $flag.natPlayerPotionDreamExcited>>
     The mere THOUGHT of having your body undergo these changes makes your stomach queasy - to think that your personality AND your physiology are both malleable and could turn on a dime? You don’t like the philosophical implications at all, even if you have enjoyed its byproducts.<br><br>
     But the truth of the matter is, you are going to be thinking twice before drinking your next potion, especially before you figure out what exactly it does. And maybe you should make sure that no one else falls victim to them - maybe a visit to the thrift store is in order to check if there’s more of these canisters there - or maybe even figure out where they came from?
 
 <<else>>
-    ERROR - this path shouldn't be reachable: $flag.nat.playerPotionDreamProactive , $flag.nat.playerPotionDreamExcited
+    ERROR - this path shouldn't be reachable: $flag.natPlayerPotionDreamProactive , $flag.natPlayerPotionDreamExcited
 <</if>>
 `
 	},
