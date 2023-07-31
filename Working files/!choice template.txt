@@ -1,0 +1,25 @@
+<span id="choice">
+	<<link "TODO">>
+		<<replace "#choice">>
+			/* TODO */
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<PersonalityCheck $TODO >= 1 "TODO">>
+		/*
+			$shyConfident
+			$carefreeCarefull
+			$submissiveDominant
+		*/
+		<<replace "#choice">>
+			/* TODO */
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+			/* TODO */
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+</span>
