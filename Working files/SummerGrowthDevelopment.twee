@@ -12494,7 +12494,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
         "description": "Striking the right poses and looking good, there must be a way to make a career out of this!",
         "unlocks": ["•Not implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
-        "name": "chemistry",
+        "name": "Chemistry",
         "level": 0,
         "experience": 0,
         "hidden" : true,
