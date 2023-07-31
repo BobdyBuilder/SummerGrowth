@@ -32742,3 +32742,17 @@ That comment hurts more than you'd like to admit. You know deep inside it's the 
 
 <<link "Nat, stop acting like a kid! You are coming with me to check that injury!" "NatWristInjury-Confrontational1">><</link>>
 <<link "I'm sure it's nothing, can I just have a look?" "NatWristInjury-NatApologetic">><</link>>
+
+
+:: NatWristInjury-Confrontational1 [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Alright, that's enough!"<</Dialogue>><br><br>
+You pull <<rivalMy>> good arm around your shoulder, and drag <<rivalMe>> up and towards reception.<br><br>
+<<Dialogue "player" "You">>"Seriously, dude, enough is enough. I can appreciate a big show of testosterone as the next girl, but you don't need to be an asshole just to show off, OK? "<</Dialogue>><br><br>
+Nat grunts, and clearly isn't used to being led like this - especially by a girl. <<RivalI>> folds <<rivalMy>> arm, keeping <<rivalMy>> injured wrist next to <<rivalMy>> chest.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+<<if $natOpinion >= 40>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAgressive">><</link>>
+<</if>>
