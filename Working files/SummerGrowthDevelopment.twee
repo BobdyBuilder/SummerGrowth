@@ -32558,10 +32558,8 @@ Nat gets up, twisting <<rivalMy>> arms around for a brief stretch as <<rivalI>> 
     While you proclaim that quite cheerily, Nat is still not being very talkative. And so <<rivalI>> just walks to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>. Without so much as an explanation, <<rivalI>> starts cranking out barbell biceps curls, <<rivalMy>> usual focus replaced by an angry scowl. You can see that <<rivalI>> is straining <<rivalMy>> wrist quite a bit, as <<rivalMy>> accident seems to make the weight slightly less secure on one side.<br><br>
     But Nat keeps up with it, and manages to finish <<rivalMy>> 15 reps. You notice <<rivalI>> is rubbing <<rivalMy>> wrist as <<rivalI>> finishes - <<rivalI>> clearly is going a bit too far with <<rivalMy>> injury…
 <</if>>
-<span id="choice">
-    <<link "Alright, champ, let me show you what heavy metal feels like!">><<playEvent 'NatWristInjury-NatTriesToKeepUp'>><</link>>
-    <<link "Nat's just overdoing it, I should back down a bit.">><<playEvent 'NatWristInjury-NatIgnoresAndGloats'>><</link>>
-</span>
+<<link "Alright, champ, let me show you what heavy metal feels like!" "NatWristInjury-NatTriesToKeepUp">><</link>>
+<<link "Nat's just overdoing it, I should back down a bit." "NatWristInjury-NatIgnoresAndGloats">><</link>>
 
 
 :: NatWristInjury-NatShowOff [nobr] {"position":"0,0","size":"100,100"}
