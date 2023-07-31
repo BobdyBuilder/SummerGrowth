@@ -32862,3 +32862,16 @@ Nat feels downright divided about the whole thing. But before you know, this fir
 <<else>>
     <<link "Continue" "NatWristInjury-NatAggressive">><</link>>
 <</if>>
+
+
+:: NatWristInjury-NatApologetic [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Hey, hey, it's alright!"<</Dialogue>><br><br>
+You squat down next to <<rivalMe>>, and you reach to have a good look at <<rivalMy>> wrist.<br><br>
+<<Dialogue "player" "You">>"Look, I ain't no doctor, but I'm pretty sure you are hurt. Will you please let me call someone to have a look at that hand, please?"<</Dialogue>><br><br>
+Nat huffs and rolls <<rivalMy>> eyes, and you wrap <<rivalMy>> good arm around your shoulder, and pull <<rivalMe>> up.<br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+<<if $natOpinion >= 20>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAggressive">><</link>>
+<</if>>
