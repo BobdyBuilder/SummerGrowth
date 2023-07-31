@@ -3676,7 +3676,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                             if(State.variables.args[0] == true){
                                 if (Dialog.isOpen() == false) {
                                     var dialog = Dialog.setup("Potion distilled");
-                                    new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
+                                    new Wikifier(dialog, "You broke down " + State.temporary.selectionPotionName + " into the following ingredients: <br><br> -" +
                                         State.variables.consumables[i].ingredients[0] + "<br> -" +
                                         State.variables.consumables[i].ingredients[1] + "<br> -" +
                                         State.variables.consumables[i].ingredients[2] + "<br> -" +
@@ -5446,9 +5446,9 @@ This determines the gender of the rival you will encounter.
 			  minimumExhaustion: 10,
 			  description: "This lean diet is perfect for maintaining muscle, while still losing weight."})>>
 	  <</if>>
-      <<if $skills[$skillIndexGained].name is "Alchemy">>
+      <<if $skills[$skillIndexGained].name is "Chemistry">>
 			<<set _added to "<br> And not only that, you can now buy some of the ingredients online!">>
-			<<set $alchemyOnlineShopping to true>>
+			<<set $chemistryOnlineShopping to true>>
 	  <</if>>
 	  
 <<elseif $skills[$skillIndexGained].level is 2>>
@@ -5474,9 +5474,9 @@ This determines the gender of the rival you will encounter.
 			  minimumExhaustion: -20,
 			  description: "With this, you'll really challenge your cooking skills. It won't be cheap or healthy, but it'll be FUN."})>>
 	  <</if>>
-      <<if $skills[$skillIndexGained].name is "Alchemy">>
+      <<if $skills[$skillIndexGained].name is "Chemistry">>
 			<<set _added to "<br> And not only that, you now can order more ingredients online!">>
-			<<set $alchemyOnlineShopping2 to true>>
+			<<set $chemistryOnlineShopping2 to true>>
 	  <</if>>
 		
 	<<set _skillLevel to "intermediate">>
@@ -5513,9 +5513,9 @@ This determines the gender of the rival you will encounter.
 			  minimumExhaustion: -20,
 			  description: "This diet is tailor-made for minimizing muscle loss and maximizing fat loss."})>>
 	  <</if>>
-      <<if $skills[$skillIndexGained].name is "Alchemy">>
+      <<if $skills[$skillIndexGained].name is "Chemistry">>
 			<<set _added to "<br> And not only that, you now have a chance of creating an additional random ingredient when splitting a potion!">>
-			<<set $alchemySplitbonus to true>>
+			<<set $chemistrySplitbonus to true>>
 	  <</if>>
 	  
 	<<set _skillLevel to "expert">>
@@ -5544,9 +5544,9 @@ This determines the gender of the rival you will encounter.
 		<<set _added to "<br> And not only that, you got the feeling that all this knowledge about tracking finances has made you more aware of risks. +1 Carefulness.">>
 		<<addTrigger "expertBookKeeping" false false>>
 	<</if>>
-    <<if $skills[$skillIndexGained].name is "Alchemy">>
+    <<if $skills[$skillIndexGained].name is "Chemistry">>
 			<<set _added to "<br> And not only that, You can now buy all ingredients online through your computer!">>
-			<<set $alchemyOnlineShopping3 to true>>
+			<<set $chemistryOnlineShopping3 to true>>
 	  <</if>>
 <</if>>
 
@@ -5610,8 +5610,8 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
 
 <</linkreplace>><br><br>
 
-<<if $alchemyOnlineShopping>>
-    <<linkreplace "Shop for Alchemy ingredients online - 00:15 🕛">><<addMinutes 15>>
+<<if $chemistryOnlineShopping>>
+    <<linkreplace "Shop for Chemistry ingredients online - 00:15 🕛">><<addMinutes 15>>
     Now that you know a bit about how the weird concoctions are made, you can find some of the ingredients online. The shipment will be arrived in a day.<br>
 
     <<update>><br>
@@ -5658,7 +5658,7 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
     return a.name > b.name ? 1 : -1;
 })>>
 
-<<if $alchemyOnlineShopping2>>
+<<if $chemistryOnlineShopping2>>
     <<set _ingredientsAvailable = _ingredientsAvailable.concat(
         [
             {
@@ -5698,7 +5698,7 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
     )>>
 <</if>>
 
-<<if $alchemyOnlineShopping3>>
+<<if $chemistryOnlineShopping3>>
     <<set _ingredientsAvailable = _ingredientsAvailable.concat(
         [
             {
@@ -6156,10 +6156,10 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     {
         ingredientOne: 'ConfidentIngredient',
         ingredientTwo: 'CarefreeIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Mot-v10").amount += 1},
+        effect: () => {State.variables.consumables.find(i => i.name === "Mot-V10").amount += 1},
         discovered: false,
         pinned: false,
-        resultDesc: 'Mot-v10'
+        resultDesc: 'Mot-V10'
     },
     {
         ingredientOne: 'CarefreeIngredient',
@@ -6650,7 +6650,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         transform: "instantFatGain",
         ingredients: [
             "FatIngredient",
-            "Fatingredient",
+            "FatIngredient",
             "SlowIngredient",
             "InstantIngredient"
         ],
@@ -7284,7 +7284,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         name: "Perm-Dom",
-        description: "A bold, strong drink with a bit of a kick to it. It makes you feel bold, alive, like it has too much caffeine? Given what you know of this alchemy stuff, it probably will change your personality. Not something to be taken lightly...",
+        description: "A bold, strong drink with a bit of a kick to it. It makes you feel bold, alive, like it has too much caffeine? Given what you know of this chemistry stuff, it probably will change your personality. Not something to be taken lightly...",
         transform: "instantPermDominant",
         ingredients: [
             "PermanentIngredient",
@@ -12489,7 +12489,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
         "description": "Striking the right poses and looking good, there must be a way to make a career out of this!",
         "unlocks": ["•Not implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
-        "name": "chemistry",
+        "name": "Chemistry",
         "level": 0,
         "experience": 0,
         "hidden" : true,
@@ -22565,7 +22565,7 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
 		retriggerable: false,
 		 priority: 'response',
 		npc: [],
-		content: 'Your beef had started to reach what could kindly be described as ‘critical mass’. The slightest movement from your body results in your bed making sounds that seem straight out of a horror movie. Once you do finally stir awake, just planting your feet down on the ground causes a massive ‘THUMP’ to be heard throughout the entire building. Walking sideways through the door in a vain attempt to avoid extending the damage you already caused is pretty much a lost cause. Your growing body commands you to go straight for the kitchen, seeking the constant sustenance it demands on a non-stop basis. You seek that fuel almost subconsciously, as half a tub of protein is gone in a blink. You envision the powdery goodness travelling straight into your muscles, making them get closer and closer to steel in their mysterious alchemy. As you dwell on these thoughts, you head to the bathroom to freshen up, but get interrupted by the mirror, which demands your full attention. With a full body flex, you test how much you can even see of yourself in its limited frame. With a smirk, you realize your pecs have more mass than regular people have in their entire bodies, your biceps are wider than a linebacker’s chest, even fully relaxed. With a deep breath, you rest your hands on your waist and spread out your lats, making your wings unfold in a veritable spectacle as you spin to watch your rugged back. As your traps reach halfway to your head, you feel like you could soon start lifting cars overhead if you put your mind to it.'
+		content: 'Your beef had started to reach what could kindly be described as ‘critical mass’. The slightest movement from your body results in your bed making sounds that seem straight out of a horror movie. Once you do finally stir awake, just planting your feet down on the ground causes a massive ‘THUMP’ to be heard throughout the entire building. Walking sideways through the door in a vain attempt to avoid extending the damage you already caused is pretty much a lost cause. Your growing body commands you to go straight for the kitchen, seeking the constant sustenance it demands on a non-stop basis. You seek that fuel almost subconsciously, as half a tub of protein is gone in a blink. You envision the powdery goodness travelling straight into your muscles, making them get closer and closer to steel in their mysterious chemistry. As you dwell on these thoughts, you head to the bathroom to freshen up, but get interrupted by the mirror, which demands your full attention. With a full body flex, you test how much you can even see of yourself in its limited frame. With a smirk, you realize your pecs have more mass than regular people have in their entire bodies, your biceps are wider than a linebacker’s chest, even fully relaxed. With a deep breath, you rest your hands on your waist and spread out your lats, making your wings unfold in a veritable spectacle as you spin to watch your rugged back. As your traps reach halfway to your head, you feel like you could soon start lifting cars overhead if you put your mind to it.'
 	}, {
 		name: 'PostSleepMonstrous',
 		locationTags: ['postSleep'],
@@ -26884,7 +26884,7 @@ repeatable: false,
                     retriggerable: false,
                         priority: 'response',
                             npc: [],
-                                content: 'You arrive at the gym, and the smell, a mix of sweat and cleaners immediately make you feel at home. After changing into your workout attire, you start your procession around the weight racks and machines. And so you engage in the ritual of alchemy you\'ve learned over the last days: sweat and iron create muscle, as you dutifully complete rep after rep, blood engorging your firm muscles and pumping them up.<br><br>The process has become routine, and you tune out the world as you go from exercise to exercise, getting into the zone as you concentrate into pushing your body to its limits. Which is probably why you are surprised when you catch a reflection in the mirror of a guy watching as you finish a set of biceps curls. He is wearing red exercise shorts and a gray sleeveless shirt, revealing an average physique… which, truthfully, you\'d probably be envious of not that long ago.<br><br><<Dialogue "randomPerson" "Random guy">>"Oh, sorry… I didn\'t mean to stare! I… uh… sorry, I\'m just new here… and I saw you doing everything so naturally… it was kind of hypnotizing."<</Dialogue>><br><br>He blushes, tripping over himself verbally as he tries to get out of the mess he sprung himself into.<br><br><<if $shyConfident > 1>>You suppress a giggle and raise your left arm, waving your palm with a flourish as you give him an impressive flex of your biceps.<br><br><<Dialogue "player" "You">>"What? These little puppies here? I have to admit, sometimes I even surprise myself!"<</Dialogue>><br><br>You say as you make your biceps bounce a couple of times for added effect.<br><br><<Dialogue "randomPerson" "Random guy">>"Wow… that\'s amazing. I hope someday I can get some results I can be proud off… but… I just got my membership to this gym yesterday. I admit it\'s somewhat intimidating, seeing all of you use all this equipment so naturally. I won\'t lie, I\'m a bit envious, I felt like I was just fumbling every time I tried to do anything. I almost didn\'t come back today. "<</Dialogue>><br><br><</if>><<if $shyConfident <= 1 && $shyConfident >= -1 >>You wipe the sweat off your forehead and, with a smile, stand up from the bench - proudly, albeit not on purpose, exhibiting your physique in your body-hugging workout attire.<br><br><<Dialogue "player" "You">>"Yeah, I just love coming to the gym, nothing quite compares, you know? There\'s nothing like challenging yourself."<</Dialogue>><br><br>You notice he\'s somewhat uneasy, probably feeling very insecure as he compares himself to you.<<Dialogue "randomPerson" "Random guy">>"Seriously, you are truly inspiring… but… I just got my membership to this gym yesterday. I admit it\'s somewhat intimidating, seeing all of you use all this equipment so naturally. I won\'t lie, I\'m a bit envious, I felt like I was just fumbling every time I tried to do anything. I almost didn\'t come back today. "<</Dialogue>><br><br><</if>><<if $shyConfident < -1 >><<Dialogue "player" "You">>"Eep!"<</Dialogue>><br><br>You let out a small whimper, blushing as you drop the heavy dumbbell that you were holding with a loud THUD! on the cushioned floor, fidgeting as you look around, hoping he was talking to someone else.<<Dialogue "randomPerson" "Random guy">>"Oh, sorry for startling you - I should have realized you were in the zone, so to speak. You clearly know exactly what you were doing, and I was hoping I might learn something… damn, I just realize how stupid I sound. "<</Dialogue>><br><br><</if>>You know exactly what he means. You look at this guy and, in your head, you see yourself not that long ago. You remember how awkward it was when you first started, swinging those weights haphazardly without proper form, struggling to get your target reps in even with the lightest one - which is made even harder when you are surrounded by people who look more fit and confident than you. But now the tables have turned, and you can\'t help but feel empathy for the little guy.<br><br><<Dialogue "player" "You">>"Hey, tell you what, why don\'t I run you through some basic routines? I can give you a basic starting set, and help you with your form as I show you each exercise?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"R-really? That sounds great, if you don\'t mind… just… heh… go easy on me? I\'m pretty sure I\'ll have to stick to a much lighter load than you!"<</Dialogue>><br><br>You both share a laugh, and you proceed to write him a simple split routine. You walk him through the gym, explaining each exercise with a demonstration - you even make a point of trying to guess the weights he should use, picking them for a demonstration that wouldn\'t even register as a warm-up for you… but allowing you to hand them off directly and helping him repeat it so you can correct any mistakes.<br><br>After some minutes, you lead him to the leg press machine, setting it to what you believe will be a decent challenge for him. However, as he gets to the fifth rep on the last set, you can see him start to struggle.<br><br><<if $submissiveDominant > 1>>In a demanding tone, you order him to continue.<br><br><<Dialogue "player" "You">>"Don\'t stop now, you are still going to give me another ten reps, you hear?!?"<</Dialogue>><br><br>His face reddens even more as he grimaces during his sixth rep. You can see him almost grinding his teeth after the eighth rep, his breath becoming more labored.<<Dialogue "player" "You">>"That\'s nine, you have six left. Come on! Do it!" <</Dialogue>><br><br>His legs shake, but he keeps going, each rep slower than the one before. You can see he doesn\'t believe he can do it, that same initial insecurity in his eyes.<<Dialogue "player" "You">>"Don\'t you dare give up on me, not after all the work I put in."<</Dialogue>> <br><br>You can see his eyes widen in surprise over your forceful tone, but he gets the message loud and clear. You can see his grip on the handles tighten, and an expression of determination takes over as he now seems to complete the next few reps with renewed focus. However, as he is halfway on his last rep, his legs seem to stop in place, shaking as he seems to give his all to finish.<br><br>You look him in the eye and say with your most serious expression:<br><br><<Dialogue "player" "You">>"Just. Do it."<</Dialogue>><br><br>He takes a deep breath, and finishes the last rep. You lock up the rack for him, and with pride tell him that you expect to keep that same commitment, even when you aren\'t there.<</if>><<if $submissiveDominant <= 1 && $submissiveDominant >= -1 >>You cheer on him, sincerely invested in each rep as if it were your own.<br><br><<Dialogue "player" "You">>"Come on, you can do it! You\'ve already pulled another two full sets, only ten reps left!"<</Dialogue>><br><br>You can see him pushing himself to his limit, cranking a few more reps with enormous effort. But the lactic acid is getting the better of him, and you know well how hard it can get.<br><br><<Dialogue "player" "You">>"I know you got this! Half-way through, just keep pushing!"<</Dialogue>><br><br>His effort redoubles, and he grits his teeth, but you can see the pain mounting in his face. It seems like he has reached his limit. In a herculean effort, you try to discreetly spot the heavy weights with just your left hand in a corner he can\'t see - all while disguising your own effort so he won\'t be suspicious.<<Dialogue "player" "You">>"Four more and you are done, come on!"<</Dialogue>><br><br>He cranks another two extremely labored reps… and finally stalls. You can see he won\'t be able to continue, and so you turn the clamp to relieve him.<<Dialogue "player" "You">>"Congratulations! You did your best, and someday you\'ll do three full sets with even more weight, just go at your own pace and you\'ll get there!"<</Dialogue>><br><br><</if>><<if $submissiveDominant < -1 >>You bite your lip, nervously doubting the amount of weight you loaded into the machine. You feel his pain, remembering your early days in your own fitness journey. He looks back at you, expectantly, as if you could somehow lend part of your strength - but all you can do is flash a brief nervous smile.<br><br>He does seem to take solace on your support, and manages a couple more reps, but he clearly seems to be in pain. You keep feeling guiltier about all the weights you added as he pushes himself harder and harder. You start doubting yourself and end up just getting lost in your own thoughts as you second guess the whole plan when… <br><br>His knees buckle under the pressure of the weight, and the rack starts to fall on him. With apparently inhuman speed, you brace the whole rack with your hands! It\'s a considerable weight, especially getting you by surprise like this, but you heroically hold it steadily with great effort.<br><br>The guy stumbles clumsily out of the machine, and still sitting down on the ground, turns the clamp that holds the weight. The commotion calls the attention of other gymgoers, who huddle around to check if everyone is okay.<br><br>You extend a hand to help him up, and with ease pull him back to his feet.<br><br><</if>>He stands up, still breathless, and thanks you profusely. You can\'t help but feel proud of helping another fellow on his first steps of their own journey… a journey that changed your life, and hopefully will do the same for him someday.'
+                                content: 'You arrive at the gym, and the smell, a mix of sweat and cleaners immediately make you feel at home. After changing into your workout attire, you start your procession around the weight racks and machines. And so you engage in the ritual of chemistry you\'ve learned over the last days: sweat and iron create muscle, as you dutifully complete rep after rep, blood engorging your firm muscles and pumping them up.<br><br>The process has become routine, and you tune out the world as you go from exercise to exercise, getting into the zone as you concentrate into pushing your body to its limits. Which is probably why you are surprised when you catch a reflection in the mirror of a guy watching as you finish a set of biceps curls. He is wearing red exercise shorts and a gray sleeveless shirt, revealing an average physique… which, truthfully, you\'d probably be envious of not that long ago.<br><br><<Dialogue "randomPerson" "Random guy">>"Oh, sorry… I didn\'t mean to stare! I… uh… sorry, I\'m just new here… and I saw you doing everything so naturally… it was kind of hypnotizing."<</Dialogue>><br><br>He blushes, tripping over himself verbally as he tries to get out of the mess he sprung himself into.<br><br><<if $shyConfident > 1>>You suppress a giggle and raise your left arm, waving your palm with a flourish as you give him an impressive flex of your biceps.<br><br><<Dialogue "player" "You">>"What? These little puppies here? I have to admit, sometimes I even surprise myself!"<</Dialogue>><br><br>You say as you make your biceps bounce a couple of times for added effect.<br><br><<Dialogue "randomPerson" "Random guy">>"Wow… that\'s amazing. I hope someday I can get some results I can be proud off… but… I just got my membership to this gym yesterday. I admit it\'s somewhat intimidating, seeing all of you use all this equipment so naturally. I won\'t lie, I\'m a bit envious, I felt like I was just fumbling every time I tried to do anything. I almost didn\'t come back today. "<</Dialogue>><br><br><</if>><<if $shyConfident <= 1 && $shyConfident >= -1 >>You wipe the sweat off your forehead and, with a smile, stand up from the bench - proudly, albeit not on purpose, exhibiting your physique in your body-hugging workout attire.<br><br><<Dialogue "player" "You">>"Yeah, I just love coming to the gym, nothing quite compares, you know? There\'s nothing like challenging yourself."<</Dialogue>><br><br>You notice he\'s somewhat uneasy, probably feeling very insecure as he compares himself to you.<<Dialogue "randomPerson" "Random guy">>"Seriously, you are truly inspiring… but… I just got my membership to this gym yesterday. I admit it\'s somewhat intimidating, seeing all of you use all this equipment so naturally. I won\'t lie, I\'m a bit envious, I felt like I was just fumbling every time I tried to do anything. I almost didn\'t come back today. "<</Dialogue>><br><br><</if>><<if $shyConfident < -1 >><<Dialogue "player" "You">>"Eep!"<</Dialogue>><br><br>You let out a small whimper, blushing as you drop the heavy dumbbell that you were holding with a loud THUD! on the cushioned floor, fidgeting as you look around, hoping he was talking to someone else.<<Dialogue "randomPerson" "Random guy">>"Oh, sorry for startling you - I should have realized you were in the zone, so to speak. You clearly know exactly what you were doing, and I was hoping I might learn something… damn, I just realize how stupid I sound. "<</Dialogue>><br><br><</if>>You know exactly what he means. You look at this guy and, in your head, you see yourself not that long ago. You remember how awkward it was when you first started, swinging those weights haphazardly without proper form, struggling to get your target reps in even with the lightest one - which is made even harder when you are surrounded by people who look more fit and confident than you. But now the tables have turned, and you can\'t help but feel empathy for the little guy.<br><br><<Dialogue "player" "You">>"Hey, tell you what, why don\'t I run you through some basic routines? I can give you a basic starting set, and help you with your form as I show you each exercise?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random guy">>"R-really? That sounds great, if you don\'t mind… just… heh… go easy on me? I\'m pretty sure I\'ll have to stick to a much lighter load than you!"<</Dialogue>><br><br>You both share a laugh, and you proceed to write him a simple split routine. You walk him through the gym, explaining each exercise with a demonstration - you even make a point of trying to guess the weights he should use, picking them for a demonstration that wouldn\'t even register as a warm-up for you… but allowing you to hand them off directly and helping him repeat it so you can correct any mistakes.<br><br>After some minutes, you lead him to the leg press machine, setting it to what you believe will be a decent challenge for him. However, as he gets to the fifth rep on the last set, you can see him start to struggle.<br><br><<if $submissiveDominant > 1>>In a demanding tone, you order him to continue.<br><br><<Dialogue "player" "You">>"Don\'t stop now, you are still going to give me another ten reps, you hear?!?"<</Dialogue>><br><br>His face reddens even more as he grimaces during his sixth rep. You can see him almost grinding his teeth after the eighth rep, his breath becoming more labored.<<Dialogue "player" "You">>"That\'s nine, you have six left. Come on! Do it!" <</Dialogue>><br><br>His legs shake, but he keeps going, each rep slower than the one before. You can see he doesn\'t believe he can do it, that same initial insecurity in his eyes.<<Dialogue "player" "You">>"Don\'t you dare give up on me, not after all the work I put in."<</Dialogue>> <br><br>You can see his eyes widen in surprise over your forceful tone, but he gets the message loud and clear. You can see his grip on the handles tighten, and an expression of determination takes over as he now seems to complete the next few reps with renewed focus. However, as he is halfway on his last rep, his legs seem to stop in place, shaking as he seems to give his all to finish.<br><br>You look him in the eye and say with your most serious expression:<br><br><<Dialogue "player" "You">>"Just. Do it."<</Dialogue>><br><br>He takes a deep breath, and finishes the last rep. You lock up the rack for him, and with pride tell him that you expect to keep that same commitment, even when you aren\'t there.<</if>><<if $submissiveDominant <= 1 && $submissiveDominant >= -1 >>You cheer on him, sincerely invested in each rep as if it were your own.<br><br><<Dialogue "player" "You">>"Come on, you can do it! You\'ve already pulled another two full sets, only ten reps left!"<</Dialogue>><br><br>You can see him pushing himself to his limit, cranking a few more reps with enormous effort. But the lactic acid is getting the better of him, and you know well how hard it can get.<br><br><<Dialogue "player" "You">>"I know you got this! Half-way through, just keep pushing!"<</Dialogue>><br><br>His effort redoubles, and he grits his teeth, but you can see the pain mounting in his face. It seems like he has reached his limit. In a herculean effort, you try to discreetly spot the heavy weights with just your left hand in a corner he can\'t see - all while disguising your own effort so he won\'t be suspicious.<<Dialogue "player" "You">>"Four more and you are done, come on!"<</Dialogue>><br><br>He cranks another two extremely labored reps… and finally stalls. You can see he won\'t be able to continue, and so you turn the clamp to relieve him.<<Dialogue "player" "You">>"Congratulations! You did your best, and someday you\'ll do three full sets with even more weight, just go at your own pace and you\'ll get there!"<</Dialogue>><br><br><</if>><<if $submissiveDominant < -1 >>You bite your lip, nervously doubting the amount of weight you loaded into the machine. You feel his pain, remembering your early days in your own fitness journey. He looks back at you, expectantly, as if you could somehow lend part of your strength - but all you can do is flash a brief nervous smile.<br><br>He does seem to take solace on your support, and manages a couple more reps, but he clearly seems to be in pain. You keep feeling guiltier about all the weights you added as he pushes himself harder and harder. You start doubting yourself and end up just getting lost in your own thoughts as you second guess the whole plan when… <br><br>His knees buckle under the pressure of the weight, and the rack starts to fall on him. With apparently inhuman speed, you brace the whole rack with your hands! It\'s a considerable weight, especially getting you by surprise like this, but you heroically hold it steadily with great effort.<br><br>The guy stumbles clumsily out of the machine, and still sitting down on the ground, turns the clamp that holds the weight. The commotion calls the attention of other gymgoers, who huddle around to check if everyone is okay.<br><br>You extend a hand to help him up, and with ease pull him back to his feet.<br><br><</if>>He stands up, still breathless, and thanks you profusely. You can\'t help but feel proud of helping another fellow on his first steps of their own journey… a journey that changed your life, and hopefully will do the same for him someday.'
 },
 {
     name: 'HelpingInTheGym_Female',
@@ -27547,8 +27547,7 @@ repeatable: false,
         ],
         repeatable: false,
         retriggerable: false,
-        priority: 'response',
-        npc: [],
+        priority: 'response',npc: [],
         content: `Oh, you can feel the munchies coming, but you are feeling a tad too lazy for anything for than a quick snack - and your hand immediately shoots for the tube of potato chips in the kitchen.<br><br>As you hear the noise of the TV on the background, you realize a rerun of one of your favorite shows is on! You lay back on your recliner and start popping those sour cream and onion bad boys as you enjoy the throwback show.<br><br>Soon, the episode is over, but lo and behold! It’s a marathon! Another episode starts playing, and you lose track of time as you gulp down the potato chips. But it doesn’t take long for your hand not to fit into the rather tight tube. <<if $muscle >45 || $height >190>>In fact, it bring attention to how big your hand has become, as you notice it has kept up with your growth lately.<</if>><br><br>You could scoop it down, but you didn’t get a plate and you don’t want chip dust everywhere, and you feel very lazy. And then... it hits you. There IS one growing part of your body that might do the trick!<br><br><<if $tongueLenght >12>>Without taking your eyes from the climatic scene in the show, you just bring the tube to your lips and barely need to tilt it as your prehensile tongue slides down, feeling the crevice for the desired starchy treats.<br><br>You feel the grainy chip with your sensitive appendage, and it’s sticky enough to flip it over, and agile enough to wrap itself and pull it out! Fishing it, your bring it to your mouth. Giddy with your success, you repeat the process for the remaining, chips, without ever having to stop watching your show.<<elseif $tongueLenght > 9>>It’s a fairly long tube, and you tip it horizontally to help the process, but you keep your eyes tight on the screen as your tongue creeps through the crevice in search of the starchy treats.<br><br>You eventually reach the chip, which feels much rougher than the tube. You lay your tongue over it, and slowly and carefully pull it out, then deftly flip it over and bite into it. Satisfied, you keep up at that game, never missing a single frame of your show.<<elseif $tongueLenght > 6>>Ohhh, your tongue is pretty big for what it is, but not really tube-probing big. But that’s not a problem, you just tilt the tube carefully, trying to bring to the very rim, and then scoop the whole thing up. With a sweeping motion, you bring it all into your mouth, several chips, which you munch through satisfied as you watch your show. <<else>>Your tongue is longer than it used to be, but not really THAT big to make a huge difference. You just open your mouth wide and dump the contents on your curved tongue, using it as a makeshift plate for the chips and crumbs. Not the best solution, but it will have to do for now.<</if>><br><br>As the episode wraps up, you check proudly that there is not one crumb on your recliner, and you get back to your day, tossing the empty tube in the trash.`
     }
 ]>>
@@ -32553,7 +32552,321 @@ Nat gets up, twisting <<rivalMy>> arms around for a brief stretch as <<rivalI>> 
     While you proclaim that quite cheerily, Nat is still not being very talkative. And so <<rivalI>> just walks to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>. Without so much as an explanation, <<rivalI>> starts cranking out barbell biceps curls, <<rivalMy>> usual focus replaced by an angry scowl. You can see that <<rivalI>> is straining <<rivalMy>> wrist quite a bit, as <<rivalMy>> accident seems to make the weight slightly less secure on one side.<br><br>
     But Nat keeps up with it, and manages to finish <<rivalMy>> 15 reps. You notice <<rivalI>> is rubbing <<rivalMy>> wrist as <<rivalI>> finishes - <<rivalI>> clearly is going a bit too far with <<rivalMy>> injury…
 <</if>>
-<span id="choice">
-    <<link "Alright, champ, let me show you what heavy metal feels like!">><<playEvent 'NatWristInjury-NatTriesToKeepUp'>><</link>>
-    <<link "Nat's just overdoing it, I should back down a bit.">><<playEvent 'NatWristInjury-NatIgnoresAndGloats'>><</link>>
-</span>
+<<link "Alright, champ, let me show you what heavy metal feels like!" "NatWristInjury-NatTriesToKeepUp">><</link>>
+<<link "Nat's just overdoing it, I should back down a bit." "NatWristInjury-NatIgnoresAndGloats">><</link>>
+
+
+:: NatWristInjury-NatShowOff [nobr] {"position":"0,0","size":"100,100"}
+Nat is running full speed on the treadmill, and you take a second for a brief stretch before going on the one next to <<rivalMe>>. You set your own to a brisk pace to get warmed up, and just keep admiring <<rivalMy>> statuesque body as you work your way up to a nice run.<br><br>
+<<if $muscle >=30>>
+You feel motivated to match <<rivalMy>> speed, slowly increasing it over time. You feel the burn on your legs increasing over time, but Nat just motivates you to try harder. By the time you actually catch up, though, <<rivalI>> winds down <<rivalMy>> treadmill, telling you to meet by weights. You stop there and go after <<rivalMe>>, still panting a bit.<br><br>
+<<else>>
+You seriously start wondering whether it's a person or a machine next to you: Nat runs like a professional, <<rivalMy>> unerring gaze just dead ahead as <<rivalMy>> legs become a blur of speed. You have no intention (or hope!) of matching <<rivalMy>> pace, so you settle for a nice jog that allows you to just drink in the view of <<rivalMy>> amazing body. After <<rivalI>> slows down <<rivalMy>> machine and jumps off, you follow <<rivalMe>> to the weights.<br><br>
+<</if>>
+<<RivalI>> makes <<rivalMy>> way to the pec deck machine, which <<rivalI>> insists on explaining to you. <<RivalI>> leans against it, setting the weight load a little under 3/4 of the way. Sitting down, <<rivalI>> proceeds to do a full set with impeccable form and a very focused look on <<rivalMy>> face. You keep watching as <<rivalMy>> chest expands, <<rivalMy>> nipples visible under the wet white shirt made taut by <<rivalMy>> burgeoning muscles. You might have cheered <<rivalMe>> on, if not for the fact that you got completely distracted by <<rivalMy>> amazing little show and didn't even register that <<rivalI>> completed <<rivalMy>> 15 reps perfectly.<br><br>
+Nat gets up, twisting <<rivalMy>> arms around for a brief stretch as <<rivalI>> vacates the seat for you. 
+<<if $muscle >35>>
+You sit down and push yourself to your very limit to try and repeat Nat's set. At about the 10th rep you start struggling a bit, but you just grit your teeth and make sure you finish that 15th rep unaided. Nat claps sincerely.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Wow, that is no dig, I did not think you had it in you to manage the same weight as me. Kudos to you!"<</Dialogue>><br><br>
+You pant and stretch as you get up, watching <<rivalMe>> pull another set with the same focus as before. You can almost feel the pain just remembering how much effort that took you, but it only steels your resolve even more. Nat gets up, and you dread sitting down… but you power through. Gritting your teeth, you seriously think you might not be able to go past that 12th rep, but Nat cheers you on, and you just barely manage.<br><br>
+As Nat does <<rivalMy>> third set, you just feel your own pecs - damn! That's a pump unlike any you ever had, the two bricks on your chest feeling rock-solid. You start wondering just how your gains might improve if you keep working out with Nat, and <<rivalI>> pokes you to warn you it's your turn again. You sigh, not looking forward to that hellish last set.<br><br>
+You close your eyes, and dig deep within you. And you start pushing like your life depended on it. You concentrate on feeling your pecs expand and contract, imagining yourself getting bigger and bigger - bigger than Nat, even. And you soldier on.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Uh, <<print $playerFirstName>>, that's 18 reps… I think you are done!"<</Dialogue>><br><br>
+You shake yourself awake, and drop the weight with a really loud CLANG! Your chest is burning like crazy, and as you give it a tentative poke, it feels even harder and bigger than before - how can something feel harder than a rock? All you know is that it does. You find yourself giving a full flex, and your jaw drops as you realize you could almost give Nat a run for <<rivalMy>> money! Not to be outdone, <<rivalI>> also poses by your side - damn, you are not quite there yet, but you could almost swear you grew noticeably from <<rivalMy>> exercise alone… is this just a pump or…?<br><br>
+You shake your head back into reality, as Nat grabs your arm to drag you to the lat pulldown machine. You find yourself intuitively contracting your biceps under <<rivalMy>> grip in a weird display of dominance, like your own way to assert that you are not just a little girl. <<RivalI>> pretends not to notice, but you know <<rivalI>> did.<br><br>
+Now, Nat confidently sets up the machine with a full <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load - Nat certainly looks to have a very solid back on <<rivalMe>>, probably built on <<rivalMy>> years of swimming. <<RivalI>> once again does a full set of 15 reps, but you notice <<rivalMe>> struggling on the last few reps, starting to shake a bit. You motion to spot <<rivalMe>>, but <<rivalI>> just shakes <<rivalMy>> head, still fully focused.<br><br>
+<<RivalI>> comes out of the seat, and motions to decrease the weight for you a few pegs. 
+<<if $submissiveDominant > 1>>
+<br><br><<Dialogue "player" "You">>"Don't."<</Dialogue>><br><br>
+You say calmly and decidedly. <<RivalI>> is briefly stunned, but complies.
+<<else>>
+That is probably for the best - <<rivalI>> takes off two plates, and you still wonder if you can actually manage it even then.<br><br>
+<</if>>
+You sit down and take a second to have a deep breath. You grab the bar with the same intensity you saw Nat display just seconds before… and you pull.<br><br>
+HOLY SHIT THIS IS HEAVY. You feel like you are pulling the entire world down. Even the first rep is a struggle. You have no idea how you are going to manage 10 - let alone 15 reps. But you just keep doing it, heavy breaths getting heavier… and the weights also feel like they are doing the same. But you keep repeating the motion, your back muscles feeling like they might just break out of your skin. At the 12th rep your arms start shaking considerably, and Nat steps in to spot you - which you accept gladly. And with <<rivalMy>> support, you finish the 15th rep. You are pretty sure your back can't fall off, but it sure feels like it could.<br><br>
+As you stretch between reps, you can't help but just stare at Nat's back. It's downright unreal: the ridges and contours are all at full display even under <<rivalMy>> stretched shirt, and you watch mesmerized as it waves up and down like the ocean as <<rivalI>> completes rep after unbelievable rep with the entire stack. If you weren't struggling with your own muscle fatigue, you'd probably be struggling not to just lick the most incredible torso you've ever seen on a man.<br><br>
+Nat finishes and waves you back to the seat. You laugh nervously, positive you don't have it in you to finish another set. But you sure as hell gonna try!<br><br>
+You once again close your eyes, trying to tap into that same space you did before. You start pulling, and the weight again feels heavier than ever before. This time, Nat is spotting you and helping a bit even as you reach the 9th rep. You get a bit too self-conscious, however, and the fatigue gets the best of you after the 12th rep, and you freeze. After a 5-second pause that feels like an eternity, you crank the most strained 13th rep you could conceive, and give up. Letting go of the bar, you get up.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Whoa, <<print $playerFirstName>>, that was unbelievable! You are full of surprises, aren't you?"<</Dialogue>><br><br>
+You smile weakly, and while you are glad for the admiration, you can't shake the feeling of failure. It builds up in your chest as you watch Nat just pulling another almost perfect set - sure, <<rivalI>> strains a bit towards the end, but this lights a fire within you. You find yourself straining every muscle in your body before you even start, frowning in anticipation of showing that pile of weights who's the boss.<br><br>
+Nat steps away for you, and you feel like you might have ripped <<rivalMe>> away if <<rivalI>>'d stayed there another second longer. You grab the bar and don't even stop to close your eyes or take a deep breath - you just start cranking up reps, scowling so fiercely that Nat actually gets a little afraid. And there you go… 3… 5… 8… 12… 15… and 16 just because.<br><br>
+As you let go of the bar, the fatigue that you warded off just tramples you like a tsunami. It feels like your back has contracted denser than a diamond, cramping terribly in the process. But you get up, and face the walled mirrors and you give a full flex of your pumped back.<br><br>
+It is glorious.<br><br>
+You watch in awe, you feel bigger than ever, your presence glowing as a slab of human meat that could carry the entire world - which you feel like you are on the top of…<br><br>
+…until Nat casually takes <<rivalMy>> shirt off and does the same. Damn, while you feel huge and dense… you start feeling smaller as <<rivalI>> puts <<rivalMy>> glorious backside on full display - you can even hear a girl sighing. And you agree with the sentiment: <<rivalMy>> back not only has amazing mass, but also symmetry and aesthetics: <<rivalMy>> ripped muscles seem like they were sculpted by a classic Greek artist, each fiber carefully laid out over another with purpose - possibly the largest in the entire facility.<br><br>
+<<Dialogue "player" "You">>"Looking pretty good there, Nat! There's not going to be much competition on that department come the end of summer!"<</Dialogue>><br><br>
+You say to <<rivalMe>>, trying to hide a hint of jealousy. Nat, however, couldn't be more excited, and <<rivalI>> makes <<rivalMy>> way to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>>. <<RivalI>> gives you a brief explanation on biceps curls, and starts with <<rivalMy>> reps. You gawk as <<rivalMy>> fully exposed biceps seems to balloon and peak in yet another demonstration of classical perfection. As <<rivalI>> catches your eyes, <<rivalI>> slows down the movement - not because <<rivalI>> wants to get a better negative, but because <<rivalI>> seems to bask in the adoration you and the other people at the gym are giving <<rivalMe>>.
+<<elseif $muscle >=30>>
+You wisely set the weight down a few pegs - you might have gotten considerably stronger lately, but you still know your limits. At about the 10th rep you start struggling a bit, but you just grit your teeth and make sure you finish that 15th rep unaided. Nat claps sincerely.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Wow, that is no dig, I did not think you had it in you to manage that much weight. Kudos to you!"<</Dialogue>><br><br>
+You pant and stretch as you get up, watching <<rivalMe>> increase the weights back up and pull another set with the same focus as before. You can almost feel the pain just remembering how much effort that took you, but it only steels your resolve even more. Nat gets up, and you dread sitting down… but you power through. Gritting your teeth, you seriously think you might not be able to go past that 12th rep, but Nat cheers you on, and you just barely manage.<br><br>
+As Nat does <<rivalMy>> third set, you can't help but just gawk at the guy - those are some respectable pecs, and you wonder if you'll ever get that big. <<RivalI>> pokes you after finishing. You sigh, not looking forward to that hellish last set.<br><br>
+You close your eyes, and dig deep within you. This time you can't quite complete the whole set, but you are still very happy to have managed those 11 reps.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You really push yourself! You were right, having a workout partner does wonders, huh?"<</Dialogue>><br><br>
+You aren't sure who is motivating who in that example, but hey - as long as both of you are having fun and pushing harder, who cares?<br><br>
+Nat grabs your arm to drag you to the lat pulldown machine. You just let <<rivalMe>>, still a bit tired from the last exercise, but <<rivalI>> seems to be at full steam.<br><br>
+Now, Nat confidently sets up the machine with a full <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load - Nat certainly looks to have a very solid back on <<rivalMe>>, probably built on <<rivalMy>> years of swimming. <<RivalI>> once again does a full set of 15 reps, but you notice <<rivalMe>> struggling on the last few reps, starting to shake a bit. You motion to spot <<rivalMe>>, but <<rivalI>> just shakes <<rivalMy>> head, still fully focused.<br><br>
+<<RivalI>> comes out of the seat, and decreases the weight by half. You aren't about to question that. You sit down and take a second to have a deep breath. You grab the bar with the same intensity you saw Nat display just seconds before… and you pull.<br><br>
+HOLY SHIT THIS IS HEAVY. You feel like you are pulling the entire world down. Even the first rep is a struggle. You have no idea how you are going to manage 10 - let alone 15 reps. But you just keep doing it, heavy breaths getting heavier… and the weights also feel like they are doing the same. But you keep repeating the motion, your back muscles feeling like they might just break out of your skin. At the 12th rep your arms start shaking considerably, and Nat steps in to spot you - which you accept gladly. And with <<rivalMy>> support, you finish the 15th rep. You are pretty sure your back can't fall off, but it sure feels like it could.<br><br>
+As you stretch between reps, you can't help but just stare at Nat's back. It's downright unreal: the ridges and contours are all at full display even under <<rivalMy>> stretched shirt, and you watch mesmerized as it waves up and down like the ocean as <<rivalI>> completes rep after unbelievable rep with the entire stack. If you weren't struggling with your own muscle fatigue, you'd probably be struggling not to just lick the most incredible torso you've ever seen on a man.<br><br>
+Nat finishes and waves you back to the seat. You laugh nervously, positive you don't have it in you to finish another set. But you sure as hell gonna try!<br><br>
+You once again close your eyes. As the pulling starts, the weight again feels heavier than ever before. This time, Nat is spotting you and helping a bit even as you reach the 9th rep. You get a bit too self-conscious, however, and the fatigue gets the best of you after the 12th rep, and you freeze. After a 5-second pause that feels like an eternity, you crank the most strained 13th rep you could conceive, and give up. Letting go of the bar, you get up.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Not bad, <<print $playerFirstName>>! Keep going, I know you have it in you!"<</Dialogue>><br><br>
+You smile weakly, and while you are glad for the admiration, you can't shake the feeling of failure. It builds up in your chest as you watch Nat just pulling another almost perfect set - sure, <<rivalI>> strains a bit towards the end, but <<rivalI>> is doing twice as much weight.<br><br>
+You know that you are already close to your limit, but still push yourself to complete 10 very subpar reps. It's not much, but it was honest work.<br><br>
+As you let go of the bar, you feel it cramping a bit, and try your hardest not to let it show. After a good stretch, you notice you got a nice pump, and give your back a nice flex, checking happily to see some hints of definition on the mirror…<br><br>
+…until Nat casually takes <<rivalMy>> shirt off and does the same. Damn, now you just feel tiny as <<rivalI>> puts <<rivalMy>> glorious backside on full display - you can even hear a girl sighing. And you agree with the sentiment: <<rivalMy>> back not only has amazing mass, but also symmetry and aesthetics: <<rivalMy>> ripped muscles seem like they were sculpted by a classic Greek artist, each fiber carefully laid out over another with purpose - possibly the largest in the entire facility.<br><br>
+<<Dialogue "player" "You">>"Looking pretty good there, Nat! There's not going to be much competition on that department come the end of summer!"<</Dialogue>><br><br>
+You say to <<rivalMe>>, trying to hide a hint of jealousy. Nat, however, couldn't be more excited, and <<rivalI>> makes <<rivalMy>> way to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>>. <<RivalI>> gives you a brief explanation on biceps curls, and starts with <<rivalMy>> reps. You gawk as <<rivalMy>> fully exposed biceps seems to balloon and peak in yet another demonstration of classical perfection. As <<rivalI>> catches your eyes, <<rivalI>> slows down the movement - not because <<rivalI>> wants to get a better negative, but because <<rivalI>> seems to bask in the adoration you and the other people at the gym are giving <<rivalMe>>.
+<<else>>
+You wisely set the weight almost all the way down - you still know your limits. At about the 10th rep you start struggling a bit, but you just grit your teeth and make sure you finish that 15th rep unaided. Nat claps sincerely.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Every journey starts somewhere, and you show true grit, kid. Kudos to you!"<</Dialogue>><br><br>
+You pant and stretch as you get up, grumpily watching <<rivalMe>> increase the weights back up and pull another set with the same focus as before. You can almost feel the pain just remembering how much effort that took you, but it only steels your resolve even more. Nat gets up, and you dread sitting down… but you power through. Gritting your teeth, you seriously think you might not be able to go past that 12th rep, but Nat cheers you on, and you just barely manage.<br><br>
+As Nat does <<rivalMy>> third set, you can't help but just gawk at the guy - those are some respectable pecs, and you wonder if you'll ever get that big. <<RivalI>> pokes you after finishing. You sigh, not looking forward to that hellish last set.<br><br>
+You close your eyes, and dig deep within you. This time you can't quite complete the whole set, but you are still very happy to have managed those 11 reps.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You really push yourself! You were right, having a workout partner does wonders, huh?"<</Dialogue>><br><br>
+It feels a tad condescending but, as long as both of you are having fun and pushing harder, who cares?<br><br>
+Nat grabs your arm to drag you to the lat pulldown machine. You just let <<rivalMe>>, still a bit tired from the last exercise, but <<rivalI>> seems to be at full steam.<br><br>
+Now, Nat confidently sets up the machine with a full <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load - Nat certainly looks to have a very solid back on <<rivalMe>>, probably built on <<rivalMy>> years of swimming. <<RivalI>> once again does a full set of 15 reps, but you notice <<rivalMe>> struggling on the last few reps, starting to shake a bit. You motion to spot <<rivalMe>>, but <<rivalI>> just shakes <<rivalMy>> head, still fully focused.<br><br>
+<<RivalI>> comes out of the seat, and decreases the weight pretty much all the way down. You aren't about to question that. You sit down and take a second to have a deep breath. You grab the bar with the same intensity you saw Nat display just seconds before… and you pull.<br><br>
+Argh, this is pretty heavy! Even the first rep is a struggle. You have no idea how you are going to manage 10 - let alone 15 reps. But you just keep doing it, heavy breaths getting heavier… and the weights also feel like they are doing the same. But you keep repeating the motion, your back muscles feeling like they might just break out of your skin. At the 12th rep your arms start shaking considerably, and Nat steps in to spot you - which you accept gladly. And with <<rivalMy>> support, you finish the 15th rep. You are pretty sure your back can't fall off, but it sure feels like it could.<br><br>
+As you stretch between reps, you can't help but just stare at Nat's back. It's downright unreal: the ridges and contours are all at full display even under <<rivalMy>> stretched shirt, and you watch mesmerized as it waves up and down like the ocean as <<rivalI>> completes rep after unbelievable rep with the entire stack. If you weren't struggling with your own muscle fatigue, you'd probably be struggling not to just lick the most incredible torso you've ever seen on a man.<br><br>
+Nat finishes and waves you back to the seat. You laugh nervously, positive you don't have it in you to finish another set. But you sure as hell gonna try!<br><br>
+You once again close your eyes. As the pulling starts, the weight again feels heavier than ever before. This time, Nat is spotting you and helping a bit even as you reach the 9th rep. You get a bit too self-conscious, however, and the fatigue gets the best of you after the 12th rep, and you freeze. After a 5-second pause that feels like an eternity, you crank the most strained 13th rep you could conceive, and give up. Letting go of the bar, you get up.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Not bad, <<print $playerFirstName>>! Keep going, I know you have it in you!"<</Dialogue>><br><br>
+You smile weakly, and while you are glad for the admiration, you can't shake the feeling of failure. It builds up in your chest as you watch Nat just pulling another almost perfect set - sure, <<rivalI>> strains a bit towards the end, but <<rivalI>> is working with a much heavier load.<br><br>
+You know that you are already close to your limit, but still push yourself to complete 10 very subpar reps. It's not much, but it was honest work.<br><br>
+As you let go of the bar, your back feels like it's on fire. After a good stretch, you can't resist the temptation to give your back a nice flex, checking frustratedly in the mirror for any definition…<br><br>
+…and then Nat casually takes <<rivalMy>> shirt off and does the same. Damn, now you just feel tiny as <<rivalI>> puts <<rivalMy>> glorious backside on full display - you can even hear a girl sighing. And you agree with the sentiment: <<rivalMy>> back not only has amazing mass, but also symmetry and aesthetics: <<rivalMy>> ripped muscles seem like they were sculpted by a classic Greek artist, each fiber carefully laid out over another with purpose - possibly the largest in the entire facility.<br><br>
+<<Dialogue "player" "You">>"Looking pretty good there, Nat! There's not going to be much competition on that department come the end of summer!"<</Dialogue>><br><br>
+You say to <<rivalMe>>, trying to hide your jealousy. Nat, however, couldn't be more excited, and <<rivalI>> makes <<rivalMy>> way to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>>. <<RivalI>> gives you a brief explanation on biceps curls, and starts with <<rivalMy>> reps. You gawk as <<rivalMy>> fully exposed biceps seems to balloon and peak in yet another demonstration of classical perfection. As <<rivalI>> catches your eyes, <<rivalI>> slows down the movement - not because <<rivalI>> wants to get a better negative, but because <<rivalI>> seems to bask in the adoration you and the other people at the gym are giving <<rivalMe>>.
+<</if>>
+
+<<link "Damn, that's so hot… I just want to feel <<rivalMy>> muscles…" "NatWristInjury-NatPushHarder">><</link>>
+<<link "Alright, Nat, enough showing off - let's focus on your training!" "NatWristInjury-NatShowOffToOthers">><</link>>
+
+
+:: NatWristInjury-NatPushHarder [nobr] {"position":"0,0","size":"100,100"}
+It's getting hard not to just drool… you find yourself unable to resist just placing a hand on Nat's burgeoning biceps. <<RivalMy>> concentration is broken as <<rivalI>> turns and looks deep into your eyes - it's still your same old friend… but also… something more. You forget the gym - heck, the entire world could be gone and you wouldn't notice. All there is are those warm, blue eyes, and that firm, warm, pulsating muscle under your palm.<br><br>
+Nat seems to share in this revelation, as <<rivalI>> slowly repeats <<rivalMy>> movements, and you can almost feel that <<rivalI>> is telling you, silently, “Yes, share this moment with me, as we strive for perfection.” You bite your lip, and squeeze <<rivalMy>> arm, finding no give in the hard sinew. Nat makes <<rivalMy>> movement more deliberate, <<rivalMy>> breathing the most sensual thing you ever witnessed. You see as the hot air comes from <<rivalMy>> mouth, and you just want to come in for a…<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Fifteen! Phew!"<</Dialogue>><br><br>
+<<RivalI>> puts down the barbell, and the world flashes back into existence as you step back, still slightly dazed. You put a hand on your chest, and feel your heart beating very fast. Oh, God! Looking around, you are relieved to see no one seems to have noticed your little moment. Nat, however, seems to be smiling very happily now - a nice change from <<rivalMy>> usual fiercely concentrated look. In fact, <<rivalI>> smirks as <<rivalI>> adds another couple of small plates to the barbell. You suck your lips into your mouth in anticipation as <<rivalI>> grabs the bar. You motion towards <<rivalMy>> upper arms with your palm, a begging look in your face. Nat just smiles and nods, and you place your hand there again, skipping your turn at the exercise completely.<br><br>
+And once again you feel that wonderful lull of contracting flesh under your fingertips, lovingly caressing a throbbing vein as <<rivalI>> once again repeats the motions… you feel your nether parts moistening as you take deep breaths, feeling like you are becoming lighter as you lose yourself to this amazing feeling.<br><br>
+However, halfway through, you also notice something is wrong - Nat is shaking slightly. You look and realize <<rivalI>> is forcing <<rivalMy>> injured wrist with this load, as <<rivalMy>> arms react asymmetrically to the barbell. You don't want this to end, but you want Nat to get hurt even less. <<RivalI>> finishes <<rivalMy>> second set, and apparently beaming even more than before, <<rivalI>> motions to grab another set of small plates…
+<<if $natOpinion >= 0>>
+    <<link "Continue" "NatWristInjury-TellTakeItEasy">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-TellStopShowingOff">><</link>>
+<</if>>
+
+
+:: NatWristInjury-TellTakeItEasy [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Come on, Nat. I can see that you are struggling - your arm was shaking… it's your wrist, right?"<</Dialogue>><br><br>
+Nat scoffs, <<rivalMy>> pride clearly hurt - and you feel a bit bad, since you know you are the cause of it with your clumsiness.<br><br>
+<<Dialogue "player" "You">>"Look, I feel pretty bad for injuring you in the first place… how do you think I'm going to feel if you make it worse?"<</Dialogue>><br><br>
+Nat stops, and <<rivalMy>> demeanor gets very somber all of a sudden. You seem to have reached <<rivalMe>> somehow. But still, it's a sore point.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, I won't lie… this injury sucks, big time. I'm really concerned it could cost me the competition."<</Dialogue>>
+You grab Nat by the shoulders - damn, <<rivalI>> has some really nice capped shoulders - and look right into <<rivalMy>> face:<br><br>
+<<Dialogue "player" "You">>"Nat, if there is one thing I learned about you… is that nothing is impossible for you. This will make it harder, sure. But I know for a fact that it's something you can overcome. But that will take a different kind of determination. It's not just throwing yourself with a passion, but having patience and faith in the process. Healing CAN be just as hard as growing, you just need to see it another challenge, not just a hurdle you throw yourself against."<</Dialogue>><br><br>
+
+<<link "Continue" "NatWristInjury-NatInjured">><</link>>
+
+
+:: NatWristInjury-NatInjured [nobr] {"position":"0,0","size":"100,100"}
+Nat scoffs and goes back to the barbell, but it's obvious to everyone that <<rivalI>> is overdoing it. <<RivalI>> stops after three reps, and sighs with frustration. <<RivalI>> goes at it one more time… but <<rivalI>> is shaking even more - this is about as agonizing to you as it seems to be to <<rivalMe>>. There are so many words stuck in your throat right now, but you don't know how exactly to get through to <<rivalMe>>… but of one thing you are sure - if you don't do it NOW, the damage could be even worse!
+<<link "Nat, stop being silly! You are just going to hurt yourself!" "NatWristInjury-Confrontational2">><</link>>
+<<link "Nat, I beg you… stop now. For me! Please?" "NatWristInjury-BegToStop">><</link>>
+
+
+:: NatWristInjury-Confrontational2 [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Alright, that's enough!"<</Dialogue>><br><br>
+You step by <<rivalMy>> side, and force <<rivalMe>> to lower the weights down. You grab <<rivalMy>> wrist, and <<rivalI>> winces. Yup, that's definitely injured.
+<<Dialogue "player" "You">>"Seriously, dude, enough is enough. I can appreciate a big show of testosterone as the next girl, but you don't need to be an asshole just to show off, OK? "<</Dialogue>><br><br>
+Nat grunts, and clearly isn't used to being led like this - especially by a girl. You grab <<rivalMe>> by the arm and start dragging <<rivalMe>> to the reception.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+
+<<if $natOpinion >= 0>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAggressive">><</link>>
+<</if>>
+
+
+:: NatWristInjury-NatCope [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You know what, <<print $playerFirstName>>? You are right. I SHOULD be careful with this. Last thing I need is to mess a tendon and ruin all my chances at this competition."<</Dialogue>><br><br>
+You are shocked - you knew you had to try… but you didn't really expect to get across to <<rivalMe>>! You jump and give <<rivalMe>> a hug - and <<rivalI>> smiles back at you.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Still… this is going to put a serious dent in my training… I'm going to have to figure out a routine around this… and maybe seek some physical therapy - damn, that's going to eat into my schedule..."<</Dialogue>><br><br>
+You don't even care right now, you are just happy that Nat has accepted <<rivalMy>> limitation and dealt with the frustration like the adult you know <<rivalI>> is. You can't deny, that just makes <<rivalMe>> seem even hotter to you right now…<br><br>
+You shake your head, trying to dispel that feeling, as you continue to drag your childhood friend along while you seek some medical attention.
+
+<<link "Go home" "Home">><<set $flag.NatWristInjuryRoute to 'coop'>><</link>>
+
+
+:: NatWristInjury-NatTriesToKeepUp [nobr] {"position":"0,0","size":"100,100"}
+<<if $muscle >=65 && $shyConfident > 1|| $submissiveDominant > 1>>
+You are not about to give in to <<rivalMy>> competitive bullshit, well, not in the sense that you feel like there IS any competition. Putting your game face on, you just grab a couple of <<if $measurementSystem == 'metric'>>25 kg<<else>>45 pound<</if>> plates and add them to both sides of the barbell, keeping the fiercest down-to-business expression you could have on. Nat's jaw drops as you give a couple of tentative reps and put the weight down… only to add ANOTHER couple of them, basically doubling the weight. As you grab the bar, you are finally getting closer to being challenged, and you just go ahead and crank 15 textbook, fully-controlled slow reps. You watch as the veins on your engorged biceps jump out, throbbing as they deliver blood to your <<getMeasurement "upperArm" true>> titanic arms. You put down the barbell, walk up to a still-frozen Nat, and just give <<rivalMe>> the most impressive double-biceps pose <<rivalI>>'s ever seen in <<rivalMy>> life. <<RivalMy>> breath gets ragged, in what seems like a mix of terror and arousal, before that turns into anger, and <<rivalI>> goes back to rack. <<RivalI>> takes off half the plates you added, and tries to raise the bar. You see <<rivalMe>> struggling to even get it off the rack, but <<rivalI>> persists.<br><br>
+ <<elseif $muscle >=45 && $shyConfident > 1|| $submissiveDominant > 1>>
+You feel driven by Nat's sheer bravado, and by Jove, you are going to match it! You glare at <<rivalMe>> while you add a couple of <<if $measurementSystem == 'metric'>>5 kg<<else>>10 pound<</if>> plates for good measure. The fitness model once again gets confused as you approach the rack, and put two decided hands on it. With a deep breath, you start doing biceps curls with the determination of an epic hero - and as if ignoring all your physical limitations, the weights just start going up… and down… up… and down…<br><br>
+Even though these are labored reps, you watch your own biceps growing impossibly big, with thick pulsating veins pumping the strength-giving blood - which you picture as more of the potion being delivered straight into your arms. As if responding to that thought, you can swear your arms get bigger with each successive rep, feeling tighter, harder and more defined as you keep bringing it up… and down… up… and down.<br><br>
+By the time you are done, even you feel impressed with your own <<getMeasurement "upperArm" true>> arms, which you check with a rather casual flex on the mirror. Damn, you look like you could rip a person in half! But all your excitement has translated into frustration for Nat, who just rushes to the rack and tries to replicate your feat. <<RivalI>> does manage a first, very strained rep…<br><br>
+<<elseif $muscle >=50>>
+Oh, so Nat wants to show off? Two can play this game.<br><br>
+You walk to the bar in silence, and just pull 15 textbook, fully-controlled slow reps. You watch as the veins on your engorged biceps jump out, throbbing as they deliver blood to your <<getMeasurement "upperArm" true>> titanic arms. You put down the barbell, walk up to a still-frozen Nat, and casually tell <<rivalMe>>:<br><br>
+<<Dialogue "player" "You">>"Your turn, babe."<</Dialogue>><br><br>
+<<RivalI>> seethes, and goes back to rack. Again, <<rivalI>> is really pushing it as continues to force <<rivalMy>> injured wrist.<br><br>
+<<else>>
+Whoa, Nat is really pushing the envelope here. <<RivalI>> looks at you smugly as you look at the barbell, slightly intimidated by the load. But you are not about to back down. You grab the bar, and try a first rep to get a good feel of the weight - OOF! It's heavy! But you feel oddly motivated by this little episode, and you just do it - you concentrate, gritting your teeth and breathing deeply with each rep. You watch in disbelief as your biceps respond immediately, getting fully pumped as thick veins throb with the effort. You count each rep with increasing excitement, each making you more sure that you are going to match Nat's lift after all. Your arms burn as you complete the 15th rep… and then pull a strained but very cheeky 16th one just for show.<br><br>
+And a show you deliver! You raise your arms in an enviable double-biceps pose, looking as your arms seem bigger than ever before! You find yourself caressing the right one, trying to dent the rock-hard sinew unsuccessfully.<br><br>
+<<Dialogue "player" "You">>"Whoa, Nat, here, give this a feel! I can't believe how hard they are!"<</Dialogue>><br><br>
+But Nat just pushes you out of the way as <<rivalI>> goes for the weights, adding another <<if $measurementSystem == 'metric'>>5 kg<<else>>10 pound<</if>> plate to each side.<br><br>
+<<Dialogue "player" "You">>"Uh, are you sure about that?"<</Dialogue>><br><br>
+If <<rivalI>> heard what you said, <<rivalI>> is pretending <<rivalI>> didn't. <<RivalI>> just pushes himself to try and start another set, but from the get go you can see <<rivalMy>> injured wrist about to give way…<br><br>
+<</if>>
+
+<<link "Continue" "NatWristInjury-NatBlamesProtagonist">><</link>>
+
+
+:: NatWristInjury-NatBlamesProtagonist [nobr] {"position":"0,0","size":"100,100"}
+As Nat lifts the barbell, one of <<rivalMy>> elbows lock and <<rivalMy>> hand bends, letting one side of the barbell fall - it's a split second before the whole thing hits the padded ground with a loud clanging noise, and your friend is squatting and holding <<rivalMy>> wrist with a very painful expression. You rush to <<rivalMy>> side, placing a hand on <<rivalMy>> back.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"GET OFF ME, <<print $playerFirstName.toUpperCase()>>!"<</Dialogue>><br><br>
+<<RivalI>> shouts, as <<rivalI>> slaps you away with <<rivalMy>> good hand.<br><br>
+<<Dialogue "player" "You">>"Look, I'll go get someone, I'm sure they have some person here who can help you with…"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You've done enough already, OK?"<</Dialogue>><br><br>
+That comment hurts more than you'd like to admit. You know deep inside it's the pain talking - still, <<rivalI>>'s really pushing, and you gotta do something!<br><br>
+
+<<link "Nat, stop acting like a kid! You are coming with me to check that injury!" "NatWristInjury-Confrontational1">><</link>>
+<<link "I'm sure it's nothing, can I just have a look?" "NatWristInjury-NatApologetic">><</link>>
+
+
+:: NatWristInjury-Confrontational1 [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Alright, that's enough!"<</Dialogue>><br><br>
+You pull <<rivalMy>> good arm around your shoulder, and drag <<rivalMe>> up and towards reception.<br><br>
+<<Dialogue "player" "You">>"Seriously, dude, enough is enough. I can appreciate a big show of testosterone as the next girl, but you don't need to be an asshole just to show off, OK? "<</Dialogue>><br><br>
+Nat grunts, and clearly isn't used to being led like this - especially by a girl. <<RivalI>> folds <<rivalMy>> arm, keeping <<rivalMy>> injured wrist next to <<rivalMy>> chest.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+<<if $natOpinion >= 40>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAggressive">><</link>>
+<</if>>
+
+
+:: NatWristInjury-NatAggressive [nobr] {"position":"0,0","size":"100,100"}
+Nat pulls <<rivalMy>> arm away from you with a jerk, and shouts:<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"OK, that's enough! Stop treating me like a little kid, you hear?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Nat, I'm just concerned about your…"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You're jealous of me, that's what you are - that I have my fans and have this amazing physique - and you can't handle that, so you are doing whatever you can to put me down! But it won't work, I'm going to keep pushing my limits like I've done my entire life!"<</Dialogue>><br><br>
+And with that, <<rivalI>> turns away and walks back to the weights, loading an obscene amount of weight on the leg press. You get a very bad feeling about this, and worry how that is going to affect your friendship going forward.
+
+<<link "Go home" "Home">><<set $flag.NatWristInjuryRoute to 'comp'>><</link>>
+
+
+:: NatWristInjury-NatIgnoresAndGloats [nobr] {"position":"0,0","size":"100,100"}
+Nat is only going to end up hurting himself, so you decide to back down. You remove half of the weight off the barbell as a sign of truce, and you even pretend it feels heavier than it actually does, as if you are at your limit, even though you probably could have managed the original setting (and probably even a bit more). Still, you worry about <<rivalMy>> injury, and you figure it's up to you to be the figurative “bigger man”. The irony of that concept makes you chuckle discreetly, since you don't want Nat to feel insulted.<br><br>
+When Nat returns to <<rivalMy>> set, <<rivalI>> announces loudly that <<rivalI>> is going back to <<rivalMy>> previous weight, but you notice that <<rivalI>> actually resets it to <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>>. Alright, champ, I won't tell anyone if you don't.<br><br>
+<<RivalI>> still struggles with the weights, but at least <<rivalI>> seems to have SOME idea of <<rivalMy>> limit, which brings you a bit of relief - it would be disastrous if his injury got worse at this point, given that the bodybuilding competition is coming up.<br><br>
+As <<rivalI>> finishes the set, <<rivalI>> starts unloading the weight for you (does <<rivalI>> think you didn't notice <<rivalI>> was exaggerating about the weight <<rivalI>> proclaimed so loudly to everyone?). As you go back to your set, <<rivalI>> starts pulling a very flamboyant double-biceps pose, followed by several other classic bodybuilding poses. True, <<rivalMy>> biceps DO look amazing, once again <<rivalMy>> gift of perfect genetics granting <<rivalMy>> biceps perfect insertion - and granting <<rivalMe>> a perfect mix of peak and mass that IS enviable. You roll your eyes as you find yourself just tensing your arms artificially to give the curls SOME challenge. But Nat keeps putting on a show, and soon <<rivalMy>> entourage is back. Great…<br><br>
+As you finish the non-exercise, you start putting the <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>> back… but Nat interrupts you, correcting that it's supposed to be <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>
+<<Dialogue "player" "You">>"Uh, are you sure about that?"<</Dialogue>><br><br>
+Nat gives a dismissive nod, as <<rivalI>> waits for you to increase the weight.
+
+<<link "That's how you want to play? Go ahead, then, see if I care!" "NatWristInjury-NatBlamesProtagonist">><</link>>
+<<link "Nat, we had enough fun, but you need to take it easy now." "NatWristInjury-TellTakeItEasy">><</link>>
+
+
+:: NatWristInjury-NatShowOffToOthers [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Hey, Nat, maybe you should put your shirt back on?"<</Dialogue>><br><br>
+Nat looks at you confused as <<rivalI>> finishes <<rivalMy>> set.
+<<if $muscle >35>>
+    You don't give <<rivalMe>> an opportunity to change the weights as you grab the barbell. You try to anchor your feet as best as you can, and slowly bring the barbell up towards your chest. Huh… you surprise yourself as this feels lighter than you would have expected. You feel weirdly… supercharged… from all the previous effort. 
+    <<if $submissiveDominant > 1>>
+        You put the weight down and add another couple of plates, increasing the load to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>. Now THAT feels a little bit more your speed, as you get a proper burn and watch your arms pump to an unbelievable degree - you even notice a vein manifest that you never seen before. And it gets weirder, as this time you are not struggling as much as before, you could almost swear the weight is getting LIGHTER instead of heavier.<br><br>
+        <<Dialogue "player" "You">>"WHOA! Check THIS out!"<</Dialogue>><br><br>
+        You raise your arm for a flex, and you surprise yourself as a sizable peak erupts, and you find an irresistible urge to just delineate its contour with your other hand. You find yourself in sheer awe of your own biceps, which feel harder than you thought possible. Distractedly, you just blurt out:<br><br>
+        <<Dialogue "player" "You">>"Dang, Nat! I might just catch up with you… here, let's compare, put your arm next to mine."<</Dialogue>><br><br>
+        Nat unwillingly gives you a flex, frowning as <<rivalI>> places <<rivalMy>> arm right next to yours. Your jaw just drops as you notice that, despite lacking the same defined peak as <<rivalMe>>… your arm is just a smidge bigger.<br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it's just because you still got a pump from having just lifted… and probably it's also fat."<</Dialogue>><br><br>
+        Ouch, sore loser much, Nat? <<RivalI>> grumpily goes and adds another <<if $measurementSystem == 'metric'>>10 kilograms<<else>>20 pounds<</if>> to the bar, loudly announcing how much <<rivalI>>'s going to curl.<br><br>
+        <<Dialogue "player" "You">>"Huh… you know, there's no need to show off - this is just a friendly competition."<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I'm just going to friendly blow you out of the water, then!"<</Dialogue>><br><br>
+        You watch as <<rivalI>> struggles to lift the enormous load. <<RivalMy>> injured wrist is shaking a lot as <<rivalI>> grimaces and takes deep breaths that show <<rivalI>>'s obviously in pain - but <<rivalI>> HAS called the attention of the entourage again, as they come and watch <<rivalMe>> do 10 reps.<br><br>
+        You don't really want to push <<rivalMe>> that much harder… but you also find yourself incapable of stepping down from the challenge. You walk up to that impossible looking barbell and take a deep breath. Soon, you find yourself in that zone again where the world around you is gone, and you just start lifting.<br><br>
+        And just like that, you lift the barbell with perfect form. It's heavy, sure, much heavier than you expected. But it's like your brain is telling your arms that they can do it, and they don't doubt it… and just do. Your biceps are getting so pumped you get a weird awareness of them rubbing against your torso from their engorged volume - and it's almost like in all of these feelings of physical awareness and power, you forgot how heavy the barbell is. Before you know it, you have completed 15 reps without ever really struggling.<br><br>
+        The crowd claps and cheers at you, and you just find yourself mesmerized by your arms: you cup your biceps one more time, and they feel gigantic and hard beyond belief. You seriously would not be surprised if you just lifted a whole machine right now - you just FEEL that powerful.<br><br>
+        Nat, on the other hand, is fuming, and adding more weight to the barbell.
+    <<else>>
+        And so you continue, very surprised at yourself for just cruising through the 15 reps with ease. It feels strangely magical, as you feel your arm after completion and finding a solid ball of muscle you didn't remember being there.<br><br>
+        <<Dialogue "player" "You">>"What do you know, maybe on the arms department I might just give you a run for your money!"<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"HA! Fat chance!"<</Dialogue>><br><br>
+        <<RivalI>> says, as <<rivalI>> flexes <<rivalMy>> biceps right in front of your face. You respond in kind, putting your arm side-by-side with <<rivalMy>>… and what do you know… while <<rivalMy>> arm is more defined and peaked, juxtaposing them reveals that it's basically a tie in plain height.<br><br>
+        <<Dialogue "player" "You">>"WHOA! When did I get this buff?!?"<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Nah, it's just a pump…"<</Dialogue>><br><br>
+        Nat says dismissively, as <<rivalI>> increases the load to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>, apparently trying to prove a point. <<RivalI>> proceeds to loudly announcing how much <<rivalI>>'s going to curl.<br><br>
+        <<Dialogue "player" "You">>"Huh… you know, there's no need to show off - this is just a friendly competition."<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I'm just going to friendly blow you out of the water, then!"<</Dialogue>><br><br>
+        <<RivalI>> starts doing <<rivalMy>> set, but you can see one of <<rivalMy>> arms is shaking… <<rivalI>> must really be putting a lot of stress on that injured wrist. Still, even if not using strict form, <<rivalI>> completes <<rivalMy>> 15 reps, as the crowd that gathered to watch <<rivalMe>> appears to be quite impressed. It seems like <<rivalI>> is about to take out the extra weight, but you decide to give it a try.<br><br>
+        You anchor your feet firmly once again, and try to use <<rivalMy>> load… it's heavy, but you just repeat the mantra that you can do it - hey, you surprised yourself a lot already today… why not go that extra mile?<br><br>
+        And with deep breaths and gritted teeth, you start lifting the barbell. It now feels like a proper challenge, and you derive incredible pleasure from finally feeling that burn on your arms. You make each rep more passionate than the previous one, bringing the metal up decidedly, and lowering it very slowly. Each breath, each motion, all the effort, it sparks something in your brain, and you are extremely aware of your biceps, enjoying the process with a strange sense… it's almost serene.<br><br>
+        As you finish your 15th rep, you put the weight down, and the crowd claps as you ignore them and just feel your pumped arms. Damn, you might just be stronger than you realized…<br><br>
+        Nat seems to have come to the same conclusion, but <<rivalI>> has very different feelings about it… and starts adding even more weight to the barbell.
+    <</if>>
+<<elseif $muscle >30>>
+    <br><br>
+    <<Dialogue "player" "You">>"I mean, don't get me wrong, I like the little show - but it's still about the training… not about the fans, right?"<</Dialogue>><br><br>
+    <<RivalI>> seems almost offended by your insinuation, as <<rivalI>> unloads half the weight from the barbell. You do your reps, struggling a bit, but still happily surprised at how strong you've gotten since you started - as you can now see a clear mound on your arm as you flex. Cool!<br><br>
+    Nat doesn't seem to be so happy that you are more excited about your small puny progress and not giving <<if $rivalGender === 'male'>>HIM<<else>>HER<</if>> more attention, however, as <<rivalI>> piles the weight back on the barbell - this time, increasing it to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>.<br><br>
+    <<Dialogue "player" "You">>"You are increasing the weight this time?"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Gotta throw the fans a bone, am I right?"<</Dialogue>><br><br>
+    <<RivalI>> announces, as <<rivalI>> gives a double-biceps for a passing girl. <<RivalI>> goes back to <<rivalMy>> set, but this time, you can see <<rivalI>> is struggling a bit, one of <<rivalMy>> arms shaking - it seems that <<rivalMy>> injured wrist is not coping quite so well with the bigger load.<br><br>
+<<else>>
+    <<Dialogue "player" "You">>"I mean, don't get me wrong, I like the little show - but it's still about the training… not about the fans, right?"<</Dialogue>><br><br>
+    <<RivalI>> seems almost offended by your insinuation, as <<rivalI>> unloads all the weight from the barbell, leaving you with just the bar. You do your reps, feeling a bit downtrodden, but still there to cheerlead for Nat.<br><br>
+    Nat mostly ignores you now, and it would seem <<rivalI>> was expecting you to be a bit more engaged in <<if $rivalGender === 'male'>>HIM<<else>>HER<</if>> physique, as <<rivalI>> starts crowing about increasing the load again as a girl passes by.<br><br>
+    <<Dialogue "player" "You">>"You don't need to broadcast your routine to the whole gym, Nat."<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Come on! I gotta throw the fans a bone too!"<</Dialogue>><br><br>
+    <<RivalI>> announces, as <<rivalI>> gives a double-biceps a guy passes by. <<RivalI>> goes back to <<rivalMy>> set, but this time, you can see <<rivalI>> is struggling a bit, one of <<rivalMy>> arms shaking - it seems that <<rivalMy>> injured wrist is not coping quite so well at this point.<br><br>
+    <br><br>
+<</if>>
+<<Dialogue "player" "You">>"Uh, Nat… I understand what we got going here but… maybe you should think again before continuing."<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Nonsense! I've done this many times before!"<</Dialogue>>
+
+<<link "Continue" "NatWristInjury-TellStopShowingOff">><</link>>
+
+
+:: NatWristInjury-TellStopShowingOff [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Alright, Nat… you did your little show, we all know how big and strong you are… clap, clap, clap et cetera, woooooo! Nobody here is denying that your body is amazing - so how about you take it down a notch?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you kidding me? Do you think I got where I am by playing it safe?"<</Dialogue>>
+You sigh, frustrated, as you expected Nat to act with just a bit more maturity.<br><br>
+<<Dialogue "player" "You">>"Actually, yes. You don't need to be an asshole and show off at every opportunity - people will still admire you if you work within your limits - and I'm pretty sure your wrist would agree."<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Pffft! I've had injuries before, I know my limits, okay? I don't need a beginner waltzing in and trying to teach me how to lift. So why don't you sit down on your corner while I finish my routine?"<</Dialogue>>
+
+<<link "Continue" "NatWristInjury-NatBlamesProtagonist">><</link>>
+
+
+:: NatWristInjury-BegToStop [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Nat, listen to me, please!"<</Dialogue>><br><br>
+<<RivalI>> stops mid-rep, and turns to face you. <<RivalI>> notices that your eyes are starting to get a bit misty, and <<rivalI>> puts the weights down. You grab <<rivalMy>> injured wrist, making <<rivalMe>> wince, as you bring close to your chest and beg:<br><br>
+<<Dialogue "player" "You">>"Come on, Nat! I feel bad enough for what I did to your wrist, will you PLEASE have it looked at? For me?"<</Dialogue>><br><br>
+Nat feels downright divided about the whole thing. But before you know, this fire lits inside you, and you grab <<rivalMy>> good hand and start dragging <<rivalMe>>.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+<<if $natOpinion >= -10>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAggressive">><</link>>
+<</if>>
+
+
+:: NatWristInjury-NatApologetic [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Hey, hey, it's alright!"<</Dialogue>><br><br>
+You squat down next to <<rivalMe>>, and you reach to have a good look at <<rivalMy>> wrist.<br><br>
+<<Dialogue "player" "You">>"Look, I ain't no doctor, but I'm pretty sure you are hurt. Will you please let me call someone to have a look at that hand, please?"<</Dialogue>><br><br>
+Nat huffs and rolls <<rivalMy>> eyes, and you wrap <<rivalMy>> good arm around your shoulder, and pull <<rivalMe>> up.<br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+<<if $natOpinion >= 20>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAggressive">><</link>>
+<</if>>

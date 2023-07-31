@@ -21,33 +21,33 @@ SugarCube.State.setVar('$debug', true);
 
 //run macro
 new SugarCube.Wikifier(
-    null,
-    '<<addTrigger "postSleepDickDialog4" false false>>'
+  null,
+  '<<addTrigger "postSleepDickDialog4" false false>>'
 );
 
 //rich mode
 SugarCube.State.variables.consumables.forEach((consumables) => {
-    consumables.amount = 99;
+  consumables.amount = 99;
 });
 SugarCube.State.setVar('$consumables', SugarCube.State.variables.consumables);
 
 SugarCube.State.variables.gymStoreSupplies.forEach((supplement) => {
-    supplement.amount = 999;
+  supplement.amount = 999;
 });
 SugarCube.State.setVar(
-    '$gymStoreSupplies',
-    SugarCube.State.variables.gymStoreSupplies
+  '$gymStoreSupplies',
+  SugarCube.State.variables.gymStoreSupplies
 );
 
 SugarCube.State.setVar('$money', 9999999);
 
 //Tasha's
 SugarCube.State.variables.consumables.forEach((consumables) => {
-    consumables.forSale = 0;
+  consumables.forSale = 0;
 });
 
 for (let i = 0; i < 100; i++) {
-    SugarCube.Engine.play('StoreRefresh');
+  SugarCube.Engine.play('StoreRefresh');
 }
 SugarCube.Engine.play('SecondHandStore');
 
@@ -86,4 +86,10 @@ SugarCube.State.variables.currentScene;
 
 // Unlock potion brewing
 SugarCube.State.variables.furniture.push("distilation still");
-SugarCube.State.variables.consumables.forEach(element => {if(!element.HideInStores){element.amount = 5}});
+for (const consumable of SugarCube.State.variables.consumables) {
+  consumable.amount = 10
+}
+for (let i = 0; i < 10; i++) {
+  SugarCube.State.variables.potionIngredients.push('ConfidentIngredient');
+  SugarCube.State.variables.potionIngredients.push('CarefreeIngredient');  
+}
