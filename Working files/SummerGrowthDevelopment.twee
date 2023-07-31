@@ -3676,7 +3676,7 @@ $(".macro-live").trigger(":liveupdateinternal");
                             if(State.variables.args[0] == true){
                                 if (Dialog.isOpen() == false) {
                                     var dialog = Dialog.setup("Potion distilled");
-                                    new Wikifier(dialog, "You broke down the potion into the following ingredients: <br><br> -" +
+                                    new Wikifier(dialog, "You broke down " + State.temporary.selectionPotionName + " into the following ingredients: <br><br> -" +
                                         State.variables.consumables[i].ingredients[0] + "<br> -" +
                                         State.variables.consumables[i].ingredients[1] + "<br> -" +
                                         State.variables.consumables[i].ingredients[2] + "<br> -" +
