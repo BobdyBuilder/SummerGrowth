@@ -6171,7 +6171,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         ingredientOne: 'LiquidIngredient',
-        ingredientTwo: 'ShrinkIngredient',
+        ingredientTwo: 'Opposium',
         effect: () => {State.variables.consumables.find(i => i.name === "BRA-SHRINK-T1").amount += 1},
         discovered: false,
         pinned: false,
@@ -6195,7 +6195,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         ingredientOne: 'FeminineIngredient',
-        ingredientTwo: 'MuscleIngredient',
+        ingredientTwo: 'CarefreeIngredient',
         effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
         discovered: false,
         pinned: false,
@@ -6227,7 +6227,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         ingredientOne: 'SlowIngredient',
-        ingredientTwo: 'ConfidenceIngredient',
+        ingredientTwo: 'ConfidentIngredient',
         effect: () => {State.variables.consumables.find(i => i.name === "Temp-Con").amount += 1},
         discovered: false,
         pinned: false,
@@ -6266,7 +6266,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         resultDesc: 'Perm-Sub'
     },
     {
-        ingredientOne: 'SlowIngredient',
+        ingredientOne: 'PermanentIngredient',
         ingredientTwo: 'ConfidentIngredient',
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Con").amount += 1},
         discovered: false,
@@ -6320,22 +6320,6 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         discovered: false,
         pinned: false,
         resultDesc: 'Insta-breasts'
-    },
-    {
-        ingredientOne: 'InstantIngredient',
-        ingredientTwo: 'FutaIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Insta-dick").amount += 1},
-        discovered: false,
-        pinned: false,
-        resultDesc: 'Insta-dick'
-    },
-    {
-        ingredientOne: 'InstantIngredient',
-        ingredientTwo: 'LiquidIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Insta-balls").amount += 1},
-        discovered: false,
-        pinned: false,
-        resultDesc: 'Insta-balls'
     },
     {
         ingredientOne: 'InstantIngredient',
@@ -6492,7 +6476,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         description: "There’s something very milky about this liquid... but somehow it makes you want to fill the container more so than consume it...",
         transform: "instantLactaid",
         ingredients: [
-            /* FIXME add ingredients */
+            [
+            "FeminineIngredient",
+            "Opposium",
+            "FatIngredient",
+            "LiquidIngredient"
+        ],
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
@@ -6534,6 +6523,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         ingredients: [
             "HeightIngredient",
             "InstantIngredient",
+            "SlowIngredient",
             "SlowIngredient"
         ],
         amount: 0, 
@@ -6875,7 +6865,12 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         description: "The container feels bottom-heavy in your hands, with a sweet, peach-like substance. Subtle.",
         transform: "instantAssIncrease",
         ingredients: [
-            /* FIXME add ingredients */
+            [
+            "FatIngredient",
+            "FatIngredient",
+            "Opposium",
+            "MuscleIngredient"
+        ],
         ],
         amount: 0, 
 		FirstTimeDrink: true, 
