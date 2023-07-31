@@ -27552,8 +27552,7 @@ repeatable: false,
         ],
         repeatable: false,
         retriggerable: false,
-        priority: 'response',
-        npc: [],
+        priority: 'response',npc: [],
         content: `Oh, you can feel the munchies coming, but you are feeling a tad too lazy for anything for than a quick snack - and your hand immediately shoots for the tube of potato chips in the kitchen.<br><br>As you hear the noise of the TV on the background, you realize a rerun of one of your favorite shows is on! You lay back on your recliner and start popping those sour cream and onion bad boys as you enjoy the throwback show.<br><br>Soon, the episode is over, but lo and behold! It’s a marathon! Another episode starts playing, and you lose track of time as you gulp down the potato chips. But it doesn’t take long for your hand not to fit into the rather tight tube. <<if $muscle >45 || $height >190>>In fact, it bring attention to how big your hand has become, as you notice it has kept up with your growth lately.<</if>><br><br>You could scoop it down, but you didn’t get a plate and you don’t want chip dust everywhere, and you feel very lazy. And then... it hits you. There IS one growing part of your body that might do the trick!<br><br><<if $tongueLenght >12>>Without taking your eyes from the climatic scene in the show, you just bring the tube to your lips and barely need to tilt it as your prehensile tongue slides down, feeling the crevice for the desired starchy treats.<br><br>You feel the grainy chip with your sensitive appendage, and it’s sticky enough to flip it over, and agile enough to wrap itself and pull it out! Fishing it, your bring it to your mouth. Giddy with your success, you repeat the process for the remaining, chips, without ever having to stop watching your show.<<elseif $tongueLenght > 9>>It’s a fairly long tube, and you tip it horizontally to help the process, but you keep your eyes tight on the screen as your tongue creeps through the crevice in search of the starchy treats.<br><br>You eventually reach the chip, which feels much rougher than the tube. You lay your tongue over it, and slowly and carefully pull it out, then deftly flip it over and bite into it. Satisfied, you keep up at that game, never missing a single frame of your show.<<elseif $tongueLenght > 6>>Ohhh, your tongue is pretty big for what it is, but not really tube-probing big. But that’s not a problem, you just tilt the tube carefully, trying to bring to the very rim, and then scoop the whole thing up. With a sweeping motion, you bring it all into your mouth, several chips, which you munch through satisfied as you watch your show. <<else>>Your tongue is longer than it used to be, but not really THAT big to make a huge difference. You just open your mouth wide and dump the contents on your curved tongue, using it as a makeshift plate for the chips and crumbs. Not the best solution, but it will have to do for now.<</if>><br><br>As the episode wraps up, you check proudly that there is not one crumb on your recliner, and you get back to your day, tossing the empty tube in the trash.`
     }
 ]>>
@@ -32697,3 +32696,13 @@ Nat grunts, and clearly isn't used to being led like this - especially by a girl
 <<else>>
     <<link "Continue" "NatWristInjury-NatAgressive">><</link>>
 <</if>>
+
+
+:: NatWristInjury-NatCope [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You know what, <<print $playerFirstName>>? You are right. I SHOULD be careful with this. Last thing I need is to mess a tendon and ruin all my chances at this competition."<</Dialogue>><br><br>
+You are shocked - you knew you had to try… but you didn't really expect to get across to <<rivalMe>>! You jump and give <<rivalMe>> a hug - and <<rivalI>> smiles back at you.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Still… this is going to put a serious dent in my training… I'm going to have to figure out a routine around this… and maybe seek some physical therapy - damn, that's going to eat into my schedule..."<</Dialogue>><br><br>
+You don't even care right now, you are just happy that Nat has accepted <<rivalMy>> limitation and dealt with the frustration like the adult you know <<rivalI>> is. You can't deny, that just makes <<rivalMe>> seem even hotter to you right now…<br><br>
+You shake your head, trying to dispel that feeling, as you continue to drag your childhood friend along while you seek some medical attention.
+
+<<link "Go home" "Home">><<set $flag.NatWristInjuryRoute to 'coop'>><</link>>
