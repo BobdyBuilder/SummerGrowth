@@ -32676,3 +32676,9 @@ You grab Nat by the shoulders - damn, <<rivalI>> has some really nice capped sho
 <<Dialogue "player" "You">>"Nat, if there is one thing I learned about you… is that nothing is impossible for you. This will make it harder, sure. But I know for a fact that it's something you can overcome. But that will take a different kind of determination. It's not just throwing yourself with a passion, but having patience and faith in the process. Healing CAN be just as hard as growing, you just need to see it another challenge, not just a hurdle you throw yourself against."<</Dialogue>><br><br>
 
 <<link "Continue" "NatWristInjury-NatInjured">><</link>>
+
+
+:: NatWristInjury-NatInjured [nobr] {"position":"0,0","size":"100,100"}
+Nat scoffs and goes back to the barbell, but it's obvious to everyone that <<rivalI>> is overdoing it. <<RivalI>> stops after three reps, and sighs with frustration. <<RivalI>> goes at it one more time… but <<rivalI>> is shaking even more - this is about as agonizing to you as it seems to be to <<rivalMe>>. There are so many words stuck in your throat right now, but you don't know how exactly to get through to <<rivalMe>>… but of one thing you are sure - if you don't do it NOW, the damage could be even worse!
+<<link "Nat, stop being silly! You are just going to hurt yourself!" "NatWristInjury-Confrontational2">><</link>>
+<<link "Nat, I beg you… stop now. For me! Please?" "NatWristInjury-BegToStop">><</link>>
