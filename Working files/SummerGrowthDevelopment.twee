@@ -6156,10 +6156,10 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     {
         ingredientOne: 'ConfidentIngredient',
         ingredientTwo: 'CarefreeIngredient',
-        effect: () => {State.variables.consumables.find(i => i.name === "Mot-v10").amount += 1},
+        effect: () => {State.variables.consumables.find(i => i.name === "Mot-V10").amount += 1},
         discovered: false,
         pinned: false,
-        resultDesc: 'Mot-v10'
+        resultDesc: 'Mot-V10'
     },
     {
         ingredientOne: 'CarefreeIngredient',
