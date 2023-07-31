@@ -77,3 +77,4 @@ fabric.properties
 /.idea/sonarlint
 
 Working files/*.html
+/.idea/jsLibraryMappings.xml
