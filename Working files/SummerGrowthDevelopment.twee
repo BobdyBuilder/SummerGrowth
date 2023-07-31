@@ -9439,7 +9439,7 @@ This determines the gender of the rival you will encounter.
             You blush, still embarrassed, and get on your way.`
 	},
 	{
-		name: 'NatSavedByProtagonist',
+		name: 'NatSavedByPlayer',
 		locationTags: ['outside'],
 		conditions: [
             () => setup.hasEventBeenTriggered('NatMovingIn'),
@@ -9520,11 +9520,116 @@ This determines the gender of the rival you will encounter.
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it was great seeing you. And looking forward to the next time!"<</Dialogue>><br><br>
             And with that, you say your goodbyes and leave.`
 	},
+	{
+		name: 'PlayerDreamsPotionReaction1',
+		locationTags: ['home'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatSavedByPlayer'),
+		    () => State.variables.daysPlayed >= 10,
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: [],
+		content: `You feel restless as the heat makes you toss and turn, but it isn’t until you start coughing that you realize something is wrong. You are terrorized when you realize the smoke is coming from your burning apartment!<br><br>
+You look around, panicked, as flames lick from every viable escape route - leaving you stuck in the cramped and scalding bedroom as the dark smog quickly impairs visibility.<br><br>
+You tell yourself to stay calm as you figure your next step - trying frantically to remember all the lessons you were told about what to do in the case of a fire. But your brain is overheated and in overdrive, and you are having a hard time making sense of the situation. As you scream for help, you lungs fill with the suffocating smoke, making you cough even more. You put your hands on your forehead and try to come up with the best plan possible.<br><br>
+<span id="choice">
+	<<link "I’ll wait for help under my bed - it’s the safest place right now!">>
+		<<replace "#choice">>
+		    <<set $flag.nat.playerPotionDreamProactive to false>>
+            Trying your best to remember all the lessons you learned about fire safety, you wet your pillowcase with your water bottle, place it over your mouth and tuck yourself under the bed. You watch in horror as everything around you is engulfed in the dark smoke, and you try to listen to anything that isn’t the crackling of flames, hoping for the sound of an alarm, people shouting… and hopefully, the fire brigade coming to your rescue.<br><br>
+            But as you do, the walls seem to start cracking around, as you see bits of it falling from the ceiling. Crying, you assume a fetal position as you grit your teeth, telling yourself that this can’t possibly be happening!<br><br>
+            <<link "continue">><<playEvent 'PlayerDreamsPotionReaction2'>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Running through the flames is my only option to survive!">>
+		<<replace "#choice">>
+		    <<set $flag.nat.playerPotionDreamProactive to true>>
+            You grab your still-moist towel and empty your bedside water bottle over it, using it a cape as you psyche yourself before running headfirst into the wall of flames that comes from the bedroom door. You struggle to make sense of the situation, but you can’t help yourself as your senses are overwhelmed by this unthinkable situation. Frustrated, you wave your arm back and fiercely hit the concrete wall to your side with a loud THUD!<br><br>
+            You cannot believe your eyes, as your fist just breaks through the thick solid concrete, revealing the dirt from the soil outside your basement apartment. And as if things could not get worse, a landslide starts filling your bedroom, burying you as the diminutive space is quickly filled with it!<br><br>
+            <<link "continue">><<playEvent 'PlayerDreamsPotionReaction2'>><</link>>
+		<</replace>>
+	<</link>>
+</span>`
+	},
+	{
+		name: 'PlayerDreamsPotionReaction2',
+		locationTags: ['home'],
+		conditions: [
+            () => false /* Triggered manually by other event */
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: [],
+		content: `You fall from your bed, drenched in sweat. What a horrible nightmare! You cough, and putting your hand on your forehead, you realize you are burning up with a fever. Your eyes sting and your breathing is shallow. As you try to get up, you feel like your body weighs several tons, taking all the effort you can muster to make it to your bathroom. You’ve been sick before, but this feels worse than you ever remember.<br><br>
+You lean against the sink with one arm, as your free hand splashes some water against your face. You reach for the flu syrup inside the medicine cabinet, but you are so groggy that you just manage to tip it off, as it rolls under the old bathtub. You groan, kneeling to reach for it, but the cold tiled floor feels to good against your burning skin that you just end up lying face-up, reaching under the tub as you gaze at the ceiling - which seems to be too far and too close at the same time. Wow, you must be REALLY messed up.<br><br>
+Your fingers find the syrup bottle, and you close your eyes to alleviate the burning as your remove the cap of the bottle with your teeth and, without thinking, down its entire contents without even thinking that it’s probably asking for some sort of overdose. But your brain isn’t really processing things properly right now. And with that, you pass out.<br><br>
+You wake up, with absolutely no concept of how much time has passed. Weirdly, you don’t feel bad at all. In fact, you feel GREAT! But as you look around, you realize something weird must have happened?<br><br>
+You try to take stock of your surroundings, but it’s borderline surreal what you find. You blink a few times, trying to make sense of all stuff, and it’s WILD. The first thing: your pajama is in TATTERS, with just some of the fabric hanging precariously around your body. There are puddles of water everywhere, and your laptop is open and on, which you could swear was closed and off before?<br><br>
+You follow the trail of water, and find it leads to the bathroom where you passed out. Except - uh, you had filled the bathtub to soak and clean your towels… and the metal clawfoot bathtub is now on the other side of the bathroom. You run some math in your head, and you know that between the tub itself and the water and towels, this must weigh close to a half ton. It is basically impossible to be moved like that. And yet, there it is. Even weirder, because it’s not where it was… you now see the full bottle of flu syrup where it used to be. Is your memory so messed up? Nothing makes sense!<br><br>
+You go back to the living room, and sit by your laptop. Huh. <<if $shyConfident < 0>>There’s a Picstagram account on-screen - GiantQueenXXXL. And there’s a lot of blurry, dark pictures of a gigantic woman with huge breasts… wearing the tatters of pajamas… taking selfies while flexing huge muscles. It’s hard to see who it is because of how crappy the pictures came out, but you don’t even need to check your phone to know exactly who that is. But… you’re WAY to shy to have ever done such a thing… right?!?<<else>>There is one of those sites for people to ask questions, and there’s a half dozen queries asking if people think tall, hugely breasted and muscular girls are unnatractive, and how to best hide these features. And that account is still logged in. The demure and shy tone, though, feels downright alien to your extroverted self.<</if>><br><br>
+You shake your head, trying to make sense of the whole situation. While still trying to drink everything in, you go back to the bathroom to try and push the bathtub back to its original location, hoping it won’t be too hard to fix the pipe. But it is very clear you won’t be able to even DRAG the thing unless you empty it first. Weirdly, there are no dragging scratches anywhere, like it was lifted up when it was moved. But as you give up on moving it before draining the tub, you notice something in the wastebasket - another metallic bottle, crushed, but looking fairly similar to the one you drank from when you moved in.<br><br>
+That is A LOT to process!<br><br>
+
+<span id="choice">
+	<<link "Wait, did my body and personality change temporarily? These potions could be dangerous!">>
+		<<replace "#choice">>
+		    <<set $flag.nat.playerPotionDreamExcited to false>>
+            You feel a tinge of existential horror as you realize that you could possibly just have experienced a Mr. Hyde moment that you have no recollection of. The evidence is all there - and apparently the changes can be even more drastic than you ever realized. You are still figuring out how exactly these concoctions can affect you, as you ponder all implications. It seems like these can be much more powerful than you ever realized.<br><br>
+            You don’t want to think about side-effects and how permanent some of these changes could be. There are so many possibilities, but the fact is, there is so much you don’t know yet... and you just can’t wave it all off like it doesn’t matter.<br><br>
+            <<link "continue">><<playEvent 'PlayerDreamsPotionReaction3'>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Are there limits to what these potions can do? Just how big and strong can I get?">>
+		<<replace "#choice">>
+		    <<set $flag.nat.playerPotionDreamExcited to true>>
+            You look at your own hands, trying to wrap your head around the fact that you might have been, even if temporarily, like a freaking superheroine! Is that a sign that there is no upper limit to how much you can change? You feel your skin tingling at the thought of jumping over buildings or lifting cars... is that even possible? As your heart races faster and faster, your knuckles tighten as you fantasize about it.<br><br>
+            You feel an urge to hunt down these metallic bottles, even if just to better understand them and keep them away from unsuspecting people who might not realize what they truly are.<br><br>
+            <<link "continue">><<playEvent 'PlayerDreamsPotionReaction3'>><</link>>
+		<</replace>>
+	<</link>>
+</span>`
+	},
+	{
+		name: 'PlayerDreamsPotionReaction3',
+		locationTags: ['home'],
+		conditions: [
+            () => false /* Triggered manually by other event */
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: [],
+		content: `<<if $flag.nat.playerPotionDreamProactive && !$flag.nat.playerPotionDreamExcited>>
+    That’s it! You’ve made your mind! You need to collect as much information possible about these weird liquids, and figure out exactly how they work and what they do. Dozens of questions are already forming in your mind, as is the desire to get to the very bottom of this - even if it means being a guinea pig in the process!<br><br>
+    You hold the crumpled metallic canister in your hand, wondering what your next step should be. <<if $tashaOpinion > 0>>Well, there is one person in town who, despite being very scatterbrained, seems to have somehow have contact with a ton of people in operating her store. Maybe that’s the next step in your investigation...<<else>>You will need to track down someone who somehow acts as a lynchpin in this town, someone who everyone at some point or another ends up going to. Maybe someone who runs a store? But what is the type of store EVERYONE goes to, especially college students? Hmmm...<</if>>
+
+<<elseif $flag.nat.playerPotionDreamProactive && $flag.nat.playerPotionDreamExcited>>
+    You salivate at the thought. Part of you had always felt like something was lacking, and now you realize, you just aren’t truly happy in this body. But now you know for a fact that it can change... radically. And you are committed to figuring out what the limits of your transformation are - if any!<br><br>
+    This will mean tracking and downing every one of those metallic canisters you can get your hands on. And now you are woman on a mission, and you won’t rest until you have found every single one of them. But where to start? Maybe somewhere where people go to sell off unwanted things?
+
+<<elseif !$flag.nat.playerPotionDreamProactive && !$flag.nat.playerPotionDreamExcited>>
+    You feel your chest pounding as you shudder to think of all the side-effects and long-term implications of the concoction you drank. And now you are sure there are more of these around the campus. Are you even you still at this point? Could it be that your personality is not who you used to be before anymore? And what if the physiological changes also affect you in ways you cannot foresee? The thought terrifies you.<br><br>
+    And then it downs on you - there could be other victims of these canisters out there. Maybe you should go out and start hoarding them to make sure no one accidentally succumbs to their effects by mistake. And the best thing would be to go track them down somewhere where people might take those to get rid of them...
+
+<<elseif !$flag.nat.playerPotionDreamProactive && $flag.nat.playerPotionDreamExcited>>
+    The mere THOUGHT of having your body undergo these changes makes your stomach queasy - to think that your personality AND your physiology are both malleable and could turn on a dime? You don’t like the philosophical implications at all, even if you have enjoyed its byproducts.<br><br>
+    But the truth of the matter is, you are going to be thinking twice before drinking your next potion, especially before you figure out what exactly it does. And maybe you should make sure that no one else falls victim to them - maybe a visit to the thrift store is in order to check if there’s more of these canisters there - or maybe even figure out where they came from?
+
+<<else>>
+    ERROR - this path shouldn't be reachable: $flag.nat.playerPotionDreamProactive , $flag.nat.playerPotionDreamExcited
+<</if>>
+`
+	},
     {
 		name: 'NatFirstTapingBodybuildingDocumentary',
-		locationTags: [],
+		locationTags: ['outside'],
 		conditions: [
-            () => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet*/),
+            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction3'),
 		    () => State.variables.daysPlayed >= 15
 		],
 		repeatable: false,
@@ -9968,7 +10073,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<Dialogue "randomPerson" "Documentary Director">>"So… I was telling <<rivalName>> that you caught my eye there, <<print $playerFirstName>>, and I wanted to talk to you too!"<</Dialogue>><br><br>
 <</if>>
 
-<<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile2'>><</link>>`
+<<link "continue">><<playEvent 'NatDocumentaryFilmingCompetitorProfile2'>><</link>>`
 	},
     {
 		name: 'NatDocumentaryFilmingCompetitorProfile1-fromRoute3orNonModel',
@@ -10001,7 +10106,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 <<Dialogue "randomPerson" "Documentary Director">>"Oh, nice to meet you, <<print $playerFirstName>>!"<</Dialogue>><br><br>
 <</if>>
 
-<<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile2'>><</link>>`
+<<link "continue">><<playEvent 'NatDocumentaryFilmingCompetitorProfile2'>><</link>>`
 	},
     {
 		name: 'NatDocumentaryFilmingCompetitorProfile2',
@@ -10029,7 +10134,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
         You raise your fist in front of you with a mighty flex, your biceps in full display. The crowd gasps - except for Nat, who crosses <<rivalMy>> arms and looks to the side, sulking.<br><br>
         <<Dialogue "randomPerson" "Documentary Director">>"Well, so… that means you are going to feature in the documentary, right? We don't have a release form for you yet…"<</Dialogue>><br><br>
     <</if>>
-    <<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
+    <<link "continue">><<playEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
 
 <<elseif $muscle >= 55  && !$flag.natDocNotice>>
     She squints as she gets a really good look at you.<br><br>
@@ -10039,7 +10144,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
         <<else>>
         <<Dialogue "player" "You">>"To be sincere, I wasn't planning to compete… not yet, anyways…"<</Dialogue>><br><br>
     <</if>>
-    <<link "continue">><<playNatEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
+    <<link "continue">><<playEvent 'NatDocumentaryFilmingCompetitorProfile3-route1'>><</link>>
 
 <<elseif $height >= 205 || $breasts >= 55 || $dick >= 30>> 
     She squints as she gets a really good look at you.<br><br>
@@ -10375,6 +10480,68 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
             <</replace>>
         <</PersonalityCheck>>
     </span>
+<</if>>`
+	},
+    {
+		name: 'TashaTeachesPlayerPotions',
+		locationTags: ['secondHandStore'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('mainQuest1Progress'),
+		    () => State.variables.daysPlayed >= 30
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `FIXME This is a placeholder. Waiting for the story.`
+	},
+    {
+		name: 'NatPhoneInterlude',
+		locationTags: ['outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatVsKrisAtCoffeeCorner'),
+		    () => State.variables.daysPlayed >= 40
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `FIXME This is a placeholder. Waiting for the story.`
+	},
+    {
+		name: 'NatWristInjury',
+		locationTags: ['gym'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatPhoneInterlude'),
+		    () => State.variables.daysPlayed >= 42
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `Today is the day you set with Nat to be <<rivalMy>> workout partner! Looking in your closet, you pick your cutest leotard and prepare your gym back as you leave to meet <<rivalMe>>. The idea of having a training partner is pretty cool, and you are looking forward to spend some time with your old friend.<br><br>
+Once you get to the gym, you see Nat standing by the reception desk, already in <<rivalMy>> workout gear, talking to a small group of people.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"I usually do a push-pull split on my routines, but I've been changing it up lately, trying to stimulate development - and you can't argue with the results."<</Dialogue>><br><br>
+<<RivalI>> says that while <<rivalI>> flexes <<rivalMy>> impressive quads, which makes the crowd go “oooooh!” You don't remember Nat being this much of a show-off, but maybe <<rivalI>> just got approached by people who recognized <<rivalMy>> modeling work? You decide it's better not to start judging without knowing the context.<br><br>
+<<if $muscle >= 41 && $shyConfident > 1>>
+<<Dialogue "player" "You">>"Nice thighs you got there, Nat, but how do you like these pythons?"<</Dialogue>><br><br>
+You shake your relaxed leg, letting the meat wobble to emphasize its mass - and then you give a massive flex, making it expand and harden into a veritable statuesque display of definition and vascularity - namely, you steal Nat's thunder with your own thunder thighs. The crowd reconvenes around you, prompting you to jokingly flex while you point and say:<br><br>
+<<Dialogue "player" "You">>"Hello there, is THIS the way to the GUN SHOW?"<</Dialogue>><br><br>
+Your playful advance does not please Nat, who just sulks.
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, we ought to get start training, we can't just keep losing time with idle chit-chat…"<</Dialogue>><br><br>
+Ohhhh… can you say “sore loser”?<br><br>
+<<else>>
+You approach the crowd, and Nat sees you right away.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Sup, <<print $playerFirstName>>. Everyone, this is my friend… and new workout partner!"<</Dialogue>><br><br>
+The little audience seems divided into people who are excited about you… and a few who seem to be jealous of your proximity with Nat. I mean, it's no exaggeration that <<rivalMy>> physique is enough to have some people just becoming instant fans - but it's still a bit hard for you to truly accept the idea <<rivalI>>'s a bit of a celebrity.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, no time like the present. Let's go pump some iron!"<</Dialogue>><br><br>
+<</if>>
+You change into your leotard, and meet Nat, eager to see what <<rivalI>> has in store for today's session.
+
+<<if $muscle >= 60>>
+    <<link "continue" "NatWristInjury-NatShowOffTooHard">><</link>>
+<<else>>
+    <<link "continue" "NatWristInjury-NatShowOff">><</link>>
 <</if>>`
 	}
 )>>
@@ -17194,10 +17361,10 @@ setup.allClothes = jObjects;
 }>>
 
 
-:: playNatEvent [widget nobr] {"position":"550,2300","size":"100,100"}
-<<widget "playNatEvent">>
+:: playEvent [widget nobr] {"position":"550,2300","size":"100,100"}
+<<widget "playEvent">>
     <<script>>
-        SugarCube.State.setVar( '$currentEvent', SugarCube.setup.natEvents.find((event) => event.name === SugarCube.State.getVar('_args')[0]) );
+        SugarCube.State.setVar( '$currentEvent', SugarCube.setup.events.find((event) => event.name === SugarCube.State.getVar('_args')[0]) );
         SugarCube.Engine.play('eventPassage');
     <</script>>
 <</widget>>
@@ -26581,8 +26748,8 @@ You reach down to feel a certain slickness between your legs, the sensation of a
     locationTags: ['secondHandStore'],
     conditions: [
             () => State.variables.mainQuestProgressMade,
-            /*() => setup.hasEventBeenTriggered(/*FIXME "Protagonist dreams(potion reaction)" event is not ready to include yet),*/
-            () => State.variables.daysPlayed >= 10
+            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction3'),
+            () => State.variables.daysPlayed >= 10,
         ],
 repeatable: false,
     retriggerable: false,
@@ -27196,7 +27363,7 @@ repeatable: false,
                                 content: 'It’s another day of heavy lifting at the gym, and you got a little too excited with all you’ve been reading about pump covers, so you decided to work out with your baggy <<print $outfit.overwear().name>> - all that sweating was supposed to help burn extra calories.<br><br>That was the theory. In practice, you are running very hot, and drenched in sweat. It’s hard to ignore the large stains from your perspiration, and your breathing is becoming too labored. Perhaps this pump cover wasn’t such a great idea in such a hot day!<br><br>Alright, that’s it! You are not keeping with this silly human greenhouse plan! You grab the hem of your <<print $outfit.overwear().name>>, lifting it and slowly revealing the <<print $outfit.top().name>> under it - which slightly gets lifted as you remove it.<br><br><<if $muscle >= 50 && fat <=25>>As you do so, you hear a loud GASP while your face is still covered by the article of clothing which you are trying to remove. As you finish taking it out, you see a woman with her mouth agape, just staring at your cobbled abdominals, her water bottle dripping as her arms slack by her side in her trance. <<if $shyConfident < -1>>You are taken aback by her reaction, and your instinct is to just dig yourself back into the sweaty <<print $outfit.overwear().name>> out of embarassement. Nervously, you try to finish removing it, but you are so tense that your arms flex fully, making the removal of the sleeves harder, and you find yourself struggling to get it off, as you turn around trying to move away from the girls gaze.<<elseif $shyConfident > 1>>You revel in the attention, and twist your core as you give your abs a full flex just for show, making the poor woman just drop her water bottle. You decide to turn this into a proper striptease, removing the pump cover from your arm in the middle of a biceps flex, as you slowly turn around to show your massive back. The little show seems to have gotten more people’s attention, as you hear the clanging of a barbell across the room as a rather large man is so distracted he dropped his weights. You smile with satisfaction. I guess the pump cover does have some added unexpected extra benefits, heh!<<else>>You just rush to finish removing your pump cover before anyone else notices. Geez, this is a gym, people, not a zoo. It’s not like you are putting on a show for them!<</if>><<else>>After getting the sweaty cover off, you raise your head and watch yourself in the mirror. Huh. I guess one of the nice side-effects of the pump cover is that you didn’t realize you looked so nice under it. The baggy clothes hide all your progress so far, and you can’t help but smile at seeing where you are on your journey - and dream a little bit about where you’ll eventually get.<</if>><br><br>But for now, it’s back to the weights. You put the <<print $outfit.overwear().name>> away and get back to your routine.'
 },
 {
-    name: '',/* FIXME name required */
+    name: 'PlayerStyleGotCompliments',
         locationTags: ['outside'],
             conditions: [
 
@@ -32319,4 +32486,79 @@ You feel her, still shivering a bit, uncharacteristically silent, sure, but stil
             <<link "Go home" "Home">><</link>>
 		<</replace>>
 	<</link>>
+</span>
+
+:: NatWristInjury-NatShowOffTooHard [nobr] {"position":"0,0","size":"100,100"}
+You see Nat running at high speed on the treadmill as you leave the shower room. <<RivalI>>'s sweating quite a bit, making <<rivalMy>> white shirt drenched and semitransparent, putting <<rivalMy>> impressive torso in full display. You decide to do some stretches before jumping on the treadmill yourself, demonstrating your almost unbelievable flexibility as you casually kick your leg up against the wall. You have your back turned, but you can HEAR Nat tripping on the ludicrously fast treadmill. You give your solid leg a good hug as your stretch, and switch legs. After repeating the process to stretch your calves, you join Nat on the treadmill right next to his. You crank up the speed to the max as <<rivalI>> did, but you also set a small incline.<br><br>
+As you two run side by side, both treadmills bang loudly with the weight of the four feet that carry all this muscle. But Nat isn't about to be one-upped by an upstart, and <<rivalI>> also increases the incline on <<rivalMy>> device, until it's higher than yours. Feeling a bit cheeky, you increase your incline as well, and this tug of war continues until both of you have your respective machines set to both the highest speed and highest incline available. Well, if anything, it looks like your motivation is working!<br><br>
+The next ten minutes get progressively more gruesome as both bodies are pushed to their limits. You are pretty sure Nat wouldn't have even run this long - as <<rivalMy>> body is already very lean - but you can see from <<rivalMy>> repeatedly checking on you that <<rivalI>> won't step down until you do so (even if <<rivalI>> started a bit earlier). So after a solid 10-minute run, you decide to let <<rivalMe>> have this one, and you slow down and get off. <<RivalI>> follows suit right away, with much less breath than you.<br><br>
+<<Dialogue "player" "You">>"Well, that was a great warm-up! What is next on your list?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"(Puff)I… (huff)... today I was… (puff) going to start with… (huff)... work on chest and back…"<</Dialogue>><br><br>
+<<RivalI>> dries <<rivalMy>> face with <<rivalMy>> towel, slowly making <<rivalMy>> way to the pec deck machine. <<RivalI>> leans against it, finally catching <<rivalMy>> breath, as <<rivalI>> sets the weight load a little under 3/4 of the way. Sitting down, <<rivalI>> proceeds to do a full set with impeccable form and a very focused look on <<rivalMy>> face. You keep watching as <<rivalMy>> chest expands, <<rivalMy>> nipples visible under the wet white shirt made taut by <<rivalMy>> burgeoning muscles. You might have cheered <<rivalMe>> on, if not for the fact that you got completely distracted by <<rivalMy>> amazing little show and didn't even register that <<rivalI>> completed <<rivalMy>> 15 reps perfectly.<br><br>
+Nat gets up, twisting <<rivalMy>> arms around for a brief stretch as <<rivalI>> vacates the seat for you.
+<<if $muscle >80>>
+    Without even thinking, you just set the machine to full load, and start cranking rep after rep after rep as your chest balloons with each swing. Nat just watches in sheer disbelief at the ease with which you casually push the <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load as if the machine had nothing there. And so you just keep going… and going… and going…<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Errr… how many reps are you planning to do?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Oh, sorry, I get distracted sometimes, I usually just keep going until failure… but I guess that could take a while… my bad, didn't mean to hog the machine!"<</Dialogue>><br><br>
+    You stand up, and Nat is so shocked that <<rivalI>> just sits without readjusting the weight. <<RivalI>> tries to do one rep, but just brings the weight half-way up before giving up and resetting to <<rivalMy>> previous configuration. <<RivalI>> proceeds to do <<rivalMy>> second set with the same perfect form - but <<rivalMy>> look of concentration now gives way to small glances at your physique.
+    <<if $shyConfident > 1>>
+    Noticing <<rivalMy>> casual looks, you start bouncing your pecs, alternating sides, which just ruins what little concentration <<rivalI>> had left - <<rivalI>> can't help but watch intently as your massive front mounds jump playfully, and <<rivalI>> ends up doing a couple of extra reps because <<rivalI>> can't even count properly.<br><br>
+    <</if>>
+    You wait for <<rivalMe>> to finish, then reset the weight - but this time you add a couple of <<if $measurementSystem == 'metric'>>25 kilogram<<else>>50 pound<</if>> danglers on top of the full load. Nat shakes <<rivalMy>> head and blinks, and <<rivalI>>'d probably pinch <<rivalMy>>self too because <<rivalI>> clearly thinks <<rivalI>> might be dreaming. You sit down and finally start getting somewhat challenged as you complete your 30th rep. You get up and get a good chest flex now that you are properly pumped.<br><br>
+    <<Dialogue "player" "You">>"Check THIS out!"<</Dialogue>><br><br>
+    You proclaim proudly, showcasing a shelf of muscle that looks like it could possibly stop bullets. Nat lets a small snarl slip, copying your motion - <<rivalMy>> tight shirt fully stretched as <<rivalI>> tries to match you, but it's a lost cause. Not that <<rivalI>> looks bad: you also gawk at the two slabs of beef that protrude with amazing striation in the valley that separates them, looking almost like someone just glued two huge pads on <<rivalMy>> very lean torso. Even so, there is very little hope that <<rivalI>> could catch up to you before the end of the summer.<br><br>
+    Now slightly irritated, <<rivalI>> proceeds to do the last set, and you follow suit. <<RivalI>> doesn't really wait for you, as <<rivalI>> just continues silently to the lat pulldown machine, which <<rivalI>> confidently sets up for a full <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load - Nat certainly looks to have a very solid back on <<rivalMe>>, probably built on <<rivalMy>> years of swimming. After finishing your previous exercise, you arrive just in time to see <<rivalMe>> putting some struggle on the last few reps, starting to shake a bit. You approach to spot <<rivalMe>>…<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"NO! I got this."<</Dialogue>><br><br>
+    You step back and let <<rivalMe>> finish <<rivalMy>> exercise, straining <<rivalMy>> body but salvaging <<rivalMy>> ego. At least until <<rivalI>> clears the machine for you, which you again increment - this time with twice as many dangling weights as last time, adding a whopping <<if $measurementSystem == 'metric'>>100 kilograms<<else>>200 pounds<</if>>. You sit down and, once again, repeat your 30 reps, mostly unfazed by the absurd loadout. Nat is now downright incredulous, and even tests the danglers to make sure you aren't messing with <<rivalMe>> - but <<rivalI>> realizes they are for real as <<rivalI>> removes them.<br><br>
+    This time <<rivalI>> repeats <<rivalMy>> last couple of sets with visible irritation, but <<rivalMy>> eyes display such a fire that <<rivalI>> actually manages to power through them without shaking like on the first attempt - your little competition may actually be making <<rivalMe>> push through <<rivalMy>> very limits, and you smile as you see just how effective you can be. So you figure another little demonstration is in order, as you step between the walls of mirrors to admire your back.<br><br>
+    <<Dialogue "player" "You">>"What do you think of these wings?"<</Dialogue>><br><br>
+    Indeed, as you display your back muscles, it feels like an angel unfolding their wings - the considerable expansion just seems to continue forever as valleys and ridges make themselves appear on your ripped back, veins like rivers on this enormous desert vista, capped by unbelievable shoulders and traps.<br><br>
+    Not to be outdone, Nat just plain takes off his shirt (causing a few men and women at the gym to just shudder and sigh with delight) as <<rivalI>> follows your lead. Truth be told, even if <<rivalMy>> back pales in comparison to your inhuman one, <<rivalI>> still puts such effort that you cannot help but be impressed with <<rivalMy>> own show - what <<rivalI>> lacks in sheer mass, <<rivalI>> more than makes up in symmetry and aesthetics: <<rivalMy>> ripped backside seems like it was sculpted by a classic Greek artist, each fiber of muscle carefully laid out over another with purpose - and, obviously, still one of the largest in the entire facility.<br><br>
+    <<Dialogue "player" "You">>"Looking pretty good there, Nat! There's not going to be much competition on that department come the end of summer!"<</Dialogue>><br><br>
+    While you proclaim that quite cheerily, Nat is still grunting and not being very talkative. And so <<rivalI>> just walks to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>. Without so much as an explanation, <<rivalI>> starts cranking out barbell biceps curls, <<rivalMy>> usual focus replaced by an angry scowl. You can see that <<rivalI>> is straining <<rivalMy>> wrist quite a bit, as <<rivalMy>> accident seems to make the weight slightly less secure on one side.
+<<elseif $muscle >65>>
+    You jump in with the same load, and start cranking rep after rep after rep as your chest balloons with each swing. Nat just watches in sheer disbelief at the ease with which you casually push the same load as if the machine had nothing there. And so you just keep going… and going… and going…<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Errr… how many reps are you planning to do?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Oh, sorry, I get distracted sometimes, I usually just keep going until failure… but I guess that could take a while… my bad, didn't mean to hog the equipment!"<</Dialogue>><br><br>
+    You stand up, and Nat is so shocked that <<rivalI>> just sits without readjusting the weight. <<RivalI>> tries to do one rep, but just brings the weight half-way up before giving up and resetting to <<rivalMy>> previous configuration. <<RivalI>> proceeds to do <<rivalMy>> second set with the same perfect form - but <<rivalMy>> look of concentration now gives way to small glances at your physique.
+    <<if $shyConfident > 1>>
+    Noticing <<rivalMy>> casual looks, you start bouncing your pecs, alternating sides, which just ruins what little concentration <<rivalI>> had left - <<rivalI>> can't help but watch intently as your massive front mounds jump playfully, and <<rivalI>> ends up doing a couple of extra reps because <<rivalI>> can't even count properly.<br><br>
+    <</if>>
+    You wait for <<rivalMe>> to finish, then increase the machine to full load. Nat is briefly confused by that. You sit down and finally start getting somewhat challenged as you complete your 15th rep. You get up and get a good chest flex now that you are properly pumped.<br><br>
+    <<Dialogue "player" "You">>"Check THIS out!"<</Dialogue>><br><br>
+    You proclaim proudly, showcasing a shelf of muscle that could shame a few male bodybuilders. Nat lets a small grunt slip, copying your motion - <<rivalMy>> tight shirt fully stretched as <<rivalI>> tries to match you, but it will take some effort for <<rivalMe>> to catch up. Not that <<rivalI>> looks bad: you also gawk at the two slabs of beef that protrude with amazing striation in the valley that separates them, looking almost like someone just glued two huge pads on <<rivalMy>> very lean torso. It will take quite a bit of effort and time for <<rivalMe>> to match your current progress.<br><br>
+    Now slightly irritated, <<rivalI>> proceeds to do the last set, and you follow suit. <<RivalI>> doesn't really wait for you, as <<rivalI>> just continues silently to the lat pulldown machine, which <<rivalI>> confidently sets up for a full <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load - Nat certainly looks to have a very solid back on <<rivalMe>>, probably built on <<rivalMy>> years of swimming. After finishing your previous exercise, you arrive just in time to see <<rivalMe>> putting some struggle on the last few reps, starting to shake a bit. You approach to spot <<rivalMe>>…<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I got this."<</Dialogue>><br><br>
+    You step back and let <<rivalMe>> finish <<rivalMy>> exercise, straining <<rivalMy>> body but salvaging <<rivalMy>> ego. At least until <<rivalI>> clears the machine for you, which you increment with some dangling weights: <<if $measurementSystem == 'metric'>>25 kilograms<<else>>50 pounds<</if>>. You sit down and, once again, repeat your 15 reps, mostly unfazed by the considerable loadout. Nat is now getting impatient, and even tests the danglers to make sure you aren't messing with <<rivalMe>> - but <<rivalI>> realizes they are for real as <<rivalI>> removes them.<br><br>
+    This time <<rivalI>> repeats <<rivalMy>> last couple of sets with visible irritation, but <<rivalMy>> eyes display such a fire that <<rivalI>> actually manages to power through them without shaking like on the first attempt - your little competition may actually be making <<rivalMe>> push through <<rivalMy>> very limits, and you smile as you see just how effective you can be. So you figure another little demonstration is in order, as you step between the walls of mirrors to admire your back.<br><br>
+    <<Dialogue "player" "You">>"What do you think of these wings?"<</Dialogue>><br><br>
+    Indeed, as you display your back muscles, the results are out of this world - the considerable expansion just seems to continue as valleys and ridges make themselves appear on your ripped back, veins like rivers on this enormous desert vista, capped by unbelievable shoulders and traps.<br><br>
+    Not to be outdone, Nat just plain takes off <<rivalMy>> shirt (causing a few men and women at the gym to just shudder and sigh with delight) as <<rivalI>> follows your lead. Truth be told, even if <<rivalMy>> back isn't quite in the same league as yours, <<rivalI>> still puts such effort that you cannot help but be impressed with <<rivalMy>> own show - what <<rivalI>> lacks in sheer mass, <<rivalI>> more than makes up in symmetry and aesthetics: <<rivalMy>> ripped backside seems like it was sculpted by a classic Greek artist, each fiber of muscle carefully laid out over another with purpose - and, obviously, still one of the largest in the entire facility.<br><br>
+    <<Dialogue "player" "You">>"Looking pretty good there, Nat! There's not going to be much competition on that department come the end of summer!"<</Dialogue>><br><br>
+    While you proclaim that quite cheerily, Nat is still grunting and not being very talkative. And so <<rivalI>> just walks to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>. Without so much as an explanation, <<rivalI>> starts cranking out barbell biceps curls, <<rivalMy>> usual focus replaced by an angry scowl. You can see that <<rivalI>> is straining <<rivalMy>> wrist quite a bit, as <<rivalMy>> accident seems to make the weight slightly less secure on one side.
+<<else>>
+    You jump in with the same load, and start cranking reps just like <<rivalI>> did.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Whoa - I didn't realize you were so strong!"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Yeah, I surprise myself sometimes too!"<</Dialogue>><br><br>
+    You stand up after repeating the same feat that Nat just pulled, and <<rivalI>> proceeds to do <<rivalMy>> second set with the same perfect form - but <<rivalMy>> look of concentration now gives way to small glances at your physique.
+    <<if $shyConfident > 1>>
+    Noticing <<rivalMy>> casual looks, you start bouncing your pecs, alternating sides, which just ruins what little concentration <<rivalI>> had left - <<rivalI>> can't help but watch intently as your front mounds jump playfully, and <<rivalI>> ends up doing a couple of extra reps because <<rivalI>> can't even count properly.<br><br>
+    <</if>>
+    You wait for <<rivalMe>> to finish, then take your turn again. Nat watches, mystified, still somewhat unbelieving that you are just as strong as <<rivalI>> is. You sit down and finally start getting somewhat challenged as you complete your 15th rep. You get up and get a good chest flex now that you are properly pumped.<br><br>
+    <<Dialogue "player" "You">>"Check THIS out!"<</Dialogue>><br><br>
+    You proclaim proudly, showcasing a shelf of muscle that looks amazing for a girl your age. Nat is not about to be outdone, and copies your motion - <<rivalMy>> tight shirt fully stretched as <<rivalI>> repeats your effort - much to the delight of admirers nearby. You also gawk at the two slabs of beef that protrude with amazing striation in the valley that separates them, looking almost like someone just glued two huge pads on <<rivalMy>> very lean torso. The two of you make an amazing couple.<br><br>
+    With renewed motivation, <<rivalI>> proceeds to do the last set, and you follow suit. <<RivalI>> waits to check if you will complete the last set, which you dutifully do. <<RivalI>> then escorts you to the lat pulldown machine, which <<rivalI>> confidently sets up for a full <<if $measurementSystem == 'metric'>>125 kilograms<<else>>250 pounds<</if>> load - Nat certainly looks to have a very solid back on <<rivalMe>>, probably built on <<rivalMy>> years of swimming. After finishing your previous exercise, you arrive just in time to see <<rivalMe>> putting some struggle on the last few reps, starting to shake a bit. You approach to spot <<rivalMe>>…<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Don't worry…"<</Dialogue>><br><br>
+    You step back and let <<rivalMe>> finish <<rivalMy>> exercise, straining <<rivalMy>> body with a confident smile. You sit down and, once again, repeat your 15 reps, mostly unfazed by the considerable loadout. Nat is visibly surprised: <<rivalI>> always stood out when it comes to <<rivalMy>> back, and it seems like it was the first time someone just matched <<rivalMy>> effort.<br><br>
+    <<RivalI>> returns for <<rivalMy>> second set, but <<rivalMy>> eyes display such a fire that <<rivalI>> actually manages to power through them without shaking like on the first attempt - your little competition may actually be making <<rivalMe>> push through <<rivalMy>> very limits, and you smile as you see just how effective you can be. So you figure another little demonstration is in order, as you step between the walls of mirrors to admire your back.<br><br>
+    <<Dialogue "player" "You">>"What do you think of these wings?"<</Dialogue>><br><br>
+    Indeed, as you display your back muscles, the results are impressive - the expansion just flourishes as valleys and ridges make themselves appear on your ripped back, capped by unbelievable shoulders and traps.<br><br>
+    Not to be outdone, Nat casually takes off <<rivalMy>> shirt (causing a few men and women at the gym to just shudder and sigh with delight) as <<rivalI>> follows your lead. Truth be told, <<rivalMy>> back might just give you a run for your money, and you cannot help but be impressed with <<rivalMy>> show - not only does <<rivalI>> have sheer mass, but it's also complimented by symmetry and aesthetics: <<rivalMy>> ripped backside seems like it was sculpted by a classic Greek artist, each fiber of muscle carefully laid out over another with purpose - possibly one of the largest in the entire facility.<br><br>
+    <<Dialogue "player" "You">>"Looking pretty good there, Nat! There's not going to be much competition on that department come the end of summer!"<</Dialogue>><br><br>
+    While you proclaim that quite cheerily, Nat is still not being very talkative. And so <<rivalI>> just walks to the barbell stand and loads the bar with <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>. Without so much as an explanation, <<rivalI>> starts cranking out barbell biceps curls, <<rivalMy>> usual focus replaced by an angry scowl. You can see that <<rivalI>> is straining <<rivalMy>> wrist quite a bit, as <<rivalMy>> accident seems to make the weight slightly less secure on one side.<br><br>
+    But Nat keeps up with it, and manages to finish <<rivalMy>> 15 reps. You notice <<rivalI>> is rubbing <<rivalMy>> wrist as <<rivalI>> finishes - <<rivalI>> clearly is going a bit too far with <<rivalMy>> injury…
+<</if>>
+<span id="choice">
+    <<link "Alright, champ, let me show you what heavy metal feels like!">><<playEvent 'NatWristInjury-NatTriesToKeepUp'>><</link>>
+    <<link "Nat's just overdoing it, I should back down a bit.">><<playEvent 'NatWristInjury-NatIgnoresAndGloats'>><</link>>
 </span>
