@@ -32682,3 +32682,18 @@ You grab Nat by the shoulders - damn, <<rivalI>> has some really nice capped sho
 Nat scoffs and goes back to the barbell, but it's obvious to everyone that <<rivalI>> is overdoing it. <<RivalI>> stops after three reps, and sighs with frustration. <<RivalI>> goes at it one more time… but <<rivalI>> is shaking even more - this is about as agonizing to you as it seems to be to <<rivalMe>>. There are so many words stuck in your throat right now, but you don't know how exactly to get through to <<rivalMe>>… but of one thing you are sure - if you don't do it NOW, the damage could be even worse!
 <<link "Nat, stop being silly! You are just going to hurt yourself!" "NatWristInjury-Confrontational2">><</link>>
 <<link "Nat, I beg you… stop now. For me! Please?" "NatWristInjury-BegToStop">><</link>>
+
+
+:: NatWristInjury-Confrontational2 [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Alright, that's enough!"<</Dialogue>><br><br>
+You step by <<rivalMy>> side, and force <<rivalMe>> to lower the weights down. You grab <<rivalMy>> wrist, and <<rivalI>> winces. Yup, that's definitely injured.
+<<Dialogue "player" "You">>"Seriously, dude, enough is enough. I can appreciate a big show of testosterone as the next girl, but you don't need to be an asshole just to show off, OK? "<</Dialogue>><br><br>
+Nat grunts, and clearly isn't used to being led like this - especially by a girl. You grab <<rivalMe>> by the arm and start dragging <<rivalMe>> to the reception.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I'm sure they must have a medic, a physician, sports doctor… I dunno, some sort of person who can have a look at your wrist."<</Dialogue>><br><br>
+
+<<if $natOpinion >= 0>>
+    <<link "Continue" "NatWristInjury-NatCope">><</link>>
+<<else>>
+    <<link "Continue" "NatWristInjury-NatAgressive">><</link>>
+<</if>>
