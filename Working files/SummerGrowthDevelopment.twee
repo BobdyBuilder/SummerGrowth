@@ -7447,7 +7447,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
         dropRate: 0.5,
         effects: [
             {
-                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                code: () => "<<set $carefreeCarefull += 1>>",
                 description: () => "As you raise the soda to your lips, the first thing you notice is the gentle fizz that dances along the rim of the glass. You take a small sip, letting the bubbles tickle the tip of your tongue before the flavor washes over your senses. At first, there's a delicate hint of sweetness, as though you're tasting the essence of a honeyed flower, but then a complex layer of spices unfolds - notes of citrus, ginger, and cloves swirl together, forming a symphony of flavor on my palate. The texture is smooth and airy, with a soft, creamy mouthfeel that blends perfectly with the delicate carbonation.",
                 shortDescription: () => "Permanently makes you more careful",
                 chance: 1,
