@@ -5707,7 +5707,7 @@ Luckily enough, it's easy to find clothing online. It'll be delivered the next d
             playerbuys: 0
             },
             {
-            name: "CarefullIngredient",
+            name: "CarefulIngredient",
             pricePerPiece: 20,
             playerbuys: 0
             },
@@ -6055,15 +6055,15 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     {
         ingredientOne: 'Opposium',
         ingredientTwo: 'CarefreeIngredient',
-        effect: () => {State.variables.potionIngredients.push("CarefullIngredient");
-                State.variables.potionIngredients.push("CarefullIngredient");},
+        effect: () => {State.variables.potionIngredients.push("CarefulIngredient");
+                State.variables.potionIngredients.push("CarefulIngredient");},
         discovered: false,
         pinned: false,
-        resultDesc: 'CarefullIngredient (2x)'
+        resultDesc: 'CarefulIngredient (2x)'
     },
     {
         ingredientOne: 'Opposium',
-        ingredientTwo: 'CarefullIngredient',
+        ingredientTwo: 'CarefulIngredient',
         effect: () => {State.variables.potionIngredients.push("CarefreeIngredient");
                 State.variables.potionIngredients.push("CarefreeIngredient");},
         discovered: false,
@@ -6283,7 +6283,7 @@ The aftertaste of the beverage hits you like a truck, like burned tires drenched
     },
     {
         ingredientOne: 'SlowIngredient',
-        ingredientTwo: 'CarefullIngredient',
+        ingredientTwo: 'CarefulIngredient',
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Carl").amount += 1},
         discovered: false,
         pinned: false,
