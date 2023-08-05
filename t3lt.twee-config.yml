@@ -5,13 +5,15 @@ sugarcube-2:
       container: true
       parameters:
         - "'player' &+ 'You'"
+        - "'youngPlayer' &+ 'Young you'"
         - "'Tasha' &+ 'Tasha'"
         - "'Simon' &+ 'Simon'"
         - "'Kris'|'KrisCasualObsessed'|'KrisCasual'|'KrisObsessed' &+ 'Kris'"
-        - "'Johan' &+ 'Johan'|'JO-HAN, The Magnificent'"
+        - "'Johan'|'JohanFancy' &+ 'Johan'|'JO-HAN, The Magnificent'"
         - "'Elena'|'ElenaHappy' &+ 'Elena'"
         - "'Emma'|'EmmaFitness' &+ 'Emma'|'Office lady'"
         - "'Nathan' &+ 'Nathan'"
+        - "'youngNat' &+ 'Nathan'"
         - "'Natalie' &+ 'Natalie'"
         - "'toshiUnknown' &+ 'Toshi'"
         - "'Eddy' &+ 'Eddy'"
