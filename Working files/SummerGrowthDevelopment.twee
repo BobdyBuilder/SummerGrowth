@@ -3550,96 +3550,101 @@ $(".macro-live").trigger(":liveupdateinternal");
                 <<set $skills[5].experience += 2>>
                 <<addMinutes 20>>
                 <<script>>
-    var effective = false;
+let effective = false;
 
-                for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
-                        if(State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
-                            State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
-                        ){
-                            effective = true;
-                            State.variables.skills[5].experience += 8;
-                            if (Dialog.isOpen() == false) {
-                                var dialog = Dialog.setup("SUCCES!");
-                                if(State.variables.potionIngredientCombinations[i].discovered == true){
-                                    new Wikifier(dialog, "You succesfully made " +
-                                        State.variables.potionIngredientCombinations[i].resultDesc
-                                    );
-                                }
-                                else{
-                                    var index = State.variables.consumables.findIndex(c => c.name === State.variables.potionIngredientCombinations[i].resultDesc);
-                                    var text = "";
-                                    
-                                    if(index != -1){
-                                        text = "<br><br>" + State.variables.consumables[index].CraftingDescription;
-                                    }
+let dialog;
+for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
+  if (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
+    State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
+  ) {
+    effective = true;
+    State.variables.skills[5].experience += 8;
+    if (Dialog.isOpen() === false) {
+      dialog = Dialog.setup("SUCCES!");
+      if (State.variables.potionIngredientCombinations[i].discovered === true) {
+        new Wikifier(dialog, "You succesfully made " +
+          State.variables.potionIngredientCombinations[i].resultDesc
+        );
+      } else {
+        const index = State.variables.consumables.findIndex(c => c.name ===
+          State.variables.potionIngredientCombinations[i].resultDesc);
+        let text = "";
 
-                                    new Wikifier(dialog,  +
-                                        
-                                        "You learned a new combination! You note it down; <br>" +
-                                        State.variables.selectedIngredientNameOne + " + " +
-                                        State.variables.selectedIngredientNameTwo + "= <br>" +
-                                        State.variables.potionIngredientCombinations[i].resultDesc + text
-                                    );
-                                }
-                                
-                                Dialog.open();
-                            }
+        if (index !== -1) {
+          text = "<br><br>" + State.variables.consumables[index].CraftingDescription;
+        }
 
-                            State.variables.potionIngredientCombinations[i].discovered = true;
-                            State.variables.potionIngredientCombinations[i].effect();
+        new Wikifier(dialog, +
 
-                            break;
-                        }         
-                    }   
-                    
-                    /* If nothing happened. */
-                    if (!effective && Dialog.isOpen() == false) {
-                        State.variables.skills[5].experience += 1;
-                        var dialog = Dialog.setup("It fizzled");
-                        new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
-                        );
-                        Dialog.open();                        
-                    }
+            "You learned a new combination! You note it down; <br>" +
+          State.variables.selectedIngredientNameOne + " + " +
+          State.variables.selectedIngredientNameTwo + "= <br>" +
+          State.variables.potionIngredientCombinations[i].resultDesc + text
+        );
+      }
 
-                    State.variables.ineffectiveRecipeCount += Math.floor(Math.random() * (3 - 1 + 1) + 1);
-                    if(State.variables.ineffectiveRecipeCount >= 10){
-                        var optionsForDiscovery = [];
-                        for (let j = 0; j < State.variables.potionIngredientCombinations.length; j++) {
-                            if(!State.variables.potionIngredientCombinations[j].discovered && (
-                                (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[j].ingredientOne)) ||
-                                (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[j].ingredientTwo)))){
-                                optionsForDiscovery.push(j);
-                            }
-                        }
-                        var discoveryIndex = optionsForDiscovery[Math.floor(Math.random() * optionsForDiscovery.length)];
-                        State.variables.skills[5].experience += 4;
-                        Dialog.append("<br><br>But with this new attempt, you do think you learned something new! <br>" +
-                            State.variables.potionIngredientCombinations[discoveryIndex].ingredientOne + "<br>" +
-                            State.variables.potionIngredientCombinations[discoveryIndex].ingredientTwo + " = <br>" +
-                            "???");
-                        State.variables.potionIngredientCombinations[discoveryIndex].discovered = "partial";
-                        State.variables.ineffectiveRecipeCount = 0;
-                    } 
+      Dialog.open();
+    }
 
-                    /* From here we delete the ingredients. */
-                    var firstIngredientIndex = 0;
-                    var secondIngredientIndex = 0;
+    State.variables.potionIngredientCombinations[i].discovered = true;
+    State.variables.potionIngredientCombinations[i].effect();
 
-                    for (let i = 0; i < State.variables.potionIngredients.length; i++) {
-                        if (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredients[i])) {
-                            firstIngredientIndex = i;
-                        }
-                        if (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredients[i])) {
-                            secondIngredientIndex = i;                            
-                        }
+    break;
+  }
+}
 
-                        if(firstIngredientIndex != 0 && secondIngredientIndex != 0){
-                            break;
-                        }
-                    }
+/* If nothing happened. */
+if (!effective && Dialog.isOpen() === false) {
+  State.variables.skills[5].experience += 1;
+  dialog = Dialog.setup("It fizzled");
+  new Wikifier(dialog, "Well, atleast you learned something new. That combination did nothing."
+  );
+  Dialog.open();
+}
 
-                    State.variables.potionIngredients.splice(firstIngredientIndex, 1);
-                    State.variables.potionIngredients.splice(secondIngredientIndex, 1);
+State.variables.ineffectiveRecipeCount += Math.floor(Math.random() * (3 - 1 + 1) + 1);
+if (State.variables.ineffectiveRecipeCount >= 10) {
+  const optionsForDiscovery = [];
+  for (let j = 0; j < State.variables.potionIngredientCombinations.length; j++) {
+    if (!State.variables.potionIngredientCombinations[j].discovered && (
+      (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[j].ingredientOne)) ||
+      (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[j].ingredientTwo)))) {
+      optionsForDiscovery.push(j);
+    }
+  }
+
+  if (optionsForDiscovery.length > 0) {
+    /* if there are possible combination with one of the ingredient */
+    const discoveryIndex = optionsForDiscovery[Math.floor(Math.random() * optionsForDiscovery.length)];
+    State.variables.skills[5].experience += 4;
+    Dialog.append("<br><br>But with this new attempt, you do think you learned something new! <br>" +
+      State.variables.potionIngredientCombinations[discoveryIndex].ingredientOne + "<br>" +
+      State.variables.potionIngredientCombinations[discoveryIndex].ingredientTwo + " = <br>" +
+      "???");
+    State.variables.potionIngredientCombinations[discoveryIndex].discovered = "partial";
+    State.variables.ineffectiveRecipeCount = 0;
+  }
+}
+
+/* From here we delete the ingredients. */
+let firstIngredientIndex = 0;
+let secondIngredientIndex = 0;
+
+for (let i = 0; i < State.variables.potionIngredients.length; i++) {
+  if (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredients[i])) {
+    firstIngredientIndex = i;
+  }
+  if (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredients[i])) {
+    secondIngredientIndex = i;
+  }
+
+  if (firstIngredientIndex !== 0 && secondIngredientIndex !== 0) {
+    break;
+  }
+}
+
+State.variables.potionIngredients.splice(firstIngredientIndex, 1);
+State.variables.potionIngredients.splice(secondIngredientIndex, 1);
                 <</script>>  
                 <<goto "Lab">> 
             <</button>><</if>></h1>
