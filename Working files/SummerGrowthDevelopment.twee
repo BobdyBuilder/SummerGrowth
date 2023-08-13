@@ -709,9 +709,9 @@ window.getNextDayOfTheWeek = function (day) {
  * @param {number} startingSize Starting size at muscle 20, fat 20
  * @param {number} idealMuscle ideal size at muscle 60
  * @param {number} idealFat ideal size at fat 60
- * @param {boolean} isVolumetric
+ * @param {boolean} volumetric
  */
-window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, isVolumetric) {
+window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, volumetric) {
   const steps = 60 - 20; /* Amount of steps between starting and ideal size.*/
   const divMuscle = idealMuscle - startingSize;
   const divFat = idealFat - startingSize;
@@ -722,7 +722,7 @@ window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, isVolum
   let result = (startingSize + (valueMuscle * Math.max(0, (SugarCube.State.variables.muscle - 20)) + valueFat *
     Math.max(0, (SugarCube.State.variables.fat - 20)))) * SugarCube.State.variables.heightMod;
 
-  if (isVolumetric) {
+  if (volumetric) {
     result *= SugarCube.State.variables.heightMod * SugarCube.State.variables.heightMod
   }
 
