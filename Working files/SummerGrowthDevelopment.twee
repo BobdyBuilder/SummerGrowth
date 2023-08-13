@@ -706,13 +706,13 @@ window.getNextDayOfTheWeek = function (day) {
 
 /**
  *
- * @param {number} startingSize
- * @param {number} idealMuscle
- * @param {number} idealFat
+ * @param {number} startingSize Starting size at muscle 20, fat 20
+ * @param {number} idealMuscle ideal size at muscle 60
+ * @param {number} idealFat ideal size at fat 60
  * @param {boolean} isVolumetric
  */
 window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, isVolumetric) {
-  let _steps = 60 - 20;
+  let _steps = 60 - 20; /* Amount of steps between starting and ideal size.*/
   let _divMuscle = idealMuscle - startingSize;
   let _divFat = idealFat - startingSize;
 
