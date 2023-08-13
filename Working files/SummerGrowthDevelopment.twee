@@ -719,8 +719,10 @@ window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, volumet
   const valueMuscle = divMuscle / steps;
   const valueFat = divFat / steps;
 
-  let result = (startingSize + (valueMuscle * Math.max(0, (SugarCube.State.variables.muscle - 20)) + valueFat *
-    Math.max(0, (SugarCube.State.variables.fat - 20)))) * SugarCube.State.variables.heightMod;
+  let result = (startingSize +
+      (valueMuscle * (SugarCube.State.variables.muscle - 20) + valueFat * (SugarCube.State.variables.fat - 20))) *
+    SugarCube.State.variables.heightMod;
+  result = Math.max(startingSize / 3 * 2, result); /* prevents too low value */
 
   if (volumetric) {
     result *= SugarCube.State.variables.heightMod * SugarCube.State.variables.heightMod
