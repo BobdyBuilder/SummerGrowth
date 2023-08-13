@@ -712,21 +712,21 @@ window.getNextDayOfTheWeek = function (day) {
  * @param {boolean} isVolumetric
  */
 window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, isVolumetric) {
-  let _steps = 60 - 20; /* Amount of steps between starting and ideal size.*/
-  let _divMuscle = idealMuscle - startingSize;
-  let _divFat = idealFat - startingSize;
+  const steps = 60 - 20; /* Amount of steps between starting and ideal size.*/
+  const divMuscle = idealMuscle - startingSize;
+  const divFat = idealFat - startingSize;
 
-  let _valueMuscle = _divMuscle / _steps;
-  let _valueFat = _divFat / _steps;
+  const valueMuscle = divMuscle / steps;
+  const valueFat = divFat / steps;
 
-  let _value = (startingSize + (_valueMuscle * Math.max(0, (SugarCube.State.variables.muscle - 20)) + _valueFat *
-      Math.max(0, (SugarCube.State.variables.fat - 20)))) * SugarCube.State.variables.heightMod;
+  let result = (startingSize + (valueMuscle * Math.max(0, (SugarCube.State.variables.muscle - 20)) + valueFat *
+    Math.max(0, (SugarCube.State.variables.fat - 20)))) * SugarCube.State.variables.heightMod;
 
   if (isVolumetric) {
-    _value *= SugarCube.State.variables.heightMod * SugarCube.State.variables.heightMod
+    result *= SugarCube.State.variables.heightMod * SugarCube.State.variables.heightMod
   }
 
-  return _value;
+  return result;
 }
 
 Macro.add('Dialogue', {
