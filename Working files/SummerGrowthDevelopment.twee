@@ -704,6 +704,31 @@ window.getNextDayOfTheWeek = function (day) {
   return nextWeekOfTheDay
 }
 
+/**
+ *
+ * @param {number} startingSize
+ * @param {number} idealMuscle
+ * @param {number} idealFat
+ * @param {boolean} isVolumetric
+ */
+window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, isVolumetric) {
+  let _steps = 60 - 20;
+  let _divMuscle = idealMuscle - startingSize;
+  let _divFat = idealFat - startingSize;
+
+  let _valueMuscle = _divMuscle / _steps;
+  let _valueFat = _divFat / _steps;
+
+  let _value = (startingSize + (_valueMuscle * Math.max(0, (SugarCube.State.variables.muscle - 20)) + _valueFat *
+      Math.max(0, (SugarCube.State.variables.fat - 20)))) * SugarCube.State.variables.heightMod;
+
+  if (isVolumetric) {
+    _value *= SugarCube.State.variables.heightMod * SugarCube.State.variables.heightMod
+  }
+
+  return _value;
+}
+
 Macro.add('Dialogue', {
     tags: null,
     handler: function () {
@@ -9184,37 +9209,6 @@ Checking your inbox, you suddenly get a red message. SHIT! Seems like what happe
 
 <</nobr>>
 
-
-:: sizeCalc [nobr widget] {"position":"1000,300","size":"100,100"}
-<<widget sizeCalc>>
-/* $args[0]: Starting size at muscle 20, fat 20 */
-/* $args[1]: ideal size at muscle 60 */
-/* $args[2]: ideal size at fat 60 */
-/* $args[3]: The VAR being set. */
-/* _steps: Amount of steps between starting and ideal size.*/
-
-<<set $startingSize to $args[0]>>
-<<set $idealMuscle to $args[1]>>
-<<set $idealFat to $args[2]>>
-
-<<set _steps to 60 - 20>>
-<<set _divMuscle to $idealMuscle - $startingSize>>
-<<set _divFat to $idealFat - $startingSize>>
-
-<<set _valueMuscle to (_divMuscle / _steps)>>
-<<set _valueFat to (_divFat / _steps)>>
-
-<<set _value to ($startingSize + ((_valueMuscle * ($muscle - 20)) + (_valueFat * ($fat - 20)))) * $heightMod>>
-
-<<if $args[3] is "$weight">>
-	<<set _value *= ($heightMod * $heightMod)>>
-<</if>>
-
-<<run State.setVar($args[3], _value)>>
-
-<</widget>>
-
-
 :: startSettings [nobr intro] {"position":"100,800","size":"100,100"}
 <<include "Init">>
 
@@ -12204,51 +12198,51 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 /* HUGE ideal. */
 <<if $muscleGrowthStyle is "Fantasy">>
   <<if $args[0] is "weight">>
-	<<sizeCalc 42 70 60 "$weight">>
+	<<set $weight to window.calcBodyPartSize(42, 70, 60, true)>>
 	<span class="hiden"><<weightConversion $weight>></span>
 
   <<elseif $args[0] is "chest">>
-	<<sizeCalc 65 110 90 "$chestSize">>
+	<<set $chestSize to window.calcBodyPartSize(65, 110, 90)>>
 	<<numeralConversion $chestSize $args[1]>> 
 
   <<elseif $args[0] is "waist">>
-	<<sizeCalc 60 75 95 "$waistSize">>
+	<<set $waistSize to window.calcBodyPartSize(60, 75, 95)>>
 	<<numeralConversion $waistSize $args[1]>> 
 
   <<elseif $args[0] is "hips">>
-	<<sizeCalc 86 111 120 "$hipsSize">>
+	<<set $hipsSize to window.calcBodyPartSize(86, 111, 120)>>
 	<<numeralConversion $hipsSize $args[1]>> 
 
   <<elseif $args[0] is "neck">>
-	<<sizeCalc 26 48 90 "$neckSize">>
+	<<set $neckSize to window.calcBodyPartSize(26, 48, 90)>>
 	<<numeralConversion $neckSize $args[1]>> 
 
   <<elseif $args[0] is "upperArm">>
-	<<sizeCalc 20 50 40 "$upperArmSize">>
+	<<set $upperArmSize to window.calcBodyPartSize(20, 50, 40)>>
 	<<numeralConversion $upperArmSize $args[1]>> 
 
   <<elseif $args[0] is "lowerArm">>
-	<<sizeCalc 20 38 35 "$lowerArmSize">>
+	<<set $lowerArmSize to window.calcBodyPartSize(20, 38, 35)>>
 	<<numeralConversion $lowerArmSize $args[1]>> 
 
   <<elseif $args[0] is "wrist">>
-	<<sizeCalc 12 14 15 "$wristSize">>
+	<<set $wristSize to window.calcBodyPartSize(12, 14, 15)>>
 	<<numeralConversion $wristSize $args[1]>> 
 
   <<elseif $args[0] is "thigh">>
-	<<sizeCalc 43 76 76 "$thighsSize">>
+	<<set $thighsSize to window.calcBodyPartSize(43, 76, 76)>>
 	<<numeralConversion $thighsSize $args[1]>> 
 
   <<elseif $args[0] is "knee">>
-	<<sizeCalc 25 32 32 "$kneeSize">>
+	<<set $kneeSize to window.calcBodyPartSize(25, 32, 32)>>
 	<<numeralConversion $kneeSize $args[1]>> 
 
   <<elseif $args[0] is "calve">>
-	<<sizeCalc 25 46 46 "$calveSize">>
+	<<set $calveSize to window.calcBodyPartSize(25, 46, 46)>>
 	<<numeralConversion $calveSize $args[1]>> 
 
   <<elseif $args[0] is "ankle">>
-	<<sizeCalc 16 17 17 "$ankleSize">>
+	<<set $ankleSize to window.calcBodyPartSize(16, 17, 17)>>
 	<<numeralConversion $ankleSize $args[1]>>
 
    <<else>>
@@ -12257,51 +12251,51 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
   <</if>>
 <<elseif $muscleGrowthStyle is "Realistic">>
   <<if $args[0] is "weight">>
-	<<sizeCalc 42 80 84 "$weight">>
+	<<set $weight to window.calcBodyPartSize(42, 80, 84, true)>>
 	<span class="hiden"><<weightConversion $weight>></span>
 
   <<elseif $args[0] is "chest">>
-	<<sizeCalc 65 78 90 "$chestSize">>
+	<<set $chestSize to window.calcBodyPartSize(65, 78, 90)>>
 	<<numeralConversion $chestSize $args[1]>> 
 
   <<elseif $args[0] is "waist">>
-	<<sizeCalc 60 60 95 "$waistSize">>
+	<<set $waistSize to window.calcBodyPartSize(60, 60, 95)>>
 	<<numeralConversion $waistSize $args[1]>> 
 
   <<elseif $args[0] is "hips">>
-	<<sizeCalc 86 80 120 "$hipsSize">>
+	<<set $hipsSize to window.calcBodyPartSize(86, 80, 120)>>
 	<<numeralConversion $hipsSize $args[1]>> 
 
   <<elseif $args[0] is "neck">>
-	<<sizeCalc 26 29 90 "$neckSize">>
+	<<set $neckSize to window.calcBodyPartSize(26, 29, 90)>>
 	<<numeralConversion $neckSize $args[1]>> 
 
   <<elseif $args[0] is "upperArm">>
-	<<sizeCalc 20 50 40 "$upperArmSize">>
+	<<set $upperArmSize to window.calcBodyPartSize(20, 50, 40)>>
 	<<numeralConversion $upperArmSize $args[1]>> 
 
   <<elseif $args[0] is "lowerArm">>
-	<<sizeCalc 20 23 35 "$lowerArmSize">>
+	<<set $lowerArmSize to window.calcBodyPartSize(20, 23, 35)>>
 	<<numeralConversion $lowerArmSize $args[1]>> 
 
   <<elseif $args[0] is "wrist">>
-	<<sizeCalc 12 13 15 "$wristSize">>
+	<<set $wristSize to window.calcBodyPartSize(12, 13, 15)>>
 	<<numeralConversion $wristSize $args[1]>> 
 
   <<elseif $args[0] is "thigh">>
-	<<sizeCalc 43 50 76 "$thighsSize">>
+	<<set $thighsSize to window.calcBodyPartSize(43, 50, 76)>>
 	<<numeralConversion $thighsSize $args[1]>> 
 
   <<elseif $args[0] is "knee">>
-	<<sizeCalc 25 25 32 "$kneeSize">>
+	<<set $kneeSize to window.calcBodyPartSize(25, 25, 32)>>
 	<<numeralConversion $kneeSize $args[1]>> 
 
   <<elseif $args[0] is "calve">>
-	<<sizeCalc 25 28 46 "$calveSize">>
+	<<set $calveSize to window.calcBodyPartSize(25, 28, 46)>>
 	<<numeralConversion $calveSize $args[1]>> 
 
   <<elseif $args[0] is "ankle">>
-	<<sizeCalc 16 17 17 "$ankleSize">>
+	<<set $ankleSize to window.calcBodyPartSize(16, 17, 17)>>
 	<<numeralConversion $ankleSize $args[1]>>
 
    <<else>>
