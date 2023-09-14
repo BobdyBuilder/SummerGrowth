@@ -2712,7 +2712,16 @@ At <<heighNumeral>> tall, your height no longer makes any sense! You can walk ou
 <br><br>
 <<gameLink "Go visit the shopping center" "ShoppingCenter" time:30>><</gameLink>>
 <br><br>
-<<if $gameDate.getHours() <= 23 and $gameDate.getHours() >= 11>><<if $johanVisited is false or $debug is "true">><<gameLink "Go visit Johan " "JohanHome" time:20>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>><<else>>Johan probably won't be home right now<br><br><</if>><br><br><</if>>
+<<if $gameDate.getHours() <= 23 and $gameDate.getHours() >= 11>>
+    <<if $johanVisited && $debug !== "true">>
+        Johan probably won't be home right now
+    <<elseif $gameDate <= $flag.johanDate2BlackoutUntil>>
+        Johan is not in his apartment right now...
+    <<else>>
+        <<gameLink "Go visit Johan " "JohanHome" time:20>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
+    <</if>>
+    <br><br>
+<</if>>
 
 <<if $elenaDate1 is true && $elenaDate1Finished != true>>
 	<<if $gameDate.getHours() >= 16 and $gameDate.getHours() <= 19>>
@@ -12032,6 +12041,98 @@ Deep inside, you expected Johan to just laugh it off, but you can sense a bit of
                 <<link "Continue" $currentScene>><</link>>
             <</replace>>
         <</link>>
+	<</PersonalityCheck>>
+</span>`
+    },
+    {
+        name: 'johanGetsReserved',
+        locationTags: ['johan'],
+        conditions: [	
+            () => setup.hasEventBeenTriggered("johanDate2"),
+            () => State.variables.gameDate > State.variables.flag.johanDate2BlackoutUntil
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ["johan"],
+        content: `You arrive at Johan’s apartment’s door, anxious to see him again after his absence. You try to open the door, finding it uncharacteristically locked. Huh. You rap your knuckles against the wood, expecting a prompt response, and after a half-minute, it opens slightly..<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, hey! It’s you!"<</Dialogue>><br><br>
+Johan looks even more disheveled than usual, but really happy to see you. Realizing who it is, the fully opens the door and invites you in.<br><br>
+<<Dialogue "player" "You">>"I missed you, Johan. Is everything alright?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Me? Pffft, I’m great. The super came to look at the plumbing, and they realized there was some problems that required closing the main valve for this floor for a few days, and I figured it made more sense for me to bunk with a friend of mine until I had water again."<</Dialogue>><br><br>
+<<if $shyConfident > 1>><<Dialogue "player" "You">>"I mean, you could’ve stayed in my apartment… it might be small and not very well furnished - but it is cozy. I would certainly would do my best to make sure you felt welcome..."<</Dialogue>><br><br>
+You say, playing with your fingers over the table and avoiding his gaze, trying to be as suggestive as you possibly can about your intentions.<br><br>
+<<Dialogue "Johan" "Johan">>"OH! Well, uh, I really didn’t want to impose. NOT THAT I WOULD’VE TURNED IT DOWN!!!"<</Dialogue>><br><br>
+He tries to justify himself to avoid giving you the wrong idea, and it’s adorable, as usual.
+<<else>><<Dialogue "player" "You">>"Ah. It was weird, not having you around. But I was okay too."<</Dialogue>><br><br>
+Johan smiles. It’s clear he missed you too.
+<</if>>
+<<Dialogue "player" "You">>"So, you know, we can hang out now, right?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"O-OF COURSE! What do you want? Should I get some snacks, maybe make some popcorn? Do you want me to put a movie going? Or I can get the board games out. And I can hook up Slap Bros. if you prefer?"<</Dialogue>><br><br>
+
+<span id="choice">
+	<<link "Well, do you want to go somewhere instead of staying here for a change?">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"We had so much fun going out last time, don’t you wanna hang out somewhere else? There’s quite a few cool places..."<</Dialogue>><br><br>
+            <<if $flag.johanDatePensive or $flag.johanDateProtagonistStandsHerself or $flag.johanDateJohanDefendProtagonist>>
+                But before you can finish the sentence, you can see Johan already slumping and getting uncomfortable. He turns his eyes away, and his smile slowly fades. It makes you frown, slightly weirded out by his reaction.<br><br>
+                <<Dialogue "player" "You">>"You sure you’re alright, Johan?"<</Dialogue>><br><br>
+                <<Dialogue "Johan" "Johan">>"Y-yeah, sorry. I just think I don’t feel like going out, if you don’t mind."<</Dialogue>><br><br>
+                But you can’t help but get concerned with him. It’s pretty unusual for Johan to lose his usual excitement, especially over something so silly as just the invitation to go out.<br><br>
+                <<if $carefreeCarefull > 1 || if $skills[2].level > 2 && >><<Dialogue "player" "You">>"Is this the stuff that happened when we went to the restaurant?"<</Dialogue>><br><br>
+                He doesn’t answer, but his silence speaks volumes as he lowers his head and shrugs.
+                <<else>>
+                <<Dialogue "player" "You">>"What’s wrong, Johan?"<</Dialogue>><br><br>
+                He tries to avoid the subject, but you are not about to just drop this. Putting your hands on your hips and looking at him sternly, he finally breaks and admits what is bothering him.<br><br>
+                <<Dialogue "Johan" "Johan">>"I dunno, it’s just that stuff that happened when we went out, it’s still sorta lingering in my head, and I guess I don’t quite feel like going out, y’know?"<</Dialogue>><br><br>
+                <</if>>
+                You feel bad for him, by now you are kind of used to the reactions you get from your transformation, but this seems like both new ground for him - but might also be slightly triggering due to his own previous social interactions. You’d be lying if you said this wasn’t worrying you, but right now you really just want to enjoy his company, so you decide to put a pin on that.
+            <<else>>
+                <<Dialogue "Johan" "Johan">>"I mean, we could, if you really want to, but why don’t we just hang out here, just the two of us?"<</Dialogue>><br><br>
+                He says, in a hopeful tone, and you can more than read between the lines. The boy wants some quality time with you. <<if $shyConfident > 1>>And you can’t say you dislike that idea.<<else>>Oh. OH! Does he... is he expecting something else? You find yourself blushing, but also excited.<</if>>
+            <</if>>
+            Johan comes in and gives you a tight hug, and rests his head on your <<if $height >= 185>>chest<<else>>shoulder<</if>>. You wrap your arms around him, and you can hear him sigh happily. You close your eyes and spend some time just enjoying his touch - there’s something incredibly fulfilling about being touched by him, as well as enjoying holding him, taking in his warmth and his shape, caressing his back, arms, the nape of his neck, his messy hair. Before you know you it, the realization dawns that your hands have been exploring his contours for quite a while. Johan is also returning the favor, as his own hands travel from your shoulders to your hips, and as they travel through the space between your buttocks and your hamstrings, you shudder deeply, shaking like there’s an earthquake brewing inside you. Before you know it, something primal seems to take over instinctively from inside you, and you find yourself <<if $muscle >= 50>>lifting Johan off the ground, which he promptly responds by wrapping his legs around your waist, as you carry him to the sofa, stradling over him.<<else>>pushing Johan onto the sofa, which shocks him with a mix of surprise and excitement he can’t hide from his expression. You lick your lips as you approach and straddle him, pining the guy under you on the sofa as you remove your top.<</if>>
+			<<link "Continue" "johanSeggs">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<PersonalityCheck $shyConfident >= 2 "All those sound great... but maybe we could spend some quality time, enjoying each other’s company, you know? *wink wink*">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Well, I can think of a few fun things we could do..."<</Dialogue>><br><br>
+            You announce, eyeing Johan like a predator about to strike. When you bite your lip, Johan gulps loudly. You hook the corner of your top with your pinky finger and, licking your fingers, you slowly lift it, revealing your <<if $breasts >= 80>>gargantuan<<elseif $breasts >= 60>>gigantic<<elseif $breasts >= 40>>enormous<<elseif $breasts >= 30>>sizeable<<else>>modest<</if>> breasts, and he looks like he could sprout a nosebleed at any second. Johan might actually have stopped breathing. You toss your top over his head, breaking his trance, as he frees himself from it, and by the time he is looking at you again, you are taking slow and deliberate steps towards him. He eyes your <<if $muscle >= 80>>titanic<<elseif $muscle >= 60>>shredded<<elseif $muscle >= 40>>incredibly toned<</if>>thighs as you tiptoe towards him with an imposing stance, awakening the dominatrix inside you. You place a finger on his chest and <<if $muscle >= 50>>effortlessly<</if>> push him onto the sofa. Johan is basically frozen, but you can see the lust building in his eyes, as the surprise starts giving way to adoration and desire - made clear by his shallow panting. You take that as his consent to straddle him, as his eyes widen as he takes in your <<if $muscle >= 50 || $height >= 190>>imposing and <</if>>sexy figure.
+            GO TO SEGGS
+			<<link "Continue" "johanSeggs">><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            Knowing that you both share the love language of using memes, you announce awkwardly:<br><br>
+            <<Dialogue "player" "You">>"What if we put our Quarrycraft beds together? JUST KIDDING!... Hahaha... unless..."<</Dialogue>><br><br>
+            Johan laughs, but it’s pretty clear from his amused reaction that he didn’t get you actually meant, you know...<br><br>
+            You roll your eyes and do a literal facepalm. Johan is confused, until it kinda dawns on him.<br><br>
+            <<Dialogue "Johan" "Johan">>"OH!"<</Dialogue>><br><br>
+            He looks around, filled with anxiety and nervousness, unsure of what to do. Great, now you made things awkward. But before you can think of a way to fix this mess, Johan just comes in and gives you a passionate kiss. Taken by surprise, despite his somewhat sloppy kissing ability, the two of you immediately engage in a heavy make out session and everything blurs. By the time you get some sense of awareness of what is going one, you are straddling him on the sofa, with your top off, while some two-way heavy petting action is already taking place.
+            GO TO SEGGS
+			<<link "Continue" "johanSeggs">><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+	<<PersonalityCheck $submissiveDominant >= 2 "All those sound great... but maybe we could spend some quality time, enjoying each other’s company, you know? *wink wink*">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Well, I can think of a few fun things we could do..."<</Dialogue>><br><br>
+            You announce, eyeing Johan like a predator about to strike. When you bite your lip, Johan gulps loudly. You hook the corner of your top with your pinky finger and, licking your fingers, you slowly lift it, revealing your <<if $breasts >= 80>>gargantuan<<elseif $breasts >= 60>>gigantic<<elseif $breasts >= 40>>enormous<<elseif $breasts >= 30>>sizeable<<else>>modest<</if>> breasts, and he looks like he could sprout a nosebleed at any second. Johan might actually have stopped breathing. You toss your top over his head, breaking his trance, as he frees himself from it, and by the time he is looking at you again, you are taking slow and deliberate steps towards him. He eyes your <<if $muscle >= 80>>titanic<<elseif $muscle >= 60>>shredded<<elseif $muscle >= 40>>incredibly toned<</if>>thighs as you tiptoe towards him with an imposing stance, awakening the dominatrix inside you. You place a finger on his chest and <<if $muscle >= 50>>effortlessly<</if>> push him onto the sofa. Johan is basically frozen, but you can see the lust building in his eyes, as the surprise starts giving way to adoration and desire - made clear by his shallow panting. You take that as his consent to straddle him, as his eyes widen as he takes in your <<if $muscle >= 50 || $height >= 190>>imposing and <</if>>sexy figure.
+            GO TO SEGGS
+			<<link "Continue" "johanSeggs">><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            Knowing that you both share the love language of using memes, you announce awkwardly:<br><br>
+            <<Dialogue "player" "You">>"What if we put our Quarrycraft beds together? JUST KIDDING!... Hahaha... unless..."<</Dialogue>><br><br>
+            Johan laughs, but it’s pretty clear from his amused reaction that he didn’t get you actually meant, you know...<br><br>
+            You roll your eyes and do a literal facepalm. Johan is confused, until it kinda dawns on him.<br><br>
+            <<Dialogue "Johan" "Johan">>"OH!"<</Dialogue>><br><br>
+            He looks around, filled with anxiety and nervousness, unsure of what to do. Great, now you made things awkward. But before you can think of a way to fix this mess, Johan just comes in and gives you a passionate kiss. Taken by surprise, despite his somewhat sloppy kissing ability, the two of you immediately engage in a heavy make out session and everything blurs. By the time you get some sense of awareness of what is going one, you are straddling him on the sofa, with your top off, while some two-way heavy petting action is already taking place.
+            GO TO SEGGS
+			<<link "Continue" "johanSeggs">><</link>>
+		<</replace>>
 	<</PersonalityCheck>>
 </span>`
     }
@@ -31993,7 +32094,7 @@ The waiter comes in with the food, and you can’t even articulate an answer. Yo
 You share a moment of sheer contentment, just enjoying that instant in time and each other’s company. It’s brief, but feels like an eternity. But eventually the great aroma of the food and your hunger get the best of you, and you seal the moment with a peck on Johan’s lips, and once again he blushes.<br><br>
 As it turns out, the food is just as good as the reviews and buzz suggested, and soon both of you are digging in, sharing bites and making small talk. It’s as close to a perfect date as you could ever conceive - great company, a really cozy place, amazing food. What else could a girl want?<br><br>
 You can think of two things. Dessert... and something to finish the night on a high note. But as both of you clean your respective plates, you figure you can take one step at a time.<br><br>
-<<link "Continue" "johanDate2-dessert">><</link>>
+<<link "Continue" "johanDate2-dessert">><<set $flag.johanDateProtagonistStandsHerself>><</link>>
 
 :: johanDate2-johanDefendsProtagonist [nobr] {"position":"0,0","size":"100,100"}
 While you feel that leonine spirit bubbling inside you, you realize that your transformation might just escalate things, and you hold your tongue. What you DIDN’T expect, however, was Johan becoming serious. You can see it build up inside him, his closed fist shaking as he squints and frowns, until he suddenly gets up with a shout:<br><br>
@@ -32019,7 +32120,7 @@ Johan seems to have a hard time believing that, so you give him a light kick und
 <<Dialogue "player" "You">>"Didn’t I say that several times?"<</Dialogue>><br><br>
 Before you know, Johan is just vacuuming the food while speaking in his motormouth gear between chewing, as you slowly enjoy your food and watch his contagious excitement. Johan is something special, alright, and you are happy to just spectate as he starts talking about all these fictional characters who pulled amazing speeches and how he probably was inspired by them - his passion is so real, so heartwarming, it’s hard not to just get lost in it. You both enjoy your meals and each other’s company, as he inquires about your favorite movie scenes with rousing speeches. Neither of you notice as the time quickly passes, and both your plates are clean.<br><br>
 You tap your tummy, satisfied, and find yourself already thinking of dessert - and maybe what the night will bring after you are done.<br><br>
-<<link "Continue" "johanDate2-dessert">><</link>>
+<<link "Continue" "johanDate2-dessert">><<set $flag.johanDateJohanDefendProtagonist to true>><</link>>
 
 :: johanDate2-dessert [nobr] {"position":"0,0","size":"100,100"}
 After a short awkward pause in the conversation, both of you interrupt each other.<br><br>
@@ -32075,7 +32176,12 @@ Johan sighs, as the superintendent starts chastising him for making him wait for
 <<Dialogue "JohanFancy" "Johan">>"I had the time of my life, <<print $playerFirstName>>! Show up at my place anytime... please?"<</Dialogue>><br><br>
 Before you can answer, he’s off. You just stand there for another 5 minutes, winding down and trying to accept what just happened. You end up laughing so you don’t cry as you return to your apartment, figuring you might just have to play with yourself to burn all this sexual energy that you built up.<br><br>
 <<Dialogue "player" "You">>"Johan, you doofus!"<</Dialogue>><br><br>
-<<link "Go home" "Home">><<addMinutes 90>><</link>>
+<<link "Go home" "Home">>
+    <<addMinutes 90>>
+    <<set _johanDate2BlackoutUntil = new Date($gameDate)>>
+    <<set _johanDate2BlackoutUntil.setDate(_johanDate2BlackoutUntil.getDate() + 2)>>
+    <<set $flag.johanDate2BlackoutUntil = _johanDate2BlackoutUntil>>
+<</link>>
 
 :: johanDate2-mildRoute [nobr] {"position":"0,0","size":"100,100"}
 <<Dialogue "player" "You">>"Hey, hey, big boy, hold your horses, alright? We’ll have plenty of time to take care of this. We’re still in the middle of downtown, even if there’s no one around right now."<</Dialogue>><br><br>
@@ -32101,7 +32207,12 @@ Before you can answer, Johan<<if $height >= 190>> gets on his tiptoes and <</if>
 And with that, he escorts you back to your apartment, taking the shorter route through the back entrance that leads directly to the sublevel. He opens the door for you like a gentleman, and closes it behind him. You can hear him shouting with great enthusiasm and running up to his apartment jumping with joy.<br><br>
 Johan really is one in a million. You feel extremely lucky having met him... but you also can’t wait for the next time so you can take things to the next level!<br><br>
 With a sigh, you grab a cold drink from the fridge and fall to your recliner, trying your best to not just fantasize about the unspeakable things you are going to do to him when you get a chance!
-<<link "Go home" "Home">><<addMinutes 90>><</link>>
+<<link "Go home" "Home">>
+    <<addMinutes 90>>
+    <<set _johanDate2BlackoutUntil = new Date($gameDate)>>
+    <<set _johanDate2BlackoutUntil.setDate(_johanDate2BlackoutUntil.getDate() + 2)>>
+    <<set $flag.johanDate2BlackoutUntil = _johanDate2BlackoutUntil>>
+<</link>>
 
 :: KrisCasualHookupGoesWrong-worryAboutHer [nobr] {"position":"0,0","size":"100,100"}
 Kris has always been about loud and exuberant displays of emotion, but this pissed side of her concerns you. You tilt your head, and ask:<br><br>
@@ -32873,3 +32984,34 @@ That is A LOT to process!<br><br>
 <</if>>
 
 <<link "Go home" "Home">><<set $flag.PlayerDreamsPotionReaction3 to true>><</link>>
+
+:: johanSeggs [nobr] {"position":"0,0","size":"100,100"}
+You immediately reach for Johan’s shirt, pulling it off him in a swift motion as he raises his arms. After snagging on his chin, you yank it out, tossing it on the floor. Johan’s pale chest sport a small tuft of light hair, which you could almost mistake for not even being there. Still, you marvel at its rise and fall as he breathes, and you can’t resist and steal a mischievous lick of his inviting nipple, which makes him squirm under you. You decide to pin his wrists to his side, and just go to town with your tongue on his chest<<if $tongueSize >9>>, snaking around his nipples like they were guinea pigs just waiting to be eaten,<</if>>, and despite his inability to stand still, he offers little resistance to your restraining hands<<if $muscle >=45>>, not that he would have any chance to overpower you, even if wanted to<</if>>.<br><br>
+As you play with his nipples, you can feel something poking at your crotch. Oh, Johan CLEARLY likes what you are doing, as you feel yourself having to adjust your position under his hardening member. Licking your lips, you lock eyes with Johan, whose face is now flush with red cheeks.<br><br>
+<<Dialogue "player" "You">>"<<if $shyConfident > 1>>Oh, now this just won’t do. Let’s do something about freeing little Johan!<<else>>I guess I just know your buttons. Let’s see what I have done...<</if>>"<</Dialogue>><br><br>
+Still holding one hand, you deftly undo Johan’s belt and pop the button on his trousers, which you partially pull down below you. There’s a surprising bulge on his underwear, which makes your eyes sparkle. Now with a full-face grin, you forget Johan’s face completely as you pull down the last remaining barrier between his dick and you - and nothing could quite prepare you for what you found.<br><br>
+<<Dialogue "player" "You">>"HOLY SHIT, JOHAN! YOU’RE HUGE!!!"<</Dialogue>><br><br>
+Johan somehow finds in himself a way to blush even deeper, as the red on his cheek spreads to the rest of his face. Not that you notice it, because you’re too distracted by the anaconda you just liberated, a veritable forearm-sized member that springs to attention by your stomach.<br><br>
+<<Dialogue "Johan" "Johan">>"I... I-I am?"<</Dialogue>><br><br>
+He seems genuinely surprised at your reaction - and boy, you gotta admit, you never expected the boy to be so well endowed. You are still reeling from the fascination, almost forgetting anything else other than the veiny rod in front of you. It pulls at you like a neodymium magnet, as you start licking it like a lollipop. <<if $tongueSize > 12>>Your own serpentine appendage wraps itself around his penis, pleasurably exploring the surface in all it’s elongated glory.<<elseif $tongueSize > 8>>You let your lengthy tongue twirl around his gland, as it probes downwards with aroused intent.<</if>><br><br>
+Before long, you find yourself deepthroating Johan, which causes him to downright spasm under you. Again, you reinforce your grip on his arms, <<if $muscle >= 60>>reminding both of you of the enormous gap in strength between you two.<<elseif $muscle >= 45>>clearly establishing that who is the stronger one between you two.<<elseif $muscle >= 35>>surprising both of you that you seem to actually be able to completely overpower him<<else>>which makes you strain a bit, but not enough that you can’t keep pinning him down.<</if>>
+You somehow find it in yourself to suppress any gag reflex as you go down a good palm on his dick, getting nowhere close to its base, but enough to shake Johan so much that he seems like he might have stuck his finger on an electric outlet. This only encourages you more, as you start bobbing your head to and fro faster, which makes Johan reel even more. He can’t control his own hips, which now seem to gyrate instinctively as he slowly finds it in himself to harden even more. You eventually take a break, catching your breath.<br><br>
+<<Dialogue "player" "You">>"Hmmmm, you are getting so hard..."<</Dialogue>><br><br>
+<<if $muscle >= 45 && $fat <50>><<Dialogue "Johan" "Johan">>"GASP! Y-you… oh, God! <<print $playerFirstName>>, you make me this hard, especially given how hard... your muscles have gotten!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, you know just what to say..."<</Dialogue>><br><br>
+You lean back, sitting between Johan’s thighs, and straddling your own bent legs around him as his raised member rubs against your abs. His hands immediately reach for your boulder-like calves, which you flex for added effect. He desperately starts squeezing the rock-hard muscle, unable to dent it. The valley that separates how much stronger you are make you get even more aroused, as your nether region get even wetter. While he plays with your legs, you just grind his dick against the valleys between your abs, which sends him into an overdrive.<br><br>
+<<Dialogue "player" "You">>"Is there any other... merchandise... I can interest you in?"<</Dialogue>><br><br>
+You say, with an innocent finger in your mouth, as you flex an astounding bicep in front of him. Hypnotized, Johan lets go of your leg so he can caress the rigid bump on your upper arm, before sliding to your tapering forearm. Having your muscle worship in this way is making you way more aroused than you would have ever imagined.<br><br><<elseif $muscle >= 30>><<Dialogue "Johan" "Johan">>"Hmmm, your muscles feel so toned, too, <<print $playerFirstName>>, I just want to feel how firm they are getting!"<</Dialogue>><br><br>
+You comply, tigheting and flexing whatever Johan reaches for. He squeezes the beef, and wherever his hands hover over, it makes you bite your lips hard as you fondle your breasts. This is much more enticing than you would have ever guessed.
+<<else>>
+Johan seems to be in a bit of a trance, as he seems to palpate your soft body, taking in every curve and contour of your body, as if he was being pupeteered by an outside force. But you can tell from his reaction that his arousal is very real and personal. It does help that his hands feel electric as they take in every inch of your body, making you moan deeper and deeper.
+<</if>>
+But you could use some stimulation as well, so you take his hands and place them over your breasts, which Johan immediately starts to knead. Your already-at-attention nipples harden even more, as waves of pleasure wash over your entire spine. <<if $breasts >= 80>>Johan is practically drowning in your udders, which could very possibly smother him dead if you are not careful.<<elseif $breasts >= 60>>Johan’s hands can barely manage your gigantic mamaries, as his proceeds to squeeze the area around the nipples, his palms barely able to even begin to cover the front of the oversized flesh. Still, he kneads it dutifully, as you wiggle your hips with contentment.<<elseif $breasts >= 40>>Johan’s hands are just big enough to properly cradle your generous breasts, which he kneads lustfully, reaching forward with his neck to steal an occasional lick at your nipples - which in turn makes you jolt involuntarily.<<else>>Johan cradles your entire breasts in his hands, squeezing and twisting in a surprisingly skillful way, which makes your arousal to somehow peak even more.<</if>><br><br>
+<<if $dick >= 5>>And at this point, your own dick makes itself hard to ignore, poking through your clothes inquisitively. Johan just cannot ignore it, as his hands grab it in an almost instinctive manner. As he does, his eyes lock onto your face, reading your reactions as he starts playing with your member like a professional musician would treat his instrument - he seems to know exactly what to do, and his deft fingers just work magic, making you feel pleasure you didn’t know was possible. <<if $dick >= 30>>Given its size, Johan actually needs to fully use both hands to operate your member, as his saliva-moistened index is completely dedicated to the gland, while the remaining fingers massage the remaining shaft, making you aware of every bit of it.<</if>> If you still had more blood in your brain, you’d probably be more impressed by how dexterous Johan is, but right now you are too busy being reduced to a puddle of shaking and pleasure.<</if>>
+As you two shake and squirm with all this pleasure, you both end up slipping off the sofa and onto the ground, but no less attached to each other.<br><br>
+<<Dialogue "player" "You">>"<<if $shyConfident > 1 || $submissiveDominant > 1>>THAT’S ENOUGH FOREPLAY! FUCK ME THIS INSTANT, JOHAN!!!<<elseif $shyConfident > -1 || $submissiveDominant > -1>>F-Fuck! I need you inside me, Johan! FUCK ME!<<else>>Ooooh, y-you feel so good, Johan. But I know you can feel even better...<</if>>"<</Dialogue>><br><br>
+Johan freezes for a second, like a deer under headlights, but then something seems to take over, and he kneels behind you, and you get on all fours. Johan gets up, properly lubricated from before, as he starts railing on your ass violently. You gasp for a brief moment of discomfort as his immense dong penetrates you, but it slowly spirals into the most erogenous experience you ever had as he squeezes your buttocks while ramming against you. Just as he pumps, your also help by moving your hips on a counter-rhythm, as both of you slowly accelerate, panting harder as you both slowly find a shared pace - like two jazz musicians slowly falling into each other’s groove and then...<br><br>
+BOOM!<br><br>
+You both hit that crescendo as the simultaneous climax makes everything shake, time stopping as the blood is completely drained for your respective brains, and after trembling in unison, you both fall to the ground, sweaty and out of breath. You just sort of pass out, the happiest you’ve ever been...<br><br>
+By the time you come back to your senses, you see a naked Johan clinging to your side, snoring with his mouth open wide. Still feeling all fuzzy inside, you stretch and carefully move him aside, trying your best not to wake him up. <<if $muscle >=50>>Then you slowly lift him off the ground in your arms, and bring him to bed, happy that you managed to without waking him up.<<else>>Then you grab a blanket and cover him, looking affectionally at the silly expression on his face.<</if>> You get yourself dressed, and return home, looking forward to your next escapade with your partner in crime.
+<<link "Go home" "Home">><</link>>
