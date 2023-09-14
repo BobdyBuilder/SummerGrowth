@@ -12135,6 +12135,66 @@ Johan smiles. It’s clear he missed you too.
 		<</replace>>
 	<</PersonalityCheck>>
 </span>`
+    },
+    {
+        name: 'johanRenFair',
+        locationTags: ['johan'],
+        conditions: [	
+            () => setup.hasEventBeenTriggered("johanGetsReserved")
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ["johan"],
+        content: `As you make your way to Johan’s apartment, your mind starts reeling about what is going on with your relationship. Not that you necessarily want to put a label on it, but you can’t deny that things are clearly going ahead at a brisk pace, and maybe it’s better that you ensure both are on the same page?<br><br>
+It’s a weird thought, but at the same time liberating. After all this tension, you can’t help but feel like you don’t need to hide your feelings for him anymore, and you barge into his apartment wearing the biggest and silliest smile ever...<br><br>
+... only to find the usually hyperkinetic guy slouching on the couch, reading a comic, as he waves back with a warm smile. Not that there’s anything wrong with that, but you kinda wished for a bit more excitement for seeing you. You squint at him, as you approach, and he does seem genuinely happy that you are there - just, not, you know, BEAMING with JOY.<br><br>
+<<Dialogue "Johan" "Johan">>"Sup, <<print $playerFirstName>>. Wanna watch something?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Do you want to hit the movie theater? I hear there’s a horror movie matinee going on this week - sounds right up your alley!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Meh - not really in the mood to go out."<</Dialogue>><br><br>
+He just keeps his eyes firmly entrenched in his book. You put your hands on your hips, tapping your feet anxiously with a concerned expression. It’s not like you didn’t know Johan was a bit of a homebody, but you can’t help but notice that lately he’s been acting more like a hermit than anything else. If he could grow any facial hair, you absolutely feel like he would have a beard as long as that fake one he has in the closet.<br><br>
+<<Dialogue "player" "You">>"Are you sure you are OK? You feel kinda... I dunno, I don’t want to say lazy, but I feel like I would need to drag you if I wanted to go out."<</Dialogue>><br><br>
+He shrugs, his smile evaporating.<br><br>
+<<Dialogue "Johan" "Johan">>"I mean, we got plenty of stuff to do here, comics, games, modeling..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Johan..."<</Dialogue>><br><br>
+You say it with a stern, almost motherly tone. Scratching his head, he put the book down.<br><br>
+<<Dialogue "Johan" "Johan">>"I suppose, there IS a thing that’s been bothering me."<</Dialogue>><br><br>
+You look at him, eager to find out what has he bummed and unwilling to go out.<br><br>
+<<if !$flag.johanDatePensive && $flag.johanDateUneventful>>
+    <<Dialogue "Johan" "Johan">>"Spending time with you is pretty awesome, and I’ve been having such a great time, I don’t quite feel the appeal of having to deal with, well, other people and stuff."<</Dialogue>><br><br>
+    At this point, your concern is quickly escalating to annoyance. You knew what you were getting into by dating a geek, but he might just be forcing you into drawing a line in the sand here. 
+<<else>>
+    <<Dialogue "Johan" "Johan">>"Look, I don’t know that you will get it, but during our date - and don’t get me wrong, I loved going out with you - but it just sorta got me into thinking about a lot of stuff. I think you are the most amazing person in the world, but there’s already so much stuff you need to deal with right now, and out there people are just going to judge you on a surface level - it’s... just not fair."<</Dialogue>><br><br>
+<</if>>
+Your foot is now tapping even more impatiently. No, that will not do.<br><br>
+<<Dialogue "player" "You">>"<<if $submissiveDominant > 1>>This funk just won’t do! Alright, I’m officially staging an intervention here.<<else>>Aw, Johan. I can’t bear to see you like this. There’s gotta be something...<</if>>"<</Dialogue>><br><br>
+You grab your phone and, with little planning or forethought, just let your instincts guide you. Miraculously, you trip on an answer in what can be described as no less than kismet.<br><br>
+<<Dialogue "player" "You">>"Hey, did you know there’s a renaissance fair going on in town right now?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Actually, yes, I remember reading something about it a while ag..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"And I’m willing to bet you have some sort of costume somewhere you can put on RIGHT NOW, correct?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Uhhhh, proba..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Let me guess - you might even be able to arrange something for me, how about it?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Erm..."<</Dialogue>><br><br>
+You just start pushing him into the closet, and despite his half-articulated protests, he seems to have accepted the request. You pull a chair, and just watch as he goes over his clothes (just how many yellow sweaters does he have?!?).<br><br>
+He tosses stuff around, and he finally unearths a plastic bag, and retrieving its contents you see the blue tunic with puffy sleeves and the equally-puffy pants - there’s even a hat! He even produces a freaking mandolin!<br><br>
+<<Dialogue "player" "You">>"Oh, this I gotta see - go ahead and change!"<</Dialogue>><br><br>
+Johan complies, and you watch, licking your lips, as he undresses down to his underwear and gets into his bard costume. Wow, it looks really good on him!<br><br>
+<<Dialogue "player" "You">>"That is AWESOME! You look like a proper Alan-a-Dale!"<</Dialogue>><br><br>
+Johan blushes, and with a discreet smile, plucks a few chords on the mandolin. He might not be the best musician, but it’s not too shabby either!<br><br>
+<<Dialogue "player" "You">>"Any chance you might get something for me as well?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Hmmmm, now that I think about it..."<</Dialogue>><br><br>
+
+<<link "Let’s cobble up something for me to wear!" "COSTUMEINTERLUDE">>
+    <<if $muscle >=65>>
+        <<set $flag.RENFAIRBLACKSMITHCOSTUME>>
+    <<elseif $height >=195>>
+        <<set $flag.RENFAIRRANGERCOSTUME>>
+    <<elseif $height <160 && $fat >=40 || $breasts >=45>>
+        <<set $flag.RENFAIRTAVERNWENCHCOSTUME>>
+    <<else>>
+        <<set $flag.RENFAIRMAIDENCOSTUME>>
+    <</if>>
+<</link>>`
     }
 )>>
 
@@ -32074,7 +32134,7 @@ While people are trying to be somewhat discreet, the comments make your blood bo
     </span>
 <<else>>
     The small talk goes on, and both of you are just having a blast until the food arrives - it looks and smells as good as one would expect - <<if $flag.johanDateRavioli>>the big portion of ravioli di zucca comes piping hot, and the slight sweetness of the pumpkin really works well with the butter sauce and nuts. The two of you continue the conversation, but most of the time is spent enjoying the dish... and Johan even offers to let you have the last few pieces, which you gladly accept. A gentleman to the end, truly.<<elseif $flag.johanDateMolgas>>As your molecular gastronomy order arrives, you can see Johan’s eyes widening as he realizes what “table smoked” meant, and despite his distaste for fish, the playful beach-like presentation pique his curiosity, making him reference all kinds of sci-fi media trying to evoke things he is familiar with. You offer him a bite of the edible sand, and he swears you are not supposed to eat THAT. But you take a bite, and your expression of culinary delight both surprises and impresses him - and he is quick to use his own spoon to nab a bit, before being equally (though much more comically) delighted. You try some of his food in return, and before you know it, it’s all gone - time sure passes by fast when you are having a good time!<<elseif $flag.johanDateSalmon>>The waiter puts the plate of salmon in front of Johan, who looks at it apprehensively: he is somewhat mesmerized by the contrast of the deep pink of the sockeye salmon fillet with the bright yellow and black dotted passion fruit sauce. You can see he is truly hesitant to take a bite, but you look him in the eye and say you are confident he’ll enjoy it - otherwise, you’ll switch plates. He brings a forkful to his lips, and slowly chews for a second, before he starts shouting with his mouth still full, praising just how amazing it tastes! You are equally happy to break his prejudice against fish, but it’s hard to suppress laughter as he attacks the fillet like he was starving. Frankly, you are just overjoyed to see him enjoying himself so much, and follow his example, eating your dish - which is just as good.<<else>>As your dishes arrive, conversation slows down a bit because the food is so good both of you can scarcely talk as you savor the famous delicacies of Chez Manon - and the place seems to deserve every bit of praise it receives. And sure, the food is great and the atmosphere is awesome, but it really is Johan’s company that makes for this perfect night.<</if>><br><br>
-    <<link "Continue" "johanDate2-dessert">><</link>>
+    <<link "Continue" "johanDate2-dessert">><<set $flag.johanDateUneventful to true>><</link>>
 <</if>>
 
 
@@ -33015,3 +33075,183 @@ BOOM!<br><br>
 You both hit that crescendo as the simultaneous climax makes everything shake, time stopping as the blood is completely drained for your respective brains, and after trembling in unison, you both fall to the ground, sweaty and out of breath. You just sort of pass out, the happiest you’ve ever been...<br><br>
 By the time you come back to your senses, you see a naked Johan clinging to your side, snoring with his mouth open wide. Still feeling all fuzzy inside, you stretch and carefully move him aside, trying your best not to wake him up. <<if $muscle >=50>>Then you slowly lift him off the ground in your arms, and bring him to bed, happy that you managed to without waking him up.<<else>>Then you grab a blanket and cover him, looking affectionally at the silly expression on his face.<</if>> You get yourself dressed, and return home, looking forward to your next escapade with your partner in crime.
 <<link "Go home" "Home">><</link>>
+
+:: COSTUMEINTERLUDE [nobr] {"position":"0,0","size":"100,100"}
+You quickly cobble up some underwear for the costume, trying to figure out the most practical way to keep it looking consistent with the final product.<br><br>
+<<Dialogue "player" "You">>"You know, this really reminds me of that time we played that tabletop RPG - it kinda feels like it was just yesterday, you know, but at the same time it’s like another lifetime?"<</Dialogue>><br><br>
+The comment brings this hint of a nostalgic smile to Johan’s face.<br><br>
+<<if $dndCharacter.class === 'barbarian'>>
+<<if $shyConfident > 1 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"I never told you, but it was such a rush playing a barbarian - it was strangely empowering, you know, imagining myself as imposing warrior, capable of amazing physical feats..."<</Dialogue>><br><br>
+Johan cocks his head, looking at you.<br><br>
+<<Dialogue "Johan" "Johan">>"As opposed to...?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What do you mean?"<</Dialogue>><br><br>
+Johan cocks his head, looking at you.<br><br>
+<<Dialogue "Johan" "Johan">>"I mean, look at yourself. You don’t really NEED the fantasy, do you? Looking at you, I would hazard a guess you could benchpress a <<if $muscle >= 80>>semitruck<<elseif $muscle >= 60>>small car<<elseif $muscle >= 40>>horse<<else>>grown man<</if>>!"<</Dialogue>><br><br>
+Casually squeezing your upper arm, and feeling the bulky firmness gives you a general sense of how powerful you’ve become lately. Johan isn’t wrong. But whereas this would have come with glee and excitement before, there’s an edge of melancholy this time around. You almost bring it up, but you end up just letting it go for now.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"Come to think of it, I keep coming back to that time I played as a barbarian when we did that tabletop session - kinda crazy, in retrospect!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"How so?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I dunno, I don’t quite see myself as that carefree and courageous character, it somehow made sense at the time, but it’s just not who I am anymore..."<</Dialogue>><br><br>
+You find yourself getting quieter as you explain that, like a little worm burrowing in your conscience - it’s bothersome and awkward, and Johan seems to pick up on that. He scooches a little closer, almost looking like he is homing in for a hug, but just places a hand on your shoulder as you put the finishing touches on your work.<br><br>
+<</if>>
+<<elseif $dndCharacter.class === 'cleric'>>
+<<Dialogue "player" "You">>"I remember how I was that meek and shy cleric, hiding under that big hat."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"You make that sound like a bad thing?"<</Dialogue>><br><br>
+<<if $shyConfident > 0>>
+<<Dialogue "player" "You">>"I guess I really got out of my shell since then. I never realized I would someday be a confident woman, but I feel so proud of everything I’ve accomplished since then. I’ve grown in so many ways..."<</Dialogue>><br><br>
+The comment makes Johan sigh melancholic. You frown, concerned, but just let it go.
+<<else>>
+<<Dialogue "player" "You">>"It was a nice way to express myself, liberating even, like realizing it’s okay to be like this, you know?"<</Dialogue>><br><br>
+It brings a warm smile to Johan’s face.<br><br>
+<<Dialogue "Johan" "Johan">>"It really is."<</Dialogue>><br><br>
+<</if>>
+<<elseif $dndCharacter.class === 'paladin'>>
+<<Dialogue "player" "You">>"I never told you, but it was so exciting playing a paladin - there was a bizarre joy in the certainty of my convictions, no space for self-doubt, just the will to enact it all!"<</Dialogue>><br><br>
+<<if $shyConfident > 1 && $submissiveDominant > 1>>
+<<Dialogue "Johan" "Johan">>"I wouldn’t say you’d need much roleplaying for that these days."<</Dialogue>><br><br>
+You chest puffs up, and you realize it’s true. You feel like a go-getter, this unstoppable force of nature, and it’s very comforting. Johan, on the other hand, seems somewhat miffed by your excitement, but you can’t quite put your finger on why that is so.<br><br>
+<<Dialogue "player" "You">>"Yeah, heretics out there should watch out!"<</Dialogue>><br><br>
+That does elicit a snicker from Johan, and breaks some of the tension, which you are thankful for.<br><br>
+<<else>>
+<<Dialogue "Johan" "Johan">>"I guess it’s hard to even imagine that, huh?"<</Dialogue>><br><br>
+And you realize it’s true, and not only due to roleplaying, but you feel like you’re a different person from those not-so-distant halcyon days. 
+<</if>>
+<<elseif $dndCharacter.class === 'warlock'>>
+You get a brief flashback of your tabletop warlock roleplaying character, and the fond memories come flooding your mind.<br><br>
+<<if $submissiveDominant > 1 && $carefreeCarefull < 0>>
+<<Dialogue "player" "You">>"Ah, I will miss those warlock powers I got granted by that... was it a devil or a demon? Either way, I’d wreak so much havoc with them... "<</Dialogue>><br><br>
+The comment brings a sudden warm smile to Johan’s lips, which fade almost immediately as he looks fondly at you and then down at himself.<br><br>
+<<Dialogue "Johan" "Johan">>"There’s no denying you are a force of nature, <<print $playerFirstName>>."<</Dialogue>><br><br>
+Where is this awkwardness coming from? You decide to just ignore it and hope that it passes, but the feeling lingers. Either way, you just keep working on your costume.
+<<else>>
+<<Dialogue "player" "You">>"Man, it reminds me of those abilities from my tabletop warlock character. Kinda weird, thinking back, to have such powers, I am not even sure what I’d do with them. It feels like a lifetime ago, almost like I was a different person somehow."<</Dialogue>><br><br>
+<<if $muscle >= 50 || $height >= 185>>
+Johan gives you a side-eye, before saying:<br><br>
+<<Dialogue "Johan" "Johan">>"Uh, I wouldn’t exactly call you powerless by most definitions. You can get pretty intimidating as is, you realize that, right?"<</Dialogue>><br><br>
+He got you there, not gonna lie.<br><br>
+<<else>>
+<<Dialogue "Johan" "Johan">>"I dunno, I feel like they do fit you. But I’d be lying if I told you that you aren’t a bit of a mystery. You certainly shook up my life quite a bit, that I can say with certainty."<</Dialogue>><br><br>
+He smiles, faintly, and it’s adorable, but you can’t help but shake that there’s an underlying melancholy there. You shrug it off, and work to finish your costume.
+<</if>>
+<</if>>
+<<elseif $dndCharacter.class === 'rogue'>>
+<<if $submissiveDominant < 0 && $carefreeCarefull < 0>>
+You keep working, and this subdued version of Johan kind of messes with you. Sneakily, you poke him on the ribs.<br><br>
+<<Dialogue "player" "You">>"Don’t make me have to employ my stealth to rob you of those doldrums."<</Dialogue>><br><br>
+Your energy seems to lighten up Johan to a degree, not enough to fight back, but he at least seems to be a little less self-conscious for now.<br><br>
+<<Dialogue "player" "You">>"You know, I feel like I owe you for that, it’s like you unearthed this side of me that was buried, this identity I didn’t even know I had. It feels so good to be sneaky, like I had this mischievous streak I never realized."<</Dialogue>><br><br>
+Johan giggles and leans his head against your shoulder, and you both sigh with content. Thankfully, you are almost done with your costume.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"Actually, it’s kinda weird, in retrospect? At the time, it didn’t feel like roleplaying, it felt a bit like discovering myself. Now, I look back and I am not sure I recognize that person anymore."<</Dialogue>><br><br>
+This makes Johan seem a bit glum, as he uninterestedly says:<br><br>
+<<Dialogue "Johan" "Johan">>"People grow and change. It’s part of life. Well, MOST people do. You should be glad, it means you are evolving as a person."<</Dialogue>><br><br>
+OK, that was so bizarre. You aren’t sure where that came from, but Johan really seems to have something bothering him. You wish with all your being you knew how to get him out of it, but your best plan is the one you are already on, so you just press on finishing your costume.
+<</if>>
+<<elseif $dndCharacter.class === 'wizard'>>
+<<Dialogue "player" "You">>"Let’s face it, <<print $playerFirstName>> the Wise does sound pretty awesome..."<</Dialogue>><br><br>
+Johan snorts, remembering your wizard character from yestersessions gone.<br><br>
+<<if $shyConfident > 1 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"I don’t know, but something about it just felt RIGHT, being this all-knowing ancient being. I dunno, it made me feel powerful..."<</Dialogue>><br><br>
+<<if $muscle >= 50 || $height >= 185>>
+<<Dialogue "Johan" "Johan">>"Not that much of a stretch, though..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Heh, I suppose not."<</Dialogue>><br><br>
+But there’s something wrong. It wasn’t resentment, but Johan’s comment had a weird edge to it. You decide to play it safe and ignore it, because you trust your plan to cheer him up with some geeky goodness at the event - and so you get back to your costume.
+<<else>>
+<<Dialogue "Johan" "Johan">>"Well, roleplaying is also cool because of the power fantasy. I know I enjoy that aspect quite a bit."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"For real, for real."<</Dialogue>><br><br>
+And so you put the finishing touches on your costume, eager to try it on.<br><br>
+<</if>>
+<<else>>
+<<Dialogue "player" "You">>"Was that weird? It didn’t feel weird at the time, but I can’t say the same now. Thinking back it just kinda flowed out of me, but now it’s like I was possessed by a spirit or something."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Well, roleplaying is also cool because of the power fantasy. I know I enjoy that aspect quite a bit."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Huh. I suppose that’s true. But it felt so real then, so... true. Like I could actually do magical shit and stuff. Now, it’s like being an adult thinking about what it was like being childish. I dunno, feels alien or something."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"People grow and change. It’s part of life. Well, MOST people do. You should be glad, it means you are evolving as a person."<</Dialogue>><br><br>
+OK, that was so bizarre. You aren’t sure where that came from, but Johan really seems to have something bothering him. You wish with all your being you knew how to get him out of it, but your best plan is the one you are already on, so you just press on finishing your costume.
+<</if>>
+<</if>>
+<<Dialogue "player" "You">>"Well, this ought to do it for me! I’ll go change and we can get going!"<</Dialogue>><br><br>
+<<link "Off to the Ren Faire we go!" "RENFAIR">><</link>>
+
+:: RENFAIR [nobr] {"position":"0,0","size":"100,100"}
+The event is being held on a park just outside town, which is in the middle of the woods, giving the event a really great atmosphere. As you leave the parking lot where the bus dropped you, you can see the wooden constructions that really transport you to that time period - complete even with a small stone rampart, which gives you the urge to go procure some siege weapons. But you hold Johan’s hand firmly, and proceed into the festivities.<br><br>
+It’s hard not to be impressed. People seem really serious about their costumes - you’ve already spotted two knights in full metal armor (including very elaborate helms), more bards than you could count with varied instruments, all other kinds of thematic artisans, several wealthy noblemen, a couple dressed as king and queen, a half-dozen of priests from monks to high clergy - and is that a ninja? Would be kinda cool to see someone in a samurai outfit. But that other guy is clearly cosplaying some anime character with that spiky hair, oversized shoes and a giant sword in the shape of a key. It’s surreal, but also very cool.<br><br>
+<<Dialogue "Johan" "Johan">>"And those are just the ones that stand out!"<</Dialogue>><br><br>
+Johan says, as if he could read your mind. It’s true, with his bard costume, he really just disappears in the crowd. 
+<<if $flag.RENFAIRBLACKSMITHCOSTUME>>You, on the other hand, seem to pop out quite a bit. In a rush to find a proper costume, Johan lent you his leather apron, with you worn over your taped breasts and some period-appropriate pants - and with a hammer and tongs, you pass for a perfect blacksmith (he even smudged a burnt cork on your face to look like you got soot all over). It doesn’t hurt that it allows you to just parade your thematically-appropriate bulging arms with pride, and everyone can immediately discern what you are supposed to be. You certainly are being noticed, <<if $shyConfident > 1>>and you gotta admit, it’s quite rewarding to notice how many heads you are turning! Truth be told, you snuck a few lifts to make sure you got a nice pump.<<else>>but it’s a bit distressing just how many people just stare at your body on display, which I guess you should’ve seen coming.<</if>> 
+<<elseif $flag.RENFAIRRANGERCOSTUME>>Thankfully, Johan had a rather large tunic, that went perfectly with his bow and quiver, and all you had to add was a pair of tights to make you into the perfect sexy ranger - truly emphasizing your tall figure. The elf ears were a last minute addition, but a great finishing touch.
+<<elseif $flag.RENFAIRTAVERNWENCHCOSTUME>>It was kinda perfect that he had that period-appropriate dress - all you had to do was slip in and your VERY generous curves translated into quite the eyecatching tavern wench costume. <<if $breasts >45>>The cleavage on display certainly helps.<</if>>You improvised a little tray and some old-looking mugs and PRESTO! The ensemble is quite convincing, <<if $shyConfident > 1>>and you gotta admit, it’s quite rewarding to notice how many heads you are turning!<<else>>but it’s a bit distressing just how many people just stare at your body on display, which I guess you should’ve seen coming.<</if>> 
+<<elseif $flag.RENFAIRMAIDENCOSTUME>>It was quite lucky that Johan had worked on a stage production of Robin Hood and somehow ended with Maid Marian’s costume - giving you a perfect option for the proceedings - though this conical hat with a veil is certainly something!<</if>><br><br>
+While nobody is giving Johan much attention other than a few kids, you certainly have garnered a few requests for pictures - and every single time, you hook Johan up under your arm, making sure people understand the two of you are a package deal. He complies every time, but it seems like the attention you are getting is not exactly making him thrilled.<br><br>
+This is very exciting for you - it’s clear Johan has been to this kind of rodeo before, but coming from a small town, you never had the opportunity to participate in anything like this! You end up dragging the poor guy from vendor to vendor, stopping at every stall to gawk at all kinds of wares: a wide assortment of leather jerkins, wooden mugs, more jewelry than you could ever imagine. Hand-bound books? Oh, is that a leather flask?!? And look at this dagger. Wait - do they sell WHIPS here? This is a fucking rose-themed cat o’nine tails! How cool is that?<br><br>
+Your excitement seems to fuel Johan, who appears to have gotten past his funk from earlier. He’s not quite as impressed as you, having probably seen all that and then some before, but he seems to just appreciate how much fun you are having. He wraps his arm tightly around you, and every now and then sneaks a peck or leans his head against you.<br><br>
+It isn’t until you find the stall with the swords that you truly reach peak amazement. With wide-open eyes and mouth, you practically drag Johan off his feet as you bump the crowd out of the way to observe the wares.<br><br>
+<<Dialogue "player" "You">>"Look how many cool swords they have here! Not only these traditional ones, but also these fancy pointy ones..."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Those are rapiers, they are mostly for thrusting. But these shortswords are also pretty cool."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, what about that curved one on the table?!?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"The scimitar? Those are Oriental in origin, but are also pretty cool weapons. That one especifically is a traditional Persian shamshir, but you have probably seen the curved cutlass that the guy dressed as a pirate had, which is a different type."<</Dialogue>><br><br>
+But as Johan continues with his explanation, your attention is stolen by a magnificent masterpiece that takes up a considerable part of the wall.<br><br>
+<<Dialogue "player" "You">>"Ooooooooo, what about THAT one?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"What? Oh, that claymore up there? Wow, that’s gotta be over <<numeralConversion 130>>!"<</Dialogue>><br><br>
+Without thinking, you walk towards it, running your fingers over the blade. That’s so awesome! You need to employ all your self control not to remove it from its support to try and wield it. But before you do, you see a rather burly individual, a mountain of a man, really, going for a ridiculous replica sword that is comically wide, the blade as big as the entire hilt, which looks to be about as big as your head, with two weird holes on it. He briefly explains he wants to test its balance, before going red in the face trying to even tilt the thing up with both hands - which is saying something, since he’s built like a stereotypical competitor of strongmen games. He complains about it, snapping at the creator for making a completely impractical piece.<br><br>
+<<if $muscle >=80>>Johan looks at you apprehensively. <<if $shyConfident > 1>>With a confident grin, you just walk right up the big dude and, with one hand, grab the redonkolous sword and easily pull it up, holding it steadily parallel to the ground, before casually turning it around to rest on your shoulder, making your exposed gigantic arms pump up even more as a pencil-thick vein comes to the surface. The guy who was holding the sword just reels back, like he’s seen a ghost, as you interject rather dismissively:<br><br>
+<<Dialogue "player" "You">>"I get not what thou art complaining about, my fair squire, this blade seems quite balanced to me?"<</Dialogue>><br><br>
+Johan snorts, as the guy seems to be looking for the closest mound of dirt to hide under. He just ends walking away from the stall, as the proprietor approaches you and asks for you to be careful, and you put the artefact back on its display case. 
+<<else>>But as he tries to set it back on its display case, he loses balance, and you step up and grab the blade single-handedly, before having your King Arthur moment and just casually lifting it and resting it over your shoulder. Everyone gasps, while Johan and you blush. The proprietor of the establishment hurries to help you put the blade back on its case, giving thanks to this fellow blacksmith.<</if>>
+<<elseif $muscle >=65>>But as he tries to set it back on its display case, he loses balance, and you step up and grab the blade with both hands, and with some effort, you raise the huge chunk of metal like a goodman master of the universe, before resting it against your shoulder. Everyone gasps, while Johan blushes. The proprietor of the establishment hurries to help you put the blade back on its case, giving thanks to you as a fellow blacksmith.
+<<else>>
+You watch as he haphazardly handles the blade, concerned that he might hurt someone. You step back, as the proprietor rushes to scold and help put the large hunk of metal back on its display case. A collective sigh of relief is shared as disaster is averted.
+<</if>><br><br>
+The weapons are cool, but the two of you are starting to get a bit peckish, and the smell of shepherd pies is starting to get to you. Once again, you lead Johan to one of the booth, and you are already salivating at the menu. Johan orders some Scotch eggs without hesitating, but you seem to be having a hard time, as everything sounds good - fish and chips? French crepes? Deep fried artichokes?!? But then, your eyes widen and you know exactly what you are getting.<br><br>
+<<Dialogue "Johan" "Johan">>"That turkey leg is comically large!"<</Dialogue>><br><br>
+<<if $muscle >=65 || $height >=195>>
+<<Dialogue "player" "You">>"Well, so am I, so it works out just great!"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"I know, but it is SO YUMMY. Want a bite?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Of course!"<</Dialogue>><br><br>
+<</if>>
+As you finish the meal, Johan sees that they are having actual joust battles, and it’s his turn to run off, with you following behind. He seems to be attracted to it like a moth to a candle, and part of you sighs with relief to see him a bit less stressed. By the time you catch up, he’s already installed on the bleachers, having saved a seat next to him. You are content just to see him out of that funk, but once the horseriding knights come out with their large lances, you start to understand what he was so pumped about. There’s an electrifying energy filling the crowd, which erupts in applause and cheer.<br><br>
+It’s actually somewhat of a challenge for you, wanting to both watch the spectacle of the duels, but also the elated expression on Johan’s face. There’s something about his joy that just makes you feel like you could start floating. You don’t even notice that the jousters are just collecting rings with their lances instead of fighting each other, you just stand there, slack-jawed, wanting to squeeze Johan. You actually sort of envy his passion, he just throws himself at stuff in such a sincere way, and you can’t help but feel a little envious - thinking about how you still feel at a crossroads, trying to envision your own future, commit to something. You sigh with exasperation, and Johan seems to pick up on that, wrapping an arm around your waist and giving you a quick look. You smile and shake your head, because the last thing you want is to get him worried about you. You hug him back, and watch as the the knights on horseback start trading blows with their swords.<br><br>
+The rest of the afternoon proceeds smoothly - this is definitely one place where no one is going to single Johan out, and despite being so temporally dislocated, it feels very welcoming. Sure, quite a few people are sneaking glances at you, but you chalk it out to the costume<<if $muscle >=45 || $height >=190 || $breasts >=50>>, and not your recent and unnatural growth spurts<</if>>.<br><br>
+You two decide it’s time to come back, and Johan treats you to a candy apple as you grab the bus back to the apartment. Johan seems quite tired, and he just rests his head against your shoulder and falls asleep, snoring lightly. You pat his head and play with his hair, and you sincerely don’t remember ever feeling this happy.<br><br>
+When the bus arrives at your stop, you gently shake Johan awake, a little line of drool falling over his costume. He blinks a few times, which makes you giggle, and he rushes to the door, still drowsy. But by the time he steps down from the vehicle, he’s already back to hyper-mode, as he won’t stop talking about how much fun he had and all cool things he did, especially proud of the leatherbound GM screen he got - which you gotta admit, looks amazing.<br><br>
+But fate seemed to have a different plan, as some jocks passing on the street notice Johan, tapping each other and start to laugh. He doesn’t immediately notice, but as their raucous teasing becomes louder and more obnoxious, he becomes self-consious and starts lurching, hugging his mandolin. It makes your blood boil.<br><br>
+<span id="choice">
+	<<link "Oh, no, you guys don’t get to tease my boyfriend!">>
+		<<replace "#choice">>
+            <<if $flag.RENFAIRBLACKSMITHCOSTUME>>Without missing a beat, you just walk in a beeline towards the jocks, grabbing their leader by the collar and lifting him clear off the ground. Your fully exposed bulging biceps leave the others gasping for breath, as you very clearly explain:<br><br>
+            <<Dialogue "player" "You">>"<<if $submissiveDominant > 1>>Oh, let me get this straight, you guys think it’s funny to tease someone wearing a costume for what reason exactly? Just because you are too self-conscious about other people singling you out in public? Well, guess what, those football shoulder pads look ridiculous - though, given your noodle-like muscles, I suppose I would also be afraid someone might hurt me on the field...<<else>>Hey, maybe you guys want to reconsider shaming people out in public? I don’t think it’s a good luck, and this city is pretty progressive, you might end up caught on camera and cancelled. Just saying.<</if>>"<</Dialogue>><br><br>
+            You drop the guy, who falls on his butt, terrified. You still offer him a hand to help him up, but he just scrambles away, as his friends have already left him behind. You dust your hands with a smile, but that fades as you turn around to see Johan, still looking quite forlorn.<br><br>
+            <<else>>
+            Without missing a beat, you just walk in a beeline towards the jocks, <<if $submissiveDominant > 1>>placing a menacing finger on the chest of the leader of the group,<<else>>blocking the leader of the group by standing tall with your hands on your hips and a frown,<</if>> and inquiring:<br><br>
+            <<Dialogue "player" "You">>"Excuse me, what do you guys think you are doing? Just, oh, having a little fun at the expense of someone who’s different from you guys? Someone who actually has the guts to do what they love instead of being a slave to whatever crazy societal norms you are afraid that is going to have others make fun of you? Well, let me tell you what - I think you are the ones who are, what was the word you used? Pathetic? Yeah."<</Dialogue>><br><br>
+            The jocks exchange looks, confused and intimidated, and they just turn around and go back to where they came from. You are still seething a bit, your entire body raising and lowering from the deep breathing. You close your eyes for a second and the smile returns to your lips, as you go back to join Johan.<br><br>
+            <</if>>
+            <<Dialogue "player" "You">>"Hey, you alright?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, yeah. Thanks for standing up for me."<</Dialogue>><br><br>
+            He smiles, but it lacks the same sparkle from before. You try to brush it off, but it’s hard not to dwell on the fact that this incident might have undone a lot of what you had accomplish today.<br><br>
+            As you reach the apartment, you grab Johan and give him a very passionate kiss.<br><br>
+            <<Dialogue "player" "You">>"I had an amazing time today, thank you."<</Dialogue>><br><br> 
+            <<Dialogue "Johan" "Johan">>"I mean, you were the one who took me out, so, I guess I should be the one thanking you."<</Dialogue>><br><br>
+            Again, you can’t quite put your finger on it, but there’s this edge of melancholy that feels super out of place for Johan, and it makes you feel weird inside, like you need all your self-control not to scream. But you put on a happy façade and give him a goodbye huge before returning to your apartment.<br><br>
+            You know you are going to have to deal with that sooner or later, but the mere thought terrifies you, even if really doesn’t feel like anything serious. You just know that you won’t be able to stop thinking about it until you do.
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Just ignore those jerks, Johan, they are not worth it.">>
+		<<replace "#choice">>
+            You wrap your arm more firmly around Johan’s, and hasten your step, leaving the jocks behind as you huff and puff.<br><br>
+            <<Dialogue "player" "You">>"Trust me, these guys are not worth fretting over. ."<</Dialogue>><br><br>
+            Johan just sighs, and you poke his ribs with your elbow.<br><br>
+            <<Dialogue "player" "You">>"<<if $submissiveDominant > 1>>Oh, no, I’m not letting these assholes ruin this awesome day. Who cares what they think? If the best fun THEY can have is to bring someone amazing like you down, what is their opinion even worth?<<else>>Come on, turn that frown upside down! I know I had the time of my life today, and I think so did you, right?<</if>>"<</Dialogue>><br><br>
+            While your enthusiasm brings a spark back to his face, you can feel the underlying melancholy - Johan is like a star of joy, and just being a little dimmer than usual is enough to get to you.<br><br>
+            As you reach the apartment, you grab Johan and give him a very passionate kiss.<br><br>
+            <<Dialogue "player" "You">>"I truly had an amazing time today, thank you."<</Dialogue>><br><br> 
+            <<Dialogue "Johan" "Johan">>"I mean, you were the one who took me out, so, I guess I should be the one thanking you."<</Dialogue>><br><br>
+            Again, you can’t quite put your finger on it, but something clearly has gotten into Johan, and it makes you feel weird inside, like you need all your self-control not to scream. But you put on a happy façade and give him a goodbye huge before returning to your apartment.<br><br>
+            You know you are going to have to deal with that sooner or later, but the mere thought terrifies you, even if really doesn’t feel like anything serious. You just know that you won’t be able to stop thinking about it until you do.
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+</span>
