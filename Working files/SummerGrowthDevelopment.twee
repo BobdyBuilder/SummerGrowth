@@ -14446,6 +14446,29 @@ You blink, incredulously. Is this the same Emma that you are used to? For most p
     <</link>>
 </span>
 `
+}, {
+    name: 'emmaReportingHQ',
+    locationTags: ['emma'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("emmaMealPrep"),
+        () => State.variables.gameDate.getDay() !== 5
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<goto "emmaReportingHQ">>`
+}, {
+    name: 'emmaReportingHQPart2',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("emmaReportingHQ")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<goto "emmaReportingHQPart2">>`
 }) >>
 
 
@@ -33021,7 +33044,6 @@ That is A LOT to process!<br><br>
 	<</link>>
 </span>
 
-
 :: PlayerDreamsPotionReaction3 [nobr] {"position":"0,0","size":"100,100"}
 <<if $flag.natPlayerPotionDreamProactive && !$flag.natPlayerPotionDreamExcited>>
     That’s it! You’ve made your mind! You need to collect as much information possible about these weird liquids, and figure out exactly how they work and what they do. Dozens of questions are already forming in your mind, as is the desire to get to the very bottom of this - even if it means being a guinea pig in the process!<br><br>
@@ -33255,3 +33277,392 @@ But fate seemed to have a different plan, as some jocks passing on the street no
 		<</replace>>
 	<</link>>
 </span>
+
+:: emmaReportingHQ [nobr] {"position":"0,0","size":"100,100"}
+<<if !$jobWarehouse>>It feels like one of those days - your computer crashed a couple of times, costing some precious work; One of the wheels on your chair refuses to behave, making it hard to properly position yourself comfortably; One of the lights right above your head is giving out a droning buzz that makes you want to shoot it; And to top it all off, one of your laziest coworkers has sweet-talked their supervisor into dumping a tricky project on your lap. But you soldier on, wondering if things can get any worse.<br><br>
+<<else>>
+It feels like one of those days - you get to the warehouse and some of the overhead lights aren’t working, and you have no idea who to even ask for help with that; Some of the boxes you need to carry are falling apart, making the task much more complicated; And somehow there’s a leaky pipe just making this dangerous puddle right in the middle of the way, not only a slipping hazard, but you will need to make sure to get to some of the document crates before they get wet. You soldier on, wondering if things can get any worse.
+<</if>>
+<<Dialogue "Emma" "Emma">>"Miss <<print $playerLastName>>, can I have a moment of your time?"<</Dialogue>><br><br>
+You should’ve seen this coming. You wonder if there’s an infestation of bubonic plague-ridden rats in the basement, because it seems like the natural next step to your day.<br><br>
+<<Dialogue "player" "You">>"Of course, miss Fray. What can I do for you?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Would you mind accompanying me to my office?"<</Dialogue>><br><br>
+That sounds serious, but deep inside, your sixth sense tells you it’s nothing to be worried about - either that, or maybe you just got really good at reading Emma by now? She escorts you, closing the door and the blinds before heading to her espresso machine.<br><br>
+<<Dialogue "Emma" "Emma">>"Can I interest you in some coffee? I just got this Colombian blend that is criminally delicious."<</Dialogue>><br><br>
+You nod in agreement, hoping she’s not trying to brace you for bad news. After brewing a couple of tiny cups, she sits down, elbows on her desk as she leans towards you, hands together with her index fingers pointing up and a more serious face. You take a deep breath.<br><br>
+<<Dialogue "Emma" "Emma">>"I’ll cut to the chase. The top brass needs me to spend some time at headquarters, and I’ll have to take a business trip that will keep me away for at least a day."<</Dialogue>><br><br>
+
+<<if $shyConfident > 1 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"Wait, you don’t expect ME to run the office while you are away?!?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"God, no! I mean, no offense, not only would I never spring something like that on you, but for the most part I think the operation can run in my absence for a while."<</Dialogue>><br><br>
+You sigh with relief. That would’ve been... something.<br><br>
+<<elseif $shyConfident > 1 && $carefreeCarefull <= 1>>
+<<Dialogue "player" "You">>"Ooooh, do you want me to run the office in your absence? I actually had a few ideas that I wanted to run by you..."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"God, no! I mean, no offense, I don’t think you are quite ready for that, but for the most part I think the operation can run in my absence for a while."<</Dialogue>><br><br>
+Awww, shucks. Well, it was worth a shot.<br><br>
+<<else>>
+With a gulp, you look at her, confused, wondering where this conversation is going.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"They are keeping me in the dark about this whole trip, but I’d feel a lot better if I could take an assistant with me. Someone I can trust."<</Dialogue>><br><br>
+<<if $shyConfident < 0 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"Uh, you need suggestions? I mean, I don’t know that I trust many other people here for that kind of responsibility, but maybe if I go through the staff..."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"That won’t be necessary, I already have someone in mind."<</Dialogue>><br><br>
+She smiles mischieviously, which in itself is so disturbing that it takes you a second to realize what she means.<br><br>
+<<if $muscle > 55>>
+<<Dialogue "player" "You">>"Ummm, isn’t it going to be a little weird? Like, coming in with an assistant that looks more like a bodyguard?"<</Dialogue>><br><br>
+Your concerns seem to fall on deaf ears, though it does cause one of her eyebrows to rise.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"Will you come with me tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+<<elseif $shyConfident < 0 && $carefreeCarefull <= 1>>
+<<Dialogue "player" "You">>"Errr, I’m not sure I’m the best person to help with that, I don’t really know that many people here, I’m sure you can figure out the most suited candidate for that."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I am. And I did. Will you come with me tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+Wait, does she mean... you?!?<br><br>
+<<if $muscle > 55>><<Dialogue "player" "You">>"A-are you sure about that? Maybe I’ll just intimidate people with my not so discreet physique? Isn’t that going to cause issues?"<</Dialogue>><br><br><</if>>
+<<elseif $shyConfident > 1 && $submissiveDominant <= 1>>
+<<Dialogue "player" "You">>"Wait, you don’t mean...?"<</Dialogue>><br><br>
+You look around, like there was someone else there who she could possibly be talking about, as you point to yourself still somewhat dazed.<br><br>
+<<Dialogue "Emma" "Emma">>"Would you be willing to come with me, tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+<<if $muscle > 55>><<Dialogue "player" "You">>"Have you even seen these guns? Can you even imagine the reaction when you come in with someone bigger than a bodybuilder in tow? Isn’t that going to get awkward?"<</Dialogue>><br><br><</if>>
+<<elseif $shyConfident > 1 && $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"I would love to go with you. And I’m glad you acknowledge my skills and trust me to do so. <<if $muscle > 55>>Besides, I can’t WAIT to see the faces of the executives as a pair of big girls just strut their HUGE MUSCLES into that corporate office - we’ll be breaking some glass ceilings, alright!<</if>>"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Confident. Cocky, even, I’d argue. But I was hoping you’d say that. I like it. We leave tomorrow morning. All expenses paid by the company, of course."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"So who are you bringing with you?"<</Dialogue>><br><br>
+She cocks her head with a smile.<br><br>
+<<Dialogue "Emma" "Emma">>"The one person here I both respect and trust enough for this task. You."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Say what?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Would you be willing to come with me, tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+<</if>>
+This is not an opportunity you can pass. Even if not for the professional reasons, deep inside you can’t bring yourself to pass an opportunity to spend more time with Emma, especially outside of the usual scope of the office.<br><br>
+<<Dialogue "player" "You">>"Of course! You can count on me!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Excellent. However, I must warn you, our accommodations were booked in advance by HQ, so I hope you don’t mind that we will have to share the hotel room. I want you to be aware of this, and I will understand if that is not acceptable - I tried looking for an alternative myself, but the city is completely booked due to a convention."<</Dialogue>><br><br>
+You gulp. Sharing a room... with Emma? Your mind goes WILD as you try not to lose composure.<br><br>
+<<Dialogue "player" "You">>"O-obviously not, I can b-be completely professional!"<</Dialogue>><br><br>
+You say, half-stuttering and failing to sound as serious as you can. Emma’s eyes are still 100% trained on you, a very faint smile remains on her lips.<br><br>
+<<Dialogue "Emma" "Emma">>"Perfect. I’ll have a driver pick you up at home early tomorrow, and we’ll be driven to the airport. Please make sure to bring proper ID and a professional-looking attire, but I would also pack some casual clothes - we might have some time off and I hear the city is beautiful this time of the year."<</Dialogue>><br><br>
+You are left speechless. Emma waits for some response, but eventually just nods and gets back to her work.<br><br>
+<<Dialogue "Emma" "Emma">>"I won’t keep you any longer. I also have a lot I need to do before I leave, so I’ll leave you to it. I am looking forward to seeing you tomorrow - and thank you. This means a lot to me."<</Dialogue>><br><br>
+Silently, you just get up and walk backwards to the door, still processing and not quite believing in what just happened.<br><br>
+Holy shit. I guess you gotta pack tonight!
+<<link "return" "office">><</link>>
+
+:: emmaReportingHQPart2 [nobr] {"position":"0,0","size":"100,100"}
+You just toss a bunch of clothes into your gym bag, along with your toiletries as you try to remember the rules for carry-on stuff you read on your phone so you don’t get in trouble at the airport. It feels sort of dream-like, and you need to pinch yourself to make sure you aren’t still asleep. But you realize it’s very much real, and as you zip the bag closed, your phone vibrates with a message that your ride is waiting for you downstairs. You pocket it, still nervous that you forgot something important, but you just sling the bag over your shoulder and hurry to the street.<br><br>
+The dark van is there waiting for you, and the door slides open, with Emma in her usual business attire - but with clip-on sunglasses, which for a second makes it feel like a Woman in Black agent about to kidnap you.<br><br>
+<<Dialogue "Emma" "Emma">>"Hop in. I like being early at the airport."<</Dialogue>><br><br>
+You comply, tossing your bag in the trunk before checking where you will go. <<if $muscle >80>>Now, this is a BIG van that would usually seat 12 people just for the two of you - but your humongous frame is so large, you end up having to lower TWO ROWS of seats in the back. After realizing that the front door is not a suitable entry option, you move the suitcases around and use the trunk to make your way into the first seat available (which thankfully faces backwards). The suspension of the vehicle is clearly compromised, as it starts riding a lot lower after you embark, which is both hilarious and a bit embarrassing. <<elseif $muscle > 65>>It’s a good thing they ordered a 12-seater van for the both of you, because given your bodybuilder-sized physique, you could never share a backseat with Emma. Heck, even getting a whole seat for yourself presents a bit of a challenge, as you take the seat behind your boss. <<elseif $muscle >45>>The van is quite large, and can fit about 12 people at capacity, but given that you and your boss are rather muscular (and quite bulky) people, you end up taking the seat behind her. <<else>>Unsure of the proper etiquette when it comes to employee fraternization, and the fact that your boss has some really respectable boulders for shoulders, you silently take the seat behind her as you enter the vehicle. <</if>>
+Despite still being nervous and anxious, seeing Emma at her most relaxed and laid-back ever creates a bit of cognitive dissonance. You fiddle as she stretches her arms around the back of the seat, and you very much wish you had sat by her side.<br><br>
+<<Dialogue "player" "You">>"Ah, to sit there..."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"What was that, <<print $playerFirstName>>?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, nothing. Just grumbling."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Afraid of flying?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"First time, actually."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh."<</Dialogue>><br><br>
+She is not sounding judgemental or anything, maybe a bit surprised, if that, but you can’t help but feel a bit embarrassed by that admission. But before you know it, you arrive at the airport. Emma takes charge, handling the confusing check-in computer in instants, like someone who has done that more times than you can count. She asks if you need to check any bags, and with a curt shake of the head, she leads you to the security checkpoint in silence.<br><br>
+Still in silence, she waves her boarding pass and driver’s license to the woman at the security podium, who very uninterestedly looks at it, then at her, and waves her through.<br><br>
+<<if $carefreeCarefull > 1>>Following her example, you prepare your own documents before your turn comes, and show them to the agent. She growls at you about student IDs not being valid state-provided identification. You inquire if there’s any other alternative, and she hands you an identity verification form, and tells you to fill it out and then come back. Emma decides to join you, and it makes you feel better as she helps you with the process.<br><br>
+<<else>>
+As your turn arrives, you fumble the retrieval of your student card after Emma hands her your boarding ticket. You produce the card, but the woman looks at you angrily as she explains that a student ID is not valid state-provided identification. Nervous and stuttering, you start to beg, but Emma cuts in and requests an identity verification form, which the agent grumblingly hands you. Emma takes you aside and helps you fill it out.<br><br>
+<</if>>
+With this mess sorted out, you head towards the X-ray machine. Emma drops her own bag there, removes her belt and shoes, then takes her computer from her brand name briefcase, placing everything on the conveyor belt. You mimic her (though, no laptop or belt, so that’s easier) as you watch her head into the body scanner. She has to lift her arms high up, and it really seems to test the limits of her tight-fitting suit around the shoulders. As she leaves, another security agent asks to further examine her. Emma steps aside, but it’s clear the poor guy is intimidated by her presence and bulk. Even with the clip-ons, Emma seems to stare the guy down, and is quickly dismissed. <<if $muscle >=70 >>As your turn comes, you need some serious squeezing to even fit in the scanner, but you somehow manage, turning a few heads.<<if $height > 210>>Raising your arms in there is also a bit of an issue, but you just approximate the pose as much as possible.<</if>><<if $breasts > 55>>It should be noted that the required jumping jack pose brings your bountiful breasts into full display, as they just barely miss the spinning cage of the scanner - also, is it just you, or did EVERY MALE SECURITY AGENT come to watch the screen during your turn? Wait, did that guy just PAY the other one 5 bucks? WERE THEY MAKING BETS ABOUT YOUR BREASTS?!? Geeeeez!<</if>> Even fully dressed, you do feel slightly naked during the process.
+<<elseif $muscle >=46 >>Being even bigger than her, you wonder if they are going to also stop you, but they just let you pass right through. <<if $height > 210>>Raising your arms in there is also a bit of an issue, but you just approximate the pose as much as possible.<</if>><<if $breasts > 55>>It should be noted that the required jumping jack pose brings your bountiful breasts into full display, as they just barely miss the spinning cage of the scanner - also, is it just you, or did EVERY MALE SECURITY AGENT come to watch the screen during your turn? Wait, did that guy just PAY the other one 5 bucks? WERE THEY MAKING BETS ABOUT YOUR BREASTS?!? Geeeeez!<</if>><<elseif $height > 210>>Raising your arms in there is also a bit of an issue, but you just approximate the pose as much as possible. <<if $breasts > 55>>It should be noted that the required jumping jack pose brings your bountiful breasts into full display, as they just barely miss the spinning cage of the scanner - also, is it just you, or did EVERY MALE SECURITY AGENT come to watch the screen during your turn? Wait, did that guy just PAY the other one 5 bucks? WERE THEY MAKING BETS ABOUT YOUR BREASTS?!? Geeeeez!<</if>><<elseif $breasts > 55>>It should be noted that the required jumping jack pose brings your bountiful breasts into full display, as they just barely miss the spinning cage of the scanner - also, is it just you, or did EVERY MALE SECURITY AGENT come to watch the screen during your turn? Wait, did that guy just PAY the other one 5 bucks? WERE THEY MAKING BETS ABOUT YOUR BREASTS?!? Geeeeez!<<else>>You pass the scanner uneventfully, glad that nothing went wrong, as you join Emma on the other side of the checkpoint.<</if>> With that behind, Emma leads you to the gate, with time to spare.<br><br>
+<<Dialogue "Emma" "Emma">>"If you want to check the rest of concourse, I’ll be here. Just make sure to be back 10 minutes before boarding time, will you?"<</Dialogue>><br><br>
+You want to spend more time with Emma, but being your first time inside this part of an airport, you can’t resist the opportunity, and you just wander around for a bit. It’s kinda crazy - you see some recognizable and new eateries, a little massage parlor, a vending machine that has a bunch of high-end headphones (for absolutely crazy prices) and a very cool newsstand with all sorts of travel-related items. Time seems to pass at a fast clip, and you decide to just return before you miss your deadline.<br><br>
+Emma is sitting by the gate, reading something on an ebook. You gladly take the cheap plastic seat by her side, which is conveniently located by a USB charger, so you plug your phone. Emma does not remove her eyes from the digital book, but she acknowledges your presence with a nod and a smile.<br><br>
+You try to sneak a peek at what she’s reading, but you are afraid you can’t quite be discreet enough. So you decide it’s easier to just ask.<br><br>
+<<Dialogue "player" "You">>"Reading anything interesting?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"This?"<</Dialogue>><br><br>
+She turns the device towards you as she courteously flips up the clip-ons for some much-appreciate eye contact.<br><br>
+<<Dialogue "Emma" "Emma">>"It’s a really interesting biography, about Marjorie Post. She was a heiress of a food empire, philanthropist and businesswoman I’ve always admired. Riveting read, and helps pass the time."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I half-expected you to have your computer out and be working."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Don’t get me wrong, in some cases I might have been answering emails on my phone, but I make a point of separating work and personal time. I woke up one hour earlier and made sure everything was taken care of, before leaving an auto-reply warning I’d be away for the next couple of days. And so, I’m catching up on my reading while we wait."<</Dialogue>><br><br>
+How can someone be so on top of everything? You both admire and envy Emma, as she embodies your life goals - or at least illustrates how much you lack those.<br><br>
+As boarding time approaches, people start queueing up by the gate counter. You motion to get up, following the crowd, but Emma just gently places a land on your lap in silence, suggesting that you should wait.<br><br>
+<<Dialogue "Emma" "Emma">>"We have boarding groups, and we should be the second one. If you just start a line like that, it’s only going to make things take longer. Chill, we’ll get up when they call our group. The seats inside are assigned and our carry-on luggage is not rigid or oversized, we’ll be fine."<</Dialogue>><br><br>
+You nod in agreement without saying a word. It dawns on you that you finally understand why experienced people are referred to as “travelled”, and you almost feel like you should be taking notes. It’s something minor, but your anxiety is quickly turning into excitement about all the opportunities this trip will bring you.<br><br>
+Minutes later, you are both getting to your seats. Despite it not being as it says on the boarding pass, Emma stops and asks:<br><br>
+<<Dialogue "Emma" "Emma">>"I have the window seat - would you rather switch?"<</Dialogue>><br><br>
+You are left momentarily speechless by the offer, and just nod excitedly.<<if $height >= 185 || $muscle >= 60>> Even with these business seats, it’s a bit of a squeeze due to your considerable size.<</if>> But in you go, anxiously strapping in as Emma smiles at your giddiness. She makes herself comfortable by your side after putting her luggage in the overhead bin, and goes back to her book.<br><br>
+<<Dialogue "Emma" "Emma">>"Take off and landing are the most exciting - or, well, scariest - but the rest should be pretty chill. I checked the weather, but the pilot should be confirming that momentarily."<</Dialogue>><br><br>
+And indeed, the pilot’s voice soon starts booming, all distorted and cracking through the speakers, as he estimates that this trip shouldn’t have any turbulence. You grab your pack of peanuts and just watch the window as the plane starts going to the runway. Your feel butterflies in your stomach, a mix of anxiety, excitement and fear, as the turbines roar, and these hundreds of tons of metal start accelerating at breakneck speed. Without thinking, you grab Emma’s free hand on the armrest - she’s still reading her book with her other hand, and while you can’t see her eyes due to the clip-ons, she doesn’t seem to even blink. She just gives your hand a tight acknowledgement squeeze, but otherwise you wouldn’t even know she’s not completely immersed in her reading.<br><br>
+<<if $shyConfident > 1>>You squeeze her hand back, and you think she took a deeper breath, but the plane is shaking so much and there’s so much noise that you can’t really tell for sure. You turn your head back to the window to watch as the ground becomes farther and farther away, 
+<<else>>You blush, and turn your head back to the window, avoiding any chance of eye contact. As the ground becomes smaller and smaller with the altitude, your heartbeat gets faster,
+<</if>>and you kind expect Emma to let go of your hand, but she never does. It might have been a minute or five, but she’s just there, enjoying her book, and eventually you get nervous enough that you end pulling your hand out. Again, no reaction. Is she being nice or...<br><br>
+Never mind. You just keep admiring the tiny ground out of the window, the pretty clouds and the rising sun. You’ve always loved the sky, and you never quite imagined looking from above the clouds could be even more beautiful, but somehow it is.<br><br>
+You enjoy the rest of the flight and the vistas, but soon enough the plane starts descending, and once again it gets bumpy - Emma never moves her hand from the armrest, but now you are too self-conscious to hold it again. So you place your hands on your lap as the plane shakes and roars. You gasp as the wheels hit the ground, which makes the whole cabin move so hard you could swear you almost hit your head. Emma finally turns to check on you, but you just try to communicate you are fine with your eyes (whether that was successful is unclear). But you arrived, and in a matter of minutes are leaving the concourse. <<if $muscle >= 50>>You make it a point of carrying all the luggage, despite her protest. She DOES, however, seem very impressed with the ease with which you do so.<</if>><br><br>
+Emma takes charge, as usual, and gets a cab to drive you two to the hotel. It’s not that long a drive, but as you get downtown, once again you feel overwhelmed: you’ve never been around so many tall buildings - let alone THIS tall! Everyone looks so... cosmopolitan? You already felt somewhat out of place back at the campus, but this is a whole different level - there’s barely a store or restaurant that doesn’t pick catch your attention, and the clean and stark sidewalks with tons of bikers sharing the streets with the cars is almost magical.<br><br>
+But nothing could prepare you for the hotel. Even though Emma apologized for the “cheap room”, your jaw almost drops when you go past the revolving door (which you had only seen before in movies and TV) and see the huge atrium, complete with glass chandelier and marble apparently everywhere. You just realize you were frozen looking at the ceiling when Emma comes back with the keycards to your room, fishing you out of your stupor.<br><br>
+You walk into your room and the feeling of wonder does not cease. I mean, it’s not really a luxurious accommodation, but there’s something neat about it looking so clean and neat. And those beds, they are SO BIG!!! <<if $carefreeCarefull < -1>>You run and jump backwards on your bed, bouncing a bit while Emma looks at you, somewhat confused but still amused. <<if $muscle >80>>Thank GOD this is a box spring bed, because you are pretty sure that a regular... CRACK!<br><br>
+<<Dialogue "player" "You">>"So, huh, do I have to pay for this or...?"<</Dialogue>><br><br>
+Emma squeezes the bridge of her nose.<br><br>
+<<Dialogue "Emma" "Emma">>"I think our travel insurance will cover this, but I don’t know what it will do with our premiums. Just, be careful going forward, please?"<</Dialogue>><br><br>
+ <<elseif $muscle > 65>>The box spring bed probably can handle a ton of weight, but your rather bulky frame makes it groan significantly, and as you stop, you notice you’ve left... a bit of an impression, quite literally, in the middle of the piece of furniture. Maybe you’ll take it a little easier going forward... <</if>><<else>>You walk to one of the two beds, and ask Emma if you can have this one. She just shrugs, suggesting it doesn’t make a difference as far as she is concerned. So you sit down on the one closer to the window, and let yourself drop on it.<</if>> You stretch yourself, and secretly wish your bed back home was this big and soft.<br><br>
+<<Dialogue "Emma" "Emma">>"I’m going to unpack, but we don’t have much long, I need to be at HQ soon for a meeting. But you don’t need to come, just keep an eye on your phone and I’ll let you know if I need anything. I’ll come pick you for lunch later, how does that sound?"<</Dialogue>><br><br>
+You sit up, looking at Emma intently as she starts putting her clothes away on the cabinet before moving to the bathroom to take care of her toiletries and retouch her makeup.<br><br>
+<<Dialogue "player" "You">>"Are you sure I shouldn’t come with you?"<</Dialogue>><br><br>
+Emma answers from the bathroom:<br><br>
+<<Dialogue "Emma" "Emma">>"I mean, they won’t allow you in this meeting, but if you want to tag along to see HQ, I can arrange that - but you’d be mostly stuck to the lobby of the corporate floor. At best maybe I can find a desk you can use there, but you don’t have your laptop on you, if I recall correctly. But it’s ultimately up to you, though I’d expect it would be rather boring - and there’s no lack of attractions you could see downtown while you wait for me. This city is a lot of fun."<</Dialogue>><br><br>
+You feel divided. On one hand, it does feel like you’d disappoint her not tagging along since you are there on the company dime, and you also feel like it’s what she would do in your place. However, she seems pretty chill about it, and the city is just BEGGING to be explored. Decisions, decisions!!!<br><br>
+
+<span id="choice">
+	<<PersonalityCheck $carefreeCarefull >= 1 "You know what? I’ll tag along. Just give me a sec to change into something more professional.">>
+		<<replace "#choice">>
+            You start unpacking, getting the leftover drawer, as you confirm you’ll be coming along.<br><br>
+            <<Dialogue "player" "You">>"Hey, I’m your assistant in this trip, remember? I’m coming along. Just give me a second to get dressed properly."<</Dialogue>><br><br>
+            Emma smiles with that smug smile you’ve learned to love, as you start changing. <<if $muscle >50>>You even catch her stealing a few glimpses from the bathroom as you start undressing, which just makes you feel like a million bucks. <<if $shyConfident > 1>>You purposefully turn your back to her as you raise your arms to brush your hair, flexing your biceps extra-hard and watching her reaction in the mirror, as Emma uncharacteristically blushes. Heh. <<if $carefreeCarefull > 1>>You make a mental note, eager to please her again.<</if>><</if>><</if>><br><br>
+            A short cab ride later, Emma leads you into the main lobby of the large building. You feel like you’ve never seen to much glass in your entire life<<if $muscle >65>>, which leads you to be more careful than usual not to break anything with your rather sizeable frame<</if>>. Emma talks to the secretary at the front desk, flashes something at her, and they ask to take your picture with a webcam. Before you know, they’ve printed a thermal paper sticker with your name, which Emma brings to you. She hands you an RFID card before offering you the makeshift nametag, <<if $shyConfident > 1>>and you just volunteer your chest for her to stick it, staring at her as you smile defiantly. With a smirk, she places the sticker on your top<<if $breasts >30 && $breasts <46>>, trying to keep it professional as she rubs it against your oversized breasts, leading you to momentarily bite your lower lip - which does not go unnoticed by her, as you can tell from her shallower breathing.<<elseif $breasts >45>>, glaring at your oversized breasts, which elicits a frustrated frown.<</if>><<else>>which you attach to the front of your top<</if>>.<br><br>
+            She leads you to the automatic glass flap gate, which she opens with a swipe of the card. You follow her example. As she gets to the elevator, you get confused by the elevator call button being a numeric keypad? Emma taps the button numbered 8, the screen shows an arrow with the letter A. Emma then stands in front of the elevator marked with that name. Oh, that makes sense. Wow, suddenly, it’s like you understand Emma better - this corporate world is all about efficiency. There’s a beauty in something as simple as this smart elevator in which you pick your floor before you ever step into it. The same beauty you see in Emma: she may sometimes seem curt and ruthless, but it’s not that she isn’t warm or caring, she just makes sure to get the job done with the least delay and friction possible.<br><br>
+            <<if $muscle >80>>You feel quite lucky that this system picked an elevator just for the two of you, and that the car is actually large enough to carry furniture, because you fill the space almost to its limit. You can also hear some groaning metal noises as it starts moving, at which point you smile nervously to Emma, who just rolls her eyes.<br><br>Some awkward time passes, to the sound of bossa nova, what a cliche.<br><br><</if>>
+            <<Dialogue "Emma" "Emma">>"Is something wrong?"<</Dialogue>><br><br>
+            You realize you were staring at her. You brush it off.<br><br>
+            <<Dialogue "player" "You">>"Ah, no. Just not used to this kind of elevator."<</Dialogue>><br><br>
+            You watch in realtime as Emma puts on her corporate mask - her face gets about 30% more serious and cold. You wouldn’t want to come across this person on a dark alley - and it’s not because of her developed physique (though that helps).<br><br>
+            The elevator door opens, and Emma makes a beeline to the glass door, which she unlocks with her keycard. She has a quick chat with a secretary, who points her towards a set of vacant desks.<br><br>
+            <<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>, you can have one of those desks. Your corporate login should allow you to access the intranet, so you can make yourself useful while I’m in the meeting. The cafeteria is over past that corridor - the coffee here is terrible, but their cappuccino capsules are only half-bad. While I expect this meeting to take a while, I should be done before lunch."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Alright, thanks! I’ll try to get some work done in the meantime."<</Dialogue>><br><br>
+            You watch Emma leave towards the conference room, while you install yourself on the desk. It takes a couple of attempts to figure out the login procedure, but soon you have access to the remote folder. <<if DESKJOB is false>>Not that there’s a lot to do, it’s not like you can remotely carry boxes with this terminal, so you just look at some of the clerical work regarding your weekly reports and quotas.<<else>>For the most part, you tried to make sure there wasn’t much for the next couple of days before leaving, so you just focus on some of the clerical work and get a headstart on your monthly report.<</if>> But before long you are mostly bored. You make your way to the cafeteria, which is eerily similar to the one in your own office building. You pour yourself a cup of the coffee, just to realize Emma was not exaggerating - you would not be surprised if this was engine oil filtered through gym socks. You pour the rest of the cup on the sink and go for the capsule that were recommended earlier. You sit down on the sofa with your cappuccino when a small group of people comes in for their dose of caffeine.<br><br>
+            <<if $weight >59 || $height > 205 || $breasts > 50 || $dick > 20>>They are momentarily paralyzed when they see you, given your recent growth, which makes them stare for a bit, then exchange looks among themselves, before slowly coming out of their trance and returning to their idle conversation. <</if>>They congregate between the coffee maker and the water dispenser, discussing the coming layoffs.<<set $flag.LAYOFF to true>> They seem somewhat concerned, but they are so focused on the social aspect of inner workings of the staff that the gossip can’t help but feel very petty: complaining about lazy analysts, chauvinistic marketers, incompetent managers... you get the feeling that this office operates like a scaled-down fiefdom, with all the intrigue that comes with the territory. It’s a far cry from the home office, where most people clock in and out and mostly keep to themselves. You are not sure which one you prefer, but it makes you a bit uneasy to just eavesdrop, so you return to your assigned desk.<br><br>
+            Before you can reach it, however, you see Emma leaving the conference room along with many other executives - and pretty much everyone seems to be in a sour mood. Emma’s pace is slightly faster and her steps heavier and more aggressive than what you are used to. She quickly reaches you, and just waves her head towards the elevator without a word - so you just follow her out of the building.<br><br>
+            <<link "Continue" "emmaReportingHQPart3">><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"I’ll come along!"<</Dialogue>><br><br>
+            You just toss your bag over your bed, and start checking your phone, when Emma’s head pops out of the bathroom.<br><br>
+            <<Dialogue "Emma" "Emma">>"Not dressed like that, you won’t. We are going to the headquarters office, <<print $playerFirstName>>. You better have something more formal to wear."<</Dialogue>><br><br>
+            Oh. You start tossing your clothes all over your bed in search of your work attire, when you realize that your lipstick got loose in your bag and made a mess. Emma is rushing to the door before you even finished figuring out what you brought.<br><br>
+            <<Dialogue "Emma" "Emma">>"You know what? You better stay here anyway. I shouldn’t be too long, and I will be back for lunch. Just make sure you are back before then. And keep an eye on your phone."<</Dialogue>><br><br>
+            And before you know, she’s out the door. Okay. I guess you could’ve afforded to pack a little better. Well, what is there to do around here?<br><br>
+            You grab a few of the tourist leaflets, looking at landmarks you could go visit... but ultimately you feel somewhat bummed and end up just laying on the bed, clothes still all over, reaching for the remote so you can watch some TV.<br><br>
+            You are mostly surfing channels, not really used to linear programming anymore, let alone morning shows. It’s a somewhat surreal experience, seeing these TV personalities on high chairs discussing the latest movie releases, weird commercials of all kinds, tabloid talk shows, and a news flash about some oversized guinea pigs that broke from their cages in a nearby laboratory. You are not sure if you suddenly miss not having a TV at home.<br><br>
+            Time keeps passing, and eventually you get a text message from Emma, telling you to meet her downstairs at the corner in 10 minutes. Uh, that’s... unexpected?<br><br>
+            You make your way down, and you find her anxiously tapping her foot, arms crossed, looking annoyed at the horizon.<br><br>
+            <<link "Continue" "emmaReportingHQPart3">><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+	<<link "You’re right, I should take this opportunity to see the sights!">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"You’re right! I can’t pass up an opportunity like this!"<</Dialogue>><br><br>
+            You look at the tourist leaflets you collected from a stall in the lobby, and one in particular jumps at you - this tall observation tower looks like an amazing option, and it looks pretty close, too.<br><br>
+            <<Dialogue "player" "You">>"Oh, I think I know where I’m going!"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"That’s great. Listen, I shouldn’t be too long, and I will be back for lunch. Just make sure you are back before then. And keep an eye on your phone."<</Dialogue>><br><br>
+            And with that, she’s off like a hurricane. Well, no time like the present, so you get up, grab your keycard and make your way to the park where the landmark is.<br><br>
+            There’s an energy this city exudes that you can’t quite put a finger on, but you feel like you could just wander on foot all day long if you wanted. The cloudy weather might not be the nicest, but it makes for a very pleasant walk. And once you reach the tall observation tower, it looks A LOT taller than what you expected. But you get a bit of sticker shock when you realize it costs a whooping $40 to ride the elevator to the observation deck! Ugh!<br><br>
+            However, you also realize there’s some commotion around the lobby area. It seems like they are preparing some charity event with a race using the stairs. And there’s such a mess that you could PROBABLY sneak and climb them without anyone noticing...<br><br>
+            You wait for your opportunity, and just go for it. Surprisingly, no one bats an eye, and off you go, slowly making your way up God knows how many flights of stairs.<br><br>
+            <<if $muscle >40 && $fat <35 || $muscle >60 && $fat < 45 || $muscle >75>>
+            Wow, this may be quite the workout! According to your calculations, this climb is roughly the equivalent of 40 floors, but your determination allows you briskly continue your ascent all the way to the top!<br><br>
+            But although the climb didn’t leave you breathless, the vista from the observation most certainly does - it’s quite indescribable, the way you can see the horizon: buildings, forests, a huge lake, mountains, the sea. Even with the overcast weather, visibility is still excellent and the unusual mixture of so many features makes you feel small - a feeling you hadn’t quite experienced during these last few weeks. You sit on one of the glass benches and just think about life. Are you finally discovering a goal in life like you wanted when you moved out? It’s like you can almost taste that objective you’ve been seeking, but it’s still just out of reach... much like the horizon.<br><br>
+            You remember you promised to be back in time for lunch, however, and you figure you should probably start making your way back. You could probably sneak back through the elevator, but you are feeling so pumped you figure you can actually race down the stairs. It’s not like another workout would be a bad thing, right?
+            <<else>>
+            Eventually, however, your lack of stamina gets the best of you, and you find yourself seating down to catch your breath. Looking at your watch, you realize you will never make it to the top in time to get back for lunch, so you give up and turn around. At least going down is a lot easier.
+            <</if>> <br><br>
+            Just as you get back on the street, your phone buzzes with a message from Emma, who’s back at the hotel. She asks where you are, and you share your location. With her usual succinct style, she leaves instructions to meet you halfway, and you start tracing back your steps from where you came.<br><br>
+            <<link "Continue" "emmaReportingHQPart3">><</link>>
+		<</replace>>
+	<</link>>
+</span>
+
+:: emmaReportingHQPart3 [nobr] {"position":"0,0","size":"100,100"}
+While you expected her to hail a cab or something, Emma just keeps her hasty jogging pace, which takes some effort to match. <<if $height >185>>You thank the heavens for your long legs, which make this task a lot more manageable.<<elseif $muscle >45>>It makes you very glad to be in such great shape so you can keep up without being totally winded.<<else>>It’s a bit of a challenge, and you find yourself panting a bit.<</if>><br><br>
+<<Dialogue "Emma" "Emma">>"Sorry for being this abrupt, but the board dropped a bomb on my lap this morning. We’ll need to have some serious cost-cutting back at the office. I have no idea how we are going to figure that out, but I’m guessing we’ll need to lay off some employees to reach this figure."<</Dialogue>><br><br>
+<<if $flag.LAYOFF>>
+<<Dialogue "player" "You">>"Actually, I did overhear some conversation about layoffs in the break room earlier. There was some office gossip going on during the meeting, so I’m guessing this is company-wide - though people there seemed less worried and more hopeful to get, uh, some ‘undesirables’ taken care of."<</Dialogue>><br><br>
+Emma looks at you with a faint and pained smile.<br><br>
+<<Dialogue "Emma" "Emma">>"Look at you, my little corporate spy. I see you are great at information gathering. Thanks, I will use this wisely to leverage our position and see if I can get some wiggle room with that."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Oh. That doesn’t sound good. I’m guessing this isn’t going to be pleasant."<</Dialogue>><br><br>
+She is clearly frustrated. Say what you will about how ruthless Emma can seem, she clearly sees her staff like found family.<br><br>
+<</if>>
+<<Dialogue "player" "You">>"So, are we working some financial spreadsheets now? "<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"After lunch. We have our work cut out for us, so first we prepare - then we dive in. Come with me, I know a great place near here."<</Dialogue>><br><br>
+She’s obviously still very stressed, but maybe your company will do more than just offer some bookkeeping assistance - maybe Emma can count on another pair of <<if $muscle >50>>boulder-sized muscular <</if>>shoulders to let some of that weight off of herself.<br><br>
+Emma eventually walks into a very nice-looking Japanese restaurant. Again, you are a bit shocked with the stark yet warm cosmopolitan design - it doesn’t look overly fancy, but somehow you feel like you just walked into a movie set of some sort. Emma sits on a horigotatsu (a short table raised off a hole in the floor with tatami seating around), flags a waiter before you are even finished figuring out how to squeeze into this weird setup<<if $muscle >60 || $height >205>>, which is a herculean task given your size, but you just sort of manage your way, sliding your legs to the side after some fidgeting<</if>>, and places an order in what you assume to be Japanese.<br><br>
+As you finally manage to sit, you can’t help but ask:<br><br>
+<<Dialogue "player" "You">>"Wait, you speak Japanese?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"ちょっとね。でも、すごく下手ですよ。"<</Dialogue>><br><br>
+You stand there, speechless for a while, before she smiles and continues.<br><br>
+<<Dialogue "Emma" "Emma">>"Heavens, not really. I know enough to get by, you can’t really rely on English in Japan, but you couldn’t ever rely on me to carry a conversation."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I really feel like a day doesn’t go by that you don’t impress me somehow."<</Dialogue>><br><br>
+<<if $skills[2].level > 3>><<Dialogue "Emma" "Emma">>"Well, I could say the same to you, miss math genius!"<</Dialogue>><br><br>
+<<elseif $skills[1].level > 3>><<Dialogue "Emma" "Emma">>"Well, I could say the same to you, chef <<print $playerLastName>>!"<</Dialogue>><br><br>
+<<elseif $muscle >55 || $skills[0].level > 3>><<Dialogue "Emma" "Emma">>"Well, I could say the same to you, little miss muscles!"<</Dialogue>><br><br>
+<<if $shyConfident > 1>><<Dialogue "player" "You">>"Bellyache all you want, you know you want this."<</Dialogue>><br><br>
+You say, accentuating it with a slap on your ass. It makes Emma squint, and you feel proud for getting through her impenetrable shell.<br><br>
+<<else>>
+The compliment makes you blush and take a deep breath, which amuses Emma, unable to to suppress a giggle.
+<</if>>
+<<else>>
+<<Dialogue "Emma" "Emma">>"It’s a dog-eat-dog world out there. You either come out on top or people walk all over you. I made my choice regarding where I wanted to be, and being a woman in the corporate world doesn’t leave you much option when it comes to excellency."<</Dialogue>><br><br>
+Wow, this got serious, really quick. Maybe it’s time for a subject change...<br><br>
+<</if>>  
+<<Dialogue "player" "You">>"So, what was that thing you ordered, benny sake? Are we drinking this early? With work to do?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Benizaki, but you are probably more familiar with the term sockeye salmon. I ordered a couple of meals, benikazi sushi teishoku. But I would not be opposed to having a dose of umeshu as a digestive afterwards, if you are so inclined. <<if $muscle >60 || $height >190>>Though, with your body mass, I’m pretty sure it would take a whole bottle to get you drunk.<</if>>"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I see. Well, I am hardly one to decline your culinary expertise - as would any sane person."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I would normally say that flattery won’t get you anywhere, but I gotta admit I rather enjoy your company, <<print $playerFirstName>>. Thank you for coming with me."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Are you kidding? This trip has been nothing short of phenomenal so far. I should be the one thanking you!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Well, you should probably wait until you see the mess I’m about to get you into. It’s not going to be pretty, and CERTAINLY not fun."<</Dialogue>><br><br>
+There’s a weird melancholy to her voice, which comes completely unexpected. Without even thinking, your reach out and place your hand over hers. Although she doesn’t flinch, Emma looks into your eyes with a level of surprise you don’t remember her exhibiting before, her mouth agape and her eyes slightly confused.<br><br>
+She pulls her hand away, covering it under her other hand and looking away. At that moment, the waiter places two beautiful lacquered trays for each of you, along with a kettle of hot green tea and a pair of cups. You pour some tea for Emma first, and wait for her to have some before starting - which actually seems to break her from her funk.<br><br>
+<<Dialogue "Emma" "Emma">>"Didn’t take you for the kind of person who would be familiar with nomikai culture."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Nomiwhat?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, sorry. I guess I tend to just project my work expectations on everything. It is very culturally prevalent in Japan, when you go out to drink after work with your colleagues. Pay no mind."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"No, actually, that sounds fascinating, please tell me more."<</Dialogue>><br><br>
+This seems to relax Emma a bit, and she proceeds to talk for the next 30 minutes about her business trip to Tokyo, the issues with misogyny there, all while expounding the merits of the deep-red sockeye salmon. You start drinking the piping-hot soup, just listening intently to her speech. It’s not that usual to see Emma getting this passionate, so you just go for the ride, listening and keeping the interrupting questions to a minimum while you mirror her eating procedures for the meal, which you have very little idea how to consume. Operating the chopsticks (hashi, as she explains to you) is initially a challenge, until she demonstrates a couple of times. You are still having a hard time, and she suggests getting some rubber bands or gripping aids, but you are intent on giving a good impression. After a couple of tries, Emma grabs your hand, which sends a shiver up your spine. She doesn’t seem to make a big deal, <<if $shyConfident  >1 || $submissiveDominant > 1>>but you are forced to resist an urge to just jump over the table and kiss her<<else>>but you find yourself getting redder than the salmon on the plate.<</if>> You eventually figure it out, and boy, is it worth it! This salmon is DELICIOUS. You face trying it out must have been hilarious, because Emma breaks out into outright laughter, which is so contagious that you almost spit the half-chewed fish. She comments on how glad she is that she saved her cheat meal for this<<if $musce >50>>, which makes you somewhat embarrassed about admitting you are still hungry after consuming the entire thing, and glad you packed a few energy bars she will never know about<</if>>.<br><br>
+<<Dialogue "Emma" "Emma">>"Thank you, again, <<print $playerFirstName>>. I cannot emphasize how much having you around is helping me keep a grip on things."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Does that mean I’m getting that coveted employee of the month picture?!?"<</Dialogue>><br><br>
+Emma laughs once again and kicks you from under the table. But the laugh fades.<br><br>
+<<Dialogue "Emma" "Emma">>"Look, this was great, but I’ll get the check and we should head to the business center in the hotel. We need to get to work!"<</Dialogue>><br><br>
+And so you leave the restaurant and head to the coldly-lit business center in your hotel, with Emma securing two adjacent tables and setting her laptop. You can’t help but get a sinking feeling in your stomach, like the whole desk is about to go down a rollercoaster ride. And it seems like you might not be too far off, figuratively speaking.<br><br>
+<<Dialogue "Emma" "Emma">>"Alright! So, here’s our challenge. This is our budget for the quarter. We need to slash it down by 10%, and ideally I’d like to figure a way with the least dismissal of staff."<</Dialogue>><br><br>
+TEN PERCENT?!? Wow, this is NOT going to be easy. But how do you go about this?<br><br>
+<<Dialogue "player" "You">>"Well, first off, I think we need a strategy on how we are going to break this down."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I couldn’t have said it better myself."<</Dialogue>><br><br>
+She looks at you expectantly.<br><br>
+<<Dialogue "player" "You">>"Oh, you mean ME? I thought you had a plan already!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Maybe I do, maybe I don’t. However, I want to see your take first."<</Dialogue>><br><br>
+Way to put you under the spotlight, Emma! You take a deep breath, and look at the ominous white board.<br><br>
+<<if $skills[2].level > 4>>With determination, you quickly start drawing a simple chart.<br><br>
+<<Dialogue "player" "You">>"Alright, our costs are already separate by category, we’ll split those between the two of us, and we’ll further classify them by importance - I’ll have the categories on a shared spreadsheet, where we can input the values and autosum here - I’ll program a routine so we’ll have a realtime percentage of our goal counting anything from the top two most disposable categories. We’ll keep payroll entirely separate, that way we can filter by how much we’ll have to sacrifice to meet the quota. Do you have any categories you’d rather do? I think I’d prefer the less vital stuff like office supplies, if you don’t mind."<</Dialogue>><br><br>
+Emma is playing it cool, just looking coldly at your little plan. You feel a drop of sweat coming down your forehead.<br><br>
+<<Dialogue "Emma" "Emma">>"Bra-vo, miss <<print $playerLastName>>. I have half a mind to leave you here and head to the hotel gym, I suspect you might actually do a better job than I would!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Please don’t?"<</Dialogue>><br><br>
+This makes Emma laugh.<br><br>
+<<Dialogue "Emma" "Emma">>"Of course, what kind of boss would I be if I did, right? In any case, let’s get to work!"<</Dialogue>><br><br>
+<<elseif $skills[2].level > 3>>
+<<Dialogue "player" "You">>"Well, I think it’s obvious we’ll need to filter all costs by importance - I guess the easiest way is to get everything on a decreasing spreadsheet and start putting tags with how superfluous they are? That way we can have an idea of what level of sacrifice we’ll need to even get to that figure? From there, we can start picking what to cut until we reach our goal?"<</Dialogue>><br><br>
+Emma looks at your work, her face serious and her gaze immobile. You hold your breath, nervously, until she nods.<br><br>
+<<Dialogue "Emma" "Emma">>"Sounds like a plan! How to you want to divide the tasks?"<</Dialogue>><br><br>
+And with that, you both get cracking.<br><br>
+<<elseif $skills[2].level > 1 && $flag.LAYOFF>>
+<<Dialogue "player" "You">>"Uh, well, I guess we should go through the items, organize them by how disposable they are? And then we start cutting and seeing how close we get to the goal?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Hm hum?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"But 10%? That’s a lot. It’s not going to be easy."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"No, but your little reconnaissance about the HQ layoffs might actually give me some ammo to negotiate a margin, so why don’t we work with 8%?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Huh. I haven’t really gone through the numbers, but that margin might just be the difference we need."<</Dialogue>><br><br>
+<<else>>
+You blank there. This is a lot of responsibility for your shoulders. Sure, you try to articulate a few ideas, but it’s mostly the obvious points. Suffice to say, Emma isn’t impressed, but she’s also understanding.<br><br>
+<<Dialogue "Emma" "Emma">>"Sorry, I guess I’ve leaned a bit too hard on you. I’ll set up some lists, and I’ll have you help me sift through the most superfluous expenses. Don’t worry, we got this."<</Dialogue>><br><br>
+You sigh, unable to shake the feeling you disappointed Emma. Still, she’s ensuring you are still motivated, and you give your all as you start tackling the task ahead.<br><br>
+<</if>>
+The work is grueling, to put it mildly. There’s nothing more dehumanizing than converting assets (both human and not) into simple numbers, but it’s a small sacrifice if it allows the company to fire less people. Each decision will impact real people, and it’s a bit like being some sort of deity atop the clouds, changing lives with the swipe of a pen (or mouse click, as the case may be). Still, you quickly discover that you and Emma can get into a groove, an almost telepathic ability to coordinate tasks as data gets juggled back and forth in a major effort to minimize the impact. <<if $skills[2].level >= 4>>With your brilliant skill at handling data and Emma’s ability at measuring the side-effects of each cut, it’s just a matter of time until you reach the goal without having to fire a single person.<<set $flag.COSTCUTSUCCESS to true>>
+<<elseif $skills[2].level > 2 || $skills[2].level > 1 &&  $flag.LAYOFF>>You are immediately glad you put so much effort in your bookkeeping studies, which pay off by giving you the ability to sift the data hastily, serving Emma up with just the right sets to make the harder decision. And while it takes hours that feel like days, <<if $flag.LAYOFF>>those 2% Emma saved with your intel saves your collect asses and<</if>>the end result is that you reach your quota with just having to fire three people - all of which Emma says were probably due to downsizing due to poor performance anyway.<<set $flag.COSTCUTSUCCESS to true>>
+<<else>>
+You kind of regret not having put more effort into your studies - looking at the data makes you dizzy, and you end up depending a lot on Emma, feeling like you barely helped. It’s just frustrating, like you are fighting an imaginary army of numbers and losing. You feel yourself going in circles and ultimately that will cost ten people their jobs. You and Emma look at the victims with a shared sad sigh.<<set $flag.COSTCUTSUCCESS to false>>
+<</if>><br><br>
+<<Dialogue "player" "You">>"What do you know? We did it."<</Dialogue>><br><br>
+Emma cracks her neck loudly on both sides.<br><br>
+<<if !$flag.COSTCUTSUCCESS>>
+    <<Dialogue "Emma" "Emma">>"I suppose we did. But I can’t say I’m too pleased with the final results. But sometimes you are just dealt a bad hand - it’s the cost of doing business, I suppose."<</Dialogue>><br><br>
+    You can taste the bitterness in her voice. It makes you want to just wave a magic wand and make everything better. But that’s not how real life works. You frown, and open your mouth to try and say something motivational, but nothing comes out. Argh!<br><br>
+    <<Dialogue "Emma" "Emma">>"I’m just glad we are done. And now I need to vent some of this stress in my own personal way. You can go back to the room. I’ll probably be late, but if you are tired, and I bet you are, get yourself some sleep, I’ll make sure not to bother you when I get back."<</Dialogue>><br><br>
+    And with that, she leaves without another word. You just want to hit your head against the monitor. But that isn’t really going to accomplish anything. And so you return to the lonely hotel room, where you just drop onto the bed and fall asleep almost immediately - only to have frustrating dreams about letting a bus full of people fall down a cliff while you watch, powerless to do anything.
+<<elseif $flag.COSTCUTSUCCESS>>
+    <<Dialogue "Emma" "Emma">>"Well, congratulations, miss <<print $playerLastName>>. We just accomplished the impossible. And now comes my favorite part - I’m going to vent all this stress by pumping some serious iron."<</Dialogue>><br><br>
+    You gulp loudly.<br><br>
+    <<Dialogue "Emma" "Emma">>"Care to join me?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"YES!!! Uh, I mean, I would love to, sure."<</Dialogue>><br><br>
+    Emma smirks, and motions with her head to get back to the room to change before going to the gym.<br><br>
+    As it turns out, while it is a somewhat modest gym in terms of equipment, <<if $skills[0].level > 3>>it’s more than enough for someone with your skill to get an incredible workout.<<else>>it’s more than enough for someone with Emma’s knowledge to get an amazing workout.<</if>> You get a chance to watch your boss and her ferocity while exercising. Having crossed the rubicon with her, you get a better understanding of where her motivation comes from - and how she got this ripped. There’s a savage built-up energy from work that she needs to exorcise, and somehow goes hand-in-hand with her tireless pursuit for excellence. You feel like you somehow understand Emma better than ever.<br><br>
+    <<if $muscle >= 45>>
+    <<Dialogue "Emma" "Emma">>"I don’t suppose I could bother you for a spot?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"It would be my pleasure!"<</Dialogue>><br><br>
+    You walk behind the bench, ready to hover your hands under the loaded barbell as Emma benches it - struggling at times, but with her impeccable form. You couldn’t ask for a better metaphor for the way she does everything in life, it would seem.
+    <<else>>
+    <<Dialogue "Emma" "Emma">>"Need a spot for that bench press?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"There’s no one I would trust more!"<</Dialogue>><br><br>
+    You feel slightly self-conscious about how much you load the bar, wondering if Emma will be disappointed at how much you are lifting. But no, she looks at you with a proud smile, and gives you the perfect motivation with every word. In fact, you ask her to load some extra weight between reps, which only makes her smile widen. You can’t help but feel like she brings out the best in you, like a catalyst.<br><br>
+    Like the perfect companion.<br><br>
+    <</if>> 
+    By the time you are done, you are both drenched in sweat, yet somehow feeling a lot lighter than when you started.<br><br>
+    <<Dialogue "player" "You">>"So THAT’S your secret!"<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"Excuse me?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"The office work. These things that you need to vent. They are like fuel for the gym."<</Dialogue>><br><br>
+    Emma laughs.<br><br>
+    <<Dialogue "Emma" "Emma">>"To be fair, even if it wasn’t the case, I’d probably be pushing just as hard. However, I’d be lying if I said I don’t imagine some people I want to crush while on the adductor machine."<</Dialogue>><br><br>
+    You both laugh as she tosses you a towel, and you head back to the room.<br><br>
+    <<Dialogue "Emma" "Emma">>"Do you want to have the shower first? I don’t mind going second, I could use a stretch."<</Dialogue>><br><br>
+    <<if $shyConfident > 1 || $submissiveDominant > 1>>
+    <<Dialogue "player" "You">>"Second? Why take turns? The shower is big enough for the two of us, surely."<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"I like the way you think!"<</Dialogue>><br><br>
+    <span id="choice">
+        <<link "Continue">>
+            <<replace "#choice">>
+                <<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>?... <<print $playerFirstName>>?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Sorry, I was daydreaming there for a second. Nah, you can go first, I need to, huh, cool off a bit. Actually, I will take you on that offer, let me go first."<</Dialogue>><br><br>
+                And so you take the bathroom, hurriedly locking the door, making sure the shower is on as loud as can get before you start masturbating furiously to the mental image of a very naked Emma, in her full muscular and domineering splendor.
+                <<else>>
+                <<Dialogue "player" "You">>"Don’t mind if I do!"<</Dialogue>><br><br>
+                You take a quick shower, and it’s hard not to think of Emma’s body. The image of her ripped body impossible to shake. You hesitate initially, but can’t avoid masturbating in the shower, slightly embarassed (but not at all regretful).
+                <</if>><br><br>
+                You come out, towel covering your <<if $muscle >70>>gigantic body, but failing miserably<<elseif $muscle >50>>ripped body, though just barely<<else>>body<</if>>. Emma is doing some impressive splits on the ground over her towel. She gets up with the surprising grace of a ballerina, before heading into the shower nonchalantly. You put your pajamas on and lay on the bed, eyes still wide, pondering how inappropriate it would be to masturbate again after seeing your boss like that. You shake the thoughts away, and turn around, hoping to fall asleep before you do something stupid.
+            <</replace>>
+        <</link>>
+    </span>
+<</if>>
+<<link "Continue" "emmaReportingHQPart4">><</link>>
+
+:: emmaReportingHQPart4 [nobr] {"position":"0,0","size":"100,100"}
+You wake up as the sun is still rising in the horizon, only to be surprised by the fact Emma is not in the room. However, there’s a note glued to the mirror.<br><br>
+<<Dialogue "Emma" "Emma">>"I went for a jog, figured you deserved some sleep. If you get up before 7:30, I’ll meet you downstairs for breakfast, I should be back by then."<</Dialogue>><br><br>
+Damn, Emma is a FUCKING MACHINE. You check the the clock - just past 6:30. You get dressed and head down to check the continental breakfast the hotel supplies as part of the package.<br><br>
+And lo and behold, there is Emma, in workout gear, having some coffee alone at one of the tables.<br><br>
+<<Dialogue "player" "You">>"Let me guess, you are a morning person."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Eh, those definitions are overrated. It’s less about the time you are the most active, and more about how to make the most of it."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I should have seen that one coming. So, do we need to go present our work at HQ today?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, God, no. Never have a meeting when an email will do, I always say. Besides, they are waiting for the other branches before we convene anyway, which means we have the rest of the day off until our flight back. How would you like to do some sightseeing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What happened to making most of your time?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I’d argue that’s exactly what we’d be doing - it’s not like there will be more work until then anyway, and we are here, might as well make the most of it, wouldn’t you agree?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Can’t argue with that!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I was going to suggest we hit the famous market by the pier. I mean, there’s also an aquarium nearby, but I figured you would enjoy that, unless you have other ideas?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Are you kidding me? If there’s one thing I learned is to let you lead, because you are like a friggin’ encyclopedia and always surprise me with the best stuff!"<</Dialogue>><br><br>
+Emma raises her clip-ons with that smug smile of hers.<br><br>
+<<Dialogue "Emma" "Emma">>"And you love it, I know."<</Dialogue>><br><br>
+And so the two of you get a bus to the market, which turns out to be just as worthy of all the fame it has - it’s this weirdly hipster-feeling farmer’s market, complete with crafts, gifts, but most importantly, some REALLY yummy looking restaurants. It’s kind of a perfect date for the two of you. Though, would Emma be okay for you to refer to it that way? Her original conversation about a professional relationship still echoes in your mind, and the last thing you want is to bookend this trip with some awkward conversation from your boss about fraternizing too much.<br><br>
+You are having a blast, also self-conscious regarding your concern, which makes you scale the casualness a bit. This does not go unnoticed by your keen-eyed boss.<br><br>
+<<Dialogue "Emma" "Emma">>"You can relax, <<print $playerFirstName>>. We earned this."<</Dialogue>><br><br>
+<<if $shyConfident > 1 || $submissiveDominant > 1>>
+As she says that, something clicks. And the words are out of your mouth before you even process them.<br><br>
+<<Dialogue "player" "You">>"Emma! Earlier, when we went out after work for the first time - you talked about boundaries. But... you are special to me. And I don’t want to let work get in the way of that. D-does that mean... I should quit? Or am I reading too much into this?"<</Dialogue>><br><br>
+Emma stops, mid-step, and turns to you, with a very serious face. You heart seems to skip a beat.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"So, uh, hypothetically speaking, I know that you take work and personal boundaries very seriously, so I wanted to know what you think about, erm, you know, if someone got close to their boss after working with her... them, working with them. You know, would it be weird, if they developed a friendship outside of the office? Without showing any favouritism, of course!!!"<</Dialogue>><br><br>
+Emma bursts out in laughter so suddenly she almost spits her tea.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"I guess I owe you an apology. Sometimes I put up more barriers than I should in the name of professionalism, for more reasons than I can count. I suppose I should be the one taking the advice about relaxing."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wait! Does that mean...?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Yes, <<print $playerFirstName>>, I consider you more than just my employee. But don’t get me wrong, I did not invite you because of that - I genuinely trusted you to be the most suitable person for this task. You might have noticed, but we are not exactly brimming with the best and the brightest back at the office..."<</Dialogue>><br><br>
+She gives you a side eye and says with the straightest face:<br><br>
+<<Dialogue "Emma" "Emma">>"And if you tell anyone I said that, you’ll be summarily let go."<</Dialogue>><br><br>
+You sincerely cannot tell if she’s joking or not, so for now you’ll just assume she isn’t.<br><br>
+<<Dialogue "Emma" "Emma">>"But I have to confess, as Friend Emma, not Boss Ms. Fray: it sure feels good not to have to carry all the burden alone."<</Dialogue>><br><br>
+She then proceeds to steal a bite of your pistachio icecream.<br><br>
+<<Dialogue "player" "You">>"HEY!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"You can direct your complaints to HR!"<</Dialogue>><br><br>
+She says, mid-laugh, lips smeared in the delicacy. You look at her, still a bit mad - that ice cream is REALLY GOOD! But her creamy lips just sorta jump out, and she freezes, tongue still partially out. Unconsciously, you start approaching her, your own mouth opening as you both get closer and closer...<br><br>
+<<Dialogue "randomPerson" "Random Guy">>"EXCUSE ME, COMING THROUGH!"<</Dialogue>><br><br>
+A guy carrying a large plastic tray filled with ice and fish comes bumping you apart, breaking the trance. Both of you continue on your way, in silence for a few minutes, avoiding direct eye contact. Emma occasionally points out one of the many fun places in the market, with some random curious tidbits. You just nod. The rest of the tour gets quite awkward, until Emma receives a message that they are convening again at HQ.<br><br>
+<<Dialogue "Emma" "Emma">>"I need to hurry back to the hotel, change, and go to that meeting. I’m guessing I’ll be back later at the hotel, do not wait for me to have lunch - there’s no lack of options here anyway. I can let you know when I’m done. Oh, and save the receipt, HQ will comp you for that, just don’t get anything alcoholic, OK?"<</Dialogue>><br><br>
+And before you can reply, she has skedaddled. It takes some of the ice cream melting over your hand for you to wake up. With a deep sigh, you look for a cool restaurant to drown your sorrow with some tasty food.<br><br>
+<<link "Continue" "emmaReportingHQPart4.1">><</link>>
+
+:: emmaReportingHQPart4.1 [nobr] {"position":"0,0","size":"100,100"}
+After getting the message that Emma is back, you make your way back to the hotel. As you enter the room, you are unsurprised to find Emma, again in workout gear, using resistance bands to accomplish some truly impressive bicep curls. You are so taken by her pumped muscles that you just stare without saying anything - it’s not that her arms are enormous, but you just have unexplainable respect for the grit and effort she seems to put, as if each fiber is a testament to how committed...<br><br>
+<<Dialogue "Emma" "Emma">>"Miss <<print $playerLastName>>? "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Sorry, I got distracted, I remembered something. Yeah. Sorry."<</Dialogue>><br><br>
+That smug smile. You want to rip it off her face with a kiss so deep her abs are going to grind all over your...<br><br>
+<<Dialogue "Emma" "Emma">>"Our flight boards in about 90 minutes. "<</Dialogue>><br><br>
+Emma explains as she puts the band away in her already-packed bag, a change of clothes set aside. She stretches her arm, putting those delectable ripped biceps and triceps on full display.<br><br>
+<<Dialogue "Emma" "Emma">>"I’ll take a quick shower and we can get a cab in 20 minutes, assuming you’ll be packed and ready to leave by then? "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"S-sure."<</Dialogue>><br><br>
+As you pack, hearing the sound of the shower, you use all your concentration not to picture a very naked Emma as you pack your bags. These might have, in fact, have been the fastest 48 hours of your entire life, despite the very long work afternoon yesterday.<br><br>
+But as Emma comes out, looking so incredibly presentable you’d think she’d just come out of her office, you toss your bag behind your shoulder and head to the elevator. You are grateful that the earlier awkwardness seems to have dissipated, at least.<br><br>
+You manage to get some small talk going on the way to the airport, but once Emma gets her ebook out, you kinda get the hint that maybe you should give her some space.<br><br>
+Once inside the plane, Emma just sort of naturally flows behind you in line, so when you get to your row, a quick glance is enough for you to take the window seat - which you do with a content smile. Still, once the plane starts accelerating for take off, you have to fight the urge to hold her hand. You just stare at her ereader with unbridled jealousy. Oh, well!<br><br>
+Despite the nice late afternoon flight having an even nicer sunsetting view, you are kind of just bored through the duration. You just lean your chin against your hand and watch the golden clouds below. Halfway through the flight, however, the cloud turn a lot darker as it passes over a pretty nasty storm. It’s a bit unnerving, but you can’t really tell the difference from this high up.<br><br>
+However, as the plane starts its descent as your destination approaches, things start getting A LOT shakier. The pilot mumbles something barely decipherable through the poor speakers, and you just sigh...<br><br>
+It’s not too bad, but you just can’t take your eyes away from the now wet window. It’s not super-scary, but certainly not nearly as smooth as the previous flight. You just want this to be over, leaning your forehead against the transparent pane with another wistful sigh...<br><br>
+... as you feel your other hand being squeezed firmly. You turn your face, just to see a winking Emma, with that incorrigible smug smile.<br><br>
+<<Dialogue "Emma" "Emma">>"I got you, babe."<</Dialogue>><br><br>
+Maybe you don’t want this to be over THAT bad.’
+<<link "Go home" "Home">><</link>>
