@@ -10282,7 +10282,7 @@ You find yourself hunching over, as she once again seems to be sizing you up.<br
 		name: 'NatVsKrisAtCoffeeCorner',
 		locationTags: ['outside'],
 		conditions: [
-            () => setup.hasEventBeenTriggered('NatDocumentaryFilmingCompetitorProfile2') /*FIXME need to merge 'NatDocumentaryFilmingCompetitorProfile' events into one*/,
+            () => setup.hasEventBeenTriggered('NatDocumentaryFilmingCompetitorProfile2'),
 		    () => State.variables.daysPlayed >= 34
 		],
 		repeatable: false,
