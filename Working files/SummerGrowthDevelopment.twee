@@ -11859,22 +11859,22 @@ That changes, however, once Johan puts his hand free hand in his pants pocket. Y
                 <<Dialogue "player" "You">>"Well, you’ve always treated ME right. It was great that you were so excited to share all your passion for your hobbies with me. It would mean the world if you would let me return the favor."<</Dialogue>><br><br>
                 <<Dialogue "JohanFancy" "Johan">>"Really? What are your hobbies?"<</Dialogue>><br><br>
                 He is genuinely curious. You didn’t quite think this through, though. What ARE your hobbies?
-                <<if $skills[1].level > 4>>
+                <<if $skills[1].level >= 4>>
                     You really have gotten into cooking lately, and you realize just how much you’ve been enjoying that.<br><br>
                     <<Dialogue "player" "You">>"Definitely my gift for the culinary arts. There’s nothing quite as satisfying as nailing a really hard dish, and having people appreciate that."<</Dialogue>><br><br>
-                <<elseif $skills[0].level > 4>>
+                <<elseif $skills[0].level >= 4>>
                     You really have gotten into working out lately, and you realize just how much you’ve been enjoying that.<br><br>
                     <<Dialogue "player" "You">>"Definitely my prowess at the gym. It’s exhilarating to be able to surpass your limits, and sometimes you just get in the zone when you are working out - and you can’t really deny the results on my body!"<</Dialogue>><br><br>
-                <<elseif $skills[3].level > 4>>
+                <<elseif $skills[3].level >= 4>>
                     You really have gotten into gaming lately, and you realize just how much you’ve been enjoying that.<br><br>
                     <<Dialogue "player" "You">>"For sure it’s playing videogames. I’ve been getting pretty competitive lately, and it’s like you start seeing beyond the matrix, like you lift the veil and somehow understand how everything clicks - and you just need to get online to see how good you’ve got, able to challenge the entire world from the comfort of your home!"<</Dialogue>><br><br>
-                <<elseif $skills[6].level > 4>>
+                <<elseif $skills[6].level >= 4>>
                     You really have gotten into sewing lately, and you realize just how much you’ve been enjoying that.<br><br>
                     <<Dialogue "player" "You">>"Sewing has been such an outlet for my creativity lately! It’s kind of crazy, just starting with some fabric and then you literally start making stuff that changes how a person looks. Their silhouette, playing with colors, working on little details, but still being mindful of practicality - it really is an amazing artform."<</Dialogue>><br><br>
-                <<elseif $skills[2].level > 4>>
+                <<elseif $skills[2].level >= 4>>
                     You really have gotten into business and administration lately, and you realize just how much you’ve been enjoying that. <br><br>
                     <<Dialogue "player" "You">>"It’s kinda weird, I never thought I’d be a career girl, but here I am, all invested into bookkeeping and organization. It’s, how do I even explain it? It’s zen, putting things in their place, bringing order to chaos."<</Dialogue>><br><br>
-                <<elseif $skills[5].level > 4>>You really have gotten into chemistry lately, and you realize just how much you’ve been enjoying that.<br><br>
+                <<elseif $skills[5].level >= 4>>You really have gotten into chemistry lately, and you realize just how much you’ve been enjoying that.<br><br>
                     <<Dialogue "player" "You">>"Chemistry just popped into my life all of a sudden, and now it’s like I’m this alchemic wizard, transforming one substance into another by studying how they react."<</Dialogue>><br><br> 
                 <<else>>
                     The more you think, the more you convince yourself you haven’t really followed anything you’ve done with the proper passion. It makes you anxious even thinking about it, and reminds you why you moved out of your parents’s house to go to college. You still need to find yourself, and it looks like you haven’t quite managed it yet.<br><br>
@@ -32078,7 +32078,7 @@ The waiter nods, and leaves a basket of breadsticks before leaving the table. Jo
 <<Dialogue "JohanFancy" "Johan">>"Thanks for the save. I think I get a bit of decision paralysis on situations like this."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"That is actually kind of adorable, but really, it’s just picking a meal. Anything catches your fancy?"<</Dialogue>><br><br>
 <<Dialogue "JohanFancy" "Johan">>"Well, I don’t really like fish, but I’m a really big fan of pasta..."<</Dialogue>><br><br>
-<<if $skills[1].level > 4>>
+<<if $skills[1].level >= 4>>
     <<Dialogue "player" "You">>"But what is it about fish you don’t like? I mean, there’s a lot of different kinds of fish dishes."<</Dialogue>><br><br>
     <<Dialogue "JohanFancy" "Johan">>"I dunno, it’s just that fishy taste that gets to me, my mom had a hard time trying to convince me to have fish sticks when I was a kid."<</Dialogue>><br><br> 
     <<Dialogue "player" "You">>"Weren’t you eating a tuna sandwich the other day?"<</Dialogue>><br><br>
@@ -33522,7 +33522,7 @@ She looks at you expectantly.<br><br>
 <<Dialogue "player" "You">>"Oh, you mean ME? I thought you had a plan already!"<</Dialogue>><br><br>
 <<Dialogue "Emma" "Emma">>"Maybe I do, maybe I don’t. However, I want to see your take first."<</Dialogue>><br><br>
 Way to put you under the spotlight, Emma! You take a deep breath, and look at the ominous white board.<br><br>
-<<if $skills[2].level > 4>>With determination, you quickly start drawing a simple chart.<br><br>
+<<if $skills[2].level >= 4>>With determination, you quickly start drawing a simple chart.<br><br>
 <<Dialogue "player" "You">>"Alright, our costs are already separate by category, we’ll split those between the two of us, and we’ll further classify them by importance - I’ll have the categories on a shared spreadsheet, where we can input the values and autosum here - I’ll program a routine so we’ll have a realtime percentage of our goal counting anything from the top two most disposable categories. We’ll keep payroll entirely separate, that way we can filter by how much we’ll have to sacrifice to meet the quota. Do you have any categories you’d rather do? I think I’d prefer the less vital stuff like office supplies, if you don’t mind."<</Dialogue>><br><br>
 Emma is playing it cool, just looking coldly at your little plan. You feel a drop of sweat coming down your forehead.<br><br>
 <<Dialogue "Emma" "Emma">>"Bra-vo, miss <<print $playerLastName>>. I have half a mind to leave you here and head to the hotel gym, I suspect you might actually do a better job than I would!"<</Dialogue>><br><br>
