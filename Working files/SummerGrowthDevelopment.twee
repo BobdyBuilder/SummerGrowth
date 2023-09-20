@@ -5476,7 +5476,7 @@ This determines the gender of the rival you will encounter.
 			  time: 60,
 			  happinessGain: -20, 
 			  minimumExhaustion: 10,
-			  description: "Eating a protein-rich diet will let you bulk up faster, but it's hard to maintain and pretty expansive."})>>
+			  description: "Eating a protein-rich diet will let you bulk up faster, but it's hard to maintain and pretty expensive."})>>
 			<<set $diets.push({ name: "Lean diet",
 			  level: 0,
 			  muscleGain: setup.balance.muscleAllowancePerDay * 0, 
@@ -9415,7 +9415,7 @@ This determines the gender of the rival you will encounter.
             BONK!<br><br>
             You hit a big, very sturdy obstacle and fall on your behind. Ow, ow, ow! Looking ahead, you see a fallen cardboard box with jump ropes, resistance bands, some plastic drink bottles, towels… all sorts of sporting goods. You look up, covering your eyes from the glare of the sun, but all you can see is a very large silhouette covering the light.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you alright?"<</Dialogue>><br><br>
-            Asks the voice, offering you a hand. You accept the help, and they pull you up like you weigh nothing. As you dust yourself, you look at the person who was unloading boxes and boxes of workout equipment from a moving truck.<br><br>
+            Asks the voice, offering you a hand. You accept the help, and they pull you up like you weigh nothing. As you dust yourself off, you look at the person who was unloading boxes and boxes of workout equipment from a moving truck.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Did you hurt yourself?"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"No… no, I'm fine… I'm just a bit clumsy at times, no worries."<</Dialogue>><br><br>
             You finally get a good look at the <<if $rivalGender === 'male'>>
@@ -9426,9 +9426,9 @@ This determines the gender of the rival you will encounter.
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Phew, I'm glad… sorry, I didn't realize I left so much stuff on the sidewalk. It was pretty irresponsible of me."<</Dialogue>><br><br>
             Indeed, there's A LOT of stuff, and it does seem to be predominantly sports-related - including a big box of trophies: swimming, martial arts, track and field…<br><br>
             <<Dialogue "player" "You">>"Oh… no, no, no… I'm the klutz. Hehe… Do you… do you want some help carrying the stuff up?"<</Dialogue>><br><br>
-            <<RivalI>> takes a good look at your rather petite frame, and you can't help feeling a bit judged. Not that <<rivalI>>'s wrong… <<rivalI>> looks like he could lift your entire bodyweight with one arm…<br><br>
+            <<RivalI>> takes a good look at your rather petite frame, and you can't help feeling a bit judged. Not that <<rivalI>>'s wrong… <<rivalI>> looks like <<rivalI>> could lift your entire bodyweight with one arm…<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"No worries, I can use the exercise."<</Dialogue>><br><br>
-            <<RivalI>> seems to look at your face quite a bit, like he also somehow recognizes you.<br><br>
+            <<RivalI>> seems to look at your face quite a bit, like <<rivalI>> also somehow recognizes you.<br><br>
             <<Dialogue "player" "You">>"Well, huh… I guess… I should be going then… sorry again!"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Again, no worries. Do watch where you step though..."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"You too! I mean… uh… good luck with your move!"<</Dialogue>><br><br>
@@ -9498,7 +9498,7 @@ This determines the gender of the rival you will encounter.
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Thanks for the lie. Yeah, I must look pretty boring… I am just focusing hard on the upcoming competition - I'm going to be in a documentary about bodybuilding competition that is coming up at the end of summer…"<</Dialogue>><br><br>
             <<RivalI>> certainly looks like <<rivalI>>'s been putting the work in… and nothing else. There's no TV, no speakers, no books…<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Other than that… been making some money on the side as a model… these supplements don't come cheap, you know?"<</Dialogue>><br><br>
-            Your eyes just sparkle… you kinda want to see <<rivalMy>> shirtless, get a better idea of whatever that tight shirt is hiding.<br><br>
+            Your eyes just sparkle… you kinda want to see <<rivalMe>> shirtless, get a better idea of whatever that tight shirt is hiding.<br><br>
             <<Dialogue "player" "You">>"Well, you are kind of a tough act to follow - so you basically excelled at a bunch of sports, you are a model and you are in a documentary about bodybuilding. Meanwhile I… basically was living with my parents, slacking a whole bunch, and just transferred here. I have a nice friend who is into modeling… the little metal figures he paints, that is."<</Dialogue>><br><br>
             Nat laughs. Man, you missed that laugh and didn't even realize.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, do you want to come to the meeting with the documentary crew? It's going to be in a couple of weeks, and I could use a wingwoman, it can get pretty boring with all the waiting…"<</Dialogue>><br><br>
@@ -20339,7 +20339,7 @@ Dialog.open();
 :: JohanDate1.2 {"position":"550,2475","size":"100,100"}
 <<set $johanFirstDateSuccess to 0>>Johan excitedly returns to his seat opposite you, looking from behind what you can only describe as a tiny cardboard wall sitting on his table and covering his mysterious ream of unknown documents. He mutters to himself, and seems to be thinking very hard. You set your little figurine in place on one of the little hexagons on the mat in front of you as Johan springs up excitedly.
 
-<<Dialogue "Johan" "Johan">>"Okay! So... As we begin our story, you have already been travelling for weeks. You've been following rumors of a magical <<if $dndCharacter.class is "paladin" || $dndCharacter.class is "barbarian">>hammer<<elseif $dndCharacter.class is "cleric" || $dndCharacter.class is "wizard">>staff<<elseif $dndCharacter.class is "warlock" || $dndCharacter.class is "rogue">>amulet<</if>> that is supposed to contain untold power! The sort of thing that could decide the fate of the world! And at last, you're so close! You should be able to reach it today, but... alas! Your map says there should be a bridge here, but nothing! Just a ravine, at least <<if $measurementSystem == 'metric'>>four meters<<else>>a dozen feet<</if>>across! You look left and right, but this bridge is nowhere in sight. You could go looking for another way to cross, but who knows long that would take? Now, this is a predicament... How will you solve this problem?"<</Dialogue>>
+<<Dialogue "Johan" "Johan">>"Okay! So... As we begin our story, you have already been travelling for weeks. You've been following rumors of a magical <<if $dndCharacter.class is "paladin" || $dndCharacter.class is "barbarian">>hammer<<elseif $dndCharacter.class is "cleric" || $dndCharacter.class is "wizard">>staff<<elseif $dndCharacter.class is "warlock" || $dndCharacter.class is "rogue">>amulet<</if>> that is supposed to contain untold power! The sort of thing that could decide the fate of the world! And at last, you're so close! You should be able to reach it today, but... alas! Your map says there should be a bridge here, but nothing! Just a ravine, at least <<if $measurementSystem == 'metric'>>four meters<<else>>a dozen feet<</if>> across! You look left and right, but this bridge is nowhere in sight. You could go looking for another way to cross, but who knows long that would take? Now, this is a predicament... How will you solve this problem?"<</Dialogue>>
 
 He grins ear to ear, and looks at you expectantly.
 
