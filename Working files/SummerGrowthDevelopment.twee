@@ -12636,6 +12636,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $johanLastBreasts to $breasts>>
 <<set $johanLastDick to $dick>>
 <<set $johanLastHeight to $height>>
+<<set $johanLastTougue to $tongue>>
 <<set $johanAmountVisited to 0>>
 <<set $johanOpinion to 10>>
 
@@ -12645,6 +12646,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $emmaLastBreasts to $breasts>>
 <<set $emmaLastDick to $dick>>
 <<set $emmaLastHeight to $height>>
+<<set $emmaLastTougue to $tongue>>
 <<set $emmaAmountVisited to 0>>
 <<set $emmaOpinion to 0>>
 <<set $emmaFirstDateTime = new Date('June 1, 2020 13:37:00')>>
@@ -12655,6 +12657,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $elenaLastBreasts to $breasts>>
 <<set $elenaLastDick to $dick>>
 <<set $elenaLastHeight to $height>>
+<<set $elenaLastTougue to $tongue>>
 <<set $elenaAmountVisited to 0>>
 <<set $elenaOpinion to 0>>
 
@@ -12664,6 +12667,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $elenaShyLastBreasts to $breasts>>
 <<set $elenaShyLastDick to $dick>>
 <<set $elenaShyLastHeight to $height>>
+<<set $elenaLastTougue to $tongue>>
 <<set $elenaShyAmountVisited to 0>>
 <<set $elenaShyOpinion to 0>>
 <<set $elenaUnlocked to false>>
@@ -12674,6 +12678,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $krisLastBreasts to $breasts>>
 <<set $krisLastDick to $dick>>
 <<set $krisLastHeight to $height>>
+<<set $krisLastTougue to $tongue>>
 <<set $krisOpinion to 0>>
 <<set $krisAmountVisited to 0>>
 
@@ -12683,6 +12688,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $krisObsessedLastBreasts to $breasts>>
 <<set $krisObsessedLastDick to $dick>>
 <<set $krisObsessedLastHeight to $height>>
+<<set $krisLastTougue to $tongue>>
 <<set $krisObsessedOpinion to 0>>
 <<set $krisObsessedAmountVisited to 0>>
 
@@ -12701,6 +12707,7 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set $natLastBreasts to $breasts>>
 <<set $natLastDick to $dick>>
 <<set $natLastHeight to $height>>
+<<set $natLastTougue to $tongue>>
 <<set $natAmountVisited to 0>>
 <<set $natOpinion to 0>>
 
@@ -12727,8 +12734,10 @@ console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed
 <<set _heightName to "$" + _name + "LastHeight">>
 <<run State.setVar(_heightName, $height)>>
 
+<<run State.setVar("$" + _name + "LastTongue", $tongue)>>
+
 <<set _amountVisitedName to "$" + _name + "AmountVisited">>
-<<set _newAmount to State.getVar(_heightName) + 1>>
+<<set _newAmount to State.getVar(_amountVisitedName) + 1>>
 <<run State.setVar(_amountVisitedName, _newAmount)>>
 <</widget>>
 
