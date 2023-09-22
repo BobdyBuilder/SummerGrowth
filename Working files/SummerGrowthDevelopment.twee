@@ -10479,7 +10479,37 @@ You point your index fingers at her and just blurt out:<br><br>
 		retriggerable: false,
 		priority: 'immediate',
         npc: ['nat'],
-		content: `FIXME This is a placeholder. Waiting for the story.`
+		content: `It's been a few days since the incident with Nat at the Coffee Corner. It still lingers in your mind, but you want to help, and the conversation about being <<rivalMy>> workout partner was left unfinished. No matter what <<rivalI>> did, you believe you can still help a friend in need - so you give Nat a call.<br><br>
+<<Dialogue "player" "You">>"Hey, Nat… how is it going?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, hey, <<print $playerFirstName>>Uhh… what's up?"<</Dialogue>><br><br>
+I guess we'll just plow through the awkwardness of the last incident… let's go!<br><br>
+<<Dialogue "player" "You">>"So, I don't know if you remember… I mentioned something about seeing if you could use a training partner?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Ah, yeah! I suppose I have been sort of just closing myself off lately in my regimen - that much is true."<</Dialogue>><br><br>
+<<if $skills[0].level > 3>>
+<<Dialogue "player" "You">>"You would not believe how much a girl can learn about fitness online - I've been sorta dabbling on the whole exercise thing, and I kinda know my way around weights… so maybe I could spend some time with you at the gym? You know, spot you, have some friendly challenges, just be there for idle banter? I dunno, I just thought…"<</Dialogue>><br><br>
+<<elseif $muscle >= 40>>
+<<Dialogue "player" "You">>"You probably noticed, but I've been putting some meat on these bones lately, and I mostly work out by myself, so I thought - hey! Maybe I could have Nat as a partner, we could both help and support… maybe even challenge each other a bit? I dunno, the motivation might be good for the two of us, and I wouldn't mind spending some time with an old friend."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"So… I may not be quite on your level, but even if I'm only there for moral support, I feel like maybe… you know… you could use someone on your corner. See me as a cheerleader, how about that?"<</Dialogue>><br><br>
+<</if>>
+There's a second of silence on the line.<br><br>
+<<if $muscle >= 55>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"I don't know. I'm very particular about my workout habits, it could be that I just end up not being able to get in the zone with you around."<</Dialogue>><br><br>
+<<if $shyConfident > 0>>
+<<Dialogue "player" "You">>"You don't need to worry about that! I can just watch and cheer, or bring you protein shakes and take note of your measurements, but I can also be a shoulder for you to lean on when it gets frustrating… I'm very versatile! And it would be a pleasure to spend more time with you, Nat."<</Dialogue>><br><br>
+That's just an offer <<rivalI>> cannot refuse - even if there was a hint of emotional blackmail there.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"Oh, no need to worry about me getting in the way, I'll just be in my corner, doing my stuff… but I'll be available if you need me. And if you just happen to need a friendly shoulder to lean on… I'll be there. That's what friends are for."<</Dialogue>><br><br>
+Instead of laying it thick, you just go easy. There's no way <<rivalI>>'ll refuse that.<br><br>
+<</if>>
+<<else>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Maybe you are right. Maybe a workout companion might just be what I need. It could be that I just tend to get too introverted while I train and all I need is someone to be my escape vent. And I couldn't ask for anyone who knows me better than you."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah! I'll even bring some pompoms for the cheerleading!"<</Dialogue>><br><br>
+You say jokingly, but you totally see yourself doing that.<br><br>
+<</if>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You win, <<print $playerFirstName>>. I'll drop a line, and you can come train with me. Just be aware: I go at it HARD. And my trainer taught me not to put up with any whining… so… just be aware, I won't be mollycoddling anyone."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"No worries, you can leave all cheering and mollycoddling to me!"<</Dialogue>><br><br>
+You both give a good laugh. That's more in line with the kind of talk you used to have with Nat. You are looking forward to seeing <<rivalMe>> at the gym sometime soon.`
 	},
     {
 		name: 'NatWristInjury',
