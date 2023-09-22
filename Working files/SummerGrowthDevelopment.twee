@@ -15059,6 +15059,20 @@ You blink, incredulously. Is this the same Emma that you are used to? For most p
     priority: 'immediate',
     npc: ['elena'],
     content: `<<goto "elenaGymIntimacy">>`
+}, {
+    name: 'elenaGymIntimacyAfterEffects',
+    locationTags: ['elena'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("elenaGymIntimacy")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `As you complete a set of side raises, your eye catches Elena on the corner on the leg press - but someone is approaching her! You rush through your set, putting the dumbbells down in a hurry as you try to get there to deescalate. The guy is poking her on the shoulder, probably asking to alternate sets with her. Oh, no!<br><br>
+But then, the unexpected happens. Elena turns her head, surprised, and smiles at the guy. You stop, dead in your tracks, as they exchange some words. She finishes her set, gets up, and helps the guy remove some plates from the machine! At this point you can barely believe what you see. She stands idly, taking a drink from her water bottle, and... NO WAY! Is she giving the guy a pointer on his form?!? SOMEONE PINCH ME, this has to be a dream!<br><br>
+You stand still, frozen, as you watch her idly wait for her next turn, as she sees you, looking slack-jawed and frozen, giving you a small, discreet wave. Holy shit. The girl really is making some progress, and you are not talking about her lifts.<br><br>
+The guy finishes his set, and taps the distracted Elena on the shoulder. She nods at him once more, and reloads her plates before sitting down on the leg press. Wow. Your little girl (well, sorta) is growing up, and you feel all fuzzy inside. You head back to your own routine, hopeful that maybe Elena will start breaking out of her shell soon enough.`
 })>>
 
 
