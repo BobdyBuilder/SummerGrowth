@@ -10546,6 +10546,19 @@ You change into your leotard, and meet Nat, eager to see what <<rivalI>> has in 
 <<else>>
     <<link "continue" "NatWristInjury-NatShowOff">><</link>>
 <</if>>`
+	},
+    {
+		name: 'NatOnLocalTv',
+		locationTags: ['outside'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('NatWristInjury'),
+		    () => State.variables.daysPlayed >= 46
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `<<goto "NatOnLocalTv">>`
 	}
 )>>
 
@@ -34090,3 +34103,157 @@ She laughs, covering her mouth, and it’s sort of unbelievable that someone so 
 		<</replace>>
 	<</link>>
 </span>
+
+:: NatOnLocalTv [nobr] {"position":"0,0","size":"100,100"}
+You get a call from Nat's agent - the TV station is running a piece on the bodybuilding competitors, and they asked some participants to come over, including Nat. You've never been to a TV station before, and it seems like it could be fun - so you dress up and leave to check on your friend.<br><br>
+The town's TV station isn't particularly big, but you are still awed with the cleanliness of the complex, housed within an 8-story building downtown. Nat's agent left you with the name of the show's producer, and you make your way to the opulent reception desk.<br><br>
+<<if $muscle >=50>>The secretary takes a look at your rather difficult to disguise build and immediately tells you that they are taping the bodybuilding segment on the 4th floor studio. 
+<<else>>
+You explain to the secretary that you came for the taping of the bodybuilding segment, and that you are coming to watch Nat's participation. 
+<</if>> 
+After getting your name, she gives you a keycard and a printed nametag, along with explanations on how to get to the studio. This is weirdly exciting, you think as you pass by several people you see on TV as you make your way to the studio.<br><br>
+Once you arrive at the 4th floor, a small woman with thick glasses and a clipboard rushes to you, giving a weird air of hurry that apparently is just part of live television routine. 
+<<if $muscle >=50>>
+Without asking any questions, she drags you to make-up, before you get a chance to explain you are not there to participate. In a flash, they do your hair and make-up while you try, quite unsuccessfully, to resolve this confusion. They also change your wardrobe, giving you a bikini and another set of clothes to put over it - despite all your objections. You are then dragged to the rather tiny but exceptionally well furnished green room.
+<<else>>
+You explain that you came to watch the taping of one of the participants, Nat, and were told to seek the producer. She quips some snarky lines that you can barely decipher before dragging you to the rather tiny but exceptionally well furnished green room.
+<</if>>
+<br><br>
+There, you see Nat and the agent, among a few other bodybuilders. You assume from the selection that they must have called some of the biggest ones that are signed up on the documentary.<br><br>
+<<Dialogue "player" "You">>"Hey, Nat! This television business is CUH-RAZY! I bet you are used to it, though, eh?"<</Dialogue>><br><br>
+<<if $flag.NatWristInjuryRoute === 'comp'>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh. Who called you here?"<</Dialogue>><br><br>
+<<RivalI>> asks, quite coldly. The agent immediately picks up on that, and very awkwardly explains that she figured a friendly face would be nice. <<RivalI>> scoffs at the word “friendly”, and turns around on <<rivalMy>> seat, arms crossed. I guess <<RivalI>>'s still mad at what happened at the gym the other day…<br><br>
+You decide to give <<rivalMe>> some space and go check the buffet - wow! They don't skimp on the food! There's a large table with all kinds of food and drink, and you try to decide which of the many options calls your name.<br><br>
+<<else>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, nice to see you! How did you find out about this?"<</Dialogue>><br><br>
+Nat's agent snickers, and the three of you laugh. Your friend apologizes for not giving you more of a heads-up, but apparently the whole thing was quite sudden. You explain that you could get used to this VIP treatment, and Nat suggests you go check out the buffet, which you do. wow! They don't skimp on the food! There's a large table with all kinds of food and drink, and you try to decide which of the many options calls your name.<br><br>
+<</if>>
+As you peruse the many foodstuffs, the woman with the clipboard runs in, and starts rounding up all participants… 
+<<if $muscle >=40>>
+    <<link "You are escorted onstage" "NatOnLocalTv-onStage">><</link>>
+<<else>>
+    <<link "You are escorted audience" "NatOnLocalTv-onStage">><</link>>
+<</if>>
+
+:: NatOnLocalTv-onStage [nobr] {"position":"0,0","size":"100,100"}
+You are escorted onstage and you are quite shocked as she just bundles you with the rest of the group, and you find yourself being escorted along everyone else to the doors that lead to the live stage!<br><br>
+You find yourself in a large room, slightly blinded by the several lights above, and as your eyes adjust, you see a numerous audience beyond the cameras, and the show host invites all of you to stand in the center of the area, in front of a big display about the bodybuilding contest. You notice everyone else looking super-serious and professional, but you are still quite dazzled by the entire ordeal, a mix of excitement and fear.<br><br>
+The host starts firing questions to this panel of muscular specimens, like what made them decide to go into bodybuilding, what their training is like, what is the day-to-day life of a competitor… until <<rivalI>> turns specifically to Nat, mentioning that <<rivalI>> is also a model, and what it's like balancing these two careers.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"It is actually quite tricky, you see. Not only do both require a lot of time, effort and dedication, but there are some different aesthetic expectations from each field. Like everything in life, it takes balance - but it's a challenge I find quite fascinating."<</Dialogue>><br><br>
+You had forgotten how charismatic and well-spoken Nat is. <<RivalI>> is quite at home here as <<rivalI>> was modeling, and you can see the audience react accordingly.<br><br>
+<<if $muscle >=50>>
+The host then seems to target you, specifically. Uh oh!<br><br>
+<<RivalI>> notices your considerable size, pointing out that your mass puts even some of the male competitors to shame - and how long did it take for you to accomplish such a feat… and how hard it was.<br><br>
+<<if $shyConfident > 1>>
+<<Dialogue "player" "You">>"You know, I COULD tell you, but then I'd have to pop your skull with my thighs - it's a bit of a secret, you see? And I don't think that display would make for good daytime television…"<</Dialogue>><br><br>
+    The crowd goes wild with your answer, laughing and clapping, as one member of the audience shouts “I'D ACTUALLY LIKE TO SEE YOU DO THAT!”, which elicits another uproar from the crowd. Nat is visibly bothered by your clowning, which robbed <<rivalMe>> of all <<rivalMy>> previous thunder.<br><br>
+<<elseif $shyConfident > -1>>
+<<Dialogue "player" "You">>"Uh… I don't think you'd believe if I told you."<</Dialogue>><br><br>
+    The host jokes that <<rivalI>> doesn't even believe that you are that big to begin with, and laughs, which makes the audience react alongside. Nat doesn't much care that you derailed <<rivalMy>> little spotlight.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"Errr… ummmmm, yeah… like… some weeks ago..."<</Dialogue>><br><br>
+The host interrupts your stammering blunder, joking that sometimes even all the muscle in the world won't give a person confidence. The audience laughs at your failed attempt, and Nat laughs along with them, making you feel even more embarrassed.
+<</if>>
+The host then posits an open question to everyone: “what is it that you like best about being so muscular? And what bothers you the most?” <<RivalI>> looks at the participants, expecting an answer…
+<<if $shyConfident > 2>>
+You jump at the opportunity, beating Nat who was also trying to reach for the microphone:<br><br>
+<<Dialogue "player" "You">>"Oh, I have to say, by far, is having people looking at you and just respecting you right away - you would not believe what a small girl has to go through in life..."<</Dialogue>><br><br>
+“Not that you would know!”, jokes the host. The audience laughs.<br><br>
+<<Dialogue "player" "You">>"And the worst… well, you should see me doing groceries and cooking - it gets REALLY expensive! And don't get me started on shopping for clothes!"<</Dialogue>><br><br>
+    You roll your eyes for effect, and point comically at your shoulders, and the crowd LOSES IT, going completely crazy with laughter and applause. Nat just simmers in anger at <<rivalMy>> lost opportunity.
+<<else>>
+Nat quickly jumps at the opportunity, grabbing the microphone:<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"This is very personal to me, but I had to struggle with a lot of personal issues growing up, and it was in sports that I found my passion. Much like my training in martial arts, bodybuilding not only gives me purpose, but it serves as an almost zen-like ritual for me to find my center."<</Dialogue>><br><br>
+    The crowd goes “Ooooooh!”, sounding impressed with <<rivalMy>> deep answer, and the host nods. Quickly, the answer continues:<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"As for the worst - not unlike being a model, you'd be surprised at how quick people are to judge you based on looks and your profession. While it might sound like entitlement to complain about that when you look like THIS, the truth is, not only some people can be mean out of jealousy, but they also assume a lot based on prejudice."<</Dialogue>><br><br>
+Apparently Nat is a professional in the fine art of humble-bragging. Still, not the worst answer.<br><br>
+<</if>>
+And then the host starts pumping out the crowd for the big event… who do they want to see posing their bodies? Apparently, the audience gets to pick with their applause. The first round is quick to weed out everyone but you and Nat…<br><br>
+<<if $muscle >=50>>
+    <<RivalI>> puts you two side by side, and it's clear that your silhouette stands out more than <<rivalMy>>, quickly settling the issue as almost the entire studio starts cheering for you. Nat is not happy with this outcome. <<if $flag.NatWristInjuryRoute === 'comp'>><<RivalI>> storms off the stage, and you feel a bit bad, but also bothered by <<rivalMy>> attitude.<</if>> And thus the velcro clothes that you were given by wardrobe finally make sense, as the hosts RIPS THE OUTFIT OFF your body, leaving you in the bikini they supplied you!<br><br>
+    <<if $shyConfident > 1 || $skills[4].level > 2>>
+        Being egged by the audience, you start giving them a small show of your physique, going over all the poses you've learned so far - you start with a playful most muscular, followed by a side chest, and topped off with a double-biceps, each garnering louder and louder applause as you proceed. Your chest fills with pride as you see all kinds of people truly in awe of your enormous muscles, and it brings some much-needed confirmation that you are not seen as just a freak. You smile with delight at that realization.<br><br>
+    <<else>>
+        <<Dialogue "player" "You">>"EEP!"<</Dialogue>><br><br>
+        You cover your breasts and crotch, not really expecting to be showcased in skimpy swimwear on live television! But a little girl in the audience starts cheering on you… and you feel something warm building up inside of you, a realization that you are not some kind of sideshow freak… but someone that people might actually admire.<br><br>
+        You tentatively raise an arm for a biceps flex, and the crowd starts clapping once more. A smile grows on your face as you put your leg forward and show your quads - more applause. Then you put your arms behind your head and showcase your abs - quite a few people start wolf-whistling in the audience. Before you know it, you are just running through the poses you know, and a sense of accomplishment and confidence washes over you.
+    <</if>>
+<<else>>
+    <<RivalI>> puts you two side by side, and Nat is quick to gather the support of the audience. You bow down, and leave the center of the stage, letting <<rivalMe>> bask in the glory <<rivalI>> deserves for <<rivalMy>> amazing body. Nat proceeds to show superb bodybuilding posing skills as <<rivalI>> starts a veritable parade of demonstrations - you weren't even aware there were so many poses!<br><br>
+    It's no wonder <<rivalI>> stands out - I mean, <<rivalMy>> body is pretty much awesome… but <<rivalI>> has this charm and presence that are hard to quantify, on top of the amazing aesthetics that compliment <<rivalMy>> muscularity so well. You find yourself quietly cheering for <<rivalMe>>.
+<</if>>
+All participants are then directed back to the green room, where you join all of them.
+
+<<else>>
+    You are escorted to the audience as the bodybuilders are led onstage, she informs them that their respective companions may now go to the first row of assigned seats in the audience - and Nat's agent tells you to go, and she'll watch from the monitor on the green room, since she needs to keep her phone on for other clients. You thank her, and follow the entourage of rather muscular people through the door.<br><br>
+    The stage area is weird - it feels both big and cramped, and you are downright surprised with the numerous seats for the audience. You find your way to the front row with other guests, as you watch the host approach the gaggle of bodybuilders that now adorn the space.<br><br>
+    The host starts firing questions to this panel of muscular specimens, like what made them decide to go into bodybuilding, what their training is like, what is the day-to-day life of a competitor… until <<rivalI>> turns especifically to Nat, mentioning that <<rivalI>> is also a model, and what it's like balancing these two careers.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"It is actually quite tricky, you see. Not only do both require a lot of time, effort and dedication, but there are some different aesthetic expectations from each field. Like everything in life, it takes balance - but it's a challenge I find quite fascinating."<</Dialogue>><br><br>
+    You had forgotten how charismatic and well-spoken Nat is. <<RivalI>> is quite at home here as <<rivalI>> was modeling, and you can see the audience react accordingly.<br><br>
+    The host then posits an open question to everyone: “what is it that you like best about being so muscular? And what bothers you the most?” <<RivalI>> looks at the participants, expecting an answer…
+    Nat, once again, quickly jumps at the opportunity, grabbing the microphone:<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"This is very personal to me, but I had to struggle with a lot of personal issues growing up, and it was in sports that I found my passion. Much like my training in martial arts, bodybuilding not only gives me purpose, but it serves as an almost zen-like ritual for me to find my center."<</Dialogue>><br><br>
+    The crowd goes “Ooooooh!”, sounding impressed with <<rivalMy>> deep answer, and the host nods. Quickly, the answer continues:<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"As for the worst - not unlike being a model, you'd be surprised at how quick people are to judge you based on looks and your profession. While it might sound like entitlement to complain about that when you look like THIS, the truth is, not only some people can be mean out of jealousy, but they also assume a lot based on prejudice."<</Dialogue>><br><br>
+    Apparently Nat is a professional in the fine art of humble-bragging. Still, not the worst answer.<br><br>
+    And then the host starts pumping out the crowd for the big event… who do they want to see posing their bodies? Apparently, the audience gets to pick with their applause. It is quickly obvious that there is no competition - Nat is the obvious choice, not only for <<rivalMy>> mass, but also <<rivalMy>> charm and beauty.<br><br>
+    Nat proceeds to show superb bodybuilding posing skills as <<rivalI>> starts a veritable parade of demonstrations - you weren't even aware there were so many poses!<br><br>
+    It's no wonder <<rivalI>> stands out - I mean, <<rivalMy>> body is pretty much awesome… but <<rivalI>> has this charm and presence that are hard to quantify, on top of the amazing aesthetics that compliment <<rivalMy>> muscularity so well. You find yourself quietly cheering for <<rivalMe>>.<br><br>
+    At this point, all participants and guests are directed back to the green room, where you join all of them.
+    <<if $flag.NatWristInjuryRoute === 'comp'>>
+        <<link "Continue" "NatOnLocalTv-compEnding">><</link>>
+    <<else>>
+        <<link "Continue" "NatOnLocalTv-coopEnding">><</link>>
+    <</if>>
+<</if>>
+
+:: NatOnLocalTv-audience [nobr] {"position":"0,0","size":"100,100"}
+as the bodybuilders are led onstage, she informs them that their respective companions may now go to the first row of assigned seats in the audience - and Nat's agent tells you to go, and she'll watch from the monitor on the green room, since she needs to keep her phone on for other clients. You thank her, and follow the entourage of rather muscular people through the door.<br><br>
+The stage area is weird - it feels both big and cramped, and you are downright surprised with the numerous seats for the audience. You find your way to the front row with other guests, as you watch the host approach the gaggle of bodybuilders that now adorn the space.<br><br>
+The host starts firing questions to this panel of muscular specimens, like what made them decide to go into bodybuilding, what their training is like, what is the day-to-day life of a competitor… until <<rivalI>> turns especifically to Nat, mentioning that <<rivalI>> is also a model, and what it's like balancing these two careers.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"It is actually quite tricky, you see. Not only do both require a lot of time, effort and dedication, but there are some different aesthetic expectations from each field. Like everything in life, it takes balance - but it's a challenge I find quite fascinating."<</Dialogue>><br><br>
+You had forgotten how charismatic and well-spoken Nat is. <<RivalI>> is quite at home here as <<rivalI>> was modeling, and you can see the audience react accordingly.<br><br>
+The host then posits an open question to everyone: “what is it that you like best about being so muscular? And what bothers you the most?” <<RivalI>> looks at the participants, expecting an answer…
+Nat, once again, quickly jumps at the opportunity, grabbing the microphone:<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"This is very personal to me, but I had to struggle with a lot of personal issues growing up, and it was in sports that I found my passion. Much like my training in martial arts, bodybuilding not only gives me purpose, but it serves as an almost zen-like ritual for me to find my center."<</Dialogue>><br><br>
+The crowd goes “Ooooooh!”, sounding impressed with <<rivalMy>> deep answer, and the host nods. Quickly, the answer continues:<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"As for the worst - not unlike being a model, you'd be surprised at how quick people are to judge you based on looks and your profession. While it might sound like entitlement to complain about that when you look like THIS, the truth is, not only some people can be mean out of jealousy, but they also assume a lot based on prejudice."<</Dialogue>><br><br>
+Apparently Nat is a professional in the fine art of humble-bragging. Still, not the worst answer.<br><br>
+And then the host starts pumping out the crowd for the big event… who do they want to see posing their bodies? Apparently, the audience gets to pick with their applause. It is quickly obvious that there is no competition - Nat is the obvious choice, not only for <<rivalMy>> mass, but also <<rivalMy>> charm and beauty.<br><br>
+Nat proceeds to show superb bodybuilding posing skills as <<rivalI>> starts a veritable parade of demonstrations - you weren't even aware there were so many poses!<br><br>
+It's no wonder <<rivalI>> stands out - I mean, <<rivalMy>> body is pretty much awesome… but <<rivalI>> has this charm and presence that are hard to quantify, on top of the amazing aesthetics that compliment <<rivalMy>> muscularity so well. You find yourself quietly cheering for <<rivalMe>>.<br><br>
+At this point, all participants and guests are directed back to the green room, where you join all of them.
+<<if $flag.NatWristInjuryRoute === 'comp'>>
+    <<link "Continue" "NatOnLocalTv-compEnding">><</link>>
+<<else>>
+    <<link "Continue" "NatOnLocalTv-coopEnding">><</link>>
+<</if>>
+
+:: NatOnLocalTv-compEnding [nobr] {"position":"0,0","size":"100,100"}
+You look for Nat, but can only see <<rivalMy>> agent speaking nervously on the phone. You look at her, confused, as she mutes her mic and you just hear Nat shouting frustratedly over the speaker.<br><br>
+She explains that <<rivalI>> didn't take the whole situation very well, having to share the stage with other people instead of having the spotlight only for <<rivalMe>>. You shrug, but deep inside, you are getting more and more worried with what <<rivalMy>> ego is doing to <<rivalMe>>. This cannot end well…<br><br>
+You change back into your street clothes and return home.
+<<link "Go home" "Home">><</link>>
+
+
+:: NatOnLocalTv-coopEnding [nobr] {"position":"0,0","size":"100,100"}
+You find Nat back there, being congratulated by <<rivalMy>> agent. You also come in for a big hug.
+<<if $muscle >=50>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Damn, girl! You just had to come in out of nowhere and steal my thunder, huh?"<</Dialogue>><br><br>
+    <<RivalI>> says with snark but good humor. You blush and apologize, but add:<br><br>
+    <<Dialogue "player" "You">>"Well, not my fault if you bring water pistols to the BAZOOKA SHOW!"<</Dialogue>><br><br>
+    Which you punctuate by giving another biceps flex. The three of you laugh.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"You're going to be the death of me someday, <<print $playerFirstName>>..."<</Dialogue>><br><br>
+<<else>>
+    <<Dialogue "player" "You">>"Nat, I gotta say, you have this bodybuilding competition in your pocket! I can't imagine anyone else beating you!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I wish you were right… I do have some advantages, but even there - some guys had more mass than me, didn't you notice? And I believe there were some even bigger ones who didn't make it today."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Still! I believe in you, and I'm sure you are gonna get EVEN HUGERER by then!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"That's not even a real word."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"HUGERERERER!"<</Dialogue>><br><br>
+    You spout comically as you open your arms wide, and everyone laughs again.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"What am I gonna do with you… though, I will say, with your support, I really feel like I will get hugerer… damn, now you got me speaking nonsense!"<</Dialogue>><br><br>
+<</if>>
+Nat's agent reminds <<rivalMe>> of another commitment, and they say their goodbyes and leave.<br><br>
+You change back into your street clothes and return home.
+<<link "Go home" "Home">><</link>>
