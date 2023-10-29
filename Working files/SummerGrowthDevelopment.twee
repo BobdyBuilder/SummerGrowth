@@ -15435,6 +15435,29 @@ And with that, you take your leave, and return home, hoping NOT to see her at wo
 But then, the unexpected happens. Elena turns her head, surprised, and smiles at the guy. You stop, dead in your tracks, as they exchange some words. She finishes her set, gets up, and helps the guy remove some plates from the machine! At this point you can barely believe what you see. She stands idly, taking a drink from her water bottle, and... NO WAY! Is she giving the guy a pointer on his form?!? SOMEONE PINCH ME, this has to be a dream!<br><br>
 You stand still, frozen, as you watch her idly wait for her next turn, as she sees you, looking slack-jawed and frozen, giving you a small, discreet wave. Holy shit. The girl really is making some progress, and you are not talking about her lifts.<br><br>
 The guy finishes his set, and taps the distracted Elena on the shoulder. She nods at him once more, and reloads her plates before sitting down on the leg press. Wow. Your little girl (well, sorta) is growing up, and you feel all fuzzy inside. You head back to your own routine, hopeful that maybe Elena will start breaking out of her shell soon enough.`
+}, {
+    name: 'elenaGardenDate1',
+    locationTags: ['postSleep', 'outside', 'home', 'gym', 'secondHandStore', 'elena'],
+    conditions: [
+        () => State.variables.gameDate >= State.variables.flag.elenaGardenDatetime
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `<<goto "elenaGardenDate1">>`
+}, {
+    name: 'elenaOrchid',
+    locationTags: ['elena'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("elenaGardenDate1")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `As you head down the corridor, a notice on the board catches your attention: it seems like the town natural history museum is closing down one of their exhibits and are seeking help... oh! This is neat! You write down the information, and start plotting a little surprise for your oversized anthophile friend. Hehehe! Yes, this will be great!<br><br>
+You should be able to go pick it up in a couple days, and you can message Elena then and go bring her the surprise.`
 })>>
 
 
@@ -22934,6 +22957,17 @@ This block can be easily cut and pasted to other places. Also, maybe make to a m
     priority: 'immediate',
     npc: [],
     content: 'You wake up to the familiar feeling of an episode of galactorrhea, your bed drenched in milk as you get up with an annoyed sigh. Once again you head to the sink half-asleep, once again emptying your fucking tits... what a waste. But before you start, you get a random thought. What a waste. These days food has gotten a LOT more expensive and well, here you got something that SMELLS amazing. But come on, this is gross, right? Fucked up, even? Or perhaps unhealthy? It HAS to be! But... it smells good... and creamy... With hesitation, you lift up your breast, bringing the <<if $breasts > 100>>absurdly gigantic<<elseif $breasts >= 75>>humongous<<elseif $breasts >= 50>>huge<<elseif $breasts >= 25>>large<</if>> nipple to your mouth. Milk is streaming from it and... yeah, it smells pretty good. With some concern, you let your <<if $tongue >= 6>>appendage-lenght>><<elseif $tongue >=5>>ridiculously long<<elseif $tongue >= 3>>very long<<elseif $tongue >= 1>>long<</if>> tongue lick the hard nipple clean.<<set $postSleepLactationDialog5 to true>>'
+}, {
+    name: 'elenaGardenDate0',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("elenaGymIntimacy")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `<<goto "elenaGardenDate0">>`
 })>>
 
 
@@ -31425,6 +31459,7 @@ Her eyes sparkle as she says the last two words, quite emphatically. You look at
 <<Dialogue "Elena" "Elena">>"Oh, it’s nothing. Just a little nickname for you!"<</Dialogue>>
 
 She walks ahead, and you make sure to catch up as you walk out of the greenhouse and towards the exit.
+<<set $flag.elenaKissed to true>>
 
 [[Continue|ElenaDate2GiftShop]]
 
@@ -34553,3 +34588,139 @@ You find Nat back there, being congratulated by <<rivalMy>> agent. You also come
 Nat's agent reminds <<rivalMe>> of another commitment, and they say their goodbyes and leave.<br><br>
 You change back into your street clothes and return home.
 <<link "Go home" "Home">><</link>>
+
+
+:: elenaGardenDate0 [nobr] {"position":"0,0","size":"100,100"}
+You phone buzzes, and you pick it up to see an unexpected message.<br><br>
+ELENA: I need some help gardening - could you come over to give me a hand?<br><br>
+<<if $shyConfident < -1>>
+    You freeze for a second. Some quality one-on-one time with Elena? You start typing a “yes”, but then you realize you don’t want to sound so eager, so you delete it. What should you write? Maybe keep it casual with something like “I guess, sure” - No, that sounds horrible, delete, delete. Oh my God! Is she seeing you typing this much? Fuck! Okay, think fast, it’s going to be weird if she sees you typing this much only to give a short answer. What do you write? Ugh! Think!!! “Sure, what time?”<br><br>
+    Okay! That works! Sent!<br><br>
+    Elena is typing. You feel butterflies in your stomach as you wait for the answer. Soon, it pops onscreen.<br><br>
+<<else>>
+    You quickly answer “Of course, send me your address!” It feels like an eternity (more like two minutes) until you see her typing again, and a message shows up.<br><br>
+<</if>>
+ELENA: Can you come over at 2pm? I send address below.<br><br>
+You send a series of 👍 emoji. She sends back a “Grazie, see you later”. You make a mental note that you might have to teach her how to use emoji.<br><br>
+Alright, so I’ll make sure to go there later today at 2pm! Should probably wear something appropriate to work outside!
+<<link "Go home" "Home">>
+    <<set $flag.elenaGardenDatetime = new Date($gameDate)>>
+    <<if $gameDate.getHours() >= 14>>
+        <<set $flag.elenaGardenDatetime.setDate($flag.elenaGardenDatetime.getDate() + 1)>>
+    <</if>>
+    <<set $flag.elenaGardenDatetime.setHours(14,0,0,0)>>
+<</link>>
+
+
+:: elenaGardenDate1 [nobr] {"position":"0,0","size":"100,100"}
+You follow the directions to Elena’s house, which happens to be on the outskirts of the town, near the woods. It’s a nice breath of fresh air from the more urban area where the dorms are located. Small houses in several degrees of disrepair are lined up along the road, and while hers is definitely on the modest side, it’s clearly very well cared for - the outside has been painted a pastel pink, and you can see a whole lot of knick-knacks on the window that give the impression an old grandma lives there. You knock on the door, and feel the ground tremble as Elena rushes and opens the door wearing a somewhat tight but extremely cute spaghetti strap yellow summer dress.<br><br>
+<<Dialogue "Elena" "Elena">>"//Benvenuta!// Please, come in!"<</Dialogue>><br><br>
+<<if $height>210 || $muscle>80>>
+You have a hard time making it through the small door and wonder how Elena manages on a regular basis - the scuff marks and cracks on the wood frame suggest she doesn’t do much better than you.<br><br>
+<<else>>
+Elena has to bend her back to even look through the door, and you can barely see most of her through it. As you pass, it becomes very clear that this doorframe was not made with her in mind - betrayed by several scuff marks and cracks. You feel momentary guilt as you picture her having to struggle to get across on a regular basis.<br><br>
+<</if>>
+Elena motions for you to sit on the table as she rushes to the kitchen to make some cold lemonade. The simple wooden table has two sturdy but not very fancy tripod log benches, one on each side - one clearly get a lot more use than the other, showing signs of being subjected to heavy loads (doesn’t take a master detective to figure that one out). You take a seat on the more pristine one, listening as Elena squeezes the lemons in her fists with ease, requiring no utensils. As she does so, you take a moment to look around her humble abode. The house decor is somewhat unexpected: there’s very little furniture, and most of what is there seems like makeshift adaptations to handle Elena’s massive body - and does so just barely, most of it revealing some amount of wear and tear like bent structures, curved surfaces or cracks and rips of various styles. Yet, despite the lack of furniture, she has a rather curious collection of tchotchkes that seems several decades older than herself. From doilies to old toys, mementos from trips and all sorts of unusual art, it gives the otherwise spartan home a very warm and aged feeling.<br><br>
+You don’t have much time to appreciate it, however. Elena goes through a couple of dozens in no time flat, humming happily as she does. With the juice in the large pitcher, she drops some ice cubes inside, a bit of sugar, and stirs it in rhythm with her song, putting it on a tray with two mugs. She deftly balances the tray on the palm of her hand, which she brings to the table, without sitting down.<br><br>
+<<Dialogue "Elena" "Elena">>"So! I don’t know if you know about //il giardinaggio//, huh, gardening, but I need to dig and plant some flowers, but I also have a lot of //potatura//, the, how do you say, pruning? To do."<</Dialogue>><br><br>
+You shrug. Elena tilts her head, pouting, but then just motions for you to follow her as she deftly opens the sliding glass doors on the back, still balancing the lemonade tray on the other, as she leads you to the backyard.<br><br>
+Wow! Her backyard leads directly to the woods, but she has this giant plot of land that is meticulously divided into a huge garden filled with planters, vineyards, varied pots, flower beds, tree orchards and even some stuff you aren’t even sure what it is. Everything looks pristine, invoking a bucolic image that is made even more perfect by the sunlight filtered by the nearby tall oaks that envelop the outer edges of the enormous garden. While you are still in awe, Elena places the tray on an outdoor table and grabs her toolbox.<br><br>
+<<Dialogue "Elena" "Elena">>"Let me show you. I have a lot of pruning to do on the vines, but do you see that pile of crates?"<</Dialogue>><br><br>
+She points towards a stack of wooden pallets that are filled with seedlings in plastic bags.<br><br>
+<<Dialogue "Elena" "Elena">>"//La piantina//, how do you say? Uhhhhh..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Do you mean those seedlings?"<</Dialogue>><br><br>
+Elena’s eyes go wide with excitement as she points towards you nodding.<br><br>
+<<Dialogue "Elena" "Elena">>"//Precisamente!// I need help to plant those while I do the pruning, they can’t stay like that much longer."<</Dialogue>><br><br>
+And so you roll up your sleeves,<<if $muscle >45>> revealing your rather meaty arms in the process,<</if>> while you nod back.<br><br>
+<<Dialogue "player" "You">>"Alright, then tell me what to do!"<</Dialogue>><br><br>
+She hands you a small trowel and leads you to one of the empy brick flower beds. She carefully demonstrated how to dig a small hole, explaining the overall details and what you should avoid doing, then grabs one of the plastic bags and transfers the seedling, placing some dirt to finish the transplant. It seems easy enough, though there’s A LOT of those seedlings there - each crate seems to have about 12, and you can count... six crates. This could take a while!<br><br>
+<<Dialogue "Elena" "Elena">>"Any questions?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"No, but will you be here if I have some later?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"Yes, I’ll be prunning those vines right there, so you can just call me."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, I think I got this."<</Dialogue>><br><br>
+Without even asking, Elena lifts the entire pile of pallets and sets it by your side, making her arms bulge obscenely as she does, despite not showing any signs of effort. You unload the top crate, and estimate that it weights roughly <<weightConversion 12>>, meaning she just lifted some <<weightConversion 72>> like nothing. Elena grabs a pair of well worn gardening shears and sets to work. <<if $carefreeCarefull < 0>>You figure you can just open a bunch of holes and then do all the transplants, but by the third one you realize that having them next to each other just makes the whole thing unstable. Elena is very concentrated on her own task, but you can tell she saw you doing that and is somewhat alert - until you change your plan by setting the first seedling and settling for doing one hole at a time. She tries hard not to look like she’s supervising you, but it’s clear you need to take this more seriously.<<else>>You meticulously prepare your first hole, trying to follow Elena’s example, and then pull the seedling out of its plastic wrapper and set it there. With the same careful touch, you settle it in, and look to Elena hoping to get some confirmation that you did well, and despite being very concentrated on her task, she looks at you with a smile and the cutest nod - seems like you did a good job!<</if>><br><br>
+And so, under the blistering sun, you keep at your task, hands getting caked with dirt but with a decent line of seedlings to show for it. You wipe some sweat off your brow and head to grab a cup of the lemonade Elena made, and you decide a break is in order. You stop to watch Elena, and it’s an even bigger treat than the cold drink. The giantess needs no stepladder to reach the high trellis, which is easily at eye level for her, as she gets up close and personal to each leaf, her huge hands making the sturdy shears look tinier than they actually are. She still goes in delicately, moving each individual leaf so she can snap just the exact part of the stem she’s targeting, invoking that imagery of someone trimming a tiny bonsai tree - except we’re talking about full sized plants here that just LOOK small in comparison to her.<br><br>
+Her absurdly powerful muscles, which still look very impressive even relaxed, somehow look more impressive with the thin layer of sweat giving her olive skin a brilliant sheen under the overhead sun. She squints, not because of the light, but out of the same concern of a doctor performing heart surgery. You wonder, was she always like that, or is it PRECISELY because she is so powerful that she is so careful?<br><br>
+And so Elena slowly moves, tiny step by tiny step, thoroughly scanning the vine and cutting out the unwanted branches and leaves. You can’t say for sure what dictates what stays and what goes, but it is very clear that she has a system - and given how much her large garden is thriving, it is working exceptionally well.<br><br>
+It strikes you then, how natural Elena looks among all the greenery. Sure, there’s dangerous thorns everywhere, but the whole is this resplendent wonder of nature, rich in unique colors and shapes - you forget your cold drink as you just gaze at her, hair and dress flowing in unison with the wind, gently wiping her forehead as examines the plants with so much tender love and care you can barely describe. Her nails might be caked with dirt, and her face sweaty and dusty, but she feels one with the garden, and it makes you want to drop everything and just go hug her.<br><br>
+But you still have another 5 crates to go.<br><br>
+<<link "Off to work we go!" "elenaGardenDate2">><<addMinutes 180>><</link>>
+
+
+:: elenaGardenDate2 [nobr] {"position":"0,0","size":"100,100"}
+When you are more than halfway done with the third box, looking forward to reach that significant 50% mark, you appreciate how neat your work looks. Sure, it’s just some tiny plants sprouting out of the dark dirt, but you still feel quite proud of it.<br><br>
+<<Dialogue "Elena" "Elena">>"//Bellissimo!//"<</Dialogue>><br><br>
+You are somewhat surprised by Elena’s interjection, turning around to see she had come over to inspect your work, presumably.<br><br>
+<<Dialogue "player" "You">>"Yeah, not so bad, if I do say so myself. How is the pruning going?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"All done! I need to water the plants, but then I can come in and join you."<</Dialogue>><br><br>
+<<if $shyConfident > 1 || $carefreeCarefull < -1>><<Dialogue "player" "You">>"I certainly would like to see you all wet..."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//Scusi//?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Uh, nothing."<</Dialogue>><br><br>
+<</if>>
+And so she grabs a watering can and a hose, and proceeds to systematically water a good chunk of the garden. You continue with the task given to you, <<if $flag.elenaKissed>>though it’s quite challenging as you can barely stop looking at Elena as she continues to treat her greenery with some much needed H2O, and kind of wishing you were a plant right now, having her hose you down and...<br><br>
+No! Bad <<print $playerFirstName>>! Stop! Manage that thirst! NO, STOP!<<else>>anxiously waiting for Elena to join back with you.<</if>><br><br>
+With another crate done and two left to go, Elena seems to have finished and approaches the flower bed once again. She sighs, wiping the sweat once again, as she looks at your work with the most endearing smile, which you immediately return.<br><br>
+<<Dialogue "player" "You">>"Two crates to go, how about we tackle one each?"<</Dialogue>><br><br>
+Elena agrees with a nod, and grabs one crate, kneeling across you on the other side of the flower bed, as you try to finish that side before it gets late. Elena seems to not only work faster than you, but also does it more neatly. And part of it is the fact she’s not afraid to get down and dirty, and while that might sound naughty, she somehow makes it wholesome and endearing. The darkened spots on her fingers, and even the streaks on her face seem to match her personality: it’s like she’s one with nature, like she herself bloomed out of a bed of petals like a modern-day nymph. That, and you kinda want to wipe her clean and just snuggle in her massive pecs.<br><br>
+As you finish your crate before Elena, you switch sides, huddling next to her as you try and help more. Given the sizes involved, there’s a lot of rubbing against each other, sweaty bodies slick and hot under the sun, and it turns out not to be disgusting as you’d expect.<br><br>
+As you try to help Elena with the last two seedlings, she starts to cover it with dirt and you instinctively do the same, your hands meeting over the flower bed. The two of you freeze, and then look each other in the eyes. Elena’s half-opened mouth shows a mix of surprise and desire, unable to act upon it.<br><br>
+<span id="choice">
+	<<link "KISS THE GIRL, DAMN IT!">>
+		<<replace "#choice">>
+            Before you can even truly process what you are doing, your lips are on Elena’s, as your arms wrap around her as much as you can, but not that you needed to - she kissing you back with about the same passion, and you are about to lean against the flower bed, but Elena gently pulls you towards the brick path so you don’t squish the seedlings. Even in that she’s adorable, and as you end the kiss, you back up a little and run your fingers through her hair, just appreciating her for who she is. And it appears that she feels that, because her lip starts quivering and she rests her head against your shoulder, gripping you tightly.<br><br>
+            <<Dialogue "player" "You">>"Hey, are you alright?"<</Dialogue>><br><br>
+            Elena nods, wiping a single tear from her eye.<br><br>
+            <<Dialogue "Elena" "Elena">>"//Mi dispiace//, forgive me, I... I just, I don’t know what came over me."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"What are you talking about? I was the one who kissed you."<</Dialogue>><br><br>
+            Her lip quiver and sole tear turn into a full sob.<br><br>
+            <<Dialogue "Elena" "Elena">>"Y-you... like me?"<</Dialogue>><br><br>
+            She says, incredulous, like she can’t believe anyone could. You actually laugh at that question<<if $shyConfident < 0>>, even if it’s just a quick snort and you cover your mouth immediately<</if>>.<br><br>
+            <<Dialogue "Elena" "Elena">>"//Davvero//? Really?!?"<</Dialogue>><br><br>
+            You tenderly hold Elena, putting a hand on her back and another on her head, petting her as you shush her. You grab the last seedling and hand it to her, and together you plant it. Elena manages to calm a bit, and mutters a soft “grazie.”<br><br>
+            You help her get up, and she tries to clean some of the dirt off her dress. The two of you walk inside, and Elena feels like she has a thousand things she wants to say, but doesn’t know where to even start.<br><br>
+            <<if $shyConfident < 0>>
+            You look at her anxiously, tilting your head with curiosity.<br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"What is it? You don’t need to hold back, just spit it out!"<</Dialogue>><br><br>
+            <</if>>
+            Elena’s gaze flutters about, nervously, as she starts spewing a bunch of questions about this meaning you are dating officially, what people would think, would there be questions because of their size, what would people think? She continues the rapid fire, and you just end up interrupting her.<br><br>
+            <<Dialogue "player" "You">>"I’ll tell you what, Elena. Why don’t we take this slow, and figure it out as we go along? No pressure, no worries."<</Dialogue>><br><br>
+            And the proverbial lightbulb pops over her head, as she is momentarily paralyzed and thinking to herself. She looks into the distance, nodding, until she eventually says:<br><br>
+            <<Dialogue "Elena" "Elena">>"Yes... yes... //perfetto!//"<</Dialogue>><br><br>
+            <<if $submissiveDominant > 1>>
+            You reach for another passionate kiss, squeezing her firm thigh as you do. She tenses up.<br><br>
+            <<Dialogue "player" "You">>"I will give all the time you need, but I can’t guarantee I won’t be having some naughty thoughts about you!"<</Dialogue>><br><br>
+            Elena blushes to an unexpected tint of purple. You laugh out loud, and say you probably should be going now anyway.<br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"So relax, no expectations from me, we can take this as slow as you need, okay? I’ll go home now so you can process this. Though I know I will be thinking about you. A lot! Heh!"<</Dialogue>><br><br>  
+            <</if>>
+            You get up, and you can hear Elena taking a very deep breath, but she says nothing. You wave her goodbye, and let yourself out. As you close the door, you sigh, already overwhelmed with the longing of spending more time with her.
+
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Uh, you got some dirt on your face, here, let me clean that (I don’t want to give her the wrong impression - she would freak out if she thought I was into her).">>
+		<<replace "#choice">>
+            You reach for Elena’s dirty button nose, using your thumb to try and clean it, but given that your hand isn’t exactly clean, you just sort of smear the dirt more around her face. You start laughing, confusing Elena. You grab your phone using the camera as a mirror, and show her the mess you’ve helped make, and she laughs with you. After recovering your breath, Elena reaches for a damp cloth in her box and delicately cleans your face, <<if $shyConfident < 0>>making you go silent and blushing,<<else>>bringing a smile to your face,<</if>> before cleaning her own. You watch as her large, veiny hands, with nails still darkened by dirt, gently dabs it and it looks adorable. Elena misses a few spots, and you offer to help. Leaning against her massive boulder shoulder, you come in close and forcefully scrub it until she’s clean.<br><br>
+            <<Dialogue "Elena" "Elena">>"//G-grazie!//"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"My pleasure!"<</Dialogue>><br><br>
+            Elena awkwardly looks around, trying to avoid your gaze. You see her sucking her lips and squeezing her fists, which makes you tilt your head, in confusion. Elena notices your reaction right away, and gets flustered, shaking her hands wildly.<br><br>
+            <<Dialogue "Elena" "Elena">>"N-no, it’s nothing."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"You sure?"<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"Yes, I suppose I am just surprised we managed to finish it all in time."<</Dialogue>><br><br>
+            <<if $submissiveDominant < -1>>
+            <<Dialogue "player" "You">>"Oh, I had a great teacher!"<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"Well, you might be pretty strong, but my own muscles aren’t just for show either!"<</Dialogue>><br><br>
+            <</if>>
+            Elena giggles, and invites you to have some of the now lukewarm lemonade, which you gladly accept. You come back inside, glasses in hand, as Elena sits down across you on the table. You stretch your legs and arms out, which surprises the rather reserved gardener. Her legs are squeezed together, hands on her lap, shoulders slumped, as her eyes widen while she observes you. You try to sit up a bit, and thank her for the lemonade.<br><br>
+            <<Dialogue "player" "You">>"Thanks for the lemonade - hopefully we have managed to get everything you wanted done."<</Dialogue>><br><br>  
+            <<Dialogue "Elena" "Elena">>"Oh, yes! Thank you so very much, <<print $playerFirstName>>."<</Dialogue>><br><br>
+            A very awkward silence follows, as neither of you knows what to say. You eventually look at the clock on your phone as say you probably should be going. Elena thanks you once again, before opening the door for you.<br><br>
+            You really enjoyed getting a chance to see and help her with the garden, and wonder if you’ll have other opportunities to do stuff with her as you head home.
+
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+</span>
