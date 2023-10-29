@@ -15432,6 +15432,18 @@ And with that, you take your leave, and return home, hoping NOT to see her at wo
 But then, the unexpected happens. Elena turns her head, surprised, and smiles at the guy. You stop, dead in your tracks, as they exchange some words. She finishes her set, gets up, and helps the guy remove some plates from the machine! At this point you can barely believe what you see. She stands idly, taking a drink from her water bottle, and... NO WAY! Is she giving the guy a pointer on his form?!? SOMEONE PINCH ME, this has to be a dream!<br><br>
 You stand still, frozen, as you watch her idly wait for her next turn, as she sees you, looking slack-jawed and frozen, giving you a small, discreet wave. Holy shit. The girl really is making some progress, and you are not talking about her lifts.<br><br>
 The guy finishes his set, and taps the distracted Elena on the shoulder. She nods at him once more, and reloads her plates before sitting down on the leg press. Wow. Your little girl (well, sorta) is growing up, and you feel all fuzzy inside. You head back to your own routine, hopeful that maybe Elena will start breaking out of her shell soon enough.`
+}, {
+    name: 'elenaOrchid',
+    locationTags: ['elena'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("elenaGardenDate1")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `As you head down the corridor, a notice on the board catches your attention: it seems like the town natural history museum is closing down one of their exhibits and are seeking help... oh! This is neat! You write down the information, and start plotting a little surprise for your oversized anthophile friend. Hehehe! Yes, this will be great!<br><br>
+You should be able to go pick it up in a couple days, and you can message Elena then and go bring her the surprise.`
 })>>
 
 
