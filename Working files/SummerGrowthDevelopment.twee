@@ -13149,8 +13149,11 @@ Your entire inbox is full of tasks due today, meaning you won't have stop and th
 
 <br><br>
 <span id="work">
+<<if $emmaBurnout != true>>
 <<if $emmaVisited is false>><<link "chat with Emma" "EmmaWork">><<set $eventCounter to setup.balance.eventTresshold + 1>><<set $emmaVisited to true>><</link>><br><br><</if>>
-
+<<else>>
+Emma probably is still recovering from her burnout. Her office is eerily silent, and her missing presence is noticable in every part of the building.
+<</if>>
 <<set _minutes to 0>>
 <<script>>
 	var dt2 = new Date(State.variables.gameDate.getTime());
@@ -14880,7 +14883,7 @@ And with that, you take your leave, and return home, hoping NOT to see her at wo
 
  <<link "Continue" $currentScene>><<set $emmaRelationship to false>><</link>>
 <</replace>><</link>></span>
-<</replace>><</link>></span><</replace>><</link>></span>`
+<</replace>><</link>></span><</replace>><</link>></span><<set $emmaBurnout to true>>`
 }) >>
 
 
