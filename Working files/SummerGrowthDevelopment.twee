@@ -30075,6 +30075,14 @@ You give your pumped muscles a flex, showing off to him. Big Eddy smiles and sho
     <</script>>
 
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.8.6: Dates and story progression ---
+● Added many new dialogs for all NPCs.
+● Added new Dates for Kris
+● Added new dates for Johan
+● Added new Dates for Elena
+● Added new Dates for Emma
+● Reworked early growth rates
+● Rebalanced money and growth speed
 --- Version 0.8.3: Dates, Alchemy, & rivals ---
 ● Added many new dialogs for all NPCs.
 ● Added a rival for the player
