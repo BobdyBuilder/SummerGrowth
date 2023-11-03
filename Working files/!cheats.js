@@ -92,4 +92,6 @@ for (const consumable of SugarCube.State.variables.consumables) {
 for (let i = 0; i < 10; i++) {
   SugarCube.State.variables.potionIngredients.push('ConfidentIngredient');
   SugarCube.State.variables.potionIngredients.push('CarefreeIngredient');  
+  SugarCube.State.variables.potionIngredients.push('InstantIngredient');  
+  SugarCube.State.variables.potionIngredients.push('FatIngredient');  
 }
