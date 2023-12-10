@@ -1848,6 +1848,7 @@ Money: $<<live Math.round($money)>>
 <<run Config.history.controls = true;>>
 <<include "StoreRefresh">>
 
+<<set $globalGrowthMod to 1>> /* Growth multiplier. Unlike $growthMod, this can be changed for the story narrative */
 <<set $workingOutBonus to setup.balance.muscleAllowancePerDay>>
 
 <<set $muscleGainedFromPotions to 0>>
@@ -5150,7 +5151,7 @@ You point your index fingers at her and just blurt out:
 <<nobr>>
 <<widget "addMuscleInstant">>
 
-<<set $muscle +=  parseFloat($args[0]) * $growthMod>>
+<<set $muscle +=  parseFloat($args[0]) * $growthMod * $globalGrowthMod>>
 <<set $muscle to Math.clamp($muscle, 0, 99999)>>
 
 
@@ -5173,7 +5174,7 @@ You point your index fingers at her and just blurt out:
     }    
 <</script>>
 
-<<set $muscleStore += parseFloat($args[0]) * _workoutOutfitBonus>>
+<<set $muscleStore += parseFloat($args[0]) * _workoutOutfitBonus * $globalGrowthMod>>
 
 <</widget>>
 <</nobr>>
@@ -8602,7 +8603,7 @@ Summer Growth
 <<nobr>>
 <<widget "addBreastsSlow">>
 
-<<set $breastsStore += parseFloat($args[0]) * $growthMod>>
+<<set $breastsStore += parseFloat($args[0]) * $growthMod * $globalGrowthMod>>
 
 <</widget>>
 <</nobr>>
@@ -12971,7 +12972,7 @@ Dialog.open();
 <<nobr>>
 <<widget "addDickSlow">>
 <<if $futa>>
-	<<set $dickStore += parseFloat($args[0]) * $growthMod>>
+	<<set $dickStore += parseFloat($args[0]) * $growthMod * $globalGrowthMod>>
 <</if>>
 <</widget>>
 <</nobr>>
@@ -13052,7 +13053,7 @@ Dialog.open();
 <<nobr>>
 <<widget "addHeightSlow">>
 
-<<set $heightStore += parseFloat($args[0])  * $growthMod>>
+<<set $heightStore += parseFloat($args[0])  * $growthMod * $globalGrowthMod>>
 
 <</widget>>
 <</nobr>>
@@ -13744,7 +13745,7 @@ As you enter her office, she welcomes you in, handing you a cup of the GOOD coff
 <<nobr>>
 <<widget "addFatInstant">>
 
-<<set $fat += parseFloat($args[0])  * $growthMod>>
+<<set $fat += parseFloat($args[0])  * $growthMod * $globalGrowthMod>>
 <<set $fat to Math.clamp($fat, 0, 99999)>>
 
 
@@ -15501,7 +15502,7 @@ You should be able to go pick it up in a couple days, and you can message Elena 
 <<nobr>>
 <<widget "addFatSlow">>
 
-<<set $fatStore += parseFloat($args[0]) * $growthMod>>
+<<set $fatStore += parseFloat($args[0]) * $growthMod * $globalGrowthMod>>
 
 <</widget>>
 <</nobr>>
@@ -24512,11 +24513,21 @@ Before we begin the game, you can customize your starting character a bit. You c
 <<script>> console.log("Muscle growth Max (" + State.variables.muscleGrowthMaxTotal + ") multiplied by workoutbonus (" +  State.variables.workingOutBonus + ")");<</script>>
 
 
-<<set $muscleChange = Math.clamp($muscleStore, 0, $muscleGrowthMaxTotal)>>
+<<set $muscleChange = $muscleStore>>
+<<if $muscleChange > 0>>
+    <<set $muscleChange = Math.clamp($muscleChange, 0, $muscleGrowthMaxTotal)>>
+<<else>>
+    <<set $muscleChange = Math.clamp($muscleChange, -$muscleGrowthMaxTotal, 0)>>
+<</if>>
 <<set $muscle += ($muscleChange * $growthMod)>>
 <<set $muscle to Math.clamp($muscle, 0, 99999)>>
 
-<<set $muscleStore to Math.clamp($muscleStore - $muscleChange, 0, 999)>>
+<<set $muscleStore to $muscleStore - $muscleChange>>
+<<if $muscleStore > 0>>
+    <<set $muscleStore to Math.clamp($muscleStore, 0, 999)>>
+<<else>>
+    <<set $muscleStore to Math.clamp($muscleStore, -999, 0)>>
+<</if>>
 <<set $muscleStore *= 0.5>>
 
 <<if $muscleChange > 0.2 && $postSleepMuscleDialog1 is false>>
