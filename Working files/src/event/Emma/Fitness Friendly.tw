@@ -1,0 +1,16 @@
+:: Fitness Friendly {"position":"650,3825","size":"100,100"}
+<<set $emmaDateFriendly += 1>>
+Emma's eyes widen as you speak. She's clearly taken aback by that reaction.
+
+<<Dialogue "Emma" "Emma">> "(Ahem) Again, I don't share my hobbies with many people, but I've never had someone respond so eagerly before."<</Dialogue>>
+<<Dialogue "player" "You">> "You mean you've accomplished all that working out without some kind of partner?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Well, yes. I’ve had a mentor in the beginning, certainly, but my time at the gym is a zen moment. Something meditative and introspective, something that takes my mind off of all the stress. I'm sure you weren’t picturing me as some type of ‘gym bro’ whooping and roaring through a workout."<</Dialogue>>
+That mental image alone elicits a snicker. You panic briefly, before you see a pleased smirk on Emma's face.
+
+<<Dialogue "player" "You">> "So you DO have a sense of humor!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Don't tell the others in the office. It will ruin my reputation!"<</Dialogue>>
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

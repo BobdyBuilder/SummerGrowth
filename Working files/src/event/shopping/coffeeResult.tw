@@ -1,0 +1,17 @@
+:: coffeeResult [nobr] {"position":"2200,1725","size":"100,100"}
+<<if $krisInterested is false and $gameDate.getHours() <= 20 and $gameDate.getHours() >= 12>>
+You order a nice coffee, something fancy to relax with. It is brilliantly brewed and brought to you in no time. 
+<br><br>
+<<addMinutes 10>>
+
+Time flies by surprisingly fast as you just sit there, enjoying the moment and just idly people-watching. <<addMinutes 10>>
+
+<<else>>
+You order a nice coffee, something fancy to relax with. It is brilliantly brewed and brought to you in no time. 
+			<br><br>
+Time flies by surprisingly fast as you just sit there, enjoying the moment and just idly people-watching. <<addMinutes 10>>
+<</if>>
+<br><br>
+<<link "return" "BookStore">><</link>>
+
+

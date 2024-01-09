@@ -1,0 +1,26 @@
+:: Hobby Chat {"position":"1050,3725","size":"100,100"}
+<<set $emmaDateFriendly += 1>>
+<<set $emmaDateProgress += 1>>
+<<set $HobbyChosen = 1>>
+<<Dialogue "player" "You">> "So, uh. What exactly do you do in your free time? I mean, aside from hitting the gym, obviously."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Not to worry, I won't bore you with the minutiae of my workout regimen, not everyone can stomach that. But in regards to what I do for fun, I'm afraid I'm not terribly exciting."<</Dialogue>>
+<<Dialogue "player" "You">> "Oh, come on. Do you have any idea how boring I am? I'm a college student with no friends, no hobbies, I pretty much just play videogames in my free time."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Haha! Okay, okay, I get your point. I suppose I'm still boring, just in a different way."<</Dialogue>>
+<<Dialogue "player" "You">> "What does that mean?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Well, In many ways, I'm in the same boat as you. I don't have a great deal of free time, so I don't cultivate many hobbies. I don't have a lot of friends, largely because I prefer to keep to myself. But I do have my interests."<</Dialogue>>
+<<Dialogue "player" "You">> "Yeah? Such as?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "While I personally loathe the term ‘foodie,’ I do appreciate good cuisine. That's how I found this restaurant, in fact."<</Dialogue>>
+<<Dialogue "player" "You">> "Oh yeah? I never would have taken you for someone who trawls through the hipster culinary scene."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "I also happen to enjoy cooking quite a bit, as a matter of fact. While I deeply admire the finesse and craft of a professional chef, I find great pleasure in testing my own creativity in the kitchen."<</Dialogue>>
+<<Dialogue "player" "You">> "Okay, follow-up question. Favorite thing you tasted around these parts?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Hands down, the Irish coffee on the after-dinner menu here. I don't know what kind of whiskey they use, but it just elevates the profile of both and is the perfect bookend for a great meal, lingering with you."<</Dialogue>>
+<<Dialogue "player" "You">> "Really? You, picking a cocktail over actual prepared dishes? I never in a million years would have guessed that."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "It's less the cocktail, and more the coffee. It is a particular ingredient that I consider myself a connoisseur of."<</Dialogue>>
+<<Dialogue "player" "You">> "Okay, that makes perfect sense."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Indeed. I know it's a little prosaic for the archetypical workaholic to love her coffee. But I can't think of a single other ingredient that is so simple, yet so subtly detailed, but also invigorating."<</Dialogue>>
+
+[[Someone ought to put you in charge of stocking the break room.|Hobby Professional]]
+[[You know, I’m a big coffee fan, too. Though I guess more of a caffeine addict?|Hobby Friendly]]
+[[Coffee lover and you can handle your liquor? Talk about mommy energy!|Hobby Flirty]]
+
+

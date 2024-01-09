@@ -1,0 +1,551 @@
+:: EmmaImmediates [nobr] {"position":"1400,2225","size":"100,100"}
+<<set setup.events.push({
+    name: 'EmmaDate1',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaOpinion >= 30
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: '<<goto "emmaDate1">>'
+}, {
+    name: 'EmmaDate2',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaOpinion >= 40,
+        () => State.variables.emmaFirstDateDone
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: '<<goto "Emma Date Two Intro">>'
+},{
+    name: 'emmaMealPrep',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.daysPlayed == State.variables.dayOfEmmaBulkDate
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: '<<set $emmaMealPrepPoints to 0>>After a brief trip to the grocery store, you find yourself carrying two rather large shopping bags of ingredients. You follow the instructions to Emma’s apartment building, which is located on a fancy new bougie neighborhood. It’s a stark, modern building that kind of stands out - not unlike Emma herself.<br><br>You feel … out of place? Entering the ultraclean mirror-laden elevator. <<if $muscle >= 80>> It’s a bit of a struggle to even fit in, despite it being a larger-than-average elevator. You worry a bit about your bulging muscles potentially cracking the reflective surfaces as you fiddle to hit the 7th floor button, but fortunately you end up managing to do it uneventfully.<<elseif $muscle >= 45>> You are not used being surrounded by mirrors in such an enclosed space, and can’t help but appreciate your muscular build - no wonder people take so many elevator selfies!<<else>> That’s A LOT of mirror. Makes you feel a bit self-conscious, actually.<</if>> It’s almost the opposite of the rickety, dark stairs that lead into the musty basement apartment where you live. As you rise with it, it just make something weird tick in your brain, but you just can’t quite put a finger on it.<br><br>As the door opens, you find yourself heading to apartment 7A. The contrast just keeps piling up as you press the classy doorbell and a classical tune rings inside. You snort at the thought of the anxious door knocks you and Johan trade with each other back home. And before you stop daydreaming, the door opens, revealing a very slightly more casually dressed Emma - though you REALLY need to pay close attention to tell the difference: her hair is impeccable despite the early weekend hours, she has her usual discreet but perfectly applied make-up, and her clothes are just a smidge less formal than what she wears to the office. <<if ["professional", "stylish"].includes($outfit.style()) == false>>Actually, it makes you quite self-aware about your own attire, and you secretly wish you spent another hour getting dolled up this morning.<<set $emmaMealPrepPoints -= 1>><</if>><br><br><<Dialogue "Emma" "Emma">>"Ah, <<print $playerFirstName>>. Please come in. Make yourself at home, I was just finishing my preparation here."<</Dialogue>><br><br><<Dialogue "player" "You">>"Uh, excuse me."<</Dialogue>><br><br>As you step in, another shock. Emma’s apartment is both minimalist and elegant. It’s not HUGE, but still noticeably larger than your cheap student accommodation - in great part due to the clever two-story mezzanine layout. But it still makes you slightly uneasy to walk in and see all the light from the giant windows glistening on the plethora of bare surfaces. It’s almost like the polar opposite of your dark and messy abode.<br><br>Emma politely but quietly leads you into the kitchen. It’s got this super-snazzy brushed metal finish everywhere, with a fancy dark marble counter… where you find dozens of pre-prepared and pre-measured containers with ingredients laid out so neatly you’d think she used a ruler to set them up. Had you not known Emma, you’d think it was almost performative - but it just matches the entire vibe of the house to a T. It’s just a bit disconcerting, it feels like you walked into a studio production instead of someone’s house.<br><br><<Dialogue "Emma" "Emma">>"I finished weighing my ingredients and had my //mise en place// ready before you arrived to keep things efficient."<</Dialogue>><br><br><<if $skills[2].level > 3>>It takes actual effort not to let your jaw drop. So it’s early morning, and not only is she impeccably presentable, but also did all this work ahead. Does that woman even sleep? You shake your head, trying to rid your brain of the image of Emma in bed - which will not be conductive to your productivity.<<set $emmaMealPrepPoints += 3>><</else>><<Dialogue "player" "You">>"I never ate mizenplah… is that a type of protein or something?"<</Dialogue>><br><br>Emma very politely clears her throat to disguise a giggle.<br><br><<Dialogue "Emma" "Emma">>"Ahem. It’s French. A culinary terms, literally means ‘to put everything in place.’"<</Dialogue>>She waves her hand over the organized containers. You think twice about saying you thought it was an alien race from Stellar Trek, trying (very hard) not to look like a complete cultureless yokel in front of your boss.<<set $emmaMealPrepPoints += 1>><</if>><br><br><<Dialogue "player" "You">>"Wow, Emma. This is beautiful."<</Dialogue>><br><br>You start awkwardly removing your ingredients from the bags you brought, trying to stave off the uncomfortable feeling of inadequacy as you put them on an empty section of the counter.<br><br><<Dialogue "Emma" "Emma">>"Here, let me help you. If you tell me how you want it portioned, I can organize yours as well."<</Dialogue>><<if $shyConfident > 2>>You watch as Emma grabs it, and you recite those proportions you have memorized by now. You are mesmerized, watching her admirable efficiency as she quickly repeats the process with your ingredients, making it seem absolutely effortless and still achieving a result that belonged in a professional culinary photoshoot. Whoa, that is… unexpectedly sexy.<<set $emmaMealPrepPoints += 3>><<elseif $shyConfident > 0>>Before you can say anything, Emma has taken control of the process. You stutter as you recite the memorized proportions, and in a mesmerized stupor, watch her admirable efficiency as she quickly repeats the process with your ingredients, making it seem absolutely effortless and still achieving a result that belonged in a professional culinary photoshoot. Whoa, why is that… so hot?<<set $emmaMealPrepPoints += 1>><<else>><<Dialogue "player" "You">>"Nah, it’s okay!"<</Dialogue>><br><br>You mutter, possessively curving yourself over your ingredients, in a silly and very unsuccessful attempt to defend your ego. With slightly shaky hands, you try to reproduce her whatchamacallit… but it comes out like a sorry attempt made by a kid trying to reproduce something professional. At least in your head, it looks even worse than it sounds.<</if>><br><br><<Dialogue "Emma" "Emma">>"Great! So, let me show where all my kitchen appliances and silverware are, and I’ll let you take the lead!"<</Dialogue>><br><br>Well, time to roll some sleeves! <<if $muscle >= 80>>Though your ginormous arms actually make it easier for you to rip out of them than roll them!<<elseif $muscle >= 55>>Actually, that would be a very nice opportunity to show off your ripped arms, but maybe you want to keep things a bit more formal, it’s still Emma, after all.<<elseif $muscle >= 35>>I mean, you would just as well want to give your own budding biceps a bit deserved appreciation even if you weren’t about to get your hands dirty!<</if>><<if $carefreeCarefull > 2>>In keeping with vibe, you lay out your tools like everything else, and ensure to ask Emma about her nutritional goals. With that taken care of, you proceed to very carefully explain every step of the process, and sprinkle a few culinary curiosities while you demonstrate how to do it.<br><br>Time flies as the two of you do your prep side-by-side, Emma attentively watching and reproducing your every movement with expert precision - you’d swear she’d done the same thing thousands of times before, if not for the fact that her eyes are constantly over you. Actually, that makes you feel warm and tingly inside. This is an unusual flipping of your roles, and makes you feel appreciated, maybe even… admired?<br><br>Before you know it, there’s two piles of neatly packed meals. Wow. And you managed to keep the mess to a minimum to boot!<<set $emmaMealPrepPoints += 3>><<elseif $carefreeCarefull > 0>>You try to plan a bit ahead, looking around and trying to anticipate how you are going to tackle this. You hesitate a few times, but mostly try to keep it simple and clear as you demonstrate the process for Emma. She nods and occasionally lets out the occasional communicative ‘hmm’ to assure you she got it or found something educational. There’s an occasional fumble or two, but this time Emma is acting as your assistant, and you could almost swear she can read your mind as she seems one step ahead in offering the proper tool or ingredient - making you almost feel like a surgeon! Heh!<br><br>Before you know it, the two of you found a nice groove, and things get a bit less stuffy. Her attention is still fully dedicated to you, but you manage somehow to make some small talk, and the process unfolds quite pleasantly. It is almost with regret that you close the lid on the last packed meal, proud that you managed to keep Emma’s kitchen in a relatively clean state!   <<set $emmaMealPrepPoints += 1>><<else>>Alright, so there’s A LOT of stuff. You find yourself constantly stopping to figure out where something is, and trying not to get even more frustrated as you explain to Emma each step in the process. You try not to let it bother you that she is somewhat quiet, telling yourself that it’s just the way she is. Yet… you can’t help but feel almost like she’s judging you. But you press ahead, your culinary skills shining despite the clutter you are generating in the process.<br><br>It’s slightly unnerving to see Emma splitting her time between reproducing your instructions and trying to clean up after your mess. But you suck it up and barrel on. If Emma is bothered, she is not letting it past her ironclad expression of attention and interest.<br><br>And so, after quite a bit of work, there are two piles of packaged meal, ready to be frozen. True, Emma’s look a lot neater, and you wish the kitchen wasn’t in such disarray. But all in all, it’s still a victory. <<set $emmaMealPrepPoints -= 3>><</if>><<Dialogue "Emma" "Emma">>"Well, I certainly learned a lot. And I must admit, whatever I tasted was so much better - I still can’t believe you managed to make the chicken so juicy!"<</Dialogue>><br><br><<if  $emmaMealPrepPoints >= 5>>With a proud smile, you put your hands on your hips and nod.<br><br><<Dialogue "player" "You">>"Well, I couldn’t possibly ask for a better student. In fact, I can confidently say I learned a thing or two on how to make the process more efficient from you!"<</Dialogue>><br><br>Emma proceeds to store her meals neatly in her freezer as you set yours back in your bag. You can’t help but appreciate the smile you brought to her oft-cold face. It’s hard to explain, but there’s something… different… about Emma outside the office. It’s a unique levity that manifests in brief content smiles instead of just smirks that reek of superiority. Before you know it, you find that your heart is racing a bit.<br><br><<Dialogue "Emma" "Emma">>"Wow, look at the time! I guess you ARE right, time does fly by when you have company, this is much more efficient than doing it by yourself."<</Dialogue>><br><br> <<Dialogue "player" "You">>"I think the word you are looking for is ‘fun,’ though!"<</Dialogue>><br><br>Emma blinks, in a genuine, albeit rare, display of surprise.<br><br><<Dialogue "Emma" "Emma">>"I suppose it is. Fun is not the usual yardstick I measure things with, but maybe I should rethink that."<</Dialogue>><br><br>A million thoughts cross your mind. You want to act on every single one of them, and yet, part of you hesitates… at least until you see that there’s still an open container of spelt flour on the sink. With a completely straight face, you grab some in your hand and turn to Emma.<br><br><<Dialogue "player" "You">>"Hey, Emma?"<</Dialogue>><br><br><<Dialogue "Emma" "Emma">>"Yes?"<</Dialogue>><br><br>And then you blow the flour on her face, covering her glasses and messing up her perfectly coiffed hair. <<Dialogue "player" "You">>"Maybe some flour will help you loosen up, like we did with that dough?"<</Dialogue>><br><br>Despite the fact you can’t see her eyes, you feel her instantaneous moment of utter disbelief and shock. Uh oh. You acted a bit too impetuously, and you expect her to get really mad…<br><br>But instead, she takes a deep breath and, despite having decreased visibility, she just digs her hand in the cocoa powder and smudges your entire face.<br><br><<Dialogue "Emma" "Emma">>"Two can play at this game, Ms. <<print $playerLastName>>."<</Dialogue>><br><br>Your entire face is brown with the powder, and you start coughing.<br><br><<Dialogue "Emma" "Emma">>"And I’m not sure you are quite ready to face my competitive side head-on!"<</Dialogue>><br><br>You both laugh, and it’s amazing how much the two of you relax after the silly duel. Part of you wants to get into a full water fight, but you don’t want to mess her apartment that much. Still, as you both clean your respective faces, you feel a little closer to her, which is no small feat given that Emma tends to keep people at arm’s length.<br><br>Emma insists on paying you for all ingredients, and no matter how much you protest, she gets her way - as is usual. After settling accounts, she leads you to the door, where a quick awkward moment ensues: you feel like hugging her, slightly opening your arms, but as you watch Emma’s eyes widen, you quickly switch to a more formal handshake. Still, you can SWEAR there’s regret in her expression. Well, too late for that. You say your goodbyes and head back home.’  <<if $emmaMealPrepPoints <= 5>>And then it hits you like a train. Before you know, a single tear rolls down your cheek as you courageously keep yourself from sobbing. This whole experience, the constantly nagging feeling, you finally understand what’s been bothering you so much: Emma and you couldn’t be bigger polar opposites. She’s WAY out of your league, and you could NEVER reach her level. Who are you trying to fool? The answer is yourself, because SHE would never believe that!<br><br><<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>, are you okay?"<</Dialogue>><br><br>You try to discreetly wipe your moist cheek and put on a brave smile while you shove all these feelings of inadequacy under the rug.<br><br><<Dialogue "player" "You">>"Me? PFFFFT! Never better!!! I mean, how could I with such a great disciple?"<</Dialogue>><br><br>That last word makes you wish you had bitten your tongue. You look at the time, and quickly start making up excuses to get out of there ASAP. Emma wants to settle accounts, but you just want to rush out of there as fast as you can.<br><br><<if $emmaOpinion > 30>>But before you can, Emma grabs you by the wrist with her firm hand. Her face displays concern but doesn’t lose one iota of her trademark fierceness. It’s so reassuring it just breaks you up entirely from the inside, and before you know, you are sobbing loudly, eyes puffy and tears drenched in tears.<br><br>Great, that’s going to leave an even better impression on her.<br><br><<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>..."<</Dialogue>><br><br>When you gather the courage to raise your eyes and look in her face, you don’t find the contempt you were expecting. No, Emma is looking at you like a concerned mother.<br><br><<Dialogue "player" "You">>"I’m *sob* sorry. I’m just… gosh, you must think I’m a mess! I’ll just be going, I apologize for being such a mess…"<</Dialogue>><br><br>Emma tilts her head in utter confusion.<br><br><<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>, I am not sure what I’ve done to give you any impression that I was displeased, but that is completely unfounded. I am very grateful for your help. But… I’m also… concerned. What is troubling you?"<</Dialogue>><br><br>You take a deep breath and briefly consider a white lie, but you owe Emma the truth. Well, here goes!<br><br><<Dialogue "player" "You">>"I… I look up to you, Emma. A lot. You are like, goals, you know? But coming here? It’s like this huge wake-up call telling me just how inadequate I am, I could never dream of reaching your level. It’s just… heh… me being silly, nothing for you to worry about."<</Dialogue>><br><br>You make ready to leave, but Emma puts on that piercing smirk and motions for you to wait. She hurries up to the mezzanine where you assume her bedroom must be, leaving you very confused.<br><br>When she comes down, she has a photo frame in her hand. She looks at you, that stern edge there again, as she reveals a picture of this wiry, pimply, awkward teen at the park. Wait a second, she looks familiar.<br><br>No way.<br><br><<Dialogue "Emma" "Emma">>"You know, all of us can be a bit of an ugly duckling…"<</Dialogue>><br><br>Your heart skips a beat. You know the tale well, and somehow with just a picture and a handful of words, she sets everything right, like any good mother would do. You find your breathing settling and your composure returning.<br><br>Emma smiles at you, and gives you a warm hug. You hug her back, feeling her solid frame which makes you feel incredibly safe and cared for<if $muscle >= 55>>, even if you might actually be considerably beefier than her!<</if>>.<br><br><<Dialogue "Emma" "Emma">>"You breathe a word of this to anyone in the office and I’ll eat your liver for breakfast."<</Dialogue>><br><br>You both laugh, and you assure her that her secret is safe with you. Emma goes for her wallet and pays you for the ingredients as she leads you out, arm wrapped around your shoulder.<br><br><<Dialogue "Emma" "Emma">>"We all struggle. It’s what makes us stronger. But we seldomly get to see what others had to go through. My point is: don’t doubt yourself - you are a lot stronger than you believe."<</Dialogue>><br><br>You smile and nod. You came here to teach her, but in the end, it seems like Emma couldn’t quite relinquish her seniority. Heh. Typical.<br><br>After a brief but awkward silence, you say your goodbyes, and head to the elevator, meals in hand. You are so lucky to have Emma as your boss, you can barely believe it. But you also kind of want your relationship to take the next step…’<<else>>And so you end up tossing your meals in a bag and running to the door and letting yourself out as Emma shouts she’ll transfer you the money directly to your account. You never turn to look back as you enter the elevator.’<</if>><</if>><<link "Continue" $currentScene>><</link>>'
+},{
+    name: 'EmmaPromotion1',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaPromotion1
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: 'As you enter the office and power up your workstation, an email from Emma instructs you to see her in her office. Since the door is open, you decide to see what it’s all about. <br><<Dialogue "Emma" "Emma">> "Ah, there you are, Miss <<print $playerLastName>>. Please, take a seat. Now, how would you rate your own performance?"<</Dialogue>><br>You look at her, a bit stunned. Things have been going easy, but you have been slacking a bit. The work wasn\'t much of a challenge, so why not? What to say here...<br><br><span id="choice"><<link "Decently, right...?">><<replace "#choice">><br><br><<Dialogue "player" "You">> "Ehm, I think it went... decently? I\'m doing my job and I hadn\'t had any complaints so..."<</Dialogue>><br>Emma takes a few seconds to size you up, as if she expected more from you. <br><<Dialogue "Emma" "Emma">> "I\'d say you\'re doing better than \'decently\'. Your performance has been excellent, and fake modesty is misplaced here. You really should put more faith in yourself, miss <<print $playerLastName>>. After all, we\'re giving you a promotion."<</Dialogue>><br> Emma smiles at you, pushing a lone piece of paper forward with her finger. It’s a new contract, with bigger pay, yet the similar responsibilities. It seems they really appreciate your performance! Emma leans back, smiling. <<Dialogue "Emma" "Emma">> "You earned it, <<print $playerFirstName>>. Your pay will be increased immediately. Now, I got a LOT to do so..."<</Dialogue>><br>With that you leave the office, still a bit stunned. Well, it seems you got some more money to spend now!<br><<link "return" "office">><<set $officePromotionBonus to 2>><</link>><</replace>><</link>><br><br><<PersonalityCheck $shyConfident >= 1 "Bluff.">><<replace "#choice">><br><br><<Dialogue "player" "You">> "Heh, yeah, I think I\'ve been doing really well! I made sure to keep everything on schedule, and I\'ve even picked up the slack from Mike! Heh, good old Mike!"<</Dialogue>><br>Emma looks at you, her gaze communicating nothing. You almost start sweating from the tension in the room but... then she starts smiling!<br><<Dialogue "Emma" "Emma">> "You did impress us, yes! And that\'s why we\'re giving you a promotion, and a raise! You CERTAINLY earned it. And no worries, Mike and I will be speaking soon. Now, I\'m sure you have plenty on your plate, so expect your increased pay soon. And once again... well done."<</Dialogue>><br>With that you leave the office, still a bit stunned. Well, it seems you got some more money to spend now! But Emma seemed genuinely pleased, displaying a warm smile, which you remember fondly.<br><<link "return" "office">><<set $officePromotionBonus to 2>><</link>><</replace>><<Failed>><<replace "#choice">><br><br><<Dialogue "player" "You">> "Heh, yeah I think I\'ve been doing really well! I made sure to keep everything on schedule, and I\'ve even picked up the slack from Mike! Heh, good old Mike!"<</Dialogue>><br>Emma looks at you, her gaze communicating nothing. You almost start sweating from the tension in the room, when her mouth stiffens a bit.<br><<Dialogue "Emma" "Emma">> "You did impress us, and your performance was well above expectations. And that\'s why we\'re giving you a promotion, along with a raise. However, I would encourage you not to comment officially about the performance of other coworkers, for obvious reasons. That will be all."<</Dialogue>><br>With that you leave the office, still a bit stunned. Well, it seems you got some more money to spend now! But Emma seemed genuinely displeased, her cold stare burned into your mind.<br><<link "return" "office">><<set $officePromotionBonus to 2>><</link>><</replace>><</PersonalityCheck>><br><br><<PersonalityCheck $carefreeCarefull >= 1 "Give a detailed explanation.">><<replace "#choice">><br><br>Carefully, you give a detailed explanation of your performance; you excel at responding every ticket efficiently, you detail how your bookkeeping skills help, and that the work has become second-nature. No boasting, no lying, just facts.<br><br><<Dialogue "player" "You">> "-and that, combined with my recent numbers, shows a clear upward trend."<</Dialogue>><br>Emma listens to every word, and smiles.<br><br><<Dialogue "Emma" "Emma">> "... I knew fast-tracking you for a promotion was a good idea. Congratulations, you\'re not a junior associate any longer! You\'ll be getting a new position and a raise, effective immediately. You\'ll have similar responsibilities, though we do expect you to help the team more often. Well done, truly. I don\'t see people like you often. But you will have to excuse me now, I have a lot on my plate..."<</Dialogue>><br>Well this is a welcome surprise! It seems your hard work has earned you a promotion, increasing your income!<br><br><<link "return" "office">><<set $officePromotionBonus to 2>><</link>><</replace>><<Failed>><br><br>Carefully, you try to give a detailed explanation of your performance; you excel at responding every ticket efficiently, you detail how your bookkeeping skills help, and that the work has become second-nature. Emphasis on try, as you keep misquoting and correcting numbers, losing track of your train of thought and just muttering and stuttering a lot. It’s a bit of a disaster, but Emma patiently smiles and gives you time to finish.<br><br><<Dialogue "player" "You">> "-a-and that, c-combined with my recent numbers, shows a clear trend. I mean, upward trend."<</Dialogue>><br>Emma listens to every word, and smiles.<br><br><<Dialogue "Emma" "Emma">> "... I knew fast-tracking you for that promotion was a good idea. you\'re not a junior associate any longer! You\'ll be getting a new position and a raise, effective immediately. You\'ll have similar responsibilities, though we do expect you to help the team more often. Well done, truly. I don\'t see people like you often. But you will have to excuse me now, I have a lot on my plate..."<</Dialogue>><br>Well, this is a welcome surprise! It seems that your hard work has earned you a promotion, increasing your income!<br><br><<link "return" "office">><<set $officePromotionBonus to 2>><</link>><</PersonalityCheck>></span>'
+}, {
+    name: 'EmmaPromotion2',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaPromotion2
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: 'Once more as you boot up your PC you get a notification that you\'re to meet Emma in her office. Normally, there wouldn\'t be any subject line here but this time its different. Now the subject line is quite simple; \'New promotion\'. It seems that with your work you\'ve impressed Emma again, and this is confirmed as you walk into her office and she sits there smiling. <br><<Dialogue "Emma" "Emma">> "Welcome, Miss <<print $playerLastName>>. Please, take a seat. Now once more we\'re here because... well, let me be frank. You\'ve done amazing work, and I\'m rewarding you. With the way you\'re handling those accounts and filing everything, you deserve anohter promotion. Normally the company doesn\'t do that with someone so newly with us, but I frankly told upper managment that you\'d get it."<</Dialogue>><br>Emma is genuinely smiling, looking suprisingly energized. Clearly she gives a lot to the company and puts a LOT of herself in her work. But here you see her relaxed and even proud of you! Her smile, normally hidden by a perpetual frown, makes her almost appear bubbly.<br><br><span id="choice"><<link "Thank her">><<replace "#choice">><br><br><<Dialogue "player" "You">> "A-another promotion?! Really? Well... thank you, really! I appreciate it, thank you Emma!<</Dialogue>><br><<Dialogue "Emma" "Emma">> "No no, thank you, miss <<print $playerLastName>>. Your excellent work has given us many new clients, and its nothing but deserved that you get this promotion."<</Dialogue>><br> Emma smiled at you, pushing a paper forward. It was another new contract, with even bigger pay, yet the same responsibilities. It seems they really liked your performance! Emma leaned back, smiling. After signing it, and a few more congratulations, you left her office. Well, it seems you got some more money to burn now!<br><<link "return" "office">><<set $officePromotionBonus to 4>><</link>><</replace>><</link>><br><br><<PersonalityCheck $shyConfident >= 1 "Boast about it.">><<replace "#choice">><br><br><<Dialogue "player" "You">> "Hah, Finally! I\'ve been doing so much work around here, I was wondering when I was going to get one!"<</Dialogue>><br>Emma looks at you, her gaze saying nothing. Have you overplayed your hand, pushed it too much? But then she broke the tension, smiling.<br><<Dialogue "Emma" "Emma">> "Heh, okay, some boasting is deserved big shot. Just don\'t get too cocky now. But seriously, you did earn it. Your work is excellent, and you\'re an asset to the company. Enjoy your promotion."<</Dialogue>><br>Gently she slides the paper to you, and with that you are promoted.<br><<link "return" "office">><<set $officePromotionBonus to 4>><</link>><</replace>><<Failed>><<replace "#choice">><br><br><<Dialogue "player" "You">> "Hah, Finally! I\'ve been doing so much work around here, I was wondering when I was going to get one!"<</Dialogue>><br>Emma looks at you, her gaze saying nothing. You almost start sweating from the tension in the room, when her mouth stiffens a bit as the formerly warm smile drops a bit..<br><<Dialogue "Emma" "Emma">> "...Don\'t get cocky with me. I put myself on the line to get you this promotion and I don\'t think this is fitting here, now is it? Here is your promotion, and I expect you will deliver results. Good day."<</Dialogue>><br>With that coldness you left the office. You got the promotion, but it seems you\'ve struck a nerve with Emma.<br><<link "return" "office">><<set $officePromotionBonus to 3>><</link>><</replace>><</PersonalityCheck>><br><br><<link "Humbly accept.">><<replace "#choice">><br><br><br><br><<Dialogue "player" "You">> "I... wow. Thank you, Emma. ".<</Dialogue>><br>You politely nodded, and it was clear not many words were needed. Emma appreciated you. You had humbly thanked her, and her smile grew even wider.<br><br><<Dialogue "Emma" "Emma">> "You\'re an asset to us. Now, go out there and make me proud!".<</Dialogue>><br>You were given a second promotion, and you get the idea Emma appreciates you more and more.<br><br><<link "return" "office">><<set $officePromotionBonus to 4.5>><</link>><</replace>><</link>></span>'
+}, {
+    name: 'EmmaHeight30',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaLastMuscle + 30 <= State.variables.muscle
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: '<<set $emmaOpinion += 2>>You\'d never guess that simply walking into the office could be such a problem. However, as you look at the entrance, you are reminded of the fact that, well... in terms of height, you are now much taller than before. Also taller than your coworkers! As you ponder over this fact, you notice Emma standing next to you, looking you up and down with an expression of utter amazement.<br><br><<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>?"<</Dialogue>><br><<Dialogue "player" "You">> "Ummm, yes?"<</Dialogue>><br><<Dialogue "Emma" "Emma">> "If I remember correctly, the last time I saw you, you were a bit shorter. Then how is it possible that today, you can\'t even walk into the office?"<</Dialogue>><br><span id="choice"><<link " Tell her that you\'ve grown">><<replace "#choice">><br><br><<Dialogue "player" "You">> "Growth spurt is the answer, I guess?"<</Dialogue>><br>Clearly frustrated with your answer, she rolls her eyes and points at you.<br><br><<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>, I\'ll give you a short biology lesson. Adult humans don\'t go through a second puberty, and even if that was the case with you, it\'s impossible to grow that fast!"<</Dialogue>><br>What seems to be the beginning of a long rant is cut short by one of your coworkers handing Emma a folder, which has \'URGENT! \' written on it in big, red letters. She takes the folder and marches towards her office, but not before giving you a stern look that says "We\'ll talk about it later". Welp, it\'s time for you to get to work!<br><br><<link "return" "office">><<set $emmaOpinion += 2>><</link>><</replace>><</link>><br><br><<link " Tell her that you don\'t know">><<replace "#choice">><br><br><<Dialogue "player" "You">> "To be honest, I have no clue how this happened".<</Dialogue>><br>The HR executive lifts her eyebrow but her face softens when she looks at you.<br><br><<Dialogue "Emma" "Emma">> "If you feel unwell and can\'t work today, you can take the day off. I will vouch for it."<</Dialogue>><br><<Dialogue "player" "You">> "Thanks, but there’s no need for that."<</Dialogue>><br>She nods curtly.<br><br><<Dialogue "Emma" "Emma">> "Alright then, but a word of advice, I strongly suggest you go to the hospital for a medical checkup".<</Dialogue>><br>And with that, she goes on with her workday, as do you. However, a stray thought comes up: how are you going to sit on your chair with legs this long...?<br><br><<link "return" "office">><</link>><</replace>><</link>><br><br><<link " Ignore her ">><<replace "#choice">><br><br>Instead of giving her an answer, you lower your elongated body through the door with some difficulty. It\'s quite the ordeal, but you manage to get through. Meanwhile, Emma just stands still and watches in bewilderment at being ignored. Thinking back, maybe this wasn\'t the wisest choice?<br><br><<link "return" "office">><</link>><</replace>><</link>></span>'
+}, {
+    name: 'EmmaMuscle30',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaLastMuscle + 30 <= State.variables.muscle
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: 'Humans are creatures of habit and routine. This quotation applies to most people - and thus includes you as well. Usually, when you go to the office, you tend to take the elevator because the office is on the tenth floor and the lift is very convenient compared to the stairs. Today is no different, and you walk towards the elevator with every intention of using it. However, as you look at the automatic doors, you notice something new. Since you\'ve grown A LOT, the elevator is... a bit too small for someone of your size. What\'s more, you notice that Emma is standing in the back of the elevator, she doesn\'t even notice you because she\'s wearing earbuds and looks to be lost in thought reading a file. Still, you are no quitter, and you force your body through the door as the carriage grates and groans in protest. <br><br>Emma lifts her head, confronted by a literal wall of muscles coming her way, which pushes her even further into the corner. She lets out an indignant grunt, but there is nothing she can do to resist the sheer weight of your body, and it seems that she\'s now trapped under your immense bulk.<br><br><<Dialogue "Emma" "Emma">> "Hey! What\'s happening?!"<</Dialogue>><br><<Dialogue "player" "You">> "Ah... sorry."<</Dialogue>><br><<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>? Wha... How?!"<</Dialogue>><br><<Dialogue "player" "You">> "Um... I\'ve been working out?"<</Dialogue>><br>She gasps and looking at her, you imagine she probably has some sharp retort at the tip of her tongue, but after taking a deep breath, she calms down.<br><br><<Dialogue "Emma" "Emma">> "That\'s a bit of an understatement."<</Dialogue>><br>The HR executive pokes and tries to move your tree trunk thighs, which are pushing against her whole body and trapping her in the corner. While it\'s nothing new that Emma is quite strong, your legs don\'t even budge.<br><br><span id="choice"><<PersonalityCheck $submissiveDominant >= 2 " Tease her">><<replace "#choice">><br><br>A mischievous idea comes to mind. You flex your legs, and as they expand and harden, Emma gasps, your legs pressing her body even more against the walls of the elevator. With difficulty, she pats your legs hard - which you barely even feel.<br><br><<Dialogue "Emma" "Emma">> "Cut it out! If you keep at it, I\'m not going to be able to breathe!"<</Dialogue>><br>Ugh, Party pooper. You stifle a giggle, but relax your muscles. Emma\'s face is red as she gives you a sharp look. You grin a little, noticing that she looks pretty cute when embarrassed. However, your fun is cut short as a soft DING is heard from the elevator, which arrived at the tenth floor where the office is located. After a short while, you both manage to squeeze out, Emma straightens her crumpled clothes and looks back at you.<br><br><<Dialogue "Emma" "Emma">> "We\'ll talk about this later. For now, we have a lot of work to get to."<</Dialogue>><br>And with that, she leaves, moving towards her office.<br><br><<link "return" "office">><<set $emmaOpinion -= 5>><</link>><</replace>><<Failed>><<replace "#choice">>Already your imagination is going wild; you pinning Emma there, making her squirm while her hands explore your legs... Her tiny hands pushing you away. Yet, before you can act on it, you hear the ding of the elevator, and she gets out. Urgh... such a nice little daydream!<br><br><<link "return" "office">><<set $emmaOpinion -= 5>><</link>><</replace>><</PersonalityCheck>><br><br><<link " Be apologetic">><<replace "#choice">><br><br><<Dialogue "player" "You">> "Sorry, I\'ll try to move towards the other side to give you more space."<</Dialogue>><br>Easier said than done, as the elevator is quite small and your massive body can barely move. Still, you manage to lean to the side and give Emma some precious breathing space.<br><br><<Dialogue "Emma" "Emma">> "Oof... thanks. May I suggest taking the stairs next time? Or at least wait until you can have the elevator for yourself?"<</Dialogue>><br><<Dialogue "player" "You">> "Yeah, that seems like a good idea."<</Dialogue>><br><<Dialogue "Emma" "Emma">> "Besides, how is it possible that you look like a comic book hero? I don\'t mean to be rude, but the last time I saw you, you seemed a lot smaller."<</Dialogue>><br>She scans your body from top to bottom, her eyes lingering on your massive biceps and giant traps. You have no idea how to explain your gains, but you\'re saved by the elevator coming to a halt and opening. Looks like you\'ve reached your destination!<br><br><<Dialogue "Emma" "Emma">> "This will be a topic for next time. Let\'s get going, we have to hurry or we\'ll be late."<</Dialogue>><br>Right, she sounds serious. Still, there is truth in her words, you don\'t want to be tardy!<br><br><<link "return" "office">><<set $emmaopinion += 2>><</link>><</replace>><</link>><br><br><<link "Say that you can\'t move as well">><<replace "#choice">><br><br><<Dialogue "player" "You">> "Um... I can\'t really move my leg, Emma, there just isn\'t enough space."<</Dialogue>><br>She frowns, but doesn\'t say anything. Even though she tried her best to push your leg, which is pinning her against the corner, her efforts are unsuccessful. Hopefully she doesn\'t get angry about the ordeal. Time slows to a crawl as the awkward silence continues during the ride, but finally Emma speaks up.<br><br><<Dialogue "Emma" "Emma">> "Is there some sort of logical explanation for your... sudden growth?"<</Dialogue>><br><<Dialogue "player" "You">> "Honestly? I don\'t think so."<</Dialogue>><br>She sighs and shakes her head in exasperation. Looks like she gave up trying to satisfy her curiosity. In any case, she isn\'t able push the issue any further, as the elevator doors open, signaling the end of your journey. After getting out, you both exit and walk towards your respective desks. Judging by this encounter, you get a feeling that your new body might make things difficult in the future!<br><br><<link "return" "office">><<set $emmaOpinion += 2>><</link>><</replace>><</link>></span>'
+}, {
+    name: 'EmmaLoan',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.money <= 100
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: 'Walking to the coffee machine, you pour yourself a BIG mug of coffee, trying to shake the lingering tiredness. You don\'t even hear Emma approaching from behind as she flashes a thin smile. <br><<Dialogue "Emma" "Emma">> "Rough night, Miss <<print $playerLastName>>?"<</Dialogue>><br>You almost jump out of your skin, and while Emma might be disguising her amusement, you can swear you saw a brief smirk. <br><<Dialogue "player" "You">> "Ugh, no, no, just... haven\'t been sleeping too well lately."<</Dialogue>><br> <br><<Dialogue "Emma" "Emma">> "... May I ask why?"<</Dialogue>><br><<Dialogue "player" "You">> "It’s nothing, really."<</Dialogue>><br><<Dialogue "Emma" "Emma">> "<<print $playerFirstName>>. As head of human resources, I\'m responsible for keeping everyone in this team happy and productive. Please, if there is any way I can help..."<</Dialogue>><br><<Dialogue "player" "You">> "Well, lately, food and clothing is really eating into my savings... "<</Dialogue>><br><<Dialogue "Emma" "Emma">> "I see. Well... in that case, I can authorize a one-time advance to your paycheck. We do not do this on the regular, and I would deeply appreciate it if you didn\'t mention this with the others. I will see to it that it’s deposit into your bank account ASAP."<</Dialogue>><br> You blink a few times, still holding your coffee. Did she just... She did? What the hell just happened?!? While you collect your thoughts, she\'s off again, talking to someone else.<br><br><<link "return" "office">><<set $money += 200>><<set $emmaOpinion += 2>><</link>>'
+}, {
+    name: 'emmaBulkPrep',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.emmaOpinion >= 40,
+        () => setup.hasEventBeenTriggered("EmmaExpertCook")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `The constant tapping of the keyboard is getting more rhythmic, a telltale sign that you are reaching that flow state. You are so distracted that you don’t even notice the imposing presence behind you.<br><br>
+<<Dialogue "Emma" "Emma">>"...Ahem."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Uh… huh?"<</Dialogue>><br><br>
+You turn your cheap office swiveling chair without thinking, and find your boss, Emma, looking rather stern as usual. But also… something is slightly off? But you can’t quite put a finger on what exactly - she seems unusually hesitant?<br><br>
+<<Dialogue "Emma" "Emma">>"Ms. <<print $playerLastName>>, I hope I’m not interrupting."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Not at all! Shoot!"<</Dialogue>><br><br>
+Emma is momentarily taken aback by your informal response, as betrayed by her raising right eyebrow. But she recomposes herself almost immediately, raising her glasses with a decisive finger and a brief frown.<br><br>
+<<Dialogue "Emma" "Emma">>"I apologize for intruding during your work, but I had a… personal request I’d like to make."<</Dialogue>><br><br>
+You tilt your head to the side inquisitively, still a bit confused. An awkward silence follows, until Emma realizes you are just waiting for her to spill the beans.<br><br>
+<<Dialogue "Emma" "Emma">>"Ahem! Well, I will cut right to the chase: I do my meal prep work every other week, and after witnessing your culinary prowess, I was wondering if you could come over and help me, as well as give me some pointers?"<</Dialogue>><br><br>
+You blink, incredulously. Is this the same Emma that you are used to? For most people that request would sound normal, but you just know how big of a leap that is for Ms. Super Formal. Emma rarely mixes work and personal life, and you are immediately honored by the request.<br><br>
+
+<span id="choice">
+    <<PersonalityCheck $shyConfident >= 3 "That’s actually a great idea!">>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"Of course, it would be my pleasure. Would you like to come over to my place or would you like to do it at yours?"<</Dialogue>><br><br>
+            You notice the smallest hint of a blush on her professionally made up face.
+            <<Dialogue "Emma" "Emma">>"I… I have a freezer where I keep my ingredients. It would only make sense for you to come over, I can guarantee my kitchen is fully supplied with all major implements and spices."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Sure, but we should use some fresh ingredients. Tell you what, I’ll bring some stuff from the grocery store, just let me know what your base elements are and I’ll plan accordingly."<</Dialogue>><br><br>
+            Emma, again, finds herself hesitating. You quickly realize that she still views this as some kind of transaction, and you might have gone a bit too friendly for her comfort zone.<br><br>
+            <<Dialogue "player" "You">>"I’ll bring the receipts, we can settle the accounts at the end. Or, better yet, why don’t I bring my own stuff, and we can do both our preps, and I’ll show you all my tricks!"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"I couldn’t possible DREAM of imposing like that..."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Nah, it’s no biggie, I also have to prep my own stuff anyway, it’s a win-win because I find it super boring to do it alone at home - some company would be really nice!"<</Dialogue>><br><br>
+            Emma’s lips purse almost imperceptibly, but she takes a big breath and nods.<br><br>
+            <<Dialogue "Emma" "Emma">>"I suppose that is true. Agreed. I’ll text you my address later. Would this coming saturday, at 8 in the morning work for you?"<</Dialogue>><br><br>
+            You nod back with a proud smile.<br><br>
+            <<Dialogue "player" "You">>"Awesome, I’ll be there! Anything else or can I get back to…?"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Of course, that is all. Again, I apologize for the interruption. Carry on."<</Dialogue>><br><br>
+            You sneak a peek as Emma walks away. It’s subtle, but you can tell a certain je ne sais quoi on her peppy high-heeled step back to her office. It makes you smile even more, and get really anxious for the weekend.
+            <<link "Continue" $currentScene>>
+			<<script>>
+				var date = SugarCube.State.variables.gameDate;
+				var dayOfWeek = 6;
+				var resultDate = new Date(date.getTime());
+
+				resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+				const diffTime = Math.abs(resultDate - date);
+				State.variables.dayOfEmmaBulkDate = State.variables.daysPlayed + Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+			<</script>>
+			
+			<</link>>
+        <</replace>>
+    <<Failed>>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"Uh, I… yeah, it would be pretty cool, I guess…"<</Dialogue>><br><br>
+            Emma immediately picks up on your awkward discomfort, and it makes her hesitate.<br><br>
+            <<Dialogue "Emma" "Emma">>"I apologize, Ms. <<print $playerLastName>>. I have clearly overstepped a professional and personal boundary here. Consider the request rescinded."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"NO!!!"<</Dialogue>><br><br>
+            You grab Emma’s sleeve without thinking, and you both are frozen looking at your hand for a few seconds. Another worker coughs in the background. Both of you pull back, just as awkwardly.<br><br>
+            <<Dialogue "player" "You">>"Ms. Fray, I apologize. I, uh, really would like that opportunity, actually."<</Dialogue>><br><br>
+            Emma raises her trademark eyebrow, confused, but also slightly intrigued.<br><br>
+            <<Dialogue "Emma" "Emma">>"Excuse me?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I mean, uh, it’s super boring to do my meal prep."<</Dialogue>><br><br>
+            You roll your eyes to illustrate, and Emma looks downright mystified at your exuberant display, but it’s just who you are.<br><br>
+            <<Dialogue "player" "You">>"It would be a big favor for me to have someone else to talk to while I do my meal prep - I could bring my own stuff and we do both of ours together, I’ll give you tips and everything. Please, I would really like to do this."<</Dialogue>><br><br>
+            Emma’s eyes dart around as she thinks your proposal over, squinting and taking a long, deep breath.<br><br>
+            <<Dialogue "Emma" "Emma">>"Fair enough. But I’ve held you from your work for long enough. I’ll message you my address, would next saturday at 8 in the morning work for you?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Perfectly! I’ll see you there!"<</Dialogue>><br><br>
+            Emma merely nods, mouths a silent ‘thank you’ and turns around, making a beeline to her office.<br><br>
+            Oh boy, you almost flubbed that one. But… wow! I guess you really are doing this. It’s almost difficult getting back into the flow. In fact, you are pretty much distracted for the rest of your workday. But it will be worth it!
+            <<link "Continue" $currentScene>><</link>>
+			
+			<<script>>
+				var date = SugarCube.State.variables.gameDate;
+				var dayOfWeek = 6;
+				var resultDate = new Date(date.getTime());
+
+				resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+				const diffTime = Math.abs(resultDate - date);
+				State.variables.dayOfEmmaBulkDate = State.variables.daysPlayed + Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+			<</script>>
+        <</replace>>
+    <</PersonalityCheck>>
+
+    <<link "I’d love to, but…">>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"Erm, wow, I’m honored, but… uh, you see…"<</Dialogue>><br><br>
+            Emma immediately picks up on your hesitation, and it’s all she needs. Her face goes a few degrees colder, and she enunciates very clearly.<br><br>
+            <<Dialogue "Emma" "Emma">>"I apologize. I have CLEARLY overstepped several boundaries. I should not have asked in the first place. Please disregard my request."<</Dialogue>><br><br>
+            You open your mouth, but before a single word comes out, Emma is off to whatever her next task is. You are left there, with one hand raised. Way to go, <<print $playerFirstName>>. Next time, remember to be a bit more tactful when dealing with Emma - clearly hesitation doesn’t mesh well with her personality.
+            <<link "Continue" $currentScene>><</link>>
+        <</replace>>
+    <</link>>
+</span>
+`
+}, {
+    name: 'emmaReportingHQ',
+    locationTags: ['emma'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("emmaMealPrep"),
+        () => State.variables.gameDate.getDay() !== 5
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<goto "emmaReportingHQ">>`
+}, {
+    name: 'emmaReportingHQPart2',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => setup.hasEventBeenTriggered("emmaReportingHQ")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<goto "emmaReportingHQPart2">>`
+}, {
+    name: 'emmaLosePatience1',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.flag.emmaReportingHQPart2Finished
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<goto "emmaLosePatience1">>`
+}, {
+    name: 'emmaLosePatience2',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.flag.emmaReportingHQPart2Finished
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<if $jobWarehouse>><<goto "emmaLosePatience2-warehouse">><<else>><<goto "emmaLosePatience2-office">><</if>>`
+}, {
+    name: 'emmaLosePatience3',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.flag.emmaReportingHQPart2Finished
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<if $jobWarehouse>><<goto "emmaLosePatience3-warehouse">><<else>><<goto "emmaLosePatience3-office">><</if>>`
+}, {
+    name: 'emmaLosePatience4',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.flag.emmaReportingHQPart2Finished
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<goto "emmaLosePatience4">>`
+}, {
+    name: 'EmmaBurnout',
+    locationTags: ['emma'],
+    conditions: [
+        () => State.variables.flag.emmaReportingHQPart2Finished,
+        () => setup.hasEventBeenTriggered("emmaReportingHQ")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `Today is the big day for the office-wide meeting at the office, when Emma is supposed to address all the cuts from the meeting at HQ. You’d be lying if you said your stomach wasn’t doing a whole gymnastics routine - the dread alone is making you nauseous, but you also feel bad for Emma, this must be pretty tough on her. Still, you expect her to keep her cool and just get the news across, even if it will make everyone lash back at her.
+
+But as you get to the office, something is just off. Everyone seems a bit on edge, which is expected with such a branch-wide meeting, but this is something else. It does not take long to figure it out: Emma is nowhere to be found, and won’t answer her phone! This, by itself, is kind of unprecedent... and now that you think about it, she’s just been a bit off lately. Your concern starts escalating, and now you’ve taken upon yourself to figure out what is wrong.
+
+<<if setup.hasEventBeenTriggered("emmaMealPrep")>>Thankfully, you know Emma’s address from when you went there to prep meals, so you let HR know that you have a personal emergency and take the day off to check on her.
+
+<<else>>
+<<if $skills[2].level > 3>>With no time to lose, you log into a terminal and, knowing the quirks of the system, you game the options to get access to Emma’s address, and you send a message to HR to get a day off due to a personal emergency - and off you go to check on her.
+ 
+<<elseif $shyConfident > 1 || $muscle >55 || $height > 200>>You feel like someone ought to check on Emma, but first you need to figure how to reach her. The fastest way is to get it from HR - and so you just corner the meek employee from that department and intimidate him into giving you Emma’s address - you don’t feel great about it, but it’s for a good cause... right?
+
+<<else>>You can’t just leave Emma like this. But if she’s not answering her phone, what else can you do? Maybe you can figure out her address? But how?
+
+You go over all the usual things you can figure out - looking in the internal employee database, but you have no access. HR says it can’t disclose that information due to privacy concerns. ARGH! How can you find such information?
+
+You look at Emma’s office... the janitor does have the keys to all doors, which he keeps leaving unattended on his cart! You swipe those, and discreetly unlock the door to her office, sneaking inside. You don’t want to pry into her personal stuff too much - but you luck out right away: her inbox has a receipt for her dry cleaning - complete with her address! And it’s off to the races!
+
+<</if>>
+<</if>>
+<span id="choice1"><<link "To Emma’s apartment we go!">><<replace "#choice1">>
+<<addMinutes 60>>
+Leaving the office, you make your way to the apartment building. You hurry up the stairs to Emma’s apartment, and knock on the door. You hear a pained groan, and your heart sinks - that’s clearly Emma’s voice!
+
+<<Dialogue "Emma" "Emma">>"Ugh. Just a second..."<</Dialogue>>
+
+You hear some shuffling, and the lock clicks, before opening. Your shock only increases when you see a very tired and disheveled Emma, still in workout clothes, her half-open eyes trying to focus on you - and it takes her a few seconds to even process who you are.
+
+<<Dialogue "Emma" "Emma">>"... <<print $playerFirstName>>?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Emma - are you okay? The entire office is worried about you!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"The... reports..."<</Dialogue>>
+
+And before you can even fully take complete stock of her state, her eyes roll back and she fades, going limp. <<if $muscle >40>>You grab her feverish body in your arms before she falls, resting her on the nearby couch.<<else>>You try to support her, leaning against her as you try to ease her feverish body onto the nearby couch.<</if>>
+
+Emma is hot and clammy, running a fever under all that sweat. She moans and occasionally talks about reports, cost cutting and efficiencies, but she’s very clearly delirious. You place a hand on her wet forehead, and she’s burning up! You run to get a wet towel on her forehead, and pull a chair by her side. You’d never even entertained the thought you’d ever be truly concerned about Emma, she seems so strong and self-sufficient, seeing her like this is disturbing. But right now, all you feel you can do is give her support, so you grab some orange juice in the fridge and sit by her side, holding her hand.
+
+<span id="choice2"><<link "I’ll stay by her side until she is feeling better!">><<replace "#choice2">>
+<<addMinutes 45>>
+You wait by her side patiently, at times admiring her beautiful hand. She clearly takes a lot of care of her nails and palms - while she doesn’t keep her nails very long, they are discreetly yet meticulously painted, with her palms being very moisturized, but also roughened with the calluses of her weightlifting. That duality is so patently Emma it ends up bringing a tender smile to your face. You find yourself gently tracing the prominent vein on the back of her hand, a badge of honor of all the effort she’s put in the gym fod God knows how long (you can pretty much assume how hard), as you watch her face relax from the unpleasant feelings as her breath deepens and she eventually falls into a more peaceful slumber. You trade her wet towel for a fresh one, while you check your phone on tips on how to treat her.
+
+You can’t help but both admire and worry about her body. Sure, she has honed every muscle, which stand out even more in her currently dehydrated state, but it is very unusual to not see that perennial aura of power and control gone - in its place, you see this fragilized young woman, who probably never even conceived of asking for support.
+  
+Eventually, Emma smacks her lips and her eyes flutter, opening slowly before fully realizing your presence.
+
+<<Dialogue "player" "You">>"Hey, it’s alright. You were feverish and I think delirious, but I think the worse is over now. But you need to drink fluids. I brought some orange juice - here!"<</Dialogue>>
+
+Emma is still somewhat shocked by your presence and your offer of help, enough that she can’t even reply, so you push the cup of juice into her hands, and she starts sipping on it tentatively, without ever breaking eye contact - almost as if you could strike like a viper at any second. <<if $submissiveDominant > 1>>Your motherly instincts get the best of you, and you look at her sternly, making it clear you won’t rest until she’s done with the entire receptacle. She tacitly complies.<<else>>You sigh, placing a hand tenderly on her shoulder and nodding, trying to elicit some comfort. You can feel her muscles relaxing under your hand, which makes you smile a bit more.<</if>>
+
+<<Dialogue "player" "You">>"Miss <<print $playerLastName>>, what are you doing here?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"You didn’t show up at work without any warning, Emma, which is about as normal as a the moon falling from the sky. People got worried, so I took it upon myself to come check on you. I got here and you were burning up with a fever. <<if $carefreeCarefull > 1>>I am not a doctor, but I will guess you weren’t presenting any symptoms of an infection? Because I would hazard a guess this might be stress-related.<<else>>Given everything else, I am pretty sure this might be psychosomatic due to stress...<</if>>"<</Dialogue>>
+
+Emma rolls her eyes, and while it’s somewhat clear she does not want to admit it, she sighs and nods.
+
+<<Dialogue "Emma" "Emma">>"I suppose I’ve been fighting some bouts of insomnia and anxiety these last few days that should not have been disregarded. Then my fitness routine was suffering, and I just pushed harder."<</Dialogue>>
+ 
+<<Dialogue "player" "You">>"You do understand that not everything in life can be fixed through hard work alone, right?"<</Dialogue>>
+
+Emma laughs at that, apparently aware of the humor in the situation.
+
+<<Dialogue "player" "You">>"Listen, I’m mostly concerned with how dehydrated you must be, I’m going to hit the pharmacy and get you something for that."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"No need, I have dozens of bottles of sports drinks in the cabinet under the sink. Just get me a couple."<</Dialogue>>
+
+Following her instructions, you go there and find a couple of crates of a fancy brand of sports drink, and grab three different random flavors.
+
+<<Dialogue "player" "You">>"Pick your poison."<</Dialogue>>
+
+She goes for the passionfruit, while you grab the lime one for yourself.
+
+<<Dialogue "player" "You">>"Bottoms up!"<</Dialogue>>
+
+You mock clinking the plastic bottle against her, and chug it down, and Emma does the same, albeit at a slower pace. She’s very clearly trying to downplay that’s she not feeling great.
+
+<<Dialogue "player" "You">>"You know you don’t need to pretend to be strong in front of me, right?"<</Dialogue>>
+
+Emma first looks surprised, then disappointed.
+
+<<Dialogue "Emma" "Emma">>"I... it just comes naturally, I suppose. It’s nothing personal, I hope you understand."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Hey, I get it. But it’s friend <<print $playerFirstName>>. I don’t even know where you work, as far as I am concerned. My only concern is your well-being."<</Dialogue>>
+
+And at that precise moment, Emma freezes for a second, like something cracking inside of her. Her eyes fully focused on you, her lips turn downward, and you feel like a side of Emma that’s been buried for a long time has a chance to come to the surface, desperate for air. You hold her hand, and she squeezes your as firmly as she can in her current state.
+
+<<Dialogue "Emma" "Emma">>"Thanks, <<print $playerFirstName>>, I’m feeling a lot better already."<</Dialogue>>
+
+<<if $carefreeCarefull < 0 || $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"I hope you don’t mind, but I emailed HR and said you would take a sick day today and tomorrow."<</Dialogue>>
+
+Emma opens her mouth to protest, but you look sternly at her, and she pouts, which just makes you laugh out loud. Defeated, she shrugs and nods.
+
+<<else>>
+<<Dialogue "player" "You">>"Look, I’m going to email HR, I think you should just take a sick day today and tomorrow."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"But the office-wide meeting...!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"... will still happen, even if a few days late, and the world will not end because of that, believe it or not!"<</Dialogue>>
+
+Emma pouts, but then nods, defeated. It brings a smile to your face - it may have taken a full-blown fever, but you have won an argument against Emma! You should call a news crew!
+
+<</if>>
+<<Dialogue "player" "You">>"So how does it feel?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I think the fever is not as bad."<</Dialogue>>
+
+<<Dialogue "player" "You">>"No, I mean, knowing the world won’t fall apart if you take a day off."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Ha, ha. Very funny."<</Dialogue>>
+
+<<Dialogue "player" "You">>"I’m serious, though. You do understand the office will still be there next week, right? I’m not saying you are not important and God knows how much we need you, but everyone will survive if you are not perfect 24/7."<</Dialogue>>
+
+Emma looks down, somewhat bothered.
+
+<<Dialogue "player" "You">>"Don’t get me wrong, that doesn’t mean you are any less awesome - heck, I still want to be a quarter as awesome as you someday, I just want you to understand you are not Atlas himself, with the globe on his shoulder..."<</Dialogue>>
+
+You squeeze her shoulder again.
+
+<<Dialogue "player" "You">>"Though you certainly LOOK muscular enough to be squatting the planet."<</Dialogue>>
+
+<<if $muscle >= 65>><<Dialogue "Emma" "Emma">>"Says the woman who might actually do it."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Stop being so modest, Emma, even after being sick for a while, you could probably step directly on stage!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"You are too nice."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Am I, though?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I mean, sure, I suppose I could..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"So why don’t you?"<</Dialogue>>
+
+<<elseif $muscle >= 50>><<Dialogue "Emma" "Emma">>"Coming from you? That’s about as high a compliment as any figure competitor could expect."<</Dialogue>>
+
+<<Dialogue "player" "You">>"So why don’t you?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Why don’t I what?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Compete, duh!"<</Dialogue>>
+
+<<elseif $muscle >= 40>>
+<<Dialogue "Emma" "Emma">>"You aren’t so shabby yourself, you know? I bet you could place on the upcoming competition."<</Dialogue>>
+
+<<if COMPETING is true>>
+<<Dialogue "player" "You">>"Well, guess what! I registered for it, and I could use some REAL competition."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I’m sure you’ll get some, but given your current gains, you should do fine."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, but I don’t want just anyone, I want THE BEST to compete against!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"And who would that be?"<</Dialogue>>
+
+You just look annoyed at Emma, raising your eyebrow as you put your hands on your hips.
+
+<<else>>
+<<Dialogue "player" "You">>"I suppose I could, but what fun would that be without some company and some REAL competition? You know, from someone I really admire."<</Dialogue>>
+
+You look expectantly at her.
+
+<</if>>
+<<else>>
+Emma laughs, but you just keep looking at her dead seriously. She is taken aback by that, and you just grab her arm.
+
+<<Dialogue "player" "You">>"Look at these muscles! I know how much effort it took to get there - and I also know how much you cherish that hard work. Don’t you  think it’s time to show the world?"<</Dialogue>>
+
+<</if>>
+<<Dialogue "Emma" "Emma">>"Oh, I couldn’t. Competitions are not only a lot of work that I can’t afford to put in with my career, but it would also affect how people perceive me if they knew, it’s already hard enough being a woman in a position of leadership - it would create several issues that I can’t even begin ennumerating."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Did I mention the world will not fall apart if you are not perfect for 5 seconds? Though, I would argue, sharing your physique with the world is just bound to raise more questions whether you ARE perfect, or possibly a robot. I still haven’t ruled that one out myself."<</Dialogue>>
+
+<<if $carefreeCarefull < -1>>You playfully pinch her firm thighs. The taut muscle is not fully flexed and thus still somewhat pliant, but feels powerful.
+
+<<Dialogue "player" "You">>"Yeah, jury’s still out on the robot thing, I think I might have to get a knife and see if that’s muscle or servomotors under your skin."<</Dialogue>>
+
+<<else>>
+You look at her developed legs, and bite your lips.
+
+<<Dialogue "player" "You">>"I mean, I joke about the robot thing, but there are days I would not be surprised if I saw you performing some incredible feats of strength."<</Dialogue>>
+
+<</if>>
+Emma does blush slightly from your compliment, but slouches as she sighs.
+
+<<Dialogue "Emma" "Emma">>"I am humbled by your confidence in me, but I don’t know how justified it is."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Listen, this isn’t about insecurity regarding the competition itself, right? Your concern is what people think of you, wouldn’t you agree?"<</Dialogue>>
+
+Emma does not answer, but her face says it all.
+
+<<if $shyConfident > 1>>
+<<Dialogue "player" "You">>"Well, I think it’s no stretch to say we have established that the world will not crumble without you to watch over it. And as it turns out, that also applies to your work - sure, I think you should keep it professional AT THE OFFICE. But once you clock out, who cares if you are a dominatrix at a nightclub or taming lions at a circus - as long as it’s not illegal, that’s YOUR problem, and not anyone else’s. "<</Dialogue>>
+
+<<else>>
+<<Dialogue "player" "You">>"I think I understand. I used to worry a lot about what people thought of me. Actually, strike that. I think I was disappointed with myself because I wasn’t sure what I wanted to be, and I felt judged. But ever since I started my life here on campus, I changed. And sure, people reacted to that, but what I learned is that it’s what I think that matters in the end."<</Dialogue>>
+
+<</if>>
+<<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>..."<</Dialogue>>
+
+She looks deep within your eyes, and you can see her resolve steeling.
+
+<<Dialogue "Emma" "Emma">>"You are right. It’s time I stop compromising my passion just because people might think less of me. I’ve worked hard to get where I am, and I am not about to sacrifice anything else just because of what people may think!"<</Dialogue>>
+
+You smile and hug Emma.
+
+<<Dialogue "player" "You">>"That’s what I wanted to hear!"<</Dialogue>>
+
+Emma hugs you back quite firmly. You can feel her fingers digging into your skin, and her breathing feel warm against your neck.
+
+<<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>, I have no words to thank you for breaking through the professional veneer and making me feel seen. Truly."<</Dialogue>>
+
+Her breathing goes deeper, and it makes you feel a shiver - this is more intimate than you’ve ever been with Emma.
+
+---
+<span id="emmaRelationshipChoice">
+<<link "Emma, I... I don’t want this to stop at a friendship...">><<replace "#emmaRelationshipChoice">>
+Your hand slides down her back towards her glutes, and this seems to encourage Emma to nuzzle your neck lightly.
+
+<<Dialogue "player" "You">>"Emma, I... I know office romance is frowned upon but..."<</Dialogue>>
+
+Emma stands back and puts her finger on your lips, shushing you. 
+<<if $muscle >60>>She just nods towards the stairs that leads to her mezzanine bed, and you acknowledge it by scooping her in your muscular arms, easily lifting your boss in a princess carry. Her eyes widen at your display of power, and she bites her lips. You carefully climb the steps as she wraps her own muscular arms against your gigantic neck and shoulders, and you carefully place her on her bed. You kneel next to it, giving Emma a passionate kiss, and she goes in with all tongue she can, like a monster that was waiting for be unleashed for years. Her hands probe your torso, until you feel the need to put a brake on.
+
+<<Dialogue "player" "You">>"You are still recovering. Let’s put a pin on this - but just for now."<</Dialogue>>
+  
+<<elseif $muscle >45>>Emma makes an effort to stand up, but it’s clear she’s still a bit woozy. So you slide an arm to hold her torso, and you help her walk up the stairs to her mezzanine bed. She sits down, and wraps her arms around you once again, using her weight to pull you down. But you can feel the effort, so you give her a passionate kiss, then push her gently to a laying position.
+
+<<Dialogue "player" "You">>"You are still recovering. Let’s put a pin on this - but just for now."<</Dialogue>>
+ 
+<<else>>
+Emma makes an effort to stand up, but it’s clear she’s still a bit woozy. You try your best to offer her a shoulder for support as she makes her way up the mezzanine stairs to her bed, which she looks at with hungry eyes. You give her a passionate kiss, before helping her sit down.
+
+<<Dialogue "player" "You">>"You are still recovering. Let’s put a pin on this - but just for now."<</Dialogue>>
+
+<</if>>
+You cover her with her super nice satin sheets (damn, what’s the thread count on this?), and she seems almost miserable for a second, but once she sees your smile, she seems comforted.
+
+<<Dialogue "player" "You">>"It may be one of the things you are not an expert at, but you need to rest. We’ll find some time for ourselves later. That, I can guarantee."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Do you need anything else before I go? You can always call me if you need anything."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Well, you know the one thing I want right now..."<</Dialogue>>
+
+You look at her, amused.
+
+<<Dialogue "Emma" "Emma">>"I suppose I could watch some corny soap operas. I really haven’t found the time, they are a bit of guilty pleasure, I’m afraid, and I suppose now is the best time to just relax with some soup."<</Dialogue>>
+
+<<Dialogue "player" "You">>"That’s better. So, you know, one phone call away. Understood?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I can barely wait."<</Dialogue>>
+
+And with that, you take your leave, and return home, fighting more urges than you’d like to admit. Now you just need to hope she takes this downtime seriously... so you can have the OTHER time of horizontal fun at a later date.’
+
+ <<link "Continue" $currentScene>><<set $emmaRelationship to true>><</link>>
+<</replace>><</link>>
+
+<<link "I am glad to be of help - but, just making sure, I’m here as a friend.">><<replace "#emmaRelationshipChoice">>
+As Emma hugs you harder, you start softening your touch.
+
+<<Dialogue "player" "You">>"I’m glad to have you as a friend, even if it might make things awkward at work, Emma. So, I hope you can count on me in the future."<</Dialogue>>
+
+Emma freezes, and then lets go. She got the message right away, thankfully, without making things weirder.
+
+<<Dialogue "Emma" "Emma">>"And I am not sure I will ever be able to thank you properly for this. I’m also glad you are so proactive about keeping our professional relationship separate from this. However, I suppose I’ll have to find it within me to compartimentalize a bit more to fully appreciate your friendship... AFTER clocking out, obviously."<</Dialogue>>
+
+She gives you a mischievous wink, and it’s incredibly refreshing to see her loosening a bit.
+
+<<Dialogue "player" "You">>"Do you need anything else before I go? Are you going to be okay? You can always call me if you need anything."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Nah, I already feel like a million bucks. Hell, I feel like I could go and run a mara..."<</Dialogue>>
+
+You look angrily at her.
+
+<<Dialogue "Emma" "Emma">>"Run straight to bed and watch some corny soap operas. I really haven’t found the time, they are a bit of guilty pleasure, I’m afraid, and I suppose now is the best time to just relax with some soup."<</Dialogue>>
+
+<<Dialogue "player" "You">>"That’s better. So, you know, one phone call away. Understood?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Crystal clear, “boss!”"<</Dialogue>>
+
+And with that, you take your leave, and return home, hoping NOT to see her at work so soon for a change!’
+
+ <<link "Continue" $currentScene>><<set $emmaRelationship to false>><</link>>
+<</replace>><</link>></span>
+<</replace>><</link>></span><</replace>><</link>></span><<set $emmaBurnout to true>>`
+}) >>
+
+

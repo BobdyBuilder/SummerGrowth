@@ -1,0 +1,58 @@
+:: addMinutes [widget] {"position":"2650,425","size":"100,100"}
+<<nobr>>
+<<widget "addMinutes">>
+
+<<set _timeTemp to $args[0]>>
+
+<<if $args.length > 1>>
+	<<set _sleepTemp to $args[1]>>
+<<else>>
+	<<set _sleepTemp to false>>
+<</if>>
+
+<<script>> 
+
+	var time = State.temporary.timeTemp;
+	var sleepMode = State.temporary.sleepTemp;
+
+    var oldDate = State.variables.gameDate.toDateString();
+    var oldHour = State.variables.gameDate.getHours();
+
+    var variance = Math.floor(Math.random() * 21);
+    var timeRandomFactor = Math.round(time * ((90 + variance) / 100));
+
+    State.variables.gameDate.setMinutes(State.variables.gameDate.getMinutes() + (timeRandomFactor));
+
+    var newDate = State.variables.gameDate.toDateString();
+    var newHour = State.variables.gameDate.getHours();
+
+    if (sleepMode) { }
+    else {
+        State.variables.hoursAwake += time / 60;
+    }
+
+    var sleepExhaustion = 0;
+
+    if (State.variables.hoursAwake >= setup.balance.startExhaustionAtHoursAwake) {
+        sleepExhaustion = Math.pow((State.variables.hoursAwake - setup.balance.startExhaustionAtHoursAwake), setup.balance.hourlyExhaustionTax);
+
+        State.variables.minimumExhaustion = State.variables.addedMinimumExhaustion + sleepExhaustion;
+
+        if (State.variables.minimumExhaustion < 0) {
+            State.variables.minimumExhaustion = 0;
+        } else if (State.variables.minimumExhaustion > 100) {
+            State.variables.minimumExhaustion = 100
+        }
+    } else {
+        State.variables.minimumExhaustion = State.variables.addedMinimumExhaustion
+    }
+
+    State.variables.newDay = State.variables.gameDate.toDateString();
+    State.variables.newHour = State.variables.gameDate.getHours();
+
+<</script>>
+
+<</widget>>
+<</nobr>>
+
+

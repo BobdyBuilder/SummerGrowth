@@ -1,0 +1,19 @@
+:: instantTempCareful {"position":"1050,1700","size":"100,100"}
+<<nobr>>
+
+<<set _message to "The taste of this drink is very... precise? You get a sharp taste of lemon, and very clear sweet notes. Not actual sugar, rather, some replacement with a slightly bitter aftertaste. It's pleasant, but gives you the urge to document and annotate everything, your brain suddenly feeling more active.">>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Temp-Caring");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<set $temporaryPersonalityGains.carefreeCarefull += 1>>
+<<set $carefreeCarefull += 1>>
+
+<</nobr>>
+
+

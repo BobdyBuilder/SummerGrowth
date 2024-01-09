@@ -1,0 +1,77 @@
+:: SkillSheet [nobr] {"position":"1900,100","size":"100,100"}
+<div id="charSheetInfo" style="height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  vertical-align: top;
+  ">
+<h3>Skills:</h3>
+<<for _i to 0; _i < $skills.length; _i ++>><<nobr>>
+<<capture _i>>
+    <<if $skills[_i].hidden == false>>
+        <h3><<print $skills[_i].name>>: 
+        <<if $skills[_i].level is 0>>inexperienced
+        <<elseif $skills[_i].level is 1>>beginner
+        <<elseif $skills[_i].level is 2>>intermediate
+        <<elseif $skills[_i].level is 3>>expert
+        <<elseif $skills[_i].level is 4>>master
+        <</if>>	</h3>
+        
+        <table class="skill" @data-num="_i" style="width:100%;">
+        <tr>
+        <<if $skills[_i].level >= 0>>
+            <td class="skillbar" @data-num="_i" style=" background:Crimson;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 1>>
+            <td class="skillbar" @data-num="_i" style="background:Tomato;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 2>>
+            <td class="skillbar" @data-num="_i" style="background:Orangered;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 3>>
+            <td class="skillbar" @data-num="_i" style="background:yellow;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 4>>
+            <td class="skillbar" @data-num="_i" style="background:gold;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        </tr>
+        </table>
+        <<print $skills[_i].description>>
+        <br>	
+        Unlocked skill benefits:
+        <br>
+        <<for _iSkillLevel to 0; _iSkillLevel < $skills[_i].level; _iSkillLevel ++>>
+            <<capture _iSkillLevel>>
+                    <<print $skills[_i].unlocks[_iSkillLevel + 0]>><br>
+            <</capture>>
+        <</for>>
+        <br>
+    <</if>>
+<</capture>><</nobr>>
+<</for>>
+</div>
+
+

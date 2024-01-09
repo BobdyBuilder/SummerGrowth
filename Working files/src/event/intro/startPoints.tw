@@ -1,0 +1,346 @@
+:: startPoints [nobr intro] {"position":"100,900","size":"100,100"}
+Before we begin the game, you can customize your starting character a bit. You can spend <<print $startingSkillPoints>> point(s) to increase any skill. Skills have several benefits, and while these are your starting abilities, you may learn more during gameplay. You also have <<print $startingPersonalityPoints>> personality point(s) to customize your character. Personality determines a lot of the interactions with other characters, and may also fluctuate during the story. 
+
+<br><br>
+
+<table>
+  <tr>
+    <th style="width:50%;vertical-align: top;">
+		<div style="width:100%;padding-block: inherit;display: table; height:450px;">
+<span class="player mirror"><span style="width:300px; height:300px; padding: 10px 10px 10px 10px; border-radius: 300px;" class="avatar mirror"></span></span></div>
+	</th>
+    <th style="width:50%;vertical-align: top;">
+	<<radarChart>>
+	</th>
+</tr> 
+  <tr>
+    <th style="width:50%;vertical-align: top;">
+	
+	<div id="charSheetInfo" style="height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  vertical-align: top;
+  ">
+
+<h2>Skills:</h2>
+<<for _i to 0; _i < $skills.length; _i ++>><<nobr>>
+<<capture _i>>
+    <<if $skills[_i].hidden == false>>
+        <h3><<print $skills[_i].name>>: 
+        <<if $skills[_i].level is 0>>inexperienced
+        <<elseif $skills[_i].level is 1>>beginner
+        <<elseif $skills[_i].level is 2>>intermediate
+        <<elseif $skills[_i].level is 3>>expert
+        <<elseif $skills[_i].level is 4>>master
+        <</if>>
+        
+        <<if $startingSkillPoints > 0>>
+        <<link "➕" "startPoints">>
+            <<set $skills[_i].level +=1>>
+            <<set $startingSkillPoints -= 1>>
+            <<if $skills[_i].level is 1>>
+                <<set $skills[_i].experience  to 50>>
+            <<elseif $skills[_i].level is 2>>
+                <<set $skills[_i].experience  to 150>>
+            <</if>>
+        <</link>>
+        <</if>>
+        <<if $skills[_i].level > 0>>
+        <<link "➖" "startPoints">>
+            <<set $skills[_i].level -=1>>
+            <<set $startingSkillPoints += 1>>
+            <<if $skills[_i].level is 1>>
+                <<set $skills[_i].experience  to 50>>
+            <<elseif $skills[_i].level is 0>>
+                <<set $skills[_i].experience  to 0>>
+            <</if>>
+        <</link>>
+        <</if>>
+        
+        </h3>
+        
+        <table class="skill" @data-num="_i" style="width:100%;">
+        <tr>
+        <<if $skills[_i].level >= 0>>
+            <td class="skillbar" @data-num="_i" style=" background:Crimson;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 1>>
+            <td class="skillbar" @data-num="_i" style="background:Tomato;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 2>>
+            <td class="skillbar" @data-num="_i" style="background:Orangered;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 3>>
+            <td class="skillbar" @data-num="_i" style="background:yellow;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        <<if $skills[_i].level >= 4>>
+            <td class="skillbar" @data-num="_i" style="background:gold;">&nbsp;
+            </td>
+        <<else>>
+            <td class="skillbar" @data-num="_i" style=" background:#4d4d4d;">&nbsp;
+            </td>
+        <</if>>
+        </tr>
+        </table>
+        <br>
+        <<print $skills[_i].description>>
+        <br>
+        Unlocked skill benefits:
+        <br>
+        <<for _iSkillLevel to 0; _iSkillLevel < $skills[_i].level; _iSkillLevel ++>>
+            <<capture _iSkillLevel>>
+                    <<print $skills[_i].unlocks[_iSkillLevel + 0]>><br>
+            <</capture>>
+        <</for>>
+        <br>
+    <</if>>
+<</capture>><</nobr>>
+<</for>>
+</div>
+</th>
+    <th style="width:50%;vertical-align: top; text-align:center;">
+	<br><br>
+
+	<<if $startingPersonalityPoints > 0>>
+	<<link "+1 dominant" "startPoints">>
+		<<set $addedDominant += 1>>
+		<<set $startingPersonalityPoints -= 1>>
+		<<set $submissiveDominant += 1>>
+	<</link>>
+	<</if>>
+	<<if $addedDominant > 0>>
+	<<link "-1 dominant" "startPoints">>
+		<<set $addedDominant -= 1>>
+		<<set $startingPersonalityPoints += 1>>
+		<<set $submissiveDominant -= 1>>
+	<</link>>
+	<</if>>
+	
+	<<if $startingPersonalityPoints > 0>>
+	<<link "+1 submissive" "startPoints">>
+		<<set $addedSubmissive += 1>>
+		<<set $startingPersonalityPoints -= 1>>
+		<<set $submissiveDominant -= 1>>
+	<</link>>
+	<</if>>
+	<<if $addedSubmissive > 0>>
+	<<link "-1 submissive" "startPoints">>
+		<<set $addedSubmissive -= 1>>
+		<<set $startingPersonalityPoints += 1>>
+		<<set $submissiveDominant += 1>>
+	<</link>>
+	<</if>>
+	
+	<<if $startingPersonalityPoints > 0>>
+	<<link "+1 confident" "startPoints">>
+		<<set $addedConfident += 1>>
+		<<set $startingPersonalityPoints -= 1>>
+		<<set $shyConfident += 1>>
+	<</link>>
+	<</if>>
+	<<if $addedConfident > 0>>
+	<<link "-1 shy" "startPoints">>
+		<<set $addedConfident -= 1>>
+		<<set $startingPersonalityPoints += 1>>
+		<<set $shyConfident -= 1>>
+	<</link>>
+	<</if>>
+	
+	<<if $startingPersonalityPoints > 0>>
+	<<link "+1 carefree" "startPoints">>
+		<<set $addedCarefree += 1>>
+		<<set $startingPersonalityPoints -= 1>>
+		<<set $carefreeCarefull -= 1>>
+	<</link>>
+	<</if>>
+	<<if $addedCarefree > 0>>
+	<<link "-1 carefree" "startPoints">>
+		<<set $addedCarefree -= 1>>
+		<<set $startingPersonalityPoints += 1>>
+		<<set $carefreeCarefull += 1>>
+	<</link>>
+	<</if>>
+	
+	<<if $startingPersonalityPoints > 0>>
+	<<link "+1 careful" "startPoints">>
+		<<set $addedCareful += 1>>
+		<<set $startingPersonalityPoints -= 1>>
+		<<set $carefreeCarefull += 1>>
+	<</link>>
+	<</if>>
+	<<if $addedCareful > 0>>
+	<<link "-1 careful" "startPoints">>
+		<<set $addedCareful -= 1>>
+		<<set $startingPersonalityPoints += 1>>
+		<<set $carefreeCarefull -= 1>>
+	<</link>>
+	<</if>>
+    <br>
+    <span style="text-align:left;">
+    <h2>Favorite clothing style:</h2>
+    <h3>wearing clothes in this style gives +1 confidence</h3>
+    <<radiobutton "$favoriteStyle" "casual" autocheck>> casual <br>
+    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
+    <<radiobutton "$favoriteStyle" "nerdy" autocheck>> nerdy <br>
+    <<radiobutton "$favoriteStyle" "professional" autocheck>> professional <br>
+    <<radiobutton "$favoriteStyle" "stylish" autocheck>> stylish <br>
+    <<radiobutton "$favoriteStyle" "punk" autocheck>> punk <br>
+    <<radiobutton "$favoriteStyle" "sporty" autocheck>> sporty <br> 
+    <<radiobutton "$favoriteStyle" "sexy" autocheck>> sexy <br>
+    <<radiobutton "$favoriteStyle" "girly" autocheck>> girly <br>
+	</span>
+	</th>
+  </tr> 
+</table>
+
+
+<<link "Continue" "GameIntro">>
+
+<<for _i to 0; _i < $skills.length; _i ++>><<nobr>>
+<<capture _i>>
+
+<<set _added to "">>
+
+ <<if $skills[_i].level >= 1>>
+	<<set _skillLevel to "beginner">>
+	  <<if $skills[_i].name is "Sewing">>
+			<<set _added to "<br> And not only that, you can now scrap projects and get 50% of the fabric back!">>
+			<<set $fabricScrapPercentage to 0.5>>
+			<<set $sewingUnlocked to true>>
+	  <</if>>
+	  <<if $skills[_i].name is "Working out">>
+		<<set _added to "<br> And with the basics of working out understood, you think you can now get a good workout in quicker, without getting as tired.">>
+		<<set $workoutSkillTimeMod -= 0.25>>
+		<<set $workoutSkillMuscleGainMod +=  0.1>>
+		<<set $workoutSkillExhaustionMod -= 0.1>>
+	  <</if>>
+	  <<if $skills[_i].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, all your cooking is now cheaper and tastes better, making it all the better to eat. And you learned some new recipes to boot!">>
+			<<set $cookingSkillPriceReduction to 0.9>>
+			<<set $cookingSkillMotivationBonus to 1.1>>
+			<<set $diets.push({ name: "Protein rich diet",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0.2, 
+			  fatGain: 0.1, 
+			  price: setup.balance.baseMoneyPerDay * 1.2,
+			  time: 60,
+			  happinessGain: -20, 
+			  minimumExhaustion: 10,
+			  description: "Eating a protein-rich diet will let you bulk up fast, but it's hard to maintain and pretty expensive."})>>
+			<<set $diets.push({ name: "Lean diet",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0, 
+			  fatGain: -0.5, 
+			  price: setup.balance.baseMoneyPerDay * 1.2,
+			  time: 60,
+			  happinessGain: -20, 
+			  minimumExhaustion: 10,
+			  description: "This lean diet is perfect for not losing too much muscle, but allowing you to lose fat."})>>
+	  <</if>>
+<</if>> 
+<<if $skills[_i].level >= 2>>
+	<<if $skills[_i].name is "Working out">>
+		<<set $shyConfident += 1>>
+		<<set $workoutSkillMuscleGainMod +=  0.1>>
+		<<set _added to "<br> And not only that, you get the feeling that all this knowledge about working out helped you to get more confident too! +1 confidence.">>
+		<<elseif $skills[_i].name is "Sewing">>
+			<<set _added to "<br> And not only that, you can now craft clothing from scratch with your sewing machine!">>
+		<</if>>
+		<<if $skills[_i].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, all your cooking is now done faster, and with some new recipes too!">>
+			<<set $cookingSkilltimeReduction to 0.9>>
+			<<set $diets.push({ name: "Fancy cooking",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0.2, 
+			  fatGain: 0.5, 
+			  price: setup.balance.baseMoneyPerDay * 5,
+			  time: 120,
+			  happinessGain: -30, 
+			  minimumExhaustion: -20,
+			  description: "With this, you'll really challenge your cooking skills. It won't be cheap or healthy, but it'll be FUN."})>>
+	  <</if>>
+		
+	<<set _skillLevel to "intermediate">>
+<</if>>
+<<if $skills[_i].level >= 3>>
+	<<if $skills[_i].name is "Book keeping">>
+		<<addTrigger "expertBookKeeper" false false>>
+		<<set $carefreeCarefull += 1>>
+		<<set _added to "<br> And not only that, you get the feeling that all this knowledge of finances allows you to be more careful. +1 Carefulness.">>
+	<</if>>
+	<<if $skills[_i].name is "Cooking">>
+			<<set $cookingMealPrep to true>>
+			<<set _added to "<br> And not only that, you can now prepare meals in advance in your kitchen, which can be stored and consumed later, to save time!">>
+	  <</if>>
+	  <<if $skills[_i].name is "Working out">>
+		<<set _added to "<br> And now you're a regular in the gym, you'll have no problem getting even more gains in!">>
+		<<set $workoutSkillTimeMod -= 0.25>>
+		<<set $workoutSkillMuscleGainMod +=  0.1>>
+		<<set $workoutSkillMinimumExhaustionMod -= 0.1>>
+	  <</if>>	  
+	<<if $skills[_i].name is "Sewing">>
+			<<set _added to "<br> And not only that, you can now scrap projects and get 75% of the fabric back!">>
+			<<set $fabricScrapPercentage to 0.75>>
+	  <</if>>
+	  <<if $skills[_i].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, your cooking is now EVEN FASTER, and with some new recipes too!">>
+			<<set $cookingSkilltimeReduction to 0.8>>
+			<<set $diets.push({ name: "Cutting",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0.2, 
+			  fatGain: -1, 
+			  price: setup.balance.baseMoneyPerDay * 1.2,
+			  time: 45,
+			  happinessGain: -30, 
+			  minimumExhaustion: -20,
+			  description: "This diet is tailor-made for minimizing muscle loss and maximizing weight loss."})>>
+	  <</if>>
+	  
+	<<set _skillLevel to "expert">>
+<</if>>
+<<if $skills[_i].level >= 4>>
+	<<set _skillLevel to "master">>
+	<<if $skills[_i].name is "Working out">>
+		<<set $workoutSkillMuscleGainMod +=  0.2>>
+		<<set $workoutSkillMinimumExhaustionMod -= 0.2>>
+		<<set $shyConfident += 1>>
+		<<set _added to "<br> And not only that, you get the feeling that all this knowledge about working out helped you to get more confident too! +1 confidence.">>
+	<</if>>
+	<<if $skills[_i].name is "Sewing">>
+			<<set _added to "<br> And not only that, sewing sessions now only take you 20 minutes instead of 30!">>
+	  <</if>>
+	  <<if $skills[_i].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, all your cooking is now cheaper, quicker, tastier! It's the best of all worlds!">>
+			<<set $cookingSkillPriceReduction to 0.8>>
+			<<set $cookingSkillMotivationBonus to 1.2>>
+	  <</if>>
+<</if>>
+
+<</capture>><</nobr>>
+<</for>>
+
+
+
+<</link>>
+
+

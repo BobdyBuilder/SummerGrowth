@@ -1,0 +1,125 @@
+:: FitnessStore [outOfHouse mall fitnessStore nobr] {"position":"2500,1625","size":"100,100"}
+<<nobr>>
+<<if $bulkBarnJob>>
+    <<if [0, 3, 4, 5, 6].includes($gameDate.getDay())>>
+        <<if $gameDate.getHours() <= 12 and $gameDate.getHours() >= 10>>
+            <<gameLink "Start your shift" "bulkBarnJob" time:480 exhaustion:30>><<set $eventCounter to setup.balance.eventTresshold + 1>>><</gameLink>><br><br>
+        <<else>>
+            Best to start your shift between 10 and 12.<br><br>
+        <</if>>
+    <<else>>
+        You don't need to work today, Eddy got it all (mostly) under control.<br><br>
+    <</if>>
+<</if>>
+
+<</nobr>>The Bulk Barn is almost a legendary spot in town, if only because the owner is so LOUD. Stacked to the ceiling with all kinds of supplements and workout gear, between them roams a man you will hear before you seeing, which is an impressive feat given his size. No matter what you need when it comes to lifting, they have it here by the bulk (no pun intended). And whenever you buy something, you just know the owner will talk your ears off and give you PLENTY of advice. 
+<br>
+<<set _amounts to []>>
+
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Price/Portion</th>
+	<th>Total price</th>
+	<th>Amount</th>
+	<th></th>
+  </tr>
+<<for _i to 0; _i < $gymStoreSupplies.length; _i ++>>
+		<<capture _i>>
+		
+		<<set _amount to 0>>		
+		<<set _amounts.push(_amount)>>
+		
+		<tr id="row" @data-num="_i">
+    		<td><<print $gymStoreSupplies[_i].name>></td>
+    		<td><<print $gymStoreSupplies[_i].description>></td>
+	    	<td>$<<print $gymStoreSupplies[_i].price>></td>
+			<td>
+				$<span class="selected"><<print $gymStoreSupplies[_i].price>></span>
+  				<<timed 0s>><<script>>
+				var boxes = $(".macro-numberbox#numberbox--amounts-i");
+    			boxes.on("keyup", function () {	
+				var mod = $(this).val();
+        		$(this).parents("#row").find(".selected").fadeOut(250, function () {
+				var rowInxed = Number($(this).parents("#row").attr("data-num"));
+				var price = State.variables.gymStoreSupplies[rowInxed].price;
+				var value = Math.round(price * mod);
+            	$(this).text(value).fadeIn(250);
+        });
+    });
+	<</script>><</timed>>
+			
+			
+			</td>
+			<td><span @id="_i"></span><<numberbox "_amounts[_i]" 0>></td>
+			<td><<button "buy - 00:05 🕛">>
+			<<set _replace to ("#" + _i)>>
+			<<if Util.isNumeric(_amounts[_i])>>
+			<<set _amountLocal to parseInt(_amounts[_i])>>
+			<<if _amountLocal <= 0>>
+			<<replace _replace>>Please type in a number greater than 0<</replace>>
+			<<else>>
+			<<set _prizebought to $gymStoreSupplies[_i].price * _amountLocal>>
+			<<if _prizebought > $money>>
+			<<replace _replace>>You can't afford that.<</replace>>
+			<<else>>
+			<<replace _replace>>Bought
+			<<addMinutes 5>>
+			<<set $money -= _prizebought>>
+			<<set $gymStoreSupplies[_i].amount += _amountLocal>>
+			<<update>>
+			<</replace>>
+			<</if>>			
+			<</if>>
+			<<else>>
+				<<replace _replace>>Please type in a number<</replace>>
+			<</if>>			 
+			<</button>></td>
+  		</tr>
+		<</capture>>
+<</for>>
+</table>
+
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Price</th>
+	<th></th>
+  </tr>
+<<for _i to 0; _i < $fitnessStoreInventory.length; _i ++>>
+		<<capture _i>>		
+		<tr>
+    		<td><<print $fitnessStoreInventory[_i].name>></td>
+    		<td><<print $fitnessStoreInventory[_i].description>></td>
+	    	<td>$<<print $fitnessStoreInventory[_i].price>></td>
+			<td><span id="result2"><<link "buy - 00:05 🕛">>
+			<<if $fitnessStoreInventory[_i].price > $money>>
+			<<replace "#result2">>You can't afford that.<</replace>>
+			<<else>>
+			<<addMinutes 5>>
+			<<set $money -= $fitnessStoreInventory[_i].price>>
+			<<set $furniture.push($fitnessStoreInventory[_i].name)>>
+			<<run $fitnessStoreInventory.deleteAt(_i)>>
+			<<goto "FitnessStore">>
+			<</if>>				 
+			<</link>></span></td>
+  		</tr>
+		<</capture>>
+<</for>>
+</table>
+
+<br>
+
+<<linkreplace "Shop for sports wear">>
+    <<ClothingStoreWidget $bulkBarnInventory>>
+<</linkreplace>>
+
+<br>
+
+<<set $bulkBarnVisited to true>>
+
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

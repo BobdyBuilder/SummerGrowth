@@ -1,0 +1,4 @@
+:: park [outside park] {"position":"1525,1000","size":"100,100"}
+<<link "go home" "Home">><</link>>
+
+

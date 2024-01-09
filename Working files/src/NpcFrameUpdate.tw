@@ -1,0 +1,24 @@
+:: NpcFrameUpdate [nobr] {"position":"1000,0","size":"100,100"}
+<<if $krisObsessed is false>>
+<<if $krisLastMuscle + 20 <= $muscle || $krisLastBreasts + 20 <= $breasts || $krisLastHeight + 20 <=  $height || $krisLastDick + 5 <= $dick || $bodyType == "bodybuilder" || $bodyType == "strongman"|| $bodyType == "hulk"|| $bodyType == "heroic"|| $bodyType == "monstrous"|| $bodyType == "gigantic"|| $bodyType == "strong" || $muscle > 30>>
+	<<set $krisInterested to true>>
+	<<set $krisObsessed to true>>
+	
+	<<set $krisObsessedVisited to $krisVisited>>
+	<<set $krisObsessedLastMuscle to $krisLastMuscle>>
+	<<set $krisObsessedLastFat to $krisLastFat>>
+	<<set $krisObsessedLastBreasts to $krisLastBreasts>>
+	<<set $krisObsessedLastDick to $krisLastDick>>
+	<<set $krisObsessedLastHeight to $krisLastHeight>>
+	<<set $krisObsessedAmountVisited to $krisAmountVisited>>
+	<<set $krisObsessedOpinion to $krisOpinion>>
+	
+	<<set $KrisObsessedTriggers to $KrisTriggers.concat($KrisObsessedTriggers)>>
+
+	<<set $KrisObsessedUsedTriggers to $KrisUsedTriggers.concat($KrisObsessedUsedTriggers)>>
+
+
+<</if>>
+<</if>>
+
+

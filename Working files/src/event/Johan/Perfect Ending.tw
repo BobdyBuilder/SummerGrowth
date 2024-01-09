@@ -1,0 +1,120 @@
+:: Perfect Ending {"position":"450,3175","size":"100,100"}
+You and Johan go back and forth, taking turns to narrate your climactic battle with the lich. Despite any misgivings you may have had earlier, you can feel you've finally begun to enjoy yourself with this. And frankly, you've realized that it’s mostly due to Johan’s masterful companionship.
+
+<<Dialogue "Johan" "Johan">>
+"The lich floats further into the air, raising a hand as if calling someone to him. You hear a groan and clattering, and two dead bodies lying on the floor next to you begin to shamble to life!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Ah, not going to fight me like a man, are you? I'll take care of these lame zombies, and then I'm coming for you!"<</Dialogue>>
+
+Several turns go by...
+
+<<Dialogue "Johan" "Johan">>
+"The zombies crumple to the floor before you, but you look up, as you realize... The lich is holding a fireball in his hand! He lifts his arm into the air, pitching the incandescent sphere towards you, and before you know it, it explodes in front of you! Dealing... 35 damage! And, unfortunately, I think that's enough to put you down."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"What? No! I just started playing and my character's dead?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Whoa, whoa, not dead. You're just unconscious. And you may be lucky. Maybe the lich wants you alive. There's still plenty of room for a story we can tell here!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Really?!?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Yes! In fact... you're supposed to be out cold, but let's say you're still conscious. You just can't move currently."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Okay? Where is this going?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+The lich looks down at you, still floating in the air above you, its face filled with scorn. It snarls... 'You did indeed fight valiantly... With a spirit I have not seen... in many aeons. This is my parting gift... You may live... But meddle not in my affairs any longer.'
+And with that, he raises his hands and just blasts a hole in the ceiling of the cave, allowing some light into the room, and he flies off through it, out of your view."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Ah, man. I got to stay alive just to hear him gloat?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Not quite. Do you want to roll Perception for me?"<</Dialogue>>
+
+You quizzically grab your die and give it a toss across the table.
+
+<<Dialogue "Johan" "Johan">>
+"You feel your strength beginning to return, so you plant your hands on the ground and start to rise back up. But before you do, you notice a gleam from beneath the cauldron that the lich was using."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Huh? No way. Is that? I'm going to go take a look."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"You slip your hand beneath the cauldron, and, lo and behold... the mystical <<if $dndCharacter.class is "paladin" || $dndCharacter.class is "barbarian">>hammer<<elseif $dndCharacter.class is "wizard" || $dndCharacter.class is "cleric">>staff<<else>>amulet<</if>>."<</Dialogue>>
+
+You burst into excited laughter at the realization. Poor Johan couldn't help but to give you a win in the end, sweetheart that he is.
+In fact, now that you think of it, he's been nothing but sweet to you ever since you moved in. Even right now, he's just reveling in your excitement, clapping and laughing to himself.
+
+Acting on instinct, you reach over and embrace him in a hug. <<if $height >= 190>>You tower over him, <<else>>You stand up to hug him,<</if>><<if $muscle >= 50>> and wrap your thick arms around him, the muscles pressing into him.<<elseif $breasts >= 50>> and as your huge chest presses into him, you cannot help but giggle a bit. <<else>> holding him in a warm embrace.<</if>>
+He responds by blushing furiously. He's utterly taken aback, but he isn't frightened or struggling.
+
+<<Dialogue "Johan" "Johan">>
+"Uh... Thank you?"<</Dialogue>>
+
+<span id="choice"><<link "Kiss him">><<replace "#choice">><<if $height > 210>>You bend over, having some trouble getting so low<<elseif $height > 180>>You lower yourself and lean in<<else>>You lean in<</if>> and give him a gentle kiss on his lips. It was a gentle and soft kiss, a promise of more to come in the future. He gives no immediate response except to turn even redder than you thought possible.
+
+<<Dialogue "Johan" "Johan">>
+"Uh? Um... I... I'm not..."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Thank you, Johan. You're a great guy. Very special to me. And I would really like to get to know you better."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Um, I... I'm not really good at these sorts of situations, but if you're saying what I think you're saying -"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Do you want to go on a date some time?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Ah... Yes! Absolutely, wholeheartedly! I... I honestly wasn't expecting anything like this, but I would love to!"<</Dialogue>>
+
+You plant another kiss on him, again stunning him into silence.
+
+<<Dialogue "Johan" "Johan">>
+"I, ah... You, that is, I mean, uh..."<</Dialogue>>
+
+It's just at that moment that the door behind you opens. A group of people you have to assume are Johan's friends come inside, staring open-mouthed at the sight of their friend embraced in your <<if $muscle >= 50 || $fat >= 50>>huge<</if>> arms.
+
+<<Dialogue "player" "You">>
+"Ah, right... I think it might be time for me to leave, huh?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Um... no. I mean, yes, that may be for the best. But I'll see you again soon!"<</Dialogue>>
+
+You quickly say goodbye to Johan, excusing yourself to his friends, as let yourself out into the hallway. As soon as you shut the door behind you, you can hear his friends excitedly questioning him.
+You breathe a happy sigh and make your way back to your apartment. You didn't know exactly what to expect from getting romantically involved with Johan, but you had a feeling it was going to be fun.
+
+<<link "Go home" "Home">><<set $johanOpinion += 25>><<addMinutes 60>><</link>>
+<</replace>><</link>>
+<<link "Let him go">><<replace "#choice">><<Dialogue "player" "You">>
+"Ah, sorry. Was that a little forward of me?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Just a bit, maybe? I'm not a very touchy person, but I do genuinely appreciate the gesture!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Well... you are a very nice guy. A fantastic friend. And I wanted to make sure you knew that."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Aw... That really means a lot <<print $playerFirstName>>. Thank you so much."<</Dialogue>>
+
+With that, you hear the sound of the door opening behind you. Johan's friends enter the apartment, only to stop briefly upon seeing you.
+
+<<Dialogue "player" "You">>
+"Oh, whoops. Guess I overstayed my welcome. I'll see you around?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Yeah, see you around, <<print $playerFirstName>>. Thanks for coming over. And for what you said."<</Dialogue>>
+
+You quietly excuse yourself and slip past Johan's friends to leave the apartment. You can hear them excitedly talking about their upcoming game.
+
+<<link "Go home" "Home">><<set $johanOpinion += 25>><<addMinutes 60>><</link>>
+<</replace>><</link>></span>
+
+

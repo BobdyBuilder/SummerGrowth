@@ -1,0 +1,25 @@
+:: Push Elena {"position":"1450,3000","size":"100,100"}
+Elena’s sudden change was… concerning, to say the least. When you met her, you were thrilled to finally have someone who could understand what you were going through. Elena had to have been thinking the same thing, surely. Why else would you two have bonded so quickly?
+The possibilities ran quickly through your head, until the obvious solution popped up. It was so clear! Of course Elena, as shy as she was, wasn’t going to come out and ask you for help. She needed you, but couldn’t bear to spit it out! It all made sense. This is going to be your moment, a happy albeit tearful memory the two of you will look back on fondly in the future. But you must act now, or the moment will be lost.
+
+With a few long, quick strides you catch up with Elena, and you gently take her hand in yours. She looks startled as you do, but she finally looks at your face again, her eyes wide with panic. Now was your chance to tell her you were going to make things okay.
+
+<<Dialogue "player" "You">>
+“Elena… It’s okay. Whatever you’re keeping secret, you don’t have to! Whatever this is, I want to be there for you, I want to help you through it. But if I’m going to help you, I need to know what I’m helping you with.”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“<<print $playerFirstName>>, please… you… this is not something I want to talk about.”<</Dialogue>>
+You place both your hands around hers and hold it tightly.
+
+<<Dialogue "player" "You">>
+“Come on, who out there is better suited to help you than me? We must have found each other for a reason. I want to help you, but you need to let me in.”<</Dialogue>>
+
+Her eyes snap back to the ground, and she starts to slip away from you. Her voice drops to a near whisper.
+
+<<Dialogue "Elena" "Elena">>
+“Please. There is nothing you can do. I want to move on to something else. //Per favore//.”<</Dialogue>>
+
+[[She needs your help. Push her further.->Bad End]]
+[[You're pushing her too hard. Ease up.->Make-Up End]]
+
+

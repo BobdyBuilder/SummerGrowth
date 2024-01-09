@@ -1,0 +1,22 @@
+:: elenaGardenDate0 [nobr] {"position":"0,0","size":"100,100"}
+You phone buzzes, and you pick it up to see an unexpected message.<br><br>
+ELENA: I need some help gardening - could you come over to give me a hand?<br><br>
+<<if $shyConfident < -1>>
+    You freeze for a second. Some quality one-on-one time with Elena? You start typing a “yes”, but then you realize you don’t want to sound so eager, so you delete it. What should you write? Maybe keep it casual with something like “I guess, sure” - No, that sounds horrible, delete, delete. Oh my God! Is she seeing you typing this much? Fuck! Okay, think fast, it’s going to be weird if she sees you typing this much only to give a short answer. What do you write? Ugh! Think!!! “Sure, what time?”<br><br>
+    Okay! That works! Sent!<br><br>
+    Elena is typing. You feel butterflies in your stomach as you wait for the answer. Soon, it pops onscreen.<br><br>
+<<else>>
+    You quickly answer “Of course, send me your address!” It feels like an eternity (more like two minutes) until you see her typing again, and a message shows up.<br><br>
+<</if>>
+ELENA: Can you come over at 2pm? I send address below.<br><br>
+You send a series of 👍 emoji. She sends back a “Grazie, see you later”. You make a mental note that you might have to teach her how to use emoji.<br><br>
+Alright, so I’ll make sure to go there later today at 2pm! Should probably wear something appropriate to work outside!
+<<link "Go home" "Home">>
+    <<set $flag.elenaGardenDatetime = new Date($gameDate)>>
+    <<if $gameDate.getHours() >= 14>>
+        <<set $flag.elenaGardenDatetime.setDate($flag.elenaGardenDatetime.getDate() + 1)>>
+    <</if>>
+    <<set $flag.elenaGardenDatetime.setHours(14,0,0,0)>>
+<</link>>
+
+

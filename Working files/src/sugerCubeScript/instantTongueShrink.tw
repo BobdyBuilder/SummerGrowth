@@ -1,0 +1,23 @@
+:: instantTongueShrink {"position":"750,1500","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<if $tongue > 1>>
+	<<set _message to "As you drink the liquid, your mind immediately goes to images of odd berries that make everything taste sweet. As the sticky texture lingers in your mouth, you smack your lips and try to scrape the weird stuff from the roof of your mouth. Heh, you must be making some weird faces right now. Yet, the way your tongue feels in your mouth definitely feels just as funny. More comfortable, like it just fits better.">>
+	<<set $tongue -= 1>>
+<<else>>
+	<<set _message to "As you drink the liquid, your mind immediately goes to images of odd berries that make everything taste sweet. As the sticky texture lingers in your mouth, you smack your lips and try to scrape the weird stuff from the roof of your mouth. Heh, you must be making some weird faces right now. But as far as you can tell, there are no discernible changes. Odd...">>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Ton-shrink//01");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

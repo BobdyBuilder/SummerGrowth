@@ -1,0 +1,46 @@
+:: BreastsDescription [widget] {"position":"3650,525","size":"100,100"}
+<<nobr>>
+<<widget "BreastsDescription">>
+
+<<set $fatBreastsMod to ($fat / 2 - 20)>>
+<<if $fatBreastsMod <= 0>><<set $fatBreastsMod to 0>><</if>>
+
+<<set $_breastsRandomized to ($breasts + $fatBreastsMod + random(-2,2)) >>
+
+<<if $_breastsRandomized <= 0>> <<set _breastsRandomized to 0>>
+<<elseif $_breastsRandomized >= 100>> <<set _breastsRandomized to 100>>
+<<else>>
+<</if>>
+
+<<if $_breastsRandomized <= 5>>
+
+<<elseif $_breastsRandomized <= 20>>You have a pair of <<BreastSizeDescription>> <<breastCupDescriptors>> breasts. <<BreastsWeightDescription>>
+
+<<elseif $_breastsRandomized <= 40>>Your breast are <<BreastSizeDescription>> <<breastCupDescriptors>>. They really add a nice shape to your torso! <<BreastsWeightDescription>>
+
+<<elseif $_breastsRandomized <= 60>>Your <<BreastSizeDescription>><<breastCupDescriptors>> breasts catch a lot of attention. You have a lot of difficulty finding bras that fit in normal stores, and you're resigned to custom-made ones. They're also incredibly heavy and sway hypnotically from the smallest amount of movement. <<BreastsWeightDescription>>
+
+<<elseif $_breastsRandomized <= 80>>You have a pair of <<BreastSizeDescription>> breasts. Though you can barely find bras anymore you think your bust would be an unheard of <<breastCupDescriptors>>. Finding clothes that fit is nearly impossible and the weight and momentum behind these massive mammaries is unimaginable. <<BreastsWeightDescription>>
+
+<<elseif $_breastsRandomized <= 100>>Your appearance is dominated by your <<BreastSizeDescription>> breasts. They have gotten so large that you're pretty sure no bras exist at this size. You're now resigned to wearing custom-made clothes as no shop carries anything that can manage boobs of this size. Even the smallest movement sends them jiggling, despite their gigantic weight. <<BreastsWeightDescription>>
+
+<<else>>Your appearance is dominated by your <<BreastSizeDescription>> breasts. They have gotten so large that you're pretty sure no bras exist at this size. You're now resigned to wearing custom-made clothes as no shop carries anything that can manage boobs of this magnitude. Even the smallest movement sends them jiggling, despite their gigantic weight. <<BreastsWeightDescription>>
+<</if>>
+
+<<if $breastsFullness is "overflowing">>
+	Size aside, your breasts are painfully full. Not just uncomfortably full but actively hurting with how much they need release. They look way bigger, a few blue veins are even visible under the skin, with your nipples puffed up. You're quite certain that at this point you are close to bursting.
+<<elseif $breastsFullness is "full">>
+	Size aside, they feel REALLY full. It isn't quite painful yet, but it'll quickly become just that if you don't empty them. Emptying your tits... that still is a weird thought. How full they are is clearly visible too, as they look much more pronounced than normal.
+<<elseif $breastsFullness is "filling">>
+	Size aside, the effect of your lactation is getting visible again. Your breasts are noticeably bigger, and more sensitive too. You wonder how long it'll take for them to completely fill up and require milking, though that'll probably take some time.  
+<<elseif $breastsFullness is "drained">>
+	Size aside, they're now comfortably drained. It doesn't happen that often since you started lactating, but for now your breasts are pretty much drained.
+<<elseif $breastsFullness is "empty">>
+	Size aside, they're now completely drained. It doesn't happen that often since you started lactating, but for now your breasts are totally empty.
+<<else>>
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

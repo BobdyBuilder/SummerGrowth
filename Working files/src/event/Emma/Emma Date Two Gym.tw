@@ -1,0 +1,57 @@
+:: Emma Date Two Gym {"position":"750,4575"}
+The gym itself isn't terribly far from work, thankfully. It's also a notably fancier than the one on your college campus. Everything sleek, clean, and modern. Holy crap, there's even a cafe right up front? And a spa?! You can't help but compare it in your mind to your normal spot, but that just makes you feel more out of place.
+
+You're so busy taking in your surroundings that you don't notice a voice calling your name until it's practically shouting at you.
+
+<<Dialogue "randomPerson" "Random">>"Ma'am? Ma'am!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh shoot, uh, yes? Sorry, what's up?"<</Dialogue>>
+
+<<Dialogue "randomPerson" "Random">>"Uh... Can I see your member ID, please?"<</Dialogue>>
+
+You look around and realize that you were about to walk right past the front desk.
+
+<<Dialogue "player" "You">>"<<if $confident > 1>>Oh, that, yeah, I was just on my way to meet someone here. She should have everything under control.<<else>>Oh, uh... I'm very sorry. I was expecting to... I'll just go.<</if>>"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Not to worry, Rodney. She's with me."<</Dialogue>>
+
+The sound of Emma's voice is clear, and both you and Rodney the front desk clerk turn to face her.
+
+<img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Emma_swole.png" alt="Owh my lawd its do be Emma whose absolutely swole and gorgous!" style="border-radius: 50%; width: 75%; left: 12.5%;    position: relative; display:block;">
+
+<<Dialogue "EmmaFitness" "Emma">>"Nice to see you made it here without issue, <<print $playerFirstName>>. I've already signed you in as my guest, and Rodney should have everything you need ready to go."<</Dialogue>>
+
+<<Dialogue "randomPerson" "Random">>"Oh, this is your guest! Yes ma'am, I've got everything here for you. Towel, guest pass, and a temporary key for a locker."<</Dialogue>>
+
+You would have offered a polite thank you, but your eyes haven't moved from Emma, and you're fairly certain your brain has disconnected from your mouth. She had mentioned she was a bodybuilder, but you hadn't imagined this at all!
+
+<span id="choice1"><<link "Ahem, yes, thank you. Let me go get changed.">><<replace "#choice1">><<set $emmaDateProfessional += 1>><<Dialogue "player" "You">>"Mmhmm, yes, I think that's all I need. Thank you very much. Would you mind showing me to the locker room, Emma?"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Not in the slightest. This way."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "Holy crap, Emma.">><<replace "#choice1">><<set $emmaDateFriendly += 1>><<Dialogue "player" "You">>"Holy moly. I had no idea you were *that* built under those clothes."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"By design, I assure you. And since we're out and about as friends, I won't pay any mind to 	your forwardness this time."<</Dialogue>>
+
+<<Dialogue "player" "You">>"S-sorry. It's just... wow."<</Dialogue>>
+
+You catch a subtle, but proud smirk on Emma's face.
+
+<<Dialogue "EmmaFitness" "Emma">>"Come on. Why don't you get changed and then we can get to the meat of why we came here."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "Stare silently.">><<replace "#choice1">><<set $emmaDateFlirty += 1>><<Dialogue "player" "You">>"................................"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"<<print $playerFirstName>>... We're out here as friends but I am still on a schedule."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Uh? Oh, yeah, sorry, it's just... Hoo. Wow. I don't think I was mentally prepared for this."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Hopefully you adapt with time. Let's get you to the locker room before you start drooling on the floor."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>></span>
+
+<span id="choice2" style="display:none;">You follow Emma a short walk away to the women's lockers, and she leaves after saying she'll meet you at the base of the stairs. You find a quiet corner and prepare to change into your gym clothes. The image of Emma practically undressed doesn't seem to want to leave your head. You're not sure if it's simply shock at the incongruity of it all, or something deeper than that <<if $dick > 0>>though a certain, very active part of your anatomy is making its opinion known. It's creating an extra hurdle to put your <<print $outfit.bottom().name>> on<</if>>. You shake your head and tell yourself that you knew exactly what you had signed up for.
+
+<<gameLink "Lets get pumped!" "Emma Date Two Workout" time:30 exhaustion:30>><</gameLink>></span>
+
+

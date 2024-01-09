@@ -1,0 +1,60 @@
+:: initQuests [nobr] {"position":"300,500","size":"100,100"}
+<<set $quests to [
+	{ name: "cleanHouse", 
+	description: "Unpack your boxes, clean your house and make your house a bit more livable!",
+	started: false,
+	completed:  false,
+	progress: 0,
+	finished: 1,
+	finishedDialogue: "cleanHouseFinished",
+	stages: [
+	"You cleaned your entire house, and it finally feels like HOME."]
+	},
+	{ name: "getJob", 
+	description: "Try and find a job so you have some income. You could just use your PC and browse some sites, or try to find out if one of the local stores has an opening.",
+	started: false,
+	completed:  false,
+	progress: 0,
+	finished: 1,
+	finishedDialogue: "getJobFinished",
+	stages: [
+	"Income; guaranteed! Now let's hope you can keep it."]
+	},
+	{ name: "sewingTutotial", 
+	description: "Simon has offered to teach you how to sew fabric and tailor clothes. Given your changing body, that's a huge opportunity! He told you to come back once you have bought a sewing machine, and acquired some fabric from Tasha.",
+	started: false,
+	completed:  false,
+	progress: 0,
+	finished: 1,
+	finishedDialogue: "sewingTutotialFinished",
+	stages: [
+	"You got the items, and took the class!"]
+	},
+	{ name: "mainQuest1", 
+	description: "Find out what that weird stuff in your fridge was, and what it did to you.",
+	started: false,
+	completed:  false,
+	progress: 0,
+	finished: 4,
+	finishedDialogue: "cleanHouseFinished",
+	stages: [
+	"You learned that the previous tenant of your apartment apparently did some chemistry experiments there. Seems he left some things behind...",
+	"It seems the guy was named Toshi, and lived there for a few years."]
+	}
+] >>
+
+<<for _i to 0; _i < $quests.length; _i ++>>
+<<capture _i>>
+	<<if $quests[_i].name is "cleanHouse">>
+		<<set $cleanHouseI to _i>>
+	<<elseif $quests[_i].name is "getJob">>
+		<<set $getJobI to _i>>
+	<<elseif $quests[_i].name is "mainQuest1">>
+		<<set $mainQuest1I to _i>>
+	<<elseif $quests[_i].name is "sewingTutotial">>
+		<<set $sewingTutotial to _i>>
+	<</if>>
+<</capture>>
+<</for>>
+
+

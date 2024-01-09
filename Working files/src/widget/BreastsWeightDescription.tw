@@ -1,0 +1,17 @@
+:: BreastsWeightDescription [widget] {"position":"3650,825","size":"100,100"}
+<<nobr>>
+
+<<widget "BreastsWeightDescription">>
+
+<<if $_breastsRandomized >= ($muscle + 20 * $strengthMod)>>Your gigantic breasts have gotten so large you are completely immobilized by them...
+<<elseif $_breastsRandomized >= ($muscle + 40 * $strengthMod)>>You're barely able to carry the weight of your breast! They're gotten so incredibly heavy that soon you won't be able to walk around with them anymore!
+<<elseif $_breastsRandomized >= ($muscle + 10 * $strengthMod)>>The weight of your breasts is almost constantly on your mind as they feel incredibly heavy! You try to rest them on something whenever you can, happy to have that relief, if only momentarily.
+<<elseif $_breastsRandomized >= ($muscle + 5 * $strengthMod)>>Your breasts weight quite a lot, and you're happy when you can give your back some rest at the end of the day. Maybe some exercises could help strengthen your back?
+<<elseif $_breastsRandomized >= ($muscle * $strengthMod)>> You do feel the weight of your breasts from time to time, especially when you are physically active. Nothing a bit of care can't fix!
+<</if>>
+
+<</widget>>
+
+<</nobr>>
+
+

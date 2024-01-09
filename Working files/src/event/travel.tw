@@ -1,0 +1,79 @@
+:: travel [nobr] {"position":"1125,800","size":"100,100"}
+<<set _day to $gameDate.getDay()>>
+
+<<if (!setup.hasEventBeenTriggered("krisSteamyNight") || !setup.hasEventBeenTriggered("krisWorshipsSize") || !setup.hasEventBeenTriggered("krisCasualHookupGoesWrong") || !setup.hasEventBeenTriggered("krisSafeWord")) && $eventCounter > (setup.eventTresshold /2)>>
+    <<gameLink "You could visit Kris for some... FUN." "KrisHomeDialogScene" time:40>><</gameLink>>
+<br><br>
+<</if>>
+
+<<gameLink "Go visit the gym" "gym" time:20>><</gameLink>>
+<br><br>
+<<gameLink "Go Jogging" "Jogging" time:60 minExhaustion:20 exhaustion:30 motivation:20>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
+<br><br>
+<<gameLink "Go visit the park" "park" time:10>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
+<br><br>
+<<gameLink "Go visit the shopping center" "ShoppingCenter" time:30>><</gameLink>>
+<br><br>
+<<if $gameDate.getHours() <= 23 and $gameDate.getHours() >= 11>>
+    <<if $johanVisited && $debug !== "true">>
+        Johan probably won't be home right now
+    <<elseif $gameDate <= $flag.johanDate2BlackoutUntil>>
+        Johan is not in his apartment right now...
+    <<else>>
+        <<gameLink "Go visit Johan " "JohanHome" time:20>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
+    <</if>>
+    <br><br>
+<</if>>
+
+<<if $elenaDate1 is true && $elenaDate1Finished != true>>
+	<<if $gameDate.getHours() >= 16 and $gameDate.getHours() <= 19>>
+		<<link "Go on the date with Elena" "ElenaDateStart">><<set $elenaDate1Finished to true>><</link>><br>
+	<</if>>
+<</if>>
+
+<<if $daysPlayed == $dayOfEmmaBulkDate>>
+	<<if $gameDate.getHours() >= 10 and $gameDate.getHours() <= 22>>
+		<<link "Go mealprep with Emma" "EmmaWork">><<set $eventCounter to setup.balance.eventTresshold + 1>><</link>><br>
+    <<else>>
+    Emma will be expecting you for the mealprep between 10:00 and 22:00.<br>
+	<</if>>
+<</if>>
+
+<<if $elenaDateTwoDate != undefined && $elenaDate2Finished != true>>
+	<<if $gameDate.getHours() >= 9 and $gameDate.getHours() <= 11>>
+		<<link "Go on the second date with Elena" "ElenaDate2Start">><<set $elenaDate2Finished to true>><</link>><br>
+	<</if>>
+<</if>>
+
+<<if $krisDate1 is true && $krisDate1Finished != true>>
+	<<if $gameDate.getHours() >= 16 and $gameDate.getHours() <= 19>>
+		<<link "Go on the date with Kris" "KrisDateStart">><<set $krisDate1Finished to true>><</link>><br>
+	<</if>>
+<</if>>
+
+<<if $jobInterview and $jobInterviewOver is false>>
+  <<if $gameDate.getDate() is $jobInterviewDate.getDate()>>
+  <<if $gameDate.getHours() <= 15 and $gameDate.getHours() >= 13>>
+  	  <<link "Go to the office for your job interview" "office">><</link>><br><br>
+  <<else>>
+  	You know where your job interview will be in a few days. It's probably best to leave between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
+	<br><br>
+  <</if>>
+  <<else>>
+  You know where your job interview will be in a few days. It's probably best to leave between 13:00 and 14:00 for it on <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>.
+  <br><br>
+  <</if>>
+<<elseif $jobOffice and !$officeFired>>
+  <<if $gameDate.getHours() <= 16 and $gameDate.getHours() >= 8>>
+	<<if _day >= 1 and _day <= 4>>
+			<<gameLink "Go to the office" "office" time:20>><</gameLink>><br><br>
+	<<else>>
+		You don't have to work today! Time to just enjoy yourself.<br><br>
+	<</if>>
+	<<else>>
+		The office is closed right now.<br><br>
+	<</if>>
+<</if>>
+<<link "return" "Home">><<>><</link>>
+
+

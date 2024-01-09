@@ -1,0 +1,47 @@
+:: GameIntro2 [intro] {"position":"100,1100","size":"100,100"}
+You open the door a bit, and the person you see is a dead ringer for the exceedingly energetic voice. Looking at him, you see a textbook victim of early-onset puberty: short, thin, bad posture and an adorable head of messy brown hair. Still, he seems nice enough. 
+
+He continues, barely giving you enough time to react;
+
+<<Dialogue "Johan" "Johan">>"I didn't think there'd be anyone here! Usually no one shows up during the summer, so I was completely surprised when I saw the boxes in the hallway. I take it that they are yours? Anyway, welcome to the building! I'm Johan, everyone here knows me and if you need anything just let me -"<</Dialogue>>
+
+Dear God, that's a lot of energy! He rattles on for a bit, quickly telling you about most of the other tenants and seemingly everyone to ever step in the building since the revolution. After a few sentences, he has lost you completely, but doesn't even notice. After some nodding on your part, he finally realizes that a conversation traditionally requires two participants.
+
+<<Dialogue "Johan" "Johan">>"...And let's not even talk about the mustard incident! Anyway, what's your name?"<</Dialogue>>
+
+<span id="nameChoice"><<textbox "$playerFirstName" "Summer">><<textbox "$playerLastName" "Quinn">><<button "Enter">><<replace "#nameChoice">><<Dialogue "player" "You">>"I'm <<print $playerFirstName>>. <<print $playerFirstName>> <<print $playerLastName>>. You said your name is Johan, right?"<</Dialogue>>
+
+You immediately regret handing him the reins of the conversation once again. 
+
+<<Dialogue "Johan" "Johan">>"Yeah, that's me! Captain General Supreme of the local T-T-R-P-G Club, and leader of the local board game night, guilty as charged! Anyway, do you need some help? I'm always willing to help a friend out!"<</Dialogue>>
+
+<span id="genderChoice"><<set $motivation -= 10>>
+<<link "Appreciated, but no thanks.">><<set $johanMainQuestQuestion to true>><<replace "#genderChoice">>You quickly reassure him;
+<span id="nameChoice">
+<<Dialogue "player" "You">>"Don't worry, I can handle this well enough!"<</Dialogue>>
+</span>
+Johan seems to take the hint, though he's still almost speedrunning this conversation.
+
+<<Dialogue "Johan" "Johan">>"Oh, good! I gotta go anyway, I gotta do the... uhm... thing!"<</Dialogue>>
+
+He barely got the last word in before walking away. 
+
+<<link "You could use a small break after this..." "GameIntro3">><</link>><</replace>><</link>>
+<<PersonalityCheck $carefreeCarefull <= -1 "Sure, why not?">><<set $johanOpinion += 5>><<replace "#genderChoice">><<Dialogue "player" "You">>"Sure, why not?"<</Dialogue>>
+
+You shrug, thinking it's a good way to get to know your neighbor and speeding things up. And what's the worst that can happen by letting a stranger into your house?
+
+<<Dialogue "Johan" "Johan">>"In that case, I'm more than happy to help!"<</Dialogue>>
+
+Johan immediately moves past you as he obviously tries to just skip the awkwardness he single-handedly prompted. With some instructions, the two of you manage to get an impressive amount of work done within a few hours, and it seems that Johan's enthusiasm is fully present in his work ethic! While he simply can't seem to stop talking, he is also helping quite a bit! After 3 or 4 hours of solid work, you thank him with a beer, which he happily gulps while going over the history of the building.
+
+<<Dialogue "Johan" "Johan">>"Well, it's good to have someone here again. The last guy who lived down here caused an ABSOLUTE mess, but then again, what would you expect from a biological chemistry major who keeps tinkering with crazy experiments at home? There was something about 'supplement peanut butter' winding up in someone's fridge, a bunch of stories about weird side-effects and, before you knew, he is getting booted off campus. Still, listen, thanks for the beer and welcome to the building! Drop by any time! And I mean that literally!"<</Dialogue>>
+
+And with that, he was finally off.
+<<addQuestProgress "mainQuest1" 1>><<set $mainQuestProgressMade to true>>
+<<link "You could use a small break after this..." "GameIntro3">><</link>>
+<</replace>><<Failed>>No.<</PersonalityCheck>></span>
+<</replace>><</button>>
+</span>
+
+

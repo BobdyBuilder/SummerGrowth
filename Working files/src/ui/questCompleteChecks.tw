@@ -1,0 +1,19 @@
+:: questCompleteChecks [nobr] {"position":"900,200","size":"100,100"}
+<<if $livingRoomCleaned < 1 and $bathRoomCleaned < 1 and $kitchenCleaned < 1 and $bedRoomCleaned < 1 and $quests[$cleanHouseI].started is true and $quests[$cleanHouseI].completed is false>>
+	<<set $quests[$cleanHouseI].completed to true>>
+	<<set $quests[$cleanHouseI].progress to 1>>
+	
+	
+	<<include $quests[$cleanHouseI].finishedDialogue>>
+<</if>>
+
+<<if $job is true and $quests[$getJobI].started is true and $quests[$getJobI].completed is false>>
+	<<set $quests[$getJobI].completed to true>>
+	<<set $quests[$getJobI].progress to 1>>
+	
+	
+	<<set $shyConfident += 1>>
+	<<include $quests[$getJobI].finishedDialogue>>
+<</if>>
+
+

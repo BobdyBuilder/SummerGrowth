@@ -1,0 +1,92 @@
+:: Elena Leads {"position":"1450,2900","size":"100,100"}
+<<Dialogue "player" "You">>
+“Come on! This is exactly the sort of way people on their first date get to know each other, bond with one another! I want to get to know you, so let’s go to wherever your heart desires!”<</Dialogue>>
+
+Almost immediately, you see Elena clam up again. Her shoulders clench and raise, crowding against her neck and head. You can even see her hands trembling a bit, her coffee cup shaking silently. It seems that putting too much pressure on her gives her far more anxiety than you expected.
+
+<<Dialogue "player" "You">>
+“Er… Or we don’t have to! On second thought, I actually saw a cute little boutique we could look through!”<</Dialogue>>
+
+At that, she eases up a bit. Still tense, just… a little less.
+
+<<Dialogue "Elena" "Elena">>
+“//Va bene//, that sounds good. Maybe you lead the way today. I’m okay with going where you want.”<</Dialogue>>
+
+You wince a bit. You can practically feel the nervous energy radiating from her.
+
+<<Dialogue "player" "You">>
+“It’s all good. I’m more than happy to do that. I mean, speak up if you see a shop that draws your eye, of course, but… I’ll take charge!”<</Dialogue>>
+
+The smile returns to her face again.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Let’s go when you’re ready.”<</Dialogue>>
+
+After your last sip of coffee, the two of you exit the shop onto the street, the cool air of the late morning greeting you. The sidewalk is just as bustling as it was before you ducked in, and you can’t help but notice the two of you draw some stares as you enter the crowd again. Elena hunches her shoulders in an attempt to shrink down as small as possible, and quietly slips behind you. Sensing that she’s not faring any better than before your break, you quickly hustle ahead of her to the boutique.
+
+You both take a deep breath as you slip through the shop door and find only a few people inside, none of whom pay you much mind.
+
+<<Dialogue "player" "You">>
+“Well, thank goodness. I’m glad this place is quiet. I saw some outfits in the window that looked so nice, I wouldn’t have forgiven myself if I didn’t pop in here.”<</Dialogue>>
+
+Elena returns a silent nod, the faintest hint of a smile on her lips again.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“//Bene//. I’ll be here with you.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“What? Aren’t you going to check anything out?”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“...I do not think the clothes here… suit me.”<</Dialogue>>
+
+You raise an eyebrow at that. Based on what you’d seen of her so far, she had nice taste in clothes. Is your own fashion sense really that off?
+
+You sift through the stacks of clothing on display, Elena tagging along behind you, picking out a shirt and a pair of pants that strike your fancy. You bring them over to a mirror, hold up the shirt against yourself to get a feel for how it looks… and only then do you realize Elena’s meaning. The thing is absolutely miniscule on your frame. You’d be lucky to fit an arm all the way into it.
+
+<<Dialogue "player" "You">>
+“Ah… Right.”<</Dialogue>>
+
+Elena responds with her miniscule smile again.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Yes, it… it’s hard to find clothes that fit these days.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Yeah… I actually forgot for a moment. I was just so stoked about this outfit that it was the only thing I could think of!”<</Dialogue>>
+That actually elicits a quiet laugh from Elena.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“I understand. My change happened… more slowly. Than yours, I mean. Yours was very sudden. I feel like I’ve had some more time to… adjust.”<</Dialogue>>
+
+<<if $carefreeCarefull > 0>>You go about replacing the clothes you had picked up as the two of you speak.
+<<else>>You quickly hand the clothes over to an employee before turning your attention back to Elena.<</if>>
+
+<<Dialogue "player" "You">>
+“That reminds me. How did… all this happen? I mean, what are the odds that some lab accident ended up in both our fridges?”<</Dialogue>>
+
+She squirms at that, and her voice drops to a whisper.
+
+<<Dialogue "Elena" "Elena">>
+“I, uh… I don’t know. I had reasons to start exercising, but this… this does not come from exercising. This is not normal.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Wow. So you really don’t know, do you? I mean, you very clearly like weightlifting, seeing as you had plenty to teach me. Do you think there’s something special about your body? Or maybe…”<</Dialogue>>
+
+She begins to tense again, her eyes staring back at the floor.
+
+<<Dialogue "Elena" "Elena">>
+“No. Please. I’m sorry, but it’s… I don’t want to talk about that now.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Oh? Uh, I’m sorry. I just… I thought that since we were… you know, seemingly in the same situation it might be a good idea to, like… talk things through. You know, kinda… commiserate with each other?”<</Dialogue>>
+
+She shakes her head again, still unable to look at you directly.
+
+<<Dialogue "Elena" "Elena">>
+“Maybe we should go somewhere else?”<</Dialogue>>
+
+<<if $shyConfident > 0 || $submissiveDominant > 0>>[[Push Elena<-Elena turns to leave the clothing store, and you quickly follow after her.]]
+<<else>>[[Date Progress<-Elena turns to leave the clothing store, and you quickly follow after her.]]<</if>>
+
+

@@ -1,0 +1,41 @@
+:: GameIntro3 [intro] {"position":"100,1200","size":"100,100"}
+Walking towards the fridge for a drink, you continue thinking, making a mental note to put some more work into your social skills to prevent another awkward situation. Walking past a mirror, you catch a quick look at yourself: thin as can be, tiny at <<heighNumeral>> and the only notable feature being your messy hair. Ugh, what a first impression Johan must have had? Though you're tired and your appearance is a mess, you worry that you should try to be more presentable when meeting new people; but that's who you are and you can't really change your bod-
+
+
+<<Dialogue "player" "You">>"What the FUCK!?"<</Dialogue>>
+
+The aftertaste of the beverage hits you like a truck, like burned tires drenched in acid. The weird feeling seeps deep into your bones from the inside out, giving you a chill that travels down your body, then up again. After shivering for a split second, and even though you had quite a few large gulps, you just spray whatever is left inside your mouth into the air. A weird blueish-hued mist seems to glow before your very eyes, freaking you out immediately. You bring the slightly dented aluminum can you had in your hand to your eyes: a neat blue label says "G-ACTIV, B102". Great, you've just accidentally drank someone's...  whatever it was that they left there. Strangely enough, you don't feel bad. In fact, now that the shiver has subsided, you feel kind of motivated and energized again, though the nasty aftertaste lingers on your tongue, tingling! After making sure you're not sweating, nauseous or anything, you still need something to wash that out. What should you have?
+
+<span id="choice">
+<<link "Some milk">><<replace "#choice">>You <<addBreastsSlow setup.balance.breastAllowancePerDay*1>>quickly down some milk, quickly removing the previous taste. But you do feel a bit woozy. Combined with the strange warmth in your chest, maybe need to keep an eye out for any side effects. Still, you don't feel that bad! Maybe even a little excited! You straighten your back and decide to get to it! It's summer break, there's plenty to do and plenty that needs doing.
+
+<<addQuest "cleanHouse">>
+<<addQuest "getJob">>
+<<addQuest "mainQuest1">>
+
+<span class="important">Some actions take time. Those are indicated by the - 00:20 🕛 icon, indicating how much time the action will take. They might also change your exhaustion and motivation, which determine what actions you can accomplish. Go to the 'help' tab for more information on how to play the game.</span>
+
+<<gameLink "Let's get started!" "Home" motivation:50 time:10>><<set $introOver to true>><</gameLink>>
+<</replace>><</link>>
+<<link "A tall bottle of water">><<replace "#choice">><<addHeightSlow setup.balance.heightAllowancePerDay*1>>Looking around you sip the water, appreciating the work you did. The water is refreshing and cold, chilling you on the way down. Chilling you quite a lot, in fact, almost like freezing. Was this drink off too? Combined with the strange warmth in your chest, maybe you should keep an eye out for any side effects. Still, you don't feel that bad! A bit excited, even! You straighten your back and decide to get to it! It's summer break, there's plenty to do and plenty that needs doing.
+
+<<addQuest "cleanHouse">>
+<<addQuest "getJob">>
+<<addQuest "mainQuest1">>
+
+<span class="important">Some actions take time. Those are indicated by the - 00:20 🕛 icon, indicating how much time the action will take. They might also change your exhaustion and motivation, which determine what actions you can accomplish. Go to the 'help' tab for more information on how to play the game.</span>
+
+<<gameLink "Let's get started!" "Home" motivation:50 time:10>><<set $introOver to true>><</gameLink>>
+<</replace>><</link>>
+<<link  "A sports drink">><<set $muscleGrowthMaxTemp += setup.balance.muscleAllowancePerDay * 4>><<addMuscleSlow setup.balance.muscleAllowancePerDay*1>><<replace "#choice">>You go for a sports drink that you saved from the last time you got ambitious about working out. You drink it, quickly supplanting the scary aftertaste. But it makes you feel a bit woozy for an instant. Combined with the strange warmth in your chest, maybe should keep an eye out for any side effects. Still, you don't feel that bad! A bit excited, even! You straighten your back and decide to get to it! It's summer break, there's plenty to do and plenty that needs doing.
+
+<<addQuest "cleanHouse">>
+<<addQuest "getJob">>
+<<addQuest "mainQuest1">>
+
+<span class="important">Some actions take time. Those are indicated by the - 00:20 🕛 icon, indicating how much time the action will take.</span>
+
+<<gameLink "Let's get started!" "Home" motivation:50 time:10>><<set $introOver to true>><</gameLink>><</replace>><</link>>
+</span>
+
+

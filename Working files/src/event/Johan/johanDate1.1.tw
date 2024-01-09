@@ -1,0 +1,108 @@
+:: johanDate1.1 {"position":"550,2375","size":"100,100"}
+<<nobr>>
+<<set $DateSuccess to 0>>
+<<if ndef $shyConfident>>
+  <<script>>
+	State.variables.shyConfident = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.carefreeCarefull = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.submissiveDominant = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+  <</script>>
+  <<set _debugging to true>>
+<</if>>
+
+<<set _barbarian to ($carefreeCarefull * -1) + ($shyConfident * 1)>>
+<<set _cleric to ($submissiveDominant * -1) + ($carefreeCarefull * 1)>>
+<<set _paladin to ($submissiveDominant * 1) + ($shyConfident * 1)>>
+<<set _warlock to ($carefreeCarefull * -1) + ($submissiveDominant * -1)>>
+<<set _rogue to ($carefreeCarefull * -1) + ($submissiveDominant * -1)>>
+<<set _wizard to ($carefreeCarefull * 1) +  ($shyConfident * 1)>>
+
+<<if _barbarian > -7>>
+	<<set _highest to "barbarian">>
+	<<set _highestValue to _barbarian>>
+	<<set $dndCharacter to {
+		name: "",
+		class: "barbarian",
+		race: "half-demon"
+	}>>
+<</if>>
+<<if _cleric > _highestValue>>
+	<<set _highest to "cleric">>
+	<<set _highestValue to _cleric>>
+	<<set $dndCharacter to {
+		name: "",
+		class: "cleric",
+		race: "dwarven"
+	}>>
+<</if>>
+<<if _paladin > _highestValue>>
+	<<set _highest to "paladin">>
+	<<set _highestValue to _paladin>>
+	<<set $dndCharacter to {
+		name: "",
+		class: "paladin",
+		race: "half-celestial"
+	}>>	
+<</if>>
+<<if _warlock > _highestValue>>
+	<<set _highest to "warlock">>
+	<<set _highestValue to _warlock>>
+	<<set $dndCharacter to {
+		name: "",
+		class: "warlock",
+		race: "orc"
+	}>>
+<</if>>
+<<if _rogue > _highestValue>>
+	<<set _highest to "rogue">>
+	<<set _highestValue to _rogue>>
+	<<set $dndCharacter to {
+		name: "",
+		class: "rogue",
+		race: "human"
+	}>>
+<</if>>
+<<if _wizard > _highestValue>>
+	<<set _highest to "wizard">>
+	<<set _highestValue to _wizard>>
+	<<set $dndCharacter to {
+		name: "",
+		class: "wizard",
+		race: "elf"
+	}>>
+<</if>>
+
+<<if _debugging>>
+	<<print $dndCharacter.class>>
+	<br>
+<</if>>
+
+
+<</nobr>>Opening the door <<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>and squeezing through<</if>><<if setup.isOutfitTight()>> with your tattered clothes almost getting ripped<</if>>, you find yourself facing an unfamiliar sight; Johan sits behind a table with a fake beard, wizard's robe and candles on a table littered with oddly shaped dice, tiny figurines and a hexagonal grid map. The moment you enter, his voice booms out, as theatrical as Johan can get;
+
+<<Dialogue "Johan" "Johan">>"Welcome, mortal visitor to the plane of - Oh, it's you! Hahaha, I was expecting some other people, but I guess it’s a bit early! Come on in! I'm just having DnD in - oh, about an hour or so. Guess I got set up a too early. I’m kinda anxious, believe it or not!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Oh... right. Er, if you're expecting people, I'll come back -"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"No, no! Do stay! Have you ever played some tabletop RPG before? "<</Dialogue>>
+<<Dialogue "player" "You">>"You mean like the pen and paper stuff with the elves? Like, those garden statues?"<</Dialogue>>
+Johan’s chin drops, like you just said some blasphemy - he doesn’t look insulted, just really surprised.<br><br> 
+<<Dialogue "Johan" "Johan">>"Listen, now that you're here, why don't you give it a spin?! I promise it's not as weird or intimidating as it looks!"<</Dialogue>>
+
+That's one hell of a promise because it does look weird. But he seems to be having fun, so what do you have to lose? Sitting down, <<if $muscle >= 90 || $fat >= 70 || $breasts >= 100 || $height >= 300>>on the floor as to not damage anything with your mass,<<elseif $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>, the chair groans under you,<</if>> a table full of nerdy shit is sprawled out before you. And with all the enthusiasm Johan is known for, he begins.
+
+<<Dialogue "Johan" "Johan">>"So, this is Dungeons and Dragons, Fifth edition. In it, you play an adventurer while I take the role as storyteller; it is by my whims that you will succeed and fail! My whims... and those of the dice! Now, we first should make a character. What would you like to play as? A strong and fierce barbarian?! A clever but sneaky rogue?! A wise wizard, expert in the arcane arts?! Or a nimble elven ranger? Wait, wait, you clearly don't know what any of that means. Hmmm... With your personality... I think... yeah! <<print $dndCharacter.race>> <<print $dndCharacter.class>>!"<</Dialogue>>
+
+With a big smile, he scribbles for a while before handing you a piece of paper with a LOT of numbers on it. Yet despite how intimidating it is, Johan carefully explains everything bit by bit; what different attributes are, what skills you got, even dropping some tips on how to play. The passion in his eyes is contagious, he lives for this. You were used to him talking AT you, now he is being very inviting, allowing you to join in his passion. 
+
+<<if $dndCharacter.class is "barbarian">>Turns out you got handed a big half-demonic barbarian; big, beefy, and hits hard. Heh. Almost like he knows.
+<<elseif $dndCharacter.class is "cleric">>The character you play is a cleric, following some kind of deity in this fantasy setting. Your character mostly supports others and is a rather shy and meek half-elf. Not that far off.
+<<elseif $dndCharacter.class is "paladin">>The character you play is a paladin, following some kind of deity in this fantasy setting. With heavy armor, a burning desire to cleanse heresy and enough zeal to sink a battleship, you're sure this is going to be fun!
+<<elseif $dndCharacter.class is "warlock">>The character you play is a warlock, granted magical powers by a demon. Or devil. Apparently that makes a huge difference. But no matter what, you've got a magical sugar daddy and a whole world to make yours!
+<<elseif $dndCharacter.class is "rogue">>The character you play is a sneaky rogue, ready to steal, backstab and assassinate! Oh, you can't wait to see what you can do with this all!
+<<elseif $dndCharacter.class is "wizard">>The character you play is a wise wizard, knowing all kinds of spells and shit. Neat!
+<</if>>
+
+<<link "continue" "JohanDate1.2">><</link>>
+
+

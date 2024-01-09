@@ -1,0 +1,20 @@
+:: improveSkill [noReturn] {"position":"1225,1100","size":"100,100"}
+Which skill would you like to improve during the next two hours?
+
+<<nobr>><span id="result">
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<link $skills[_i].name>>
+	<<replace "#result">>You spend some time reading up on <<print $skills[_i].name>>. You think you picked up quite a bit!
+        <br><br>
+        <<set $skills[_i].experience += random(5,20)>>
+    <</replace>>
+    
+    <</link>><br>
+<</capture>>
+<</for>>
+</span><</nobr>>
+
+[[Return|$return]]
+
+

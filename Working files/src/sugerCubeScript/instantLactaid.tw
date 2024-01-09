@@ -1,0 +1,40 @@
+:: instantLactaid [noReturn] {"position":"650,1700","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "This... tastes quite good! Warm, refreshing and creamy, but not too sweet! Licking your lips, you feel like you could have this more often!">>
+<<set $motivation += 20>>
+<<set _rand to random(0,2)>>
+
+<<if _rand >= 1>>
+<<set _message += " You feel refreshed, like you just had a nourishing meal. It makes you want more of this stuff!">>
+<<addBreastsSlow setup.balance.breastAllowancePerDay>>
+<<set $lactationUnlockedPoints += 1>>
+<<if $lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor>>
+	<<set $milkProduction += 1>>
+	<<set _message += " Your nipples swell up a bit, with a pleasant warmth. You're quite sure your breasts just got more productive again!">>
+<</if>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " And you don't know why, but you WANT more too! Your body just kind of screams for it! Maybe it’s time for a nice snack, and you crave something nice, creamy and buttery!">>
+
+<<set $lactationUnlockedPoints += 1>>
+<<if $lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor>>
+	<<set $milkProduction += 1>>
+<</if>>
+<<addFatSlow 5>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Lact-aid");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

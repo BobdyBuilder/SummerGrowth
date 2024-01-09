@@ -1,0 +1,4 @@
+:: Barber {"position":"2600,1525","size":"100,100"}
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

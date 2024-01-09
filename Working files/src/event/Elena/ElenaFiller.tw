@@ -1,0 +1,14 @@
+:: ElenaFiller [nobr] {"position":"1500,2425","size":"100,100"}
+/* Elena */
+<<set setup.events.push({
+		name: 'ElenaFiller1',
+		locationTags: ['elena'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ['elena'],
+		content: 'It struck you that, no matter how long you spend at the gym, you never really lose that sense of fulfillment from working out. Since you started, you intuitively feel like each rep should lead into another, each flex should be bigger than the one before, and each set should target more muscles in your growing body. It was easy for you to get lost in this philosophy, lifting weights being more of a physically demanding activity meant your mind could wander. It was only until you realized that your partner, Elena, had been paying a bit more attention to you. <br><br>She was close by, performing her favorite bench presses in order to get her already massive chest to get more pumped, perhaps double in size. It wasn’t hard to tell those were her favorite muscles to work on. But every so often, one of her eyes would be attracted to you, for reasons unknown. So perhaps...<br><br>As her eyes fell upon you again, you increase the intensity of your workout, grunting as your body heaves heavy iron back and forth, muscles popping and flexing in almost hypnotic rhythmic motions. It was then you caught her in your trap, the amber-skinned girl was distracted enough that she briefly struggles with her bar. <br><br>You sit back to watch as, in noticing you caught her, Elena almost immediately returns her focus to her own workout. She takes in a deep breath, expanding the meaty slabs upon her torso, and with another nearly mute yet animalistic grunt, she shoots the oversized barbell back upwards with an eruption of vein and striations. Quickly, she reracks her equipment and takes a quick glance at you. <br><br>Your face of approval and satisfaction now elicits a positive response, though her face is flush with red. With the slightest confirming nod from you, the shy girl looks down upon her chest, lets out a long breath, and flexes her pecs as hard as she can. Her mounds of muscle dance surprisingly high, her head now smooshed to the cheeks in sinew, and yet, it comes across as just about the most adorable thing you\'ve ever seen.<br><br><<link "Continue" "gym">><</link>>'
+})>>
+
+

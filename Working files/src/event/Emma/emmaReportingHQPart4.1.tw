@@ -1,0 +1,21 @@
+:: emmaReportingHQPart4.1 [nobr] {"position":"0,0","size":"100,100"}
+After getting the message that Emma is back, you make your way back to the hotel. As you enter the room, you are unsurprised to find Emma, again in workout gear, using resistance bands to accomplish some truly impressive bicep curls. You are so taken by her pumped muscles that you just stare without saying anything - it’s not that her arms are enormous, but you just have unexplainable respect for the grit and effort she seems to put, as if each fiber is a testament to how committed...<br><br>
+<<Dialogue "Emma" "Emma">>"Miss <<print $playerLastName>>? "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Sorry, I got distracted, I remembered something. Yeah. Sorry."<</Dialogue>><br><br>
+That smug smile. You want to rip it off her face with a kiss so deep her abs are going to grind all over your...<br><br>
+<<Dialogue "Emma" "Emma">>"Our flight boards in about 90 minutes. "<</Dialogue>><br><br>
+Emma explains as she puts the band away in her already-packed bag, a change of clothes set aside. She stretches her arm, putting those delectable ripped biceps and triceps on full display.<br><br>
+<<Dialogue "Emma" "Emma">>"I’ll take a quick shower and we can get a cab in 20 minutes, assuming you’ll be packed and ready to leave by then? "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"S-sure."<</Dialogue>><br><br>
+As you pack, hearing the sound of the shower, you use all your concentration not to picture a very naked Emma as you pack your bags. These might have, in fact, have been the fastest 48 hours of your entire life, despite the very long work afternoon yesterday.<br><br>
+But as Emma comes out, looking so incredibly presentable you’d think she’d just come out of her office, you toss your bag behind your shoulder and head to the elevator. You are grateful that the earlier awkwardness seems to have dissipated, at least.<br><br>
+You manage to get some small talk going on the way to the airport, but once Emma gets her ebook out, you kinda get the hint that maybe you should give her some space.<br><br>
+Once inside the plane, Emma just sort of naturally flows behind you in line, so when you get to your row, a quick glance is enough for you to take the window seat - which you do with a content smile. Still, once the plane starts accelerating for take off, you have to fight the urge to hold her hand. You just stare at her ereader with unbridled jealousy. Oh, well!<br><br>
+Despite the nice late afternoon flight having an even nicer sunsetting view, you are kind of just bored through the duration. You just lean your chin against your hand and watch the golden clouds below. Halfway through the flight, however, the cloud turn a lot darker as it passes over a pretty nasty storm. It’s a bit unnerving, but you can’t really tell the difference from this high up.<br><br>
+However, as the plane starts its descent as your destination approaches, things start getting A LOT shakier. The pilot mumbles something barely decipherable through the poor speakers, and you just sigh...<br><br>
+It’s not too bad, but you just can’t take your eyes away from the now wet window. It’s not super-scary, but certainly not nearly as smooth as the previous flight. You just want this to be over, leaning your forehead against the transparent pane with another wistful sigh...<br><br>
+... as you feel your other hand being squeezed firmly. You turn your face, just to see a winking Emma, with that incorrigible smug smile.<br><br>
+<<Dialogue "Emma" "Emma">>"I got you, babe."<</Dialogue>><br><br>
+Maybe you don’t want this to be over THAT bad.’
+<<link "Go home" "Home">><<set $flag.emmaReportingHQPart2Finished to true>><</link>>
+

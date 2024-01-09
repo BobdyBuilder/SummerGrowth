@@ -1,0 +1,13 @@
+:: getJobFinished {"position":"125,1650","size":"100,100"}
+<<script>>
+	  if (!Dialog.isOpen()){
+      var dialog = Dialog.setup("Goal Completed; Job gained!");
+      new Wikifier(dialog, "You finally got a job! New responsibilities, and income that opens new possibilities. And with this success comes a nice boost in confidence!");
+      Dialog.open();}
+	  else {
+	  Dialog.append("<br><br>And... Goal Completed: Job acquired!<br><br>You finally got a job! New responsibilities, and income that opens new possibilities. And with this success comes a nice boost in confidence!")
+	  }
+
+<</script>><<set $shyConfident += 1>>
+
+

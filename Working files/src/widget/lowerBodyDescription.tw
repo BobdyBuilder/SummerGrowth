@@ -1,0 +1,57 @@
+:: lowerBodyDescription [widget] {"position":"3550,425","size":"100,100"}
+<<nobr>>
+<<widget "lowerBodyDescription">>
+
+With your <<hipDescription>> hips and <<assDescription>> butt, you have a really nice figure!
+
+<<if $ass + $hips > 12>> And given that your rump is now almost world-famous, it's not surprising that people are stunned when they witness it. Sure, it's almost impossible not to, but do they HAVE to stare at you all the time?!?
+<<elseif $ass + $hips > 10>>Since your backside is almost impossible to miss, you have become the center of attention no matter where you go. It'd be nice if people didn't stare now and then, but with a figure like this... eh, can you blame them?
+<<elseif $ass + $hips > 8>>Your proverbial trunk is certainly an eye-catcher, making sure people are looking at your back wherever you go.
+<<elseif $ass + $hips > 6>>Your ass is a real eye-catcher, and you know it!
+<<elseif $ass + $hips > 4>>Sometimes you see people peeking at your behind every now and then, and why shouldn't they? You look good!
+<</if>>
+
+Below that, your <<legLenghtDescription>> legs are not the worst either. 
+
+	<<if $bodyType is "skinny">>
+They might not be impressive, but they are still shapely, and you'd do well on a catwalk with your lithe appearance!
+	<<elseif $bodyType is "average">>
+They might be average, but you like to think they've got a nice shape to them. And hey, not everyone needs to be huge or thick!
+	<<elseif $bodyType is "thick">>
+They're voluptuous, contrasting well with your relatively thin waist. Thick, shapely thighs, combined with calves with curves in just the right places give you an amazing silhouette, and you'd be sure to amaze some onlookers!
+	<<elseif $bodyType is "fat">>
+They're fat, no point in running around the issue. They are covered in a thick layer of flab that still manages to give you some nice curves and a good look. Gotta love them, right?
+	<<elseif $bodyType is "obese">>
+They're incredibly thick, as they need to support the massive weight of your body. Though they lack definition, they are undeniably huge, flanked on all sides by a thick layer of flab. Still, you can't help but love them!
+	<<elseif $bodyType is "thin">>
+They're thin but toned, calves and quads exhibiting some nice definition. You can trace the muscles in your legs, the strength and endurance in them clear for all to see. When you move, the muscles dance around, creating quite a show.
+	<<elseif $bodyType is "athletic">>
+With legs like yours, you could easily dominate any catwalk. Strong and defined muscles, with a bit of softness, give them that defined look that is incredibly hard to get. Every step makes your graceful sinew dance, as quads, calves and hamstrings reshape with every step.
+	<<elseif $bodyType is "strong">>
+They're incredibly strong, just thick cords of muscle hidden behind a small layer of fat that only adds to your incredible bulk. When people see them, they KNOW you are strong. Massive quads bulge, thick diamond-shaped calves support your body, and generous hamstrings tie all together, forming legs that just scream 'powerlifter'.
+	<<elseif $bodyType is "heavy">>
+They're incredibly strong, their strength barely hidden under the supporting layer of fat. Massive quads that rub together constantly, thick calves and massive hamstrings make you the spectacle even more impressive.
+	<<elseif $bodyType is "bodybuilder">>
+They're hugely muscled, and incredibly defined, easily worthy of any bodybuilding competition! You are blessed with thick wheels of quads that just bulge with power at every step, sharply cut diamond-shaped calves that ooze power, and hamstrings that are so defined they could be used for anatomy lessons! All in all, just enormous!
+	<<elseif $bodyType is "heroic">>
+They're ready for any superhero pose, as your incredibly large and well-defined legs just scream power. Your thighs rub together constantly with your incredibly large quads and hamstrings, and in your calves you can see all the definition one could desire, granting you an incredibly strong, confident look.
+	<<elseif $bodyType is "strongman">>
+They're MASSIVE. There is no other word for them, they're just gigantic, with monstrous muscles barely hidden under a layer of fat that fails to properly conceal them. Your thighs rub together constantly, but when you tense your legs, their true strength is revealed as its thick cords surface, proving just how strong you are!
+	<<elseif $bodyType is "sumowrestler">>
+They're gigantic and bulky, thick layers of fat hiding the massive muscles underneath. But nobody would doubt it, it's obvious just how strong your legs are. They support your massive body, after all, and so much more! Your legs might be fighting for space, but when they are called to lift something, there is no doubt they will succeed!
+	<<elseif $bodyType is "hulk">>
+They're overflowing with power, every muscle bulging outwards and fighting for space as thick veins compete all over your quads, hamstrings and calves. All the striation and definition is clear for anyone to see, bulging and shifting with every step you take. 
+	<<elseif $bodyType is "giganticly bloated">>
+Like the rest of you, they're gigantic, bloated and obscenely muscular. Every muscle, from your gigantic quads to your monstrous calves, is fighting for space, making you waddle more so than walk. With every step, the thick cords of muscle shift, carrying your gigantic figure around.
+	<<elseif $bodyType is "monstrous">>
+Like the rest of you, they look nothing short of restless, monstrous even. They constantly fighting for space as the muscles within can only grow into each other, barely having enough breathing space left to permit you to walk. Every muscle and fiber is patently displayed, constantly bulging and shifting to try and accommodate your gigantic mass.
+<</if>>
+<<if $dick >0>>
+<br><br>
+<<dickDescription>>
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

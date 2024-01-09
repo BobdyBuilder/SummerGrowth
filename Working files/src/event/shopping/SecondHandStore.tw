@@ -1,0 +1,100 @@
+:: SecondHandStore [nobr storage outOfHouse secondHandStore mall] {"position":"2400,1625","size":"100,100"}
+<<if $tashaOpinion is 0>><<goto "TashaIntroduction">><</if>>This store is almost notorious in town for the strange things found within. As the legend goes, most university students dump things here when they leave, or when they are strapped for some quick cash. The result is a menagerie of the weirdest things one could think of. It's not uncommon to find anything from ancient swords, a desk made of plastic building block, or mysterious gadgets that would not look out of place in a spy movie. Between the various aisles walks <<if $tashaOpinion is 0>>a kindly old woman<<else>>Tasha<</if>>, barely able to reach most displays. With tender care, she ensures everything is neatly displayed, even if she isn't always sure of what is for sale.
+
+<br><br>[Tasha's dialog coming in a later version]
+
+<<if $tashaChemistryProfessorDiscovered>>
+<<link "Ask Tasha about chemistry" "TashaChemistryDiscussion">><</link>><br><br>
+<</if>>>>
+
+<<nobr>>
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>available</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+<<if $sewingUnlocked>>
+	<tr>
+	  <td>Fabric</td>
+	  <td>All kinds of colorful fabric in abundant supply, more than enough to make any kind of clothing from. You currently got <<print $fabric>>.</td>
+	  <td>∞</td>
+	  <td>10 for 10 bolts.</td>
+	  <td><span id="result"><<link "buy">>
+	  <<if 10 > $money>>
+	  <<replace "#result">>You can't afford that.<</replace>>
+	  <<else>>
+	  <<set $money -= 10>>
+	  <<set $fabric += 10>>
+	  <<goto "SecondHandStore">>
+	  <</if>>              
+	  <</link>></span></td>
+	</tr>
+<</if>>
+<<if $potionMakingEquipmentForSale>>
+    <tr>
+	  <td>Chemical distilation still</td>
+	  <td>An industrial looking machine that Tasha has shown you how you can make various distilations with from the strange potions you found. You could fit this in your kitchen; it's a KIND of cooking...?</td>
+	  <td>1</td>
+	  <td>$300</td>
+	  <td><span id="result"><<link "buy">>
+	  <<if 300 > $money>>
+	    <<replace "#result">>You can't afford that.<</replace>>
+    <<elseif $furniture.contains("distilation still")>>
+    You wouldn't need a second still at home.
+	  <<else>>
+        <<set $money -= 300>>
+        <<set $furniture.push("distilation still")>>
+        <<goto "SecondHandStore">>
+	  <</if>>              
+	  <</link>></span></td>
+	</tr>
+<</if>>
+<<for _i to 0; _i < $consumables.length; _i ++>>
+        <<capture _i>>
+       <<if $consumables[_i].forSale >= 1>>
+        
+        <tr>
+            <td><<print $consumables[_i].name>></td>
+            <td>
+            	<<print $consumables[_i].description>>
+                <<for _j to 0; _j < $consumables[_i].effects.length; _j ++>>
+                        <<capture _j>>	
+							<<if $consumables[_i].effects[_j].discovered && $consumables[_i].effects[_j].shortDescription() != "">>
+                            		<br>
+                                    ● <<print $consumables[_i].effects[_j].shortDescription()>>
+                            <</if>>
+                        <</capture>>
+                <</for>>            
+             </td>
+			<td><<print $consumables[_i].forSale>></td>
+            <td>$<<print $consumables[_i].price>></td>
+            <td><span id="result"><<link "buy - 00:05 🕛">>
+            <<if $consumables[_i].price > $money>>
+            <<replace "#result">>You can't afford that.<</replace>>
+            <<else>>
+            <<addMinutes 5>>
+            <<set $money -= $consumables[_i].price>>
+            <<set $consumables[_i].amount += 1>>
+			<<set $consumables[_i].forSale -= 1>>
+			<<if $tashaOpinion <= 59>>
+				<<set $tashaOpinion += 1>>
+			<</if>>
+            <<goto "SecondHandStore">>
+            <</if>>              
+            <</link>></span></td>
+        </tr>
+		<</if>>
+        <</capture>>
+<</for>>
+</table>
+<</nobr>>
+
+<<linkreplace "Shop for second hand clothing">>
+    <<ClothingStoreWidget $tashaInventory>>
+<</linkreplace>>
+
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+

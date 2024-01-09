@@ -1,0 +1,31 @@
+:: sleepUpdateHeight {"position":"500,100","size":"100,100"}
+/* Height */
+<<set $height += ($heightStore * $heightMod)>>
+
+
+<<if $heightStore > 0.2 && $postSleepHeightDialog1 is false>>
+	<<addTrigger "postSleepHeightDialog1" false false>>
+	<<set $postSleepHeightDialog1 to true>>
+<<elseif $heightStore > 0.2 && $postSleepHeightDialog1 is true && $postSleepHeightDialog2 is false>>
+	<<addTrigger "postSleepHeightDialog2" false false>>
+	<<set $postSleepHeightDialog2 to true>>
+<<elseif $heightStore > 0.2 && $postSleepHeightDialog2 is true && $postSleepHeightDialog3 is false>>
+	<<addTrigger "postSleepHeightDialog3" false false>>
+	<<set $postSleepHeightDialog3 to true>>
+<<elseif $heightStore > 0.2 && $postSleepHeightDialog3 is true && $postSleepHeightDialog4 is false>>
+	<<addTrigger "postSleepHeightDialog4" false false>>
+	<<set $postSleepHeightDialog4 to true>>
+<<elseif $heightStore > 0.2 && $postSleepHeightDialog4 is true && $postSleepHeightDialog5 is false>>
+	<<addTrigger "postSleepHeightDialog5" false false>>
+	<<set $postSleepHeightDialog5 to true>>
+<<elseif $heightStore > 1 && $postSleepHeightDialog5 is true>>
+	<<addTrigger "postSleepHeightRepeat" true false>>
+<</if>>
+
+<<set $heightStore *= 0.6>> 
+
+<<if $lactationUnlocked>>
+	<<set $milkStored += $milkProduction>>
+<</if>>
+
+

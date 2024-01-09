@@ -1,0 +1,50 @@
+:: krisRolePlaying-2 [nobr] {"position":"0,0","size":"100,100"}
+What happens next defies all your conception of how time works. It feels like an eternity, but it is also all over before your brain fully processes it. You feel your heart coming out of your mouth as you jump… well, fly, really... over the bed, your outstretched hand trying to reach her with a mind of its own.<br><br>
+You barely manage to grab her ankle as you follow her out of the window, and your legs stretch to anchor your waist by the window. You manage to hold the falling Kris - just barely - as the vertigo hits when you look at the huge fall under the two of you. Your other hand grabs her other leg, and you hang precariously as the small Kris hangs, breathless, held only by your hands.<br><br>
+You aren’t sure if it’s your burgeoning muscles or the absurd dose of adrenaline, but you somehow manage to pull your lover back up the window, and she falls down on the ground, face white as a sheet, now hyperventilating. Your mind is still catching up as you fall by her side. Kris lets out a single tear from her eye, as she turns and hugs you - not out of lust, but gratitude and affection.<br><br>
+Again, time feels like an abstract construct at this point as you hug each other on the ground, unable to even guess how long it has been since she tripped. You just appreciate feeling her weight and warmth as you sense her accelerated heartbeat against you.<br><br>
+Your mind wanders, as you start coming to what ironically feels like an even scarier realization: what would your life be like without Kris. And the realization rocks you more than you expected.<br><br>
+<<Dialogue "player" "You">>"Hey, Kris?"<</Dialogue>><br><br>
+You feel her, still shivering a bit, uncharacteristically silent, sure, but still very much her. Her head slowly turns towards your eyes, and she looks into your eyes, expectantly, even if it still shocked.<br><br>
+<<Dialogue "player" "You">>"Ummm, so..."<</Dialogue>><br><br>
+
+<span id="choice">
+	<<link "Kris, I... think I have developed feelings for you. ">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Kris, I... uh, I was really scared there for a second..."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, can you imagine how freaked out I was? I’m surprised I didn’t piss myself - which in retrospect, would have been pretty disastrous. Well, I suppose some might find it kinda hot..."<</Dialogue>><br><br>
+            With a nervous laughter, you continue.<br><br>
+            <<Dialogue "player" "You">>"Yeah, ummm, so, I was freaking out a bit there, and for a second I thought about about losin..."<</Dialogue>><br><br>
+            Kris frowns, and you stop, getting to the point.<br><br>
+            <<Dialogue "player" "You">>"Well, the thing is, well, I think the shock made me realize, that, uh, I think I might... have feelings for you. I... I think I might be in love with you."<</Dialogue>><br><br>
+            Kris turns on her back, still lying on the ground, facing away from you, and curls up in a fetal position. It gets a bit awkward, as you fight the urge to come close and just wrap yourself around him, but you can’t bring yourself to do so.<br><br>
+            <<Dialogue "player" "You">>"I guess that’s a lot to process. Sorry."<</Dialogue>><br><br>
+            Kris stays silent, gently rocking on the ground. You didn’t expect her to just declare her feelings back, but this silent treatment is like a stab to the heart. You grit your teeth, but you hear her whispering something you can’t understand between breaths.<br><br>
+            You put a hand on her back, and trace the contour of her shoulder blade, and she seems to relax some.<br><br>
+            <<Dialogue "Kris" "Kris">>"Thank you..."<</Dialogue>><br><br>
+            Kris mumbles, and takes a deep breath, before turning around and resting her head on your chest.<br><br>
+            Your heart races, as you just want to hear her say it back to you, but you do understand that it is asking a lot... especially right now. Still, she holds tightly to you, and you feel butterflies fluttering in your stomach. It feels like all those descriptions of falling in love you’ve ever heard - and it is as amazing and terrifying as you’ve been told.<br><br>
+            You hold Kris’s hand, and she squeezes back. She is avoiding your gaze, but you can feel that she wants to be as close to you as she can. You relegate yourself to lay on the ground with her as both of you ponder life.<br><br>
+            Again, you lose track of time, and eventually you hear Kris snoring. You grab her gently, placing her on the bed. You cover her, close the window, and head back home, thinking about life and how crazy it is.’
+            <<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Are you okay? I can’t lose my fuckbuddy over some silly accident.">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"... you can’t go falling out of a window and just splatting on the pavement and depriving me of my little worshipper."<</Dialogue>><br><br>
+            Kris laughs nervously, and squeezes you tighter. You laugh along, still holding her tightly.<br><br>
+            <<Dialogue "Kris" "Kris">>"I guess you really turned out to be a superhero after all. Heh."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I suppose I did. But now that I have completed my mission, perhaps I should lose this uniform?"<</Dialogue>><br><br>
+            Surprisingly, Kris hesitates. You feel her fingers tightening against your skin as she closes her eyes and takes a deep breath. You run your fingers through her hair and cheek, cleaning the lone teardrop as she grips you tightly and lets out a single sob. But then her breathing levels out, and she lets out a long sigh with a smile.<br><br>
+            <<Dialogue "Kris" "Kris">>"You speak my language, babe. Carry me to that bed and let’s find out your secret identity under that costume!"<</Dialogue>><br><br>
+            You comply, standing up and bringing your petite lover to the bed, where you gently place her body. Her gaze is glued to your face, and it hits you that you are not used to constant eye contact from the little sex goblin. You lean next to her, letting your fingers run through her inner thighs, and she shivers. But as you reach for her honeypot, she holds you hand, and with a pleading look, begs:<br><br>
+            <<Dialogue "Kris" "Kris">>"Hey, do you think we could cuddle for a bit? We can fool around later... is that okay?"<</Dialogue>><br><br>
+            With a smile, you lay next to her, and kiss her forehead.<br><br>
+            <<Dialogue "player" "You">>"Can I keep the costume, though? It’s pretty cool! But how did you get my measurements so right for it?"<</Dialogue>><br><br>
+            For the rest of the night, the two of you end up having an idle conversation about superheroes with the coolest powers, and you eventually go back to your apartment, once again thanking the heavens that this little adventure didn’t end in tragedy.
+            <<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+</span>
+

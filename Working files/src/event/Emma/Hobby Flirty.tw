@@ -1,0 +1,18 @@
+:: Hobby Flirty {"position":"1150,3825","size":"100,100"}
+<<set $emmaDateFlirty += 1>>
+Somehow, you managed to catch Emma off guard. She had gone for a sip of water right as you chose to speak, and she just barely managed to avoid choking on her drink. She quickly makes her best attempt to recover.
+
+<<Dialogue "Emma" "Emma">> "You cannot be serious."<</Dialogue>>
+<<Dialogue "player" "You">> "Does that rub you the wrong way? I could call you something else."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "You are absolutely incorrigible."<</Dialogue>>
+She tries hard to maintain her stoic business-first façade, but she can't help but let the corners of her mouth just barely turn up into a smile. Whether it's the sheer audacity or something else, she appreciates the sentiment.
+
+<<Dialogue "Emma" "Emma">> "You know, you run the risk of serious disciplinary action if you keep this up."<</Dialogue>>
+<<Dialogue "player" "You">> "Oh, no!"<</Dialogue>>
+You grin back at her, not even trying to hide your glee.
+
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

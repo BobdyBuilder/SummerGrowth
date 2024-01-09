@@ -1,0 +1,61 @@
+:: BreastSizeDescription [widget] {"position":"3650,625","size":"100,100"}
+<<nobr>>
+<<widget "BreastSizeDescription">>
+
+<<if $_breastsRandomized <= 2>>completly flat chest
+<<elseif $_breastsRandomized <= 4>>invisible
+<<elseif $_breastsRandomized <= 6>>barely visible
+<<elseif $_breastsRandomized <= 8>>very tiny
+<<elseif $_breastsRandomized <= 10>>petite
+<<elseif $_breastsRandomized <= 11>>tiny
+<<elseif $_breastsRandomized <= 14>>below average
+<<elseif $_breastsRandomized <= 16>>decently sized
+<<elseif $_breastsRandomized <= 18>>average
+<<elseif $_breastsRandomized <= 20>>nicely shaped
+<<elseif $_breastsRandomized <= 22>>well formed
+<<elseif $_breastsRandomized <= 24>>larger than average
+<<elseif $_breastsRandomized <= 26>>decently big
+<<elseif $_breastsRandomized <= 28>>pretty big
+<<elseif $_breastsRandomized <= 30>>large
+<<elseif $_breastsRandomized <= 32>>full
+<<elseif $_breastsRandomized <= 34>>big
+<<elseif $_breastsRandomized <= 36>>impressive
+<<elseif $_breastsRandomized <= 38>>perky
+<<elseif $_breastsRandomized <= 40>>very big
+<<elseif $_breastsRandomized <= 42>>very large
+<<elseif $_breastsRandomized <= 44>>eye-catching
+<<elseif $_breastsRandomized <= 46>>very full
+<<elseif $_breastsRandomized <= 48>>huge
+<<elseif $_breastsRandomized <= 50>>really large
+<<elseif $_breastsRandomized <= 52>>very firm and really huge
+<<elseif $_breastsRandomized <= 54>>incredibly huge
+<<elseif $_breastsRandomized <= 56>>head sized
+<<elseif $_breastsRandomized <= 58>>gigantic
+<<elseif $_breastsRandomized <= 60>>smothering
+<<elseif $_breastsRandomized <= 62>>bellybutton obscuring
+<<elseif $_breastsRandomized <= 64>>extremely hefty
+<<elseif $_breastsRandomized <= 66>>backbreaking
+<<elseif $_breastsRandomized <= 68>>porn star worthy
+<<elseif $_breastsRandomized <= 70>>utterly gigantic
+<<elseif $_breastsRandomized <= 72>>obscenely large
+<<elseif $_breastsRandomized <= 74>>unmistakingly gigantic
+<<elseif $_breastsRandomized <= 76>>immensely heavy
+<<elseif $_breastsRandomized <= 78>>unprecedented
+<<elseif $_breastsRandomized <= 80>>thigh obscuring
+<<elseif $_breastsRandomized <= 82>>thigh-slapping
+<<elseif $_breastsRandomized <= 84>>immense
+<<elseif $_breastsRandomized <= 86>>gargantuan
+<<elseif $_breastsRandomized <= 88>>almost unliftable
+<<elseif $_breastsRandomized <= 90>>Beanbag sized
+<<elseif $_breastsRandomized <= 92>>unrealistically huge
+<<elseif $_breastsRandomized <= 94>>floor dusting
+<<elseif $_breastsRandomized <= 96>>body obscuring
+<<elseif $_breastsRandomized <= 98>>person sized
+<<elseif $_breastsRandomized <= 100>>floor dragging
+<<else>>immobile
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

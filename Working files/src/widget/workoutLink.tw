@@ -1,0 +1,55 @@
+:: workoutLink [widget nobr] {"position":"2000,900","size":"100,100"}
+<<nobr>>
+<<widget "workoutLink">>
+
+<<set _muscleGainWorkout to setup.balance.muscleAllowancePerDay * $workoutSkillMuscleGainMod>>
+<<set _workoutTime  to $baseWorkoutTime * $workoutSkillTimeMod>>
+<<set _workoutExhaustion to $gymExhaustionPerWorkout * $workoutSkillExhaustionMod>>
+<<set _workoutMinimumExhaustion to $gymMinimumExhaustionPerWorkout * $workoutSkillMinimumExhaustionMod>>
+
+<<if $motivationPercentage >= $exhaustionPercentage>>
+	<<if $money < 25 && $args[0] is "gym">>
+		You don't have enough money to afford working out here now.
+
+		
+		<br><br>
+	<<else>>
+	
+	<br><br>
+	<</if>>
+<<else>>
+  You just can't bring yourself to work out right now.
+  <br><br>
+<</if>>
+
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + _workoutExhaustion < 100>>
+	<<if $muscleStore > (($muscleGrowthMax + $muscleGrowthMaxTemp + $muscleGrowthMaxDiet) * $muscleGrowthMod * ($workingOutBonus**2 * 0.9))>>
+		<<if $args[0] is "gym">>
+			<<set _workoutString to "You could work out again, but your body is still recovering from the previous exercise. A workout might do more harm than good, at least today. ($25)">>
+		<<else>>
+			<<set _workoutString to "You could work out again, but your body is still recovering from the previous exercise. A workout might do more harm than good, at least today.">>
+		<</if>>
+	<<else>>
+		<<if $args[0] is "gym">>
+			<<set _workoutString to "Work out. ($25)">>
+		<<else>>
+			<<set _workoutString to "Work out">>
+		<</if>>
+	<</if>>
+	<<if $args[0] is "gym" && $money > 25>>
+		<<gameLink _workoutString "workout" time:_workoutTime exhaustion:_workoutExhaustion minExhaustion:_workoutMinimumExhaustion>><<if $args[0] is "gym">><<set $money -= 25>><</if>><<set $workout to $args[0]>> <<addMuscleSlow _muscleGainWorkout>><</gameLink>>
+	<<update>>
+	<<elseif $args[0] != "gym">>
+	<<gameLink _workoutString "workout" time:_workoutTime exhaustion:_workoutExhaustion minExhaustion:_workoutMinimumExhaustion>><<if $args[0] is "gym">><</if>><<set $workout to $args[0]>> <<addMuscleSlow _muscleGainWorkout>><</gameLink>>
+	<<update>>
+	<<else>>
+		You don't have enough money to afford working out here now.
+	<</if>>
+<<else>>
+You just can't bring yourself to work out right now, you're just too exhausted.
+<</if>>
+<</widget>>
+<</nobr>>
+
+

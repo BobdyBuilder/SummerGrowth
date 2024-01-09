@@ -1,0 +1,10 @@
+:: addHeightSlow [widget nobr] {"position":"2700,1000","size":"100,100"}
+<<nobr>>
+<<widget "addHeightSlow">>
+
+<<set $heightStore += parseFloat($args[0])  * $growthMod * $globalGrowthMod>>
+
+<</widget>>
+<</nobr>>
+
+

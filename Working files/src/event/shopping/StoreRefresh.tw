@@ -1,0 +1,51 @@
+:: StoreRefresh [nobr] {"position":"700,100","size":"100,100"}
+<<for _j to 0; _j < $dailyConsumableAmount; _j ++>>
+<<capture _j>>
+
+<<set _dailyConsumable to $consumablesDeck.pluck()>>
+
+<<set _settings to []>>
+<<if $futa is false>>
+	<<set _settings.push("futa")>>
+<</if>>
+<<if $lactationSetting is false>>
+    <<set _settings.push("lactation")>>
+<</if>>
+
+<<if $consumablesDeck.length is 0>>
+<<set $consumablesDeck to []>>
+<<for _i to 0; _i < $consumables.length; _i ++>>
+  <<capture _i>>
+  	<<if $consumables[_i].settings.includesAny(_settings)>>
+		/* makes sure no settings get ignored */
+		
+	<<elseif $consumables[_i].settings.includes("lactation") && $lactationUnlocked != true>>
+		/* Prevents lactation potions showing before its relevant */
+	
+	<<elseif $consumables[_i].HideInStores is false>>
+	  <<for _j to 0; _j < $consumables[_i].uses; _j ++>>
+		<<set $consumablesDeck.push($consumables[_i].name)>>
+	  <</for>>
+	  <<set $consumablesDeck.push($consumables[_i].name)>>
+	<<else>>
+	<</if>> 
+  <</capture>>
+<</for>>
+<</if>> 
+
+<<for _i to 0; _i < $consumables.length; _i ++>>
+        <<capture _i>>
+		<<if $consumables[_i].name is _dailyConsumable or $debug or $difficulty is "sandbox">>
+			<<if $consumables[_i].dropRate >= (1 - Math.random()) or $debug>> 
+				<<set $consumables[_i].forSale += 1>>
+			<</if>>
+		<</if>>
+        <</capture>>
+<</for>>
+
+<</capture>>
+<</for>>
+
+<<set setup.storePopulator()>>
+
+

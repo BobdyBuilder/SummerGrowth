@@ -1,0 +1,16 @@
+:: JohanDate1.2 {"position":"550,2475","size":"100,100"}
+<<set $johanFirstDateSuccess to 0>>Johan excitedly returns to his seat opposite you, looking from behind what you can only describe as a tiny cardboard wall sitting on his table and covering his mysterious ream of unknown documents. He mutters to himself, and seems to be thinking very hard. You set your little figurine in place on one of the little hexagons on the mat in front of you as Johan springs up excitedly.
+
+<<Dialogue "Johan" "Johan">>"Okay! So... As we begin our story, you have already been travelling for weeks. You've been following rumors of a magical <<if $dndCharacter.class is "paladin" || $dndCharacter.class is "barbarian">>hammer<<elseif $dndCharacter.class is "cleric" || $dndCharacter.class is "wizard">>staff<<elseif $dndCharacter.class is "warlock" || $dndCharacter.class is "rogue">>amulet<</if>> that is supposed to contain untold power! The sort of thing that could decide the fate of the world! And at last, you're so close! You should be able to reach it today, but... alas! Your map says there should be a bridge here, but nothing! Just a ravine, at least <<if $measurementSystem == 'metric'>>four meters<<else>>a dozen feet<</if>> across! You look left and right, but this bridge is nowhere in sight. You could go looking for another way to cross, but who knows long that would take? Now, this is a predicament... How will you solve this problem?"<</Dialogue>>
+
+He grins ear to ear, and looks at you expectantly.
+
+<<Dialogue "player" "You">>"Oh, uh... So, is it my turn now? What should I do?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"That's the beauty of it! It's like we're writing a story together, and you're in control of the main character. Think it over for a bit. Imagine <<if $dndCharacter.class is "barbarian">>you're a mighty and savage barbarian<<elseif $dndCharacter.class is "cleric">>you're a holy woman wielding the power of your gods<<elseif $dndCharacter.class is "paladin">>you're a literal knight in shining armor<<elseif $dndCharacter.class is "warlock">>you hold dark, eldritch magic in your hand<<elseif $dndCharacter.class is "rogue">>you're a sly, stealthy thief or assassin type<<else>>you're an actual wizard, with all kinds of spells in your book<</if>>. How would you get around this?"<</Dialogue>>
+
+[[Can't I do magic? Is there any way I can just... magic myself over the canyon?->Obstacle- Magic]]
+[[It doesn't sound like it's super wide. I bet I could jump it.->Obstacle- Jump]]
+[[Hmm. No easy way past it. I might have to get creative here...->Obstacle- Other]]
+
+

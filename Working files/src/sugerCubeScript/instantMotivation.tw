@@ -1,0 +1,24 @@
+:: instantMotivation [noReturn] {"position":"750,2000","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "It’s odd how the green liquid almost has a life of its own. It just keeps swirling, even when you don't touch the bottle at all. Downing it isn't unpleasant either, reminding you of nice matcha tea.">>
+<<set $motivation += 50>>
+
+<<if _rand >= 1>>
+<<set _message += " The taste lingers for quite a while, which you didn't expect. It's quite pleasant; it would make for a great breakfast drink.">>
+<<set $motivation += 50>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Mot-V10");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

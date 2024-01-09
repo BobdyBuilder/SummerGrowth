@@ -1,0 +1,50 @@
+:: Make-Up End {"position":"1450,3125","size":"100,100"}
+Slowly, silently, you let go of Elena's hand. Still riddled with indecision, you stumble over your words, attempting to figure out how to recover from this. As the words fail to come to you, you realize there's only one thing you can say.
+
+<<Dialogue "player" "You">> 
+"Elena, I'm sorry. I was only trying to help, really."<</Dialogue>>
+
+Elena takes some time to respond. You can see her chest heaving as she takes repeated deep breaths, slowly steadying out into normal.
+
+<<Dialogue "Elena" "Elena">> 
+"I know. But this is not okay. I need... I need some //silenzio//. I need quiet. I need to relax."<</Dialogue>>
+
+<<Dialogue "player" "You">> 
+"Yes! Yes, of course! Why don't we head back to that coffee shop? We can get another coffee, or maybe some tea, maybe a snack, and it'll all be good!"<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">> 
+"No. No, I need to be alone. I... I'm sorry, but you are... a little too much right now."<</Dialogue>>
+
+<<Dialogue "player" "You">> 
+"Oh. I see. I'm sorry. You're right. That's probably for the best."<</Dialogue>>
+
+You take a deep breath of your own and prepare to turn around and walk off, relegating yourself for some alone time of your own. Before you can leave, you can feel Elena's hand on your shoulder.
+
+<<Dialogue "Elena" "Elena">> 
+"I'm not upset with you. Just so you know."<</Dialogue>>
+
+<<Dialogue "player" "You">> 
+"Huh?"<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">> 
+"//Forse um po//. Maybe a little. But... that's why I need the alone time. I need to... clear my head. Figure things out. We can figure out where we stand after that."<</Dialogue>>
+
+<<Dialogue "player" "You">> 
+"Okay. Maybe this date thing doesn't pan out. But can we still be friends? Gym buddies, at least?"<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">> 
+"I suppose so. I don't think I could stop you from coming to the gym anyway."<</Dialogue>>
+
+She cracks a tiny smile once again. All hope is not lost after all.
+
+<<Dialogue "ElenaHappy" "Elena">> 
+"So I will see you there."<</Dialogue>>
+
+<<Dialogue "player" "You">> 
+"Yeah. See you there."<</Dialogue>>
+
+You wave goodbye as Elena turns to leave. You're left alone with your thoughts on the quiet back street. The date was... far from perfect. It's clear now that your personality doesn't mesh well with hers. Maybe a romance with her isn't in the cards, or maybe you need to be careful and gentler with her. Either way, you have a lot of thinking to do today, and plenty of time to do so. But there is yet hope. Elena is still your friend and who knows the future holds?
+
+<<link "Go home" "Home">><<addMinutes 180>><</link>>
+
+

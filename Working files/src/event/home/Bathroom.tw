@@ -1,0 +1,161 @@
+:: Bathroom [nobr home storage] {"position":"1125,1000","size":"100,100"}
+Cramped at the best of times, and almost constantly in need of mold remover, it's still your bathroom. Some of your stuff is still in boxes here, since you didn't take the time to pack it all away.
+
+<<set _room to passage()>>
+<<cleaning _room>>
+<br>
+
+<<if $furniture.includes("measuring tape")>>
+	<<linkreplace "Measure your body with the measuring tape">>
+		Carefully, you measure your body and get the following statistics.
+		<br>
+		<table id="store">
+		  <tr>
+			<th>Bodypart</th>
+			<th>measurement</th>
+		  </tr>
+		  <tr>
+    		<td>Height</td>
+    		<td><<numeralConversion $height>></td>
+  		  </tr>
+		  <tr>
+    		<td>Chest</td>
+    		<td><<getMeasurement "chest" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Waist</td>
+    		<td><<getMeasurement "waist" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Hips</td>
+    		<td><<getMeasurement "hips" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Neck</td>
+    		<td><<getMeasurement "neck" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Upper arm</td>
+    		<td><<getMeasurement "upperArm" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Lower arm</td>
+    		<td><<getMeasurement "lowerArm" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Wrist</td>
+    		<td><<getMeasurement "wrist" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Thighs</td>
+    		<td><<getMeasurement "thigh" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Knees</td>
+    		<td><<getMeasurement "knee" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Calves</td>
+    		<td><<getMeasurement "calve" true>></td>
+  		  </tr>
+		  <tr>
+    		<td>Ankles</td>
+    		<td><<getMeasurement "ankle" true>></td>
+  		  </tr>
+		</table>
+        <br>
+        <<if $carefreeCarefull <= 0>>
+        	You decide to take careful note of them, so you can review your progress later using your PC.
+            
+            <<script>>
+                function checkDate(log) {
+                return log.date.toDateString() ==  State.variables.gameDate.toDateString();
+                }
+				var index = State.variables.measurementProgress.findIndex(checkDate);
+                
+                if (index != -1) {      
+                    State.variables.measurementProgress[index] = {
+                        date: State.variables.gameDate,
+                        measurements: {
+                            height: State.variables.height,
+                            chest: State.variables.chestSize,
+                            waist: State.variables.waistSize,
+                            hips: State.variables.hipsSize,
+                            neck: State.variables.neckSize,
+                            upperArm: State.variables.upperArmSize,
+                            lowerArm: State.variables.lowerArmSize,
+                            wrist: State.variables.wristSize,
+                            thigh: State.variables.thighsSize,
+                            knee: State.variables.kneeSize,
+                            calve: State.variables.calveSize,
+                            ankle: State.variables.ankleSize,
+                            weight: State.variables.weight
+                        }
+                    }
+                }
+                else {
+                    State.variables.measurementProgress.push(
+                        {
+                            date: State.variables.gameDate,
+                            measurements: {
+                                height: State.variables.height,
+                                chest: State.variables.chestSize,
+                                waist: State.variables.waistSize,
+                                hips: State.variables.hipsSize,
+                                neck: State.variables.neckSize,
+                                upperArm: State.variables.upperArmSize,
+                                lowerArm: State.variables.lowerArmSize,
+                                wrist: State.variables.wristSize,
+                                thigh: State.variables.thighsSize,
+                                knee: State.variables.kneeSize,
+                                calve: State.variables.calveSize,
+                                ankle: State.variables.ankleSize,
+                                weight: State.variables.weight
+                            }
+                        });        
+                }
+            <</script>>
+        <<else>>
+        
+        <</if>>
+        
+	<</linkreplace>>
+<br><br>
+<</if>>
+
+/* fixed mirror or a random furniture is disappeared - waffle */
+<<if $furniture.includes("heavy duty bathroom scale")>>
+    <<linkreplace "Weigh yourself on your bathroom scale">>
+	<span class="hidden"><<getMeasurement "weight">></span>
+	<<set _weight to $weight>>
+	<<if _weight < 300>>		
+		Stepping on the scale, it takes a while to get to the final weight. <<if _weight > 250>> It groans and sputters under you, the metal and plastic bending here and there. <</if>> When it stops, it indicates you weigh <<getMeasurement "weight">>.
+	<<else>>
+		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up, the only thing it says on the display is 'error' before the device is crushed under your weight. Seems you'll have to buy a new one...
+        <<set $furniture to $furniture.filter(item => !["bathroom scale", "heavy duty bathroom scale"].includes(item))>>
+	<</if>>
+	<</linkreplace>>
+    <br><br>
+<<elseif $furniture.includes("bathroom scale")>>
+	<<linkreplace "Weigh yourself on your bathroom scale">>
+	<span class="hidden"><<getMeasurement "weight" false>></span>
+	<<set _weight to $weight>>
+	<<if _weight < 120>>		
+		Stepping on the scale, it takes a while to get to the final weight. <<if _weight > 90>> It groans and sputters under you, the metal and plastic bending here and there. <</if>> When it stops it indicates your weigh <<getMeasurement "weight">>.
+	<<else>>
+		Stepping on the scale you hear the scales groan under your weight. The plastic twists and bends under your feet, and when the display finally lights up, the only thing it says on the display is 'error' before the device is crushed under your weight. Seems like you will have to buy a new one...
+        <<set $furniture to $furniture.filter(item => item !== "bathroom scale")>>
+	<</if>>
+	<</linkreplace>>
+    <br><br>
+<</if>>
+
+<<link "Check your medicine cabinet" "ConsumableInventory">><</link>>
+<br><br>
+
+<<link "Check yourself in the mirror" "Mirror">><<addMinutes 1>><</link>>
+<br><br>
+
+<<link "Go back" "Home">><</link>>
+
+

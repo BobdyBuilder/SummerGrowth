@@ -1,0 +1,22 @@
+:: KrisTalk2 [Done] {"position":"2200,2825","size":"100,100"}
+<<addMinutes 15>>It feels odd, talking to Kris like this. It’s really different from what you two normally talk about; namely, your body. But it also allows you to get to know her. And as she clearly doesn't expect it, it keeps her off balance. Yet talking about big people pulled the old Kris back. 
+
+<<Dialogue "player" "You">>"So you chose your work because... you like big people? Really?"<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>Haha, why not? Why else would I do it, for the tips?!?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, but...not many people choose a job so they can... ogle at people."<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Yeah, and that's where I'm different. I do what I feel like doing. I don't CARE about that fucking job, and I refuse to pretend to enjoy. I got enough money to eat, that's all that matters right? I don't need some boring ass degree or soul-crushing 9 to 5, I got my passions, and SIZE is one of them! And I WON'T apologize for it!"<</Dialogue>>
+
+She slams the table, reinforcing the statement. Her voice had risen a bit, her eyes even more intense than normal. You lean back, your <<if $muscle > 40 || $fat > 40>>broad <</if>>back pressed into the booth. Like a predator, Kris notices the moment of weakness, her knees on the table as she leans intimately close to your face. Her face is flushed, her breathing shallow as her nails scratch loudly against the wood.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Oh, you only realized it now? You wanted to know about my job? Well, before I go to work, I masturbate to big guys or girls, I fantasize about giants trampling cities, about them ramming their gigantic cocks against my body. At night, I dream about it, I buy the biggest dildos around so I can get a SENSE of that feeling. I want to bathe in their cum, be held on a leash by a fucking GOD of a human with muscles so obscene the fucking giant will have no choice but to grow bigger and bigger and UNGH! And YOU are going to be that for me!"<</Dialogue>>
+
+Okay, Kris is in a mood. How the HELL are you going to deal with this?!
+
+[[KrisKiss<-Wait and see]]
+
+[[KrisPostTalk<- Talk about something]]
+
+

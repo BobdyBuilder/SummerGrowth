@@ -1,0 +1,76 @@
+:: johanOverwhelmedByDateIdea-itWasYouAllAlong [nobr] {"position":"0,0","size":"100,100"}
+Boy, that’s awkward.<br><br>
+Both of you kind of stay there, speechless, not sure how to make the next move. It’s endearing, if a bit pathetic. But as the stalemate continues for what feels like an eternity, you eventually both simultaneously unfreeze with stupid smiles and start laughing loudly, leaning against each other.<br><br>
+<<Dialogue "player" "You">>"I feel so dumb! I can’t believe... I thought... wow!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"I know, right? I guess we are two dum-dums. I thought all those TV shows were ridiculous, but I guess reality truly is stranger than fiction, huh?"<</Dialogue>><br><br>
+The laughter eventually starts to subside as the elephant of the situation comes back into the room. But this time, Johan seems to act and be assertive.<br><br>
+<<Dialogue "Johan" "Johan">>"So, what do you say? Are you still up for a date?"<</Dialogue>><br><br>
+It’s your turn to freeze completely. Oh. Yeah. You are going to have to tackle this one now. You straighten and stiffen as he looks expectantly at you, waiting for your reply. Oh shit!<br><br>
+
+<span id="choice">
+    <<link "Agree to date">>
+        <<replace "#choice">>
+            <<set _d to window.getNextDayOfTheWeek(2)>> /* get next tuesday */
+
+            <<Dialogue "player" "You">>"I mean, yeah! I would be honored. Sounds like a good time!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"OK, then, it’s a date. Will next tuesday work? Around, let’s say, 7:30?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Sounds delightful! I can’t wait!"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"I know, me neither!"<</Dialogue>><br><br>
+            He puts his hands in his pockets and sways around on his feet, while you awkwardly hold yours behind your back, the two of you looking silly and happy while looking at each other like two giddy monkeys.<br><br>
+            A couple minutes pass. Both of you want this moment to last forever, but also want it to just be tuesday already.<br><br>
+            <<Dialogue "player" "You">>"So, I guess... I should get going."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Right, right. You take care, you hear?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I will. You too, OK?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"For sure, for sure."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"T-thanks. For everything. I mean."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, thank YOU. Really."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I... I guess I need to actually go."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Y-yeah. I should... I have other stuff to do too."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"OK, so off I go! Heh."<</Dialogue>><br><br>
+            ...
+            <<Dialogue "player" "You">>"OK, this is the wrong way. The door is that way. Hehe."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Ah. Haha. See ya."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Buh-bye!"<</Dialogue>><br><br>
+            You walk out of the apartment and close the door completely for a change. Still leaning against it, you have to pinch yourself to make sure this wasn’t a dream.<br><br>
+            Wow. This is for real. A date with Johan.<br><br>
+            You’ll probably be spending a lot of time looking at the calendar in the next coming days… (on <<print _d.toLocaleDateString()>>)
+            
+            <<link "Continue" "Home">>
+                <<set $flag.johanOverwhelmedByDateIdeaDate to _d>>
+            <</link>>
+        <</replace>>
+    <</link>>
+
+    <<link "Turn him down">>
+        <<replace "#choice">>
+            <<Dialogue "player" "You">>"Oh, Johan... that sounds delightful..."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"So you’ll do it?!?"<</Dialogue>><br><br>
+            He looks so eager, so happy. You sigh deeply, and frown, closing your eyes. What is the best way to let him down with the least pain?<br><br>
+            <<Dialogue "player" "You">>"You are amazing, Johan. Really, one of the best things that happened since I moved here - I am not sure I would’ve made this far without you. You are like my partner in crime in all this mess, with all the crazy stuff that has been happening - but, it’s just, like, too soon? I’m still figuring out so much stuff, and I REALLY don’t want to complicate things right now?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh."<</Dialogue>><br><br>
+            He seems really disappointed. You just want to rip the bandage, not twist the knife, and before you know your mouth is opening again.<br><br>
+            <<Dialogue "player" "You">>"But that doesn’t mean anything has to change. The opposite, actually, I’m saying this because I can’t do this without you, you know? And I am afraid that romance would just... make everything messy. And I can’t afford that right now, not while I’m still trying to understand what is happening to me, and getting ready for college life. You get it, right?"<</Dialogue>><br><br>
+            He nods nervously.<br><br>
+            <<Dialogue "Johan" "Johan">>"Totally. Of course. I totally get it, like, geez, yeah, been there, done that, girl. Oh, phew, you wouldn’t believe how many girls I turned down for that exact reason. Oh, I get it."<</Dialogue>><br><br>
+            It’s clear he’s lying to make you feel better, and it breaks your heart even more. You come in for a hug, which confuses him at first, but soon he’s gripping you just as tight in return.<br><br>
+            <<Dialogue "player" "You">>"Thank you, Johan. You really are my rock, my best friend. Thank you for being there, and for understanding. I just couldn’t do this without you."<</Dialogue>><br><br>
+            He gives your back a couple of taps and sighs, a bittersweet contentment coming through loud and clear. You sigh back.<br><br>
+            <<Dialogue "player" "You">>"Look, maybe in the future? I just... need some time right now. You understand, right?"<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Oh, absolutely. I mean, ha, really, what was I thinking? You, going out with ME? Haha, what a joke!"<</Dialogue>><br><br>
+            You tilt your head, concerned.<br><br>
+            <<Dialogue "player" "You">>"No, Johan, you are amazing. I mean it when I say I am blessed to have you on my corner, and I know for a fact you are going to make a girl... or a guy... very happy someday. Don’t sell yourself short, or I’ll beat the crap out of you!"<</Dialogue>><br><br>
+            He shakes his head, smiling.<br><br>
+            <<Dialogue "Johan" "Johan">>"Yea, yeah. Guess I’m just used to being the stereotype. But you are right, you make me feel special, so maybe there’s more to me than even I knew.<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Exactly! And I’ll be back around often to get me another dose of my favorite geek. So don’t change, you listen?"<</Dialogue>><br><br>
+            He gives a very goofy military salute, and smiles at you. Oh, that smile is so warm and comforting!<br><br>
+            <<Dialogue "Johan" "Johan">>"Aye, aye, Cap’n.<</Dialogue>><br><br>
+            You tussle his hair and give him a peck on the cheek.<br><br>
+            <<Dialogue "player" "You">>"I should get going now, champ. But you know, my door is also always open."<</Dialogue>><br><br>
+            <<Dialogue "Johan" "Johan">>"Understood!"<</Dialogue>><br><br>
+            And with that, you take a theatrical bow, like you were a ballerina, and walk backwards toward the door without breaking eye contact. You close the door, sighing, and hoping this doesn’t have any lasting impact on your friendship.
+            
+            <<link "Continue" "Home">><</link>>
+        <</replace>>
+    <</link>>
+</span>
+

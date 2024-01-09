@@ -1,0 +1,89 @@
+:: clothingSelection [widget nobr noReturn] {"position":"1225,700","size":"100,100"}
+<<widget "clothingSelection">>
+
+<<set _slot to $args[0]>>
+
+<span id="outfitTable">
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>bonuses</th>
+    <th>Fit</th>
+    <th>Style</th>
+    <th>Actions</th>
+  </tr>  
+  
+ <tr>
+    <td>
+    	<input type="radio" class="clothingItemRadiobutton" name="slotItem" value='-1'>
+		<label> Nothing </label>        
+    </td>
+    <td> - </td>
+    <td> - </td>
+    <td> - </td>
+    <td> - </td>
+  </tr>  
+  
+  <<for _i to 0; _i < $wardrobe.length; _i ++>>
+	<<capture _i>>
+    	<<if $wardrobe[_i].slot == _slot>>
+        	  <tr>
+                <td>
+                <<if setup.getFitFromClothing($wardrobe[_i])>>
+                	<input type="radio" class="clothingItemRadiobutton" name="slotItem" @value=$wardrobe[_i].id>
+					<label for=$wardrobe[_i].name> $wardrobe[_i].name</label>                
+               <<else>>
+					❌ <<print $wardrobe[_i].name>>
+                <</if>>
+                </td>
+                <td><<print setup.getReadableBonusFromClothing($wardrobe[_i])>></td>
+                <td>
+                <<print setup.getReadableFitFromClothing($wardrobe[_i])>></td>
+                <td>
+                	<<print $wardrobe[_i].archetypes>>
+                </td>
+                <td>
+                	<<link "Throw away">>
+                        <<if $outfit[$wardrobe[_i].slot + 'Id'] === $wardrobe[_i].id>>
+                            <<set $outfit[$wardrobe[_i].slot + 'Id'] to null>>
+                        <</if>>
+                        <<set $wardrobe.splice(_i, 1)>> 
+                        <<script>>
+                            $(".macro-live").trigger(":liveupdateinternal");
+                            $(document).trigger(":liveupdate");
+                            
+                            if (Dialog.isOpen()) {
+                                Dialog.close();
+                            }
+                        <</script>>
+                    <</link>>
+                </td>
+              </tr>  
+        <</if>>
+    <</capture>>
+<</for>>
+
+<<timed 0s>>
+<<script>>
+    const boxes = $('input.clothingItemRadiobutton');
+    boxes.on('change', function () {
+        let id = parseInt(document.querySelector('input[name="slotItem"]:checked').value);
+        id = id === -1 ? null : id;
+    
+        State.variables.outfit[State.temporary.slot + 'Id'] = id;
+    
+        $('.macro-live').trigger(':liveupdateinternal');
+        $(document).trigger(':liveupdate');
+    
+        if (Dialog.isOpen() == true) {
+            Dialog.close();
+        }
+    });
+<</script>>  
+<</timed>>
+
+  </table>
+</span>
+<</widget>>
+
+

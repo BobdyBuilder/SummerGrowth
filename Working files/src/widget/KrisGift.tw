@@ -1,0 +1,20 @@
+:: KrisGift [nobr widget] {"position":"1600,2525","size":"100,100"}
+<<widget "krisGift">>
+
+<<if $args[0] is "potion">>
+  <<set _KrisGiftI to random(0, ($consumables.length - 1))>>
+  <<set $consumables[_KrisGiftI].amount += 1>>
+  <<set $consumables[_KrisGiftI].forSale -= 1>>
+  <<set $KrisGift to $consumables[_KrisGiftI].name>>
+  
+<<elseif $args[0] is "supplement">>
+
+<<elseif $args[0] is "clothing">>
+
+<<else>>
+
+<</if>>
+
+<</widget>>
+
+

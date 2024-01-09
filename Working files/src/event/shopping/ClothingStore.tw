@@ -1,0 +1,8 @@
+:: ClothingStore [storage clothingStore outOfHouse mall] {"position":"2400,1525","size":"100,100"}
+This is Allison's Apparel, one of the few remaining clothing stores here that's not part of a big chain. And that's for the best, because the selection is top-notch, and Allison is always there to help clients herself. Row after row of packed racks make up most of the store, and you get the idea it would take DAYS to browse all that is there. Luckily, everything is neatly organized and labeled, so you should be able to find just about anything you want.
+
+<<ClothingStoreWidget $allisonsApparelInventory>>
+
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

@@ -1,0 +1,16 @@
+:: bodyHairDescription [widget] {"position":"3350,625","size":"100,100"}
+<<nobr>>
+<<widget "bodyHairDescription">>
+
+<<if $bodyHairMod >=10>> Covering your entire body is a thick layer of coarse, curly fur that someone could easily lose their hands in! Any clothing you wear is puffed up from this thick layer, and sometimes a strand of it shows through. Your arms and chests in particular are completely covered in this <<print $hairColor>> fur.
+<<elseif $bodyHairMod >= 8>> Almost all if your body is covered in a thick layer of coarse, <<print $hairColor>> hair. It makes you look very hairy, and anyone could easily stroke it, especially on your stomach and arms.
+<<elseif $bodyHairMod >= 6>> A dense layer of body hair covers your skin. Its course and <<print $hairColor>>, covering most of your arms, legs, torso and genitals. It gives you a really wild look!
+<<elseif $bodyHairMod >= 4>> An average amount of body hair covers your body. It can look a bit unkempt if you don't maintain it, but it's never too bothersome.
+<<elseif $bodyHairMod >= 2>> A thin dusting of body hair covers your body, though it's easily missed. An advantage of this is that you barely have to trim it, should you want to appear clean shaven.
+<<else>>
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

@@ -1,0 +1,40 @@
+:: BodyTypeDescription [widget] {"position":"3350,525","size":"100,100"}
+<<nobr>>
+<<widget "BodyTypeDescription">>
+
+	<<if $bodyType is "skinny">>
+Your body is incredibly skinny, with no definition to speak of. Some people say you could be a model with this, but it almost looks unhealthy.
+	<<elseif $bodyType is "average">>
+Your body is really average, not skinny nor fat. Just average. It doesn't attract much attention, but at least you know you're healthy.	
+	<<elseif $bodyType is "thick">>
+Your body is amazingly voluptuous, with some nice curves that are sure to attract attention. A bit thick, but still with a small waist, you got some heft in all the right places!
+	<<elseif $bodyType is "obese">>
+You have an incredibly full-figured body. Some might call it obese, but you just got some extra weight that gives you a nice, rounded figure. And hey, it makes you look damn good!
+	<<elseif $bodyType is "thin">>
+You've got the body of a swimmer, with some nice definition in the right places, and little to no fat. With your abs outlined and even some definition in your shoulders, you certainly look fit!
+	<<elseif $bodyType is "athletic">>
+You've got the body you would expect from a male fitness model, with big, defined muscles and beautiful curves, a physique that many would kill for! Pumped biceps, good wide shoulders, strong legs, and even the occasional vein running here and there! Your body just screams 'I lift'.
+	<<elseif $bodyType is "strong">>
+Your body looks incredibly strong due to the large muscles on display, giving you a big, strong look! Big muscles, covered with some flab, their added size granting you a powerlifter physique. Not bad!
+	<<elseif $bodyType is "heavy">>
+Your body looks incredibly strong, like an off-season bodybuilder! Both your huge muscles and soft layer of fat make you look incredibly strong. You can't help but be proud whenever you flex your thick arms!
+	<<elseif $bodyType is "bodybuilder">>
+If you competed in a bodybuilding show, you'd have a good chance of winning. A thick neck, wide shoulders and huge arms make your torso look big and defined. The relatively thin waist is only a bonus, not to speak of the defined 6-pack you got going!
+	<<elseif $bodyType is "heroic">>
+You have the body of a male superhero! Thick arms,legs and a massive barrel-chest just make you look massive. Buying off-the-rack shirts will be impossible, at least ones that fit your torso. And don't forget your massive lower body, these tree-trunks you call legs are impossible to ignore.
+	<<elseif $bodyType is "strongman">>
+You've got the body of a champion weightlifter, with your incredible strength obvious from both your huge muscles and the thick softness you still have. Though your waist might be a lot thicker than your average bodybuilder, the huge girth gives you plenty of support and means you can lift far more than people expect!
+	<<elseif $bodyType is "sumowrestler">>
+Despite the huge amount of flab on your body, you are still insanely strong, all thanks to the gigantic muscles under there. They might not be at full display, but that doesn't mean you don't know how to use them! With your girth, you sometimes have trouble getting through doors, and let's not ignore the fact your legs are thicker than some people. But under all that flab is amazing strength!
+	<<elseif $bodyType is "hulk">>
+When you look in the mirror, you see a gigantic body, bloated by gigantic muscles that would make even the biggest superhero look small. Biceps the size of your head, shoulders that wouldn't fit through a door and a torso so muscular you feel like you could stop a cruise missile, thick slabs flanking every side! And hell, you've seen full-grown trees thinner than your legs. And yet, there is not an ounce of fat to be seen, every vein and striation clearly displayed in their full glory.
+	<<elseif $bodyType is "gigantic">>
+Your body is inhumanly massive, with muscles that shatter every world record. It barely fits in the mirror, or through doors for that matter. But even at a glance, it's clear how gigantic you've become. From your shelf-like pecs to your thundering legs, every part of you screams 'gigantic'.
+	<<elseif $bodyType is "monstrous">>
+Your body is so incredibly gigantic it's hard to even conceive of your size! Arms as big as a grown man, legs that could shame trees, and a chest that makes seeing your toes a challenge! Beyond that, your gut might be gigantic, but it only adds to your powerful frame. Sure, doors might be a daunting challenge to cross without causing destruction, but with your size and strength, you can just barge through walls.
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

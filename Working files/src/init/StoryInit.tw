@@ -1,0 +1,44 @@
+:: StoryInit {"position":"0,300","size":"100,100"}
+<<include "InitializeAllClothes">>
+<<include "initBalance">>
+<<include "initEvents">>
+
+<<set setup.characters to 
+[
+	{
+		name: "Johan",
+		relationshipLevels: ["Strangers", "Neighbors", "Friends", "“FRIENDS“", "Lovers"]
+	},
+	{
+		name: "Emma",
+		relationshipLevels: ["Boss", "Boss", "Office buddies", "Friends", "Partner"]
+	},
+	{
+		name: "Elena",
+		relationshipLevels: ["Strangers", "aquintances", "Friends", "Lifting buddies", "Lovers"]
+	},
+	{
+		name: "ElenaShy",
+		relationshipLevels: ["Strangers", "aquintances", "Friends", "Lifting buddies", "Lovers"]
+	},
+	{
+		name: "Kris",
+		relationshipLevels: ["Strangers", "Who the fuck knows", "Fuck buddies", "Friends", "Lovers"]
+	},
+	{
+		name: "KrisObsessed",
+		relationshipLevels: ["Strangers", "Who the fuck knows", "Fuck buddies", "Friends", "Lovers"]
+	},
+	{
+		name: "PostSleep",
+		relationshipLevels: ["Strangers", "Who the fuck knows", "Fuck buddies", "Friends", "Lovers"]
+	}
+]>>
+
+<<set setup.bodytypes to ["skinny", "average", "thick", "fat", "obese", "thin", "athletic", "strong", "heavy", "bodybuilder", "heroic", "strongman", "sumowrestler", "hulk", "gigantic", "monstrous"]>>
+
+<<set setup.getRivalName to function () {
+    return State.variables.rivalGender === 'male' ? 'Nathan' : 'Natalie';
+}>>
+
+

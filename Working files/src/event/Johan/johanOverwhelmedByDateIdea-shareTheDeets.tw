@@ -1,0 +1,21 @@
+:: johanOverwhelmedByDateIdea-shareTheDeets [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Oh, no, you didn’t. You are interested in someone and you didn’t tell me? Seriously, Johan, I thought I was like one of your best friends!"<</Dialogue>><br><br>
+<<if $muscle > 55>>With very little hesitation, you grab Johan by the armpits and just toss him on his sofa like a ragdoll, before ploppling into a crosslegged sit in front of him on the ground, elbows on your knees and holding your head, anxious to get the tea.<<else>>You unceremoniously turn his chair around, placing your hands on his shoulders and looking him in the eyes, expectantly trying to extricate this hot bit of gossip as you smile like a deranged lunatic.<</if>><br><br>
+<<Dialogue "player" "You">>"Come on, I’m waiting. Who’s the lucky girl... or guy!! Do I know them? You can’t leave me hanging, bro!"<</Dialogue>><br><br>
+Johan fiddles uncomfortably, with a very nervous smile as he puts his hand on the back of his neck and avoids your gaze as he stutters in an attempt to say something.<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, errr, she’s great, don’t get me wrong. She still surprises me everyday with how awesome she is... but I still need to gather the guts to invite her out, though!"<</Dialogue>><br><br>
+You hear your knuckles cracking as you grit your teeth and try to keep a smile on your face, but you are pretty sure you must look a bit deranged right now. You are happy for Johan, <<print $playerFirstName>>, you keep telling yourself.<br><br>
+<<Dialogue "player" "You">>"Wow, she sounds awesome!"<</Dialogue>><br><br>
+You manage to say through your tense jaw, teeth still touching as your cheeks and lips struggle to maintain that forced smile. You are pretty lucky Johan must be one of the most oblivious people on the planet, anyone else would probably have called you out by now.<br><br>
+<<Dialogue "Johan" "Johan">>"Oh, she absolutely is! <<if $shyConfident > 1>>Her confidence is such an inspiration for me.<<else>>She’s a bit shy, but it only makes her more adorable.<</if>><<if $carefreeCarefull < 0>>Such a carefree soul, it’s amazing how she makes me feel at ease with my quirky geek nature, you know?<<else>>Because of her somewhat reserved nature, I don’t want to impose myself too much, but she makes me feel accepted for who I am.<</if>> <<if $height <= 150>>She’s such a cutie, it makes me want to just cuddle her in my arms like a teddy bear.<<elseif $height <= 170>>She’s just about my height, it’s like we were made for each other!<<elseif $height <=190>>I just hope she doesn’t mind that I’m shorter than her...<<else>>She’s like super-tall! It’s amazing!<</if>> <<if $muscle <= 25 && $fat <= 25 && $breasts <= 25 && $height <= 150>>I can’t help but love her petite charm, makes me want to protect her, she’s so precious to me.<<elseif $muscle <= 25 && $fat <= 25 && $breasts >= 35>>She’s got this great figure, I bet so many people are attracted to her hourglass figure!<<elseif $muscle <= 40 && $fat <= 25>>She’s in great shape, I’m envious of her physique and it makes me so proud of her dedication!<<elseif $muscle <= 60>>She’s so buff, she could easily be in one of my comics as a superheroine! It’s unbelievable!<<elseif $muscle > 60>>She must be like the strongest person I’ve ever seen, I seriously suspect she’s superhuman - to the point I sometimes fantasize about being the plucky sidekick like in comics!<</if>> <<if $dick > 7>>And she, huh, may have awakened some stuff in me I didn’t even realize was there...<</if>>"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Whoa, that does sound amazing!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Oh, she absolutely is, and then some."<</Dialogue>><br><br>
+It’s your turn to be dejected, as you look at Johan longingly. Unexpectedly, he’s looking back at you just as longingly.<br><br>
+...<br><br>
+Oh.<br><br>
+OH!<br><br>
+<br>
+Shit. How dense can you be?!?<br><br>
+
+<<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>>
+

@@ -1,0 +1,14 @@
+:: emmaLosePatience3-office [nobr] {"position":"0,0","size":"100,100"}
+It’s been a rough day, as some of the work has been spiralling a bit out of control - more work coming, but productivity has fallen since the first wave of cuts started. You can just feel the stress building in the office, and it’s not pleasant. People just seem on edge and annoyed, and it is snowballing faster than you’re comfortable with.<br><br>
+As you try to filter a very pesky dataset, you notice that Emma comes in, but her steps are much harsher than usual - harder, faster, to the point you can feel the tension like it was being electrically transmitted through the floor.<br><br>
+Emma stops behind one of the data specialists and huffs, causing him to turn, looking scared at her menacing expression.<br><br>
+<<Dialogue "Emma" "Emma">>"Jameson, I already warned you multiple times about bypassing the approval step, and I cannot believe everyone seems to be ignoring my directive from the team email from this morning regarding CCing every milestone!"<</Dialogue>><br><br>
+Everyone looks at each other, and then stare blankly at Emma, yourself included.<br><br>
+<<Dialogue "player" "You">>"Uh, what directive? I don’t think I was copied in that."<</Dialogue>><br><br>
+Soon, others join the chorus, confirming that no one received the email, except for Terry, who says he’s pretty sure the group was not included. And then Jameson chimes in, mentioning he didn’t really get any warnings, and then interjecting that those were probably sent to Mark, who had the issues previously.<br><br>
+You look at Emma, and she’s blushing and breathing rapidly. She’s clearly VERY shaken as she realizes that all those mistakes were on her. But her anger seems to surface once again as she bellows:<br><br>
+<<Dialogue "Emma" "Emma">>"Well, seems to me like everyone has a pretty good grasp on the situation, so get to it! I am not here to hold the hand of children."<</Dialogue>><br><br>
+And with that, she storms off, huffing a puffing. And you are left wondering, who the heck was that? Because it seems NOTHING like the Emma you are used to.<br><br>
+With little recourse, you just try to smooth things a bit with the angrier ones among the staff, making excuses for Emma as you return to your own tasks.
+<<link "Return" "office">><</link>>
+

@@ -1,0 +1,79 @@
+:: sewingProjectsWidget [widget nobr] {"position":"2800,2025","size":"100,100"}
+<<widget "sewingProjectsWidget">>
+
+<table id="store">
+  <tr>
+    <th>Name</th>
+	<th>Minutes needed</th>
+	<th>Size when finished</th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<<for _iSewingProject to 0; _iSewingProject < $sewingProjects.length; _iSewingProject ++>>
+<<capture _iSewingProject>>
+
+<<script>>
+    console.log(State.variables)
+<</script>>
+
+<tr id="row" @data-num="_iSewingProject">
+  <td><<print $sewingProjects[_iSewingProject].clothing.name>></td>
+  <td>
+<<print $sewingProjects[_iSewingProject].timeNeeded>>
+  </td>
+      <td>
+  	<<print setup.getSizeName($sewingProjects[_iSewingProject].newSize)>>
+  </td>
+	<td><<if $motivationPercentage >= $exhaustionPercentage and $exhaustion +20 <= $maxExhaustion>>
+	<<skillCheck "Sewing" 2>>
+	<<if $returnVal is true>>
+		<<set _sewingTimeString to "time:20">>
+		<<set _sewingTimeSpend to 20>>
+	<<else>>
+		<<set _sewingTimeString to "time:30">>
+		<<set _sewingTimeSpend to 30>>
+	<</if>>
+	
+		<<gameLink "Work on project" "sewing" exhaustion:5 _sewingTimeString>>
+			
+			<<set $sewingProjects[_iSewingProject].timeNeeded -= 30>>
+			
+			<<if $sewingProjects[_iSewingProject].timeNeeded is 0 || 
+				$sewingProjects[_iSewingProject].timeNeeded < 0>>
+				<<set $sewingProjects[_iSewingProject].clothing.size to $sewingProjects[_iSewingProject].newSize>>
+                <<if $sewingProjects[_iSewingProject].clothing.bonuses.map(bonus => bonus.name).includes('Hand-made') == false>>
+                    <<set $sewingProjects[_iSewingProject].clothing.bonuses.push(setup.clothingBonuses.Crafted)>>
+                <</if>>>>
+                <<set $sewingProjects[_iSewingProject].clothing.id to Date.now()>>
+				<<set $wardrobe.push($sewingProjects[_iSewingProject].clothing)>>
+				<<set $sewingProjects.deleteAt(_iSewingProject)>>
+				<<script>>
+				  if (Dialog.isOpen() == false) {
+				  var dialog = Dialog.setup("Project finished");
+				  new Wikifier(dialog, "It took some time, but you finally finished your project! Here's hoping it still fits. You can now find it under your wardrobe again.");
+				  Dialog.open();			
+				  }
+				<</script>>
+			<<else>>
+				<<skillIncrease "Sewing" 10>>
+			<</if>>
+		<</gameLink>>
+	<<else>>
+	Too tired to work
+	<</if>>
+  </td>
+	<td>
+		<<linkreplace "Scrap project">>
+			<<set $fabric += Math.floor($sewingProjects[_iSewingProject].fabric * $fabricScrapPercentage)>>
+			<<set $sewingProjects.deleteAt(_iSewingProject)>>
+			<<goto "sewing">>
+		<</linkreplace>>
+  </td>
+</tr>
+<</capture>>
+<</for>>
+</table>
+<</widget>>
+
+

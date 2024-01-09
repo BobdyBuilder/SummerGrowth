@@ -1,0 +1,28 @@
+:: questlog [nobr noReturn noEventTrigger] {"position":"1700,400","size":"100,100"}
+<<for _i to 0; _i < $quests.length; _i ++>>
+<<capture _i>>
+<<if $quests[_i].started is true>>
+		<<if $quests[_i].completed>>
+			<<set _status to "Completed">>
+		<<else>>
+			<<set _status to "">>
+		<</if>>
+		
+		<<set _line to "Goal" + _status>>
+		<<set _tempDescription to $quests[_i].description>>
+		
+<<for _j to 0; _j < $quests[_i].progress; _j ++>>
+	<<capture _j>>
+		<<set _tempDescription += "<br>		●">>
+		<<set _tempDescription += $quests[_i].stages[_j]>>
+	<</capture>>
+<</for>>			
+		
+		<<Dialogue "quest" "_line">><<print _tempDescription>><</Dialogue>>
+		<br>
+<</if>>
+<</capture>>
+<</for>>
+[[Return|$return]]
+
+

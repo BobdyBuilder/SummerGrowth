@@ -1,0 +1,15 @@
+:: emmaLosePatience1 [nobr] {"position":"0,0","size":"100,100"}
+You rush to the office, knowing you are going to be late to your shift, and already trying to come up with a proper response for Emma, who you know will get on your case. Your mind is wondering between made-up excuses and very sincere offers of apology when you cross the door, just a few minutes late. But as you reach the office floor, she’s not doing her usual rounds to check on everyone.<br><br>
+Curious, you proceed to her office, assuming she’s got something else going on. But the curtains are closed and the lights off. You tentatively knock on the door, when someone else lets you know that she hasn’t shown up yet. You feel a shiver up your spine, because you clearly remember her saying she had never been late in her entire career.<br><br>
+Your shock only increases as you turn around, and come face-to-face with...<br><br>
+<<Dialogue "player" "You">>"E-emma?!?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Grrrmble."<</Dialogue>><br><br>
+I mean, it LOOKS like Emma, but just barely. You’ve seen this scowl before, but she has bags under her half-closed sleepy eyes (by itself, a major anomaly), but she is... GASP!<br><br>
+HOLDING A CARBOARD CUP OF CHEAP COFFEE!!!<br><br>
+<<Dialogue "player" "You">>"Are you okay?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Yeah. Sure. No biggie. Just, didn’t sleep well. Or enough. Either way, if you will excuse me, I do need to get to my desk."<</Dialogue>><br><br>
+She blinks a few times and just goes around you, into her office, and closes the door behind her.<br><br>
+<<Dialogue "player" "You">>"OK, that was weird, right? It’s not only me?"<</Dialogue>><br><br>
+You say, half to yourself, half to the other employees around, who either ignore you or just shrug. Unable to do anything else, you just sigh and get back to your work...
+<<link "Return" "office">><</link>>
+

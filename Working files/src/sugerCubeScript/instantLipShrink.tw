@@ -1,0 +1,23 @@
+:: instantLipShrink {"position":"850,1500","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<if $lips > 1>>
+	<<set _message to " This one is not so much a drink as some sort of lipstick? Opening the small container, you find only a little bit of it left, looking extremely dried up. It reminds you of lip balm... well, why not give it a try? As you put it on, it feels really refreshing; that strong scent of menthol like in those analgesic heat rub sprays. It's quite nice, and your lips feel tight, but tingly!">>
+	<<set $lips -= 1>>
+<<else>>
+	<<set _message to "This one is not so much a drink as some sort of lipstick? Opening the small container, you find only a little bit of it left, looking extremely dried up. It reminds you of lip balm... well, why not give it a try? As you put it on, it feels really refreshing, but that's it. A bit anticlimactic...">>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("lip-shrink//XX");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

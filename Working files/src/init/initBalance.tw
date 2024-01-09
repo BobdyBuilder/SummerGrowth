@@ -1,0 +1,193 @@
+:: initBalance {"position":"0,200","size":"100,100"}
+<<set setup.balance to {
+	/* Exhaustion */
+	startExhaustionAtHoursAwake: 14,
+	hourlyExhaustionTax: 2.5,
+	skillGainExhaustion: 20,
+	streamingExhaustion: 10,
+	/* Muscle gain */
+	gymExhaustionPerWorkout: 35,
+	gymMinimumExhaustionPerWorkout: 30,
+	baseWorkoutTime: 90,
+	muscleAllowancePerDay: 0.9,
+	musclePotionsAllowancePerDay: 0.5,
+	heightAllowancePerDay: 4,
+	breastAllowancePerDay: 0.7,
+	/* money */
+	baseMoneyPerDay: 100,
+    bulkBarnJobIncome: function () {
+           if (State.variables.skills[0] == null) {
+               return 0;
+           }
+           return Math.round(100 + (100 / 3 * State.variables.skills[0].level) + (100 / 3 * State.variables.skills[1].level) + (100 / 5 * State.variables.skills[2].level));
+       },
+	baseIncomePerStream: 4,
+	moneyPerBoxShifted: 4,
+	eventTresshold: 10,
+	/* Lactation */
+	lactationTressholdNeeded: 5,
+	lactationIncrease: 1,
+	milkProductionFactor: 20,
+	/* personality shift penalties */
+	personalityChangeMotivationPentalty: -20,
+	personalityChangeMaxExhaustionPentalty: 50
+}>>
+
+<<set setup.endings to [
+    {
+        name: 'MuscleStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.muscle >= 100
+        ],
+        content: `As you go about your daily life, you've been noticing more and more struggles with your huge frame. While the drinks you've been taking have changed your life, maintaining that life has become harder and harder. The amount of food, the amount of new clothing you need... and not only that, but you're drawing so much atteniton that a normal life is almost impossible. Youre having a lot of fun... but if you want to continue having fun with your summer growth it might be smart slow down, or its game over.`
+    },
+    {
+        name: 'MuscleStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.muscle >= 120
+        ],
+        content: `Despite the earlier warning, you kept growing. And its really taking its toll now; slowly you're turning into a massive meatball, and despite what you though earlier its not THAT fun. Your mobility is starting to get restricted as your insane thighs rub together, your arms can only lower so much... If you want to continue your fun this summer, you GOT to stop. Otherwise, its game over.`
+    },
+    {
+        name: 'Muscle_ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.muscle >= 130 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Somehow, with clothing that still fits you. But as you move your arm up as far as it will go, you realize you've made a bit of a mistake, and taken it too far. Sure, you've beaten every world record for size. You're the biggest woman, or man, or person, to have ever existed. You're a monstrous meatball of muscle. And thats good, sort of.
+        
+        But now? yeah, you're too big. Immobile. Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'FatStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.fat >= 90
+        ],
+        content: `With your recent increases in mass, you can't help but notice life is getting a BIT more difficult. Sure, you feel fine and your healt is good. But with the sheer girth of your body, doing everyday things is becoming a bit difficult to manage. You might want to tone it down a bit or loose some weight, or your summer of growth could be over for you.`
+    },
+    {
+        name: 'FatStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.fat >= 100
+        ],
+        content: `Your continued increasing your girth, and it has been having more and more of an impact. Things like doors are a remarkable challenge, together with finding the clothing to suite you or places you can fit. Yeah, this is getting out of hand and if you want your summer of growth to continue you need to slow down...
+        
+        or its game over.`
+    },
+    {
+        name: 'Fat_Ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.fat >= 120 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Somehow, with clothing that still fits you. Looking at the fridge that you cannot reach anymore due to your gigantic bulk. You know, its kinda hard to imagine this being your downfall; your own size. Though you gave a mighty struggle, you can no longer fit into normal life... you'd need help. This size used to be perfect.
+        
+        But now? yeah, you're too big. Immobile. Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'HeightStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.height >= 230
+        ],
+        content: `Lately you've been the talk of the town. Wherever you go, you'll find people talking about you, whispering as you stroll past. Each step makes you tower over people, and you're clearly the tallest in town. But, this attention is intervering with your day to day life now. Wherever you go, you're the center of attention. You don't fit through doors. Your bed is too small. And while these may be problems to solve in the long term, it might seriously intervere with your summer of growth.`
+    },
+    {
+        name: 'HeightStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.height >= 250
+        ],
+        content: `As your heigth has been increasing, so have your daily problems. Doors. Fitting in rooms. You're realizing you're very much forgetting what you came here for, and with a body this big it's almost become impossible to really fit in anymore. If you keep growing, most rooms won't fit you ESPECIALLY considering your general bulk. Yeah, if you want this summer of growth to continue, you got to slow this down.`
+    },
+    {
+        name: 'Height_Ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.height >= 275 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Hunched over, sitting on the couch. Hands on your knees, and just kinda fiddling here. You got to, as there is very little you can otherwise do. You can no longer life in your own home, as it has gotten way too small. Everything is too small for you. Or you, you got too big. Looking around, pehaps it was an act of hubris getting this big as there is simply no way to do anything anymore. 
+        
+        Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'BreastsStuckWarning_1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.breasts >= 100
+        ],
+        content: `Lately you've been the talk of the town. Wherever you go, you'll find people talking about you, whispering as you stroll past. Or rather, the two things on your chest. Its a small wonder people still recognize your face, considering how much those two massive tits seem to draw attention. Sometimes you feel like you're more tit than person to some people. Its a lot of fun, but if you want to continue your summer of growth than maybe you should lay off a bit.`
+    },
+    {
+        name: 'BreastsStuckWarning_2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => State.variables.breasts >= 120
+        ],
+        content: `Despite knowing you maybe should stop, you still kept expanding your chest. Reaching things has become a lot more difficult, and though you by some miracle still have a spine daily life is getting a lot more difficult. This is your last chance to decide to stop growing, or your summer of growth will be over...`
+    },
+    {
+        name: 'Breasts_Ending',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => tags().includes("home") && State.variables.breasts >= 120 && State.variables.debug != "true"
+        ],
+        content: `Well, here you are. At home. Standing in the doorframe with your tits resting against the doorframe. Well, that's quite the pickle. You jiggle a bit, back and forth. Yeah, this is not going to work. You're trapped in here. And even if your breasts could fit through, the way people treat you right now is not the most solid foundation for a summer of fun.  
+        
+        Whether you want it or not, your summer of growth is over.`
+    },
+    {
+        name: 'Money_warning1',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money
+        ],
+        content: `Your funds are starting to get really low. If you don't watch out, your summer of fun might come to a premature ending. <<set $moneyWarningCountDown to 2>><<set $moneyWarning1 to true>>`
+    },
+    {
+        name: 'Money_warning2',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money && State.variables.moneyWarningCountDown != undefined && State.variables.moneyWarningCountDown <= 0 && State.variables.moneyWarning1 == true
+        ],
+        content: `Your funds are starting to get really low. If you don't watch out, your summer of fun might come to a premature ending. <<set $moneyWarningCountDown to 2>><<set $moneyWarning1 to true>>`
+    },
+    {
+        name: 'Money_warning3',
+        header: 'Warning!',
+        warning: true,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money && State.variables.moneyWarningCountDown != undefined && State.variables.moneyWarningCountDown <= 0 && State.variables.moneyWarning2 == true
+        ],
+        content: `Your funds are starting to get really low. If you don't watch out, your summer of fun might come to a premature ending. This is the final warning.<<set $moneyWarningCountDown to 2>><<set $moneyWarning3 to true>>`
+    },
+    {
+        name: 'MoneyEnding',
+        header: 'Game Over!',
+        warning: false,
+        triggers: [
+            () => ((State.variables.muscle - 20) * 2 + (State.variables.fat - 20) * 2 + (State.variables.height - 150) * 2 + (State.variables.breasts - 20) * 2) > State.variables.money && State.variables.moneyWarningCountDown != undefined && State.variables.moneyWarningCountDown <= 0 && State.variables.moneyWarning3 == true
+        ],
+        content: `You realize that you're out of funds. In the next few days its very likely that you won't have enough to buy clothing, rent, food... Before you collegue advenure started, you're broke and will have to go me. This is the end of your summer of growth...`
+    }
+]>>
+
+

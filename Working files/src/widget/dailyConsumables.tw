@@ -1,0 +1,65 @@
+:: dailyConsumables [nobr widget] {"position":"700,0","size":"100,100"}
+<<nobr>>
+<<widget "dailyConsumables">>
+
+<<set $muscleGrowthMod to 1>>
+<<set $muscleGrowthMaxTemp to 0>>
+<<set $exhaustionWorkoutMod to 0>>
+
+<<for _igymStoreSupply to 0; _igymStoreSupply < $gymStoreSupplies.length; _igymStoreSupply ++>>
+		<<capture _igymStoreSupply>>	
+		<<if $gymStoreSupplies[_igymStoreSupply].takeDaily > 0>>
+		
+		<<set $gymStoreSupplies[_igymStoreSupply].effectStore *= 0.5>>
+		<<set $gymStoreSupplies[_igymStoreSupply].effectStore to Math.round($gymStoreSupplies[_igymStoreSupply].effectStore)>>
+		
+		<<if $gymStoreSupplies[_igymStoreSupply].takeDaily * 3 >= $gymStoreSupplies[_igymStoreSupply].amount>>
+			<<set _warningString to "You only have " +  $gymStoreSupplies[_igymStoreSupply].amount +  " doses left of " + $gymStoreSupplies[_igymStoreSupply].name + " so you might run out soon.">>
+			<<addToLog _warningString>>
+		<</if>>
+		
+		<<if $gymStoreSupplies[_igymStoreSupply].takeDaily <= $gymStoreSupplies[_igymStoreSupply].amount>>
+			<<set _amountTaken to $gymStoreSupplies[_igymStoreSupply].takeDaily>>	
+		<<else>>
+			<<set _amountTaken to $gymStoreSupplies[_igymStoreSupply].amount>>
+			<<set _ranOutLog to "You're clean out of " + $gymStoreSupplies[_igymStoreSupply].name + ".">>
+			<<addToLog _ranOutLog>>
+			<<set $gymStoreSupplies[_igymStoreSupply].takeDaily to 0>>
+		<</if>>
+		
+		<<set $gymStoreSupplies[_igymStoreSupply].amount -= _amountTaken>>
+		<<set _X to _amountTaken + $gymStoreSupplies[_igymStoreSupply].effectStore>>
+		<<set _Y to 0>>
+		
+		<<if _X == 0>>
+			<<continue>>
+		<</if>>
+		
+		<<if $growthMod is 0.5>>
+			<<set _Y to (0.25 + (0.5 / (-1.5 * _X)))>>
+		<<elseif $growthMod is 1>>
+			<<set _Y to (0.5 + (0.34 / (-1.5* _X)))>>
+		<<elseif $growthMod is 1.5>>
+			<<set _Y to (0.5 + (0.34 / (-1.5* _X)))>>
+		<<else>>
+			<<addToLog "ERROR IN GROWTHMOD DAILYCONSUMABLES">>
+		<</if>>
+		
+		<<if $gymStoreSupplies[_igymStoreSupply].effect is "lowerExhaustion">>	
+			<<set $exhaustionWorkoutMod += (_Y * 0.2 * $gymStoreSupplies[_igymStoreSupply].effectScale)>>
+		<<elseif $gymStoreSupplies[_igymStoreSupply].effect is "raiseMax">>
+			<<set $muscleGrowthMaxTemp += (setup.balance.muscleAllowancePerDay * $gymStoreSupplies[_igymStoreSupply].effectScale) * _Y>>
+		<<elseif $gymStoreSupplies[_igymStoreSupply].effect is "raiseEfficiency">>
+			<<set $muscleGrowthMod += (setup.balance.muscleAllowancePerDay * $gymStoreSupplies[_igymStoreSupply].effectScale) * _Y>>
+		<</if>>
+		<</if>>
+		<</capture>>
+<</for>>
+
+<<set $muscleGrowthMod to Math.clamp($muscleGrowthMod, 0, 99999)>>
+<<set $muscleGrowthMaxTemp to Math.clamp($muscleGrowthMaxTemp, 0, 99999)>>
+
+<</widget>>
+<</nobr>>
+
+

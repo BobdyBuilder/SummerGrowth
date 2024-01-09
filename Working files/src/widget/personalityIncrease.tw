@@ -1,0 +1,31 @@
+:: personalityIncrease [widget nobr] {"position":"1900,0","size":"100,100"}
+<<nobr>>
+<<widget "personalityIncrease">>
+
+<<if $args[0] is "shy">>
+	<<set $shyConfident -= $args[1]>>
+<<elseif $args[0] is "confident">>
+	<<set $shyConfident += $args[1]>>
+	
+<<elseif $args[0] is "carefree">>
+	<<set $carefreeCarefull -= $args[1]>>
+<<elseif $args[0] is "carefull">>
+	<<set $carefreeCarefull += $args[1]>>
+	
+<<elseif $args[0] is "submissive">>
+	<<set $submissiveDominant -= $args[1]>>
+<<elseif $args[0] is "dominant">>
+	<<set $submissiveDominant += $args[1]>>
+	
+<<else>>
+
+<</if>>
+
+<<set $shyConfident to Math.clamp($shyConfident, -3, 3)>>
+<<set $carefreeCarefull to Math.clamp($carefreeCarefull, -3, 3)>>
+<<set $submissiveDominant to Math.clamp($submissiveDominant, -3, 3)>>
+
+<</widget>>
+<</nobr>>
+
+

@@ -1,0 +1,25 @@
+:: instantLactationRemoval {"position":"750,1700","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<if $lactationUnlocked>>
+	<<set _message to "The clear liquid washes down your throat quite smoothly, and you feel a nice and refreshing sensation travelling down. It has a slight hint of lemon, and immediately relaxes your body, especially around your chest. For some reason the pressure there just seems to ease up, a tightness that has been a constant since you started lactating.">>
+	<<if $milkProduction != 0>>
+		<<set $milkProduction -= 1>>
+	<</if>>
+<<else>>
+	<<set _message to "This drink tastes like... Nothing. Odd. You expected this clear liquid to have some taste, but, right now, it just tastes like water. Your mouth does feel rather dry, somehow? But as far as you can tell, it doesn't seem to do anything.">>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Milk--");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

@@ -1,0 +1,15 @@
+:: sewing {"position":"1425,900","size":"100,100"}
+Next to the sewing machine you have all the projects you're currently working on. You could either decide to tailor something with the <<print $fabric>> bolts of fabric you got, or scrap one of your projects. Scrapping a project refunds <<print $fabricScrapPercentage * 100>>% of the fabric, rounded down.
+
+<<sewingProjectsWidget>>
+
+<<linkreplace "tailor something">><<sewingTailoringWidget>><</linkreplace>>
+
+<<skillCheck "Sewing" 2>>
+<<if $returnVal is true>>
+<<linkreplace "craft something">>
+<<clothingCraftingWidget>><</linkreplace>><</if>>
+
+<<link "Go back" "Home">><</link>>
+
+

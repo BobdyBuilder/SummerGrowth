@@ -1,0 +1,25 @@
+:: Goblin Encounter {"position":"550,2675","size":"100,100"}
+<<Dialogue "Johan" "Johan">>"Not long after, you can see it in the distance. The cave you've been traveling for weeks to reach! Finally, it's laying right in front of you! Now what?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, I should hope it's obvious, right? Let's get in there!"<</Dialogue>>
+
+Johan leans forward a bit. His expression changes into something more serious. His voice lowers, and he sounds almost grim as he sets the scene.
+
+<<Dialogue "Johan" "Johan">>"You approach the yawning cave. Everything beyond the entrance is pitch black... You slowly venture inward, your eyes gradually adjusting to the darkness within. It's deathly quiet in here... not even the sound of water dripping or wind whipping by you to keep you company..."<</Dialogue>>
+
+Johan's voice grows quieter and quieter as he talks until he's just barely whispering. Then, without warning, he springs up from his seat and lets out a shrill shriek!
+
+<<Dialogue "Johan" "Johan">>"REEEAAAAAR!"<</Dialogue>>
+
+Without explanation, Johan reaches behind his little screen and grabs several more figures, little green goblins holding weapons in the air. He slaps them down onto the mat in front of you, all around your character.
+
+<<Dialogue "Johan" "Johan">>"Before you can react, a horde of goblins jumps out from the rocks around you! They've got you surrounded on all sides! The one in front of you brandishes his sword and stares you down!
+'Stop there, tall folk! Youse hands over all you golds and goodies, and maybe we lets you leave here alive!'"<</Dialogue>>
+
+Johan is really getting into it, mimicking the goblin pattern of speech with a goofy, high-pitched voice. He hams it up unashamedly, and the sudden gear change nearly makes you break into laughter right there. But he's looking at you expectantly.
+
+<<PersonalityCheck $shyConfident >= 1 "Ham it up!">><<goto "Hammy Start">><<Failed>><<goto "Hammy Start">><</PersonalityCheck>>
+[[I can't match that energy. But I've got to say something, right?->Neutral Start]]
+[[All right. Time to beat up some goblins, I guess.->Bored Start]]
+
+

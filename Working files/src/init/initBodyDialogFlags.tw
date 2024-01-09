@@ -1,0 +1,42 @@
+:: initBodyDialogFlags [nobr] {"position":"300,400","size":"100,100"}
+<<set $postSleepMuscleDialog1 to false>>
+<<set $postSleepMuscleDialog2 to false>>
+<<set $postSleepMuscleDialog3 to false>>
+<<set $postSleepMuscleDialog4 to false>>
+<<set $postSleepMuscleDialog5 to false>>
+<<set $postSleepMuscleRepeat to false>>
+
+<<set $postSleepBreastsDialog1 to false>>
+<<set $postSleepBreastsDialog2 to false>>
+<<set $postSleepBreastsDialog3 to false>>
+<<set $postSleepBreastsDialog4 to false>>
+<<set $postSleepBreastsDialog5 to false>>
+<<set $postSleepBreastsRepeat to false>>
+
+<<set $postSleepHeightDialog1 to false>>
+<<set $postSleepHeightDialog2 to false>>
+<<set $postSleepHeightDialog3 to false>>
+<<set $postSleepHeightDialog4 to false>>
+<<set $postSleepHeightDialog5 to false>>
+<<set $postSleepHeightRepeat to false>>
+
+<<set $postSleepDickDialog1 to false>>
+<<set $postSleepDickDialog2 to false>>
+<<set $postSleepDickDialog3 to false>>
+<<set $postSleepDickDialog4 to false>>
+<<set $postSleepDickDialog5 to false>>
+<<set $postSleepDickRepeat to false>>
+
+<<set $postSleepTongueDialog1 to false>>
+<<set $postSleepTongueDialog2 to false>>
+<<set $postSleepTongueDialog3 to false>>
+<<set $postSleepTongueDialog4 to false>>
+<<set $postSleepTongueDialog5 to false>>
+<<set $postSleepTongueRepeat to false>>
+
+<<set $postSleepLipsDialog1 to false>>
+<<set $postSleepLipsDialog2 to false>>
+<<set $postSleepLipsDialog3 to false>>
+<<set $postSleepLipsRepeat to false>>
+
+

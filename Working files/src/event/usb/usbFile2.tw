@@ -1,0 +1,18 @@
+:: usbFile2 {"position":"1900,1200","size":"100,100"}
+You open the file, quickly seeing a simple text document open on your screen. The contents are easily readable, and at the top you can see the name of the file, as clear as day.
+
+'toshi experiment log - January 1st, 2020'
+
+It was written half a year before you moved here.
+
+<<Dialogue "toshiUnknown" "Toshi">>
+Okaaaaay, so! I dunno how, but so far it has been a resounding success! I can't precisely explain HOW my stuff works, but I do know that my stuff works. Once the initial dose of the gene-unlocker has been digested, anyone can benefit from the different variants of the distillation. What I didn't expect was to also make them taste like something; without the gene-unlocker, all of the distillations just taste like water. But, it doesn't matter!
+
+I've drank the Gene-unlocker about a week ago now, and I gotta say, I feel fine! Okay, okay, maybe drinking your own untested experiments is a BIT of a gamble, but come on! The results were so promising! And so far, it's just AMAZING. If my readings are correct, I gained nearly <<if $measuringSystem == "imperial">>10lbs<<else>>5kg<</if>> of lean muscle mass, while my height increased by <<if $measuringSystem == "imperial">>1"<<else>>2cm<</if>>. There was noticeable soreness and muscle fatigue, but those are to be expected and VERY mild compared to normal side effects! I do eat a ton though, and man, the microwave burgers are getting expensive.... same with all the ingredients for the distillations. It's a good thing I sold that box of old junk, but now I can't find some of the previous distillations I made... I hope I didn't sell those...
+<</Dialogue>>
+
+There is a lot to unpack here. The thing you drank from the fridge must be one of the 'Gene-unlockers' that allows you to benefit from the other potions. That probably also explains why they don't do anything to anyone else. You had hoped for more information, but combined with the other logs, you're sure you will piece it all together. 
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+
+

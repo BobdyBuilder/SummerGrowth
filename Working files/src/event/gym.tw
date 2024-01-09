@@ -1,0 +1,35 @@
+:: gym [outOfHouse nobr gym] {"position":"2100,900","size":"100,100"}
+This place was clearly built with a purpose in mind. Brick walls and a concrete floor are littered with some small windows at the top, and fluorescent lights humming above.
+The large single room that comprises most of the building is lined with rows and rows of weightlifting equipment. Squat cages stand against one wall. A dumbbell rack lines another, ranging from five-pounders to some truly gawk-inducing sizes. Throughout the middle are a variety of benches, weight racks, and many other exercise devices. Among them are leg press machines, pull-up bars, and some angled benches designed for core workouts. The gym is mostly empty at the moment. A small handful of people are working through their own routines, headphones in, minding their own business.
+
+<br><br>
+The gym offers several options; you can either get a one-time workout for a set fee, pay for a weekly subscription, or have a protein shake at the bar.
+<br><br>
+
+<<workoutLink "gym">>
+<br><br>
+
+<<if $money > 5>>
+<<linkreplace "Get a shake at the bar ($5) - 00:10 🕛">>
+At the bar, you order the ProTein Supplement Deluxe shake™, though you'd be forgiven for thinking someone dumped solid concrete in the cup. Still, they assure you it contains everything you need to optimize your workouts and gains (or GAINZ!!!, as the cup states). 
+	
+<<set $exhaustionWorkoutMod -= 0.1>>
+<<set $muscleGrowthMaxTemp += 0.35>>
+<<set $muscleGrowthMod += 0.2>>
+<<addMinutes 10>>
+<</linkreplace>>
+<<else>>
+You can't afford a shake at the bar right now.
+<</if>>
+
+<br><br>
+
+<<if $gameDate.getHours() <= 24 and $gameDate.getHours() >= 20>><<if $elenaVisited is false and $elenashyVisited is false or $debug is "true">><<link "Speak to the massive girl." "ElenaGym">><<set $eventCounter to setup.balance.eventTresshold + 1>><</link>><<else>>Best not to disturb that big girl again...<br><br><</if>><br><br><</if>>
+
+<<link "Go home" "Home">><<addMinutes 20>><</link>>
+
+<<if $muscle >= 50 && $elenaOpinion >= 4 && $shyConfident >= 0>>
+	<<set $elenaOpenedUp to true>>
+<</if>>
+
+

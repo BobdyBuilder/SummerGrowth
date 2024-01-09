@@ -1,0 +1,22 @@
+:: emmaLosePatience2-warehouse [nobr] {"position":"0,0","size":"100,100"}
+You crack your neck and stretch your arms and legs before getting to the actual lifting of the boxes, when you notice something unusual.<br><br>
+<<Dialogue "player" "You">>"Uh, where’s the stuff?"<</Dialogue>><br><br>
+The spot where the pallets you need to transport are nowhere to be found. In fact, the warehouse seems to be in a bit of disarray: there’s a truck waiting at the cargo bay and two very confused drivers unsure what to do since there’s no space to place their payload, and a mailroom girl going around looking for something - this is absolutely out of the ordinary. You check into your terminal, and the entire backlog system is tapped out - the orders just plain stopped coming in. And you unfortunately have a pretty good idea where the roadblock must be, and it makes you sick to your stomach...<br><br>
+<<Dialogue "player" "You">>"Hey, can I come in?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Please."<</Dialogue>><br><br>
+You walk in, and while it is a subtle thing, it’s hard for you not to notice - Emma’s hair looks somewhat... not perfect? You wouldn’t exactly call it disheveled, but it’s a night and day difference to her usually pristine presentation. Same with her clothes - they usually look like they’ve just been ironed seconds before. Most people wouldn’t even bat an eye, but it’s immediately obvious to you.<br><br>
+<<Dialogue "player" "You">>"So, huh, there’s a bit of an issue at the warehouse, there appears to be a breakdown on the tasks being sent."<</Dialogue>><br><br>
+Emma grunts, and starts tapping her keyboard furiously. Then her eyes open wide, and she groans.<br><br>
+<<Dialogue "Emma" "Emma">>"I apologize, I was multitasking a bit beyond my abilities, it would seem."<</Dialogue>><br><br>
+She mumbles some things under her breath, and starts tapping anxiously at her keyboard, without acknowledging you.<br><br>
+<<Dialogue "player" "You">>"What should I tell the others?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, yes. Well, I need to finish one more task, but I will catch up and get that done by the end of lunchtime. Tell the others, and in the meantime they can... uh..."<</Dialogue>><br><br>
+Emma blanks out, and it gives you a mini panic attack.<br><br>
+<<Dialogue "player" "You">>"Look, there is no space for the deliveries to be taken off the cargo bay, how about we use those deep storage shelves to just get the stuff that got backlogged there so we can at least unload? That way the basic tasks don’t get held back, and I can try to get some of the boxes I think I can figure out on my own moved, at least for now?"<</Dialogue>><br><br>
+Emma, who usually would have a snappy answer, seems to take a second to process that information.<br><br>
+<<Dialogue "Emma" "Emma">>"Please, yes, do that."<</Dialogue>><br><br>
+She clicks her mouse a couple of times, looking at her screen, before finishing.<br><br>
+<<Dialogue "Emma" "Emma">>"And thanks for the save. Much appreciated."<</Dialogue>><br><br>
+You nod, and leave her office, ready to implement the suggested solution, but you are mostly worried about keeping morale up right now. Why does this whole thing leave you with a bad feeling?
+<<link "Return" "office">><</link>>
+

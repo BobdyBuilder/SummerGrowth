@@ -1,0 +1,20 @@
+:: instantAssIncrease {"position":"750,1800","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "Jesus, this drink is sweet! You expected something like this from the smell, but this almost feels like just straight up sugar syrup! It sticks to your lips, and you can almost feel it slither down your throat... yet somehow the feeling goes lower than that...">>
+<<set _rand to random(0,2)>>
+<<set $ass += 1>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("ASS-69");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

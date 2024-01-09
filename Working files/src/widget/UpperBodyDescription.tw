@@ -1,0 +1,49 @@
+:: UpperBodyDescription [widget] {"position":"3650,425","size":"100,100"}
+<<nobr>>
+<<widget "upperBodyDescription">>
+
+	<<if $bodyType is "skinny">>
+Your body is very lithe, with small shoulders and thin arms connected to a torso that has little in the way of definition or padding. Despite your lack of curves, you still look good, though a little more mass wouldn't be a bad thing. <<BreastsDescription>>
+	<<elseif $bodyType is "average">>
+You have a decent body. Not too big, not too small, not too thin, not too fat. It's just... you. There's little to say about it as you hardly stand out, but you'd like to think you still look decent. <<BreastsDescription>>
+	<<elseif $bodyType is "thick">>
+Your body is well shaped, with average arms and shoulders offset by a small but plump tummy, giving you a nice hourglass to your torso. <<BreastsDescription>>
+	<<elseif $bodyType is "fat">>
+From your arms to your waist, it's pretty clear you are overweight. Despite that, you feel superb, and it never seems to trouble you too much! Nice and thick arms, a good padded belly and wide shoulders give you a nice hourglass figure, with curves in all the right places! <<BreastsDescription>> 
+	<<elseif $bodyType is "obese">>
+You have a very thick body, with thick arms connected to your padded shoulders. Your chest stands out between them, with equal padding on them. <<BreastsDescription>> Below that, you have a hugely sized belly, keeping up with the rest of your body. It's constantly jiggling from the slightest movement on your part. 
+	<<elseif $bodyType is "thin">>
+Your arms are thin, but they show some good definition. If you started training some, you might get some nice muscles! The same goes for your shoulders, still bony, but with some definition. Hey, if you flex, you almost see abs! <<BreastsDescription>>
+	<<elseif $bodyType is "athletic">>
+Strong, defined arms, wide shoulders, a muscular back and even a hint of a six-pack... yeah, you look strong and athletic! When you gaze at your back, the definition pops out like crazy, with cuts between the muscles and lats that make give you that wide look! And hey, you got some real pecs and actual abs beneath them! <<BreastsDescription>>
+	<<elseif $bodyType is "strong">>
+Big boulder shoulders, beefy pecs, thick arms that bulge when you flex, and a midsection that offers plenty of support; you got everything needed to make you look both incredibly big and amazingly strong! When you flex, a few veins rise up, adding that little UMPH! It makes you eager to lift something BIG! <<BreastsDescription>>
+	<<elseif $bodyType is "heavy">>
+You look HUGE. Incredibly thick arms, thick waist with a heavy gut and shoulders like boulders. Yet nobody would deny that beneath that thick layer of insulation, you have some incredible muscles that fully support your body... and then some! It makes you look like you could easily lift a giant rock or a small tree. <<BreastsDescription>>
+	<<elseif $bodyType is "bodybuilder">>
+With your huge and defined arms, broad and ripped shoulders, and just a hugely pumped torso, you look ready for a bodybuilding competition! Everything about you screams 'SIZE', from your thick forearms, pumped biceps and triceps to your mountainous shoulders. Even your back is like a map of tectonic plates, all shifting and clashing from the slightest movement. Meanwhile, your pecs and defined abs are sure to attract even the most distracted of onlookers; <<BreastsDescription>>
+	<<elseif $bodyType is "heroic">>
+You look like a superhero - a male one at that! Your arms are thick, but not so vascular as to scare people off. Thick biceps and defined triceps just make you look somewhat unreal. Add the strong shoulders and the barrel chest you've got going, and you could send heroes from comics packing any day of the week!  Combined with your insanely chiseled back, your tight and defined abs... yeah, you are the complete package! <<BreastsDescription>>
+	<<elseif $bodyType is "strongman">>
+You are gigantic, no other way around it. Sure, your belly might bulge, but above it rest some pecs that leaves no doubt that you can lift anything you want. Combined with your obscenely broad shoulders and your huge arms, you look unbelievably strong, despite most of your muscles not being visibly defined. <<BreastsDescription>>
+	<<elseif $bodyType is "sumowrestler">>
+Bloated. That's the best word to describe you. Huge or gigantic might also come to mind. The point is: your girth is incredible, your entire torso is covered in a huge layer of fat, hiding an equally impressive amount of muscles. Whatever you do, the smallest action sends ripples through your body, while your muscles make themselves known under the shifting layers of fat.
+	<<elseif $bodyType is "hulk">>
+If you appeared in a movie or a comic book, people would say your muscles are over the top. But here you are, so gigantically muscular it borders on the obscene. Your forearms have gigantic ropes of muscles that dance with the slightest shift of your limbs, while your biceps and triceps form upper arms that are beyond fantastic. Thick veins adorn them, almost constantly pumping while all the striations on your sinew are on display. Your shoulders are just as unreal, flanking your head with each of its three groups visibly defined. Combined with your vascular and gigantic neck, your huge traps make it hard to look at any direction besides straight ahead. 
+
+Below that, you have obscene pecs that push out comically from your body. When you flex them, they explode outwards, with a thick layer of veins surfacing. <<BreastsDescription>>. Your back is a huge map of valleys and ridges, each muscle fighting for space. Your lats make you impossibly wide, while your abs and obliques give you an almost unbelievable level of definition!
+	<<elseif $bodyType is "gigantic">>
+You got the body of a strongman, cranked up to eleven. Humongous thick arms with fat that barely covers its gigantic muscles, shoulders that look like you had some beef pumped straight into them, a neck that would make a bull jealous and pecs that hide anything standing too close to you.<<BreastsDescription>>
+
+Your lats push out so much that they flare out at a whim, making your back obscenely wide. Combined with the thick gut you have, it just makes you look enormous, almost monstruous!
+	<<elseif $bodyType is "monstrous">>
+The combination of almost obscenely large muscles combined with the still thick layer of fat means your body looks nothing short of monstrous. Gigantic arms with thick, rope-like cords of muscle barely hidden, despite the generous layer of fat over them, shoulders that rise and fall from the slightest movement, and a chest that is almost pressed against your chin. Combined with the incredibly thick neck and the traps flanking your head, you almost have trouble turning your head! <<BreastsDescription>>
+
+Your lats push out so much you are forced to rest your arms on them, unable to relax them straight down. Below that, you have a gigantic belly, brick-like abs forcing themselves to the surface despite the thick insulation covering them. It's almost unreal how you manage to be both incredibly muscular and obscenely fat!
+<</if>>
+
+
+<</widget>>
+<</nobr>>
+
+

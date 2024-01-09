@@ -1,0 +1,97 @@
+:: KrisPostTalk {"position":"2200,3025","size":"100,100"}
+<<addMinutes 15>>Gently, you push Kris away, trying to catch your breath and interrupt her horny groping for a second. As she sits next to you, again, you try to catch your breath, as you sweat and fight some slight panic.
+
+<<Dialogue "player" "You">>"S-sorry! Just... you know... a lot of people watching..."<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Fuck, you're one of the most difficult lays I've had in a while... but okay, don't worry, I can wait, I can be patient! Heh, I will treat this like my personal game of cat and mouse!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Game?"<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Yeah, DUH. You're playing hard to get! I’m the cat in this scenario."<</Dialogue>>
+
+You were perhaps a bit playful, but it wasn't a game to get laid. This date was a means to get to know her, wasn’t it?
+
+<<Dialogue "player" "You">>"What?! No! this is just… a little too much! I... a game?! A GAME?!?"<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Aw, come ooooon, don't play coy! You can be straight with me."<</Dialogue>>
+
+<<Dialogue "player" "You">>I'm not playing hard to get!"<</Dialogue>>
+
+Her eyes display confusion for a second as her mind tries to process this information. You can see it enter her brain, the gears grinding with unease, and yeah, the message is not coming across. You need to do SOMETHING to make Kris get it.
+
+<span id="choice"><<link "Fuck it, just have sex with her.">><<replace "#choice">>Fuck it. If you can't get through to her, then at least you can have some fun tonight.
+
+<<Dialogue "player" "You">>"You know what... let's just go to your place. How about we just skip to the fun part?"<</Dialogue>>
+
+Kris Immediately lights up, her brain gears unstuck at last. But you can't shake the feeling that you got nowhere tonight. At least where getting to know her is concerned.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Hey, hey, seeee? I knew it was part of the game! But you can play harder to get, I enjoy that a lot! Let’s get going!"<</Dialogue>>
+
+[[KrisSex<-Go to Kris' place]]
+<</replace>><</link>>
+
+<<link "Try to get through to her">><<replace "#choice">>
+
+<<Dialogue "player" "You">>"Kris, if I wanted fun and games I would have just... kept visiting you at the café. Come on. I know NOTHING about you, I wanted to know you a bit! Just... THIS time, no games, okay?!"<</Dialogue>>
+
+Her smile vanishes, and she sighs, like a disappoint child. 
+
+<<Dialogue "KrisCasual" "Kris">>"... But I LIKE the games."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, well, me too, but not ALL the time, you know? "<</Dialogue>>
+
+Your voice broke a bit, your frustration surfacing. Kris looks at you in stubborn silence.
+
+<<Dialogue "player" "You">>"... Well? I wanted this to be a fun night out, Kris!"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"Same here, duh! Guess I misread the room a bit. Okay. Eh... give me a moment."<</Dialogue>>
+
+Kris paces around a bit, thinking. Around you, the pub still buzzes with activity, like a beehive of lewdness, music and alcohol.
+
+<<Dialogue "KrisCasual" "Kris">>"Right. I'll try to be more aware of the situation. How does that sound?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"... That is all I am asking."<</Dialogue>>
+
+Guess this is all you are getting for now. Kris is still eating you with her eyes, admiring your bulk… but at least she is displaying SOME restraint. Keyword being ‘some’.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"See? We can have fun! Listen, beefcake, I had a ton of fun this evening. And I'll try to be a bit more open in the future, okay? Look, I can confidently say I enjoyed myself tonight, I hope you did too! Can I get a hug now or what?!?"<</Dialogue>>
+
+She opens her arms, and you reluctantly embrace her. She squeezes tight, and you could swear you heard a tiny grunt. After letting go, she smiles at you.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"We'll do WONDERFUL things together, mark my words... so… until next time?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, sure."<</Dialogue>>
+
+Kris walks off, blowing you a small kiss. Well, tonight wasn't a total bust. But it wasn't a great success either. Kris just seems so obsessed with your body that she barely pays any attention to the person within. As you walk home, you wonder where things will go from here, and what the next date with her will be like. You just know you haven’t seen the last of Kris.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>>
+<</replace>><</link>>
+
+<<PersonalityCheck $submissiveDominant >= 2 "Demand respect">><<replace "#choice">>
+
+<<Dialogue "player" "You">>"Kris. You'll stop playing games right now. Or I'm out."<</Dialogue>>
+
+Your voice was strong and dominant. You didn't just state your terms, you made sure she heard it loud and clear. It didn’t matter if you were <<if $measurementSystem == 'metric'>>three meters or a meter and a half tall<<else>>ten feet or four feet tall<</if>>, hugely muscled or thin as a stick. She was going to listen. As it finally comes across, you take a step closer to make sure she listened.
+
+<<Dialogue "player" "You">>"Kris. We are done with the games for now. Or I'm out. I'm having fun, you're cool, but it can't be games ALL the time."<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"… Roger that. I… will try to behave."<</Dialogue>>
+
+In an attempt to deescalate things bit, you lean in, smile, and give her a warm hug.
+
+<<Dialogue "player" "You">>"That is all I am asking. Now, this was a fun evening, and I hope you also enjoyed yourself. I will see you later, okay?"<</Dialogue>>
+
+You walk away, leaving Kris there, still dumbfounded. Well, the date wasn't a total success, but you at least made your point about your boundaries in the relationship.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>>
+<</replace>>
+<<Failed>><<replace "#choice">>You try to speak up, but Kris beats you to it. She utterly ignores your attempt to speak up, not even dignifying it with an acknowledgement.
+
+<<Dialogue "player" "You">>"Hah, no worries, big girl! Now, we had a lovely evening together, didn't we? Well, I actually need to get going, so… I think we'll be seeing each other A LOT in the future!"<</Dialogue>>
+
+Kris winks at you before walking off, and you're quite sure she didn't take the hint. At all. You just know you'll come across her again, but as to where things between the two of you stand at this point? Well, perhaps neither of you really knows.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>>
+<</replace>><</PersonalityCheck>></span>
+
+

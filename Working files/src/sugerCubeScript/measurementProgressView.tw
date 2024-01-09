@@ -1,0 +1,162 @@
+:: measurementProgressView {"position":"1225,1200","size":"100,100"}
+<<script>>
+$(function () {
+    $.getScript("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js", function (data, textStatus, jqxhr) {
+
+        function addData(yValues, name, element, displayName, color) {
+            var index = yValues.datasets.findIndex(object => object.label == displayName);
+
+            if (index === -1) {
+                yValues.datasets.push({
+                    label: displayName,
+                    data: [],
+                    borderColor: color,
+                    fill: false
+                });
+                index = yValues.datasets.findIndex(object => object.label == displayName);
+            }
+
+            if (State.variables.measurementSystem == 'imperial') {
+                yValues.datasets[index].data.push(Math.round(element.measurements[name] * 0.39370 * 10) / 10);
+            } else {
+                yValues.datasets[index].data.push(Math.round(element.measurements[name] * 10) / 10);
+            }
+        }
+
+        var xValues = [];
+
+        var yValues = {
+            labels: xValues,
+            datasets: []
+        }
+
+
+
+        var suffix;
+        if (State.variables.measurementSystem == 'imperial') {
+            suffix = 'in inches';
+        } else {
+            suffix = 'in cm';
+        }
+
+        State.variables.measurementProgress.forEach(element => {
+            xValues.push(element.date.toLocaleDateString());
+
+            if (State.variables.displayHeight == true) {
+                addData(yValues, 'height', element, 'Height ' + suffix, 'red');                
+            } 
+
+            if (State.variables.displayChest == true) {
+                addData(yValues, 'chest', element, 'Chest ' + suffix, 'orange');   
+            }
+
+            if (State.variables.displayWaist == true) {
+                addData(yValues, 'waist', element, 'Waist ' + suffix, 'yellow');   
+            }
+
+            if (State.variables.displayHips == true) {
+                addData(yValues, 'hips', element, 'Hips ' + suffix, 'green');
+            }
+
+            if (State.variables.displayNeck == true) {
+                addData(yValues, 'neck', element, 'Neck ' + suffix, 'cyan');
+            }
+
+            if (State.variables.displayUpperArm == true) {
+                addData(yValues, 'upperArm', element, 'Upper arm ' + suffix, 'blue');
+            }
+
+            if (State.variables.displayLowerArm == true) {
+                addData(yValues, 'lowerArm', element, 'Lower arm ' + suffix, 'indigo');
+            }
+
+            if (State.variables.displayThigh == true) {
+                addData(yValues, 'thigh', element, 'Thighs ' + suffix, 'purple');
+            }
+
+            if (State.variables.displayKnee == true) {
+                addData(yValues, 'knee', element, 'Knee ' + suffix, 'pink');
+            }
+
+            if (State.variables.displayCalve == true) {
+                addData(yValues, 'calve', element, 'Calve ' + suffix, 'lime');
+            }
+
+            if (State.variables.displayAnkle == true) {
+                addData(yValues, 'ankle', element, 'Ankle ' + suffix, 'maroon');
+            }
+            
+             if (State.variables.displayWeight == true) {             
+             	var weightSuffix;
+             	if(State.variables.measurementSystem == 'imperial') {
+                      weightSuffix = 'in lbs';
+                  } else {
+                      weightSuffix = 'in kg';
+                  }
+             
+                addData(yValues, 'weight', element, 'Weight ' + weightSuffix, 'aqua');
+            }
+            
+        });
+
+        new Chart("myChart", {
+            type: "line",
+            data: yValues,
+            options: {
+                legend: {
+                    display: true
+                },
+                scale: {
+                    y: [{
+                        callback: function (value, index, values) {
+                            return '$' + value;
+                        },
+                        ticks: {
+                            precision: 0
+                        }
+                    }]
+                }
+            }
+        });
+    });
+});
+
+<</script>>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+You kept track of a lot of things, and with it you can easily check your progress. Some data might be missing, but you did your best to note everything down.
+
+<table style="width:100%;">
+  <tr>
+    <td><<checkbox "$displayHeight" false true autocheck>> Height</td>
+    <td><<checkbox "$displayChest" false true autocheck>> Chest</td>
+    <td><<checkbox "$displayWaist" false true autocheck>> Waist</td>
+  </tr>
+  <tr>
+    <td><<checkbox "$displayNeck" false true autocheck>> Neck</td>
+    <td><<checkbox "$displayUpperArm" false true autocheck>> Upper arm</td>
+    <td><<checkbox "$displayLowerArm" false true autocheck>> Lower arm</td>
+  </tr>
+  <tr>
+    <td><<checkbox "$displayThigh" false true autocheck>> Thigh</td>
+    <td><<checkbox "$displayKnee" false true autocheck>> Knee</td>
+    <td><<checkbox "$displayCalve" false true autocheck>> Calve</td>
+  </tr>
+  <tr>
+    <td><<checkbox "$displayAnkle" false true autocheck>> Ankle</td>
+    <td><<checkbox "$displayWeight" false true autocheck>> Weight</td>
+    <td></td>
+  </tr>
+</table>
+<<timed 0s>><<script>>
+var boxes = $(":checkbox");
+boxes.on("change", function () {
+	setTimeout(() => Engine.play("measurementProgressView"), Engine.minDomActionDelay);
+});
+
+	<</script>><</timed>>
+
+<<link "Continue with this later" "Bedroom">><</link>>
+
+

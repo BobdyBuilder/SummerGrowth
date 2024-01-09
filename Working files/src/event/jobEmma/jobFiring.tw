@@ -1,0 +1,14 @@
+:: jobFiring {"position":"1400,1800","size":"100,100"}
+When you arrive at the office and turn on your PC you notice your entire agenda has been cleared. And replaced with a single meeting with Emma. Fuck.
+
+As you enter her office, she welcomes you in, handing you a cup of the GOOD coffee from the personal machine in her office. Patiently, she sits you down, your file in front of her. Despite all these signs, something is off, as she doesn't seem angry at all. But her professional tone does put you on edge.
+
+<<Dialogue "Emma" "Emma">>" Please, take a seat Miss <<print $playerLastName>>. You've been with us for... some time now, and I have got to say, we are decently pleased with your performance. There’s always a learning curve, but your deliveries have yet to disappoint. However. Recent events have made your performance here lacking, and detrimental to the productivity of this department. I'm sure you're aware of which events I'm referring to. Therefore, we have decided to let you go. Please clear your desk, and you'll be escorted out of the office. A last check, covering this week, in the sum of $500, will be deposited to your account."<</Dialogue>>
+
+<<Dialogue "player" "You">> "W-WHAT?! You're just firing me?!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"We have come to the conclusion that it'd be better for all parties if we split ways. We once again thank you for your work, and wish you luck in your future endeavors."<</Dialogue>>
+
+<<link "...shit." "Home">><<set $officeFired to true>><</link>>
+
+

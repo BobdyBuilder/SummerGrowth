@@ -1,0 +1,10 @@
+:: ElenaTriggers [nobr] {"position":"1500,2125","size":"100,100"}
+<<set $ElenaTriggers to []>>
+
+<<set $ElenaUsedTriggers to ["blocked"]>>
+
+<<set $ElenaShyTriggers to []>>
+
+<<set $ElenaShyUsedTriggers to ["blocked"]>>
+
+

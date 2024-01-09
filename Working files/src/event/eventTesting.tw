@@ -1,0 +1,64 @@
+:: eventTesting [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
+<<script>>
+    /* init eventToDebug */
+    State.variables.eventToDebugName = null;
+    State.variables.eventToDebug = null;
+    State.variables.eventToDebugConditions = State.variables.eventToDebug = null;
+    State.variables.eventToDebugLocations = State.variables.eventToDebug = null;
+    State.variables.eventToDebugNPC = State.variables.eventToDebug = null;
+    State.variables.eventToDebugPriority = State.variables.eventToDebug = null;
+<</script>>
+
+<<listbox "$eventToDebugName" autoselect>>
+    <<option "(None)">>
+	<<optionsfrom setup.events.map(event => event.name).sort()>>
+<</listbox>>
+
+
+<<live $eventToDebug>>
+
+<h2>Conditions:</h2>
+<<live $eventToDebugConditions>>
+
+<h2>Location:</h2>
+<<live $eventToDebugLocations>>
+
+<h2>NPC's:</h2>
+<<live $eventToDebugNPC>>
+
+<h2>Priority:</h2>
+<<live $eventToDebugPriority>>
+
+<<timed 0s>>
+<<script>>
+const inputs = document.getElementById('listbox-eventtodebugname');
+
+inputs.onchange = function () {
+    console.log("changed");
+    State.variables.eventToDebug = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).content;
+
+    State.variables.eventToDebugConditions = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).conditions.toString();
+
+    State.variables.eventToDebugLocations = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).locationTags.toString();
+    State.variables.eventToDebugNPC = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).npc.toString();
+    State.variables.eventToDebugPriority = setup.events.find(obj => {
+        return obj.name === State.variables.eventToDebugName
+    }).priority.toString();
+    
+    $(".macro-live").trigger(":liveupdateinternal");
+    $(document).trigger(":liveupdate");
+};
+<</script>>
+<</timed>>
+
+
+[[Return|$return]]
+

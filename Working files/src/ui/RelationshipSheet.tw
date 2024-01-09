@@ -1,0 +1,79 @@
+:: RelationshipSheet [nobr] {"position":"2000,100","size":"100,100"}
+<div id="charSheetInfo" style="height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  vertical-align: top;
+  ">
+ 
+<h3>relationships:</h3>
+<<for _iNpc to 0; _iNpc < setup.characters.length; _iNpc ++>><<nobr>>
+<<capture _iNpc>>
+	
+	<<set _npcName to "$" + setup.characters[_iNpc].name.charAt(0).toLowerCase() + setup.characters[_iNpc].name.slice(1) + "Opinion">>
+	<<set _npcOpinion to State.getVar(_npcName)>>
+	
+	<<if setup.characters[_iNpc].name is "KrisObsessed">>
+		<<continue>>
+	<</if>>
+	
+	<<if _npcOpinion > 0>>	
+	<<Dialogue setup.characters[_iNpc].name setup.characters[_iNpc].name>>
+	
+	<<if _npcOpinion <=  20>><<print setup.characters[_iNpc].relationshipLevels[0]>>
+	<<elseif _npcOpinion <= 40>><<print setup.characters[_iNpc].relationshipLevels[1]>>
+	<<elseif _npcOpinion <= 60>><<print setup.characters[_iNpc].relationshipLevels[2]>>
+	<<elseif _npcOpinion <= 80>><<print setup.characters[_iNpc].relationshipLevels[3]>>
+	<<else>><<print setup.characters[_iNpc].relationshipLevels[4]>>
+	<</if>>	
+	
+	<</Dialogue>>	
+	<br>
+	<<else>>
+	
+	<<Dialogue "???" "???">>
+	
+	???
+	
+	<</Dialogue>>	
+	<br>
+	
+	<</if>>
+<</capture>><</nobr>>
+<</for>>
+<<for _iMinorNpc to 0; _iMinorNpc < $minorCharacters.length; _iMinorNpc ++>><<nobr>>
+<<capture _iNpc>>
+
+	<<set _npcName to "$" + $minorCharacters[_iMinorNpc].toLowerCase() + "Opinion">>
+	<<set _npcOpinion to State.getVar(_npcName)>>
+	
+	<<if _npcOpinion > 0>>
+	<<Dialogue _npcs[_iMinorNpc] _npcs[_iMinorNpc]>>
+	
+	<<if _npcOpinion <=  20>>Stranger
+	<<elseif _npcOpinion <= 40>>Customer
+	<<elseif _npcOpinion <= 60>>Friend
+	<<elseif _npcOpinion <= 80>>Friend
+	<<else>>Friend
+	<</if>>	
+	
+	<</Dialogue>>	
+	<br>
+	<<else>>
+	
+	<<Dialogue "???" "???">>
+	
+	???
+	
+	<</Dialogue>>	
+	<br>
+	
+	<</if>>
+<</capture>><</nobr>>
+<</for>>
+</div>
+
+

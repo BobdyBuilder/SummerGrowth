@@ -1,0 +1,40 @@
+:: KrisTalk3 [Done] {"position":"2100,2825","size":"100,100"}
+<<addMinutes 15>><<Dialogue "player" "You">>"So you got no other ambitions or dreams at all? Just... coast through life, chasing after big people? Why don't you work out yourself...?"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"... Listen is this a fucking date or the goddamn Spanish inquisition?!?"<</Dialogue>>
+
+Well, you didn't expect that. But despite her protests, you get the feeling you can push further.
+
+<<Dialogue "player" "You">>"Hey, come on, I just want to get to know you a bit better. Don't be like this."<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"Fine. You wanna know? Okay."<</Dialogue>>
+
+She flags someone over for a couple of drinks, looking none too pleased. When her beer arrives, she slams it down in a single gulp.
+
+<<Dialogue "KrisCasual" "Kris">>"... I am constantly harboring this raging libido, working a dead end-job and I have no relevant skills or anything better to do with my life. Okay?!? Happy now?"<</Dialogue>>
+
+Kris taps her finger on the table nervously, looking away. Was that it? The reason Kris has this larger-than-life personality? Just chasing thrills because of a high libido and a lack of ambition? Or is this related to an insecurity over her lack of talent? Digesting all that leaves you in silence for a while. All the playfulness has been knocked out of Kris, and she just glares into the void.
+
+<<Dialogue "KrisCasual" "Kris">>"... If I'm stuck at a dead-end job I might as well get something to masturbate to."<</Dialogue>>
+
+<<Dialogue "player" "You">>"But... what about other hobbies?"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"Like what? The gym? Too much effort. Cooking? Eh, I don't eat much. So no, I don't have many other hobbies. I mean, right now, YOU are my hobby, heh!"<</Dialogue>>
+
+Before that would sound creepy, but now it just feels kind of... depressing. Her bravado, this mask, it just covers this big empty hole inside of her.
+
+<<Dialogue "player" "You">>"How about we try to find something for you to geek over? You know, on our next date?"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"Wait, wait, wait... you... want another date? After this... trainwreck!?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, because I'm finally actually getting to know you better."<</Dialogue>>
+
+And with that, the spark ignited between the two of you. A moment of genuine softness between two women. Nonetheless, already you could see Kris going from surprise to her trademark smirk. Oh, no...
+
+<<Dialogue "KrisCasual" "Kris">>"Heh, I KNEW you were a big softy! Good to know, bi-... <<print $playerFirstName>>. But... sure. I'd like another date. If you are up to it."<</Dialogue>>
+
+Though she relapsed a bit, and will probably put on a brave face again, you get the feeling that Kris has shown more of her true self here than she might have done in years. The two of you chat a bit more, have a few drinks, but finally decide it’s time to go.
+
+[[KrisDate1PerfectEnding<- Go outside]]
+
+

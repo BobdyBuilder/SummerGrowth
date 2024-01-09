@@ -1,0 +1,34 @@
+:: Final Boss {"position":"550,3075","size":"100,100"}
+<<Dialogue "Johan" "Johan">>
+"On the other side of the enchanted door is a room, and it's deathly cold in here. Frost clings to the walls. In the center of the cavern, there is what looks to be a stone cauldron built into the floor, with a cold blue mist billowing forth. Standing above the cauldron stands a menacing figure, slowly maneuvering its hands above the cauldron. Flowing robes hang loosely off its body, fluttering in the air after its movements. Then... it looks up at you and you see its face. You see no eyes, just two little pinpricks of flame in the empty sockets. Pale, rotten skin stretched over its face. Nonexistent lips exposing its sneering teeth! A lich!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"A what now?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"A... A zombie wizard, and an exceptionally powerful one, too! It stares across the room, and ceases its movement without warning. Instead, it points menacingly at you and says in a raspy voice...
+'You... You are brave to have come this far... but bravery only takes one so far... Leave this place... and leave the <<if $dndCharacter.class is "paladin" || $dndCharacter.class is "barbarian">>hammer<<elseif $dndCharacter.class is "cleric" || $dndCharacter.class is "wizard">>staff<<else>>amulet<</if>> for me... and I shall spare your life. Otherwise... you will not live to regret your choice.'"<</Dialogue>>
+
+<<if $DateSuccess >= 3>><<Dialogue "player" "You">>
+"Never!"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"You draw your weapon and the lich raises his hands, blue flames sprouting forth from his palms!"<</Dialogue>>
+[[Final boss fight time!->Perfect Ending]]
+<<elseif $DateSuccess >= 1>><<Dialogue "player" "You">>
+"I didn't come this far just to back down now! Hand over the goods or get struck down, zombie!"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"The lich snarls and raises his hands, fingers gesturing as glowing runes trail behind them in the air!"<</Dialogue>>
+[[Final boss fight time!->Partial Success]]
+<<else>><<Dialogue "player" "You">>
+"All right. Final boss fight time?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Final boss fight time."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"All right. Give me that d20 and let's find out how tough this lich is."<</Dialogue>>
+[[Final boss fight time!->Date Failed]]<</if>>
+
+

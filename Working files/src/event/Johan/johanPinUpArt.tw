@@ -1,0 +1,426 @@
+:: johanPinUpArt {"position":"1800,3500"}
+
+You do your best neighbor-from-a-sitcom impression as you barge into Johan’s apartment unannounced. You meet no resistance as you see him scrolling through several posters on a website.
+
+<<Dialogue "Johan" "Johan">>"Hey, what’s up?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"You got the words from my mouth. What’s that?"<</Dialogue>>
+
+He moves slightly to the side, showing the catalog from the website.
+
+<<Dialogue "Johan" "Johan">>"I got some promotional credit at this store, I can get a metal plate poster for free, but I need to pick one... and it’s hard. There’s so much that I can pick!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"You want some help? If you want my input, obviously."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Are you kidding? I’m the poster boy for choice paralysis. Hehe, pun unintended. But yeah, why don’t you pull a chair and help me out?"<</Dialogue>>
+
+You reach for the nearby chair, and sit by his side. <<if $muscle >=65 || $height >=190>>The chair creaks with your weight as your sizeable figure dwarves the poor teen. But Johan’s not really intimidated by you.<<elseif $muscle >40 || $fat >60>>Your mass makes the chair slightly protest, but Johan is too concentrated to notice.<</if>> He opens the category index, and asks if anything catches your attention.
+
+<span id="choice">
+<<link "Fantasy pin-ups? That sounds right up your alley!">><<replace "#choice">>
+
+<<if $submissiveDominant > 1 || $shyConfident > 1>>With a grin, you take the mouse from his hand and just go directly to the fantasy pin-up section, eager to see some scantly-clad barbarians of all types.<<else>><<Dialogue "player" "You">>"How about fantasy pin-ups? That ought to have a lot of European-style comic book barbarians of all persuasions, huh?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Excellent choice!"<</Dialogue>>
+
+He clicks the link, opening the dedicated page to that theme.<</if>>
+A long list of options is displayed, mostly focused on very buff men and women in very impractical armor, usually with a dark-sky backdrop and in epic poses on top of piles of defeat enemies. Johan’s eyes widen, and he slightly readjusts his legs, as these pin-up really bring the “up” in the geek’s lap. Heh.
+
+As the list scrolls, both of you have to make an effort not to just drool. These fine specimens are posed for maximum sex appeal - and it works.
+
+It doesn’t take long for Johan to stop and linger at this redheaded amazonian warrior, her foot standing on top of the carcass of a gigantic sabretooth tiger, her heavy sword held proudly - and making her incredibly toned arms call as much attention as her bared and cobblestoned midriff. He is clearly quite transfixed by the imagery.
+
+<<if $muscle >=65>><<if $submissiveDominant > 1>>Well, his taste is very clear, but you are not sure about the current target of his admiration. So you smirk and start yawning, purposefully hitting Johan on the shoulder as you execute the sexiest stretch you can, recoiling your arms in a powerful and excruciatingly slow double-biceps pose during a very loud yawn. Johan’s eyes somehow widen even more as his jaw drops with your little show, your muscles clearly at least three times as big as the athletic warrior on the screen. His eyes dart between you and the screen, in what you assume to be a mix of him trying hard not to stare, but also making a mental comparison of your size in utter disbelief. It takes A LOT of effort not to let that grin widen even more as you enrapt your prey.
+
+<<else>>You pout and frown. What does she have that you don’t? You discreetly raise your forearm and flex your upper arm by your side, feeling the mountainous ball of muscle erupting under your fingers, hard as steel. In your head, you fantasize about obliterating that fantasy girl in just about any test of strength. How DARE she command his attention like this? Unbeknownst to you, however, this little action has apparently caught Johan’s attention, who has caught sight of your display.
+<</if>>
+<<elseif $muscle >=45>>You realize that your physique is actually pretty similar to that of this fantasy girl, and you intuitively just roll up your sleeves and pull off a haphazard double-biceps pose, inspecting your arms to see how you stack up. Not too shabby, actually. Before you know, however, you realize that Johan seems to be admiring your arms just as much as you. <<if $shyConfident > 1>>You beam with pride, as you turn your torso around to give him a better view, which his sparkling eyes seem to quite appreciate.<<else>>Embarassed, you bring the arms down, blushing and averting his gaze.<</if>>
+<<elseif $muscle >=30>>You frown, looking at the sexy lady on the screen with a tinge of envy. You put in the work, but you aren’t quite there yet.
+
+<<Dialogue "player" "You">>"Someday..."<</Dialogue>>
+
+You mumble to yourself, daydreaming of becoming a ripped amazon someday, while you squeeze your budding biceps during a casual flex. Johan turns his face, and steals a quick look at your toned arms, blushing. Wow, he seems to really appreciate your modest gains after all.
+
+<<else>>
+<<Dialogue "player" "You">>"Earth to Johan?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Uh, sorry. That one image really caught my attention!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Can’t really blame you, she’s pretty hot. I kinda wish I had a body like that..."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Y-you do?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, can you imagine? I’d be doing athletic montages like those in movies all day long - just cranking reps of exercise with my sweaty body, ripped muscles flexing as I pull off these crazy-hard exercises, getting all pumped - it would be AWESOME!"<</Dialogue>>
+
+Johan, caught up in what you assume is a mental image of what you just described, gulps loudly while looking like a deer under headlights. It elicits a quick giggle from you.
+<</if>>
+
+<span id="choice2"><<link "Not gonna lie, I wish I was sexy like that (especially if you’d look at me like that, Johan)...">><<replace "#choice2">>
+<<Dialogue "player" "You">>"Man, these pin-ups are way too cool. I kinda wish I was sexy like that, you know? Have guys just sort of adore and admire me, how crazy would that be?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"H-ha, ha... ha. Yeah. Crazy, right?"<</Dialogue>>
+
+/*<<if $johanOpinion > X>> or maybe just go with <<if $muscle>X>>*/
+His laugh is so nervous you almost feel bad for pushing his buttons like that. Almost. But you bite your lips seductively and place a hand on his shoulder, looking deep into his eyes.
+
+<<if $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Can you imagine, having a guy be like putty under your hand, be in complete control of the situation? "<</Dialogue>>
+
+<<else>>
+<<Dialogue "player" "You">>"Hmmm, is it getting a bit hot in here? "<</Dialogue>>
+
+You pucker your lips and close your eyes. You feel Johan tremble a bit under your hand, but once you kiss him, you can feel his shoulder relaxing as you let out a satisfied moan.
+
+<</if>>
+The briefest eternity passes as you open your eyes, only to find Johan frozen, eyes as open as can be. He seems to be almost in shock. You laugh, but he really seems like he’s going to need a full system reboot before he can respond.
+
+With a smile, you grab the mouse and put the amazonian woman poster in the cart, before winking and standing up, getting ready to return to your apartment.
+
+<<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>><</link>>
+
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice2">>
+You place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
+
+<<Dialogue "player" "You">>"What, are you feeling intimidated by your very in-house barbarian? I thought you enjoyed that kind of character..."<</Dialogue>>
+
+You let your eyes slide down, and he urgently crosses his legs, trying very unsuccessfully to hide his erection. Wow, maybe it’s just a trick of the light, but you get the impression that your friend might actually be packing quite a lot of heat down there.
+
+Johan tries to say something, but he can’t even stutter a single letter, his mouth opening and closing nervously as your eyes come back and lock against his. Your grin widens, and you come in hot, giving him a full sloppy kiss on the lips. He first tenses, then relaxes as you probe with your tongue.
+
+You move back, watching as Johan reopens his eyes, apparently having a hard time figuring if he’s dreaming or if this actually happened. You laugh, but he really seems like he’s going to need a full system reboot before he can respond.
+
+With a smile, you grab the mouse and put the amazonian woman poster in the cart, before winking and standing up, getting ready to return to your apartment.
+
+<<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+
+<</replace>>
+<<Failed>>
+<<replace "#choice2">>
+You put your hand on Johan’s armrest, trying to seductively get closer to him, but you hesitate a bit, and as you try to lean your weight to approach, his chair slides and you slip, twisting and falling to the ground on your back.
+
+Yay, <<print $playerFirstName>>, you think, looking at ceiling, replaying this very embarrassing moment in your head as Johan seems both confused and worried. With a sigh, you get up, dust yourself, and silently see yourself out to avoid further embarrassment now that the mood is gone.
+
+You probably should have done something a bit more in-character if your goal was to make a move on Johan, you muse, as you return defeated to your apartment.’ 
+
+<<link "Continue" "Home">><</link>>
+<</replace>>
+<</PersonalityCheck>>
+
+<<PersonalityCheck $shyConfident >= 2 "H-hey, don’t look at me like that, it’s weird!">><<replace "#choice2">>
+<<Dialogue "player" "You">>"Uhhhhhh...!"<</Dialogue>>
+
+As it dawns on you that he seems to be fantasizing about, well, YOU... your reaction is to turn your chair to look away from him, hands crossed over your lap, as you blush a deep red.
+
+For once, Johan is quick on the uptake, and realizes he has made you uncomfortable. He stutters, looking around as his brain tries to find an appropriate way to apologize. Now both of you are sort of discombobulated.
+
+<<Dialogue "Johan" "Johan">>"S-s-sorry, I don’t think you are sexy, if that’s what you are thinking."<</Dialogue>>
+
+He quickly realizes what he just said, and tries to walk it back immediately.
+
+<<Dialogue "Johan" "Johan">>"No, uh, I mean, you are actually VERY hot, I just, I don’t want you to think I see you that way. I mean, that’s not why I am your friend. I think you are very cool. Not that I am attracted to you. I mean, sorta, but..."<</Dialogue>>
+
+OH MY GOD! How can someone be so cute and endearing so effortlessly? You watch as Johan ties himself in a tighter bind with each word he utters, and it just keeps getting more and more adorable! Before he can dig a bigger hole, you instinctively put your hands on his cheeks and just close in for a kiss, interrupting his crazy and pointless speech.
+
+At first Johan tenses completely, but then he melts like butter under your hands. The short kiss feels like an eternity, and as you step back, his eyes are wide open, mouth agape, as he seems absolutely unable to get any word in.
+
+You give him a suggestive wink, and proceed to add the barbarian woman poster to his cart, as you turn around and leave, hopping with joy, back to your apartment.’
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>><<Failed>><<replace "#choice2">>
+Trying to act embarrassed and demure, you turn around, but your hormones get the better of you, and you can’t resist looking back with the corner of your eye. It must have looked kind of awkward, because Johan snorts and can’t suppress a laugh. Ouch. In his defense, it must have looked rather pathetic. And now the mood is gone. Dang.
+
+Johan slaps you on the back, and sighs.
+
+<<Dialogue "Johan" "Johan">>"HAHAHA, for a second there, I thought you were all embarrassed and were into me or something. How ridiculous is that? Hahahaha!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, pfffft, imagine, me being into you! What a joke, haha!"<</Dialogue>>
+
+You lie, biting your tongue hard as you just want to get your head buried in the ground for the snafu.
+
+<<Dialogue "Johan" "Johan">>"But yeah, I’m totally getting this barbarian poster, it is super cool. Gonna look great on my wall. A guy can dream, right? Can you imagine me with a girl like that?"<</Dialogue>>
+
+Rolling your eyes, you sigh and decide to leave before you say anything else even more stupid.’
+
+<<link "Continue" "Home">><</link>>
+<</replace>>
+<</PersonalityCheck>>
+</span>
+
+<</replace>><</link>>
+
+<<link "Sci-fi and horror? I love the sound of that.">><<replace "#choice">>
+<<if $submissiveDominant > 1>>Excitedly, you take the mouse from his hand and just go directly to the sci-fi and horror section, thinking of the thrill of B movies new and old.<<else>><<Dialogue "player" "You">>"How about Sci-fi and Horror? That ought to have a lot of B-movie style classics, with all those delicious cheesy visuals?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Excellent choice!"<</Dialogue>>
+
+He clicks the link, opening the dedicated page to that theme.<</if>>
+The catalog has an impressive selection of genre imagery, and it clearly appeals to Johan’s fanciful geeky imagination. A long list of options is displayed, and you feel like you were transported more than half a century in the past, with all kinds of monsters and aliens dominating a plethora of posters.
+
+As Johan scrolls, however, he occasionally hovers over certain images. One of them is the bride of a big monster. And speaking of big, the woman is TALL, which is compounded by her rather vertically enhanced beehive coiffure. She can certainly stand proud next to the famous resurrected creature. Johan certainly seems to appreciate it. But he eventually resumes his scrolling, but then stops abruptly at images dedicated to the 50s classic movie of the female who grows to the size of a 5-story building and wrecks havoc. And so he seems to get flustered - red cheeks, accelerated breath, mouth slightly open. His hand clutches the mouse firmly, and he awkwardly crosses his legs. Hmmmm, it would seem like the big ladies have a big impact on Johan, eh?
+
+<<Dialogue "player" "You">>"Wow, she’s huge. I wonder what it would be like, being a giant. Big enough to grab someone in the palm of your hand!"<</Dialogue>>
+
+<<if $height >=205>><<if $submissiveDominant > 1>>Well, his taste is very clear, but you are not sure about the current target of his admiration. So you smirk and start stretching, getting up and hitting your arms against the ceiling with a loud bang. Johan’s eyes somehow widen even more as his jaw drops with your little show, long legs leaving his eye level below your knees. His eyes shoot up, drinking in the human sequoia in front of him. It takes A LOT of effort not to let that grin widen even more as you enrapt your prey.
+
+<<else>>You pout and frown. Sure, you are no LITERAL giant, but your height is nothing short of abnormally tall. You discreetly stretch your long arms up, even sitting down getting your fingers by the ceiling. You fantasize briefly about being huge like that. How DARE she command his attention like this? Unbeknownst to you, however, this little action has apparently caught Johan’s attention, who has caught sight of your display.
+<</if>>
+<<elseif $height >=180>>You realize that your height is more than just above average, and you intuitively just stand up for a good stretch. Not too shabby, actually. Before you know, however, you realize that Johan seems to be admiring your stature just as much as you. <<if $shyConfident > 1>>You beam with pride, as you tip toe and place full palms on the ceiling while he gets a better view, which his sparkling eyes seem to quite appreciate.<<else>>Embarassed, you sit back down, blushing and averting his gaze.<</if>>
+<<elseif $height >=160>>You frown, looking at the scantly-clad lady on the screen with a tinge of envy. You did get a bit of a growth spurt lately, but you hardly configure as “tall” enough to get his attention.
+
+<<Dialogue "player" "You">>"Someday..."<</Dialogue>>
+
+You mumble to yourself, daydreaming of becoming a giantess someday, while you stand and stretch your arms up. Johan turns his face, and steals a quick look at your elongated limbs, blushing. Wow, he seems to really appreciate your modest height after all, accentuated by him being sitting down while you stretch up.
+
+<<else>>
+<<Dialogue "player" "You">>"Earth to Johan?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Uh, sorry. That one image really caught my attention!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Can’t really blame you, she’s pretty hot. I kinda wish I had a body like that..."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Y-you do?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, can you imagine? Towering over everyone, being able to literally grab people in my hands - it would be AWESOME!"<</Dialogue>>
+
+Johan, caught up in what you assume is a mental image of what you just described, gulps loudly while looking like a deer under headlights. It elicits a quick giggle from you.
+<</if>>
+
+<span id="choice3"><<link "Not gonna lie, I wish I was huge like that (especially if you’d look at me like that, Johan)...">><<replace "#choice3">>
+<<Dialogue "player" "You">>"Man, these giantesses are way too cool. I kinda wish I was sexy like that, you know? Have guys just sort of adore and admire me, how crazy would that be?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"H-ha, ha... ha. Yeah. Crazy, right?"<</Dialogue>>
+
+/*<<if $johanOpinion > X>> or maybe just go with <<if $height>X>>*/
+His laugh is so nervous you almost feel bad for pushing his buttons like that. Almost. But you bite your lips seductively and reach to put hand on his shoulder, looking down at him.
+
+<<if $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Can you imagine, having a guy be like putty under your hand, be in complete control of the situation? "<</Dialogue>>
+
+<<else>>
+<<Dialogue "player" "You">>"Hmmm, is it getting a bit hot in here? "<</Dialogue>>
+
+You lean down and pucker your lips, closing your eyes. You feel Johan tremble a bit under your hand, but once you kiss him, you can feel his shoulder relaxing as you let out a satisfied moan.
+
+<</if>>
+The briefest eternity passes as you open your eyes, only to find Johan frozen, eyes as open as can be. He seems to be almost in shock. You laugh, but he really seems like he’s going to need a full system reboot before he can respond.
+
+With a smile, you grab the mouse and put the giant woman poster in the cart, before winking and standing up, getting ready to return to your apartment.
+
+<<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>><</link>>
+
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice3">>
+You lean down and place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
+
+<<Dialogue "player" "You">>"What, are you feeling intimidated by your tall girl next door? I thought you enjoyed that kind of character..."<</Dialogue>>
+
+You let your eyes slide down, and he urgently crosses his legs, trying very unsuccessfully to hide his erection. Wow, maybe it’s just a trick of the light, but you get the impression that your friend might actually be packing quite a lot of heat down there.
+
+Johan tries to say something, but he can’t even stutter a single letter, his mouth opening and closing nervously as your eyes come back and lock against his. Your grin widens, and you come in hot, giving him a full sloppy kiss on the lips. He first tenses, then relaxes as you probe with your tongue.
+
+You move back, watching as Johan reopens his eyes, apparently having a hard time figuring if he’s dreaming or if this actually happened. You laugh, but he really seems like he’s going to need a full system reboot before he can respond.
+
+With a smile, you grab the mouse and put the giant woman poster in the cart, before winking and standing up, getting ready to return to your apartment.
+
+<<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>>
+<<Failed>><<replace "#choice3">>
+You lean down and put your hand on Johan’s armrest, trying to seductively get closer to him, but it’s an awkward position, and as you try to lean your weight to approach, his chair slides and you slip, twisting and falling to the ground on your back.
+
+Yay, <<print $playerFirstName>>, you think, looking at ceiling, replaying this very embarrassing moment in your head as Johan seems both confused and worried. With a sigh, you get up, dust yourself, and silently see yourself out to avoid further embarrassment now that the mood is gone.
+
+You probably should have done something a bit more in-character if your goal was to make a move on Johan, you muse, as you return defeated to your apartment.’ 
+
+<<link "Continue" "Home">><</link>>
+<</replace>>
+<</PersonalityCheck>>
+
+<<PersonalityCheck $shyConfident < 1 "H-hey, don’t look at me like that, it’s weird!">><<replace "#choice3">>
+<<Dialogue "player" "You">>"Uhhhhhh...!"<</Dialogue>>
+
+As it dawns on you that he seems to be fantasizing about, well, YOU... your reaction is to sit back down and turn your chair to look away from him, hands crossed over your lap, as you blush a deep red.
+
+For once, Johan is quick on the uptake, and realizes he has made you uncomfortable. He stutters, looking around as his brain tries to find an appropriate way to apologize. Now both of you are sort of discombobulated.
+
+<<Dialogue "Johan" "Johan">>"S-s-sorry, I don’t think you are sexy, if that’s what you are thinking."<</Dialogue>>
+
+He quickly realizes what he just said, and tries to walk it back immediately.
+
+<<Dialogue "Johan" "Johan">>"No, uh, I mean, you are actually VERY hot, I just, I don’t want you to think I see you that way. I mean, that’s not why I am your friend. I think you are very cool. Not that I am attracted to you. I mean, sorta, but..."<</Dialogue>>
+
+OH MY GOD! How can someone be so cute and endearing so effortlessly? You watch as Johan ties himself in a tighter bind with each word he utters, and it just keeps getting more and more adorable! Before he can dig a bigger hole, you instinctively put your hands on his cheeks and just close in for a kiss, interrupting his crazy and pointless speech.
+
+At first Johan tenses completely, but then he melts like butter under your hands. The short kiss feels like an eternity, and as you step back, his eyes are wide open, mouth agape, as he seems absolutely unable to get any word in.
+
+You give him a suggestive wink, and proceed to add the giant woman poster to his cart, as you turn around and leave, hopping with joy, back to your apartment.’
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>>
+<<Failed>><<replace "#choice3">>
+Trying to act embarrassed and demure, you sit down and turn around, but your hormones get the better of you, and you can’t resist looking back with the corner of your eye. It must have looked kind of awkward, because Johan snorts and can’t suppress a laugh. Ouch. In his defense, it must have looked rather pathetic. And now the mood is gone. Dang.
+
+Johan slaps you on the back, and sighs.
+
+<<Dialogue "Johan" "Johan">>"HAHAHA, for a second there, I thought you were all embarrassed and were into me or something. How ridiculous is that? Hahahaha!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, pfffft, imagine, me being into you! What a joke, haha!"<</Dialogue>>
+
+You lie, biting your tongue hard as you just want to get your head buried in the ground for the snafu.
+
+<<Dialogue "Johan" "Johan">>"But yeah, I’m totally getting this giant woman poster, it is super cool. Gonna look great on my wall. A guy can dream, right? Can you imagine me with a girl like that?"<</Dialogue>>
+
+Rolling your eyes, you sigh and decide to leave before you say anything else even more stupid.’
+
+<<link "Continue" "Home">><</link>>
+<</replace>>
+<</PersonalityCheck>>
+
+</span>
+<</replace>>
+<</link>>
+
+<<link "Oh, movie posters! I’m sure there’s lots of cool stuff there.">><<replace "#choice">>
+<<if $submissiveDominant > 1>>Your eagerness takes hold, and you take the mouse from his hand and just go directly to the movie poster section, thinking of the emotions that Hollywood can bring to the surface.<<else>><<Dialogue "player" "You">>"How about movie posters? That ought to have a lot of action, thrills... and perhaps even some romance?"<</Dialogue>>
+<</if>>
+Johan gulps at the insinuation, but still browses the list with his full attention.
+A long list of options is displayed, with all kinds of movies of varied popular genres - action, drama, rom-coms, the works. But there is no lack of very pretty females everywhere, most of them with amazing figures.
+
+<<Dialogue "player" "You">>"Hollywood really knows how to do romantic stories, who wouldn’t dream of finding a great guy who treats you right!"<</Dialogue>>
+
+Johan keeps scrolling, but he seems momentarily distracted by some Hollywood stars showing some VERY generou cleavage, the speed of his scrolling inversely proportional to the size of the breasts displayed.
+
+<<if $breasts >=60>><<if $submissiveDominant > 1>>Well, his taste is very clear, but you are not sure about the current target of his admiration. So you smirk and cross your arms, purposefully propping up your own mamaries and saying a loud HMMMMM to call attention. Johan’s eyes widen as his jaw drops with your little show, your breasts clearly bigger than any of the actresses on the screen. His eyes dart between you and the screen, in what you assume to be a mix of him trying hard not to stare, but also making a mental comparison of your size in utter disbelief. It takes A LOT of effort not to let that grin widen even more as you enrapt your prey.
+
+<<else>>You pout and frown. What do they have that you don’t? You discreetly cup your breasts, feeling the soft tissue, and fantasize about being a famous model/actress. How DARE they command his attention like this? Unbeknownst to you, however, this little action has apparently caught Johan’s attention, who has caught sight of your display.
+<</if>>
+<<elseif $breasts>=40>>You realize that your figure is actually pretty similar to the actresses and models, and you intuitively shake your shoulders, causing your boobs to jiggle. Not too shabby, actually. Before you know, however, you realize that Johan seems to be admiring your assets just as much as you. <<if $shyConfident > 1>>You beam with pride, as you straighten your spine to give him a better view, which his sparkling eyes seem to quite appreciate.<<else>>Embarassed, you bring your arms to cover your chest, blushing and averting his gaze.<</if>>
+<<elseif $breasts >=25>>You frown, looking at the sexy lady on the screen with a tinge of envy. You definitely have developed some lately, but you aren’t quite there yet.
+
+<<Dialogue "player" "You">>"Someday..."<</Dialogue>>
+
+You mumble to yourself, daydreaming of becoming a sexy busty model someday, while you cup your breasts casually. Johan turns his face, and steals a quick look at your chest, blushing. Wow, he seems to really appreciate your modest boobs after all.
+
+<<else>>
+<<Dialogue "player" "You">>"Earth to Johan?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Uh, sorry. Some of these really caught my attention!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Can’t really blame you, they are pretty hot. I kinda wish I had a body like that..."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Y-you do?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, can you imagine? I’d be doing swimwear photo shoots all the time - maybe I could even star in a movie someday - it would be AWESOME!"<</Dialogue>>
+
+Johan, caught up in what you assume is a mental image of what you just described, gulps loudly while looking like a deer under headlights. It elicits a quick giggle from you.
+<</if>>
+
+<span id="choice4">
+<<link "Not gonna lie, I wish I was sexy like that (especially if you’d look at me like that, Johan)...">><<replace "#choice4">>
+<<Dialogue "player" "You">>"Man, these movie stars are so good looking. I kinda wish I was sexy like that, you know? Have guys just sort of adore and admire me, how crazy would that be?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"H-ha, ha... ha. Yeah. Crazy, right?"<</Dialogue>>
+
+/*<<if $johanOpinion > X>> or maybe just go with <<if $breasts>X>>*/
+His laugh is so nervous you almost feel bad for pushing his buttons like that. Almost. But you bite your lips seductively and place a hand on his shoulder, looking deep into his eyes.
+
+<<if $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Can you imagine, having a guy be like putty under your hand, be in complete control of the situation? "<</Dialogue>>
+
+<<else>>
+<<Dialogue "player" "You">>"Hmmm, is it getting a bit hot in here? "<</Dialogue>>
+
+You pucker your lips and close your eyes. You feel Johan tremble a bit under your hand, but once you kiss him, you can feel his shoulder relaxing as you let out a satisfied moan.
+
+<</if>>
+The briefest eternity passes as you open your eyes, only to find Johan frozen, eyes as open as can be. He seems to be almost in shock. You laugh, but he really seems like he’s going to need a full system reboot before he can respond.
+
+With a smile, you grab the mouse and put one of the movie posters with a busty lady in the cart, before winking and standing up, getting ready to return to your apartment.
+
+<<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>><</link>>
+
+<<PersonalityCheck $submissiveDominant >= 2 "What, feeling a bit intimidated by little old me?">><<replace "#choice4">>
+You place a hand on Johan’s armrest, and seductively approach him like a cat, ready to pounce. He gulps, looking at you with full attention.
+
+<<Dialogue "player" "You">>"What, are you feeling intimidated by your hot girl next door? I thought you enjoyed that kind of character..."<</Dialogue>>
+
+You let your eyes slide down, and he urgently crosses his legs, trying very unsuccessfully to hide his erection. Wow, maybe it’s just a trick of the light, but you get the impression that your friend might actually be packing quite a lot of heat down there.
+
+Johan tries to say something, but he can’t even stutter a single letter, his mouth opening and closing nervously as your eyes come back and lock against his. Your grin widens, and you come in hot, giving him a full sloppy kiss on the lips. He first tenses, then relaxes as you probe with your tongue.
+
+You move back, watching as Johan reopens his eyes, apparently having a hard time figuring if he’s dreaming or if this actually happened. You laugh, but he really seems like he’s going to need a full system reboot before he can respond.
+
+With a smile, you grab the mouse and put one of the movie posters with a busty lady in the cart, before winking and standing up, getting ready to return to your apartment.
+
+<<Dialogue "player" "You">>"Let me know when the poster arrives. I’ll try not to get too jealous, OK?"<</Dialogue>>
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>>
+<<Failed>><<replace "#choice4">>
+You put your hand on Johan’s armrest, trying to seductively get closer to him, but you hesitate a bit, and as you try to lean your weight to approach, his chair slides and you slip, twisting and falling to the ground on your back.
+
+Yay, <<print $playerFirstName>>, you think, looking at ceiling, replaying this very embarrassing moment in your head as Johan seems both confused and worried. With a sigh, you get up, dust yourself, and silently see yourself out to avoid further embarrassment now that the mood is gone.
+
+You probably should have done something a bit more in-character if your goal was to make a move on Johan, you muse, as you return defeated to your apartment.’ 
+
+<<link "Continue" "Home">><</link>>
+<</replace>>
+<</PersonalityCheck>>
+
+<<PersonalityCheck $shyConfident < 1 "">><<replace "#choice4">>
+<<Dialogue "player" "You">>"Uhhhhhh...!"<</Dialogue>>
+
+As it dawns on you that he seems to be fantasizing about, well, YOU... your reaction is to turn your chair to look away from him, hands crossed over your lap, as you blush a deep red.
+
+For once, Johan is quick on the uptake, and realizes he has made you uncomfortable. He stutters, looking around as his brain tries to find an appropriate way to apologize. Now both of you are sort of discombobulated.
+
+<<Dialogue "Johan" "Johan">>"S-s-sorry, I don’t think you are sexy, if that’s what you are thinking."<</Dialogue>>
+
+He quickly realizes what he just said, and tries to walk it back immediately.
+
+<<Dialogue "Johan" "Johan">>"No, uh, I mean, you are actually VERY hot, I just, I don’t want you to think I see you that way. I mean, that’s not why I am your friend. I think you are very cool. Not that I am attracted to you. I mean, sorta, but..."<</Dialogue>>
+
+OH MY GOD! How can someone be so cute and endearing so effortlessly? You watch as Johan ties himself in a tighter bind with each word he utters, and it just keeps getting more and more adorable! Before he can dig a bigger hole, you instinctively put your hands on his cheeks and just close in for a kiss, interrupting his crazy and pointless speech.
+
+At first Johan tenses completely, but then he melts like butter under your hands. The short kiss feels like an eternity, and as you step back, his eyes are wide open, mouth agape, as he seems absolutely unable to get any word in.
+
+You give him a suggestive wink, and proceed to add one of the movie posters with a busty lady to his cart, as you turn around and leave, hopping with joy, back to your apartment.’
+
+<<link "Continue" "Home">><<set $flag.johanPinUpArtSuccess to true>><</link>>
+<</replace>>
+<<Failed>><<replace "#choice4">>
+Trying to act embarrassed and demure, you turn around, but your hormones get the better of you, and you can’t resist looking back with the corner of your eye. It must have looked kind of awkward, because Johan snorts and can’t suppress a laugh. Ouch. In his defense, it must have looked rather pathetic. And now the mood is gone. Dang.
+
+Johan slaps you on the back, and sighs.
+
+<<Dialogue "Johan" "Johan">>"HAHAHA, for a second there, I thought you were all embarrassed and were into me or something. How ridiculous is that? Hahahaha!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah, pfffft, imagine, me being into you! What a joke, haha!"<</Dialogue>>
+
+You lie, biting your tongue hard as you just want to get your head buried in the ground for the snafu.
+
+<<Dialogue "Johan" "Johan">>"But yeah, I’m totally getting this barbarian poster, it is super cool. Gonna look great on my wall. A guy can dream, right? Can you imagine me with a girl like that?"<</Dialogue>>
+
+Rolling your eyes, you sigh and decide to leave before you say anything else even more stupid.’
+
+<<link "Continue" "Home">><</link>>
+<</replace>>
+<</PersonalityCheck>>
+
+</span>
+
+<</replace>>
+<</link>>
+
+</span>
+

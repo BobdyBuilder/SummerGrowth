@@ -1,0 +1,14 @@
+:: usbFile4 {"position":"2100,1200","size":"100,100"}
+The text file loads very slowly. It's surprising it takes this long, but once it finally does, you are left with a textlog written April 1st, 2020. It's part of a bigger file called Toshi Experiment log. Well, let's see what you can learn. 
+
+<<Dialogue "toshiUnknown" "Toshi">>
+Few months into the experiment, and okay, things have gotten a BIT extreme. With all different distillation I've noted a nearly 1200% increase in muscle mass, a 20% increase in stature, and a 10% increase in body hair... I think. To be honest, most of these are just guesses. What is clear is that I've advanced WELL beyond normal human limits. It seems however that in recent weeks the initial  gene-unlocker lost some of its potency. All the distillations lost some of their effects, and I think that my growth has slowed down, or perhaps I've even begun to shrink. This might be good, but I do enjoy this growth. Sure, I had to move to a different place not to attract too much attention, but being this big... is amazing.
+<</Dialogue>>
+
+There was a lot to digest in this one. Apparently the writer of this document grew a LOT from his experiments, just like you did. But he describes here how the growth may slow down, or even reverse, if you don't take another batch of that... gene-unlocker, was it? The gene-unlocker must be the drink you found in your fridge; if that one runs out... suddenly, you're very aware of the changes your body has undergone. So far, you've accepted and enjoyed them without questioning anything. A big part of that was believing them to be permanent, but now that you know you might lose them over time... 
+
+Do you even want that?
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+
+

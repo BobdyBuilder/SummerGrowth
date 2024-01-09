@@ -1,0 +1,83 @@
+:: NPCDialogRefresh [nobr] {"position":"700,200","size":"100,100"}
+<<for _iCharacterFrameUpdate to 0; _iCharacterFrameUpdate < setup.characters.length; _iCharacterFrameUpdate ++>>
+		<<capture _iCharacterFrameUpdate>>
+		<<set _name to setup.characters[_iCharacterFrameUpdate].name.charAt(0).toLowerCase() + setup.characters[_iCharacterFrameUpdate].name.slice(1)>>
+		
+		<<if _name is "kris" and $krisObsessed is false>>
+		<<continue>>
+		<</if>>
+		
+		<<set _lastMuscleName to "$" + _name + "LastMuscle">>
+		<<set _lastMuscle to State.getVar(_lastMuscleName)>>		
+		<<if $muscle > _lastMuscle + 30>>
+			<<set _triggerName to _name + "Muscle" + "30">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $muscle > _lastMuscle +20>>
+			<<set _triggerName to _name + "Muscle" + "20">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $muscle > _lastMuscle +10>>
+			<<set _triggerName to _name + "Muscle" + "10">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $muscle > _lastMuscle>>
+			<<set _triggerName to _name + "Muscle">>
+			<<addTrigger _triggerName false false>>
+		<</if>>
+		
+		<<set _lastFatName to "$" +_name + "LastFat">>
+		<<set _lastFat to State.getVar(_lastFatName)>>		
+		<<if $fat > _lastFat + 30>>
+			<<set _triggerName to _name + "Fat" + "30">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $fat > _lastFat +20>>
+			<<set _triggerName to _name + "Fat" + "20">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $fat > _lastFat +10>>
+			<<set _triggerName to _name + "Fat" + "10">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $fat > _lastFat>>
+			<<set _triggerName to _name + "Fat">>
+			<<addTrigger _triggerName true false>>
+		<</if>>
+		
+		<<set _lastBreastsName to "$" +_name + "LastBreasts">>
+		<<set _lastBreasts to State.getVar(_lastBreastsName)>>		
+		<<if $breasts > _lastBreasts + 30>>
+			<<set _triggerName to _name + "Breasts" + "30">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $breasts > _lastBreasts +20>>
+			<<set _triggerName to _name + "Breasts" + "20">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $breasts > _lastBreasts +10>>
+			<<set _triggerName to _name + "Breasts" + "10">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $breasts > _lastBreasts>>
+			<<set _triggerName to _name + "Breasts">>
+			<<addTrigger _triggerName false false>>
+		<</if>>
+		
+		<<set _lastDickName to "$" +_name + "LastDick">>
+		<<set _lastDick to State.getVar(_lastDickName)>>		
+		<<if $dick > _lastDick + 10>>
+			<<set _triggerName to _name + "Dick" + "10">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $dick > _lastDick + 5>>
+			<<set _triggerName to _name + "Dick" + "5">>
+			<<addTrigger _triggerName false false>>
+		<</if>>
+		
+		<<set _lastHeightName to "$" +_name + "LastHeight">>
+		<<set _lastHeight to State.getVar(_lastHeightName)>>		
+		<<if $height > _lastHeight + 30>>
+			<<set _triggerName to _name + "Height" + "30">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $height > _lastHeight + 10>>
+			<<set _triggerName to _name + "Height" + "10">>
+			<<addTrigger _triggerName false false>>
+		<<elseif $height > _lastHeight>>
+			<<set _triggerName to _name + "Height">>
+			<<addTrigger _triggerName false false>>
+		<</if>>
+		<</capture>>
+<</for>>
+
+

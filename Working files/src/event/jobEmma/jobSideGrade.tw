@@ -1,0 +1,45 @@
+:: jobSideGrade {"position":"1500,1700","size":"100,100"}
+As you try to sit down on your chair, your arms are squished and your considerable bulk makes the poor piece of furniture groan under you. Before you drop your weight, you hear a cough behind you. Startling you, you shift your weight fully to one of the arm-rests and it breaks clean off, sending you to the floor with a loud thud.
+
+Emma stands over you, barely showing any surprise.
+
+<<Dialogue "Emma" "Emma">>"Uh, are you okay? I... Let's take this to my office, please."<</Dialogue>>
+
+Extending her hand, she helps you up, with surprising ease. The two of you walk to her office, the door closing behind her.
+
+<<Dialogue "Emma" "Emma">>"Please, sit down. Carefully, if you will."<</Dialogue>>
+
+You sit down slowly, the chair merely groaning.
+
+<<Dialogue "Emma" "Emma">>"Actually, the reason I called you... is because of this. You obviously work out a LOT. And, we're noticing that our office supplies are a bit... well, insufficient for someone of your stature. However, an opportunity has come up! You see, we have a shipping facility in this building. However, some new city ordinances have precluded us from operating the forklifts in the basement... so our operation is at a complete standstill while we figure this out. While your performance at my department is undeniable, I think this new setting might be a perfect fit for your… unique physique!"<</Dialogue>>
+
+You blink a few times, surprised. Well, that came out of nowhere! But she isn’t wrong, carrying heavy stuff in a warehouse might be more appropriate for your current body. And yet, there are some questions left unanswered.
+
+<<Dialogue "player" "You">>"Right... so what about my pay? And hours?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Simple. There wouldn’t be many major changes, though the hours are more flexible. As for your wages, we will pay you per pallet shipped. You get a great workout, and your performance is dictated by your capacity for lug heavy cargo. You will still have to log your hours and make sure the shipping manifesto is up to date. So there is some admin work behind your PC, and for the rest of the day it would be just you and a whole lot of heavy goods to be moved. Would that be acceptable?"<</Dialogue>>
+
+<span id="choice"><<link "Accept it">><<replace "#choice">>Workouts, no more boring admin work, and getting paid for it? Hell, yes!
+
+<<Dialogue "player" "You">>"Sure! So, I just... start my morning behind my PC and then... lift boxes?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"That's it. Quite simple, and I think you'll be suited for it. I feel like, either way, some of your talents might go to waste, but I would argue that your strength seems to be the… more extraordinary one. And you could make quite a hefty bonus if you move a lot of cargo. Well, with that settled, just make your way to the underground warehouse, the entrance is next to the canteen and... well, the signs there will instruct you about the shipping procedures! That's it."<</Dialogue>>
+
+With a smile, she stands up and shakes your hand formally, before accompanying you to the warehouse entrance. The place is stacked ceiling-high with boxes and pallets that need moving. Emma simply looks at you with a cheery smile.
+
+<<Dialogue "Emma" "Emma">>"Have fun."<</Dialogue>>
+
+<<link "Get to work." "office">><<set $jobWarehouse to true>><</link>>
+<</replace>><</link>>
+
+<<link "Don't take it">><<replace "#choice">>You just started working here... perhaps this isn’t such a great idea.
+
+<<Dialogue "player" "You">>"If it's alright with you, I'd rather keep my current position."<</Dialogue>>
+
+Emma gives you a surprisingly reassuring smile, reinforcing that she respects your decision.
+
+<<Dialogue "Emma" "Emma">>"Of course. It IS your choice, after all. In that case, I'd say good luck with work… and the furniture."<</Dialogue>>
+
+<<link "Get to work." "office">><</link>><</replace>><</link>></span>
+
+

@@ -1,0 +1,117 @@
+:: ElenaDateCafetaria {"position":"1500,3600","size":"100,100"}
+As you leave the darkened dinosaur room, you are surprised by a small external garden cafeteria that is quite pleasant. The mixed smell of coffee and bread makes Elena’s stomach grumble, and you turn to see her embarrassed face.<br><br>
+<<Dialogue "Elena" "Elena">>"Scusi, it took me longer to pick my clothes this morning, I ended up not having breakfast…"<</Dialogue>><br><br>
+Her voice speeds up as she tries to justify herself as if she has just committed a huge sin, and it takes every fiber of your being to not squish her cheeks or laugh. It seems like she’s really hungry, though…<br><br>
+<<Dialogue "player" "You">>"Hey, I sort of invited you, why don’t you let me treat you to a snack, huh?"<</Dialogue>><br><br>
+Elena tries to politely decline, but your insistence beats her in the end. She casually pulls up one of the ornate iron garden chairs away from the iron garden table so she can actually fit (you are pretty sure those were not supposed to be moved due to their hefty weight, but you aren’t about to bring that detail to her attention, as the metal slightly groans while she sits down).<br><br>
+As you reach the counter, you realize that there are quite a few options available - they apparently specialize in pastries, with all kinds of breads and sweet confections that look really yummy. Argh! Too many choices!!!<br><br>
+OK, <<print $playerFirstName>>, you can do this! It’s just picking something for Elena, how hard can it really be?!?<br><br>
+
+
+<span id="choice">
+	<<PersonalityCheck $shyConfident >= 2 "I should go all out! Elena’s a growing girl, and I bet she would appreciate a snack tasting smorgasbord!">>
+		<<replace "#choice">>
+            <<if $money >= 100>>
+                Before you know it, you are just pointing at several different pastries, and the poor attendant rushes to grab one after the other, placing them onto a tray… soon enough, she’s working on the third tray as you order almost one of every item available. Elena is, thankfully, too distracted appreciating the flora of the garden to see the small spectacle you are conducting at the counter. To top it off, you order a hot chocolate for yourself and a macchiato for her.<br><br>
+                The attendant rings up your impulsive purchase, and you realize you truly went overboard when the total comes to 100 bucks… still… you feel like Elena deserves to be treated like a princess. So you don’t hesitate (well, maybe a little) as you pay for the order, and start trying to figure out the logistics on how to balance the three trays - on the bright side, they feel really light for your powerful arms!<br><br>
+                You approach the table, a tray on each hand and balancing a third one between your arms, and once Elena notices, she immediately springs up, dropping the heavy chair back as she grabs two trays and sets them on the table. You do the same with the last one, and try to act gentlemanly as you pick up the chair and to help Elena sit down… except she is a bit stunned at your display of generosity.<br><br>
+                <<Dialogue "Elena" "Elena">>"Mio Dio, What… have you done? I… I don’t… you shouldn’t…"<</Dialogue>><br><br>
+At first, you assumed she was just being polite, but you can sense some shame, as she looks around, trying to see if anyone is looking at the two of you.<br><br>
+<<Dialogue "Elena" "Elena">>"Così tanto, that is too much!"<</Dialogue>><br><br>
+Her tone betrays her disapproval - she isn’t mad at you as much as she seems disappointed with the fact that she is painfully aware that she would easily eat all that… but would rather not do it in public (made especially obvious by her constant looking around). But you got this under control, as you confidently assure her:<br><br> 
+                <<Dialogue "player" "You">>"Ah, chill down, Elena - it’s not everyday I get to go out to cool, swanky places with a cute girl, so why not splurge a little, right?"<</Dialogue>><br><br>
+                <<Dialogue "Elena" "Elena">>"C-cute…?"<</Dialogue>><br><br>
+                Elena blushes, the compliment successfully making her brain change gears, and you decide to break the ice by bringing attention to the plethora of options on the table.<br><br>
+                <<Dialogue "player" "You">>"I think you are going to love some of these - I got the coffee eclair, which looks really yummy - unless you want to start with something savory - these are Brazilian pão de queijo - they look like pastries, but they are actually gluten-free!"<</Dialogue>><br><br>
+                You continue to explain the option like a goddamn professor giving a lecture, and Elena’s shy hesitation slowly dissolves, replaced with a look of admiration - you are not sure if it’s your cosmopolitan selection of snacks (which, granted, you just memorized from the explanations the lady at the café gave you) or your generosity. Either way, she looks to be almost salivating at the options.<br><br>
+                <<Dialogue "player" "You">>"But what do I know? You are the foodie here - just pick something!"<</Dialogue>><br><br>
+                You smile, and Elena feels encouraged to try something. You see her sparkly eyes darting among the many options, until she spots a strawberry chiffon cake - and she picks it up very delicately. Bringing the plate right in front of her face, she spends a few seconds just admiring the craftsmanship of the beautiful confection - despite her hunger. She looks at you with begging eyes, as if seeking approval, and you just smile and nod.<br><br>
+                The small plate and fork look even tinier in her big hands, but she very elegantly cuts a small piece of the cake, and brings it to her mouth. Instantly, her face is one of pure bliss, her legs tapping up and down like a little girl. The adorable display is almost too much for you to bear, but eventually she looks at you, still chewing, and brings a bite towards your mouth. You gulp the treat eagerly, but end up with some whipped cream on your nose. Without hesitation, Elena just brings a napkin and cleans it up… but then feels awkward about doing it without asking for permission, pulling the napkin back and shrinking into herself. For someone so big, she sure knows how to look absolutely adorable.<br><br>
+                You decide to help yourself to a chicken empanada, grabbing a big bite before offering the other half to Elena while you munch happily, but she politely declines. While you dwell on the delicious seasoning of the steamy filling, you can’t help but notice that Elena is looking at you with eyes that hint at admiration and affection.<br><br>
+                And that’s how two large girls quickly make short work of the snack-filled table. The culinary journey may not last long - but it leaves a big impression on the two of you. But as you finish the meal with a lone cherry, you notice Elena is looking at you quite wistfully.<br><br>
+                <<Dialogue "Elena" "Elena">>"Grazie…"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"What’s with the sad face?"<</Dialogue>><br><br>
+                <<Dialogue "Elena" "Elena">>"Oh, no, I’m quite content. It’s just… girls really shouldn’t eat this much…"<</Dialogue>><br><br>
+                You snort, amused.<br><br>
+                <<Dialogue "player" "You">>"I don’t think most girls who are concerned about their figure have washboard abs and legs that could uproot a tree, Elena. Heck, I bet you will burn these calories before we leave the museum!"<</Dialogue>><br><br>
+                Elena tries to argue back, with a vague point that it’s not about her physique but what is proper for a lady, but quickly realizes that you won’t concede this.<br><br>
+                <<Dialogue "Elena" "Elena">>"I suppose it feels good… to go all out sometimes."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"THAT’S the spirit!"<</Dialogue>><br><br>
+                The two of you stand up, and no longer hungry, and you happily escort Elena to the nearby greenhouse entrance where the flower exhibit is being held.<br><br>
+                <<set $money -=100>>
+
+            <<elseif $money >= 15>>
+                You check your wallet - and quickly realize that you won’t be able to get as many snacks as a big girl like Elena deserves. Disappointed, you settle for a tarte tatin and a macchiato, as well as some hot chocolate for yourself. You pay the attendant 15 dollars, and bring the tray back to the table.<br><br>
+                <<Dialogue "Elena" "Elena">>"Oh. That looks delizioso…"<</Dialogue>><br><br>
+                You sit by her side, with your hot chocolate in hand, and watch as she grabs the fork. She spends a few seconds just admiring the craftsmanship of the beautiful confection, despite her hunger.<br><br>
+                The small plate and fork look even tinier in her big hands, but she very elegantly cuts a small piece of the pie, and brings it to her mouth. Instantly, her face is one of pure bliss, her legs tapping up and down like a little girl. The adorable display is almost too much for you to bear. But as she looks at you, her eyes widen, and she silently and awkwardly starts to point towards her own upper lip, confusing you. It takes a second to dawn on you that she’s trying to warn you that you have a ridiculous hot chocolate mustache, and you wipe it out with a napkin, calming her down - and making you laugh a bit.<br><br>
+                <<Dialogue "player" "You">>"I suppose we must look a bit ridiculous, you know, two big, strong, women… acting like little girls."<</Dialogue>><br><br>
+                Elena, uncharacteristically, shrugs. With complete sincerity, she just replies:<br><br>
+                <<Dialogue "Elena" "Elena">>"But isn’t that what we are? Due ragazze… two girls."<</Dialogue>><br><br>
+                You scratch your head, and realize that there is some deep wisdom in that. You’ve been growing so fast that you kinda forgot that you are still… you. You don’t need to act differently just because you can bench press a cow, society be damned. You aren’t gonna stop wearing frilly dresses just because some dude thinks you look manly.<br><br>
+                Elena finishes the tarte, and you find yourself just admiring her feminine demeanor. She really lives by that mantra - under all that muscle, you can still clearly see the dainty girl, and it stirs something inside you.<br><br>
+                She very elegantly wipes her mouth with a napkin and stands up, and you do the same. You offer an arm, and Elena gladly takes it as the two of you go towards the greenhouse where the flower exhibit is being held.<br><br>
+                <<set $money -=15>>
+
+            <<else>>
+                You quickly look at your depressingly empty wallet, and realize you can’t really afford a snack. You feel miserable about it, and return to the table with empty hands and a defeated expression. Elena, however, is quick on the uptake, and realizes what happened. She stands up promptly, and goes to the counter. You try to stop her, but for once, she seems to not hesitate at all. Before you know, she comes back with a tray with two espressos and a couple of blueberry muffins - they don’t quite seem like the type of food she would usually… oh…<br><br>
+                She got those thinking of you.<br><br>
+                It’s your turn to blush, as you sit on the chair and silently munch on the treat. You find the black coffee a tad too bitter for your taste, especially in contrast to the dessert you just had, but drink it happily and say nothing. In fact, you find yourself more interested in just watching as Elena delicately peels the paper off the muffin, and takes tiny nibbles. She looks strangely elegant doing so, with her bites betraying the obvious scale difference between her and her treat. The whole process is hypnotizing, and eventually she comes to the realization that you are just staring - which makes HER blush, and you laugh.<br><br>
+                <<Dialogue "player" "You">>"Sorry, I didn’t mean to stare!"<</Dialogue>><br><br>  
+                <<Dialogue "Elena" "Elena">>"..."<</Dialogue>><br><br>
+                You get back to your own muffin, feeling like a water buffalo in the way you eat it when compared to the lady next to you, but it doesn’t really bother you - it just increases your admiration for her. You really couldn’t think of anything you’d rather be doing than spending some time with her, differences be damned.<br><br>
+                It doesn’t take too long for both of you to finish, and you try to be gentlemanly and dispose of the trash while she cleans the crumbs off her dress, and the two of you make your way to the greenhouse.<br><br>
+            <</if>>
+			[[Continue|ElenaDate2GreenHouse]]
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            <<if $money >= 15>>
+                Oh, man! There are SO MANY OPTIONS!!! You start looking at the sweets, because they remind you of Elena’s demeanor… but then you remember just how refined her tastes are and start second-guessing yourself. Maybe just go with one of the savory options - oh, look, that’s gluten-free! But… does she even have a problem with gluten? I suppose she might prefer something with protein, like this empanada…<br><br>
+                Gosh, this is harder than you thought.<br><br>
+                After what it feels like an eternity, you end up just getting a boring couple of oatmeal cookies and two black coffees, and return to the table, unwilling to talk about it. Elena is quite confused about your frustration, but politely pretends not to notice while the two of you consume your respective snacks in silence.<br><br>
+                After the awkward break is over, the two of you proceed to the greenhouse, with Elena still wondering about what just happened.<br><br>
+                <<set $money -=15>>
+            <<else>>
+                Oh, man! There are SO MANY OPTIONS!!! You start looking at the sweets, because they remind you of Elena’s demeanor… but then you remember just how refined her tastes are and start second-guessing yourself. Maybe just go with one of the savory options - oh, look, that’s gluten-free! But… does she even have a problem with gluten? I suppose she might prefer something with protein, like this empanada…<br><br>
+                Oh wait… you just remembered - you don’t really have enough money to afford a snack for the two of you. Resigned, you come back to the table and apologize profusely, which starts a whole vicious cycle of apologies from her end. After this recursive loop that makes it feel like some sort of Canadian sport, the two of you eventually run out of things to apologize for, and awkwardly (and hungrily) move on to the greenhouse for the exhibit proper.<br><br>
+            <</if>>
+			[[Continue|ElenaDate2GreenHouse]]
+		<</replace>>
+	<</PersonalityCheck>>
+
+	<<link "I bet she would love something dainty and refined - like a tarte and an espresso…">>
+		<<replace "#choice">>
+            <<if $money >= 10>>
+                Frankly, it’s sort of amazing that this array of foodstuffs isn’t part of a museum exhibit - it would be right at home on an art museum… but this is a natural history museum, and this is the café, and there are pricetags by the items. So you still fall back to your sense of aesthetics more so than your culinary gifts when you pick an exquisite tarte tatin for Elena, coupled with an espresso as part of a promotional deal. You settle for a hot chocolate for yourself, and quickly return to the table with the items.<br><br>
+                Elena is distracted, looking at the beautiful sunlight garden, and you serve her meal with a big smile. She seems very pleased at your selection.<br><br>
+                <<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>, that looks delicious. Grazie."<</Dialogue>><br><br>
+                You have a silly smirk on your face. Somehow, her rather plain praise is enough to make you fuzzy inside, just as much as the cute way in which she grabs the miniscule fork - made even smaller by the obvious scale disparity - and starts to cut tiny pieces of the mini-pie. You can’t shake this feeling of being two girls playing with doll-sized props, and the mere idea makes you chuckle. This, in turn, makes Elena self-conscious, looking at you confused and somewhat embarrassed.<br><br>
+                <<Dialogue "player" "You">>"No, no, sorry… it was just… I…"<</Dialogue>><br><br>
+                You almost start explaining your logic, but then realize that maybe it’s better not to bring up her size after the whole discussion regarding dinosaurs, so you just improvise a bit.<br><br>
+                <<Dialogue "player" "You">>"I just… remembered something funny, that’s all!"<</Dialogue>><br><br>
+                <<Dialogue "Elena" "Elena">>"Oh. What’s that?"<</Dialogue>><br><br>
+                Stuttering, you try to get out of the trap you just laid out for yourself.<br><br>
+                <<Dialogue "player" "You">>"Oh, you know, I’ve been trying to teach myself cooking lately… yeah! And I… uh… made a mess trying to make a pie. Boy, am I clumsy! I just… flour everywhere. I even dropped an egg on the flour. He… hehe… he…"<</Dialogue>><br><br>
+                Elena gives a genuine amused smile, and part of you feels guilty for the misdirection, but that’s a small price to pay for that beautiful smile. Her teeth (which you don’t get to see that often) shine as she does, much like her brown hair against the sun. It makes you melt from the inside. You find yourself joining her with giggles, and you take a sip of your delicious hot chocolate.<br><br>
+                <<Dialogue "player" "You">>"Yeah, I’m such a klutz!"<</Dialogue>><br><br>
+                Elena is confused by the word, which you explain, is a synonym for fool. She takes immediate umbrage at that.<br><br>
+                <<Dialogue "Elena" "Elena">>"You are not a fool. You are very smart and caring."<</Dialogue>><br><br>
+                The conviction and sincerity in her voice is… touching. You are left speechless, your off-hand remark being less about self-loathing and more like a jest but… Elena clearly took it very seriously. You can see real concern in her eyes, and it cuts through your heart like a dagger. You take a few seconds just to compose yourself before you can reply.<br><br>
+                <<Dialogue "player" "You">>"Oh, no, I was just joking."<</Dialogue>><br><br>
+                <<Dialogue "Elena" "Elena">>"You shouldn’t joke about that."<</Dialogue>><br><br>
+                It’s… weird. She’s not chastising you, it comes from a real place of concern. And you just aren’t used to seeing this more assertive side of Elena. It’s… refreshing? No, it actually makes something stir inside of you, something you can’t quite describe. You admire her for it.<br><br>
+                <<Dialogue "player" "You">>"I… I won’t."<</Dialogue>><br><br>
+                The two of you finish your respective drinks in silence, and you notice your heartbeat is faster than usual. Why is this whole thing making you feel this way? You twiddle your fingers nervously as Elena takes her sweet time finishing her espresso, making you unusually anxious. As she does so, you get up immediately, and Elena follows, grabbing your hand - which makes your heart race even faster. She leads you to the greenhouse, and you find yourself almost panting.<br><br>
+                What ARE these feelings that Elena is surfacing on you?<br><br>
+                And thus, the two of you make your way to the flower exhibit.<br><br>
+                <<set $money -=10>>
+
+            <<else>>
+                Oh wait… you just remembered - you don’t really have enough money to afford a snack for the two of you. Resigned, you come back to the table and apologize profusely, which starts a whole vicious cycle of apologies from her end. After this recursive loop that makes it feel like some sort of Canadian sport, the two of you eventually run out of things to apologize for, and awkwardly (and hungrily) move on to the greenhouse for the exhibit proper.<br><br>
+            <</if>> 
+			[[Continue|ElenaDate2GreenHouse]]
+		<</replace>>
+	<</link>>
+</span>
+

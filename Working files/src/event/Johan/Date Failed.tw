@@ -1,0 +1,27 @@
+:: Date Failed {"position":"650,3175","size":"100,100"}
+You and Johan go back and forth narrating your climactic final battle. As the fight goes on, you slowly realize that there's something missing compared to the rest of the game thus far. Johan isn't acting in the same bombastic way he had earlier. He's explaining what the lich is doing with its turn, but there's no poetry in his description anymore, no flair.
+
+At the same time, you're beginning to realize that you're losing the fight. You started off strong, but the lich is quickly overpowering you, as you witness your steam fading in both reality and fiction.
+
+<<Dialogue "Johan" "Johan">>
+"For his turn, the lich raises a finger above his head, and you see a small point of orange light form. It flies toward you and explodes in front of you, and the fireball hits you for... 42 damage. And I think that will be enough to put you down."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Oh. Well, darn... I guess that's the end of it, huh?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"I guess it probably is. My friends should be here any second now, anyway."<</Dialogue>>
+
+He gathers his things up and looks at you with a smile, though you notice a melancholic undertone to it.
+
+<<Dialogue "Johan" "Johan">>
+"Sorry, this doesn't seem to be your cup of tea. But I'm glad you gave it a shot anyway. See you around?"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Uh... yeah. See you around, Johan. Thanks."<</Dialogue>>
+
+You exit his apartment, passing by a group of other people in the hallway as you do. They step by and knock on Johan's door, and you hear him excitedly greet them. As you walk off, you can't help but feel like you missed an opportunity here.
+
+<<link "Go home" "Home">><<set $johanOpinion -= 10>><<addMinutes 60>><</link>>
+
+

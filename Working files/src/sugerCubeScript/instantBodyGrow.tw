@@ -1,0 +1,32 @@
+:: instantBodyGrow [noReturn] {"position":"650,2000","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "The tall, slim bottle looks rather inviting. But it makes for an incredibly awkward drink. Hell, you even wonder where the bottles themselves come from, let alone the liquid inside! Though, is this one even a liquid? Going down, it feels more like jelly than a beverage.">>
+<<addHeightSlow setup.balance.heightAllowancePerDay>>
+
+<<if _rand >= 1>>
+<<set _message += " A shudder goes through you, and for some odd reason you get a sensation that can only be described at stretching. Your entire body just feels a little bit thinner.">>
+<<set $muscle -= 3>>
+<<set $fat -=3>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " Something else you notice is just how stiff your fingers and muscles feel, almost like you had worked them too hard or something. Odd.">>
+<<set $muscle -= 3>>
+
+
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("B-gr0w");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

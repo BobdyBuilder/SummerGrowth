@@ -1,0 +1,25 @@
+:: eventPassage [noReturnDialog] {"position":"1400,200","size":"100,100"}
+<<nobr>>
+<<script>>
+	console.log("Used event: " + State.variables.currentEvent.name);
+	console.log(State.variables.currentEvent);
+<</script>>
+<</nobr>><<print $currentEvent.content>>
+<<if !$currentEvent.content.includes('<<link ')>>
+<<link "Continue" $currentScene>><</link>>
+<</if>>
+
+<<nobr>>
+<<if $currentEvent.npc.includes('johan')>>
+	<<updateNPCLastSeen 'Johan'>>
+<<elseif $currentEvent.npc.includes('kris')>>
+	<<updateNPCLastSeen 'Kris'>>
+<<elseif $currentEvent.npc.includes('emma')>>
+	<<updateNPCLastSeen 'Emma'>>
+<<elseif $currentEvent.npc.includes('elena')>>
+	<<updateNPCLastSeen 'Elena'>>
+<</if>>
+
+<</nobr>>
+
+

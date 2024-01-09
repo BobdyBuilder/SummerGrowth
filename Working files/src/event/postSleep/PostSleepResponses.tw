@@ -1,0 +1,730 @@
+:: PostSleepResponses [nobr] {"position":"1800,2325","size":"100,100"}
+<<set setup.events.push({
+		name: 'PostSleepMuscleRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepMuscleRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'After another night of heavy sleep, you wake up even more sore than usual. So used to it, you just rub your shoulders a bit, feeling harder and bigger than ever. The stretching helps relaxing them somewhat. Dress yourself it takes a bit longer, simply because the tightness is so great that you need to warm your muscles up to get full range of motion, as a quick poke reveals that every single one of them is rock-hard to the touch. Even washing yourself takes longer, both due to your bigger body and your need to untighten every muscle.'
+	}, {
+		name: 'PostSleepMuscleRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepMuscleRepeat
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Heh. It’s starting to get a little funny, waking up sore. These days it means a few things: you\'ll have to eat more. Maybe get some new clothes. You just know you are about to find a bigger reflection. <<if $shyConfident > 0>>With a grin you flex in front of the mirror, admiring the growing mountains under your skin. Nice! It brings an urge to have a hardcore workout today, find out if you can grow more, get stronger, make every part of your body even harder. Or maybe go buy more supplements...<<else>>If you had more confidence, you\'d flex in the mirror. Perhaps one day you\'ll get there, but for now you just blush at the sight of yourself.<</if>>'
+	}, {
+		name: 'PostSleepMuscleRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepMuscleRepeat
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'As you wake up and get out of bed, you make your way towards the bathroom. Still groggy, you rub your eyes. <<if $carefreeCarefull > 0>>Tired as you are, you barely manage to miss the doorframe. If you hadn\'t paid attention, your shoulder would\'ve slammed into it, this bigger body still a novelty.<<else>>You\'re not paying attention as your shoulder slams into the doorframe, waking you up in an instant. <<if $muscle > 80>>The wood cracks, almost ripping the frame. With your mass, you should really pay more attention before crossing doors...<<elseif $muscle > 60>>The wood groans from the impact, almost cracking. If things continue at this pace, you keep getting bigger, it will be a matter of time until you start leaving a trail of destruction behind you...<<else>>You fall back a couple steps from the impact, nearly landing on your ass. Urgh, you really need to pay more attention...<</if>><</if>>'
+	}, {
+		name: 'PostSleepMuscleRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepMuscleRepeat
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'God, the hunger you feel as you wake up is indescribable! You don\'t know what prompted it, but you guess your body just needs more fuel: you\'ve been working out more lately, and with your growing body... Heh. Growing body. Funny how you it sounds so… natural? Inevitable, even! You let out an amused chuckle. But as you head to the kitchen, you can\'t help but realize it\'s a given fact: the bigger you get, the more food you need.'
+	}, {
+		name: 'PostSleepMuscleRepeat5',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepMuscleRepeat
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You wake up groggily after another day of working out. Straight away, you notice some things are different. As you shift, you can hear the subtle groaning of the ratty bedframe you\'re sleeping on. Not only that, but your clothes feel... tighter around the chest and shoulders. Deciding that it must be a combination of age and your mind playing tricks on you, probably because of how sleepy you are, you get up and decide to freshen up in the bathroom. Your eyes may be half-open, but you can swear that your reflection is close to not fitting in the mirror. Or at least, less than usual.'
+	}, {
+		name: 'PostSleepThick',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'thick'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'As you get up you let out a BIG yawn, still not completely awaken from sleep. Stretching a bit, you feel a bit heavier than you’re used to. You have been eating a bit more lately, and perhaps with all these changes, it’s to be expected. Still, if you want to prevent gaining more weight, perhaps you should change your diet. Or not, really, maybe you could use a bit more fluff.'
+	}, {
+		name: 'PostSleepFat',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'fat'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Waking up, it feels like someone turned up gravity in the world. It feels like a chore getting off your bed, and wearily you walk up to the mirror to get yourself ready. While you brush your teeth, your free hand grabs your belly, feeling more pudge than usual. Yeah, you\'ve definitely gained weight lately. You could chalk it up to that Freshman 15 effect, the stress of the move and all the weird stuff happening, it would make sense. It doesn\'t even look bad on you, but perhaps a diet might not be a bad idea.'
+	}, {
+		name: 'PostSleepObese',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'obese'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You wake up with a grunt. Not too surprising, given the effort it takes to get your bulky frame moving. Yeah you\'re clearly still gaining weight. You\'re no longer just a bit heavy... you feel like you should work on this. A diet, the gym... some focus may be necessary. But you got so much going on... Besides it doesn\'t look that bad on you, and with all those weird chemicals you drank, you somehow can swear you are still healthy as an ox! But the new clothes and amount of food necessary aren’t as exciting...'
+	}, {
+		name: 'PostSleepThin',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'thin'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You wake up with a pep in your step. You manage to get your day started without much of a hassle, a floating around like a ballerina. The gym has certainly had an effect, giving you a flat belly and some somewhat toned limbs. And you won’t have to change your wardrobe every other week!'
+	}, {
+		name: 'PostSleepAthletic',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'athletic'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You look at yourself in the mirror as you admire the fruits of your labor. Well, this was... unsurprising. Sure, you look bigger and more fit, but how much will that cost you? Bigger clothes, more food, more everything. <<if $shyConfident > 0>>Well, at least not all was bad news. Admiring your arms in the mirror, you give them a small flex. It looks… very nice. Impressive, even. It seems that the end result is not worthless!<<else>>Watching your salient muscles was just a prescient reminder of the hole you are digging yourself into. It certainly looks more pleasing, but you\'ve got bigger priorities to worry about. Like your health. Or your finances.<</if>>'
+	}, {
+		name: 'PostSleepStrong',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'strong'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You begin the day the same way as usual, rising from the bed. Your clothes feel a bit tighter than before. The definition on your limbs is starting to pop more and more, to the point that one would think you’ve been doing this for years if they didn’t know any better. <<if $shyConfident  > 0>> On the plus side, it is very clear that your efforts are paying off. You trace the outline of your biceps along your arm, enjoying the fruits of your labor<<else>> You cock your head to the side, still trying to figure out if you are pleased with the results. Of course, packing a bit of muscle has its benefits… but you wonder if said benefits truly outweigh any consequences.<</if>>'
+	}, {
+		name: 'PostSleepHeavy',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'heavy'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Your mass continues to increase day by day, that much is readily apparent as you wake up. The bed was beginning to feel smaller and smaller, with your shoulders not that far from the edge of the frame. As you head to the bathroom to begin your morning routine, you watch as your muscles begin to shift with every movement of your arms, especially your chest. Looking down, you notice the faint outline of abs forming even at rest, and a quick flex makes them jut out like cobblestones<<if $shyConfident  > 0>>, which brings a smile to your face. Sure, it was great to have some size and bulk, but having some extra definition on top of that was just the cherry on top.<<else>>. Well, great. Now in addition to becoming bigger and bigger now, you also need to worry about heavier coats for the winter, as you seem to lack the proper blubber for insulation. Well… at least the coats might help conceal your figure, because some people might get intimidated by this amount of muscle tone.<</if>>'
+	}, {
+		name: 'PostSleepBodybuilder',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'bodybuilder'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You are huge. No denying that. After waking up, you walk to the bathroom, splash some water on your face and… yeah. You’re swole. With the definition and size you have, you’d perform well in any bodybuilding competition. Hell, you’d be a serious contender even in the men\'s competition, with the extreme size and definition you got going there! It almost feels surreal, your body being this big. You’ve gone from an average girl to THIS in a matter of weeks, if that. Even just bringing your arm forward tenses your pecs, forming a jutting shelf on your chest. This… <<if $shyConfident > 0>> is utterly amazing. You would never imagine you could ever become this big. Flexing your biceps, you can feel the power welled up inside, and can’t help but smirk at the thought of how the ludicrous amounts of weight you could lift without breaking a sweat.<<else>> still doesn’t feel like you. Inside, you see yourself like the same small, petite girl you were not long ago. And yet, you can’t deny all this mass of muscles, encapsulating you in a layer bigger than what your entire body used to be. Sure, you enjoy it, but it feels like your soul just hasn’t caught up yet with this new reality.<</if>> Despite all that, you can’t shake the feeling that this is only the beginning.'
+	}, {
+		name: 'PostSleepHeroic',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'heroic'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You jump out of bed like a gymnast dismounting from the bars in a competition. Today is one of those days when you just wake up and feel AMAZING. Your arms feel tingly and tight, your chest big and impressive… as you look in the mirror, checking yourself out, you can’t help but be stunned; you actually look like one of those golden age super-heroes. Not some exaggerated and stylized modern drawing, but a golden age statuesque specimen. But frankly, even Hyperman wasn’t as defined as you are right now! It makes you want to attend some comic convention, in full cosplay. <<if $shyConfident < 0>> You’d never do it, but still. <</if>>Shelving that thought for now, you start your day, grinning.'
+	}, {
+		name: 'PostSleepStrongman',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'strongman'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Fuck, you’re big. As the bed creaks from your massive frame being lifted from it, you are hit by how small and light everything feels in your hands. As you fully wake up, the floor shakes as you walk to the fridge to look inside, and inadvertently lift it off its two front feet, unaware of how strong you’ve become. Getting to the bathroom, the bottles shake on the shelves from your mass. You are certainly not lean and dry like a competing bodybuilder. You have this layer of softness over your muscles, but any effort causes them to swell and become rock-hard. Brushing your teeth results in a ballet of twitching biceps. Washing your back makes your wings bulge. Getting back to the kitchen and putting on clothes now takes actual effort. Your size is unquestionable.'
+	}, {
+		name: 'PostSleepSumowrestler',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'sumowrestler'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'The entire apartment shakes as you put your feet down from your bed. You aren’t just big; you could only be described as ‘massive’. From your titanic legs to your immense belly and monstrous pecs, everything about you screams ‘BIG’. With a groaned of springs your bed lets you out, the weight finally relieved as the wood regains some of its shape. <<if $carefreeCarefull > 0>> No matter how much attention you pay to your surroundings, your house is riddled with traces of your sheer bulk. Damaged doorframes. Cracks on the floor. And your couch, bed and chairs barely hold up from the stress.<<else>> And with how careless you are with your size at times, it’s no wonder your furniture looks like it could break at any second. Your cracked table, from that time when you rested your feet on it. Your chair, splintered back together a couple of times already. And your bed, with its bent frame.<</if>><<if $shyConfident  > 0>> Still, you smile as you look in the mirror, admiring your own size. Gigantic doesn’t even begin to describe you. You awaken the mountains in your upper arms with a massive biceps flex. No person, male or female, has ever reached such size, and with a grin you realize… You still could go for more. Now, where are those protein shakes… ?<<else>>At times, you wonder if it was all worth it. Your hulking mass is bigger than anyone has ever been before, but it comes with its own troubles and costs, and it’s no wonder you sometimes think you’ve already gone too far.<</if>>'
+	}, {
+		name: 'PostSleepHulk',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'hulk'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Your colossal mass stirs awake as it does every morning, your muscles bulging even as you just lean your head. Your bed protests its torture with creaking groans, and after getting up you head over to the bathroom to freshen up. No matter how careful you might be, touching or stepping on any part of your home seems to have the same effect as hitting it with a hammer. Case in point, you bump your shoulder against the doorframe, causing a chunk of concrete to come right off. <<if $shyConfident  > 0>> You smirk as you see this happen. Sure, the frame could be fixed, but the sheer sight of your mass causing damage to the house… well, there was something intoxicating to it. As you reach the mirror, you decide to do a slight crab flex whilst bouncing your pecs, reveling in how absolutely enormous they seemed compared against even your own head.<<else>>CRAPCRAPCRAPCRAP!... Oh, you knew this was a bad idea. Looking around the house, you take stock of the piling damage being added to a long list. Sure, you really enjoy the feel of your muscles and your incredible strength, but you can’t help but wonder if you can keep this up.<</if>>'
+	}, {
+		name: 'PostSleepGigantic',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'gigantic'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Your beef had started to reach what could kindly be described as ‘critical mass’. The slightest movement from your body results in your bed making sounds that seem straight out of a horror movie. Once you do finally stir awake, just planting your feet down on the ground causes a massive ‘THUMP’ to be heard throughout the entire building. Walking sideways through the door in a vain attempt to avoid extending the damage you already caused is pretty much a lost cause. Your growing body commands you to go straight for the kitchen, seeking the constant sustenance it demands on a non-stop basis. You seek that fuel almost subconsciously, as half a tub of protein is gone in a blink. You envision the powdery goodness travelling straight into your muscles, making them get closer and closer to steel in their mysterious chemistry. As you dwell on these thoughts, you head to the bathroom to freshen up, but get interrupted by the mirror, which demands your full attention. With a full body flex, you test how much you can even see of yourself in its limited frame. With a smirk, you realize your pecs have more mass than regular people have in their entire bodies, your biceps are wider than a linebacker’s chest, even fully relaxed. With a deep breath, you rest your hands on your waist and spread out your lats, making your wings unfold in a veritable spectacle as you spin to watch your rugged back. As your traps reach halfway to your head, you feel like you could soon start lifting cars overhead if you put your mind to it.'
+	}, {
+		name: 'PostSleepMonstrous',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.bodytype === 'monstrous'
+		],
+		repeatable: false,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Like some sort of black hole, nothing can escape the mass of your body now. Even your morning ritual had to adapt around it, bending itself around you. For normal people it would simply be a list of chores like getting up, taking a shower, eating… but none of these apply the same to you. You must take care not to obliterate furniture as you make any move. Your feet land on cracked tiles and splintered wood as the broken remains of your bed groan back into a somewhat recognizable shape. Every step you take makes the entire building shake noticeably. Even Johan, a few rooms over, knows when you’re awake. Lumbering over to the bathroom, you try to fit through the door. Emphasis on ‘try’ as each day you widen the concrete a bit more. Looking in the mirror you see… well, some of you. You see your face, your monstrous pecs below it, but that’s about it. Your shoulders are too wide, your abs too hidden below your pecs. You are massive. It’s not even something you would consider a part of you, it’s your very defining trait, the core of your being. Mass. With each movement, gigantic muscles twitch, even with the smallest action like fanning yourself or brushing your hair. Each movement causes muscles to erupt into mountain ranges that would make every bodybuilder in the world to cry in shame. And yet, for you, it’s just another weekday ending in Y. '
+	}, {
+		name: 'PostSleepBreastsRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Big tits. You got those. So it’s no surprise that, when you wake up, you feel that pull in front of you. They feel nice, but you’re still not used to them. Well, time to get up and see if your bra still fits or if it is once again time to get a new one. The added weight, however, is telling enough.'
+	}, {
+		name: 'PostSleepBreastsRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'When you wake up, you feel oddly warm, despite the weather being somewhat cool. Your blankets are drenched, and you feel flush all over. Are you sick? Side effects from the potions? It becomes clear, however, as you open your eyes, that your hands are still kneading your breasts. In your sleep you had been fondling them, reminding you of how much heavier they feel. As you fully wake up, you prod them gently with a soft moan. You end up grinding your legs together as a wave of pleasure washed over you. Well, that was an interesting way to start of the day.'
+	}, {
+		name: 'PostSleepBreastsRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'The day starts with another reminder of your constantly growing titties. Rubbing your eyes, they swing freely as you get up, still incredibly soft despite their size. Again, you notice the odd tension in them; if you didn’t know any better, you’d think they’d have grown yet again. Do you even want more of that at this point? While you start getting ready, it\'s amazing how little that question even surprises you anymore. Your body has become clay, utterly malleable, while most would find that question downright insane. But you can’t help but smirk, wondering how much bigger your tits will get, and when.'
+	}, {
+		name: 'PostSleepBreastsRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Your breasts feel even bigger than before… somehow. Though still a tinge of shock remains, you are quickly getting very accustomed to this, just another part of your morning routine. One thing is for sure, however: You cup them, pushing them upwards a bit… and start to enjoy the feeling of them more and more. The weight they carry is impressive, and they just make your figure look even more impressive. It compliments all the other changes to your body perfectly! And to think there are thousands of women paying so much money to undergo painful surgeries for that very reason…'
+	}, {
+		name: 'PostSleepBreastsRepeat5',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'As a young girl, you dreaded your deficient puberty. Your mom and dad were both very short, and you figured you were fated for the same height. Not only that, while other girls started showing off their improving figures, you kept flat everywhere. Well, until now. Sitting up, you feel the weight of your bigger breasts. Groaning a bit, you feel them, their undeniable mass. A question bubbles up in your barely awake brain: is this really you? Never could you’ve imagined having such tits. Not breasts, no, no, sir. These cannot be shamed with such humble nomenclature. They are now deep within tits territory. Still, it’s so unexpected. Of course, those constant thoughts of jealousy haunted your teenagehood, making you ogle the other girls with disdain. But now <<if $submissiveDominant > 0>>you feel the urge to rub it in their faces if you see them again! <<elseif $shyConfident > 0>>you got plenty to show off! <<else>>You’re not sure what to make of that, really. <</if>>'
+	}, {
+		name: 'PostSleepBreastsRepeat6',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You’re woken up by something a hard impact against your head. The large and cold surface hits with a vengeance, slamming against your entire body. Oddly enough, it seemed to have hit your breasts first. As your brain starts working and your body reports the damage through your nerves, you shake yourself awake enough to figure out what happened: by trying to accommodate your sizable breasts, they plopped from the side of your bed and took you down to the ground with them. Acting as airbags, they absorbed the brunt of the impact, before your forehead and torso also hit the cold floor below. With a slight headache, and your mood ruined, you get up. Looking down, you slap your cursed breasts with annoyance. That’ll teach them. Yeah, right.'
+	}, {
+		name: 'PostSleepBreastsRepeat7',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'As you wake up, you put on an old, oversized shirt, yawning as you walk past the open bathroom door. Glancing at the mirror… you can’t help but laugh. Your new breasts push out violently against the fabric, tenting the piece of clothing in front of you to the point of not touching your abdomen. It looks hilarious, plain and simple. Your hair is a mess, you’re wearing an old T-shirt and yet, somehow, you got tits that would make the gods themselves blush. heh. NICE.'
+	}, {
+		name: 'PostSleepBreastsRepeat8',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBreastsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You wake up, drenched in sweat. Your legs are already grinding over each other as you remain in a dreamy state, a highly erotic fantasy fading from your mind. In it, you were gigantic, and the vivid memory of that size still ebbs and flows in your mind. Your body doesn’t move, your mind too enraptured by it. Your legs continue to grind against each other, but that is not the place this erotic heat is coming from. It\'s your breasts. They rest on your chest, almost burning up with how hot they feel. Hot and amazing. Your nipples are rock-hard, skin covered in a thin film of sweat, and they even feel… full, for some reason. Finally, your hands join in, exploring your breasts. A shiver goes through your body, goosebumps travelling everywhere. Whatever this is, it’s vivid. The memories of the dream have now faded, but the effects linger as you explore your own body. Soon your hands find your nipples, and immediately you climax, your body tensing up as all your muscles shiver. Your toes curl, your hands tighten, you bite your lips as the climax sweeps you. What a start to your day.'
+	}, {
+		name: 'PostSleepHeightRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Its odd how much growing taller changed your life. So many little things change, yet you barely realize it throughout most of the day. So many distractions, so many things happening… yet when you wake up, each day you reminisce about your former height. When you wake up, your current body shocks you. The muscles, the mass, the height. Each day you get out of bed, you stand taller and prouder, almost losing balance for a second. Sometimes it makes you smile, sometimes it worries you. And other days you just try and get going, you have so much shit to take care of. But not this morning. Today you linger there for a bit, at your full <<heighNumeral>>. It’s such a different perspective, and it only makes you wonder… how big will you end up?'
+	}, {
+		name: 'PostSleepHeightRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You wake up, calmly getting out of bed. For once, you feel calm and well rested. With a smile, you get up and stretch a bit, heading towards the fridge. Then you swear loudly as you fall backwards onto the floor after hitting your forehead against something. Right, the new height, that. Gently, you rub the painful spot, making sure there isn’t any blood. Right, fucking hell, you’re taller again. It\'s surprising how often you forget to account for that still.'
+	}, {
+		name: 'PostSleepHeightRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Another day, another time waking up to that familiar soreness. You’ve become quite good at figuring it out; let\'s see, it\'s not in the muscles themselves, but around the joints, especially legs… yeah, growth pains. With a tired grunt, you get up, rubbing your legs. It’s likely you’ve grown again. Or, that your body simply has random aches again? Those have become surprisingly commonplace; one of the few negative side effects of all that has been happening. Well, you get up, hoping that as you get on with your day the unease will fade.'
+	}, {
+		name: 'PostSleepHeightRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Waking up, everything feels fine, that is, until you stretch a bit to get the blood flowing. Suddenly, you feel a sharp stab in your spine, a jolt of pain going through your body. Immediately you stop moving, instead focusing on relieving that pain. It fades as quickly as it came. Urgh… yeah, this might happen more often. Quickly, you rub the sore spot, trying to remove the pain. With all these growth spurts, it’s not too surprising you keep going through this. How tall are you even? You haven’t measured it yet today, but given how you feel, it might be quite a bit.'
+	}, {
+		name: 'PostSleepHeightRepeat5',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You wake up on a new morning by stretching your arms, thrusting your chest outwards… only for you to immediately feel a stiff breeze on your nipples that cause you to pull back and cover yourself. Looking down… goddamit, they are getting sizable. Not only did they look bigger than most women you have ever seen, but they also remain surprisingly perky. As in, they still looked like perfect orbs even whilst floating unsupported. You touch them to see what could be causing this and… well, they felt as soft as ever. Maybe your chest muscles are serving as support for them?'
+	}, {
+		name: 'PostSleepHeightRepeat6',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'As you wake up, you do so with an odd sensation of unease you’re not used to. Your entire body is shivering, and you just feel cold all over. Your still waking brain thinks of a fever, or perhaps a window was left open? All of your body feels cold. Well… that’s not true. Not your entire body. Come to think of it, it’s mostly your feet and legs, the cold creeping up from there. Opening your eyes, you look down and… ah. Before you started growing, you always loved bundling blankets around you, but with your new height, that leaves your legs bare. You can’t help but smile at how absurd this is. Old habits leaving you cold in the night.'
+	}, {
+		name: 'PostSleepHeightRepeat7',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'You’d never imagined something like this could happen. Not even five minutes after waking up, sitting in the kitchen, holding ice to your head. The funny thing about height is that you easily have an ingrained sense of where everything is for your height. For example, never before did it even occur to you that the door of a cupboard would be head-height. Groaning, you’re quite sure you’ll have a bump there for the remainder of the day. Right, note to self: when you grow more, be more mindful of your surroundings.'
+	}, {
+		name: 'PostSleepHeightRepeat8',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepHeightRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'YES. YES, YES, YES. FINALLY, IT IS TIME! You jump around the room a few times, elated. You couldn’t believe the day would come but it’s FINALLY here! Finally you have conquered your greatest nemesis, defeated your most potent enemy! The top of the cupboards. They are finally within reach! Before they stood as a land of dark and deep mysteries, holding treasure ever beyond your reach! But now you conquered them, the spoils of stale breakfast cereal finally in your hands!<br><br>Heh. Maybe you’re eating a bit too much sugar. You could almost give Johan a run for his money, being this dramatic.'
+	}, {
+		name: 'PostSleepDickRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Waking up with morning wood is now a daily occurence, despite how insane that sounds. Pulling off the blankets, you find your dick there, rock-hard with veins pulsing. You should just get up and start your day, but it pretty much demands your full attention. Even just sitting up, the cool air rolls over it, sends a shiver down your spine that makes your toes curl and causes you to bite your lips. Come on, you need to get going, but surely a small touch wouldn’t be bad? Your hot breath envelopes it, your chest heaving as the lust keeps building. Men don’t experience this, surely? This is pure you. Muscles tighten and goosebumps travel around, simply from sitting there. Just a small touch wouldn’t hurt? A single finger settles at the base, slowly working is way up the shaft, up and up until it reaches the head. Your eyes roll back, your body shivering from delight. It just feels to good to ignore, so incredibly orgasmic. Drool dribbles from the corner of your mouth, but you barely notice it. Or the fact that you’ve slid onto the floor, the cold stone only adding to the sensations against your buttocks. Another quick stroke and your mind is unable to think or resist. And another. And another. Before you realize it, your concept of time has disintegrated and you’re furiously stroking your dick, gritting your teeth. When you come to (in more ways than one), tired and covered in sweat and your own juices, your chest heaves. Fuck…. this will require some cleaning, but DAMN did this feel amazing!'
+	}, {
+		name: 'PostSleepDickRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Waking up, you barely need to open your eyes to know exactly what happened. Around your groin you feel… well, your rock-hard dick tenting the blanket. Your mouth is dry. And your entire room smells of spunk. Yeah, you had a VERY vivid dream tonight and it seems you came in your sleep. Near your dick the entire blanket is stained with cum. And it seems your dick is up and ready for some more. With a big sigh you get up, dick swinging around, as you gather your blankets to take them to the laundry. You’ll need to wash yourself too, as your dick is still dripping… with a deep sigh, you get on with your day. You might have a dick that is far too sensitive, but you still got other stuff to take care of.'
+	}, {
+		name: 'PostSleepDickRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Waking up rock-hard isn’t that surprising anymore, but what is uncommon is waking up and just feeling the weight of your dick on your leg. It’s surprisingly heavy, even when limp. Your hand goes to it, gently feeling the thick, spongy mass. The weight presses against your leg, remarkably vivid. It reminds you that this is not a dream, and that you do in fact have your very own penis. As your stand up, so does your dick, slowly getting hard from the stimuli. Softly, you whisper ‘Morning, buddy!’ as you get up, the now turgid dick swinging around a bit. Well, at least it didn’t get fully erect, then you’d have something else to deal with.'
+	}, {
+		name: 'PostSleepDickRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'After waking up, you put your clothes on, some underwear and bottom. Normally, this would be rather uneventful but now… looking at yourself in the mirror, you see the clear outline of your dick through your pants. You got one now, you mostly accepted that, but this is VERY… how to put it? In your face? Urgh… after fumbling around a bit, careful to not make it harden, you fit it in a somewhat more presentable position, but still bulging somewhat. How do guys deal with this? As you sit down, you grab your phone, searching for ‘how to hide a dick’. Let’s see, the waist-band tuck, wearing a cup… huh. None of those sound like they’ll work for you. Seems like it’s just something you will have to deal with from now on.'
+	}, {
+		name: 'PostSleepDickRepeat5',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepDickRepeat6',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepDickRepeat7',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepDickRepeat8',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepDickRepeat9',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Though you don’t recall having any sexually-charged dreams the night before, you wake up to the feeling of a fierce, throbbing erection under your sheets. Your cock feels primed to explode, both in a literal and metaphorical sense. It must’ve done quite a bit of growing overnight. Grunting, you pull your sheets off and clench your teeth, fighting back the threat of an imminent handsfree ejaculation. Once it seems like things are under control, you stumble out of bed and head to the bathroom. Your member is still standing to attention, its tip dangerously close to your chest. You rummage through a cabinet and locate a simple measuring tape, wrapping it around your fingers and drawing the end to the base of your penis. The number you read at the top makes you gasp. It came out to <<numeralConversion setup.getTempDick()>>, in total. Easily more cock-flesh than most men could claim to have, and now it was yours, for better or worse…'
+	}, {
+		name: 'PostSleepDickRepeat10',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepDickRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'While waking up this morning, you felt a peculiar heat beneath your chin. Rubbing your eyes and looking down, you are startled to discover that this heat just happens to be emanating from the large, pale red tip of your gargantuan phallus. The rest of your shaft, thicker than a soda can, lies flush against your body, pulsing gently. The beast slumbers, at least for now, but you can’t fathom as to how you were supposed to stuff this into any pair of pants you currently own. It swings freely between your legs as you walk to the bathroom, like a grandfather clock. You shudder to think what it might look like when it is fully erect. Are you more of a grower or a shower? Perhaps you will find out soon enough…'
+	}, {
+		name: 'PostSleepBallsRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepBallsRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepBallsRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepBallsRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepBallsRepeat5',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'This morning, you make the rather painful discovery that squeezing your legs together upon waking up is far from a wise decision. Your freshly-grown plums need their space now, and are keen to remind you when that space is violated by your thighs. <<if $carefreeCarefull > 0>> Thankfully, you are more than careful enough to avoid any unwanted squeezing, and give your balls plenty of room to breathe.<<else>>Unfortunately, you are not always keen enough to avoid clamping down on your hefty jewels whenever you move your legs, and find it difficult to adjust when sitting down.<</if>>The literal fruits of your loins sway vigorously as you brush your teeth this morning, in sync with your every motion.'
+	}, {
+		name: 'PostSleepBallsRepeat6',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'The weight you feel beneath your crotch every morning has grown fairly significant, with the size of your balls looking to rival the kind used to play tennis any day now. They hang from beneath the base of your cock like a pair of pendulous bells. Their heft has become more than apparent, and their increasing size was bound to create quite the suspicious outline in whatever pair of pants you chose to wear. Virility and femininity didn’t typically go hand-in-hand, but maybe, with a convincing demeanor and concealing dress, you could make it work.'
+	}, {
+		name: 'PostSleepBallsRepeat7',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepBallsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Waking up without your legs being spread apart is a complete impossibility at this point. Your overripe testicles, each approaching the size of a cantaloupe, force your legs to stay apart whenever you sit or lay down. This morning, when you woke up, you accidentally pushed your legs together as you stumbled out of sleep. The sudden pressure made you moan unexpectedly, and caused a stream of precum to pour out of your cock. They feel incredibly tight, but then again, that was pretty much a constant, these days. You rub one of your massive orbs, feeling…<<if $shyConfident > 0>>proud. Empowered, even. The size and tautness make you smile, and compel you to give another light squeeze, making you dribble one more time. Your productivity could put breeding bulls to shame.<<else>>Worried. How were you going to stuff these into a pair of jeans or leggings? Even if you could, the outline would be impossible to miss, and all this leaking… <</if>>'
+	}, {
+		name: 'PostSleepLipsRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepLipsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepLipsRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepLipsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepLipsRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepLipsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'Rising from sleep this morning was uneventful, and nothing seemed out of place, right up until you entered the bathroom and looked in the mirror. Your mouth, previously simple and unassuming, seems to have been framed by reddish, fairly full lips. They pop out from the rest of your face, very plump, but not necessarily unappealing. As you brush your teeth, though, you get the gut feeling that this could easily get out of hand given your recent record.'
+	}, {
+		name: 'PostSleepLipsRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepLipsRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'The thickness of your lips is apparent as soon as you wake up, now with the edges of your pillowy kissers visible in the bottom corners of your field of vision. To get the full perspective on their size, though, you head into your bathroom and gaze into the mirror. They’re very plump, now, to a degree not many other women could boast. With a bit of makeup, you could easily pass as a glitzy reality TV bimbo. This makes you think…<<if $shyConfident > 0>> maybe a bit of makeup was in order. After all, lips like these were pretty much one of a kind, and deserve to be flaunted. One way or another, you are going to look gorgeous!<<else>> how are you going to keep this under wraps?! People would probably think you were injecting botox or whatever it is those influencers do, especially if they keep growing at this rate.<</if>>'
+	}, {
+		name: 'PostSleepTongueRepeat1',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepTongueRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepTongueRepeat2',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepTongueRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepTongueRepeat3',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepTongueRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepTongueRepeat4',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepTongueRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepTongueRepeat5',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepTongueRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'It was a peaceful sleep, and you feel well rested. Getting ready you brush your teeth and… urgh, that tongue of yours keeps getting in the way. You never quite figured out how it fits there at all, given how big it is, but it’s rather annoying when you brush your teeth. Something to get used to, you guess.'
+	}, {
+		name: 'PostSleepTongueRepeat6',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.postSleepTongueRepeat
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: 'This time you are woken up by a rather strange feeling; a dampness on your pillow. Groggily, you open your eyes and… oh. Your tongue was merely hanging from your mouth, drooling all over it. Normally, that wouldn’t be such a problem, but for one as big as yours… yeah. Well, time to do some extra laundry this morning…'
+	}, {
+		name: 'PostSleepExpertCook',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.skills[2].level >= 4
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepExpertWorkout',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.skills[0].level >= 4
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepExpertSewing',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.skills[6].level >= 4
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+	}, {
+		name: 'PostSleepExpertBookKeeping',
+		locationTags: ['postSleep'],
+		conditions: [
+			() => State.variables.skills[2].level >= 4
+		],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'response',
+		npc: [],
+		content: ''
+})>>
+
+

@@ -1,0 +1,69 @@
+:: Best End {"position":"1700,3125","size":"100,100"}
+<<Dialogue "player" "You">>
+“You are one of the sweetest people I’ve ever met. And I pity anyone who can’t see that through the fact that you look a little different.”<</Dialogue>>
+
+She sniffles again, averting her eyes from you.
+
+<<Dialogue "Elena" "Elena">>
+“This is not a little different. And besides, you don’t - ”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Come on. Look at me. We’re going through this together, and we’re going get over it together, one way or another. You and me against the world.”<</Dialogue>>
+
+That causes her to jump back.
+
+<<Dialogue "player" "You">>
+“Come on, we’re practically made for one another. Have you ever seen a better power couple?”<</Dialogue>>
+
+Her eyes dart back and forth, now suddenly nervous as she slouches again.
+<<Dialogue "ElenaHappy" "Elena">>
+“Well… I did agree to a date, right? I guess… If there is one person I would trust, it is you.”<</Dialogue>>
+
+You hold her chin gently in your hand, and she looks you in the eyes again. You stand there, staring at each other for a quiet moment, before she suddenly throws her arms around you in a tight embrace. She buries her face in you, resting it in what space there is between your shoulder and neck, her arms clutching you in what feels like an attempt to snap you in half. After taking a moment to collect yourself, you return the favor, and hug her across her broad back.
+
+After a long embrace, Elena is the one to break it off, wiping her eyes and collecting herself with a deep breath that makes her chest puff up even more.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“I’m sorry. That was… I don’t know what came over me.”<</Dialogue>>
+
+You continue to hold her, with your hands resting on her forearms.
+
+<<Dialogue "player" "You">>
+“It’s okay. It’s kind of a lot of emotion, all at once. It took a lot for me to not do that too.”<</Dialogue>>
+
+She tries to restrain a laugh, but is interrupted by a chime from her phone. She quickly checks the alarm, which gets dismissed in a hurry.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Ah… Do you have anywhere to be today?”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“No, I should be free for the day.”<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Good. I think I am too.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Great! Because you’re picking our next spot. But before we leave here… I should probably be a lady and buy you a gift, how about that?”<</Dialogue>>
+
+You quickly scoop up one of the flowers she was eyeing before she can protest, and wave it to the shop owner. She eyes it with curiosity. Her face breaks out into a grin.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“White chrysanthemum. Heh… Do you know anything about flower language?”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Uh… no? Is that a thing? I think I remember something from a book I read back in elementary, but I’m not sure.”<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Well… it’s about what different flowers mean when you give them to someone…”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Oh, boy. What does this one mean?”<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Let’s say… that you think I’m adorable.”<</Dialogue>>
+
+You can feel your face blushing, mirroring Elena’s. As you quickly pay for your purchase, you two of you leave the establishment, both fighting the urge to burst out into a fit of giggles, like a pair of silly teenagers. You don’t know what the future holds for either of you at this point, but you have a good feeling that there is nothing you can’t do with Elena by your side.
+
+<<link "Go home" "Home">><<addMinutes 180>><</link>>
+
+

@@ -1,0 +1,22 @@
+:: assDescription [widget] {"position":"3550,525","size":"100,100"}
+<<nobr>>
+<<widget "assDescription">>
+
+<<if $ass < 0>><<set $ass to 0>><</if>>
+
+<<if $ass <= 0>>petite
+<<elseif $ass <= 1>>compact
+<<elseif $ass <= 2>>average
+<<elseif $ass <= 3>>shapely
+<<elseif $ass <= 4>>heart-shaped
+<<elseif $ass <= 5>>voluminous
+<<elseif $ass <= 6>>huge
+<<elseif $ass <= 7>>pants-straining
+<<else>>gigantic
+<</if>>
+
+
+<</widget>>
+<</nobr>>
+
+

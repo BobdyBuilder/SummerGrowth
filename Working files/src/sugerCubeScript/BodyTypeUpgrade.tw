@@ -1,0 +1,134 @@
+:: BodyTypeUpgrade [nobr] {"position":"1000,100","size":"100,100"}
+<<set _oldBodyType to $bodyType>>
+
+<<if $muscle <= 20>>
+	<<if $fat <= 20>> <<set $bodyType to "skinny">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/i5qqYTk.png")');
+		<</script>>
+	<<elseif $fat <= 40>> <<set $bodyType to "average">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/jHO7pC7.png")');
+		<</script>>
+	<<elseif $fat <= 60>> <<set $bodyType to "thick">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/It9RIWK.png")');
+		<</script>>
+	<<elseif $fat <= 80>> <<set $bodyType to "fat">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/FabEhol.png")');
+		<</script>>
+	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+		<</script>>
+	<</if>>
+<<elseif $muscle <= 40>>
+	<<if $fat <= 20>> <<set $bodyType to "thin">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/OakOwTF.png")');
+		<</script>>
+	<<elseif $fat <= 40>> <<set $bodyType to "average">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/jHO7pC7.png")');
+		<</script>>
+	<<elseif $fat <= 60>> <<set $bodyType to "thick">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/It9RIWK.png")');
+		<</script>>
+	<<elseif $fat <= 80>> <<set $bodyType to "fat">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/FabEhol.png")');
+		<</script>>
+	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+		<</script>>
+	<</if>>
+<<elseif $muscle <= 60>>
+	<<if $fat <= 20>> <<set $bodyType to "athletic">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/h2XOcnQ.png")');
+		<</script>>
+	<<elseif $fat <= 40>> <<set $bodyType to "strong">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/VvmFctV.png")');
+		<</script>>
+	<<elseif $fat <= 60>> <<set $bodyType to "heavy">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/sbs0vBc.png)');
+		<</script>>
+	<<elseif $fat <= 80>> <<set $bodyType to "fat">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/FabEhol.png")');
+		<</script>>
+	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+		<</script>>
+	<</if>>
+<<elseif $muscle <= 80>>
+	<<if $fat <= 20>> <<set $bodyType to "bodybuilder">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/3dIVFPP.png")');
+		<</script>>
+	<<elseif $fat <= 40>> <<set $bodyType to "heroic">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/ucpwIbR.png")');
+		<</script>>
+	<<elseif $fat <= 60>> <<set $bodyType to "strongman">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/fLgwIgo.png")');
+		<</script>>
+	<<elseif $fat <= 80>> <<set $bodyType to "sumowrestler">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/3qjvbd8.png")');
+		<</script>>
+	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+		<</script>>
+	<</if>>
+<<elseif $muscle <= 100>>
+	<<if $fat <= 20>> <<set $bodyType to "hulk">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/cwIZIxc.png")');
+		<</script>>
+	<<elseif $fat <= 40>> <<set $bodyType to "gigantic">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/eAtmGEL.png")');
+		<</script>>
+	<<elseif $fat <= 60>> <<set $bodyType to "monstrous">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/KBSc78i.png")');
+		<</script>>
+	<<elseif $fat <= 80>> <<set $bodyType to "sumowrestler">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/3qjvbd8.png")');
+		<</script>>
+	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+		<</script>>
+	<</if>>
+<<else>>
+	<<if $fat <= 20>> <<set $bodyType to "hulk">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/cwIZIxc.png")');
+		<</script>>
+	<<elseif $fat <= 40>> <<set $bodyType to "gigantic">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/eAtmGEL.png")');
+		<</script>>
+	<<else>><<set $bodyType to "monstrous">>
+		<<script>>
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/KBSc78i.png")');
+		<</script>>
+	<</if>>
+<</if>>
+
+<<if _oldBodyType != $bodyType>>
+	<<addTrigger $bodyType false false>>
+<</if>>
+
+

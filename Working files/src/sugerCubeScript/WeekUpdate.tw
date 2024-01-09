@@ -1,0 +1,7 @@
+:: WeekUpdate [nobr] {"position":"800,0","size":"100,100"}
+<<set _rentMessage to "<b>Rent is due! " + $rentAmount + " has been withdrawn from your account.</b>">> 
+<<addToLog _rentMessage>>
+<<set $money -= $rentAmount>>
+<<update>>
+
+

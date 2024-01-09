@@ -1,0 +1,10 @@
+:: jobBodyDescr [nobr] {"position":"1500,1600","size":"100,100"}
+<<if $height <= 225 and $height >= 200>>
+	Offices really are not made for people your size; Your desk, your cubicle... everything just feels incredibly cramped!
+<<elseif $height <= 250 and $height >= 225>>
+	Offices really are not made for people your size; Your desk, your cubicle... everything just feels cramped! And that’s not even dealing with the doorways, which are a challenge of their own!
+<<elseif $height >= 250>>
+	Offices really are not made for people your size; Your desk, your cubicle... everything just feels cramped! You are almost forced to crawl through the building!
+<</if>>
+
+

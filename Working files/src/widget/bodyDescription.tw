@@ -1,0 +1,16 @@
+:: bodyDescription [widget] {"position":"3150,425","size":"100,100"}
+<<nobr>>
+<<widget "bodyDescription">>
+
+<<BodyTypeDescription>> <<bodyHairDescription>> <<heightDescription>><<outfitDescription>>
+<br><br>
+<<headDescription>>
+<br><br>
+<<upperBodyDescription>>
+<br><br>
+<<lowerBodyDescription>>
+
+<</widget>>
+<</nobr>>
+
+

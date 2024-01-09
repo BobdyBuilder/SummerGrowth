@@ -1,0 +1,10 @@
+:: NatWristInjury-NatCope [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"You know what, <<print $playerFirstName>>? You are right. I SHOULD be careful with this. Last thing I need is to mess a tendon and ruin all my chances at this competition."<</Dialogue>><br><br>
+You are shocked - you knew you had to try… but you didn't really expect to get across to <<rivalMe>>! You jump and give <<rivalMe>> a hug - and <<rivalI>> smiles back at you.<br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Still… this is going to put a serious dent in my training… I'm going to have to figure out a routine around this… and maybe seek some physical therapy - damn, that's going to eat into my schedule..."<</Dialogue>><br><br>
+You don't even care right now, you are just happy that Nat has accepted <<rivalMy>> limitation and dealt with the frustration like the adult you know <<rivalI>> is. You can't deny, that just makes <<rivalMe>> seem even hotter to you right now…<br><br>
+You shake your head, trying to dispel that feeling, as you continue to drag your childhood friend along while you seek some medical attention.
+
+<<link "Go home" "Home">><<set $flag.NatWristInjuryRoute to 'coop'>><</link>>
+
+

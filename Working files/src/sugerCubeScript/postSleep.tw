@@ -1,0 +1,265 @@
+:: postSleep [noReturnDialog] {"position":"1125,600","size":"100,100"}
+<<nobr>>
+
+<<set _foodCostModShort to (1 + (($muscle - 20) * 0.01) + ($heightMod - 1) + (($fat - 20) * 0.01))>>
+
+<<set $foodTimeMod to _foodCostModShort * 5 / (_foodCostModShort + 4.1)>>
+
+<<if $furniture.includes("professional kitchen appliances")>>
+	<<set $cookingToolsTimeReduction to 0.5>>
+<<elseif $furniture.includes("good kitchen appliances")>>
+	<<set $cookingToolsTimeReduction to 0.8>>
+<<elseif $furniture.includes("basic kitchen appliances")>>
+	<<set $cookingToolsTimeReduction to 0.9>>
+<</if>>
+
+Decide how you want to start your day. It takes at least 15 minutes to get ready.
+
+<h3>Food</h3>
+<<set _newMealsPrepped to []>>
+<<set _mealsThrownAway to 0>>
+<<for _i to 0; _i < $mealsPrepped.length; _i ++>>
+        <<capture _i>>  
+			<<set _expirationDate is new Date($mealsPrepped.expiration)>>
+			<<if $gameDate > _expirationDate>>
+				<<set _mealsThrownAway += 1>>
+			<<else>>
+				<<set _newMealsPrepped.push($mealsPrepped[_i])>>
+			<</if>>
+        <</capture>>
+<</for>>
+
+<<set $mealsPrepped to _newMealsPrepped>>
+
+<<if _mealsThrownAway > 0>> Unfortunately, you have to throw away <<print _mealsThrownAway>> that have spoiled and gone bad.<</if>> Pick what you want to eat today:
+<br>
+<<set _diets to []>>
+<<for _i to 0; _i < $diets.length; _i ++>>
+        <<capture _i>>  
+			<<set _diets.push($diets[_i].name)>>
+        <</capture>>
+<</for>>
+
+<<set _useMealPrep to false>>
+<<if $mealsPrepped.length > 0>>
+	<<set _diets.push("Eat one of your " + $mealsPrepped.length + " previously prepared meals." )>>
+<</if>>
+
+<<listbox "$currentDietName" autoselect>>
+	<<optionsfrom _diets>>
+<</listbox>>
+
+<<timed 0s>>
+<<script>>
+var boxes = $("select#listbox-currentdietname");
+    boxes.on("change", function () {
+	var mod = $(this).children(":selected").val();
+	if(mod > State.variables.diets.length -1){
+		State.temporary.useMealPrep = true;
+	}
+	else {
+	State.variables.currentDiet = State.variables.diets[mod];
+	State.temporary.useMealPrep = false;
+	}
+	
+	  console.log(State.variables.diets[mod]);
+	$(".macro-live").trigger(":liveupdateinternal");
+	});
+<</script>>
+<</timed>>
+<br>
+<<liveblock>><span id="foodHidden" style="visibility: hidden;"><<getMeasurement "weight" false>></span>
+<<set $foodCostMod to ($weight / 93)>>
+<<if _useMealPrep>><<set $foodCost to 0>>You can just eat some of the meals you prepared earlier: quick, easy and healthy! - $0, 00:<<print Math.round(10 * $foodCostMod)>> 🕛
+<<else>>
+<<set $foodCost to ($currentDiet.price * $foodCostMod * $difficultyMod * $cookingSkillPriceReduction)>>
+<<print $currentDiet.description>> - $<<print Math.round($foodCost)>>, 
+
+<<set _cookingTimeHours to Math.floor(($currentDiet.time * $foodTimeMod * $cookingSkilltimeReduction * $cookingToolsTimeReduction) / 60)>>
+
+<<if _cookingTimeHours < 10>>
+	<<set _cookingTimeHours to "0" + _cookingTimeHours>>
+<</if>>
+
+<<set _cookingTimeMinutes to Math.round($currentDiet.time * $foodTimeMod * $cookingSkilltimeReduction * $cookingToolsTimeReduction) - (_cookingTimeHours * 60)>>
+
+<<if _cookingTimeMinutes < 10>>
+	<<set _cookingTimeMinutes to "0" + _cookingTimeMinutes>>
+<</if>>
+
+<<print _cookingTimeHours>>:<<print _cookingTimeMinutes>> 🕛 
+
+<</if>><</liveblock>>
+
+
+<br><br>
+
+<<if $furniture.includes("Coffee machine")>>
+<<checkbox "$morningRoutineCoffee" false true autocheck>> Make coffee - 00:10 🕛<br><br>
+<</if>>
+
+<<set _supplies to false>>
+<<for _i to 0; _i < $gymStoreSupplies.length; _i ++>>
+		<<capture _i>>	
+		<<if $gymStoreSupplies[_i].amount > 0>>
+			<<set _supplies to true>>
+			<<break>>
+		<</if>>
+		<</capture>>
+<</for>>
+
+<<if _supplies>>
+<h3>Supplements</h3>
+<<for _i to 0; _i < $gymStoreSupplies.length; _i ++>>
+		<<capture _i>>	
+		<<set _numberBoxString to "$gymStoreSupplies[" + _i + "].takeDaily">>
+		<<if $gymStoreSupplies[_i].amount > 0>>
+				<<set _max to Math.min(10, $gymStoreSupplies[_i].amount)>>
+			Take <<limitedNumberbox  _numberBoxString $gymStoreSupplies[_i].takeDaily 0 _max>> of <<print $gymStoreSupplies[_i].name>>. You have <<print $gymStoreSupplies[_i].amount>> left. <<liveblock>><<if $gymStoreSupplies[_i].takeDaily < 10 && $gymStoreSupplies[_i].takeDaily > 0>> - 00:0<<print $gymStoreSupplies[_i].takeDaily>> 🕛 <<elseif $gymStoreSupplies[_i].takeDaily > 9>> - 00:<<print $gymStoreSupplies[_i].takeDaily>> 🕛<</if>><</liveblock>>
+			<br>
+		<</if>>
+		<</capture>>
+<</for>>
+<br>
+<<timed 0s>>
+<<script>>
+var boxes = $(".macro-limitedNumberbox");
+    boxes.on("change", function () {	
+	$(".macro-live").trigger(":liveupdateinternal");
+	});
+<</script>>
+<</timed>>
+
+
+
+<</if>>
+
+
+<h3>Get ready activities</h3>
+<<if $shyConfident > 1>>
+<<checkbox "$morningRoutineCheckSelf" false true autocheck>> Admire yourself in the mirror for a bit - 00:20 🕛<br><br>
+<</if>>
+
+<<if $lactationSetting is true>>
+  <<if $lactationMorningRoutine == true>>
+  	<<checkbox "$lactationMorningRoutineEmptying" false true autocheck>> Empty your breasts before you go. - 00:20 🕛<br><br>
+  <</if>>
+
+  <<timed 0s>>
+	<<script>>
+	var boxes = $(".macro-checkbox");
+		boxes.on("change", function () {
+		$(".macro-live").trigger(":liveupdateinternal");
+		});
+	<</script>>
+  <</timed>>
+<</if>>
+
+<<liveblock>>
+<<set $morningRoutineSuppliesTaken to 0>>
+<<for _i to 0; _i < $gymStoreSupplies.length; _i ++>>
+		<<capture _i>>	
+
+			<<set $morningRoutineSuppliesTaken += $gymStoreSupplies[_i].takeDaily>>
+
+		<</capture>>
+<</for>>
+
+<<set _timeTaken to 15 + $morningRoutineSuppliesTaken>>
+
+<<if _useMealPrep>>
+	<<set _timeTaken += (Math.round(10 * (($foodCostMod -1)/3)))>>
+  <<set _motivationChange to 0>>
+  <<set _minimumExhaustionChange to 0>>  
+<<else>>
+  <<set _timeTaken += Math.round($currentDiet.time * $foodTimeMod * $cookingSkilltimeReduction * $cookingToolsTimeReduction)>>
+  <<set _cookingXPGain to Math.round($currentDiet.time/4)>>
+  <<set _motivationChange to 0 + $currentDiet.happinessGain * $cookingSkillMotivationBonus>>
+  <<set _minimumExhaustionChange to 0 + $currentDiet.minimumExhaustion>>
+<</if>>
+
+<<if $morningRoutineCoffee>>
+	<<set _timeTaken += 10>>
+	<<set _motivationChange += 10>>
+<</if>>
+
+<<set _timeTaken to Math.round(_timeTaken)>>
+
+<<gameLink "Get ready for the day" "postSleepDescription" motivation:_motivationChange minexhaustion:_minimumExhaustionChange time:_timeTaken>>
+    <<dailyConsumables>>
+    <<skillIncrease "Cooking" _cookingXPGain>>
+    <<sleepUpdate>>
+    <<if _useMealPrep>>
+        <<set $mealsPrepped.deleteAt($mealsPrepped.length - 1)>>
+    <</if>>
+    <<if $lactationMorningRoutineEmptying>>
+        <<set $milkStored to 0>>
+    <</if>>
+    <<set $eventCounter to setup.balance.eventTresshold + 1>>
+    
+/* Post sleep clothing update. As this is the place where the player has grown, a popup will appear telling the player their size after sleep IF it's relevant. 
+This block can be easily cut and pasted to other places. Also, maybe make to a method? Cleaner. - just try it out. Bob. */
+    <<script>>
+        var postSleepOutfitDescription = '';
+
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bra()))){
+            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today you just can't get it to fit without it being hella painful. You don't think this will fit you anymore, you'll have to get something new for sure. `;
+            State.variables.outfit.braId = undefined;
+        }
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bra()))){
+            postSleepOutfitDescription += `Putting on your ${State.variables.outfit.bra().name} again is normally pretty easy, but today it takes some more effort. You'll have to replace it soon. `;
+        }
+
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.underwear()))){
+            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is painfully tight. It feels like it's cutting off circulation, so you have little choice but to throw it away. Shame, it used to fit well. `;
+            State.variables.outfit.underwearId = undefined;
+        }
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.underwear()))){
+            postSleepOutfitDescription += `As you stand up you notice your ${State.variables.outfit.underwear().name} is pretty tight. It's pretty close to uncomfortable, so something new will be needed soon. `;
+        }
+
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.top()))){
+            postSleepOutfitDescription += ` And putting on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} just doesn't fit anymore! You try a few times, but this is not going to work and you have no choice but to try something else. `;
+            State.variables.outfit.topId = undefined;
+        }
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.top()))){
+            postSleepOutfitDescription += `And putting on your top you quickly notice, even as groggy as you are from waking up, that your ${State.variables.outfit.top().name} is way tighter than you remember! You try it a few times, but you'd do well to get something else. `;
+        }
+
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))){
+            postSleepOutfitDescription += `Finally, Putting on your  ${State.variables.outfit.bottom().name} should've been easy, but as you try to get your legs in you discover that this no longer fits. Shame. `;
+            State.variables.outfit.bottomId = undefined;
+        }
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))){
+            postSleepOutfitDescription += `finally, Putting on your ${State.variables.outfit.bottom().name} should've been easy, but as you try to get your legs in you discover that this barely fits. Well, time to get something new. `;;
+        }
+
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.shoes()))){
+            postSleepOutfitDescription += `When you put on your ${State.variables.outfit.shoes().name} you try to get them on but yeah, this ain't happening. Seems you outgrew them? `;
+            State.variables.outfit.shoesId = undefined;
+        }
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.shoes()))){
+            postSleepOutfitDescription += `When you put on your ${State.variables.outfit.shoes().name} you try to get them on but yeah, they're pretty tight. Seems you're outgrowing them?`;
+        }
+
+        if (['too small'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.overwear()))){
+            postSleepOutfitDescription += `Finally you put your ${State.variables.outfit.overwear().name} on. Or atleast, you try! Why doesn't it fit?! Yeah, you can't wear this anymore.`;
+            State.variables.outfit.overwearId = undefined;
+        }
+        else if (['tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.overwear()))){
+            postSleepOutfitDescription += `Finally you put your ${State.variables.outfit.overwear().name} on. It takes a few tries though, as it's pretty tight.`;
+        }        
+
+        if (!Dialog.isOpen() && postSleepOutfitDescription != '') {
+            var dialog = Dialog.setup('wardrobe malfunction!');
+            new Wikifier(dialog, postSleepOutfitDescription);
+            Dialog.open();
+        }
+    <</script>>
+
+    <</gameLink>>
+<</liveblock>>
+
+<</nobr>>
+
+

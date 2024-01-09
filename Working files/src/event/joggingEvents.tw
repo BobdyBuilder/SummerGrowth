@@ -1,0 +1,237 @@
+:: joggingEvents {"position":"0,0","size":"100,100"}
+<<set setup.events.push(
+    {
+        name: 'joggingBaseReply',
+        locationTags: ['jogging'],
+        conditions: [],			  
+        repeatable: true,
+        retriggerable: true,
+        priority: 'filler',
+        npc: [],
+        content: `<<set _fatLoss to 0>><<if $bodyType is "skinny">>	<<set _fatLoss += 0.1>>	Well, you're running. You do have the advantage of being very light, even for your frame. But that also means there isn't much muscle either. Thin legs and little core strength do you no favors.<<elseif $bodyType is "average">>	<<set _fatLoss += 0.1>> Running isn't MUCH of an issue for you, at least with your build. You're squarely average, so that means you pretty much got this, right? One leg in front of the other, rinse, repeat. And don't forget to breathe! You're certain that this mentality will still work after 10 minutes of running and hope it won't lead to a stream of swearing while panting heavily.<<elseif $bodyType is "athletic">>	<<set _fatLoss += 0.3>>	Now this is something your athletic body is made for: quick, lithe muscles give you incredible speed, and since your bodyweight is still comparatively low, you got quite the spring to your step. With this build, you're sure you'll get an amazing workout from this!<<elseif $bodyType is "bodybuilder">>	<<set _fatLoss += 0.2>> Muscles you got plenty, but your body is also pretty bulky. You are a bit too heavy to maintain high speeds for prolonged runs. With your pecs bouncing and thighs rubbing against each other, a well-oiled running machine you aren’t. But the balance between your power and weight is enough that you can get a good workout out of it. It just takes some extra effort, that's all!<<elseif $bodyType is "hulk">>	<<set _fatLoss += 0.3>> Yeah, when you run past, people notice. The explosive strength in your legs means you have little trouble building momentum and picking up a good speed, but the sheer mass of you does mean that the ground shakes at your passing and your momentum requires quite a bit of effort to come to a full stop. Windows rattle and floors shake as you run past, even when you try to be careful. But given your sheer mass, that is just the unavoidable reality!<<elseif $bodyType is "strong">>	<<set _fatLoss += 0.3>> You're strong, nobody will doubt. But being able to run for a long time is a different matter; sure, you have got the power in your legs, but there is also a whole lot of mass to support and accelerate. It takes some time for you to get into the groove of it, but once your massive gather that momentum, you can keep a surprisingly steady pace!<<elseif $bodyType is "heroic">>	<<set _fatLoss += 0.1>> Your build has been referred to as 'heroic'. So it is no surprise that you run like a superhero too. You can build up amazing speed, and keep it going for a long time while your tree-trunk legs make you look like an Olympian goddess with purpose and grace! The Dash, step aside! <<print $playerFirstName>> is here!<<elseif $bodyType is "gigantic">>	<<set _fatLoss += 0.2>>Something as big as you shouldn't be running. Muscles so huge have no business being this quick, this powerful in their stride. Yet as you jog past, the ground shakes, surprising everyone that dares to look. Your body might be massive, but once it has gathered enough momentum, your gigantic leg muscles bulge and provide the full power they have got in them. Plenty to get you going, and more than enough to pick up a respectable speed!<<elseif $bodyType is "obese">>	<<set _fatLoss += 0.5>>Why did you think running was a good idea? In no way or shape is your body made for it; thick layers of flab hide whatever muscles you have, and each step sends shockwaves through your body. But maybe that’s a good reason to do it anyway; to prove to yourself that you can do it, and to show that despite its sheer mass, your body has some hidden power!<<elseif $bodyType is "thick">>	<<set _fatLoss += 0.4>>Yeah, you're not made for running. Within minutes, you're sweating and panting, trying to get your body to keep up. It's pure willpower that drives you along. Your steps are heavy, your body flabby, and damn it all, you're doing your best!<<elseif $bodyType is "heavy">>	<<set _fatLoss += 0.4>>Sure, you're a bit heavier than others. And no one would accuse you of having a stereotypical runner body, but that doesn't mean you can't try, right? Once you start, you're doing decently, but you tire way quicker than someone lighter. Well, this is your body, and it's time to make the most of it!<<elseif $bodyType is "strongman">>	<<set _fatLoss += 0.3>>Your body isn't one where people normally look at you and say 'now THAT’S a jogger'. You got immensely thick arms and legs with a noticeable amount of flab over your muscles. Yet, beneath, lies immense strength. You start slow and quickly begin picking up speed. And with your endurance, you can easily maintain a very respectable pace.<<elseif $bodyType is "fat">>	<<set _fatLoss += 0.3>>Why are you even jogging? Nothing about your body is really meant to run: you have got a flabby stomach, and little leg muscles to get that pace up. But perhaps that's all the more reason to do it – not that you need one. After all, your body dictates the ceiling here, but YOU decide how much effort you put in.<<elseif $bodyType is "monstrous">>	<<set _fatLoss += 0.3>>Your mass is immense. As you start running, at first you waddle forward, thighs rubbing against each other. Yet you just keep picking up speed, those leg muscles increasing your momentum like thick pistons. From a slow waddle you progress into a decent jog, and finally an unstoppable run. The sheer momentum is only controlled by your powerful sinew, all of it pumping and swelling as you start genuinely running. Whether you are leaving a trail of cracked pavement or just causing mini earthquakes is not your concern right now.<<elseif $bodyType is "sumowrestler">>	<<set _fatLoss += 0.4>>Running. You might have huge muscles under all that flab, but running isn't something people imagine when they see you. Your gigantic body picks up inertia and momentum as your speed increases, which happens slowly. But as you start running, your pace just keeps picking up, until you are eventually in an honest-to-God run. Your feet slam against the pavement, and like a train picking up speed, you know that anything that crosses your path has two choices: move, or be moved.<</if>><br><br><<set _workoutSkill to 0>><<for _i to 0; _i < $skills.length; _i ++>>	<<capture _i>>	  <<if $skills[_i].name is "Working out">>	  <<set _workoutSkill to $skills[_i].level>>	  <<set $skills[_i].experience += 10>>	  <</if>>	<</capture>> <</for>><<if _workoutSkill == 0>>	<<set _fatLoss += 0.1>>Hmmm. Maybe you would think that 'go out for a run' is something simple. But you notice that your pace isn't very steady. You stop and go erratically, pace constantly fluctuating as you stop to catch your breath all the time. It might be lack of experience, but, hey, that's why you're here, right? To improve yourself! <<elseif _workoutSkill == 1>>	<<set _fatLoss += 0.2>>Your recent research into fitness and how your body works does help with keeping a steady pace. While you're far from an expert, you know well enough stretch beforehand, and to keep and eye on your heartrate.<<elseif _workoutSkill == 2>>	<<set _fatLoss += 0.3>>Yeah, you know how to run. You're experienced with all the smaller details and your starting stretches catch people's eyes. From warming up to keeping pace... it just comes easily! And it pays off, as your workout is way more effective.<<elseif _workoutSkill == 3>>	<<set _fatLoss += 0.4>>With your knowledge of working out and biomechanics, it's no surprise you run with such conviction. Lots of people assume that jogging is just 'going for a run', but you could spend hours talking about how to maximize it! From warms ups to cooldowns, pacing and BPMs... you won't overlook any small details, and you got it all down to a T.<<elseif _workoutSkill == 4>>	<<set _fatLoss += 0.5>>Regardless of your body type, you make the most of it. With your knowledge of fitness and body mechanics, you could easily coach others, and your own workouts are nothing short of displays of excellence. Pacing, blood oxygen levels, BPM... you juggle it all constantly without batting an eye, making it all easier for you to keep a steady pace and jog like a true pro.<</if>><<set _fatLoss *= -1>><<addFatSlow _fatLoss>>`
+    },
+    {
+        name: 'ifMuscles>70orFat>70orBreasts>70_MakeAPath',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.muscle >= 70 || State.variables.fat >= 70 || State.variables.breasts >= 70
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'response',
+        npc: [],
+        content: 'You lace up your shoes as usual, getting ready to take off on a jog around your apartment complex. You get going, following the sidewalks and footpaths that circumvent the buildings, at a brisk but not overly exhausting pace. Everything is going smoothly, your heart rate rising and the pleasant, familiar burning in your chest rising quickly. As you round a corner, you\'re caught off guard by two of your neighbors walking towards you, now suddenly face-to-face with you. You quickly jolt to the side in order to avoid a crash, but your exceptionally wide frame still means you check one of them with your side, sending them stumbling back a step.<br><br><<Dialogue "player" "You">>"Oh, my God! I\'m so sorry, I couldn\'t see you around the corner!"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"It\'s okay, really! I\'m just as much at fault. And honestly, I can\'t blame you. With a body like that, this must happen a lot!<</Dialogue>><br><br><<if $submissiveDominant > 0>><<Dialogue "player" "You">>"And what exactly is that supposed to mean?"<</Dialogue>><br><br>You can see the stranger\'s face drop as their words finally seem to sink in.<br><br><<Dialogue "randomPerson" "Random person">>"Um... obviously I didn\'t mean it in a negative way. You\'re just a very... larger than life person. You have a way of... filling up whatever place you\'re in."<</Dialogue>><br><br><<Dialogue "player" "You">>"Hmm. Thank you! I like the sound of that a lot better."<</Dialogue>><br><br>You give a cheery wave before continuing on your way, taking a little extra care to watch out for pedestrians.<<else>><<Dialogue "player" "You">>"Really, I really am sorry! I\'m, uh... I\'m still getting used to all this, and just..."<</Dialogue>><br><br>You can feel your face quickly growing flush as you scramble to explain yourself.<br><br><<Dialogue "randomPerson" "Random person">>"Hey, hey, it\'s all right, really! No harm, no foul."<</Dialogue>><br><br>You heave a quiet sigh of relief.<br><br><<Dialogue "player" "You">>"Thank you. I was worried for a second there. You really were right: this body is a lot to handle!"<</Dialogue>><br><br>You exchange a quick wave with the passersby, who walks off seemingly no worse off for wear. You spend the rest of your run taking a little extra care to watch out for pedestrians.<</if>>'
+    },
+    {
+        name: 'ifBreasts>40_BoobsGoBoing',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.breasts >= 30
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'response',
+        npc: [],
+        content: 'You gear up for a quick jog around your apartment complex, pleased with the lovely weather and quiet atmosphere outside. You start off at a nice leisurely pace, enjoying the rhythmic pattern of your feet hitting the ground. That is, until you notice another rhythmic thumping mirroring it. As you pick up more speed on your run, your pendulous breasts begin to do a little dance guided by the movement of your body. Swaying up and down, dropping with obvious weight in counterstep to your footfalls. And your <<print $outfit.top().name>> is not helping at all to hide them. <<if State.variables.confident > 0>>Of course, the display doesn\'t exactly bother you. You hold your head up a bit, casting cautious glances around to see if you can catch anyone staring. After all, a pair of melons like this is meant to be flaunted, wouldn\'t you agree? You make sure to put an extra little spring in your step as you finish off your run.<<else>>You squeal in shock as you realize just how much attention you\'re likely to draw with this. You quickly try any method you can to stop the bouncing of your bountiful breasts. Holding them in place with your hands just makes it look like you\'re actively trying to draw attention to them. Throwing your arms over your chest just pushes them up further. You finally decide to just hide your face by tucking your head down and sprint through the rest of the run as best you\'re able. Thankfully, you get through it without any incident. Well, aside from a sore chest and shoulders.<</if>>'
+    },
+    {
+        name: 'ifFitness=1_RunningIsHard',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.skills[0].level === 1
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: 'As you tie your running shoes, you mentally psych yourself up. You can do this! Jogging is perfect for someone who\'s just starting off with exercise! Every beginner does it, old people love it! Just a few quick laps around the apartment building, it\'ll be a breeze! And as you start off, everything seems to be lining up perfectly for you. You\'re able to maintain a brisk, steady pace. The cool dry air feels great in your chest. The rhythmic patting of your feet on the pavement is music to your ears. You feel like you could do this all day!<br><br>A short time later, your mood has changed considerably. Your lungs feel like they\'re on fire. Your thighs have lost all strength and your knees feel like they\'re about to give out on you. You have to end your jog early as you flop your way into the front door of your building. How do suburban housewives do this every day? You make your way back to your room, inhaling big gulps of air and trying not to heave audibly. That sucked. But... at least it\'s something, right? Maybe next time won\'t be so terrible.'
+    },
+    {
+        name: 'ifFitness=5_AFunJog',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.skills[0].level === 4
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You gather yourself up and prepare to take out on a run. With a long, but reasonable route planned out for yourself, you stretch your legs and fill your lungs with air, preparing yourself for the several <<if $measurementSystem == 'metric'>>kilometers<<else>>miles<</if>> ahead of you, before heading out onto your jogging route.<br><br>You steadily march onward. Your feet hit the pavement with powerful but controlled weight. The burning in your chest, no longer a painful sensation, but now familiar and invigorating. This run, which would have been impossible for you just a short time ago, is now a fun challenge. It's enough to get your heart pumping and make you sweat, but it leaves you with enough energy to give a cheery wave to any passersby you recognize. It allows you plenty of time for your mind to wander, and you take advantage of it to process your thoughts. As you round the halfway point of your run, it hits for you just how far you've come in your exercise regimen. It's possible that whatever is happening to your body is helping you, but you'd like to think your own dedication and hard work have got you here. In such a short amount of time, you've gone from couch potato to the sort of person you would have been inspired by when you moved here. As you reach the halfway point, you take a moment to mentally pat yourself on the back. Just this last leg would have been impossible when you started running. With an extra spring in your step, you pick up some more speed and head back home.`
+    },
+    {
+        name: 'ifEmmaMet_SayHi',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.emmaOpinion >= 10
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['emma'],
+        content: 'Today you decide to take a route that brings you closer to the city on your jog. Just a spur of the moment decision to shake things up a bit. You quickly realize there are a lot more people along this route. <<if State.variables.confident > 0>>Not that you mind.<<else>>You immediately regret your decision.<</if>> But almost everyone is busy with their own affairs, meaning all you have to worry about is dodging people as you jog. Your route brings you to a crosswalk, forcing you to stop and catch your breath for a moment. As you wait for your signal, another jogger comes up alongside you, bouncing on her toes as she waits. You turn to glance at her and are surprised to see a familiar face. <br><br><<Dialogue "player" "You">>"Emma?"<</Dialogue>><br><br><<Dialogue "Emma" "Emma">>"Oh. Good day, <<print State.variables.playerFirstName>>. Nice seeing you here."<</Dialogue>><br><br>She\'s dressed in a matching tracksuit, her hair tied up in a neat ponytail. She\'s obviously working herself hard, as she is breathing heavily and she has a sheen of sweat on her face. Despite that, she is utterly composed and confident. Her face is the same neutral expression she wears at work even as she continues to jog in place.<br><br><<if State.variables.dominant > 0>>In an effort to match her energy, you gather yourself up and start jogging in place as well.<<else>>You take a half-step to the side to give her some room. Her apparent endurance is surprising.<</if>><br><br><<Dialogue "player" "You">>"Same. Absolutely did not expect to see you out here.<</Dialogue>><br><br><<Dialogue "Emma" "Emma">>"I make a point to get a certain amount of cardio in everyday. Good for the overall health. You look to be doing pretty well yourself on your run."<</Dialogue>><br><br>Just as she finishes, your signal lights up, and she immediately picks up her jog again. You follow alongside her, doing your best to match her pace.<br><br><<Dialogue "player" "You">>"Thank you! Now that I know you run out here, maybe I could come down here a little more often?"<</Dialogue>><br><br>She keeps her gaze fixed forward and gives an appreciative nod.<br><br><<Dialogue "Emma" "Emma">>"I\'m flattered. But perhaps not for the best. My jogs are my... me time, as it were. As such, I\'m inclined to keep it that way."<</Dialogue>><br><br><<Dialogue "player" "You">>"Ah... I see. Sorry, I didn\'t mean to impose."<</Dialogue>><br><br><<Dialogue "Emma" "Emma">>"Not at all. I genuinely am appreciative. It\'s nice to know we have this in common. Perhaps we can continue this another time? In the office, maybe?"<</Dialogue>><br><br><<Dialogue "player" "You">>"I\'d like that a lot!"<</Dialogue>><br><br>You come to a fork in the sidewalk. You look to Emma and gesture to the left, while Emma nods forward. You give her a quick wave before you go your separate ways.'
+    },
+    {
+        name: 'ifHeight>250_MindYourHead',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.height >= 250
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'response',
+        npc: [],
+        content: 'You carefully duck through the door to your building, preparing yourself for a short jog. Ever since you\'ve started gaining in height, you\'ve grown accustomed to watching your head as you go about your day. Though you continue to get taller, life keeps throwing more challenges at you. Your normal path has become routine to you, and you know exactly when you need to dodge to get under something, but soon you\'re outdoors with nothing to be concerned about. You happily take off on your normal route. Everything is going smoothly, with nothing out of the ordinary. You\'re enter autopilot mode as you make your way through the college campus. So much so, that you barely realize that you\'re about to collide head-first with a thick tree branch until you\'re only moments away from impact. Thankfully, your reflexes are fast enough that you can quickly duck down without breaking your stride. You quickly stand back up, turning to look with offense at the intruding branch.<br><br><b>WHAM</b><br><br>You hadn\'t accounted for the possibility of a second branch.<br><br>Thankfully, you weren\'t going full speed, so you will likely only have a bump to show for it. Regardless, you decide to divert your path back home to grab an ice pack.'
+    },
+    {
+        name: 'ifMuscle>70andFat<20_TechnicallyStrongFat',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.muscle >= 70,
+            () => State.variables.fat <= 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You're midway through your jog when you realize you've been subject to a worrying trend. Despite your impressive (arguably superhuman at this point) strength... Going for a run is absolutely exhausting for you. You would think that with legs this powerful any kind of running would be a breeze, but you find yourself getting winded easier than ever these days. You rack your brain over it as you work your way through the jog, but find yourself unable to come up with an explanation. Aside from the fact that, maybe, whatever is happening to you is also killing you. But you'd rather put that thought out of your head.<br><br>As you come to the end of your jog, you happen upon Johan, just returning to the apartment building. You wave hello and decide to take the opportunity to share your woes with him.<br><br><<Dialogue "Johan" "Johan">>"I'm glad that you mentioned that actually! Your condition actually got me thinking lately, and it sort of brought me back around to this same topic. You see, your body is an interesting, unprecedented application of the square-cube law. Once I realize that, it only made since that your increasing mass-to-volume ratio would result in situations like this, where your body isn't able to keep up with itself -"<</Dialogue>><br><br><<Dialogue "player" "You">>"Johan. I'm really thankful for you going out of your way for me, but you're kind of losing me here."<</Dialogue>><br><br><<Dialogue "Johan" "Johan">>"Oh, right, okay. So... essentially what I'm led to believe is that your mass is increasing faster than your volume. Which would suggest that your weight is increasing faster than your strength. It's the same principle as to why, say, an ant is capable of lifting so much relative to its bodyweight, but in reverse. Is that making sense?"<</Dialogue>><br><br><<Dialogue "player" "You">>"I... think?"<</Dialogue>><br><br><<Dialogue "Johan" "Johan">>"Okay... To put it another way, while your strength is impressive... incredibly so, even... your body's weight is growing even faster than your ability to move it. So, for instance, say you weighed <<if $measurementSystem == 'metric'>>fifty kilos<<else>>a hundred pounds<</if>> when you moved in, and you could lift <<if $measurementSystem == 'metric'>>fifty kilos<<else>>a hundred pounds<</if>>. Now, again, for the sake of this example, maybe you weigh <<if $measurementSystem == 'metric'>>1000 kilos<<else>>2000 pounds<</if>> now, but you can only lift <<if $measurementSystem == 'metric'>>500 kilos<<else>>a 1000 pounds<</if>>. You've grown much stronger, but unfortunately you've also grown much <i>much</i> bigger."<</Dialogue>><br><br><<Dialogue "player" "You">>"I think I follow. So I'm guessing there isn't any way around this?"<</Dialogue>><br><br><<Dialogue "Johan" "Johan">>"Not unless you rewrite the laws of physics. Though, given everything that's happened to you, that may still be a possibility."<</Dialogue>><br><br><<Dialogue "player" "You">>"Nuts. Well, thanks, Johan. At least I know I don't need to start writing a will yet."<</Dialogue>>`
+    },
+    {
+        name: 'joggingWhenMotivated',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.motivation >= 70,
+            () => State.variables.skills[0].level <= 2
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'filler',
+        npc: [],
+        content: 'While you\'re still struggling a bit with the whole jogging bit, you\'re enjoying it more and more! The fresh air, some movement... when you began doing this, you\'d never have imagined this, but at it turns out it\'s oddly relaxing. It\'s just one step in front of the other, shutting down your brain completely. With all that has been going on, that\'s a welcome change of pace!'
+    },
+    {
+        name: 'joggingWhenDemotivated',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.motivation <= 50,
+            () => State.variables.skills[0].level <= 2
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'filler',
+        npc: [],
+        content: 'Why. Are. You. Doing. This??? You don\'t want to do this, you don\'t enjoy this, you HATE this. It\'s boring and repetitive and your mind just can\'t get into it. Even when you take a few breaks now and then, you\'re just reminded of the more useful things you can do. Urgh... well, maybe next time this\'ll be more \'fun\'.<<set $motivation -= 10>>'
+    },
+    {
+        name: 'ifLucky_getPotion',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.krisObsessedOpinion >= 20,
+            () => State.variables.gameDate.getDay() === 1
+        ],
+        repeatable: true,
+        retriggerable: true,
+        priority: 'filler',
+        npc: [],
+        content: 'You decide to head out for a jog around your complex. You lace up your shoes, grab, your phone, and chug some water before taking off on your regular route.<br><br>Everything goes along as basically as you expect<<if $skills[0].level >= 2>>, though that isn\'t exactly saying much given how low your expectations were for yourself<</if>>. As you head down a particularly narrow sidewalk, you list slightly to the side to avoid a bush, only to find yourself stumbling. You bring yourself to a stop, short of falling all over yourself, and look back to see what just happened. You had expected to see bush roots breaking from the concrete, but to your surprise, you see an odd glass bottle lying on its side. Is that what tripped you up?<br><br>You pick it up and eyeball the liquid sloshing around inside. There\'s no name on it, no brand, no identifying information of any kind. You shrug and slip it into your pocket. Whoever it belongs to, maybe you can at least track them down.<<krisGift "potion">>'
+    },
+    {
+        name: 'ifElenaFriends_sayHi',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.elenaOpinion >= 20,
+            () => State.variables.gameDate.getDay() === 3
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'filler',
+        npc: ['elena'],
+        content: 'You decide to add some randomness to your jog today. You set out without a real plan in mind, content to wander the city as you get your exercise in. You mentally toss a coin at each intersection. It feels nice to just sort of explore, going about without a care. As you casually jog along, you take in the sights and people-watch to occupy your mind. It\'s almost meditative. But a familiar sight jolts you out of your laid back pace. Someone who just can\'t be ignored. A towering hulk of a woman with deeply tanned skin.<br><br><<Dialogue "player" "You">>"Elena! Hey, hun, what\'s up?"<</Dialogue>><br><br>Elena seems to have been out running errands. She\'s not dressed in her normal gym attire, just wearing a normal T-shirt and jeans. Although being out in public doesn\'t seem to help her shyness at all. As you spot her, she\'s walking awkwardly along the very edge of the sidewalk, as if trying to avoid other pedestrians entirely. Your greeting almost seems to startle her.<br><br><<Dialogue "Elena" "Elena">>"Oh! Hello, <<print $playerFirstName>>. N-nice to see you here."<</Dialogue>><br><br><<Dialogue "player" "You">>"Same! Nice little surprise seeing you here. What are you up to?"<</Dialogue>><br><br><<Dialogue "Elena" "Elena">>"Oh, just... groceries. Walking to the store is... nice, yes?"<</Dialogue>><br><br><<Dialogue "player" "You">>"Yeah, and it\'s a nice day for it, too! Weather\'s awesome. What do you say we..."<</Dialogue>><br><br><<if $height < 250>>You suddenly realize you\'re having a hard time keeping pace with Elena. Her regular walk has turned into a speedwalk, and with her significant height even your light jog is barely keeping pace with her.<<else>>You\'d slowed down to almost walking when you started talking, but you quickly realize your pace picked up again since. Elena has progressed into a powerwalk as you spoke.<</if>> She adamantly refuses to make eye contact and there\'s a tinge of a blush on her cheeks.<br><br><<Dialogue "Elena" "Elena">>"Itisverynicetoseeyou<<print $playerFirstName>>butIreallymustbegoingIamalittlebusytodayandIdontwanttobelategettinghome -"<</Dialogue>><br><br><<Dialogue "player" "You">>"Woah, easy there! It\'s okay, I\'ll see you around at the gym!<</Dialogue>><br><br>Elena takes a deep breath and nods back at you.<br><br><<Dialogue "Elena" "Elena">>"Yes. At the gym. I\'ll see you there, <<print $playerFirstName>>."<</Dialogue>><br><br>With that, she turns a corner and marches off, awkwardly, dodging a few other passersby as she goes. You smile to yourself. It\'s nice to get in a brief chat with her, at least. Such as it were.'
+    },
+    {
+        name: 'ifTightPants_Rip',
+        locationTags: ['jogging'],
+        conditions: [
+            () => ['too small', 'tight'].includes(setup.getFitDescriptionOfClothes(State.variables.outfit.bottom()))
+        ],
+        repeatable: false,
+        retriggerable: true,
+        priority: 'response',
+        npc: [],
+        content: 'You bear along on your jog, everything moving along in a challenging but rhythmic way. You wipe some sweat from your forehead as you round a corner, before pulling up at the waistband on your <<print $outfit.bottom().name>>. It seems to be riding down on you today for some reason, and the last thing you want is to accidentally moon the various random people around here. You feel it ride down similarly a few more times as you move along, and you reach down to tug your waistband each time. Until, eventually, you hear a noise as you pull at it once more.<br><br><b><i>SHHHRRRRIP</i></b><br><br>At the same time, you feel a sudden breeze along your backside, and you immediately know what happened. Your hands reach back to your butt in a panic and feel the undeniable hole in your <<print $outfit.bottom().name>>. Now you suddenly don\'t feel quite as eager to finish your jog as you had been before, but unfortunately you\'re already on the back end of your route. No shortcuts left. You\'ve just got to ride it out...<br><br>Awkwardly holding one hand to your rear end, you power through. You can only feel your <<print $outfit.bottom().name>> tearing further as you move, and you quietly hope that it holds up until you get home. As if someone up there was listening to you, the clothing finally falls apart completely just as you shut your apartment door. Oh, well... Hopefully you\'ve still got something lying around here that can replace it.'
+    },
+    {
+        name: 'ifMuscle > 30AndFat<30_AdmireThePump',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.muscle >= 30,
+            () => State.variables.fat <= 30
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: 'You stop just outside your apartment as you finish your jog. You stop and catch your breath, kneeling over to give your body a moment to rest. As your breathing slows, you stop and take a closer look at yourself. You realize as you look down at your still-burning legs that your thighs are looking especially huge today. It\'s most likely a fresh pump from your recent exercise, but you\'re a bit mesmerized by the way your quads flex beneath the fabric of your <<print $outfit.bottom().name>>. You give each of your legs a quick shake, marveling at the obvious weight your thighs display as they quake. You give them an experimental flex, and are only further surprised at how they burst forward seemingly out of nowhere.<br><br><<if $shyConfident > 0>>It\'s almost gratifying how huge you\'ve become so quickly. Whatever\'s happened to you, it\'s quickly becoming a blessing in its own right. With legs like these, you look like you\'ve been running track your whole life! The power is undeniable, and it leaves you with an extra ego-boosted spring in your step as you head back inside.<<else>>You squirm a bit inside as you take in the sight. These thick, burly legs, on a body which used to be so slim and slight... It\'s unsightly. You suppose as far as changes to your body go, it could be a lot worse... But this still acts as a reminder that you need to find a way to figure this as soon as possible.<</if>>'
+    },
+    {
+        name: 'ifFitness <3_ThankYouKindStranger',
+        locationTags: ['jogging'],
+        conditions: [			 
+            () => State.variables.skills[0].level < 2,
+            () => State.variables.muscle < 30,
+            () => State.variables.motivation < 50
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: 'You truck along on your jog, but today is harder than it has been for some reason. Maybe you\'ve been pushing yourself too hard, or maybe today is just hotter than what you are used to. Either way, you feel yourself dragging early on, before you\'ve even reached the midway point of your route. You forcefully suck air into your lungs, and try to stave off the burning pain in your chest and legs. Hell, if you finished without puking you\'d count yourself lucky.<br><br>As you turn on to head back to a busy road, you are mentally throwing in the towel. What\'s the harm in ending your run a little early today? It\'s not going to matter in the long term, right? Especially with your body changing the way it has. Your jog begins to slow down to a slightly brisk walk as you quietly surrender.<br><br>Your thoughts are cut off by a loud honk coming from behind you. You jump and turn around, expecting some kind of emergency. But instead you see a car slowing down as it approaches you. The passenger side window rolls down, and from inside you can hear... cheering? And that song from the classic boxing movie?<br><br><<Dialogue "randomPerson" "Random person">>"Woo, keep it up! Don\'t quit now, you\'re doing great!"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random person">>"Yeah, you\'re killin\' it! Tough it out, you\'re almost there!"<</Dialogue>><br><br>There\'s another quick round of cheers from the remaining occupants of the car, before they speed back up and drive off just as quickly as they\'d appeared, honking some more. You\'re left there feeling utterly baffled. But also mysteriously motivated! You\'re not sure whether it\'s the kind words from a random stranger or the adrenaline from thinking you were about to be run over... But you decide not look a gift horse in the mouth. Maybe this little burst of energy will be enough to get you home without puking after all.<<set $motivation += 10>>'
+    },
+    {
+        name: 'ifMuscle=100OrFat=100_PropertyDamage',
+        locationTags: ['jogging'],
+        conditions: [
+            () => State.variables.muscle >= 90,
+            () => State.variables.fat >= 90
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: 'You carry along on your jog, nothing immediately out of the ordinary. Aside from adjusting to just how much width you take up on the sidewalk, at least. You briefly consider whether it would be feasible to just go for your jogs on the actual street. Your wandering mind is interrupted by a construction barrier in your path. You manage to bring yourself to a halt before crashing in an almost cartoonish way.<br><br>You take in the sight on the sidewalk in front of you. A construction crew is hard at work replacing the concrete path. The parts they haven\'t gotten to yet are covered with cracks and potholes. Though in all honesty, the potholes look more like small craters, as if someone had brought a sledgehammer down on them. You stand puzzled for a second, wondering what on earth happened here, until the construction workers take notice of you.<br><br><<Dialogue "randomPerson" "Random person">>"Oh, come on! Seriously, again?"<</Dialogue>><br><br>That only inspires you to look more confused, until you turn around and follow their gazes. The path behind you looks just the same as the one they are in the middle of repairing. Huge holes punched into the concrete at constant intervals... right where you had just been running. It finally clicks. Whoops. You look sheepish as the first worker hefts the barrier and dejectedly moves it further back along the road, covering the area you had just ran through. Another stops to pat you on the shoulder and grin.<br><br><<Dialogue "randomPerson" "Random person">>"Hey, as far as I\'m concerned, you keep it up. A few more months of this and I can put my kid through college."<</Dialogue>><br><br>You decide that a power walk would be a good idea for today. And maybe reevaluate your jogging route when you get home.'
+    },
+    {
+        name: 'ifBeginner_GetFitspired',
+        locationTags: ['jogging'],
+        conditions: [
+            () => State.variables.skills[0].level > 1
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: 'You open the door to your apartment to let yourself back inside after your run, and you feel utterly exhausted. You slump inside feeling tired, gross, sweaty, and like you\'re burning alive. At least you did it, you suppose. But you certainly don\'t feel great. You drag yourself through the house, content to just throw yourself onto your bed and sleep the rest of the day away. But you should probably at least wash yourself off a bit first at least. Can\'t be soaking the bed with all that funk.<br><br>You step into the bathroom to splash some water on your face, heaving a deep sigh as you stand back up to your full height. You open your eyes and are caught off guard by what you see. You... don\'t look like garbage. In fact, you look damn good. You had heard people described as "glowing" before, but you had never witnessed it yourself. With just the right amount of blush on your face, and dressed in your running clothes... You actually look like the kind of person who would catch your eye in public. You take a moment to strike a couple of poses in the mirror and admire yourself. <<if $muscle > $fat>>Heck, in this state, your sleek, taut muscles look even better with the light reddish tint this blush paints across your body. You strike an experimental pose showing off your shoulders and your belly and are blown away at the sight.<<else>>Somehow the blush across your body just makes your plush, round curves look that much better. You run your hands across your breasts and abdomen, and you\'re caught off guard by how good you look.<</if>> You don\'t know if it\'s the recent growth spurt you\'ve experienced that\'s making you feel this good or if it really is just the advantage of the circumstances, but... damn, you look hot!<br><br>Your mood has suddenly done a complete 180 from when you came in. In fact, this felt like enough to give your whole self-image a little boost! You finish undressing and head off to take your shower, an extra bit of swagger in your as you walk there. <<set $shyConfident += 1>>'
+    },
+    {
+        name: 'ifFitness>=4AndMuscle>=100_SuperSpeed',
+        locationTags: ['jogging'],
+        conditions: [
+	
+            () => State.variables.skills[0].level >= 4,
+            () => State.variables.muscle >= 100
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: `With a few content breaths, you find yourself coming to a stop outside your apartment at the end of your jog. You stretch your arms upwards and fill your lungs with fresh air before grabbing an ankle and pulling your leg behind yourself, feeling your hamstrings pulled taut and stretched pleasantly. You let yourself inside and prepare for your normal post-run cooldown when you remember a small detail. You need to check your phone!<br><br>While mindlessly browsing the other day, you had come across a neat-looking app that was meant to track your runs. Today was your first time going out on a jog with the app running, so you just have to see how well it worked! While pouring yourself some water, you thumb through your phone to find the app and pull it up, excited to see what all it recorded. You bring the app up as you take your first sip, and... wow. Something certainly seems to be going wrong here. The little GPS map looks accurate based on where you chose to run, but... the facts and figures can't be right. It says you averaged <<if $measurementSystem == 'metric'>>30 km<<else>>20 miles<</if>> per hour over the course of the jog? Max speed is <<if $measurementSystem == 'metric'>>50 km<<else>>35 miles<</if>> per hour? A quick search engine query confirms that the fastest recorded human running speed is somewhere just above <<if $measurementSystem == 'metric'>>45 km<<else>>28 miles<</if>> per hour... Ah, well. There's bound to be other apps like this out there, but this one doesn't seem to work quite right. There's no way you were running as fast as a car, right?`
+    })>>
+	
+<<for _i to 0; _i < setup.events.length; _i ++>>
+		<<capture _i>>	
+			<<if setup.events[_i].locationTags.contains("jogging")>>
+				<<set setup.events[_i].content = "<<set $currentScene to \"Home\">>" + setup.events[_i].content>>
+			<</if>>
+		<</capture>>
+<</for>>
+
+

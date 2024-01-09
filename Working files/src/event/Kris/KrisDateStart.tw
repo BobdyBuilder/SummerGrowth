@@ -1,0 +1,33 @@
+:: KrisDateStart [Done] {"position":"2200,2625","size":"100,100"}
+<<nobr>>
+<<set $krisDate1Finished to true>>
+<<set $DateSuccess to 0>>
+<<if ndef $shyConfident>>
+  <<script>>
+	State.variables.shyConfident = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.carefreeCarefull = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.submissiveDominant = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+  <</script>>
+  <<set _debugging to true>>
+<</if>>
+<<addMinutes 15>>
+<</nobr>>
+Arriving at the address Kris texted, you find yourself in front of a very peculiar bar. The atmosphere of the old building betrays the many stories it must carry. The red bricks are heavily stained, and the prevalent smell of smoke and heavy alcohol drifts towards you from a distance. There is a huge bouncer standing outside the door, looking at you. <<if $muscle > 75>>You can tell from his eyes that he is secretly hoping you don’t cause any trouble, because he does not want to mess with you. Heh, You can’t blame him, he’s huge himself, but you are on a class of your own!<<elseif $muscle > 50 || $fat > 50>> He checks you out, giving you a respectful nod. Seems like he has respect for your size.<<elseif $breasts > 35>> His eyes linger on your chest. Of course they do. Yet, he respectfully returns to his neutral position the moment he notices you're uncomfortable.<<else>> The stare is intimidating enough, telling you not to cause problems.<</if>> Soon enough, Kris walks by, in a very casual but appropriate outfit for this joint. Unsurprisingly, her first reaction is eyeing you hungrily.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Hehe, fuck, you look amazing. Did you get this big just for me?"<</Dialogue>>
+
+Not waiting for a response, she grabs your arm, practically dragging you inside. The bouncer moves to stop you, but it would seem he knows Kris well. The moment he sees her, he steps aside to let the two of you in.
+
+<<Dialogue "player" "You">>"You come here often?"<</Dialogue>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"You bet I do. This is a bar that is popular with a lot of the powerlifters in town, for hooking up and… other things. So plenty of beef for the window shoppers, I love it!<<if $muscle > 50>> But now I got you, and we’re gonna put them all to shame, I can’t wait to see their reaction!<</if>>"<</Dialogue>>
+
+Arriving at a booth, you sit down<<if $muscle >50 || $fat > 50 || $breasts > 50 || $height > 200>>, though you have to make quite an effort to squeeze in. <</if>>Kris loves the sight of you. Of course she does. Her eyes continually drift to your arms, your chest... almost never your face, though.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"... Fuck, I love every bit of you. So, how was your day? Lifted plenty? Ate enough?"<</Dialogue>>
+
+<<PersonalityCheck $shyConfident >= 2 "Show off">><<goto "KrisShowOff">><<Failed>><<goto "KrisShowOff">><</PersonalityCheck>>
+
+[[KrisTalk<-Tell her about your day]]
+
+

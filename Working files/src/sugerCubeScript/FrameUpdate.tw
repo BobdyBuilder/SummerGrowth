@@ -1,0 +1,126 @@
+:: FrameUpdate [nobr] {"position":"900,100","size":"100,100"}
+<<include BodyTypeUpgrade>> 
+<<include questCompleteChecks>> 
+<<include logFlavorMessages>>
+<<include NpcFrameUpdate>>
+
+/* Randomized generic NPC */
+<<script>>
+	var randomIcons = ["https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png", "https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male2.png","https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png", "https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male2.png"];
+document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[Math.floor(Math.random() * randomIcons.length)] +  '")');
+<</script>>
+
+
+<<set $heightMod to ($height/150)>>
+
+<<set $topSize to $muscle + $fat + $breasts>>
+<<set $bottomSize to $muscle + $fat + $ass>>
+
+<<set $exhaustion to Math.clamp($exhaustion, $minimumExhaustion, $maxExhaustion)>>
+<<set $exhaustionPercentage to $exhaustion / $maxExhaustion>>
+<<set $motivation to Math.clamp($motivation, 0, $maxMotivation)>>
+<<set $motivationPercentage to $motivation / $maxMotivation>>
+
+/* Skill Upgrades */
+<<for _i to 0; _i < $skills.length; _i ++>>
+	<<capture _i>>
+		<<if $skills[_i].experience >= 50>>
+			<<if $skills[_i].level < 1>>
+				<<set $skillIndexGained to _i>>
+				<<include "skillLevelGained">>
+			<</if>>
+		<</if>>
+		<<if $skills[_i].experience >= 150>>
+			<<if $skills[_i].level < 2>>
+				<<set $skillIndexGained to _i>>
+				<<include "skillLevelGained">>
+			<</if>>
+		<</if>>
+		<<if $skills[_i].experience >= 350>>
+			<<if $skills[_i].level < 3>>
+				<<set $skillIndexGained to _i>>
+				<<include "skillLevelGained">>
+			<</if>>
+		<</if>>
+		<<if $skills[_i].experience >= 600>>
+			<<if $skills[_i].level < 4>>
+				<<set $skillIndexGained to _i>>
+				<<include "skillLevelGained">>
+			<</if>>
+		<</if>>
+	<</capture>>
+<</for>>
+
+<<if $lactationSetting>>
+	<<set $milkCapacity to ((($breasts + $fatBreastsMod) * $heightMod))>>
+	<<if $lactationUnlockedPoints >= setup.balance.lactationTressholdNeeded && $lactationUnlocked != true>>
+		<<set $lactationUnlocked to true>>
+		<<set $milkStored to $milkCapacity / 1.5>>
+		<<set $milkProduction to 1>>
+	<</if>>
+<</if>>
+
+
+<<if $lactationUnlocked>>
+	<<set $milkCapacity to ((($breasts + $fatBreastsMod) * $heightMod * $milkCapacityModifier))>>
+	<<if $milkStored >= $milkCapacity>>
+		<<set $breastsFullness to "overflowing">>
+	<<elseif $milkStored >= $milkCapacity * 0.75>>
+		<<set $breastsFullness to "full">>
+	<<elseif $milkStored >= $milkCapacity * 0.50>>
+		<<set $breastsFullness to "filling">>
+	<<elseif $milkStored >= $milkCapacity * 0.25>>
+		<<set $breastsFullness to "drained">>
+	<<else>>
+		<<set $breastsFullness to "empty">>
+	<</if>>
+<</if>>
+	
+<<if $dickDialog>>
+	<<script>>
+	if (Dialog.isOpen() == false) {
+		  var dialog = Dialog.setup("What the hell?!");
+		  new Wikifier(dialog, "While you're a bit tired you idly scratch the bulge in your pants. Your eyes go wide open. BULGE?! Shocked, you reach in, finding something new there taking space. Something long and thick and squishy. Hesitantly, you pull down your underwear and are greeted with a new, surprising sight. A penis. You now have a penis. Just to make sure, you reach out, touching it. It almost twitches in response, proving to you it's all too real! It seems you might've taken a few too many 'special' potions. While it does feel weird... well, maybe you could just get used to this...?");
+		  Dialog.open();
+		  State.setVar("$dickDialog", false);
+		  State.setVar("$dickDialogFollowUp", true);
+		  }
+		  <</script>>
+
+<<elseif $dickDialogFollowUp>>
+		  <<set $dickActive to true>>
+		  <<set $dick += $dickStore * 1.2>>
+		  <<set $dickStore -= 1>>
+		  <<set $dickDialog to false>>
+		  <<set $dickDialogFollowUp to false>>
+<</if>>
+
+<<if $oldDay != $newDay>>
+	<<DayUpdate>>
+<</if>>
+
+<<if $oldHour != $newHour>>
+	<<HourUpdate>>
+<</if>>
+
+<<set $oldDay to $gameDate.toDateString()>>
+<<set $oldHour to $gameDate.getHours()>>
+
+<<if $oldDay is 6 and $gameDate.getDay() is 6>>
+	/*<<include "WeekUpdate" "hide">>*/
+<</if>>
+
+<<script>>
+	var oldScene = State.variables.currentScene;
+    if(tags().includes('noReturnDialog') || tags().includes('noEventTrigger'))
+	{
+		console.log("FrameUpdate: didn't set new scene");
+    }
+    else
+    {
+        State.variables.currentScene = State.passage;
+    console.log('Frameupdate: set new scene from  ' + oldScene + ' to ' + State.variables.currentScene);
+    	
+    }
+<</script>>
+

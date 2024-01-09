@@ -1,0 +1,36 @@
+:: Emma Date Two Intro {"position":"750,4375"}
+With less than fifteen minutes until you clock out, you're trying to find ways to look busy. Given that, you jump slightly when you notice Emma striding towards your desk. Quickly, you reach for something to do so you don't have to face a stern glare or risk a lecture. Before you have a chance to pick up your task, you feel a hand gently resting on your shoulder. You turn to face the person, andssee Emma looking at you, an uncharacteristic softness on her face, along with the hint of a smile.
+
+<<Dialogue "Emma" "Emma">>"Good afternoon, <<print $playerFirstName>>. I hope I'm not interrupting anything."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Ah... No, actually. I was just wrapping things up here."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Ah, good. I actually had something I wanted to ask you, if I may."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Sure! What is it?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Well, I wanted to invite you out this evening. Right after you clock out, if it's possible."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, this is a nice surprise! What brought this on?"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Nothing in particular. But we seemed to enjoy ourselves the last time we spent some time together. Unfortunately, my schedule has been quite packed lately, so I wanted to invite you to join me for my workout this evening."<</Dialogue>>
+
+<<if $muscle > 50 || $fitness > 1>><<if $emmaDateFlirty > $emmaDateProfessional and $emmaDateFlirty > $emmaDateFriendly>><<Dialogue "player" "You">>"Ahhh, I see what you mean. You and me working up a sweat together, probably in skimpy outfits..."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"...I will refrain from responding to such statements during work hours. Would you care to join me or no?"<</Dialogue>><<elseif $emmaDateProfessional > $emmaDateFriendly>><<Dialogue "player" "You">>"I think that's a great idea! I think I could definitely learn a lot from the experience."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"And hopefully I learn from you as well. So, what do you say?"<</Dialogue>>
+
+<<else>><<Dialogue "player" "You">>"Well that sounds like a lot of fun! I don't know why we didn't think of this sooner!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"I agree wholeheartedly. So, do we have a date?"<</Dialogue>><</if>>
+
+<<else>><<Dialogue "player" "You">>"Not to question your judgment or anything, but... how come? I'm not exactly a bodybuilder over here."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>"Well, you certainly seemed interested in my fitness regimen when we had dinner together. I 	assumed you would enjoy the experience on one level or another. So, do we have a date?"<</Dialogue>><</if>>
+
+<<link "That sounds great!" "Emma Date Two Continue">><<set $emmaDateTwoHappened to true>><</link>>
+
+<<link "I don't think I can make it." "Emma Date Two Cancel">><<set $emmaDateDenied to true>><</link>>
+
+

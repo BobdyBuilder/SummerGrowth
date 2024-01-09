@@ -1,0 +1,64 @@
+:: initSkill [nobr] {"position":"0,400","size":"100,100"}
+/* Skills */
+<<set $skills to [{
+        "name": "Working out",
+        "level": 0,
+        "experience": 0,
+        "hidden" : false,
+        "description": "Experience in working out will allow you to build muscle quicker and with less effort. Once you're experienced enough, you might even be able to work as a personal trainer, or make a career out of it!",
+        "unlocks": ["• Workouts take 25% less time<br>• Gain muscles 10% faster<br>• Working out gives 10% less exhaustion", "• Gain muscles 10% faster<br>• Gained +1 confidence", "• Gain muscles 20% faster<br>• Working out gives 20% less exhaustion", "• Workouts take 25% less time<br>•Gain muscles 10% faster<br>• Gained +1 confidence"]
+    }, {
+        "name": "Cooking",
+        "level": 0,
+        "experience": 0,
+        "hidden" : false,
+        "description": "Cooking will help you cook healthy meals while making them cost less. You might also be able to put yourself on special diets to better shape your body!",
+        "unlocks": ["• Cooking is 10% cheaper<br>• Adds an extra 10% to motivation gains from meals","• Cooking is 10% quicker","• Allows you to store prepared meals","• Cooking is 20% quicker", "• Cooking is 20% cheaper<br>• Adds an extra 20% to motivation gains from meals"]
+    }, {
+        "name": "Book keeping",
+        "level": 0,
+        "experience": 0,
+        "hidden" : false,
+        "description": "Book keeping will help you track your expenses and help you with your finances.",
+        "unlocks": ["• Not implemented yet", "• Not implemented yet", "• Gained +1 carefulness", "• Not implemented yet", "• Gained +1 carefulness"]
+    }, {
+        "name": "gaming",
+        "level": 0,
+        "experience": 0,
+        "hidden" : false,
+        "description": "Hey, playing video games is a skill, alright? Shame you can't make money with it... or can you?",
+        "unlocks": ["• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
+    }, {
+        "name": "modelling",
+        "level": 0,
+        "experience": 0,
+        "hidden" : true,
+        "description": "Striking the right poses and looking good, there must be a way to make a career out of this!",
+        "unlocks": ["•Not implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
+    }, {
+        "name": "Chemistry",
+        "level": 0,
+        "experience": 0,
+        "hidden" : true,
+        "description": "It's not so much science as trying to decipher some poorly written recipes.",
+        "unlocks": ["•You can now aquire some ingredients online", "•You can aquire more advanced incredients online", "•Splitting potions now has a chance to give more ingredients.", "•All ingredients can now be aquired at stores.", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
+    }, {
+        "name": "Sewing",
+        "level": 0,
+        "experience": 0,
+        "hidden" : false,
+        "description": "Got to make fitting clothes somehow.",
+        "unlocks": ["• Scrapping a project returns 50% more fabric", "• Clothing can now be made from scratch from a sewing machine", "• Scrapping a project returns 75% more fabric","• Sewing takes 33% less time"]
+    }
+]>>
+
+<<set $fabricScrapPercentage to 0.25>>
+
+<<set $skillIndexes to []>>
+<<for _i to 0; _i < $skills.length; _i ++>>
+        <<capture _i>>
+			<<set  $skillIndexes.push($skills[_i].name)>>   
+        <</capture>>
+<</for>>
+
+

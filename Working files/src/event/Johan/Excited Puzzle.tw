@@ -1,0 +1,55 @@
+:: Excited Puzzle {"position":"550,2975","size":"100,100"}
+<<if $carefreeCarefull > 0>><<set $DateSuccess += 1>><</if>>
+You can't help but gasp at the prospect.
+
+<<Dialogue "player" "You">>
+"Oh my God, this looks fun! Let me see that thing."<</Dialogue>>
+
+You eagerly snatch up the paper and begin looking over it.
+
+<<Dialogue "player" "You">>
+"Hmm, I don't recognize these symbols at all. But there's twelve of them. What comes in twelves? There's twelve in a dozen, twelve months in a year..."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Wow, your brain works fast! Do you want to try using a skill to see if your character knows something about this?"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Wait, I can do that? What do I do to see if I know more about these runes?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"That would be an Arcana check, and here's how you do that..."<</Dialogue>>
+
+The two of you dive into the challenge together. With you slowly plucking away at the clues, and Johan providing a gentle nudge here and there, after many long minutes of work, you feel yourself getting closer to the solution.
+
+<<Dialogue "player" "You">>
+"Okay. I think I've got it. I step up to the door. And I press the runes in order. Wood... Darkness... Fire, and Rain."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"As you press in on the last rune, you hear a low rumble around you. The light fades from the symbols, and slowly the circular door begins to roll out of the way, revealing a dark passageway behind it."<</Dialogue>>
+
+<<if $carefreeCarefull > 0>><<Dialogue "player" "You">>
+"Woo! That was a challenge! Did you make that one up yourself?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"No, like a true experienced DM, I completely cribbed it from elsewhere. Can't say that about your solution, though, you handled that like a champ!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Well... Let's just say you nerd out in your way and I nerd out in mine. I love me a good brainteaser."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Happy to hear it, because I love running them! But there's still one more thing left for you to do behind that door. Are you ready?"<</Dialogue>>
+<<else>><<Dialogue "player" "You">>
+"Oh my God, that was tough. Are all the puzzles that hard?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Mmm. In hindsight, that one may have been a little too challenging. Props to you for toughing it out, though! Would it make you feel better if I promised there are no more puzzles?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Much better."<</Dialogue>>
+
+
+<<Dialogue "Johan" "Johan">>
+"All right! I hope you're ready for what comes next!"<</Dialogue>>
+<</if>>
+[[Let's see what's inside.->Final Boss]]
+
+

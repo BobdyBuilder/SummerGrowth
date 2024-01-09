@@ -1,0 +1,40 @@
+:: changeDiet {"position":"925,900","size":"100,100"}
+You're currently on a <<print $currentDiet.name>>.
+<<nobr>>
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<if $skills[_i].name is "Cooking">>
+		<<set _nutritionSkill to $skills[_i].level>>
+	<</if>>
+<</capture>>
+<</for>>
+
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Price/day</th>
+  </tr>
+<<for _i to 0; _i < $diets.length; _i ++>>
+		<<capture _i>>	
+		<<if  $diets[_i].level <= _nutritionSkill>>
+		<tr>
+    		<td><<link $diets[_i].name>><<replace "#result">>Set diet to <<print $diets[_i].name>>?
+			<<link "confirm" "changeDiet">>
+			<<set $currentDiet to $diets[_i]>>
+			<</link>>
+			<</replace>>
+			<</link>>
+			</td>
+    		<td><<print $diets[_i].description>></td>
+    		<td>$<<print $diets[_i].price>></td>
+  		</tr>
+		<</if>>
+		<</capture>>
+<</for>>
+</table>
+<</nobr>>
+<span id="result"></span>
+<<link "Go back" "Kitchen">><</link>>
+
+

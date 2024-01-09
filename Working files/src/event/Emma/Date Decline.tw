@@ -1,0 +1,9 @@
+:: Date Decline {"position":"850,3400"}
+Emma pauses with a slow sigh, rubbing her temple as she slumps in her seat.
+
+<<Dialogue "Emma" "Emma">> "I suppose that's fair. It was a big ask, and sudden, too. I apologize for imposing like that."<</Dialogue>>
+Her face quickly returns to the stoic, serious expression that she’s famous for. Her focus is immediately back on the task at hand. You take this as your cue to leave, awkwardly shuffling out of Emma's office and back to your workstation.
+
+<<link "Continue" "office">><</link>>
+
+

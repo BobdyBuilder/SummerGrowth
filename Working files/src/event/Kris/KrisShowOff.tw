@@ -1,0 +1,29 @@
+:: KrisShowOff [Done] {"position":"2250,2725","size":"100,100"}
+<<addMinutes 15>>You <<if $submissiveDominant > 1>>grin at her<<else>>wince somewhat uneasily<</if>>, flexing your bulging biceps at her. The effect is apparent as your muscles rise up and Kris's grin grows wider and wider. Her hand reaches out to touch, but <<if $submissiveDominant > 1>>playfully you slap it away.
+
+<<Dialogue "player" "You">>"Only good girls get the beef, and you're a VERY bad girl, keeping me waiting in this kind of place!"<</Dialogue>>
+
+Taking a step closer, you stand across from her. <<if $height < 160>>Despite being smaller than her, you still manage to be the one in charge of the situation.<<elseif $height < 200>>You utterly loom over her, as Kris smiles at the display.<<else>>You loom over her, Kris grinning as she drink it in.<</if>>
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Hehe, Oh excuuuuuse me, princess! I didn't know I was dealing with a fragile snowflake instead of a fucking giant Goddess! Heh, but if you don't like this place... we can always go to my place."<</Dialogue>>
+
+She adds a wink that is somehow less subtle than the rest of her attitude. Well, at the very least she's clear about her intentions. You COULD go to Kris's house and undoubtedly have a rather exciting evening... but you wouldn't get to know Kris better, or figure out the weird relationship you two have. What should you do?
+
+[[KrisSex<-Go to Kris' place]]
+
+[[KrisFlex<-Lets tone it down a bit, but be playful]]
+<<else>> you wince a bit, visibly uncomfortable. You tried being playful, you tried taking the initiative, but you simply don't have it in you. Kris's hand moves forward, actually touching you and though she was about to say something way more provocative, she actually gazes at you for a bit.
+
+<<Dialogue "KrisCasual" "Kris">>"... you good?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"S-sorry, I tried being a bit playful but just... this isn't me. C-can you... remove your hand, please?"<</Dialogue>>
+
+You can feel the doubt in Kris. She is in charge, and she knows it. She can keep it there. But she's also seeing that you tried something, that it failed, and that you're uncomfortable. Her hand pulls away.
+
+<<Dialogue "KrisCasualObsessed" "Kris">>"Heh, its cute how much you still have the personality of someone half your size. Guess that doesn't grow with the rest of you. I might even appreciate that."<</Dialogue>>
+
+You wince a bit. Kris could control you so easily, and if you didn't stand up for yourself more, it would only get easier for her...
+
+[[KrisPostTalk<- Talk about something]] <</if>>
+
+

@@ -1,0 +1,49 @@
+:: PostSleepFiller [nobr] {"position":"1800,2425","size":"100,100"}
+<<set setup.events.push({
+		name: 'PostSleepFiller1',
+		locationTags: ['postSleep'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'filler',
+		npc: [],
+		content: 'Finally, a quick rest. With all that has been going on lately, that’s almost a luxury, but today you feel fully restored. As you sit up, you stretch a bit, feeling an odd sense of tranquility washing over you. Today is a new day, and it’s yours for the taking!'
+	}, {
+		name: 'PostSleepFiller2',
+		locationTags: ['postSleep'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'filler',
+		npc: [],
+		content: 'Another day since you moved. Yet, this time, you don\'t have any soreness, and you actually feel rested! What a wonderful feeling. Today you\'ll make sure to enjoy it to the fullest!'
+	}, {
+		name: 'PostSleepFiller3',
+		locationTags: ['postSleep'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'filler',
+		npc: [],
+		content: 'Over the city you loom, your muscles bulging. Every step of your giant feet makes the earth rumble under you, people hurrying away in a panic as the tremors make your presence known. Every breath of air you exhale sends storms flying around you, every twitch of your body making your muscles bulge and- WHAT THE FUCK. You wake up in a pool of your own sweat from the most vivid dream you ever had. Clutching your head, you sit up, and as your feet hit the floor you can still feel vividly the tremors from your dream. Well, this is... a strange way to start the day...'
+	}, {
+		name: 'PostSleepFiller4',
+		locationTags: ['postSleep'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'filler',
+		npc: [],
+		content: 'God, today you wake up feeling STRONG! You don\'t know what it is, but your body just feels full of energy. Within seconds, you\'re up, and quickly get dressed and all ready for whatever the day brings!'
+	}, {
+		name: 'PostSleepFiller5',
+		locationTags: ['postSleep'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		 priority: 'filler',
+		npc: [],
+		content: 'Why does your back hurt when you wake up? No, scrap that. EVERYTHING hurts. Yet weirdly enough, only your joints? Sort of? No, no, no, as you sit up, you\'re quite sure EVERYTHING hurts. Great... urgh, you fight the urge to just get back in bed...'
+})>>
+
+

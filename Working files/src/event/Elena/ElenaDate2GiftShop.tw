@@ -1,0 +1,107 @@
+:: ElenaDate2GiftShop {"position":"1500,3900","size":"100,100"}
+The two of you walk back to the main foyer of the museum, hand in hand, and towards the gift shop that leads to the exit. Elena, like a little kid, is quickly attracted to some of the books dedicated to the exhibit, sporting several illustrations and pictures of the flowers. You watch as she leafs through them, when you hear something that at first sounds innocuous enough - but then quickly turns into panic as you think about it - a large group of children.
+
+It would seem like your plan to avoid children was flawed, as a large school group stampedes into the gift shop. Before Elena can react, you grab her hand and hold it tightly, trying to be her island as you wait to see what happens next.
+
+One of the kids just rushes blindly, running headfirst into Elena’s beefy thigh - and falling back on the ground. As the small boy opens his eyes, his head slowly tracks up, taking in the scale of the giantess in front of him, as Elena realizes what just happened and the other kids start crowding around her.
+
+<<if $elenaOpinion > 40>>
+    You brace yourself, expecting Elena to freeze or flee, but instead, she smiles, and reaches down with a gentle hand, and scoops up the kid as if he were entirely weightless, placing him down, now standing up. With wide-open eyes, the boy gives a thankful nod, and runs away. The other kids look in wonder, as if they have just witnessed a magical creature.
+
+    Elena just smiles as she closes her eyes and tilts her head, and the kids all come running, begging her to lift and wave them around.
+
+    Elena giggles and apologizes, explaining with a thick accent (which only leaves the kids more awed) that it’s not the proper place for that:
+
+    <<Dialogue "Elena" "Elena">>"But who knows? Maybe we’ll meet at the park someday!"<</Dialogue>>
+
+    The crowd cheers, and Elena carefully steps out of the store with you.
+
+    <<Dialogue "player" "You">>"I have a sneaky feeling they will be telling stories about you for quite some time."<</Dialogue>>
+
+    Elena nods and smiles, and it fills you with an indescribable happiness that she seems to own her size for once. Who knows, maybe she will even grow into it someday - you tell yourself, laughing out loud at your unintentional pun.
+
+    But as the morning comes to an end, Elena thanks you one last time and, with a warm hug, says her goodbyes. You watch as she walks away, with a surprising spring to her step - as opposed to her usual hunched and careful gait. You shake your head, and turn the other way.
+ 
+
+<<elseif $elenaOpinion > 20>>
+    Elena gasps, but you squeeze her hand and nod, trying to convey that everything is fine. You sense hesitation in her hand, but she just takes a deep breath (which momentarily scares the kid) before asking, in surprisingly clear English:
+
+    <<Dialogue "Elena" "Elena">>"Are you hurt, dear?"<</Dialogue>>
+
+    Her steady tone is incredibly soothing and reassuring, and the young boy’s fear seems to evaporate as he replies that he’s alright. Elena kneels and offers him her free hand, a single finger almost as big as the boy’s entire hand. And yet, he accepts, and she very gently envelops his palm in hers, lifting him so smoothly that he almost seems to be levitating.
+
+    With a bright smile, she apologizes:
+
+    <<Dialogue "Elena" "Elena">>"Sorry, sometimes I forget my own size. Are you sure you are fine?"<</Dialogue>>
+
+    The boy nervously nods his head, quickly and repeatedly, as his friends chatter excitedly.
+
+    <<Dialogue "player" "You">>"You should all drink your milk to make sure that you grow to be big and strong as my friend!"<</Dialogue>>
+
+    You motion Elena to make a muscle, and she blushes to what you could swear is a deep shade of purple, but she complies, showing a bicep that might just be bigger than most of their legs. This time, the children utter a unison of “wow”, while Elena hunches over herself. You can’t help but laugh at the surreal scene.
+
+    <<Dialogue "player" "You">>"We need to go now, but you should behave - remember, no running inside the museum!"<</Dialogue>>
+
+    As you wave goodbye and pull Elena by her hand out of the shop, she seems to be in a deep introspective mood, thinking to herself.
+
+    <<Dialogue "player" "You">>"Penny for your thoughts?"<</Dialogue>>
+
+    Elena is at first confused by the idiom, which you quickly explain.
+
+    <<Dialogue "Elena" "Elena">>"Ah, si. No, I was just… sorpresa. They weren’t afraid of me."<</Dialogue>>
+
+    <<Dialogue "player" "You">>"Sorry to break it to you, Elena, the only way you would surprise me is if you willingly hurt an ant."<</Dialogue>>
+
+    She keeps looking at her oversized hands as you escort her outside. You can see that something has triggered in her, and you give her a hug, while you tell her not to sweat about it. She gives a weak but sincere smile, and thanks you once again.
+
+    <<Dialogue "Elena" "Elena">>"Grazie. This… was magical. I have no words."<</Dialogue>>
+
+    <<Dialogue "player" "You">>"Hey, I can say the same. Looking forward to another..."<</Dialogue>>
+
+    You cut yourself before saying the word “date”. But the smiles on both of you say it all. You watch as Elena walks on her way, admiring her radiant beauty as you force yourself to turn around towards your own apartment.
+
+
+<<else>>
+    Elena tugs at your hand, and it takes all her willpower to suppress her fight or flight instinct - which is clearly 100% flight. But you hold her steady, feeling her palm getting sweaty. You assume it’s part of her empathic nature, but her terror seems to radiate and infect the children, which get just as panicked as she is - the boy scurrying away, as one of the other kids actually starts to cry.
+
+    OK, <<print $playerFirstName>>, calm down, you got this. It feels like disarming a bomb in a movie, except more tense. Your eyes dart around, trying to take in the situation - do you concentrate on Elena? No, you should first soothe the kids - but how?
+
+
+    <<if $shyConfident > 1 || $carefreeCarefull < -1>>
+        <<Dialogue "player" "You">>"It’s okay, she’s a GOOD giant! Kinda like… a superhero!"<</Dialogue>>
+
+        Elena’s panic turns into utter confusion as she looks at you, complete bafflement all over her face. You muster the most confident smile you can, along with your best storytelling voice, as you proclaim loudly:
+
+        <<Dialogue "player" "You">>"Don’t worry, we just made sure there are no monsters or bad guys here - they call us every now and then when there’s a pesky dinosaur!"<</Dialogue>>
+
+        And there you have it - you can see the one kid that is entranced by your narrative, and like a wave, his energy flows into the others as he starts asking questions about the monsters and dinosaurs. You continue to weave a tall tale, and just like the kids, Elena is soothed by your dramatic chops. Soon there’s awed “Ooooh!”s and giggles all around, and you explain that the two of you need to get going because there are other monsters out there that need vanquishing.
+
+        Elena, still somewhat dazed, just follows as you tug her out of the museum.
+
+
+    <<else>>
+        You take a deep breath, trying to find the focus to get out of this situation. You gently ask if the kid is okay, and he just nods, somewhat panicked like he had committed a heinous crime. You offer him a hand, but the sheer discrepancy in size is enough to make him scurry away. You try to insist it’s all okay, but they are just too worked up. But then, due to your distraction, Elena manages to pull her hand away from yours.
+
+        <<Dialogue "Elena" "Elena">>"I’m sorry."<</Dialogue>>
+
+        There it is, that sad melancholy that comes so naturally to her. It makes the kids stop for a moment, and it’s enough for you to take the reins of the situation. You assure the kids that everything is okay, and they look at you, incredulously - not doubting your sincerity, but the enormity of your physique. You tell them that you got this big and strong because you always ate your vegetables and drank all your milk, and that seems to make an impression on them, enough to completely disarm the situation. The group walks away, buzzing about how they’ll never again skip on their milk and veggies, and you turn your attention to Elena, who seems to be finally settling down. You give her a hug to make her feel better, and escort her out of the museum.
+
+
+    <</if>>
+    As you leave the shop, Elena thanks you for the intervention, which you just wave off as just something any friend will do. But she is quite adamant, a serious expression on her face, as she proclaims:
+
+    <<Dialogue "Elena" "Elena">>"Grazie. I have no words. This… everything… sono in debito con te… I owe you."<</Dialogue>>
+
+    You scoff at that comment, but she is dead serious. You clear your throat, and nod in agreement, trying to match her seriousness - but she just gives you a tight hug… and you hug her back. And with that, you say your goodbyes, and each of you go back to your own abodes.
+
+
+<</if>>
+
+As you make your way back home, you pull up your phone to look up the meaning of “mi fiore”.
+
+It means “my flower”.
+
+You bring the phone to your chest, pushing it tightly against it, as you let out a content sigh. It’s going to be a long walk home… or at the very least, it will feel that way.
+
+<<link "Go home" "Home">><<set $elenaOpinion += 10>><<set $elenaShyOpinion += 10>><</link>>
+

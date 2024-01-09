@@ -1,0 +1,76 @@
+:: BookStore [storage outOfHouse nobr mall] {"position":"2300,1625","size":"100,100"}
+The aroma of fresh coffee and dog-eared books, combined with warm, earthy colors, makes this coffee shop-cum-bookstore immediately inviting and welcoming. Filled with wooden furniture and plants, complimented by smooth jazz playing in the background, the vibe of the Coffee Corner makes you feel right at home.
+
+<<if $gameDate.getHours() <= 20 and $gameDate.getHours() >= 12>>Behind the counters, stands a rather disinterested punk girl. Despite her short height, she seems pretty nimble, working quickly - almost like a robot repeating tasks without any personal interest. Her attitude couldn't be any clear that there's no enjoyment to be found in her tasks.<</if>>
+
+
+<br><br>
+You could either sit down with some coffee and enjoy a book, or browse the ones they have for sale. 
+<br><br>
+<<linkreplace "Buy a book">>
+<<nobr>>
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Price</th>
+	<th></th>
+  </tr>
+<<for _i to 0; _i < $books.length; _i ++>>
+		<<capture _i>>
+		
+		<<if  $books[_i].bought is false>>
+		
+		<tr>
+    		<td><<print $books[_i].name>></td>
+    		<td><<print $books[_i].description>></td>
+	    	<td>$<<print $books[_i].price>></td>
+			<td><<linkreplace "buy - 00:05 🕛">>
+			<<if $books[_i].price > $money>>
+			You can't afford that.
+			<<else>>
+			<<addMinutes 5>>
+			<<set $money -= $books[_i].price>>
+			<<update>>
+			<<set $books[_i].bought to true>>
+			Bought!
+			<</if>>				 
+			<</linkreplace>></td>
+  		</tr>
+		<</if>>
+		<</capture>>
+<</for>>
+</table>
+<</nobr>>
+<</linkreplace>>
+<<set $coffeeCornerVisited to true>>
+
+<br><br>
+
+<<if $money >= 10>> 
+	<<if $gameDate.getHours() <= 20 and $gameDate.getHours() >= 12>>
+		<<if $krisInterested is true>>
+			<<if $krisVisited is false or $debug is "true">><br><br>
+				<<link "Talk to Kris">>
+				<<set $eventCounter to setup.balance.eventTresshold + 1>>
+					<<goto "KrisDialogScene">>
+				<</link>>
+				
+				<<gameLink "Sit back with a nice coffee ($10)" "coffeeResult" time:30 motivation:20 minexhaustion:-10>><<set $money -= 10>><</gameLink>>
+			<</if>>
+		<<else>>
+			<<gameLink "Sit back with a nice coffee ($10)" "KrisDialogScene" time:30 motivation:20 minexhaustion:-10>><<set $money -= 10>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
+		<</if>>
+	<<else>>
+		<<gameLink "Sit back with a nice coffee ($10)" "coffeeResult" time:30 motivation:20 minexhaustion:-10>><<set $money -= 10>><</gameLink>>
+	<</if>>
+
+	<<else>>
+	
+	You can't afford the coffee
+<</if>>
+
+<br><br>
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

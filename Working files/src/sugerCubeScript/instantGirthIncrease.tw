@@ -1,0 +1,35 @@
+:: instantGirthIncrease [noReturn] {"position":"550,1900","size":"100,100"}
+<<nobr>>
+
+<<if $dickActive is false and $futa>>
+<<set _message to "The taste of it is not the worst, your best stab at a description is... almost carrot-like? But, like, a really THICK carrot, though you have NO idea how you got that mental image from taste alone. A warm feeling spreads through your groin, giving you the feeling that it’s building something.">>
+<<set $dickStore += 1>>
+<<elseif $dickActive and $futa>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to " The taste of it is not the worst, your best stab at a description is... almost carrot-like? But, like, a really THICK carrot, though you have NO idea how you got that mental image from taste alone. A warm feeling spreads through your groin, making your dick throb. Yet, oddly enough, it does not seem to be lengthening.">>
+<<set $dickGirthMod += 0.1>>
+<<set _rand to random(0,2)>>
+
+<<if _rand >= 1>>
+<<set _message += "It clearly is pushing outwards, though. Your dick is becoming girthier!">>
+<<set $dickGirthMod += 0.1>>
+<</if>>
+
+<<if _rand >= 2>>
+<</if>>
+
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Girth grow");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

@@ -1,0 +1,877 @@
+:: Story JavaScript [script]
+/* twine-user-script #1: "Story JavaScript" */
+$(document.head).append("<link rel='icon' href='https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/favicon-32x32.png'>")
+
+predisplay["Menu Return"] = function (taskName) {
+    if (!tags().contains("noReturn")) {
+        State.variables.return = passage();
+    }
+};
+
+window.Health = function (motivation, maxMotivation, BarID, Horizontal, Container) {
+    if (Container == undefined) {
+        Container = document;
+    }
+    var HP = parseInt((motivation / maxMotivation) * 100).clamp(0, 100);
+    var BarElement = $(Container).find("#" + BarID);
+    if (Horizontal) {
+        BarElement.css({
+            width: HP + "%"
+        });
+    } else {
+        BarElement.css({
+            height: HP + "%"
+        });
+    }
+    BarElement.attr("title", motivation + "/" + maxMotivation + " HP");
+    $(Container).find("#" + BarID + "bkg").attr("title", motivation + "/" + maxMotivation + " HP");
+};
+/* Health Bar code - End */
+
+window.getPotionIngredientsCountByName = function (name) {
+    let count = 0;
+    for (const potionIngredient of State.variables.potionIngredients) {
+        if (name === potionIngredient) { count++; }
+    }
+    return count;
+}
+
+window.getPotionIngredientsOnDeliveryCountByName = function (name) {
+    let count = 0;
+    for (const potionIngredient of State.variables.ingredientOnlineBoughtDelay) {
+        if (name === potionIngredient) { count++; }
+    }
+    return count;
+}
+
+/**
+ * @param day {number} 0 = Sunday
+ * @return {Date} next week of the day, based on `day`
+ */
+window.getNextDayOfTheWeek = function (day) {
+  let nextWeekOfTheDay = new Date(State.variables.gameDate);
+  nextWeekOfTheDay.setDate(nextWeekOfTheDay.getDate() + 1);
+  nextWeekOfTheDay.setDate(nextWeekOfTheDay.getDate() + (day + 7 - nextWeekOfTheDay.getDay()) % 7);
+  nextWeekOfTheDay.setHours(0, 0, 0, 0);
+  return nextWeekOfTheDay
+}
+
+/**
+ *
+ * @param {number} startingSize Starting size at muscle 20, fat 20
+ * @param {number} idealMuscle ideal size at muscle 60
+ * @param {number} idealFat ideal size at fat 60
+ * @param {boolean} volumetric
+ */
+window.calcBodyPartSize = function (startingSize, idealMuscle, idealFat, volumetric) {
+  const steps = 60 - 20; /* Amount of steps between starting and ideal size.*/
+  const divMuscle = idealMuscle - startingSize;
+  const divFat = idealFat - startingSize;
+
+  const valueMuscle = divMuscle / steps;
+  const valueFat = divFat / steps;
+
+  let result = (startingSize +
+      (valueMuscle * (SugarCube.State.variables.muscle - 20) + valueFat * (SugarCube.State.variables.fat - 20))) *
+    SugarCube.State.variables.heightMod;
+  result = Math.max(startingSize / 3 * 2, result); /* prevents too low value */
+
+  if (volumetric) {
+    result *= SugarCube.State.variables.heightMod * SugarCube.State.variables.heightMod
+  }
+
+  return result;
+}
+
+Macro.add('Dialogue', {
+    tags: null,
+    handler: function () {
+        var id = this.args[0],
+        name = id;
+        if (this.args.length > 1)
+            name = this.args[1];
+        var output = '<div class="speech ' + id + '">';
+        output += '<span class="avatar"></span>';
+        output += '<span class="name">' + name + '</span>' + '<hr>' + this.payload[0].contents + '</div>';
+        $(this.output).wiki(output);
+    }
+});
+
+Config.history.controls = true;
+Config.history.maxStates = 5;
+
+
+(function () {
+    "use strict";
+
+    $(document).on(":liveupdate", function () {
+        $(".macro-live").trigger(":liveupdateinternal");
+    });
+
+    Macro.add(['update', 'upd'], {
+        handler: function handler() {
+            $(document).trigger(":liveupdate");
+        }
+    });
+
+    Macro.add(['live', 'l', 'lh'], {
+        skipArgs: true,
+        handler: function handler() {
+            if (this.args.full.length === 0) {
+                return this.error('no expression specified');
+            }
+            try {
+                var statement = this.args.full;
+                var result = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+                if (result !== null) {
+                    var lh = this.name === "lh";
+                    var $el = $("<span></span>").addClass("macro-live").wiki(lh ? Util.escape(result) : result).appendTo(this.output);
+                    $el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+                            var out = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+                            $el.empty().wiki(lh ? Util.escape(out) : out);
+                        }));
+                }
+            } catch (ex) {
+                return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+            }
+        }
+    });
+
+    Macro.add(['liveblock', 'lb'], {
+        tags: null,
+        handler: function handler() {
+            try {
+                var content = this.payload[0].contents.trim();
+                if (content) {
+                    var $el = $("<span></span>").addClass("macro-live macro-live-block").wiki(content).appendTo(this.output);
+                    $el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+                            $el.empty().wiki(content);
+                        }));
+                }
+            } catch (ex) {
+                return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+            }
+        }
+    });
+})();
+
+Macro.add('PersonalityCheck', {
+    skipArgs: false,
+    tags: ['Failed'],
+    elseifWsRe: /^\s*if\b/i,
+    ifAssignRe: /[^!=&^|<>*/%+-]=[^=>]/,
+    t8nRe: /^(?:transition|t8n)$/,
+
+    handler() {
+        let i;
+
+        try {
+            const len = this.payload.length;
+
+            // Sanity checks.
+            const elseifWsRe = this.self.elseifWsRe;
+            const ifAssignRe = this.self.ifAssignRe;
+
+            for (/* declared previously */ i = 0; i < len; ++i) {
+                var query = this.payload[i].args[0] + this.payload[i].args[1] + this.payload[i].args[2];
+                this.payload[i].args.query = query;
+                /* eslint-disable prefer-template */
+                switch (this.payload[i].name) {
+                case 'Failed':
+                    if (this.payload[i].args.raw.length > 0) {
+                        if (elseifWsRe.test(this.payload[i].query)) {
+                            return this.error(`whitespace is not allowed between the "else" and "if" in <<elseif>> clause${i > 0 ? ' (#' + i + ')' : ''}`);
+                        }
+
+                    }
+
+                    if (i + 1 !== len) {
+                        return this.error('<<Failed>> must be the final clause');
+                    }
+                    break;
+
+                default:
+                    if (this.payload[i].args.query.length === 0) {
+                        return this.error(`no conditional expression specified for <<${this.payload[i].name}>> clause${i > 0 ? ' (#' + i + ')' : ''}`);
+                    } else if (
+                        Config.macros.ifAssignmentError
+                         && ifAssignRe.test(this.payload[i].query)) {
+                        return this.error(`assignment operator found within <<${this.payload[i].name}>> clause${i > 0 ? ' (#' + i + ')' : ''} (perhaps you meant to use an equality operator: ==, ===, eq, is), invalid: ${this.payload[i].args.raw}`);
+                    }
+                    break;
+                }
+                /* eslint-enable prefer-template */
+            }
+
+            const evalJavaScript = Scripting.evalJavaScript;
+            let success = false;
+
+            // Evaluate the clauses.
+            for (/* declared previously */ i = 0; i < len; ++i) {
+                // Custom debug view setup for the current clause.
+                if (Config.debug) {
+                    this
+                    .createDebugView(this.payload[i].name, this.payload[i].source)
+                    .modes({
+                        nonvoid: false
+                    });
+                }
+
+                // Conditional test.
+                if (this.payload[i].name === 'Failed' || !!evalJavaScript(this.payload[i].args.query)) {
+                    success = true;
+
+                    if (this.payload[0].args.length === 0) {
+                        return this.error('no link text specified');
+                    }
+
+                    const $link = jQuery(document.createElement('a'));
+                    const $insert = jQuery(document.createElement('span'));
+                    const transition = this.args.length > 1 && this.self.t8nRe.test(this.args[1]);
+
+                    var name = this.payload[0].args[3];
+                    var personalityTested = '';
+
+                    if (this.payload[0].args.raw.includes("shyConfident")) {
+                        $link.addClass('shyConfident');
+                        if (this.payload[0].args.raw.includes(">")) {
+                            personalityTested = '<b>Confidence: [';
+                        } else {
+                            personalityTested = '<b>Shyness: [';
+                        }
+                    } else if (this.payload[0].args.raw.includes("submissiveDominant")) {
+                        $link.addClass('submissiveDominant');
+                        if (this.payload[0].args.raw.includes(">")) {
+                            personalityTested = '<b>Dominant: [';
+                        } else {
+                            personalityTested = '<b>Submissive: [';
+                        }
+                    } else if (this.payload[0].args.raw.includes("carefreeCarefull")) {
+                        $link.addClass('carefreeCarefull');
+                        if (this.payload[0].args.raw.includes(">")) {
+                            personalityTested = '<b>Careful: [';
+                        } else {
+                            personalityTested = '<b>Carefree: [';
+                        }
+                    } else {}
+
+                    if (this.payload[0].args.raw.includes(">")) {
+                        personalityTested += this.payload[0].args[0];
+                        personalityTested += '/';
+                        personalityTested += this.payload[0].args[2];
+                    } else {
+                        personalityTested += this.payload[0].args[0] * -1;
+                        personalityTested += '/';
+                        personalityTested += this.payload[0].args[2] * -1;
+                    }
+
+                    personalityTested += ']</b> ';
+
+                    name = personalityTested += name;
+
+                    if (this.payload[i].name === 'Failed') {
+                        $link.addClass('Failed');
+                    } else {
+                        $link.addClass('Succes');
+                    }
+
+                    $link
+                    .wikiWithOptions({
+                        profile: 'core'
+                    }, name)
+                    .addClass(`link-internal macro-${this.name}`)
+                    .ariaClick({
+                        namespace: '.macros',
+                        one: true
+                    }, this.createShadowWrapper(
+                            () => {
+                            $link.remove();
+
+                            if (this.payload[i].contents !== '') {
+                                const frag = document.createDocumentFragment();
+                                new Wikifier(frag, this.payload[i].contents);
+                                $insert.append(frag);
+                            }
+
+                            if (transition) {
+                                setTimeout(() => $insert.removeClass(`macro-${this.name}-in`), Engine.minDomActionDelay);
+                            }
+                        }))
+                    .appendTo(this.output);
+
+                    $insert.addClass(`macro-${this.name}-insert`);
+
+                    if (this.payload[i].name == "Failed") {
+                        $insert.addClass(`PersonalityCheckFailed`);
+                    } else {
+                        $insert.addClass(`PersonalityCheckSucces`);
+                    }
+
+                    if (transition) {
+                        $insert.addClass(`macro-${this.name}-in`);
+                    }
+
+                    $insert.insertAfter($link);
+
+                    break;
+                } else if (Config.debug) {
+                    // Custom debug view setup for a failed conditional.
+                    this.debugView.modes({
+                        hidden: true,
+                        invalid: true
+                    });
+                }
+            }
+
+            // Custom debug view setup for the remaining clauses.
+            if (Config.debug) {
+                for (++i; i < len; ++i) {
+                    this
+                    .createDebugView(this.payload[i].name, this.payload[i].source)
+                    .modes({
+                        nonvoid: false,
+                        hidden: true,
+                        invalid: true
+                    });
+                }
+
+                /*
+                Fake a debug view for `<</if>>`.  We do this to aid the checking of nesting
+                and as a quick indicator of if any of the clauses matched.
+                 */
+                this
+                .createDebugView(`/${this.name}`, `<</${this.name}>>`)
+                .modes({
+                    nonvoid: false,
+                    hidden: !success,
+                    invalid: !success
+                });
+            }
+        } catch (ex) {
+            return this.error(`bad conditional expression in <<${i === 0 ? 'if' : 'elseif'}>> clause${i > 0 ? ' (#' + i + ')' : ''}: ${typeof ex === 'object' ? ex.message : ex}`); // eslint-disable-line prefer-template
+        }
+    }
+});
+
+const FindKeywordValue = function (array, keyword, defaultValue) {
+    let _index = array.findIndex(e => typeof e === "string" && e.toLowerCase().startsWith(keyword));
+    return _index > -1 ? array[_index].substring(keyword.length + 1) : defaultValue;
+}
+
+const isNumber = function (n) {
+    return !isNaN(parseFloat(n)) && !isNaN(n - 0)
+}
+
+const stringToVariable = function (variable) {
+    if (isNumber(variable)) {
+        return parseInt(variable);
+    } else if (typeof variable === 'string') {
+        if (variable.includes('_')) {
+            return State.getVar(variable);
+        } else if (variable.includes('$')) {
+            return State.getVar(variable);
+        } else {}
+    }
+}
+
+const clamp = function (num, min, max) {
+    return num <= min
+     ? min
+     : num >= max
+     ? max
+     : num
+}
+
+Macro.add(['gameLink'], {
+    isAsync: true,
+    tags: null,
+
+    handler() {
+        // Args: name, motivation, exhaustion, minExhaustion, time, sleep
+
+        var motivationInput = FindKeywordValue(this.args, "motivation", 0);
+        var exhaustionInput = FindKeywordValue(this.args, "exhaustion", 0);
+        var minExhaustionInput = FindKeywordValue(this.args, "minexhaustion", 0);
+        var timeInput = FindKeywordValue(this.args, "time", 0);
+        var sleep = FindKeywordValue(this.args, "sleep", false);
+        var hideTime = FindKeywordValue(this.args, "hide", false);
+
+        var motivation = stringToVariable(motivationInput);
+        var exhaustion = stringToVariable(exhaustionInput);
+        var minExhaustion = stringToVariable(minExhaustionInput);
+        var time = stringToVariable(timeInput);
+
+        var maxMotivation = State.variables.maxMotivation;
+        var currentMotivation = State.variables.motivation;
+
+        var maxExhaustion = State.variables.maxExhaustion;
+        var currentMinimumExhaustion = State.variables.minimumExhaustion;
+        var currentExhaustion = State.variables.exhaustion;
+
+        if (this.args.length === 0) {
+            return this.error(`no ${this.name === 'button' ? 'button' : 'link'} parameters passed`);
+        }
+
+        if (this.args.length === 1) {
+            return this.error(`no ${this.name === 'button' ? 'button' : 'link'} link parameters passed`);
+        }
+
+        if (!isNaN(time) && parseInt(time) != 0) {
+            var hours = String(Math.floor(time / 60));
+            var minutes = String((time - (Math.floor(time / 60) * 60)));
+
+            if (hours.length < 2) {
+                hours = "0" + hours;
+            }
+
+            if (minutes.length < 2) {
+                minutes = "0" + minutes;
+            }
+
+            if (hideTime == false) {
+                this.args[0] += " - " + hours + ":" + minutes + "🕛";
+            }
+
+        }
+
+        const $link = jQuery(document.createElement(this.name === 'button' ? 'button' : 'a'));
+        let passage;
+
+        if (typeof this.args[0] === 'object') {
+            if (this.args[0].isImage) {
+                // Argument was in wiki image syntax.
+                const $image = jQuery(document.createElement('img'))
+                    .attr('src', this.args[0].source)
+                    .appendTo($link);
+
+                if (this.args[0].hasOwnProperty('passage')) {
+                    $image.attr('data-passage', this.args[0].passage);
+                }
+
+                if (this.args[0].hasOwnProperty('title')) {
+                    $image.attr('title', this.args[0].title);
+                }
+
+                if (this.args[0].hasOwnProperty('align')) {
+                    $image.attr('align', this.args[0].align);
+                }
+
+                passage = this.args[0].link;
+            } else {
+                // Argument was in wiki link syntax.
+                $link.append(document.createTextNode(this.args[0].text));
+                passage = this.args[0].link;
+            }
+        } else {
+            // Argument was simply the link text.
+            $link.wikiWithOptions({
+                profile: 'core'
+            }, this.args[0]);
+            passage = this.args[1] != "" ? this.args[1] : undefined;
+        }
+
+        if (passage != null) { // lazy equality for null
+            $link.attr('data-passage', passage);
+
+            if (Story.has(passage)) {
+                $link.addClass('link-internal');
+
+                if (Config.addVisitedLinkClass && State.hasPlayed(passage)) {
+                    $link.addClass('link-visited');
+                }
+            } else {
+                $link.addClass('link-broken');
+            }
+        } else {
+            $link.addClass('link-internal');
+        }
+
+        $link.on('mouseenter', function (ev) {
+            motivation = stringToVariable(motivationInput);
+            exhaustion = stringToVariable(exhaustionInput);
+            minExhaustion = stringToVariable(minExhaustionInput);
+            time = stringToVariable(timeInput);
+
+            var newMotivationChangeHeight = 0;
+            if (motivation < 0) {
+                newMotivationChangeHeight = Math.round(((currentMotivation / maxMotivation) * 100) + ((motivation / maxMotivation) * 100));
+            } else if (motivation > 0) {
+                newMotivationChangeHeight = Math.round(((currentMotivation / maxMotivation) * 100));
+            }
+
+            var newExhaustionFloorChangeHeight = 0;
+            if (minExhaustion < 0) {
+                newExhaustionFloorChangeHeight = Math.round(((currentMinimumExhaustion / maxExhaustion) * 100) + ((minExhaustion / maxExhaustion) * 100));
+            } else if (minExhaustion > 0) {
+                newExhaustionFloorChangeHeight = Math.round(((currentMinimumExhaustion / maxExhaustion) * 100));
+            }
+
+            var newExhaustionChangeHeight = 0;
+            var exhaustionMinimumHeightDiv = 0;
+            if (exhaustion < 0) {
+                newExhaustionChangeHeight = Math.round(((currentExhaustion / maxExhaustion) * 100) + ((exhaustion / maxExhaustion) * 100));
+                if (newExhaustionChangeHeight < currentMinimumExhaustion / maxExhaustion * 100) {
+                    exhaustionMinimumHeightDiv = Math.abs(newExhaustionChangeHeight - currentMinimumExhaustion / maxExhaustion * 100);
+                    newExhaustionChangeHeight = currentMinimumExhaustion / maxExhaustion * 100;
+                }
+            } else if (exhaustion > 0) {
+                newExhaustionChangeHeight = Math.round(((currentExhaustion / maxExhaustion) * 100));
+            }
+
+            var totalE = parseInt(exhaustion) + currentExhaustion;
+            if (totalE > maxExhaustion) {
+                exhaustion = maxExhaustion - currentExhaustion;
+            }
+
+            var totalM = parseInt(motivation) + currentMotivation;
+            if (totalM >= maxMotivation) {
+                motivation = maxMotivation - currentMotivation;
+            }
+
+            document.getElementById("motivationChange").style.visibility = "visible";
+
+            document.getElementById("exhaustionBarFloorChange").style.visibility = "visible";
+            document.getElementById("exhaustionBarFloorChange").style.height = clamp(Math.round((Math.abs(minExhaustion / maxExhaustion) * 100)), 0, 100) + "%";
+            if (parseInt(minExhaustion) > 0) {
+                document.getElementById("exhaustionBarFloor").style.height = clamp(Math.round(((Math.abs(minExhaustion) + currentMinimumExhaustion) / maxExhaustion) * 100), 0, 100) + "%";
+            };
+            document.getElementById("exhaustionBarFloorChange").style.bottom = clamp(newExhaustionFloorChangeHeight, 0, 100) + "%";
+
+            if (motivation > 0) {
+                document.getElementById("motivation").style.height = clamp(Math.round(((Math.abs(motivation) + currentMotivation) / maxMotivation) * 100), 0, 100) + "%";
+            };
+
+            var motivationHeightChange = clamp(Math.round((Math.abs(motivation) / maxMotivation) * 100), 0, 100 - newMotivationChangeHeight) + "%";
+            var motivationBottomChange = clamp(newMotivationChangeHeight, 0, 100) + "%";
+            document.getElementById("motivationChange").style.height = motivationHeightChange;
+            document.getElementById("motivationChange").style.bottom = motivationBottomChange;
+
+            document.getElementById("exhaustionChange").style.visibility = "visible";
+            if (exhaustion > 0) {
+                document.getElementById("exhaustion").style.height = clamp(Math.round(((Math.abs(exhaustion) + currentExhaustion) / maxExhaustion) * 100), 0, 100) + "%";
+            };
+
+            document.getElementById("exhaustionChange").style.height = clamp(Math.round(((Math.abs(exhaustion) / maxExhaustion) * 100) - exhaustionMinimumHeightDiv), 0, 100 - newExhaustionChangeHeight) + "%";
+            document.getElementById("exhaustionChange").style.bottom = clamp(newExhaustionChangeHeight, 0, 100) + "%";
+
+        });
+
+        $link.on('click', function (ev) {
+
+            motivation = stringToVariable(motivationInput);
+            exhaustion = stringToVariable(exhaustionInput);
+            minExhaustion = stringToVariable(minExhaustionInput);
+            time = stringToVariable(timeInput);
+
+            State.variables.addedMinimumExhaustion += minExhaustion;
+
+            if (sleep) {
+                State.variables.addedMinimumExhaustion += exhaustion;
+                if (State.variables.addedMinimumExhaustion < 0) {
+                    State.variables.addedMinimumExhaustion = 0;
+                }
+                State.variables.hoursAwake -= time / 30;
+
+                if (State.variables.hoursAwake < 0) {
+                    State.variables.hoursAwake = 0;
+                }
+
+                if (!isNaN(time) && parseInt(time) != 0) {
+                    addMinutes(time, true);
+                }
+            } else {
+                if (State.variables.addedMinimumExhaustion < 0) {
+                    State.variables.addedMinimumExhaustion = 0;
+                }
+                if (!isNaN(time) && parseInt(time) != 0) {
+                    addMinutes(time, false);
+                }
+            }
+
+            State.variables.motivation += parseInt(motivation);
+            if (parseInt(exhaustion) + currentExhaustion < State.variables.minimumExhaustion) {
+                State.variables.exhaustion = State.variables.minimumExhaustion;
+            } else {
+                State.variables.exhaustion += parseInt(exhaustion);
+            }
+
+        });
+
+        $link.on('focus', function (ev) {});
+
+        $link.on('mouseout', function (ev) {
+            document.getElementById("motivationChange").style.visibility = "collapse";
+            document.getElementById("exhaustionChange").style.visibility = "collapse";
+            document.getElementById("exhaustionBarFloorChange").style.visibility = "collapse";
+
+            document.getElementById("exhaustion").style.height = Math.round((currentExhaustion / maxExhaustion) * 100) + "%";
+            document.getElementById("motivation").style.height = Math.round((currentMotivation / maxMotivation) * 100) + "%";
+            document.getElementById("exhaustionBarFloor").style.height = Math.round((currentMinimumExhaustion / maxExhaustion) * 100) + "%";
+        });
+        $link
+        .addClass(`macro-${this.name}`)
+        .ariaClick({
+            namespace: '.macros',
+            one: passage != null // lazy equality for null
+        }, this.createShadowWrapper(
+                this.payload[0].contents !== ''
+                 ? () => Wikifier.wikifyEval(this.payload[0].contents.trim())
+                 : null,
+                passage != null // lazy equality for null
+                 ? () => Engine.play(passage)
+                 : null))
+        .appendTo(this.output);
+    }
+});
+
+Macro.add(['addTriggerInternal'], {
+    isAsync: true,
+    tags: null,
+
+    handler() {
+        // Args:
+        //[0] - The triggerToAdd
+        //[1] - If the trigger is repeatable
+        //[2] - can the trigger be added multiple times.
+
+        var triggerToAdd = {
+            trigger: this.args[0],
+            repeatable: this.args[1]
+        };
+        var repeatable = this.args[1];
+        var redoable = this.args[2];
+
+        var triggerTarget = "none";
+
+        console.log("Trigger to add:");
+        console.log(triggerToAdd);
+
+        var characterNames = [];
+        for (let i = 0; i < setup.characters.length; ++i) {
+            characterNames.push(setup.characters[i].name);
+            if (triggerToAdd.trigger.toLowerCase().contains(characterNames[i].toLowerCase())) {
+                triggerTarget = characterNames[i];
+            }
+        }
+
+        if (triggerTarget == "Elena" || triggerTarget == "ElenaShy") {
+            if (State.variables.elenaUnlocked == true) {
+                triggerTarget = "Elena";
+            } else {
+                triggerTarget = "ElenaShy";
+            }
+        }
+		
+		if (triggerTarget == "Kriss" || triggerTarget == "KrissObsessed" || triggerTarget == "Kris" || triggerTarget == "KrisObsessed") {
+            if (State.variables.krisObsessed == true) {
+                triggerTarget = "KrisObsessed";
+            } else {
+                triggerTarget = "Kris";
+            }
+        }
+
+        console.log("Trigger target:");
+        console.log(triggerTarget);
+
+        for (let i = 0; i < characterNames.length; ++i) {
+            if (triggerTarget != "none" && triggerTarget != characterNames[i]) {
+                console.log("Skipped adding it to  " + characterNames[i] + ": " + triggerTarget + ", " + triggerToAdd.trigger);
+                continue;
+            }
+
+            var duplicate = false;
+            var used = false;
+            var characterTriggers = State.variables[characterNames[i] + "Triggers"];
+
+            var characterUsedTriggers = [];
+            if (repeatable == false) {
+                var characterUsedTriggerString = characterNames[i] + "UsedTriggers";
+                characterUsedTriggers = State.variables[characterUsedTriggerString];
+            }
+
+            if (characterTriggers.length > 0) {
+                for (let i = 0; i < characterTriggers.length; ++i) {
+                    if (characterTriggers[i].trigger == triggerToAdd.trigger) {
+                        duplicate = true;
+                        break;
+                    }
+                }
+            }
+
+            if (repeatable == false && characterUsedTriggers.length > 0 && redoable == false) {
+                for (let i = 0; i < characterUsedTriggers.length; ++i) {
+                    if (characterUsedTriggers[i].trigger == triggerToAdd.trigger) {
+                        used = true;
+                        break;
+                    }
+                }
+            }
+
+            if (duplicate == false && used == false) {
+                State.variables[characterNames[i] + "Triggers"].push(triggerToAdd);
+            }
+        }
+    }
+});
+
+const addMinutes = function (time, sleepMode) {
+    var oldDate = State.variables.gameDate.toDateString();
+    var oldHour = State.variables.gameDate.getHours();
+
+    var variance = Math.floor(Math.random() * 21);
+    var timeRandomFactor = Math.round(time * ((90 + variance) / 100));
+
+    State.variables.gameDate.setMinutes(State.variables.gameDate.getMinutes() + (timeRandomFactor));
+
+    var newDate = State.variables.gameDate.toDateString();
+    var newHour = State.variables.gameDate.getHours();
+
+    if (sleepMode) {}
+    else {
+        State.variables.hoursAwake += time / 60;
+    }
+
+    var sleepExhaustion = 0;
+    State.variables.minimumExhaustion = State.variables.addedMinimumExhaustion + sleepExhaustion;
+    if (State.variables.hoursAwake >= setup.balance.startExhaustionAtHoursAwake) {
+        sleepExhaustion = Math.pow((State.variables.hoursAwake - setup.balance.startExhaustionAtHoursAwake), setup.balance.hourlyExhaustionTax);
+
+        State.variables.minimumExhaustion = State.variables.addedMinimumExhaustion + sleepExhaustion;
+
+        if (State.variables.minimumExhaustion < 0) {
+            State.variables.minimumExhaustion = 0;
+        } else if (State.variables.minimumExhaustion > 100) {
+            State.variables.minimumExhaustion = 100
+        }
+    } else {
+        State.variables.minimumExhaustion = State.variables.addedMinimumExhaustion
+    }
+
+    State.variables.newDay = State.variables.gameDate.toDateString();
+    State.variables.newHour = State.variables.gameDate.getHours();
+}
+
+Macro.add(['limitedNumberbox'], {
+    isAsync: true,
+
+    handler() {
+        if (this.args.length < 4) {
+            const errors = [];
+            if (this.args.length < 1) {
+                errors.push('variable name');
+            }
+            if (this.args.length < 2) {
+                errors.push('default value');
+            }
+            if (this.args.length < 4) {
+                errors.push('min & max');
+            }
+            return this.error(`no ${errors.join(' or ')} specified`);
+        }
+
+        // Ensure that the variable name argument is a string.
+        if (typeof this.args[0] !== 'string') {
+            return this.error('variable name argument is not a string');
+        }
+
+        const varName = this.args[0].trim();
+
+        // Try to ensure that we receive the variable's name (incl. sigil), not its value.
+        if (varName[0] !== '$' && varName[0] !== '_') {
+            return this.error(`variable name "${this.args[0]}" is missing its sigil ($ or _)`);
+        }
+
+        // Custom debug view setup.
+        if (Config.debug) {
+            this.debugView.modes({
+                block: true
+            });
+        }
+
+        const asNumber = true;
+        const defaultValue = Number(this.args[1]);
+
+        const minimum = Number(this.args[2]);
+        const maximum = Number(this.args[3]);
+
+        if (Number.isNaN(defaultValue)) {
+            return this.error(`default value "${this.args[1]}" is neither a number nor can it be parsed into a number`);
+        }
+
+        if (Number.isNaN(minimum)) {
+            return this.error(`minimum value "${this.args[2]}" is neither a number nor can it be parsed into a number`);
+        }
+
+        if (Number.isNaN(maximum)) {
+            return this.error(`maximum value "${this.args[2]}" is neither a number nor can it be parsed into a number`);
+        }
+
+        const varId = Util.slugify(varName);
+        const el = document.createElement('input');
+
+        if (typeof passage === 'object') {
+            // Argument was in wiki link syntax.
+            passage = passage.link;
+        }
+
+        // Set up and append the input element to the output buffer.
+        jQuery(el)
+        .attr({
+            id: `${this.name}-${varId}`,
+            name: `${this.name}-${varId}`,
+            type: 'number',
+            inputmode: 'decimal',
+            min: minimum,
+            max: maximum,
+            tabindex: 0 // for accessiblity
+        })
+        .addClass(`macro-${this.name}`)
+        .on('change.macros', this.createShadowWrapper(function () {
+                State.setVar(varName, Number(this.value));
+            }))
+        .on('keypress.macros', this.createShadowWrapper(function (ev) {
+                // If Return/Enter is pressed, set the variable and, optionally, forward to another passage.
+				if (Number(this.value) > maximum)
+				{
+					ev.preventDefault();
+                    State.setVar(varName, Number(maximum));
+					this.value = maximum;
+				}
+				else if(Number(this.value) < minimum)
+				{
+					ev.preventDefault();
+                    State.setVar(varName, Number(minimum));
+					this.value = minimum;
+				}
+                if (ev.which === 13) { // 13 is Return/Enter
+                    ev.preventDefault();
+                    State.setVar(varName, Number(this.value));
+                }
+            }))
+        .appendTo(this.output);
+
+        // Set the step value for `<input type="number">`.
+
+        el.step = 'any';
+
+        // Set the variable and input element to the default value.
+        State.setVar(varName, defaultValue);
+        el.value = defaultValue;
+
+    }
+});
+/* twine-user-script #2: "isNumberic" */
+window.isNumeric = function (obj) {
+	switch (typeof obj) {
+	case "boolean":
+		/* FALL-THROUGH */
+	case "object":
+		return false;
+	case "string":
+		obj = Number(obj);
+		break;
+	}
+	return isFinite(obj) && !isNaN(obj);
+};
+
+

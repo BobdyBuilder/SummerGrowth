@@ -1,0 +1,16 @@
+:: Hobby Professional {"position":"950,3825","size":"100,100"}
+<<set $emmaDateProfessional += 1>>
+<<Dialogue "Emma" "Emma">> "Oh, please. As if anyone in the office cares about how the coffee tastes as long as it's free."<</Dialogue>>
+<<Dialogue "player" "You">> "Maybe, maybe not. But I bet you have contacts with coffee suppliers."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "I see what you're getting at. Talk to the people in charge of inventory, see if I can save the company a buck."<</Dialogue>>
+<<Dialogue "player" "You">> "And we get better coffee as a reward!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Shrewd. Clever. I never would have guessed that you had this sort of company politicking in you."<</Dialogue>>
+<<Dialogue "player" "You">> "Hey, just looking out for everyone in the office, am I right?"<</Dialogue>>
+Emma raises her glass to you in a mock toast.
+
+<<Dialogue "Emma" "Emma">> "And an intuitive knowledge of how to play the game. You're a clever person, even if you haven't realized it yet."<</Dialogue>>
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

@@ -1,0 +1,19 @@
+:: instantTempDominant {"position":"1050,1500","size":"100,100"}
+<<nobr>>
+
+<<set _message to "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... vitality. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!">>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Temp-Dom");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<set $temporaryPersonalityGains.submissiveDominant += 1>>
+<<set $submissiveDominant += 1>>
+
+<</nobr>>
+
+

@@ -1,0 +1,122 @@
+:: getMeasurement [widget nobr] {"position":"1000,200","size":"100,100"}
+<<widget getMeasurement>>
+/* $args[0]: the measurement to print. */
+/* $args[1]: Whether to use cm/inch. */
+
+<<if $args[1] is true>>
+	<<set _smallMeasurement to true>>
+<<else>>
+	<<set _smallMeasurement to false>>
+<</if>>
+
+/* HUGE ideal. */
+<<if $muscleGrowthStyle is "Fantasy">>
+  <<if $args[0] is "weight">>
+	<<set $weight to window.calcBodyPartSize(42, 70, 60, true)>>
+	<span class="hiden"><<weightConversion $weight>></span>
+
+  <<elseif $args[0] is "chest">>
+	<<set $chestSize to window.calcBodyPartSize(65, 110, 90)>>
+	<<numeralConversion $chestSize $args[1]>> 
+
+  <<elseif $args[0] is "waist">>
+	<<set $waistSize to window.calcBodyPartSize(60, 75, 95)>>
+	<<numeralConversion $waistSize $args[1]>> 
+
+  <<elseif $args[0] is "hips">>
+	<<set $hipsSize to window.calcBodyPartSize(86, 111, 120)>>
+	<<numeralConversion $hipsSize $args[1]>> 
+
+  <<elseif $args[0] is "neck">>
+	<<set $neckSize to window.calcBodyPartSize(26, 48, 90)>>
+	<<numeralConversion $neckSize $args[1]>> 
+
+  <<elseif $args[0] is "upperArm">>
+	<<set $upperArmSize to window.calcBodyPartSize(20, 50, 40)>>
+	<<numeralConversion $upperArmSize $args[1]>> 
+
+  <<elseif $args[0] is "lowerArm">>
+	<<set $lowerArmSize to window.calcBodyPartSize(20, 38, 35)>>
+	<<numeralConversion $lowerArmSize $args[1]>> 
+
+  <<elseif $args[0] is "wrist">>
+	<<set $wristSize to window.calcBodyPartSize(12, 14, 15)>>
+	<<numeralConversion $wristSize $args[1]>> 
+
+  <<elseif $args[0] is "thigh">>
+	<<set $thighsSize to window.calcBodyPartSize(43, 76, 76)>>
+	<<numeralConversion $thighsSize $args[1]>> 
+
+  <<elseif $args[0] is "knee">>
+	<<set $kneeSize to window.calcBodyPartSize(25, 32, 32)>>
+	<<numeralConversion $kneeSize $args[1]>> 
+
+  <<elseif $args[0] is "calve">>
+	<<set $calveSize to window.calcBodyPartSize(25, 46, 46)>>
+	<<numeralConversion $calveSize $args[1]>> 
+
+  <<elseif $args[0] is "ankle">>
+	<<set $ankleSize to window.calcBodyPartSize(16, 17, 17)>>
+	<<numeralConversion $ankleSize $args[1]>>
+
+   <<else>>
+	  <<set _errorMessage to "Error in getMeasure widget: " + $args[0]>>
+	  <<print _errorMessage>>
+  <</if>>
+<<elseif $muscleGrowthStyle is "Realistic">>
+  <<if $args[0] is "weight">>
+	<<set $weight to window.calcBodyPartSize(42, 80, 84, true)>>
+	<span class="hiden"><<weightConversion $weight>></span>
+
+  <<elseif $args[0] is "chest">>
+	<<set $chestSize to window.calcBodyPartSize(65, 78, 90)>>
+	<<numeralConversion $chestSize $args[1]>> 
+
+  <<elseif $args[0] is "waist">>
+	<<set $waistSize to window.calcBodyPartSize(60, 60, 95)>>
+	<<numeralConversion $waistSize $args[1]>> 
+
+  <<elseif $args[0] is "hips">>
+	<<set $hipsSize to window.calcBodyPartSize(86, 80, 120)>>
+	<<numeralConversion $hipsSize $args[1]>> 
+
+  <<elseif $args[0] is "neck">>
+	<<set $neckSize to window.calcBodyPartSize(26, 29, 90)>>
+	<<numeralConversion $neckSize $args[1]>> 
+
+  <<elseif $args[0] is "upperArm">>
+	<<set $upperArmSize to window.calcBodyPartSize(20, 50, 40)>>
+	<<numeralConversion $upperArmSize $args[1]>> 
+
+  <<elseif $args[0] is "lowerArm">>
+	<<set $lowerArmSize to window.calcBodyPartSize(20, 23, 35)>>
+	<<numeralConversion $lowerArmSize $args[1]>> 
+
+  <<elseif $args[0] is "wrist">>
+	<<set $wristSize to window.calcBodyPartSize(12, 13, 15)>>
+	<<numeralConversion $wristSize $args[1]>> 
+
+  <<elseif $args[0] is "thigh">>
+	<<set $thighsSize to window.calcBodyPartSize(43, 50, 76)>>
+	<<numeralConversion $thighsSize $args[1]>> 
+
+  <<elseif $args[0] is "knee">>
+	<<set $kneeSize to window.calcBodyPartSize(25, 25, 32)>>
+	<<numeralConversion $kneeSize $args[1]>> 
+
+  <<elseif $args[0] is "calve">>
+	<<set $calveSize to window.calcBodyPartSize(25, 28, 46)>>
+	<<numeralConversion $calveSize $args[1]>> 
+
+  <<elseif $args[0] is "ankle">>
+	<<set $ankleSize to window.calcBodyPartSize(16, 17, 17)>>
+	<<numeralConversion $ankleSize $args[1]>>
+
+   <<else>>
+	  <<set _errorMessage to "Error in getMeasure widget: " + $args[0]>>
+	  <<print _errorMessage>>
+  <</if>>  
+<</if>>
+<</widget>>
+
+

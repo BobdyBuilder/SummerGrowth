@@ -1,0 +1,44 @@
+:: jobSearch [nobr] {"position":"1425,1000","size":"100,100"}
+Browsing for a bit, you look for any jobs are available. You get the impression that the entire town is in a bit of a slump. Most positions either demand you have a degree, or travel WAY far! But as you search, you get a notification from some big streaming site. Hmmm. If there are no jobs available, all you need to get started with streaming is a webcam. Any good electronics store should have those. It’s not guaranteed income but... it might be worth a try, right? You also see an advertisement for one of the fitness stores in town; the bulk barn. The advertisement is't the clearest on what its about, but you think they're looking for some extra help?
+<br><br>
+Just as you were about to give up, something catches your eyes. A small advertisement for a low-level data entry job in one of the bigger firms in town. Let's see... strict dress code... no experience required! And it pays surprisingly well! You could schedule a job interview, if you are interested!
+<br><br>
+<span id="choice">
+<<link "Let's do it!">>
+<<replace "#choice">>
+
+<<set $jobInterview to true>>
+<<set _day to $gameDate.getDay()>>
+<<set $jobInterviewDate to new Date('June 1, 2020 13:37:00')>>
+<<if _day + 2 != 0 and _day +2 != 6>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 2)>>
+<<elseif _day + 1 != 0 and _day + 1 != 6>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 1)>>
+<<elseif _day + 3 != 0 and _day +3 != 6>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 3)>>
+<</if>>
+<br><br>
+
+Sending an email with you basic information and your CV, you try to kill time browsing the web for a bit. Suddenly, you get an email back! It's from one 'Emma Fray' at 'Financial Gains and Bulk Orders LLC.';
+<br><br>
+
+'Dear prospective candidate,
+<br><br>
+
+We at Financial Gains and Bulk Orders LLC are always looking for new talent to add to our dynamic and goal-oriented team. Upon reviewing your resume and application, we believe you would be a positive addition to our team. For this reason, we would like to schedule an interview for <<print $jobInterviewDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>, 14:00. We strongly encourage the use of formal attire in our workspace.
+
+<br><br>
+With the highest regards,
+
+<br><br>
+Emma Fray, Human Resources
+
+<br><br>
+<<gameLink "Time to prepare for it!" "Home" motivation:30>><</gameLink>>
+<</replace>><</link>>
+
+<br><br>
+<<gameLink "Maybe some other time." "Home" motivation:-10>><</gameLink>>
+</span>
+
+

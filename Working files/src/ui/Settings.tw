@@ -1,0 +1,78 @@
+:: Settings [noReturn noEventTrigger] {"position":"1700,300","size":"100,100"}
+<h2>Game Difficulty</h2>
+Determines the difficulty of the game. This does not determine how fast the player grows, merely the challenge during the game. 
+<<radiobutton "$difficulty" "sandbox" autocheck>> Sandbox - far more money and items available, it's impossible to get fired from jobs.
+<<radiobutton "$difficulty" "easy" autocheck>> Easy - more money and items available.
+<<radiobutton "$difficulty" "medium" autocheck>> Medium - the game will challenge you with balancing money and growth.
+<<radiobutton "$difficulty" "hard" autocheck>>  Hard - the game will go out of its way to bankrupt you and cause a game over.
+
+<h2>Growth speed </h2>
+Determines the general rate at which the main character grows. This makes the game advance quicker.
+<<radiobutton "$growthMod" 0.5 autocheck>> Slow
+<<radiobutton "$growthMod" 1 autocheck>> Medium
+<<radiobutton "$growthMod" 1.5 autocheck>>  Fast
+
+<h2>Daily amount of potions </h2>
+Determines the amount of potions that will appear in the shop daily.
+<<radiobutton "$dailyConsumableAmount" 1 autocheck>> 1
+<<radiobutton "$dailyConsumableAmount" 2 autocheck>> 2
+<<radiobutton "$dailyConsumableAmount" 3 autocheck>>  3
+
+<h2>Muscle growth Style</h2>
+Determines the style of muscle growth. At 'Fantasy' you can expect the protagonist to be the size of a large male bodybuilder by mid-game. At 'Realistic' you can expect her to aim for a Grecian Ideal Physique, resulting in more realistic development.
+<<radiobutton "$muscleGrowthStyle" "Realistic" autocheck>> Realistic
+<<radiobutton "$muscleGrowthStyle" "Fantasy" autocheck>> Fantasy
+
+<h2>Measurement system</h2>
+Determines the measurement system used in-game.
+<<radiobutton "$measurementSystem" "imperial" autocheck>> Imperial
+<<radiobutton "$measurementSystem" "metric" autocheck>> Metric
+
+<h2>Enable debug mode</h2>
+Enables debug mode. This can break save games or have unintended effects. Only for testing purposes.
+<<radiobutton "$debug" "false" autocheck>> false
+<<radiobutton "$debug" "true" autocheck>> true
+
+<h2>Speech icon size</h2>
+Sets the size of the icons that display within speech dialog boxes.
+<<radiobutton "$iconSize" "75px" autocheck>> small
+<<radiobutton "$iconSize" "125px" autocheck>> medium
+<<radiobutton "$iconSize" "200px" autocheck>> large
+
+<h2>Enable Futa content</h2>
+When this is on, the player may grow a penis.
+<<radiobutton "$futa" true autocheck>> on
+<<radiobutton "$futa" false autocheck>> off
+
+<h2>Add lactation content</h2>
+When this is on, the player may start leaking milk
+<<radiobutton "$lactationSetting" true autocheck>> on
+<<radiobutton "$lactationSetting" false autocheck>> off
+
+<h2>Rival gender</h2>
+This determines the gender of the rival you will encounter.
+<<radiobutton "$rivalGender" 'male' autocheck>> Male
+<<radiobutton "$rivalGender" 'female' autocheck>> Female
+
+<<link "return" $return>>
+
+<<if $difficulty is "sandbox">>
+	<<set $difficultyMod to 0>>
+<<elseif $difficulty is "easy">>
+	<<set $difficultyMod to 0.5>>
+<<elseif $difficulty is "normal">>
+	<<set $difficultyMod to 1>>
+<<elseif $difficulty is "hard">>
+	<<set $difficultyMod to 1.5>>
+<<else>>
+	<<set $difficultyMod to 1>>
+<</if>>
+<<set $rentAmount to 100 * $difficultyMod>>
+
+  <<script>>
+	var iconSize = State.getVar('$iconSize');
+	document.documentElement.style.setProperty('--iconSize', iconSize);
+  <</script>>
+<</link>>
+
+

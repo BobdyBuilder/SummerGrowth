@@ -1,0 +1,14 @@
+:: usbFile7 {"position":"2000,1300","size":"100,100"}
+The file loads even slower than the others. In the time it takes to open, you could easily make a cup of tea, stare at the screen, and experience a refreshing bit of existential dread about the current situation you're in; hacking an USB stick so you can figure out what the fuck is going on with your body. When it finally loads though, it's just a.... spreadsheet? You study it for a moment; a list of names, along with their effects... wait a minute, these match the labels of the potions you found! Though it's all a bit more scientific than you are used to, you could now figure out what each drink would do to you!
+<<nobr>>
+<<script>>
+for (let i = 0; i < State.variables.consumables.length; i++) {
+	for (let j = 0; j < State.variables.consumables[i].effects.length; j++) {
+        State.variables.consumables[i].effects[j].discovered = true;
+    }
+}
+<</script>>
+<</nobr>>
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+

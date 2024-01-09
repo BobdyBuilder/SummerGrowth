@@ -1,0 +1,82 @@
+:: Jogging [outOfHouse nobr outside jogging noReturnDialog] {"position":"3200,1200","size":"100,100"}
+<<set _fatLoss to 0>>
+
+<<if $bodyType is "skinny">>
+	<<set _fatLoss += 0.1>>
+	Well, you're running. You do have the advantage of being very light, even for your frame. But that also means there isn’t much muscle either. Thin legs and little core strength do you no favors.
+<<elseif $bodyType is "average">>
+	<<set _fatLoss += 0.1>>
+	Running isn't MUCH of an issue for you, at least with your build. You're squarely average, so that means you pretty much got this, right? One leg in front of the other, rinse, repeat. And don’t forget to breathe! You're certain that this mentality will still work after 10 minutes of running and hope it won’t lead to a stream of swearing while panting heavily.
+<<elseif $bodyType is "athletic">>
+	<<set _fatLoss += 0.3>>
+	Now this is something your athletic body is made for: quick, lithe muscles give you incredible speed, and since your bodyweight is still comparatively low, you got quite the spring to your step. With this build, you're sure you'll get an amazing workout from this!
+<<elseif $bodyType is "bodybuilder">>
+	<<set _fatLoss += 0.2>>
+	Muscles you got plenty, but your body is also pretty bulky. You are a bit too heavy to maintain high speeds for prolonged runs. With your pecs bouncing and thighs rubbing against each other, a well-oiled running machine you aren’t. But the balance between your power and weight is enough that you can get a good workout out of it. It just takes some extra effort, that’s all!
+<<elseif $bodyType is "hulk">>
+	<<set _fatLoss += 0.3>>
+	Yeah, when you run past, people notice. The explosive strength in your legs means you have little trouble building momentum and picking up a good speed, but the sheer mass of you does mean that the ground shakes at your passing and your momentum requires quite a bit of effort to come to a full stop. Windows rattle and floors shake as you run past, even when you try to be careful. But given your sheer mass, that is just the unavoidable reality!
+<<elseif $bodyType is "strong">>
+	<<set _fatLoss += 0.3>>
+	You're strong, nobody will doubt. But being able to run for a long time is a different matter; sure, you have got the power in your legs, but there is also a whole lot of mass to support and accelerate. It takes some time for you to get into the groove of it, but once your massive gather that momentum, you can keep a surprisingly steady pace!
+<<elseif $bodyType is "heroic">>
+	<<set _fatLoss += 0.1>>
+	Your build has been referred to as 'heroic'. So it is no surprise that you run like a superhero too. You can build up amazing speed, and keep it going for a long time while your tree-trunk legs make you look like an Olympian goddess with purpose and grace! The Dash, step aside! <<print $playerFirstName>> is here!
+<<elseif $bodyType is "gigantic">>
+	<<set _fatLoss += 0.2>>
+	Something as big as you shouldn't be running. Muscles so huge have no business being this quick, this powerful in their stride. Yet as you jog past, the ground shakes, surprising everyone that dares to look. Your body might be massive, but once it has gathered enough momentum, your gigantic leg muscles bulge and provide the full power they got in them. Plenty to get you going, and more than enough to pick up a respectable speed!
+<<elseif $bodyType is "obese">>
+	<<set _fatLoss += 0.5>>
+	Why did you think running was a good idea? In no way or shape is your body made for it; thick layers of flab hide whatever muscles you have, and each step sends shockwaves through your body. But maybe that’s a good reason to do it anyway; to prove to yourself that you can do it, and to show that despite its sheer mass, your body has some hidden power!
+<<elseif $bodyType is "thick">>
+	<<set _fatLoss += 0.4>>
+	Yeah, you're not made for running. Within minutes, you're sweating and panting, trying to get your body to keep up. It's pure willpower that drives you along. Your steps are heavy, your body flabby, and damn it all, you're doing your best!
+<<elseif $bodyType is "heavy">>
+	<<set _fatLoss += 0.4>>
+	Sure, you're a bit heavier than others. And no one would accuse you of having a stereotypical runner body, but that doesn't mean you can't try, right? Once you start, you're doing decently, but you tire way quicker than someone lighter. Well, this is your body, and it’s time to make the most of it!
+<<elseif $bodyType is "strongman">>
+	<<set _fatLoss += 0.3>>
+	Your body isn't one where people normally look at you and say 'now THAT’S a jogger'. You got immensely thick arms and legs with a noticeable amount of flab over your muscles. Yet, beneath, lies immense strength. You start slow and quickly begin picking up speed. And with your endurance, you can easily maintain a very respectable pace.
+<<elseif $bodyType is "fat">>
+	<<set _fatLoss += 0.3>>
+	Why are you even jogging? Nothing about your body is really meant to run: you have got a flabby stomach, and little leg muscles to get that pace up. But perhaps that’s all the more reason to do it – not that you need one. After all, your body dictates the ceiling here, but YOU decide how much effort you put in.
+<<elseif $bodyType is "monstrous">>
+	<<set _fatLoss += 0.3>>
+	Your mass is immense. As you start running, at first you waddle forward, thighs rubbing against each other. Yet you just keep picking up speed, those leg muscles increasing your momentum like thick pistons. From a slow waddle you progress into a decent jog, and finally an unstoppable run. The sheer momentum is only controlled by your powerful sinew, all of it pumping and swelling as you start genuinely running. Whether you are leaving a trail of cracked pavement or just causing mini earthquakes is not your concern right now.
+<<elseif $bodyType is "sumowrestler">>
+	<<set _fatLoss += 0.4>>
+	Running. You might have huge muscles under all that flab, but running isn't something people imagine when they see you. Your gigantic body picks up inertia and momentum as your speed increases, which happens slowly. But as you start running, your pace just keeps picking up, until you are eventually in an honest-to-God run. Your feet slam against the pavement, and like a train picking up speed, you know that anything that crosses your path has two choices: move, or be moved.
+<</if>>
+
+<br><br>
+
+<<set _workoutSkill to 0>>
+<<for _i to 0; _i < $skills.length; _i ++>>
+	<<capture _i>>
+	  <<if $skills[_i].name is "Working out">>
+	  <<set _workoutSkill to $skills[_i].level>>
+	  <<set $skills[_i].experience += 10>>
+	  <</if>>
+	<</capture>>
+ <</for>>
+
+<<if _workoutSkill == 0>>
+	<<set _fatLoss += 0.1>>
+	Hmmm. Maybe you would think that 'go out for a run' is something simple. But you notice that your pace isn't very steady. You stop and go erratically, pace constantly fluctuating as you stop to catch your breath all the time. It might be lack of experience, but, hey, that's why you're here, right? To improve yourself! 
+<<elseif _workoutSkill == 1>>
+	<<set _fatLoss += 0.2>>
+	Your recent research into fitness and how your body works does help with keeping a steady pace. While you're far from an expert, you know well enough stretch beforehand, and to keep and eye on your heartrate.
+<<elseif _workoutSkill == 2>>
+	<<set _fatLoss += 0.3>>
+	Yeah, you know how to run. You're experienced with all the smaller details and your starting stretches catch people’s eyes. From warming up to keeping pace... it just comes easily! And it pays off, as your workout is way more effective.
+<<elseif _workoutSkill == 3>>
+	<<set _fatLoss += 0.4>>
+	With your knowledge of working out and biomechanics, it’s no surprise you run with such conviction. Lots of people assume that jogging is just 'going for a run', but you could spend hours talking about how to maximize it! From warms ups to cooldowns, pacing and BPMs... you won’t overlook any small details, and you got it all down to a T.
+<<elseif _workoutSkill == 4>>
+	<<set _fatLoss += 0.5>>
+	Regardless of your body type, you make the most of it. With your knowledge of fitness and body mechanics, you could easily coach others, and your own workouts are nothing short of displays of excellence. Pacing, blood oxygen levels, BPM... you juggle it all constantly without batting an eye, making it all easier for you to keep a steady pace and jog like a true pro.
+<</if>>
+
+<<link "Continue" "Home">><<set _fatLoss *= -1>><<addFatSlow _fatLoss>><</link>>
+
+

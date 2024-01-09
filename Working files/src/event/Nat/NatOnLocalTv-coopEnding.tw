@@ -1,0 +1,22 @@
+:: NatOnLocalTv-coopEnding [nobr] {"position":"0,0","size":"100,100"}
+You find Nat back there, being congratulated by <<rivalMy>> agent. You also come in for a big hug.
+<<if $muscle >=50>>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Damn, girl! You just had to come in out of nowhere and steal my thunder, huh?"<</Dialogue>><br><br>
+    <<RivalI>> says with snark but good humor. You blush and apologize, but add:<br><br>
+    <<Dialogue "player" "You">>"Well, not my fault if you bring water pistols to the BAZOOKA SHOW!"<</Dialogue>><br><br>
+    Which you punctuate by giving another biceps flex. The three of you laugh.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"You're going to be the death of me someday, <<print $playerFirstName>>..."<</Dialogue>><br><br>
+<<else>>
+    <<Dialogue "player" "You">>"Nat, I gotta say, you have this bodybuilding competition in your pocket! I can't imagine anyone else beating you!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"I wish you were right… I do have some advantages, but even there - some guys had more mass than me, didn't you notice? And I believe there were some even bigger ones who didn't make it today."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Still! I believe in you, and I'm sure you are gonna get EVEN HUGERER by then!"<</Dialogue>><br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"That's not even a real word."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"HUGERERERER!"<</Dialogue>><br><br>
+    You spout comically as you open your arms wide, and everyone laughs again.<br><br>
+    <<Dialogue setup.getRivalName() setup.getRivalName()>>"What am I gonna do with you… though, I will say, with your support, I really feel like I will get hugerer… damn, now you got me speaking nonsense!"<</Dialogue>><br><br>
+<</if>>
+Nat's agent reminds <<rivalMe>> of another commitment, and they say their goodbyes and leave.<br><br>
+You change back into your street clothes and return home.
+<<link "Go home" "Home">><</link>>
+
+

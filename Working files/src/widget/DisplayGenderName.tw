@@ -1,0 +1,16 @@
+:: DisplayGenderName [widget] {"position":"2375,50","size":"100,100"}
+<<nobr>>
+<<widget "genderDescription">>
+<<if $gender <= 10>>extremly feminine
+<<elseif $gender <= 20>>very feminine
+<<elseif $gender <= 30>>feminine
+<<elseif $gender <= 40>>tomboyish
+<<elseif $gender <= 50>>adrogenous
+<<elseif $gender <= 60>>boyish
+<<elseif $gender <= 70>>manly
+<<elseif $gender <= 80>>masculine
+<<else>>extremly masculine
+<</if>><</widget>>
+<</nobr>>
+
+

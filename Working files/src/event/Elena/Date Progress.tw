@@ -1,0 +1,105 @@
+:: Date Progress {"position":"1550,3000","size":"100,100"}
+You quietly contemplate Elena’s sudden change as you walk after her. Putting yourself in her shoes, you can understand the reason for her refusal. If most people… hell, probably anyone, had started pushing you about your condition, that would almost definitely make you bristle. Perhaps you had been a little too pushy with her.
+
+With a few long, quick strides, you catch up to her and place a hand on her shoulder. She starts briefly, but turns to face you, her eyes wide with panic.
+
+<<Dialogue "player" "You">>
+“It’s okay. I… I’m sorry. I know that this whole thing is a sensitive topic. So… you don’t have to tell me anything.<</Dialogue>>
+
+It’s quiet for a moment. The conversation of the people walking around you seem to melt away for a moment as you simply stare into each other’s eyes. After many long seconds, Elena reaches a hand up and places it on yours, a soft smile again rising to her face.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“It’s okay. I… I know you are trying to help. //Grazie//.<</Dialogue>>
+
+She gently rubs her hand across the top of yours. You stand there for a moment, enjoying the silence together.
+
+<<Dialogue "player" "You">>
+“So… I take it I haven’t scared you off. What now? I can find us another shop to check out, maybe we grab some lunch…<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Actually… There is somewhere I would like to go. If that’s okay with you.<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Of course it is! Why didn’t you say so earlier?<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“I thought it would be… //come se dice//… imposing? I thought you would find it boring.<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Hey. Don’t sweat it. If you’re going to enjoy it, I definitely don’t mind spending some time there myself.<</Dialogue>>
+
+She gives you that same soft earnest smile before moving around you, so that your arm wraps around her back, turning your hand-holding into a sort of sidelong hug. It takes you a second to realize what’s happened, so gentle is her motion, but without even realizing it, she’s got your arm wrapped around her waist as you’re walking down the street. She’s still wearing her smile, despite the fact that she’s furiously blushing, and you can’t help but return in kind.
+
+She guides you through the little town, taking several turns along the shop-lined streets, until you reach a flower shop. At first you’re confused, but Elena’s lit-up expression answers everything. She’s excited to visit here, even if she’s still hesitant to say it. She leads the way inside, giving a quiet hello to the little old man running the place before she starts looking along the shelves. You follow behind her, not sure whether you have anything to contribute as she questions the shopkeeper about some new arrivals.
+
+<<Dialogue "player" "You">>
+“So… I take it this is a hobby of yours.<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“I’ve always loved flowers. Ever since I was little. There was a flower shop a lot like this one where I grew up.<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“In Italy, you mean?<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“//Sì//. I come here to buy new flowers, but also because it feels a bit like home.<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Speaking of… if you don’t mind, how long ago did you immigrate?<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“I was young… Thirteen.<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Geez. That’s a rough age to be starting life anew.<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Yes… yes, it was. Half a world away with no friends… It was hard back then.<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Probably being the shy kid didn’t help matters.<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Ah… actually, I wasn’t very shy at all before then. It was then when I tried to make new friends and it was always… you know, teasing… I kind of started to close off."<</Dialogue>>
+
+As she speaks, her voice drops back into that shy, quiet register that you have grown accustomed to. She didn’t sound sad, but melancholic. Not as if this was painful for her to talk about, but more as if she was dwelling on a difficult memory. You decide to keep quiet for a moment, and simply allow her to talk as much as she’s comfortable. Meanwhile, Elena leans in to examine another plant, holding its petals delicately between her fingers.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“You asked me earlier how I got to be this way. Do you still want to know?"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“You don’t have to tell me, really. If you don’t want to share, I’m not going to make you."<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“It’s okay. I… just needed to take a deep breath. I feel good now. I want to share."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Only if you’re sure about it, Elena."<</Dialogue>>
+
+She nods in return, giving you another faint smile, as if to reassure you she’s okay.
+
+<<Dialogue "Elena" "Elena">>
+“I tried to fit in better a few times when I was young. I kept trying to… reinvent myself, but they wouldn’t see me as anything but the weird girl. The foreigner. I tried a few different things hoping it would help them accept me… Sports, art, music, you know. But nothing really worked. Eventually, I thought I should start exercising. I had this idea that… if I got to be big and strong, then maybe that would give me confidence, but… I think you can tell that didn’t work."<</Dialogue>>
+
+She gives a soft, breathy laugh. You can’t quite tell whether it’s genuine or one of self-pity.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“But the funny thing is, I fell in love with it. I started doing it for fun. I stopped caring so much what other people thought of me. And I was a lot happier for it. Then, I started to really grow up, and I started to feel better. I was actually feeling okay with myself for the first time in a long time."<</Dialogue>>
+
+She sighs, then gestures to her body.
+
+<<Dialogue "Elena" "Elena">>
+“Then, about a year ago, this happened. I just… started to explode in size all of a sudden. And when that happened, I noticed people staring all the time, I heard people whispering about me… It felt like I was a teen all over again. And then… one day, you walked into the gym and I thought… hoped, I guess, that maybe you wouldn’t judge me. Maybe you would even understand what I felt."<</Dialogue>>
+
+She stops and turns to you again, placing her hands on your arms.
+
+<<Dialogue "Elena" "Elena">>
+“I’m sorry. I feel like I’m talking too much. But… I realized it’s important. I wanted you to know."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Elena… I’m sorry. It sounds like this whole process has been hard on you. But I want you to know…"<</Dialogue>>
+
+[[Friend End<-"I'll be right by your side as a close friend."]]
+[[Best End<-"I'm not going to let you go through this alone."]]
+
+

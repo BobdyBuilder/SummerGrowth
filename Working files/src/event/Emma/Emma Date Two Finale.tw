@@ -1,0 +1,90 @@
+:: Emma Date Two Finale {"position":"750,4775"}
+After what feels like hours, the two of you are finally resting. You take a comfortable seat and chug some water, while Emma stands nearby in front of a wall of mirrors. You watch along as she inspects her body, veins now standing in prominently above her taut muscles and the fibers all along her broad shoulders standing out like an anatomy chart. She turns and strike a side triceps pose which makes her shoulders flair out like cannonballs. The image still manages to take you by surprise. But despite what a great display Emma puts on, there's still a tinge of disappointment on her face.
+
+<<Dialogue "player" "You">>"What's the matter?"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Mmm. It's nothing, really. Just noticing that my arms seem to be lagging behind the rest of my body. I worry I've been slacking."<</Dialogue>>
+
+She stands up straight again and attempts a different pose, her bicep bunching up in the process.
+
+<<Dialogue "player" "You">>"Just based off what I saw tonight, I'd be surprised if you were slacking anywhere"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"It's flattering, I assure you. But I'm sure I just need to up my working weight a bit, or perhaps add on some more volume..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Emma, seriously. You look like you're getting ready to step onto a bodybuilding stage right now. Hell, you're doing the poses and everything."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Again, flattering. But I am nowhere close to a professional bodybuilder, and I don't pretend to be."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Plenty of people would disagree with you. I seriously don't know why you don't at least try since you're already basically there."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"As I've said before, I have my reasons."<</Dialogue>>
+
+<<Dialogue "player" "You">>"But you've never told me what they are."<</Dialogue>>
+
+Emma huffs and pushes her glasses into the bridge of her nose. She's silent for a moment, looking almost contemplative.
+
+<<Dialogue "EmmaFitness" "Emma">>"It wouldn't be appropriate."<</Dialogue>>
+
+<<Dialogue "player" "You">>"What do you mean?"<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"I mean, think of how you saw me when I first hired you. Very, very differnet from how you see me now, wouldn't you agree? This is not a flattering image to everybody. To do something as public as competing in a bodybuilding competition, or something far less than that even, would put a different image of myself into the heads of not just my colleagues, but nearly everyone I interact with. There's a reason I'm so choosy about who I share this interest with. This lifestyle is enjoyable, yes, but it also runs the risk of making me a laughingstock if I'm not careful with it."<</Dialogue>>
+
+<<Dialogue "player" "You">>"I don't know if that's true... I mean, seeing you in your full glory was a surprise for sure, but... you're still you. The way you go about this whole thing is still very Emma. And I think people would be a lot more accepting than you give them credit for."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Maybe you're right. But maybe you're not. And it's not a risk I'm willing to accept. I can't put a career at risk over a hobby."<</Dialogue>>
+
+There's an awkard moment of silence a tracksuit on over, once again obscuring her body from the outside world. Maybe she had a point. Now that you've seen what she looks like, you can't help but notice the broadness of her shoulders, the flair of her hips, the thickness of her arms, even as it's all hidden from view.
+
+<span id="choice1"><<link "I mean it.">><<replace "#choice1">><<Dialogue "player" "You">>"I'm serious, you know. Everyone's got hobbies. Everyone's got weird stuff. You wouldn't 	fire someone because they write weird fanfiction. You don't see actors or celebrities 		getting grief for doing things for fun that are a little different. It doesn't have to be 	all business all the time for you."<</Dialogue>>
+
+Emma sighs as she zips up the front of her tracksuit.
+
+<<Dialogue "EmmaFitness" "Emma">>"I truly, truly admire your tenacity, $playerFirstName. I do wish I could see the world a little more like you sometimes."<</Dialogue>><<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>>
+
+<<link "I guess you got a point..">><<replace "#choice1">><<Dialogue "player" "You">>"You might be on to something. I mean, I wasn't lying when I said you're still Emma, but I'm kinda looking at you in a new light. And for the record, that's not a bad thing from my 	standpoint, but... I don't know. I just look at that as something more to admire about you."<</Dialogue>>
+
+Emma stops short of zipping her tracksuit up all the way. She looks uncharacteristically surprised.
+
+<<Dialogue "EmmaFitness" "Emma">>"Huh. I'd never realized you'd considered me to be worth admiring."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, sure. I mean, there's a lot to be impressed by. A lot to love."<</Dialogue>>
+
+She finishes zipping up her top, her eyes now pointing away towards a spot on the floor.<<script>>const box = document.getElementById('choice2');
+box.style.display = 'block';<</script>><</replace>><</link>></span>
+
+<span id="choice2" style="display:none;"><<Dialogue "EmmaFitness" "Emma">>"I'm sorry to end it like this, but I must be going. I've already dawdled for longer than I meant to, and I still need to make dinner for myself."<</Dialogue>>
+
+<<if $emmaDateFlirty > $emmaDateFriendly and $emmaDateFliry > $emmaDateProfessional>>Emma brings a hand up to your face and gently brushes a thumb against your cheek. What's even more surprising than the gesture is the softness of the smile on her face.
+
+<<Dialogue "EmmaFitness" "Emma">>"I'm happy to have had this chance, <<print $playerFirstName>>."<</Dialogue>>
+
+And with nothing more than that, she turns and makes her way out, leaving you a bit too stunned to follow after.
+
+<<elseif $emmaDateProfessional > $emmaDateFriendly>>Emma claps a hand to your shoulder, a smile on her face in spite of everything.
+
+<<Dialogue "EmmaFitness" "Emma">>"It means a lot to have your support, <<print $playerFirstName>>. Thank you."<</Dialogue>>
+
+You nod in return.
+
+<<Dialogue "player" "You">>"Thank you. Whatever you're after with this whole fitness thing, I hope you get it."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"Me too."<</Dialogue>>
+
+She gives you another nod and a quick pat before turning on her heel and exiting. You gather up your things quickly in hopes of seeing her off, but she's gone before you can find her again.
+
+<<else>>Suddenly, Emma wraps one arm around you and pulls you closer. Like the world's gentlest, most non-committal hug. But a hug! From Emma, of all people!
+
+<<Dialogue "EmmaFitness" "Emma">>"Have I told you yet that you're a good friend?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"I'm not sure, but... I could always stand to hear it again."<</Dialogue>>
+
+<<Dialogue "EmmaFitness" "Emma">>"You are. Thank you for doing this with me, <<print $playerFirstName>>. I'll see you at work."<</Dialogue>>
+
+She's walking off before you can respond again. You try to catch her on the way out, but you don't see her again. You must have missed her.<</if>>
+
+With this behind you, there is nothing to do but to reflect on this, and head home. Tomorrow at work things will feel much the same, but also different. You wonder when you'll get a moment of intimacy with Emma again, but you can't help but feel like she decides that more than you.
+
+<<gameLink "Go home" "Home" time:30>><<set $emmaDate2Done to true>><<set $emmaOpinion +=10>><</gameLink>>
+</span>
+

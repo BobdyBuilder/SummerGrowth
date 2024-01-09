@@ -1,0 +1,43 @@
+:: streamingViewerIncomeCalc [widget nobr] {"position":"1325,1200","size":"100,100"}
+<<nobr>>
+<<widget "streamingViewerIncomeCalc">>
+
+<<set $streamingViewers to 0>>
+<<set $subscribers to 0>>
+
+<<set $amountOfStreams += 1>>
+<<set $streamingViewers += $amountOfStreams>>
+
+<<set $streamingViewers += Math.clamp(($height - 150) * 2, 0, 999)>>
+<<set $streamingViewers += Math.clamp(($muscle - 20) * 2, 0, 999)>>
+<<set $streamingViewers += Math.clamp(($fat - 20) * 1, 0, 999)>>
+<<set $streamingViewers += Math.clamp(($breasts - 10) * 3, 0, 999)>>
+<<set $streamingViewers += Math.clamp(($dick - 0) * 1, 0, 999)>>
+
+<<if $args[0] is "gaming">>
+
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<if $skills[_i].name is "gaming">>
+		<<set _gamingSkillI to _i>>
+	<</if>>
+<</capture>>
+<</for>>
+
+<<set $streamingViewers += $skills[_gamingSkillI].level * 25>>
+
+<</if>>
+
+<<set $streamingViewers += (1 + ($shyConfident * 0.1))>>
+<<set $streamingViewers += (1 + ($carefreeCarefull * -0.1))>>
+
+<<set _randomFactor to random(90,100) * 0.01>>
+
+<<set $streamingViewers to Math.round($streamingViewers * _randomFactor)>>
+
+<<set $subscribers to Math.round($streamingViewers / 5)>>
+
+<</widget>>
+<</nobr>>
+
+

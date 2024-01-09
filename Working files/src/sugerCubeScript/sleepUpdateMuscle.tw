@@ -1,0 +1,65 @@
+:: sleepUpdateMuscle {"position":"400,100","size":"100,100"}
+/* Muscle growth Logic: */
+/* There is a set amount the player can grow; muscleGrowthMax */
+/* This can be increased, depends on diet, items provide temp bonus */
+/* Halves the value of the max ceiling every day. never goes bellow 0. */
+
+/* muscleGrowthMaxTotal - the total amount used in actually growing */
+/* muscleGrowthMaxDiet - the modified gained from diet */
+/* muscleGrowthMaxTemp - gained from supplements */
+/* muscleGrowthMax - Base value, from the balance init. */
+/* muscleGrowthMod - other growth mods */
+
+<<set $muscleGrowthMaxTotal to ($muscleGrowthMaxTemp + $muscleGrowthMax)>>
+
+<<script>> console.log("Muscle growth Max initial state: " + State.variables.muscleGrowthMaxTotal);<</script>>
+
+<<set $muscleGrowthMaxDiet to $currentDiet.muscleGain>>
+<<set $muscleGrowthMaxTotal += $muscleGrowthMaxDiet>>
+
+<<script>> console.log("Muscle growth Max with diet: " + State.variables.muscleGrowthMaxTotal);<</script>>
+
+<<set $muscleGrowthMaxTotal *= $muscleGrowthMod>>
+<<script>> console.log("Muscle growth Max (" + State.variables.muscleGrowthMaxTotal + ") multiplied by muscleGrowthMod (" +  State.variables.muscleGrowthMod + ")");<</script>>
+
+<<set $muscleGrowthMaxTotal *= ($workingOutBonus**2 * 0.9)>>
+<<script>> console.log("Muscle growth Max (" + State.variables.muscleGrowthMaxTotal + ") multiplied by workoutbonus (" +  State.variables.workingOutBonus + ")");<</script>>
+
+
+<<set $muscleChange = $muscleStore>>
+<<if $muscleChange > 0>>
+    <<set $muscleChange = Math.clamp($muscleChange, 0, $muscleGrowthMaxTotal)>>
+<<else>>
+    <<set $muscleChange = Math.clamp($muscleChange, -$muscleGrowthMaxTotal, 0)>>
+<</if>>
+<<set $muscle += ($muscleChange * $growthMod)>>
+<<set $muscle to Math.clamp($muscle, 0, 99999)>>
+
+<<set $muscleStore to $muscleStore - $muscleChange>>
+<<if $muscleStore > 0>>
+    <<set $muscleStore to Math.clamp($muscleStore, 0, 999)>>
+<<else>>
+    <<set $muscleStore to Math.clamp($muscleStore, -999, 0)>>
+<</if>>
+<<set $muscleStore *= 0.5>>
+
+<<if $muscleChange > 0.2 && $postSleepMuscleDialog1 is false>>
+	<<addTrigger "postSleepMuscleDialog1" false false>>
+	<<set $postSleepMuscleDialog1 to true>>
+<<elseif $muscleChange > 0.2 && $postSleepMuscleDialog1 is true && $postSleepMuscleDialog2 is false>>
+	<<addTrigger "postSleepMuscleDialog2" false false>>
+	<<set $postSleepMuscleDialog2 to true>>
+<<elseif $muscleChange > 0.2 && $postSleepMuscleDialog2 is true && $postSleepMuscleDialog3 is false>>
+	<<addTrigger "postSleepMuscleDialog3" false false>>
+	<<set $postSleepMuscleDialog3 to true>>
+<<elseif $muscleChange > 0.2 && $postSleepMuscleDialog3 is true && $postSleepMuscleDialog4 is false>>
+	<<addTrigger "postSleepMuscleDialog4" false false>>
+	<<set $postSleepMuscleDialog4 to true>>
+<<elseif $muscleChange > 0.2 && $postSleepMuscleDialog4 is true && $postSleepMuscleDialog5 is false>>
+	<<addTrigger "postSleepMuscleDialog5" false false>>
+	<<set $postSleepMuscleDialog5 to true>>
+<<elseif $muscleChange > 1 && $postSleepMuscleDialog5 is true>>
+	<<addTrigger "postSleepMuscleRepeat" true false>>
+<</if>>
+
+

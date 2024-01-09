@@ -1,0 +1,92 @@
+:: ElenaDate2GreenHouse {"position":"1500,3800","size":"100,100"}
+Having crossed the garden, you arrive at the little plastic tent that acts as an airlock of sorts for the greenhouse. The structure confuses you regarding its purpose as you open the flaps, and some hunching over is necessary to make it in. It is when you open the glass doors to the greenhouse proper that you realize what its true need is:
+
+They also have a large live butterfly exhibit within the space. As your eyes focus inside, the enormous greenhouse is rife with the flying creatures, giving the space a surreal fairy-tale ambiance, like you just walked into a magic kingdom straight out of a book.
+
+Elena squeezes your hand, and you find yourself blushing into a deep shade of red - so it’s a good thing she’s so taken by the fauna and flora, looking around with her mouth agape. You are also slightly out of breath, not so much from the magnificent sight… but from the emotions being brought by her casual physical contact.
+
+Almost entranced, Elena pulls you by the hand as she spots a Vietnamese lotus, which is a beautiful pink bloom, almost a caricature of what you would expect of a flower. She squeezes your hand quite hard in excitement, and you thank the gods that you have the strength to withstand the pressure applied - you are pretty sure she would have broken Johan’s hand with that.
+
+<<Dialogue "Elena" "Elena">>"Look at this lotus… è bellissima."<</Dialogue>>
+
+Her excitement is contagious - Sure, the flower IS beautiful. But as you look at her enchanted face, you find yourself quickly forgetting about the flower. You don’t get to see Elena in such a joyous mood often, and it sure is breathtaking. She proceeds to drag you around the greenhouse, and you feel like a princess being escorted in a children’s story. Elena gives long and detailed explanations about each flower, Italian words slowly slipping in with more frequency as she takes you from bloom to bloom - and soon she’s basically speaking only in her native language. But it doesn’t matter - her happiness speaks volumes louder than any words could ever do justice, and it makes you feel incredibly warm inside.
+
+The whole experience is dreamlike, from the morning sunlight coming in refracted beams through the glass, to the swarms of colorful butterflies casually fluttering about. Time becomes abstract, and you just find yourself basking on the entire experience with a huge smile.
+
+Eventually, Elena freezes. She looks into the distance, and her jaw drops. She lets go of your hand, and rushes away. The childish outburst only makes her more endearing, and you lazily follow her, finding her next to the giant orchid from the pamphlet. You approach, looking at the sign that proudly presents the Grammatophyllum speciosum - but the real surprise is that the plant actually dwarves Elena, this specimen being a few heads taller than her.
+
+Still, you watch as she admires the plant, absolutely entranced, you can’t help but feel a strange kinship between the two - not only is this plant nothing sort of gigantic - but its yellow and red tones actually compliment Elena incredibly well, like they were made for each other. You decide to stay back and let her have this moment, which seems like a once-in-a-lifetime kind of deal to her. And frankly… witnessing it is nothing short of a blessing for you.
+
+
+<<if $shyConfident >= 1>>
+    You approach Elena, tenderly hugging her from behind. While she doesn’t tense nor tries to break free, she also seems to be absorbed by this nigh-religious experience to truly notice you. Still, you enjoy this rare opportunity to feel Elena’s warmth, her soft skin and its stark contrast to the firm layers of sinew and muscle. It feels so good you don’t even mind the fact that she’s not reciprocating the affection - but that acknowledgement still does linger subconsciously on your mind, like a pea under the mattress that you can’t really feel, but is aware of nonetheless.
+    You can somehow sense that Elena is on the verge of tears, and you tighten the hug, and that seems to spark something in her. She still isn’t tensing or trying to get free, but it’s as if she is awkward and uncertain on how to respond to that. She motions to put her hand over yours, which is laying on her cobbled abdomen, but after a brief touch she pulls it away and moves her hair out of her face, and you can feel her breathing getting a bit more ragged.
+
+    You decide for both of your sakes to step on the brakes, and you let go. Elena turns, still looking somewhat lost, and she now grabs your hand with actual affectionate intent, and a joyous smile just explodes on your face. Elena’s eyes dart everywhere, and you bring her to a nearby park bench, where the two of you can sit, side by side. 
+
+<<else>>
+    You find one of the park benches and sit, elbows resting on your knees and your chin on your hands, and you just admire this beautiful, caring human being. There’s a hint of pain in knowing that most people can only see a giantess that could kill them on a whim, while it’s so blatantly obvious to you that this is the gentlest person you’ve ever met. If you weren’t in such a content mood, the sheer injustice of it might really be souring your mood. And yet, you are happy to just kick back and admire this beautiful person, quirks and all, feeling blessed to be able to call her a friend.
+
+    While you could easily spend the rest of the day doing so, Elena eventually notices that you aren’t around, and hurries to the join you on the bench, apologizing for her distraction.
+
+    <<Dialogue "Elena" "Elena">>"Scusi. I… didn’t even notice you had sat down. It’s just that…"<</Dialogue>>
+
+    <<Dialogue "player" "You">>"Hey, it’s okay, Elena. This is how I’m enjoying this. No worries, really."<</Dialogue>>
+ 
+<</if>>
+Elena puts her hands daintily on her lap, blushing slightly, but it doesn’t take long for her to realize how happy you seem to be, and she relaxes again. And as her worries melt away, she goes back into her own contemplative mood just as the sun perfectly hits her brown hair, projecting a halo around her head in its hazy glory. And on cue a beautiful blue butterfly lands on her flowery headband, very slowly opening and closing its wings. The image could not be any more perfect if it was painted by a renaissance master - you get lost in Elena's golden eyes as they lovingly gaze around, her mouth slightly open, with bright red lips that are so incredibly inviting…
+
+
+<<if $shyConfident >= 2 || $submissiveDominant >= 2>>  
+    As if commanded by an invisible force, you place a hand on Elena’s cheek and turn her face towards yours, and place a quick peck on her lips. It all happens so fast that the awareness of your act really only dawns after it’s already over, but while you regret nothing, Elena seems downright shocked - not like revolt or disgust, just something entirely unexpected. You look at her, your expression making it crystal clear that you regret nothing. Elena continues to fight her internal struggle - you can see in her huge eyes a little part of her that wants to give in, return the kiss… but it seems to be losing to that sheltered child, afraid to get hurt or hurt others, that constantly puts up emotional shields as thick as her muscles. The battle eventually is settled as she stands up and walks away in a hurry, and you can hear her sobbing.
+
+    You follow her, and grab her by the hand. She tries to pull it away gently, but you use all your might to keep her from doing so. With absolute earnesty, you announce, your own voice filled with regret.
+
+    <<Dialogue "player" "You">>"Elena, I’m sorry I don’t know what came over me."<</Dialogue>>
+
+    She turns to look at you, teary-eyed.
+
+    <<Dialogue "Elena" "Elena">>"No. Io… mi scuzi, non lo so…"<</Dialogue>>
+
+    You watch as she struggles with her words, and it breaks your heart. You gently place a hand on her shoulder and shush her. It seems to help her settle down a bit, and she gathers her wits.
+
+    <<Dialogue "Elena" "Elena">>"Sorry. I didn’t mean to react like that. It… felt nice. I’m not just quite ready… questo è tutto."<</Dialogue>>
+
+    You smile, and reinforce that it’s okay. Elena hugs you, resting her head on your shoulder, as she whispers:
+
+    <<Dialogue "Elena" "Elena">>"Grazie."<</Dialogue>>
+
+    You just stay there, as if time itself had frozen, and feel a sense of peace take over the two of you.
+     
+
+<<elseif $shyConfident >= 0>>
+    In what can almost be described as an out of body experience, your own lips just slowly start approaching Elena’s face, your own lips parting to mimic hers, as you close your eyes and feel the softness of her lips against hers. Time feels like it comes to a stop, even as the contact lasts for less than a split second, but it feels like… heaven. And as you reopen your eyes, returning to your own body, you see Elena’s own eyes open wide, a mix of surprise and panic.
+
+    As the sense and awareness rush back into your mind, you feel like your heart stops, and so does your breathing. Oh, no! What have you done? Thoughts cross your mind faster than you can process them, and you almost freak out trying to establish what to do next - do you apologize? Feign confusion? Pretend nothing happened? Run awa…
+
+    But then… Elena smiles, looks away and puts her hand on yours, squeezing it with incredible affection. Your heart almost jumps out of your mouth, but her presence is so soothing… so relaxing… that you find yourself just settling into this peaceful aura of happiness.
+
+    If only for a few precious moments, all is good in the world.
+ 
+<<else>> 
+
+    You can’t take your eyes from the plump red lips, inviting and sweet as ripe vesuvio cherry tomatoes. You find your own lips mimicking the half-open position as deep feelings stir deep within you. Your breath becomes deeper, and eventually Elena notices your expression - but you are so mesmerized that you are completely oblivious to it. But instead of recoiling, she stares deep into your eyes as she works her own courage and plants the tenderest kiss you can conceive of on your lips.
+
+    The world vanishes around the two of you as you close your eyes. All that exists are two kindred souls, connected by the weird happenstance of disproportionate bodies that, frankly, might as well not even exist right now. As your lips part, you bask in the warm breath against your face, and after you open your eyes, you see Elena looking at you with the same longing that you are experiencing right now. But the expression is quickly replaced by a content smile, as she leans her head on your shoulder and holds your hand, sighing happily.
+
+    If only for a few precious moments, all is good in the world.
+  
+<</if>>
+But as an indeterminate amount of time passes, Elena is the first one to act.
+
+<<Dialogue "Elena" "Elena">>"Thank you so much, this exhibit was magical. I can’t ever repay you enough for dragging me here, mi fiore."<</Dialogue>>
+
+Her eyes sparkle as she says the last two words, quite emphatically. You look at her quizzically, but she just smiles like a bird who just ate the canary.
+
+<<Dialogue "Elena" "Elena">>"Oh, it’s nothing. Just a little nickname for you!"<</Dialogue>>
+
+She walks ahead, and you make sure to catch up as you walk out of the greenhouse and towards the exit.
+<<set $flag.elenaKissed to true>>
+
+[[Continue|ElenaDate2GiftShop]]
+

@@ -1,0 +1,24 @@
+:: Flirty Ending {"position":"650,4175","size":"100,100"}
+<<Dialogue "player" "You">> "You know, I was thinking... maybe we could do this again some other time?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "What do you mean?"<</Dialogue>>
+<<Dialogue "player" "You">> "You know, this! Go out, have some dinner, maybe we'll even have a drink or two. We both had a lot of fun tonight, right?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>, I don't do games. Please just tell me exactly what you're thinking."<</Dialogue>>
+<<Dialogue "player" "You">> "Come on. You felt something tonight too, I know you did. I know what you said earlier about office relationships and all, but we could give this a serious shot!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "<<print $playerLastName>>."<</Dialogue>>
+<<Dialogue "player" "You">> "We don’t need to fly a banner announcing we're a couple or anything. We can just try things out. You know, go out for dinner again, get to know each other a little better. Just see how things develop."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "<<print $playerFirstName>>!"<</Dialogue>>
+She places her hands on your shoulders. The smile is gone from her face now, reverting to that stern expression that is so prevalent at the office. But that only lasts for a moment before she sighs, eyes closed, and her look softens again as she reopens them. With a deep breath, she continues.
+
+<<Dialogue "Emma" "Emma">> "I had fun tonight, <<print $playerFirstName>>. I truly did. And if circumstances were different, maybe things could further develop from there. But this is a line I am not willing to cross. Even if we knew it would not affect us professionally, I still couldn't abide by it. It's not who I am."<</Dialogue>>
+<<Dialogue "player" "You">> "But I don't..."<</Dialogue>>
+You quickly go silent as one of her soft, manicured hands caresses your cheek.
+
+<<Dialogue "Emma" "Emma">> "I wish it could be different. Under other circumstances, I would love to. You're a lovely person. But… I can't."<</Dialogue>>
+She pulls away and unlocks the front door, pausing before letting herself in.
+
+<<Dialogue "Emma" "Emma">> "I'm sorry, <<print $playerFirstName>>. I'll see you in the office. I hope we can still be friends."<</Dialogue>>
+Without allowing you the chance to protest, she goes in and shuts the door behind herself, leaving you standing outside under the moon. With your options exhausted, you decide it's best to just head back to your apartment. Your feelings swirl around in your head endlessly until you finally reach your building.
+
+<<link "Well, that’s a shame." "Home">><<set $emmaFirstDateDone to true>><</link>>
+
+

@@ -1,0 +1,19 @@
+:: instantTempSubmissive {"position":"950,1500","size":"100,100"}
+<<nobr>>
+
+<<set _message to "The drink goes down smoothly, and has a really nice, pleasant taste. It's... sweet, though a bit understated. Nice and fresh, almost like the taste was tailor-made for you. It's comfort in a bottle, you realize. And you feel... well, you feel very comfortable, calmer and despondent. You feel a mild headache coming on, but you just go with the flow. At least for the time being.">>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Temp-sub");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<set $temporaryPersonalityGains.submissiveDominant -= 1>>
+<<set $submissiveDominant -= 1>>
+
+<</nobr>>
+
+

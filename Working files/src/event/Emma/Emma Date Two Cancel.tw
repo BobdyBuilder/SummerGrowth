@@ -1,0 +1,12 @@
+:: Emma Date Two Cancel {"position":"850,4375"}
+<<Dialogue "player" "You">>"As fun as that sounds, I just don't think I can. I just don't have the time in my schedule tonight."<</Dialogue>>
+
+Emma frowns an dpurses her lips, just slightly.
+
+<<Dialogue "Emma" "Emma">>"Well, that's fair. I suppose it was short notice. Sorry to have bothered you, <<print $playerFirstName>>."<</Dialogue>>
+
+With that, she marches off, looking as busy as she always does. You get the feeling that you missed an important hint here, reinforced by the fact she called you by your first name. You continue working, pondering it as you go home.
+
+<<link "Go home" "Home">><</link>>
+
+

@@ -1,0 +1,40 @@
+:: BodyTypeDescriptionShort [widget] {"position":"3350,425","size":"100,100"}
+<<nobr>>
+<<widget "BodyTypeDescriptionShort">>
+
+	<<if $bodyType is "skinny">>
+skinny
+	<<elseif $bodyType is "average">>
+plain-looking
+	<<elseif $bodyType is "thick">>
+voluptuous
+	<<elseif $bodyType is "obese">>
+full-figured
+	<<elseif $bodyType is "thin">>
+swimmers
+	<<elseif $bodyType is "athletic">>
+fitness-models
+	<<elseif $bodyType is "strong">>
+strong looking
+	<<elseif $bodyType is "heavy">>
+off-season bodybuilder
+	<<elseif $bodyType is "bodybuilder">>
+bodybuilder's
+	<<elseif $bodyType is "heroic">>
+superhero's
+	<<elseif $bodyType is "strongman">>
+incredibly strong
+	<<elseif $bodyType is "sumowrestler">>
+massive, bulky
+	<<elseif $bodyType is "hulk">>
+impossibly muscular
+	<<elseif $bodyType is "giganticly bloated">>
+gigantically bloated
+	<<elseif $bodyType is "monstrous">>
+monstrous
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

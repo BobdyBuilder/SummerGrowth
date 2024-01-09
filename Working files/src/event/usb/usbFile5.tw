@@ -1,0 +1,14 @@
+:: usbFile5 {"position":"1800,1300","size":"100,100"}
+You got the password, you got the file, let's see what this baby holds! It's another log file or something, just a small part of a bigger whole, but you think you can still get some good information from it.  It also seems a lot older, looking at the file information. At from a few years ago...
+
+<<Dialogue "toshiUnknown" "Toshi">>
+Okay, okay, so some of the gene-unlockers got misplaced. This is bad. I really gotta start being more careful with my distillations as I seem to have lost two. Why did I even take them outside?!? One of them I had to have lost yesterday. I already retraced all my steps, I think. I went back to the library, to the museum, the gym... even the community garden. I asked everyone I saw in those places, even the cute Italian girl. She was so shy I had to dig the answers out of her.
+
+The problem was too that this was a more refined version; it was a gene-unlocker with several distillations, all combined. It was meant to be diluted, and now a full bottle of that is out there, somewhere! Unless someone has drunk it already. Argh, I haven’t even had a chance to test this myself, and now it might hurt someone!
+<</Dialogue>>
+
+<<if $elenaOpinion >= 10>>Wait. Cute, shy, Italian girl... oh God... Elena?!<<else>>Well, that doesn't help much...<</if>>
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+
+

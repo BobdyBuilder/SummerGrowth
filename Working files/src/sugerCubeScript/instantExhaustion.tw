@@ -1,0 +1,24 @@
+:: instantExhaustion [noReturn] {"position":"850,2000","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "Shaking container, you watch as the almost vibrant yellow liquid stirs, wondering whether you really should drink this. But... here goes nothing. Downing it, you immediately feel your throat burning, but the good kind of burn; a burn that reinvigorates you, a burn that makes the tiredness disappear. ">>
+<<set $exhaustion -= 50>>
+
+<<if _rand >= 1>>
+<<set _message += " What you didn't expect though is the kickback. The moment it hits your stomach, the warmth becomes almost unbearable, nearly knocking you over. Luckily, you remain standing, the feeling fading, leaving only renewed energy in its place.">>
+<<set $exhaustion -= 50>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Exhaust-B-g0n3");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

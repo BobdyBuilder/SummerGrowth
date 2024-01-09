@@ -1,0 +1,78 @@
+:: ElenaDateStart {"position":"1500,2800","size":"100,100"}
+<<nobr>>
+<<set $DateSuccess to 0>>
+<<if ndef $shyConfident>>
+  <<script>>
+	State.variables.shyConfident = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.carefreeCarefull = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.submissiveDominant = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+  <</script>>
+  <<set _debugging to true>>
+<</if>>
+<</nobr>>
+You show up at the address Elena gave you, just a few minutes before she had asked you to arrive. It’s a busy street in a quiet part of town, populated with a bunch of cute little shops and people window shopping all around. You spot Elena, standing out in front of one of the establishments. Not that it’s hard to see her. Despite the two of you towering over everyone else present, she manages to look even more timid than she normally does.
+
+<<Dialogue "player" "You">>
+“Hey! It’s good to see you!”<</Dialogue>>
+
+She is caught off guard, but you can see her expression immediately soften when she spots you. Not quite a smile, but compared to the near panic on her face moments earlier, it’s a marked improvement. She crosses the distance between you in a couple of long, quick strides.
+
+<<Dialogue "Elena" "Elena">>
+“//Buona sera//. It’s good to see you too.”<</Dialogue>>
+
+She stands very close to you, though not quite touching you. You can see her relax visibly, tension leaving her body as the two of you stand quietly next to each other.
+
+<<Dialogue "player" "You">>
+“Um… Sorry to make you wait. Maybe I should have planned to show up a little earlier…”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“No, no. It’s my fault. I wanted to be here before, but… there are so many people today. I didn’t expect this.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“It’s okay! Maybe we should find somewhere a little quieter. I think I saw a neat little coffee shop on the way here. We could stop in and have a drink.”<</Dialogue>>
+
+Elena goes from staring at her feet to looking you in the eye, again relaxing at your suggestion.
+
+<<Dialogue "Elena" "Elena">>
+“Yes, I… I think that is good. Coffee is always nice.”<</Dialogue>>
+
+After a few minutes of walking, you find yourself in the quaint little cafe. <<if $krisInterested is true>>Not too different from the one where Kris works, actually.<</if>> And it’s mercifully quiet, just as you had hoped. With minimal fuss, you decide to splurge on a fancy drink that probably has way too much sugar in it. Elena follows with a simple macchiato, then claims a table in the corner.
+
+After that… an awkward silence. While Elena seems to be enjoying her coffee, she has been notably silent since she made her order. Her eyes are fixed firmly on the small coffee cup she is cradling in her hands. Maybe now is the time to start a conversation for her?
+<<Dialogue "player" "You">>
+“I hadn’t realized that you were a coffee fan.”<</Dialogue>>
+
+Elena jumps a bit at that, her eyes rising to meet yours. After a moment of thought, a hint of a smile creeps onto her face.
+
+<<Dialogue "Elena" "Elena">>
+“//Italiana//, right? I do enjoy it, I won’t lie.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“I guess my choice of drink might come out a bit offensive?”<</Dialogue>>
+
+Elena lets out a quiet, almost inaudible laugh.
+
+<<Dialogue "Elena" "Elena">>
+“Not any more than the forced Italian names they use for sizes here. But you do you.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Well, I’d like to hear about what you like. I picked the coffee shop, so where are we going after this?”<</Dialogue>>
+
+Another long pause from her. She looks down at her coffee cup again, though this time she looks more like she’s deep in thought. Eventually she opens her mouth and speaks softly.
+
+<<Dialogue "Elena" "Elena">>
+“Maybe we… No. No, never mind. You pick again.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“What? No, come on, really! You picked this neighborhood for this, you must know where the good shops are!”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“No, no. Really, I’m just happy to be here.”<</Dialogue>>
+
+There’s another lengthy pause as you try to figure out how to respond. It feels Elena really does want to go somewhere specific, but… maybe she wouldn’t appreciate being prodded.
+
+<<if $shyConfident > 0>>[[Elena Leads<-"Come on, there must be somewhere you want to go!"]]
+<<else>>[[Player Leads<-"No big deal. I saw some nice spots on the way here."]]
+<</if>>
+
+

@@ -1,0 +1,23 @@
+:: instantAssShrink {"position":"850,1600","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<if $ass > 1>>
+	<<set _message to "This is peach-colored. It smells like peach. And yet when you drink this one, NOTHING happens. No taste, no creamy sensation. Nothing. You smack your lips, waiting for the hot sensation you sometimes have with other similar drinks... but nothing comes. That is, until you sit down, smacking your lips at the lack of taste. Suddenly, your ass just feels HARD, like you had just spent the last week exercising it. It doesn't feel bad, but it does feel like it has lost some softness.">>
+	<<set $lips -= 1>>
+<<else>>
+	<<set _message to "This is peach-colored. It smells like peach. And yet when you drink this one, NOTHING happens. No taste, no creamy sensation. Nothing. You smack your lips, waiting for the hot sensation you sometimes have with other similar drinks... but nothing comes.">>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("NOASS");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

@@ -1,0 +1,18 @@
+:: outfitDescription [widget nobr] {"position":"1425,700","size":"100,100"}
+<<nobr>>
+<<widget "outfitDescription">>
+
+<<if $outfit.style() != undefined>>The best way to describe your outfit is '<<print $outfit.style()>>'.<</if>> <<if $outfit.top() != undefined>>You're wearing a nice <<print $outfit.top().name>> with under it <<if $outfit.bra() != undefined>>a <<print $outfit.bra().name>> <<else>> nothing<</if>>.<<else>>You're not wearing a top, <<if $outfit.bra() != undefined>> your <<print $outfit.bra().name>> on full display. It might work in a gym, but it wouldn't be appropriate in many other places.<<else>>and no bra. Yeah, this wouldn't work for going outside.<</if>><</if>>
+
+
+<<if $outfit.bottom() != undefined>>The <<print $outfit.bottom().name>> you're wearing is a nice addition to it <<if $outfit.underwear() == undefined>>. You're not wearing any underwear though, and it's not the most comfortable, if you're honest. But you're sure nobody will notice. You hope. <<else>> and your <<print $outfit.underwear().name>> brings some nice comfort.<</if>><<else>> You're not wearing any pants or something, <<if $outfit.underwear() != undefined>>Leaving your underwear on full display. Unless you're going swimming, you can't go out like this. <<else>> and neither are you wearing any underwear. You should put something on. <</if>>
+
+<</if>>
+
+<<if $outfit.shoes() != undefined>>Your <<print $outfit.shoes().name>> look good on you too!<<else>> You're not wearing any shoes though; might be comfortable if you do that, should you go outside.<</if>>
+
+
+<</widget>>
+<</nobr>>
+
+

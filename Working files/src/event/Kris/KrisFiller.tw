@@ -1,0 +1,165 @@
+:: KrisFiller [nobr] {"position":"1600,2425","size":"100,100"}
+<<set setup.events.push(
+    {
+        name: 'krisBoredFiller1',
+        locationTags: ['kris'],
+        conditions: [
+            () => !State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: 'The same girl that brought you your coffee the last time was here again, <<if $shyConfident > 0>>and you hope this time she\'ll take that attitude elsewhere.<<else>> and you hope she won\'t be the one bringing you another drink.<</if>> After you order and sit down, you start just people-watching, realizing every employee is quite busy... except for the punk girl. She merely sits at the back, and you can barely see her phone screen. On it is a plethora of pictures of bodybuilders, except bigger than any you\'ve ever seen. Surely those images must be manipulated somehow? While turning around, you sit there, hoping she hads\'t noticed you watching her. <br><br>Five minutes later, she comes over and almost tosses the drink sideways on your table.<br><br><<Dialogue "Kris" "Kris">>"Enjoy your whatever it is."<</Dialogue>><br> It seems her attitude was just always like this. As you grab the drink, you take a sip without looking. Something is off. You can\'t quite place it, maybe they just changed the recipe?<<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisBoredFiller2',
+        locationTags: ['kris'],
+        conditions: [
+            () => !State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: 'Today you decide to treat yourself, why not? With your coffee, you order a nice slice of carrot cake, something made in-house and served fresh. Sitting down, you look forward to it, gazing out the window with a smile. But the moment is ruined when, again, that rude girl comes over and slams your order against the table. <br><br><<Dialogue "Kris" "Kris">>"Here, eat."<</Dialogue>><br><<Dialogue "player" "You">>"Um, sorry, but I ordered some cheesecake with this… ?"<</Dialogue>><br>The girl sighs, her shoulders slumping. <br><br><<Dialogue "Kris" "Kris">>"Ugh, FINE. Anything else, princess?"<</Dialogue>><br>She scuttles off, not waiting for an answer, and comes back with an oversized slice of the delicacy. It looks amazing, and as you take the first bite, you practically melt inside. <br><br><<Dialogue "player" "You">>\Oh, this is amazing, my compliments to whoever made it!"<</Dialogue>><br><br><br><<Dialogue "Kris" "Kris">>"That\'d be me, not that I care."<</Dialogue>><br><<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisBoredFiller3',
+        locationTags: ['kris'],
+        conditions: [
+            () => !State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: 'As you order, the rude girl stands behind the counter once again.<br><<Dialogue "Kris" "Kris">>"Can we get this over with? What do you want?"<</Dialogue>><br><<Dialogue "player" "You">>"Um... just a coffee, please, black. And... um... maybe a muffin?"<</Dialogue>><br>You place the order, but the girl doesn\'t respond. Instead, she has eyes only for the large hairy man who just entered the shop; some kind of bodybuilder or something.<br><<Dialogue "KrisObsessed" "Kris">>"Goddamn, those are some nice arms..."<</Dialogue>><br><<Dialogue "player" "You">>"Um... my order… ?"<</Dialogue>><br><<Dialogue "KrisObsessed" "Kris">>"Yeah, yeah, whatever, here is your fucking stuff. God DAMN, why can’t they all just take some enhancers..."<</Dialogue>><br>Quickly, you grab your stuff, not quite sure how to respond to this.<<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisBoredFiller4',
+        locationTags: ['kris'],
+        conditions: [
+            () => !State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: 'Shit. It’s the rude girl again. Still, you need your coffee and you\'ll get it. Summoning your confidence, you try to be assertive. <br><<Dialogue "player" "You">>"Uh, hi. Um... just a black coffee, please."<</Dialogue>><br>She looks at you sideways, barely reacting.<br><<Dialogue "Kris" "Kris">>"You\'ll like our cold brew better. Get that."<</Dialogue>><br>That wasn’t friendly advice, she just pretty much ordered you to buy something else!<br><<PersonalityCheck $shyConfident >= 1 "I\'ll have what I ordered">><<Dialogue "player" "You">>"And I\'d rather just give you the coffee that is already made. What is your problem?"<</Dialogue>><br>She rolls her eyes, her annoyance is clear.<br><br><<Dialogue "Kris" "Kris">>"Fine, fine. Make the wrong choice."<</Dialogue>><br> Sitting down with the drink, you sip the warm coffee. But... you know what? Maybe she was right. Something nice and cold would\'ve been more refreshing. But she didn\'t have to be so blunt!<<Failed>>You\'re just not able to stand up for yourself;<<Dialogue "player" "You">>"S-sure I\'ll take the cold brew."<</Dialogue>><br>She smirks, seemingly enjoying this. With a practiced hand, she pours it with quite an unexpected flourish, handing it in a big mug.<br><<Dialogue "Kris" "Kris">>"Heh, you are one of the smart ones, I can tell."<</Dialogue>><br>As you sit down and take a sip of the surprisingly refreshing beverage, you realize perhaps she was right all along?<</PersonalityCheck>><<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisBoredFiller5',
+        locationTags: ['kris'],
+        conditions: [
+            () => !State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: 'Going to the counter you find... nobody there. You tap the service bell and look around as the rude girl pops from the storage room.<br><<Dialogue "Kris" "Kris">>"Yeah, yeah, no need to get your panties in a twist, what can I get you?"<</Dialogue>><br>She\'s still looking at her phone, not even dignifying you with a glance, scratching her nose idly instead.<br><<Dialogue "player" "You">>"Um... I\'ll have a... hmm.. latte macchiato, please?"<</Dialogue>><br>For once, the girl sets to work, not taking her eyes from her phone, which is actually sort of impressive. She makes the entire drink one-handedly, still concentrated on whatever is on her phone screen. Without a word, she shoves the final result against your stomach, before returning to the storage room.<<link "Continue" "BookStore">><</link>>'
+    }
+)>>
+
+<<set setup.events.push({
+        name: 'krisObsessedFiller1',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<krisGift "potion">><<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>>There she is again, Kris. The moment you get in, she\'s practically jumping up and down from excitement. She instructs you to cut in front of the line, gathering some ugly looks from the other waiting patrons, as she scans you, noting your height, chest and muscles. Her grin widens, knowing you\'ve grown. <br><br><<Dialogue "KrisObsessed" "Kris">>"There she is, my favorite big girl! Hehe, how are you?!? God, you\'re bigger every time I see you! Listen, I’ve been doing some digging, and I have a little gift for you!"<</Dialogue>><br>She holds out a small vial, the label reading <<print $KrisGift>>. You stand there, a bit stunned; how the hell did she get this?! From the other side of the counter, Kris simply smirks. <<Dialogue "KrisObsessed" "Kris">>"Heh, don\'t question it, just… enjoy... and grow a bit bigger for me, will ya?"<</Dialogue>><br><br><<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisObsessedFiller2',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: 'Approaching the counter, you see Kris standing there with a BIG smirk. <br><<Dialogue "KrisObsessed" "Kris">>"Hey, hey, my favorite pet project! Hehe, I got a BIG surprise for you today, girl... but how about you flash me a quick flex first?"<</Dialogue>><br>The emphasis was oddly placed in \'pet project\', with more focus on ‘pet‘ than ‘project‘. Yet, she looks at you in anticipation, her face filled with glee. <br><br><span id="choice"><<PersonalityCheck $shyConfident >= 1 "Flex!">><<replace "#choice">>With some hesitation, you give her a flex of your arms. <<if $muscle > 60>><<set $krisOpinion += 5>><<set $krisObsessedOpinion += 5>>The muscle rises with the slightest movement, and it keeps going. As your arms grow, the air seems to pulse, and Kris\'s eyes grow with it. Bigger and bigger they widen, even though you barely put any effort into the little show. Her entire face becomes flush with lust and you just know she\'s going to take an extended break afterwards.<br><<Dialogue "KrisObsessed" "Kris">>"Oh, FUCK! Yeah, t-that\'s the stuff... l-listen, I got a BIG gift for you, babe... h-here you go..."<</Dialogue>><br><br>With shaking hands she pulls out a BIG wad of money, which she places on your palm and closes it. It has to be almost $2000! She is really insistent, making sure you will leave with it.<br><<Dialogue "KrisObsessed" "Kris">>"Keep growing, big girl..."<</Dialogue>><br><<link "Continue" "BookStore">><<set $money += 2000>><</link>><<elseif $muscle > 40>>With some hesitation, you make the massive bicep dance, each and every fiber bulging and twitching at your command. Kris is leaning over the counter, almost close enough to kiss them. Her breath is hot and deep, washing over you as she drinks in the sight.<br><<Dialogue "KrisObsessed" "Kris">>"Oh, FUCK! Yeah, t-that\'s the stuff... l-listen I got a BIG gift for you, babe... h-here you go..."<</Dialogue>><br><br> With shaking hands she pulls out a BIG wad of money, which she places on your palm and closes it. It has to be almost $500! She is really insistent, making sure you will leave with it.<br><<Dialogue "KrisObsessed" "Kris">>"Keep growing, big girl..."<</Dialogue>><br><<link "Continue" "BookStore">><<set $money += 500>><<set $krisOpinion += 4>><<set $krisObsessedOpinion += 4>><</link>><<else>>As you flex your arms the muscle lifts your skin, the bump growing and pulsing like a mouse. Kris is smirking, though you\'re not sure it’s because she enjoys the flex or because you complied so promptly. <br><br><<Dialogue "KrisObsessed" "Kris">>"Hehe, nice! And as your reward, babe... $100. Yeah, I know. Just take it, you earned it."<</Dialogue>><br>She shoves the bill at you, not arguing about it. Money is money, but it does feel kinda... weird, making money this way.<br><br><<link "Continue" "BookStore">><<set $money += 100>><<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>><</link>><</if>><</replace>><<Failed>>While Kris basically ordered you to flex, you look around, realizing there are too many people for you to do so discreetly. Slowly, you shake your head, not daring to reply verbally. Kris frowns, clearly displeased at her pet’s disobedience. <br><br><<Dialogue "Kris" "Kris">>"Fine. Then... I guess no treat for you. For fuck’s sake, having a body like that and flaunting it..."<</Dialogue>><br>With loud grumbling, she goes on with her work, clearly disappointed with you. From her hands, an envelope gets tossed in the trash. Yup, that’s one gift you apparently turned down.<br><br><<link "Continue" "BookStore">><</link>><</PersonalityCheck>></span>'
+    },
+    {
+        name: 'krisObsessedFiller3',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.krisStopsGivingPotions != true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>>Approaching the counter, another employee takes your order. It’s actually quite refreshing! However, before you get single word out, Kris comes barging from the storage room, practically trampling the poor guy. <br><br><<Dialogue "KrisObsessed" "Kris">>"MY customer, Derrick, fuck off! Oh, heeeeey, big girl, how are you doing? Hehe, God, you\'re looking MIGHTY BIG today... UNNNNGH!"<</Dialogue>><br><br>It doesn\'t even matter what you are wearing, you can sense her undressing you in her head. And not even trying to be discreet!<br><br><<Dialogue "player" "You">>"... Could I get my coffee now?"<</Dialogue>><br><br><<Dialogue "KrisObsessed" "Kris">>"Hehe, wouldn\'t let you leave without it! Here you go, with a VERY SPECIAL something from me in it! Enjoy!"<</Dialogue>><br><br>As you sit down, you take a whiff. Hmm. Smells like coffee. Looks like coffee. With a very careful sip you notice that... it tastes like coffee. Hmm. What to do...<br><br><span id="choice"><<link "Drink it">><<replace "#choice">><br>Daring to take a sip it tastes... fine. There is no problem. Perhaps you are getting stressed over nothing? Perhaps she just used fancier beans? Still, you feel unusually energized after this!<<addMuscleSlow 3>><br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>></span>'
+    },
+    {
+        name: 'krisObsessedFiller4',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>>Yup, there is is. Kris. Yet, there’s something different, somehow. More subdued? Calmer, even? Tired. But upon seeing you, she perks up and smiles. <br><br><<Dialogue "KrisObsessed" "Kris">>"Hehe, oh, hey, big girl... Sorry, I\'m… a bit tired today. Had a... long night. Here, check this out."<</Dialogue>><br><br>Without any semblance of shame or irony, she snaps her phone against your face, showing you a picture of... Jesus Christ, a huge female bodybuilder. Her tits were enormous, clearly implants, and even her lips seemed inflated to an insane degree. Kris simply smiles as you take it all in.<br><br><<Dialogue "KrisObsessed" "Kris">>"And I\'m going to make you so much bigger... so insanely bigger... monstrously, freakishly bigger… heh… heh... you\'re my little pet project... heh… heh... bigger... I... I’ll have a special gift for you soon, little pet..."<</Dialogue>><br><br>With that disturbing comment, she hands you your drink. Does she mean it? You leave the counter, confused.<br><br><<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisObsessedFiller5',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>><<krisGift "potion">>This time, Kris is hanging out in the back, taking a smoke break. It seems her colleagues have no qualms about letting you out back, possibly relieved to keep her away from customers for a little while longer. And who is going to stop you, anyway? As you leave towards the external area in the back by the dumpster, it’s odd to see her so... calm and relaxed. Softly smoking, she has her eyes closed, not noticing you approaching her. You tap her shoulder, and she looks straight at you, with a naughty smile. <<Dialogue "KrisObsessed" "Kris">>"Heh, my personal project coming to me... hehe, sorry, I\'m kinda exhausted, had to do some... private stuff tonight. Hehe... but I got you something... here..."<</Dialogue>><br><br>From her jacket she pulls a... small metallic bottle, with the label <<print $KrisGift>>. You can’t help but also recognize the same pricetag used at Tasha’s Thrifts, still attached. Did she...? A bit stunned, you leave, hoping she paid for this.<br><br><<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisObsessedFiller6',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested,
+            () => State.variables.krisStopsGivingPotions != true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>><<krisGift "potion">>As you walk in the café, people look at you oddly. You get the idea that word about your... whatever you call this thing you have going with Kris… is getting around. As you approach the counter, someone stands there, looking at you with the kind of stupor only a long career in retail can provide.  With that utter monotone, he tells you that Kris isn\'t here today - but that she has left you something. From below the counter, he pulls a small metallic bottle, which he hands over to you. Great. Now she has accomplices in the workplace.<br><br><<link "Continue" "BookStore">><</link>>'
+    },
+    {
+        name: 'krisObsessedFiller7',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>>Walking up to the counter, you wonder how Kris will react to your new... build. Recently you have gotten a lot wider and she\'s never one keep her observations to herself. And so far, you\'ve only seen her fawn over big muscles, big dicks, big boobs... will she even like your new girth? Adjusting your clothing one last time, it’s your turn. Kris hasn\'t noticed you, but when she does... she smiles.<br><br><<Dialogue "KrisObsessed" "Kris">>"Hehe, bloody hell, you look amazing... trying a new diet? Don\'t tell me! You want some extra cheesecake with your coffee? I can put something... special in it!"<</Dialogue>><span id="choice"><br><<link "Yes please!">><<replace "#choice">><br>With a huge grin, Kris serves you a generous slice of cheesecake, chocolate sauce dripping from every corner. So much whipped cream that it practically tumbles over. But you can also spot an odd sheen, though, making it look richer than usual. Sitting down, you pick a tiny piece of it with your fork. And then a bigger piece. Soon enough, your find yourself gulping it by the handful, and Kris just pops out of nowhere with another slice. And then another. You don\'t know what\'s coming over you, but you find yourself unable to resist! By the time you are done... you feel like you might have eaten the entire thing! That is sure to affect your waistline!<br><br><<link "Continue" "BookStore">><<addFatSlow 10>><</link>><</replace>><</link>><br><<link "No, thanks.">><<replace "#choice">><br><br><<Dialogue "player" "You">>"Eh, no, thank you, I\'m good."<</Dialogue>><br><br>Kris doesn\'t appreciate your answer, but for once she doesn\'t go on about it.<br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>></span>'
+    },
+    {
+        name: 'krisObsessedFiller8',
+        locationTags: ['kris'],
+        conditions: [
+            () => State.variables.krisInterested
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris'],
+        content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>>You are surprised to notice that Kris is not at the counter as you enter the Coffee Corner. Instead, she\'s smoking outside, checking her phone. It seems she\'s quite distracted as she takes no notice of you. Leaning against the back window, it would be quite easy to steal a glance at her phone, find out what she\'s looking at... or who she\'s talking to.<br><br><span id="choice"><<link "look">><<replace "#choice">>Leaning against the glass you can just hear fragments of a conversation…<br><br><<Dialogue "KrisObsessed" "Kris">>"Yeah, yeah... need it by tomorrow. Yeah, it’s for my new project. Hehe... even bigger. You should\'ve seen her. Hmm? Listen, I don\'t care about the fucking cost, I\'ll pay you, you know I\'m good for it! Tell you what, I\'ll pay you double next time. Yeah, yeah, fine! Just get me the stuff, she\'s gonna get huge!"<</Dialogue>><br><br>It seems Kris might be accruing a lot of debt, and you don\'t have to think hard to figure the reason. Perhaps you could bring it up later...? <br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>><br><<link "Don\'t look">><<replace "#choice">>Prying your eyes away, resist the temptation. It\'d be so interesting to read, and you\'re quite sure Kris would do the same to you... but you can\'t sink to her level, she does deserve her privacy. Quietly, you return to the shop entrance, avoiding her for today.<br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>></span>'
+    }
+)>>
+
+

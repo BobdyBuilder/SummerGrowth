@@ -1,0 +1,68 @@
+:: emmaReportingHQ [nobr] {"position":"0,0","size":"100,100"}
+<<if !$jobWarehouse>>It feels like one of those days - your computer crashed a couple of times, costing some precious work; One of the wheels on your chair refuses to behave, making it hard to properly position yourself comfortably; One of the lights right above your head is giving out a droning buzz that makes you want to shoot it; And to top it all off, one of your laziest coworkers has sweet-talked their supervisor into dumping a tricky project on your lap. But you soldier on, wondering if things can get any worse.<br><br>
+<<else>>
+It feels like one of those days - you get to the warehouse and some of the overhead lights aren’t working, and you have no idea who to even ask for help with that; Some of the boxes you need to carry are falling apart, making the task much more complicated; And somehow there’s a leaky pipe just making this dangerous puddle right in the middle of the way, not only a slipping hazard, but you will need to make sure to get to some of the document crates before they get wet. You soldier on, wondering if things can get any worse.
+<</if>>
+<<Dialogue "Emma" "Emma">>"Miss <<print $playerLastName>>, can I have a moment of your time?"<</Dialogue>><br><br>
+You should’ve seen this coming. You wonder if there’s an infestation of bubonic plague-ridden rats in the basement, because it seems like the natural next step to your day.<br><br>
+<<Dialogue "player" "You">>"Of course, miss Fray. What can I do for you?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Would you mind accompanying me to my office?"<</Dialogue>><br><br>
+That sounds serious, but deep inside, your sixth sense tells you it’s nothing to be worried about - either that, or maybe you just got really good at reading Emma by now? She escorts you, closing the door and the blinds before heading to her espresso machine.<br><br>
+<<Dialogue "Emma" "Emma">>"Can I interest you in some coffee? I just got this Colombian blend that is criminally delicious."<</Dialogue>><br><br>
+You nod in agreement, hoping she’s not trying to brace you for bad news. After brewing a couple of tiny cups, she sits down, elbows on her desk as she leans towards you, hands together with her index fingers pointing up and a more serious face. You take a deep breath.<br><br>
+<<Dialogue "Emma" "Emma">>"I’ll cut to the chase. The top brass needs me to spend some time at headquarters, and I’ll have to take a business trip that will keep me away for at least a day."<</Dialogue>><br><br>
+
+<<if $shyConfident > 1 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"Wait, you don’t expect ME to run the office while you are away?!?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"God, no! I mean, no offense, not only would I never spring something like that on you, but for the most part I think the operation can run in my absence for a while."<</Dialogue>><br><br>
+You sigh with relief. That would’ve been... something.<br><br>
+<<elseif $shyConfident > 1 && $carefreeCarefull <= 1>>
+<<Dialogue "player" "You">>"Ooooh, do you want me to run the office in your absence? I actually had a few ideas that I wanted to run by you..."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"God, no! I mean, no offense, I don’t think you are quite ready for that, but for the most part I think the operation can run in my absence for a while."<</Dialogue>><br><br>
+Awww, shucks. Well, it was worth a shot.<br><br>
+<<else>>
+With a gulp, you look at her, confused, wondering where this conversation is going.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"They are keeping me in the dark about this whole trip, but I’d feel a lot better if I could take an assistant with me. Someone I can trust."<</Dialogue>><br><br>
+<<if $shyConfident < 0 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"Uh, you need suggestions? I mean, I don’t know that I trust many other people here for that kind of responsibility, but maybe if I go through the staff..."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"That won’t be necessary, I already have someone in mind."<</Dialogue>><br><br>
+She smiles mischieviously, which in itself is so disturbing that it takes you a second to realize what she means.<br><br>
+<<if $muscle > 55>>
+<<Dialogue "player" "You">>"Ummm, isn’t it going to be a little weird? Like, coming in with an assistant that looks more like a bodyguard?"<</Dialogue>><br><br>
+Your concerns seem to fall on deaf ears, though it does cause one of her eyebrows to rise.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"Will you come with me tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+<<elseif $shyConfident < 0 && $carefreeCarefull <= 1>>
+<<Dialogue "player" "You">>"Errr, I’m not sure I’m the best person to help with that, I don’t really know that many people here, I’m sure you can figure out the most suited candidate for that."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I am. And I did. Will you come with me tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+Wait, does she mean... you?!?<br><br>
+<<if $muscle > 55>><<Dialogue "player" "You">>"A-are you sure about that? Maybe I’ll just intimidate people with my not so discreet physique? Isn’t that going to cause issues?"<</Dialogue>><br><br><</if>>
+<<elseif $shyConfident > 1 && $submissiveDominant <= 1>>
+<<Dialogue "player" "You">>"Wait, you don’t mean...?"<</Dialogue>><br><br>
+You look around, like there was someone else there who she could possibly be talking about, as you point to yourself still somewhat dazed.<br><br>
+<<Dialogue "Emma" "Emma">>"Would you be willing to come with me, tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+<<if $muscle > 55>><<Dialogue "player" "You">>"Have you even seen these guns? Can you even imagine the reaction when you come in with someone bigger than a bodybuilder in tow? Isn’t that going to get awkward?"<</Dialogue>><br><br><</if>>
+<<elseif $shyConfident > 1 && $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"I would love to go with you. And I’m glad you acknowledge my skills and trust me to do so. <<if $muscle > 55>>Besides, I can’t WAIT to see the faces of the executives as a pair of big girls just strut their HUGE MUSCLES into that corporate office - we’ll be breaking some glass ceilings, alright!<</if>>"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Confident. Cocky, even, I’d argue. But I was hoping you’d say that. I like it. We leave tomorrow morning. All expenses paid by the company, of course."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"So who are you bringing with you?"<</Dialogue>><br><br>
+She cocks her head with a smile.<br><br>
+<<Dialogue "Emma" "Emma">>"The one person here I both respect and trust enough for this task. You."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Say what?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Would you be willing to come with me, tomorrow? All expenses paid by the company, of course."<</Dialogue>><br><br>
+<</if>>
+This is not an opportunity you can pass. Even if not for the professional reasons, deep inside you can’t bring yourself to pass an opportunity to spend more time with Emma, especially outside of the usual scope of the office.<br><br>
+<<Dialogue "player" "You">>"Of course! You can count on me!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Excellent. However, I must warn you, our accommodations were booked in advance by HQ, so I hope you don’t mind that we will have to share the hotel room. I want you to be aware of this, and I will understand if that is not acceptable - I tried looking for an alternative myself, but the city is completely booked due to a convention."<</Dialogue>><br><br>
+You gulp. Sharing a room... with Emma? Your mind goes WILD as you try not to lose composure.<br><br>
+<<Dialogue "player" "You">>"O-obviously not, I can b-be completely professional!"<</Dialogue>><br><br>
+You say, half-stuttering and failing to sound as serious as you can. Emma’s eyes are still 100% trained on you, a very faint smile remains on her lips.<br><br>
+<<Dialogue "Emma" "Emma">>"Perfect. I’ll have a driver pick you up at home early tomorrow, and we’ll be driven to the airport. Please make sure to bring proper ID and a professional-looking attire, but I would also pack some casual clothes - we might have some time off and I hear the city is beautiful this time of the year."<</Dialogue>><br><br>
+You are left speechless. Emma waits for some response, but eventually just nods and gets back to her work.<br><br>
+<<Dialogue "Emma" "Emma">>"I won’t keep you any longer. I also have a lot I need to do before I leave, so I’ll leave you to it. I am looking forward to seeing you tomorrow - and thank you. This means a lot to me."<</Dialogue>><br><br>
+Silently, you just get up and walk backwards to the door, still processing and not quite believing in what just happened.<br><br>
+Holy shit. I guess you gotta pack tonight!
+<<link "return" "office">><</link>>
+

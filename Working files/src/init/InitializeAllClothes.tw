@@ -1,0 +1,2251 @@
+:: InitializeAllClothes [nobr] {"position":"0,600","size":"100,100"}
+<<set setup.emptyClothes to {
+    id: -1,
+    name: 'clothes',
+    tolerance: null,
+    archetypes: [],
+    bonuses: [],
+    size: null,
+    slot: null
+}>>
+
+<<set setup.allStyles to [
+    'casual',
+    'tomboy',
+    'nerdy',
+    'professional',
+    'stylish',
+    'punk',
+    'sporty',
+    'sexy',
+    'girly'
+]>>
+
+/* Predefined clothing bonuses */
+<<set setup.clothingBonuses to {
+    /*included */
+	Baggy: {
+    	name: "Baggy",
+        description: "Hides all physical changes except for height, allowing you to suprise people when no longer wearing them.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    /*included */
+    LactationProof: {
+    	name: "Lactation-proof",
+        description: "These clothes help you hide awkward 'leaking' incidents.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    /*included */
+    WorkoutWear: {
+    	name: "Workout-wear",
+        description: "10% extra muscle growth from workouts when wearing an outfit with this bonus.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    /*included */
+    Comfortable: {
+    	name: "Comfortable",
+        description: "Gain 10% extra motivation whenever you do something that gives motivation.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    /*included */
+    ExtraWarm: {
+    	name: "Extra warm",
+        description: "Loose a bit of fat whenever you wear this.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    /*included */
+    Stretchy: {
+    	name: "Stretchy",
+        description: "Stretchy enough that you can go outside in a stretchy outfit even if it really doesn't fit anymore... if you're confident enough.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    
+    ShowingOff: {
+    	name: "Showing-off",
+        description: "Makes your breasts more visible and look bigger.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    /*included */
+    Intimidating: {
+    	name: "Intimidating",
+        description: "People will approach you less when walking outside.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: false
+    },
+    FavoriteStyle: {
+    	name: "Favorite style",
+        description: "This outfit is really you, suiting your favorite style to a T.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: true
+    },
+    Tailored: {
+    	name: "Tailored",
+        description: "This outfit is mostly tailored to you, giving you some extra size allowance.",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: true
+    },
+    Crafted: {
+    	name: "Hand-made",
+        description: "This outfit has a lot of hand-made elements, making it perfectly suitable for you!",
+        tightEffect: function () {
+            
+       		},
+        breakEffect: function () {
+            
+       		},
+        hideInStores: true
+    }
+
+}>>
+
+/* The predefined sizes in the game. */
+<<set setup.sizeDatabase to [
+	{	
+    	muscleMin: 0,
+        muscleMax: 20,
+        fatMin: 0,
+        fatMax: 20,
+        heightMin: 0,
+        heightMax: 150,
+        breastsMin: 0,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 2,
+        assMin: 0,
+        AssMax: 2,
+        dickMin: 0,
+        dickMax: 3,
+        ballsMin: 0,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 15,
+        muscleMax: 25,
+        fatMin: 15,
+        fatMax: 25,
+        heightMin: 140,
+        heightMax: 160,
+        breastsMin: 5,
+        breastsMax: 15,
+        thighsMin: 1,
+        thighsMax: 3,
+        assMin: 1,
+        AssMax: 3,
+        dickMin: 1,
+        dickMax: 4,
+        ballsMin: 1,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 20,
+        muscleMax: 30,
+        fatMin: 20,
+        fatMax: 30,
+        heightMin: 150,
+        heightMax: 170,
+        breastsMin: 10,
+        breastsMax: 15,
+        thighsMin: 0,
+        thighsMax: 4,
+        assMin: 1,
+        AssMax: 3,
+        dickMin: 2,
+        dickMax: 5,
+        ballsMin: 1,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 25,
+        muscleMax: 35,
+        fatMin: 25,
+        fatMax: 35,
+        heightMin: 160,
+        heightMax: 180,
+        breastsMin: 15,
+        breastsMax: 20,
+        thighsMin: 2,
+        thighsMax: 4,
+        assMin: 1,
+        AssMax: 3,
+        dickMin: 3,
+        dickMax: 6,
+        ballsMin: 1,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 30,
+        muscleMax: 40,
+        fatMin: 30,
+        fatMax: 40,
+        heightMin: 170,
+        heightMax: 180,
+        breastsMin: 20,
+        breastsMax: 25,
+        thighsMin: 2,
+        thighsMax: 4,
+        assMin: 1,
+        AssMax: 3,
+        dickMin: 4,
+        dickMax: 7,
+        ballsMin: 1,
+        ballsMax: 3        
+    },
+    {	
+    	muscleMin: 35,
+        muscleMax: 45,
+        fatMin: 35,
+        fatMax: 45,
+        heightMin: 180,
+        heightMax: 190,
+        breastsMin: 25,
+        breastsMax: 30,
+        thighsMin: 3,
+        thighsMax: 5,
+        assMin: 2,
+        AssMax: 4,
+        dickMin: 5,
+        dickMax: 8,
+        ballsMin: 2,
+        ballsMax: 4        
+    },
+    {	
+    	muscleMin: 40,
+        muscleMax: 50,
+        fatMin: 40,
+        fatMax: 50,
+        heightMin: 190,
+        heightMax: 200,
+        breastsMin: 30,
+        breastsMax: 35,
+        thighsMin: 4,
+        thighsMax: 6,
+        assMin: 3,
+        AssMax: 5,
+        dickMin: 6,
+        dickMax: 9,
+        ballsMin: 3,
+        ballsMax: 5        
+    },
+    {	
+    	muscleMin: 45,
+        muscleMax: 55,
+        fatMin: 45,
+        fatMax: 55,
+        heightMin: 200,
+        heightMax: 210,
+        breastsMin: 35,
+        breastsMax: 40,
+        thighsMin: 4,
+        thighsMax: 7,
+        assMin: 4,
+        AssMax: 6,
+        dickMin: 7,
+        dickMax: 10,
+        ballsMin: 4,
+        ballsMax: 6        
+    },
+    {	
+    	muscleMin: 50,
+        muscleMax: 60,
+        fatMin: 50,
+        fatMax: 60,
+        heightMin: 210,
+        heightMax: 220,
+        breastsMin: 40,
+        breastsMax: 45,
+        thighsMin: 5,
+        thighsMax: 8,
+        assMin: 4,
+        AssMax: 7,
+        dickMin: 8,
+        dickMax: 11,
+        ballsMin: 4,
+        ballsMax: 7        
+    },
+    {	
+    	muscleMin: 55,
+        muscleMax: 65,
+        fatMin: 55,
+        fatMax: 65,
+        heightMin: 220,
+        heightMax: 230,
+        breastsMin: 45,
+        breastsMax: 50,
+        thighsMin: 5,
+        thighsMax: 8,
+        assMin: 5,
+        AssMax: 5,
+        dickMin: 9,
+        dickMax: 12,
+        ballsMin: 5,
+        ballsMax: 8        
+    },
+    {	
+    	muscleMin: 60,
+        muscleMax: 70,
+        fatMin: 60,
+        fatMax: 70,
+        heightMin: 230,
+        heightMax: 240,
+        breastsMin: 50,
+        breastsMax: 55,
+        thighsMin: 6,
+        thighsMax: 9,
+        assMin: 6,
+        AssMax: 9,
+        dickMin: 10,
+        dickMax: 13,
+        ballsMin: 6,
+        ballsMax: 9        
+    },
+    {	
+    	muscleMin: 65,
+        muscleMax: 75,
+        fatMin: 65,
+        fatMax: 75,
+        heightMin: 240,
+        heightMax: 250,
+        breastsMin: 55,
+        breastsMax: 60,
+        thighsMin: 7,
+        thighsMax: 10,
+        assMin: 7,
+        AssMax: 10,
+        dickMin: 12,
+        dickMax: 15,
+        ballsMin: 7,
+        ballsMax: 10        
+    },
+    {	
+    	muscleMin: 70,
+        muscleMax: 80,
+        fatMin: 70,
+        fatMax: 80,
+        heightMin: 250,
+        heightMax: 260,
+        breastsMin: 60,
+        breastsMax: 65,
+        thighsMin: 8,
+        thighsMax: 11,
+        assMin: 8,
+        AssMax: 11,
+        dickMin: 13,
+        dickMax: 16,
+        ballsMin: 8,
+        ballsMax: 11        
+    },
+    {	
+    	muscleMin: 75,
+        muscleMax: 85,
+        fatMin: 75,
+        fatMax: 85,
+        heightMin: 260,
+        heightMax: 270,
+        breastsMin: 65,
+        breastsMax: 70,
+        thighsMin: 9,
+        thighsMax: 12,
+        assMin: 9,
+        AssMax: 12,
+        dickMin: 14,
+        dickMax: 17,
+        ballsMin: 9,
+        ballsMax: 12        
+    },
+    {	
+    	muscleMin: 80,
+        muscleMax: 90,
+        fatMin: 80,
+        fatMax: 90,
+        heightMin: 270,
+        heightMax: 280,
+        breastsMin: 70,
+        breastsMax: 75,
+        thighsMin: 10,
+        thighsMax: 13,
+        assMin: 10,
+        AssMax: 13,
+        dickMin: 15,
+        dickMax: 18,
+        ballsMin: 10,
+        ballsMax: 13        
+    },
+    {	
+    	muscleMin: 85,
+        muscleMax: 95,
+        fatMin: 85,
+        fatMax: 95,
+        heightMin: 280,
+        heightMax: 290,
+        breastsMin: 75,
+        breastsMax: 80,
+        thighsMin: 11,
+        thighsMax: 14,
+        assMin: 11,
+        AssMax: 14,
+        dickMin: 16,
+        dickMax: 19,
+        ballsMin: 11,
+        ballsMax: 14        
+    },
+    {	
+    	muscleMin: 90,
+        muscleMax: 100,
+        fatMin: 90,
+        fatMax: 100,
+        heightMin: 290,
+        heightMax: 300,
+        breastsMin: 80,
+        breastsMax: 85,
+        thighsMin: 12,
+        thighsMax: 15,
+        assMin: 12,
+        AssMax: 15,
+        dickMin: 17,
+        dickMax: 20,
+        ballsMin: 12,
+        ballsMax: 15        
+    },
+    {	
+    	muscleMin: 95,
+        muscleMax: 105,
+        fatMin: 95,
+        fatMax: 105,
+        heightMin: 300,
+        heightMax: 310,
+        breastsMin: 85,
+        breastsMax: 90,
+        thighsMin: 13,
+        thighsMax: 16,
+        assMin: 13,
+        AssMax: 16,
+        dickMin: 18,
+        dickMax: 21,
+        ballsMin: 13,
+        ballsMax: 16        
+    },
+    {	
+    	muscleMin: 100,
+        muscleMax: 110,
+        fatMin: 100,
+        fatMax: 110,
+        heightMin: 310,
+        heightMax: 320,
+        breastsMin: 90,
+        breastsMax: 95,
+        thighsMin: 14,
+        thighsMax: 17,
+        assMin: 14,
+        AssMax: 17,
+        dickMin: 19,
+        dickMax: 22,
+        ballsMin: 14,
+        ballsMax: 17        
+    },
+    {	
+    	muscleMin: 105,
+        muscleMax: 115,
+        fatMin: 105,
+        fatMax: 115,
+        heightMin: 320,
+        heightMax: 330,
+        breastsMin: 95,
+        breastsMax: 100,
+        thighsMin: 15,
+        thighsMax: 18,
+        assMin: 15,
+        AssMax: 18,
+        dickMin: 20,
+        dickMax: 23,
+        ballsMin: 15,
+        ballsMax: 18        
+    },
+    {	
+    	muscleMin: 115,
+        muscleMax: 999,
+        fatMin: 115,
+        fatMax: 999,
+        heightMin: 330,
+        heightMax: 999,
+        breastsMin: 100,
+        breastsMax: 999,
+        thighsMin: 16,
+        thighsMax: 999,
+        assMin: 16,
+        AssMax: 999,
+        dickMin: 21,
+        dickMax: 999,
+        ballsMin: 16,
+        ballsMax: 999        
+    }
+]>>
+
+<<set setup.getTempDick to function () {
+    return State.variables.dick * State.variables.heightMod;
+}>>
+
+/* The name for the given size index of setup.sizeDatabase */
+<<set setup.getSizeName to function (sizeIndex) {
+    if (sizeIndex < 0) {
+        throw 'The size index must be 0 or bigger';
+    }
+
+    if (sizeIndex === 0) {
+        return 'XS';
+    } else if (sizeIndex === 1) {
+        return 'S';
+    } else if (sizeIndex === 2) {
+        return 'M';
+    } else if (sizeIndex < 7) {
+        let sizeName = '';
+        for (let i = 0; i < sizeIndex - 3; i++) {
+            sizeName += 'X';
+        }
+        return sizeName + 'L';
+    } else {
+        return sizeIndex - 3 + 'XL';
+    }
+}>>
+
+/* The names for the all sizes listed in setup.sizeDatabase */
+<<set setup.getAllSizeNames to function () {
+    let sizeNames = [];
+    for (let size = 0; size < setup.sizeDatabase.length; size++) {
+        sizeNames.push(setup.getSizeName(size));
+    }
+    return sizeNames;
+}>>
+
+
+/* Central list of all clothing in the game. From this objects will be
+added to the stores. Divided by category. undefined values are intended,
+and will be filled in when they enter the stores. */
+<<set setup.allClothes to []>>
+
+/* Populates the central clothing list with items from  
+https://docs.google.com/spreadsheets/d/1IznLvsPDhgNDmq0T1S87PWJoSo-FiUSQuqK7YRyupI4/edit?usp=sharing */
+<<script>>
+console.log('prepping data for clothing');
+var jObjects = JSON.parse(`[
+    {
+      "name": "plain t-shirt",
+      "slot": "top",
+      "tolerance": "1.3",
+      "bonusesString": "WorkoutWear Comfortable",
+      "archetypes": "casual tomboy",
+      "baseCost": "20",
+      "AA": "0.9",
+      "AAMIN": "0",
+      "AAMAX": "6",
+      "AACM": "1",
+      "BB": "0.9",
+      "BBMIN": "3",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.9",
+      "TTMIN": "0",
+      "TTMAX": "6",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "geeky t-shirt",
+      "slot": "top",
+      "tolerance": "1.3",
+      "bonusesString": "Comfortable Stretchy",
+      "archetypes": "casual tomboy nerdy",
+      "baseCost": "35",
+      "AA": "0.5",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.75",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.75",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "button down shirt",
+      "slot": "top",
+      "tolerance": "1.3",
+      "archetypes": "casual nerdy professional",
+      "baseCost": "35",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.8",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.5",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "dress shirt",
+      "slot": "top",
+      "tolerance": "1.1",
+      "archetypes": "nerdy stylish professional",
+      "baseCost": "50",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.8",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "torn shirt",
+      "slot": "top",
+      "tolerance": "1.5",
+      "bonusesString": "Stretchy",
+      "archetypes": "punk tomboy sporty",
+      "baseCost": "15",
+      "AA": "0.7",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.75",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.75",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.6",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.95",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "black halter top",
+      "slot": "top",
+      "tolerance": "1.3",
+      "bonusesString": "Intimidating",
+      "archetypes": "sexy stylish punk",
+      "baseCost": "85",
+      "AA": "0.85",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.5",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.25",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "crop top",
+      "slot": "top",
+      "tolerance": "1.3",
+      "bonusesString": "WorkoutWear",
+      "archetypes": "sexy casual",
+      "baseCost": "65",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.5",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.25",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "tank top",
+      "slot": "top",
+      "tolerance": "1.3",
+      "bonusesString": "WorkoutWear",
+      "archetypes": "sporty tomboy casual",
+      "baseCost": "20",
+      "AA": "0.65",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.95",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.85",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.75",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "halter top",
+      "slot": "top",
+      "tolerance": "1.3",
+      "bonusesString": "ShowingOff",
+      "archetypes": "sexy stylish",
+      "baseCost": "25",
+      "AA": "0.5",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.75",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.65",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.45",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "fish-net top",
+      "slot": "top",
+      "tolerance": "1.5",
+      "bonusesString": "ShowingOff",
+      "archetypes": "punk sexy stylish",
+      "baseCost": "85",
+      "AA": "0.7",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "hoodie",
+      "slot": "overwear",
+      "tolerance": "1.5",
+      "bonusesString": "Baggy LactationProof ExtraWarm",
+      "archetypes": "casual tomboy punk sporty",
+      "baseCost": "50",
+      "AA": "0.8",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.5",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.65",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "black trenchcoat",
+      "slot": "overwear",
+      "tolerance": "1.3",
+      "bonusesString": "Baggy",
+      "archetypes": "tomboy punk",
+      "baseCost": "120",
+      "AA": "0.3",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "tailored jacket",
+      "slot": "overwear",
+      "tolerance": "1.1",
+      "archetypes": "professional stylish",
+      "baseCost": "200",
+      "AA": "0.8",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.3",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
+    },
+    {
+      "name": "leather jacket",
+      "slot": "overwear",
+      "tolerance": "1.1",
+      "archetypes": "punk",
+      "baseCost": "95",
+      "AA": "0.3",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.2",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.4",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": ".9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "vest",
+      "slot": "overwear",
+      "tolerance": "1.1",
+      "archetypes": "stylish professional",
+      "baseCost": "50",
+      "AA": "0.45",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.45",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "sweater",
+      "slot": "overwear",
+      "tolerance": "1.5",
+      "bonusesString": "Baggy LactationProof Comfortable ExtraWarm",
+      "archetypes": "casual nerdy",
+      "baseCost": "35",
+      "AA": "0.8",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.45",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.25",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "cat ear hoodie",
+      "slot": "overwear",
+      "tolerance": "1.5",
+      "bonusesString": "Baggy LactationProof Comfortable ExtraWarm",
+      "archetypes": "nerdy casual girly",
+      "baseCost": "50",
+      "AA": "0.2",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.95",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "track top",
+      "slot": "overwear",
+      "tolerance": "1.5",
+      "bonusesString": "WorkoutWear ExtraWarm",
+      "archetypes": "sporty casual tomboy",
+      "baseCost": "65",
+      "AA": "0.3",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.95",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.75",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "gothic vest",
+      "slot": "overwear",
+      "tolerance": "1.1",
+      "archetypes": "punk",
+      "baseCost": "75",
+      "AA": "0.2",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.2",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
+    },
+    {
+      "name": "spiked jacket",
+      "slot": "overwear",
+      "tolerance": "1.1",
+      "bonusesString": "Intimidating",
+      "archetypes": "punk stylish sexy",
+      "baseCost": "75",
+      "AA": "0",
+      "AAMIN": "null",
+      "AAMAX": "null",
+      "AACM": "null",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.8",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
+    },
+    {
+      "name": "sports bra",
+      "slot": "bra",
+      "tolerance": "1.1",
+      "bonusesString": "WorkoutWear",
+      "archetypes": "sporty",
+      "baseCost": "50",
+      "AA": "0",
+      "AAMIN": "null",
+      "AAMAX": "null",
+      "AACM": "null",
+      "BB": "0.75",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "cotton bra",
+      "slot": "bra",
+      "tolerance": "1.2",
+      "bonusesString": "Comfortable",
+      "archetypes": "casual",
+      "baseCost": "40",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.35",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "push-up bra",
+      "slot": "bra",
+      "tolerance": "1.1",
+      "bonusesString": "ShowingOff",
+      "archetypes": "casual sexy",
+      "baseCost": "60",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.35",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "lace bra",
+      "slot": "bra",
+      "tolerance": "1.1",
+      "bonusesString": "ShowingOff",
+      "archetypes": "stylish sexy girly",
+      "baseCost": "80",
+      "AA": "0.7",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0",
+      "TTMIN": "null",
+      "TTMAX": "null",
+      "TTCM": "null",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "maternity bra",
+      "slot": "bra",
+      "tolerance": "1.3",
+      "bonusesString": "LactationProof Stretchy",
+      "archetypes": "casual",
+      "baseCost": "50",
+      "AA": "0.7",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "checkered skirt",
+      "slot": "bottom",
+      "tolerance": "1.3",
+      "bonusesString": "ExtraWarm",
+      "archetypes": "casual nerdy",
+      "baseCost": "60",
+      "AA": "0.7",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "dress pants",
+      "slot": "bottom",
+      "tolerance": "1.1",
+      "bonusesString": "ExtraWarm",
+      "archetypes": "stylish professional",
+      "baseCost": "100",
+      "AA": "0.7",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.7",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "torn jeans",
+      "slot": "bottom",
+      "tolerance": "1.1",
+      "bonusesString": "Intimidating",
+      "archetypes": "punk casual tomboy",
+      "baseCost": "40",
+      "AA": "0.4",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.55",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.95",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "black skirt",
+      "slot": "bottom",
+      "tolerance": "1.3",
+      "archetypes": "punk professional",
+      "baseCost": "50",
+      "AA": "0.6",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "jeans",
+      "slot": "bottom",
+      "tolerance": "1.1",
+      "bonusesString": "Comfortable",
+      "archetypes": "casual nerdy",
+      "baseCost": "30",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.75",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "jogging pants",
+      "slot": "bottom",
+      "tolerance": "1.3",
+      "bonusesString": "Baggy WorkoutWear",
+      "archetypes": "casual sporty",
+      "baseCost": "30",
+      "AA": "0",
+      "AAMIN": "null",
+      "AAMAX": "null",
+      "AACM": "null",
+      "BB": "0.95",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.5",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "yoga pants",
+      "slot": "bottom",
+      "tolerance": "1.3",
+      "bonusesString": "WorkoutWear Stretchy",
+      "archetypes": "sporty",
+      "baseCost": "40",
+      "AA": "0.2",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.65",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.65",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "shorts",
+      "slot": "bottom",
+      "tolerance": "1.3",
+      "bonusesString": "Comfortable",
+      "archetypes": "sporty nerdy tomboy",
+      "baseCost": "50",
+      "AA": "0.65",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.95",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.5",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "baggy pants",
+      "slot": "bottom",
+      "tolerance": "1.5",
+      "bonusesString": "Baggy Comfortable",
+      "archetypes": "casual tomboy",
+      "baseCost": "40",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.5",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "boyshorts",
+      "slot": "underwear",
+      "tolerance": "1.3",
+      "bonusesString": "Comfortable Stretchy",
+      "archetypes": "tomboy casual",
+      "baseCost": "20",
+      "AA": "0.3",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.4",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.4",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "briefs",
+      "slot": "underwear",
+      "tolerance": "1.3",
+      "bonusesString": "Comfortable",
+      "archetypes": "casual",
+      "baseCost": "25",
+      "AA": "0.8",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.5",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "hipster shorts",
+      "slot": "underwear",
+      "tolerance": "1.3",
+      "archetypes": "stylish casual",
+      "baseCost": "35",
+      "AA": "0.4",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.1",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "sneakers",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "bonusesString": "WorkoutWear Comfortable",
+      "archetypes": "casual sporty nerdy",
+      "baseCost": "60",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.65",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "runners",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "bonusesString": "WorkoutWear",
+      "archetypes": "casual sporty nerdy",
+      "baseCost": "75",
+      "AA": "0",
+      "AAMIN": "null",
+      "AAMAX": "null",
+      "AACM": "null",
+      "BB": "0.65",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.75",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "combat boots",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "bonusesString": "Intimidating",
+      "archetypes": "punk tomboy",
+      "baseCost": "100",
+      "AA": "0.4",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
+    },
+    {
+      "name": "platform boots",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "archetypes": "stylish",
+      "baseCost": "80",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.4",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
+    },
+    {
+      "name": "lace up boots",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "archetypes": "punk stylish sexy",
+      "baseCost": "120",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.7",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "heels",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "archetypes": "stylish professional",
+      "baseCost": "75",
+      "AA": "0.95",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.5"
+    },
+    {
+      "name": "flip flops",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "bonusesString": "Comfortable",
+      "archetypes": "nerdy casual",
+      "baseCost": "10",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0.4",
+      "BBMIN": "2",
+      "BBMAX": "7",
+      "BBCM": "1",
+      "BT": "0.95",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.4",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "ankle boots",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "archetypes": "stylish professional casual",
+      "baseCost": "120",
+      "AA": "0.75",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0.7",
+      "BTMIN": "4",
+      "BTMAX": "9",
+      "BTCM": "1.2",
+      "TT": "0.3",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "1",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.2"
+    },
+    {
+      "name": "stilleto heels",
+      "slot": "shoes",
+      "tolerance": "1.3",
+      "bonusesString": "Intimidating",
+      "archetypes": "stylish sexy",
+      "baseCost": "175",
+      "AA": "0.65",
+      "AAMIN": "0",
+      "AAMAX": "5",
+      "AACM": "1",
+      "BB": "0",
+      "BBMIN": "null",
+      "BBMAX": "null",
+      "BBCM": "null",
+      "BT": "0",
+      "BTMIN": "null",
+      "BTMAX": "null",
+      "BTCM": "null",
+      "TT": "0.2",
+      "TTMIN": "0",
+      "TTMAX": "8",
+      "TTCM": "0.9",
+      "WEB": "0.9",
+      "WBMIN": "0",
+      "WBMAX": "18",
+      "WBCM": "1.8"
+    }
+  ]`);
+
+for (let i = 0; i < jObjects.length; i++) {
+    jObjects[i].storeInfo = {};
+    if (!isNaN((Number(jObjects[i].TT)))) {
+        jObjects[i].storeInfo.tasha = {
+            chance: Number(jObjects[i].TT),
+            availableSizes: [Number(jObjects[i].TTMIN), Number(jObjects[i].TTMAX)],
+            costModifier: Number(jObjects[i].AACM)
+        };
+    }
+    delete jObjects[i].TT;
+    delete jObjects[i].TTMIN;
+    delete jObjects[i].TTMAX;
+    delete jObjects[i].TTCM;
+
+    if (!isNaN((Number(jObjects[i].BB)))) {
+        jObjects[i].storeInfo.bulkBarn = {
+            chance: Number(jObjects[i].BB),
+            availableSizes: [Number(jObjects[i].BBMIN), Number(jObjects[i].BBMAX)],
+            costModifier: Number(jObjects[i].BBCM)
+        };
+    }
+    delete jObjects[i].BB;
+    delete jObjects[i].BBMIN;
+    delete jObjects[i].BBMAX;
+    delete jObjects[i].BBCM;
+
+    if (!isNaN(Number(jObjects[i].BT))) {
+        jObjects[i].storeInfo.bigTall = {
+            chance: Number(jObjects[i].BT),
+            availableSizes: [Number(jObjects[i].BTMIN), Number(jObjects[i].BTMAX)],
+            costModifier: Number(jObjects[i].BTCM)
+        };
+    }
+    delete jObjects[i].BT;
+    delete jObjects[i].BTMIN;
+    delete jObjects[i].BTMAX;
+    delete jObjects[i].BTCM;
+
+    if (!isNaN(Number(jObjects[i].WEB))) {
+        jObjects[i].storeInfo.online = {
+            chance: Number(jObjects[i].WEB),
+            availableSizes: [Number(jObjects[i].WBMIN), Number(jObjects[i].WBMAX)],
+            costModifier: Number(jObjects[i].WBCM)
+        };
+    }
+    delete jObjects[i].WEB;
+    delete jObjects[i].WBMIN;
+    delete jObjects[i].WBMAX;
+    delete jObjects[i].WBCM;
+
+    if (!isNaN(Number(jObjects[i].AA))) {
+        jObjects[i].storeInfo.allisonsApparel = {
+            chance: Number(jObjects[i].AA),
+            availableSizes: [Number(jObjects[i].AAMIN), Number(jObjects[i].AAMAX)],
+            costModifier: Number(jObjects[i].AACM)
+        };
+    }
+    delete jObjects[i].AA;
+    delete jObjects[i].AAMIN;
+    delete jObjects[i].AAMAX;
+    delete jObjects[i].AACM;
+
+    jObjects[i].tolerance = Number(jObjects[i].tolerance);
+    jObjects[i].baseCost = Number(jObjects[i].baseCost);
+    jObjects[i].size = 0;
+    jObjects[i].id = undefined;
+
+    jObjects[i].bonuses = [];
+    if(jObjects[i].bonusesString != undefined){        
+        for (let j = 0; j < jObjects[i].bonusesString.split(' ').length; j++) {
+            if (setup.clothingBonuses[jObjects[i].bonusesString.split(' ')[j]] != undefined) {
+                jObjects[i].bonuses.push(setup.clothingBonuses[jObjects[i].bonusesString.split(' ')[j]]);
+            }
+            else {
+                console.log("couldn't find bonus " + jObjects[i].bonusesString.split(' ')[j]);
+            }
+        }
+    }
+    delete jObjects[i].bonusesString;    
+
+    if(jObjects[i].archetypes != undefined){
+        var archetypes = [];
+        for (let j = 0; j < jObjects[i].archetypes.split(' ').length; j++) {
+            archetypes.push(jObjects[i].archetypes.split(' ')[j]);
+        }
+        jObjects[i].archetypes = archetypes;
+    }
+    console.log(jObjects[i]);
+}
+
+setup.allClothes = jObjects;
+<</script>>
+
+/* Only the biggest size determines which clothing fits. This method determines that. */
+<<set setup.biggestPlayerSize to function (slot) {
+	var statsToCheck = [];
+     var sizes = [];
+	if(slot == undefined){
+    	statsToCheck = ['muscle', 'fat', 'height', 'breasts', 'ass', 'thighs', 'dick', 'balls'];
+    	sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10, State.variables.ass * 10, State.variables.thighs * 10, State.variables.dick * 10, State.variables.balls * 10];
+    }
+    else if(slot == 'top' || slot == 'overwear'){
+    	statsToCheck = ['muscle', 'fat', 'height', 'breasts'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.breasts - 10];        
+    }
+    else if(slot == 'bra'){
+    	statsToCheck = ['muscle', 'fat', 'breasts'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.breasts - 10];        
+    }
+    else if(slot == 'bottom' || slot == 'underwear'){
+    	statsToCheck =  ['muscle', 'fat', 'height', 'ass', 'thighs', 'dick', 'balls'];
+        sizes = [State.variables.muscle - 20, State.variables.fat - 20, State.variables.height -150, State.variables.ass * 10, State.variables.hips * 10, State.variables.dick * 10, State.variables.balls * 10];
+    }
+    else if(slot == 'shoes') {
+    	return 'height';
+    }
+    else{
+    	throw 'unknown slot found in setup.biggestPlayerSize.';
+    }
+    
+    var max = Math.max(...sizes);
+
+	var index = sizes.indexOf(max);
+
+    return statsToCheck[index];
+}>>
+
+/* Gets a short description of how the given clothing fit for the player */
+<<set setup.getFitDescription to function (sizeIndex, slot, tolerance = 1) {
+    const statsToCheck = setup.biggestPlayerSize(slot);
+
+    const lowerBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Min'];
+    const upperBound = setup.sizeDatabase[sizeIndex][statsToCheck + 'Max'];
+
+    if (State.variables[statsToCheck] < lowerBound) {
+        return 'too big';
+    } else if (State.variables[statsToCheck] >= upperBound * tolerance) {
+        if (State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Stretchy')) {
+            return 'tight';
+        } else if (State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Tailored')) {
+            if (State.variables[statsToCheck] >= upperBound * (tolerance + 0.1)) {
+                return 'too small';
+            } else {
+                return 'too small';
+            }
+        } else if (State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Hand-made')) {
+            if (State.variables[statsToCheck] >= upperBound * (tolerance + 0.2)) {
+                return 'too small';
+            } else {
+                return 'too small';
+            }
+        } else {
+            return 'too small';
+        }
+    } else if (State.variables[statsToCheck] >= upperBound) {
+        return 'tight';
+    }
+
+    return 'fits';
+}>>
+
+/* returns wearing clothes. Ignores empty slots */
+<<set setup.getOutfitClothesArray to function () {
+    return [
+        State.variables.outfit.top(),
+        State.variables.outfit.overwear(),
+        State.variables.outfit.bra(),
+        State.variables.outfit.bottom(),
+        State.variables.outfit.underwear(),
+        State.variables.outfit.shoes()
+    ].filter(clothes => clothes != null || clothes !== setup.emptyClothes);
+}>>
+
+<<set setup.getTightOutfitClothesArray to function () {
+    return setup.getOutfitClothesArray()
+        .filter(clothes => ['tight', 'too small'].includes(setup.getFitDescriptionOfClothes(clothes)));
+}>>
+
+<<set setup.isOutfitTight to function () {
+    return setup.getTightOutfitClothesArray().length > 0;
+}>>
+
+<<set setup.getNudeOutfitSlots to function () {
+    const nudeSlots = [];
+    if ((State.variables.outfit.top() == null || State.variables.outfit.top() === setup.emptyClothes) && (State.variables.outfit.overwear() == null || State.variables.outfit.overwear() === setup.emptyClothes)) {
+        nudeSlots.push('top');
+        nudeSlots.push('overwear');
+    }
+    if (State.variables.outfit.bottom() == null || State.variables.outfit.bottom() === setup.emptyClothes) {
+        nudeSlots.push('bottom');
+    }
+    return nudeSlots;
+}>>
+
+<<set setup.isOutfitNude to function () {
+    return setup.getNudeOutfitSlots().length > 0;
+}>>
+
+<<set setup.getFitDescriptionOfClothes to function (clothes) {
+    if (clothes == null || clothes === setup.emptyClothes) {
+        return null;
+    }
+    return setup.getFitDescription(clothes.size, clothes.slot, clothes.tolerance);
+}>>
+
+/* return whether ALL the clothes currently wearing are 'fits' */
+<<set setup.isOutfitFits to function () {
+    return setup.getOutfitClothesArray()
+            .filter(clothes => clothes != null)
+            .map(clothes => setup.getFitDescriptionOfClothes(clothes))
+            .find(fitDescription => fitDescription !== 'fits') == null
+}>>
+
+/* Gets which predefined size from setup.sizeDatabase the player can fit in */
+<<set setup.playerSizeNeeded to function (slot) {
+    const fits = [];
+    for (let sizeIndex = 0; sizeIndex < setup.sizeDatabase.length; sizeIndex++) {
+        let fit = setup.getFitDescription(sizeIndex, slot);
+        fits.push(fit === 'fits');
+    }
+
+    const allSizeNames = setup.getAllSizeNames();
+    if (fits.filter(size => size === true).length === 0) {
+        /* if every size is not 'fits', fallback to "Over [MAX_SIZE_STRING]" */
+        return 'Over ' + allSizeNames[allSizeNames.length - 1];
+    }
+    return allSizeNames[fits.indexOf(true)] + ' - ' + allSizeNames[fits.lastIndexOf(true)];
+}>>
+
+<<set setup.getSmallestPlayerSizeNeeded to function (slot) {
+    const fits = [];
+    for (let size = 0; size < setup.sizeDatabase.length; size++) {
+        fits.push(setup.getFitDescription(size, slot) === 'fits');
+    }
+    return fits.indexOf(true);
+}>>
+
+/* Gets the human readable bonuses from the clothing. */
+ <<set setup.getReadableBonusFromClothing = function (clothingItem, showActive = false) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes || clothingItem?.bonuses?.length <= 0) {
+        return '-';
+    }
+
+    let description = '';
+    for (let i = 0; i < clothingItem.bonuses.length; i++) {
+        if (i > 0) {
+            description += '<br>';
+        }
+        let bonus = clothingItem.bonuses[i];
+
+        if(showActive){
+            if(State.variables.outfit.bonuses().map(outfitBonus => outfitBonus.name).includes(bonus.name)){
+                description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
+            }
+            else{
+                description += '<span style="opacity:50%"><b> ●' + bonus.name + '</b><br>' + bonus.description + '</span>';
+            }
+        }
+        else{
+            description += '<b> ●' + bonus.name + '</b><br>' + bonus.description;
+        }
+        
+    }
+    return description;
+}>>
+
+/* The single method that describes the price of clothing. For balancing, adjust this. For now it's done linearly, to make sure that the progression isn't too hard. */
+ <<set setup.getPriceFromClothing = function (clothingItem) {
+    if (clothingItem == null || clothingItem === setup.emptyClothes) {
+        throw 'undefined clothingitem in getPriceFromClothing';
+    }
+    return parseInt(clothingItem.price + (clothingItem.price * clothingItem.size));
+}>>
+
+/* Gets the human readable archetypes from the clothing. */
+<<set setup.getReadableArchetypesFromClothing to function (clothingItem) {
+	if(clothingItem == undefined || clothingItem === setup.emptyClothes){
+    	return '-';
+    }
+    if (clothingItem.archetypes.length > 0)
+    {
+        var text = '';
+        for (let i = 0; i < clothingItem.archetypes.length; i++) {
+            text += ' ●' + clothingItem.archetypes[i] + '<br>'
+        }
+        return text;
+    }
+    else {
+        return '-'
+    };
+}>>
+
+/* Retrieves boolean fit/doesn't fit. */
+<<set setup.getFitFromClothing = function (clothingItem) {
+	if(clothingItem == null || clothingItem === setup.emptyClothes){
+    	return '-';
+    }
+	var fits = setup.getReadableFitFromClothing(clothingItem);
+    if(fits.includes('✅')){
+    	return true;
+    }
+    else if (fits.includes('❌')){
+    	return false;
+    }
+    else {
+    	return true;
+    }
+}>>
+
+/* retrieves human readable fit from size, slot and tolerance. */
+<<set setup.getReadableFitFromSize = function (size, slot, tolerance) {/**/
+    let fit = setup.getFitDescription(size, slot, tolerance);
+    if (fit === 'fits') {
+        return setup.getSizeName(size) + '✅';
+    } else if (fit === 'too small' || fit === 'too big') {
+        return setup.getSizeName(size) + '❌';
+    } else {
+        return setup.getSizeName(size) + '🔶';
+    }
+}>>
+
+/* retrieves human readable fit from the clothing. */
+<<set setup.getReadableFitFromClothing = function (clothingItem) {/**/
+    if (clothingItem == null || clothingItem === setup.emptyClothes) {
+        return '-';
+    }
+    return setup.getReadableFitFromSize(clothingItem.size, clothingItem.slot, clothingItem.tolerance);
+}>>
+
+/* create clothing table for a shop or a wardrobe */
+<<set setup.setClothesTable = function (allClothes) {
+    const slotFilter = $('#listbox-shoppingslot').children(':selected').text();
+    const stylesFilter = $('#listbox-shoppingstyle').children(':selected').text();
+    const bonusesFilter = $('#listbox-shoppingbonuses').children(':selected').text();
+
+    State.temporary.filteredStoreClothes = allClothes /* from a clothes list */
+        .filter(clothes => slotFilter === '-' || clothes.slot === slotFilter) /* filter by slotFilter */
+        .filter(clothes => stylesFilter === 'All styles' || clothes.archetypes.includes(stylesFilter)) /* filter by stylesFilter */
+        .filter(clothes => bonusesFilter === '-' || clothes.bonuses.map(bonus => bonus.name).includes(bonusesFilter)) /* filter by bonusesFilter */
+        .map(clothes => ({
+            ...clothes,
+            size: setup.getSmallestPlayerSizeNeeded(clothes.slot) /* add 'size' attribute. The pre-selected size */
+        }));
+
+    $('.macro-live').trigger(':liveupdateinternal');
+    $(document).trigger(':liveupdate');
+}>>
+
+/*Populates the stores with clothing from the allclothes list. */
+<<set setup.storePopulator to function () {
+    const storeNames = ['allisonsApparel', 'bulkBarn', 'bigTall', 'shoeStore', 'tasha', 'online'];
+    for (const storeName of storeNames) {
+        /* The diceroll to see what the store has in inventory.*/
+        const randomInt = Math.random();
+        State.variables[storeName + 'Inventory'] = [];
+
+        console.log('adding items to store: ' + storeName + ', with luck of ' + randomInt);
+        for (const setupClothes of setup.allClothes) {
+            /* Missing info means not available in this store. Skip. The droprate (chance) must also be met.
+            Couldn't use continue due to nested for loop.
+            Code smell for sure, but right now prioritizing functionality over clean code. Look into later - Bob */
+            if (setupClothes?.storeInfo?.[storeName]?.chance == null || setupClothes?.storeInfo?.[storeName]?.chance < randomInt) {
+                continue;
+            }
+
+            /* deep copy an element from setup.allClothes */
+            const clothes = JSON.parse(JSON.stringify(setupClothes));
+            console.log('Adding item ' + clothes.name);
+
+            /* transfers data */
+            clothes.price = Math.floor(clothes.baseCost * clothes.storeInfo[storeName].costModifier);
+
+            /* This adds some daily variance to the sizes available.*/
+            const sizeMod = 2 - Math.floor(randomInt / 3);
+            clothes.storeInfo[storeName].availableSizes[1] += Math.min(sizeMod, setup.sizeDatabase.length - 1);
+            clothes.availableSizes = clothes.storeInfo[storeName].availableSizes;
+
+            /* adds data to store. */
+            State.variables[storeName + 'Inventory'].push(clothes);
+        }
+
+        console.log('Final inventory for ' + storeName + 'Inventory: ');
+        console.log(State.variables[storeName + 'Inventory']);
+    }
+}>>
+
+

@@ -1,0 +1,191 @@
+:: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.8.6: Dates and story progression ---
+● Added many new dialogs for all NPCs.
+● Added new Dates for Kris
+● Added new dates for Johan
+● Added new Dates for Elena
+● Added new Dates for Emma
+● Reworked early growth rates
+● Rebalanced money and growth speed
+--- Version 0.8.3: Dates, Alchemy, & rivals ---
+● Added many new dialogs for all NPCs.
+● Added a rival for the player
+● Added alchemy as a fully implemented skill
+● Added a new way to make potions
+● Added new Dates for Kris
+● Added new dates for Johan
+● Added endings for when the player is stuck in their home
+● Reworked early growth rates
+● Rebalanced money and growth speed
+--- Version 0.7.9: Dates, Rewinds, & stabilisation ---
+● Added many new dialogs for all NPCs.
+● Added new interactions at the bulk barn job
+● Added new dates for Emma
+● Added new Date for Elena
+● Added new Date for Elena
+● Added new dates for Johan
+● Reintrocuded the rewind button.
+● Reworked early growth rates
+● Fixed slow load time, or no penis in mirror scene
+● Rebalanced money and growth speed
+--- Version 0.7.4: Clothing & dates ---
+● Added bonuses to clothing to give players more reasons to use the clothing system
+● Added different styles of clothing with different written content
+● Added completely new outfit and clothing system, which is far more forgiving
+● Added new Date for Emma
+● Added new Date for Elena
+● Added new job to the bulk barn, allowing players to help in the store
+● Added 70.000 words of new content
+● Reworked the early Kris Dialogs
+● Added lactation content to all jobs
+● Performed an editorial pass over the entire game, fixing most grammatical & spelling issues
+● Fixed slow load time, or no penis in mirror scene
+● Rebalanced money and growth speed
+--- Version 0.6.9: Measurements & story ---
+● Added over 40.000 word of new content to the game
+● Added a way to measure and keep track of your growth
+● Added the ability to discover what potions do before buying and consuming
+● Added async loading of the mirror scene, allowing for way faster loading
+● Added reworked art of the bigger sizes
+● Added new story content
+● Added new Emma art
+● Reworked event logic for quicker and more stable implementation
+● Added Kris to places she should not be
+● Reworked late game balance
+● Added lactation to the mirror scene when the players breasts are full
+● Reworked the time needed to eat food
+● Rebalanced muscle growth speed
+● Added content to the park
+--- Version 0.6.5: Events & Lactation ---
+● Added lactation to the game
+● Added 12 new potions
+● Added the event system
+● Added over a dozen events that can pop up during the game
+● Added jogging to the game
+● Added a setting where the player determines the droprate of potions
+● Reworked the way that potions drop
+● Added new body descriptions
+● Added new wakeup options
+● Added a new diet option
+● Added new story content
+● Added new random NPC portraits
+--- Version 0.5.9.0: Dates ---
+● Added Dates for Emma and Kris
+● Added new dialogs for skill mastery and more body types
+● Added new cooking gear to balance out cooking time needed at big sizes
+● Reworked Kris as an NPC, making her dialog appear more reliably
+● Reworked passive income from streams
+● Reworked food cost balancing
+● Added new body descriptions
+● Fixed a bug where Kris's dialog would be unavailable
+● Renamed Kriss to Kris to keep my sanity (and the editor's as well)
+● Fixed a bug where the player got stuck in an endless loop of eating
+● Balanced potion appearance rates
+● Added new career sidepath to the office career, where players can keep in touch with Emma for longer.
+--- Version 0.5.5.3: Full body renders ---
+● Total overhaul of the exhaustion and motivation mechanic.
+● Hovering over a choice will now tell you how much motivation or exhaustion it gives or takes
+● The time for several activities has been reduced - the way potions spawn has been tweaked.
+● When starting a new game, players can select certain skills and personality types to change.
+● The income from streaming has been stabilized.
+● The way you gain viewers on streams has been changed.
+● The income from the job has been changed.
+● You can now get a promotion for the job.
+● Potions have more scaled effects now.
+● Certain potions have been made more prevalent.
+● Full implementation of the workout and cooking skills.
+● Total rework of cooking and recipes.
+● Fixed a bug where tailored clothes did not fit.
+● Fixed a bug where the player got stuck in an endless loop of sleeping.
+● Added the first date with Elena.
+● Added the full body renders for all body types.
+--- Version 0.4.9.0: Dates & sewing ---
+● Added the first date with Johan
+● Added 4 new potions
+● Added over 19 new dialogs.
+● Added Simon as a minor NPC
+● Added Sewing at home
+● Fully implemented the sewing skill
+● Reworked the tailoring, making it far more useable
+● Added time indicators to most decisions, making managing time easier.
+● Fixed a bug where tailored clothing would not fit.
+● Fixed a bug where talking to an NPC did not cost time.
+● Fixed a bug where talking to an NPC got you stuck in a loop.
+● Fixed a bug where Kris was Johan
+--- Version 0.4.5.2: Personality system ---
+● Introduced a new NPC, the growth-obsessed Kris
+● Added new Dialogs for Elena, Emma and Johan
+● Rewrote existing dialog to include the new personality system where needed.
+● Added the new personality system to the game, allowing the player to be shy, dominant, confident, submissive, careful or carefree
+● Added the new character screen where players can find information about the skills of the main character.
+● Rebalanced the cost and effect of several items
+● Rewrote the functioning of books and added new books
+● Added new transformation items
+● Fixed bug where game would randomly make player character huge
+● Fixed bug where all clothes disappeared
+--- Version 0.4.1: Clothing tweaks ---
+● Player can now throw away old clothes
+● Player now always knows which size they need
+● Removed part of clothing system that caused a lot of confusion
+● Made sure futa potions only show when appropriate
+--- Version 0.4: Rebalance & refactoring ---
+● Reworked the clothing system
+● Added tailor
+● Rebalanced all sources of income
+● Added descriptions to all workouts
+● Reworked the shops
+● Added home workouts
+● Added many new icons for the player
+● Added more random flavor text
+● Rebalanced muscle growth speed
+● Added cap to streaming income and rebalanced it
+● Fixed minor grammar and spelling issues
+● Huge amount of bugfixes
+● Added weekly rent payments
+● Added food cost based on weight
+● Implemented difficulty settings
+● 5 new transformations items
+● Added balls to dick descriptions if futa is active.
+● New dialog for Johan & Emma
+--- Version 0.3: Johan & office ---
+● Added Office job for more stable income
+● Added new transformation items
+● Added dialog tree for Johan, the first full-fledged NPC. Romance options will be added later.
+● Added more random flavor text
+● Reworked streaming and skill balancing
+● Added the first art assets for the player, Johan, Elena and Emma. The player currently several sizes implemented.
+● Fixed minor grammar and spelling issues
+● Huge amount of bugfixes
+● Added big and tall store
+● Books now give more experience
+● Learning skills on the PC now takes exhaustion and gives less experience
+● Added settings for speech bubble sizes.
+● Added settings to disable futa options
+--- Version 0.2.1: Job & measurements---
+● Added streaming job to PC when webcam is bought
+● Added electronics store
+● Added bathroom scale to measure weight
+● Added measuring tape to measure different body parts
+● Added flavor log texts at certain heights that appear at random once the player has grown enough
+● Added settings' menu at start of the game
+● Added different size modes and settings
+● Revamped settings menu
+● Fixed minor grammar and spelling issues
+● Rewrote parts of intro
+--- Version 0.1: Initial release---
+● Added initial growth descriptions
+● Added basic stores
+● Added gym functionality
+● Added gym supplements
+● Added basic consumables
+● Added skill books
+● Added basic skill outlines
+● Added initial goals setups
+● Added clothing functionality
+● Added different diets
+● Added skills
+● Added logging system
+
+[[Return|$return]]
+
+

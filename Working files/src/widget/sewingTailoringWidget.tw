@@ -1,0 +1,160 @@
+:: sewingTailoringWidget [widget nobr] {"position":"2700,2025","size":"100,100"}
+<<widget "sewingTailoringWidget">>
+
+<<set _filteredWardrobeClothes to $wardrobe>>
+<<set _range to 10>>
+
+<span id="outfitTable">
+<table id="store">
+    <tr>
+        <td>
+            Show slot:<br>
+            <<listbox "$shoppingSlot" autoselect>>
+                <<optionsfrom ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes']>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with style:<br>
+            <<set _stylesCopy to [...setup.allStyles]>>
+            <<set _stylesCopy.unshift('All styles')>>
+            <<listbox "$shoppingStyle" autoselect>>
+                <<optionsfrom _stylesCopy>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with bonus:<br>
+            <<set _bonusCopy to function () {
+                var arr = ['-'];
+
+                for (var prop in setup.clothingBonuses) {
+                    if (setup.clothingBonuses.hasOwnProperty(prop)) {
+                        var innerObj = {};
+                        innerObj[prop] = setup.clothingBonuses[prop];
+                        arr.push(Object.values(innerObj)[0].name);
+                    }
+                }   
+                return arr;
+            }>>
+            <<listbox "$shoppingBonuses" autoselect>>
+                <<optionsfrom _bonusCopy()>>
+            <</listbox>>
+        </td>
+    </tr>
+  </table>
+</span>
+
+<<timed 0s>>
+<<script>>
+const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable');
+const clothes = State.variables.wardrobe;
+
+inputs.on('change', function () {
+    setup.setClothesTable(clothes);
+});
+setup.setClothesTable(clothes);
+<</script>>
+<</timed>>
+
+<<liveblock>>
+<<set _newClothes to clone(_filteredWardrobeClothes)>>
+
+<<set _wardRobeCopy to []>>
+<<for _i to 0; _i < _filteredWardrobeClothes.length; _i ++>>
+<<capture _i>>
+	<<set _wardRobeCopy.push(
+		{
+			clothing: _newClothes[_i],
+			fabric: 0,
+			timeNeeded: 0,
+			timeSpend: 0,
+			newSize: 0
+		}
+	)>>
+<</capture>>
+<</for>>
+
+<<set _getAllReadableSizes to function (clothes) {
+    const sizes = {};
+    for (let i = 0; i < setup.sizeDatabase.length; i++) {
+        sizes[setup.getReadableFitFromSize(i, clothes.slot, clothes.tolerance)] = i;
+    }
+    return sizes;
+}>>
+
+<table id="store">
+  <tr>
+    <th>Name</th>
+	<th>Current size</th>
+	<th>New size</th>
+	<th>Time to make in minutes</th>
+	<th>Fabric needed</th>
+	<th>Have tailored</th>
+  </tr>
+
+<<for _i to 0; _i < _wardRobeCopy.length; _i ++>>
+<<capture _i>>
+
+<tr id="row" @data-num="_i">
+  <td><<print _wardRobeCopy[_i].clothing.name>></td>
+  <td>
+  	<<print setup.getReadableFitFromClothing(_wardRobeCopy[_i].clothing)>>
+  </td>
+  <td>
+	<<listbox "_wardRobeCopy[_i].size">>
+	<<optionsfrom _getAllReadableSizes(_wardRobeCopy[_i].clothing)>>
+	<</listbox>>
+  </td>
+  <td>
+  <span class="selected">0</span>
+	</td>
+	<td>
+  <span class="selectedFabric">0</span>
+  	</td>
+	<td>
+		<<linkreplace "Add to projects">>
+			<<if $fabric > 0 && $fabric >= _wardRobeCopy[_i].fabric && _wardRobeCopy[_i].timeNeeded != 0>>
+			  <<set _wardRobeCopy[_i].clothing.size to _wardRobeCopy[_i].newSize>>
+			  <<set $sewingProjects.push(_wardRobeCopy[_i])>>
+			  <<set $fabric -= _wardRobeCopy[_i].fabric>>
+			  <<set $wardrobe.deleteAt(_i)>>
+			  <<goto "sewing">>
+			<<elseif $fabric < _wardRobeCopy[_i].fabric || $fabric == 0>>
+				Not enough fabric
+			<<else>>
+				Please select a new size.
+			<</if>>
+		<</linkreplace>>
+  </td>
+</tr>
+<</capture>>
+<</for>>
+</table>
+
+<<timed 0s>><<script>>
+var boxes = $(".macro-listbox#listbox--wardrobecopy-isize");
+boxes.on("change", function () {	
+    var mod = $(this).children(":selected").val();
+    console.log("mod: " + mod);
+    $(this).parents("#row").find(".selected, .selectedFabric").fadeOut(250, function () {
+        var rowInxed = Number($(this).parents("#row").attr("data-num"));
+        var sizeMod = State.temporary.wardRobeCopy[rowInxed].clothing.size;
+        
+        var difference = Math.abs(mod - sizeMod);			
+        
+        var value = difference * 60;
+        
+        State.temporary.wardRobeCopy[rowInxed].timeNeeded = value;
+        
+        State.temporary.wardRobeCopy[rowInxed].newSize = parseInt(mod);
+        console.log(mod);
+        State.temporary.wardRobeCopy[rowInxed].fabric = parseInt(difference);
+        
+        $(this).parents("#row").find(".selected").text(value).fadeIn(250);
+        $(this).parents("#row").find(".selectedFabric").text(difference).fadeIn(250);
+    });
+});
+<</script>><</timed>>
+<</liveblock>>
+<</widget>>
+
+

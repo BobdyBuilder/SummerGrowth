@@ -1,0 +1,17 @@
+:: skillIncrease [widget] {"position":"1900,200","size":"100,100"}
+<<nobr>>
+<<widget "skillIncrease">>
+
+<<for _X to 0; _X < $skills.length; _X ++>>
+<<capture _X>>
+	<<if $skills[_X].name is $args[0]>>
+		<<set $skills[_X].experience += $args[1]>>
+	<</if>>
+<</capture>>
+<</for>>
+
+
+<</widget>>
+<</nobr>>
+
+

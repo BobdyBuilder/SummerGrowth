@@ -1,0 +1,28 @@
+:: instantTongueGrowth [noReturn] {"position":"550,1500","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "The thick liquid goes down your throat, the rich fluid filling your mouth with a wave of rolling tastes! Bitter, sweet, umami, sour, salty... you taste it all at once, in almost sickening amounts. After smacking your lips a few times, something feels... off. The taste fades as quickly as it came, leaving your mouth oddly numb. It's just... weird.">>
+
+<<if _rand >= 1>>
+<<set _message += " Not until you move it a few times do you realize what's wrong; your tongue just feels... too big for your mouth! It only lasts for a second, but somehow it's strangely different!">>
+<<set $tongueLenght += 1>>
+
+<<else>>
+<<set _message += " Not until you move it a few times do you realize what's wrong; your lips just feel... fuller! It only lasts for a second, but you're sure something feels different!">>
+<<set $lips += 1>>
+
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Taste-improver");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

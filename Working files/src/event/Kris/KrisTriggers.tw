@@ -1,0 +1,10 @@
+:: KrisTriggers [nobr] {"position":"1600,2125","size":"100,100"}
+<<set $KrisTriggers to []>>
+
+<<set $KrisUsedTriggers to ["blocked"]>>
+
+<<set $KrisObsessedTriggers to []>>
+
+<<set $KrisObsessedUsedTriggers to ["blocked"]>>
+
+

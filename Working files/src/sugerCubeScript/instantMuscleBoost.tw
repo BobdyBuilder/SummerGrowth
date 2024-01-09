@@ -1,0 +1,31 @@
+:: instantMuscleBoost [nobr noReturn] {"position":"650,1600","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "As the liquid pours down your throat, you can only describe it as 'meaty'. It’s thick and you swear there are strings of meat still in it. As it reaches your stomach, it feels like a punch to the gut, almost making you fall over!">>
+
+<<if _rand >= 1>>
+<<set _message += " The tense, sickening feeling continues to travel through your body as all your muscles contract at once. Though it should feel horrible, it makes you think of the most intense workout you can imagine, and all your muscles just feel BIG!">>
+<<set $muscle += setup.balance.musclePotionsAllowancePerDay>>
+<<addMuscleSlow setup.balance.musclePotionsAllowancePerDay>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " As the feeling recedes, you can't help but flex, a new vein crawling over your arm. GOD, this felt good! You feel lighter, more agile, just... great!">>
+
+<<set $fat -= random(1,5)>>
+<<set $breasts -= random(5,10)>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Muscle Boost 29D");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

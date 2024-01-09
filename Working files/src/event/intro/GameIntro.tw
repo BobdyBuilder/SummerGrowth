@@ -1,0 +1,52 @@
+:: GameIntro [intro] {"position":"100,1000","size":"100,100"}
+<<nobr>>
+<<if $difficulty is "sandbox">>
+	<<set $difficultyMod to 0>>
+<<elseif $difficulty is "easy">>
+	<<set $difficultyMod to 0.5>>
+<<elseif $difficulty is "normal">>
+	<<set $difficultyMod to 1>>
+<<elseif $difficulty is "hard">>
+	<<set $difficultyMod to 1.5>>
+<<else>>
+	<<set $difficultyMod to 1>>
+<</if>>
+
+<<set $rentAmount to 100 * $difficultyMod>>
+
+/* consumables deck */
+<<set _settings to []>>
+<<if $futa is false>>
+	<<set _settings.push("futa")>>
+<</if>>
+<<set $consumablesDeck to []>>
+<<for _i to 0; _i < $consumables.length; _i ++>>
+  <<capture _i>>
+  	<<if $consumables[_i].settings.includesAny(_settings)>>
+	<<script>>console.log("Not allowed due to futa");<</script>>
+	<<else>>
+	  <<for _j to 0; _j < $consumables[_i].uses; _j ++>>
+		<<set $consumablesDeck.push($consumables[_i].name)>>
+	  <</for>>
+	  <<set $consumablesDeck.push($consumables[_i].name)>>
+	<</if>> 
+  <</capture>>
+<</for>>
+<<script>>console.log(State.variables.consumablesDeck);<</script>>
+
+<</nobr>>After setting the final box down, you let out a deep sigh. Though everything was now inside, you still have a lot of unpacking to do before you can call this room your own. While it might be barren now, given that it is in the underground basement of your dorm, with some TLC and elbow grease, this has the potential to be a really nice home! You're still extremely happy about being able to move out of your previous dorm, given what happened there. And the rent isn't even too steep; just $<<print $rentAmount>> a week!
+
+What you're less excited about is just how winded you are. It's kinda disappointing how far you've let yourself slip during the last semesters. Maybe this summer break would be a good time to do something about this...
+
+Your train of thought is interrupted by a sudden knock on your door. 
+
+<span id="other"><<link "Open the door" "GameIntro2">><</link>>
+
+<span class="important">Some choices require a certain level in a skill or personality trait to succeed.</span>
+<span class="important">The skill needed is displayed in the option, along with your current level.</span>
+<span class="important">You can check your levels and personality in the 'Skills & traits' tab on the left.</span></span>
+<<PersonalityCheck $shyConfident >= 2 "Tell them you're busy">>They literally cannot get here.<<Failed>>You'd rather tell them off and focus on getting your room ready. Still, isn't it really rude to just tell people to go away? While you're deep in thought, the knocking continues, brimming with enthusiasm. With a sigh, you get up, wishing you were better at standing your ground.<<replace "#other">><</replace>>
+
+<<link "Open the door" "GameIntro2">><</link>><</PersonalityCheck>>
+
+

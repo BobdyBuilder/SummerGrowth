@@ -1,0 +1,12 @@
+:: usbFile1 {"position":"1800,1200","size":"100,100"}
+The file loads slowly, and what you see before you is... well, who you suspect to be Toshi.  The odd red carpet, the same box... you know for sure it's the guy who inhabited this apartment before you. And given the lab coat and his pose, you bet he's the one responsible for all these strange drinks. You try and see if you can get more from the file, but for now, you can't think of anything. All the metadata has been corrupted, and you only got the filename and the image...
+
+<<if $usbPasswordUnlocked[2] == true>>
+Compared to the other selfie, he's a LOT smaller! If you only knew how much time elapsed between these two selfies, but taking into consideration he's only been in this room for a year, that he looks pretty much the same if you ignore his size, at most we are talking a few months in-between. You wonder... <<if $muscle > 80>>are you growing even faster than him, giving how huge you already are?<<else>>is this how big you will become too? Do you even want that? He looks almost... awkwardly big...<</if>>
+<</if>>
+
+<img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Scenes/Toshi_selfie1.png" alt="alternatetext" style="width: 100%;">
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+
+

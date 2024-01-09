@@ -1,0 +1,255 @@
+:: jobEvents [nobr] {"position":"1600,1600","size":"100,100"}
+<<nobr>>
+
+<<set _officeEvents to [
+	{warning: false,
+	message: ""
+	},
+	{warning: false,
+	message: ""
+	}
+]>>
+
+/* height */
+<<if $height <= 170>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "During the day you keep having problems with your chair, or your desk being the wrong height. Ugh, couldn't they at least get some stuff your size? You're not the biggest, but still!"})>>	
+<</if>>
+<<if $height <= 200 and $height >= 180>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "While you're on lunch break, one of your colleagues makes a snide remark about how tall you are, stating that 'at least you can reach the counter in the kitchen'. Too bad for him Emma heard that, causing him to quickly be called into her office. It seems they do not tolerate that kind of behavior here!"})>>	
+<</if>>
+<<if $height <= 230 and $height >= 190>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "While you try to work, people keep coming up to you, asking whether you play basketball, or making some thinly-veiled and quite lame attempts at flirting. It’s only when the sharp whip of Emma's voice is heard that everyone returns to their seats."})>>	
+<</if>>
+<<if $height <= 230 and $height >= 190>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "While you try to work, people keep coming up to you, asking whether you play basketball, or making some thinly-veiled and quite lame attempts at flirting. It’s only when the sharp whip of Emma's voice is heard that everyone returns to their seats."})>>	
+<</if>>
+<<if $height >= 220>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "As you lean back to think about a particularly challenging account, you suddenly hear a loud creaking, and suddenly fall backwards as the back of your chair breaks clean off! All eyes turn to you, but everyone is too polite to say anything, as you go hunt for a new one, blushing deeply."})>>
+<</if>>
+<<if $height >= 220>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "While you work at the way too small desk, you try to stretch a bit, just to get your spine in alignment again. But as you do so, you push against the ceiling, one of the plates coming loose and dropping on the floor! With a bright red face, you put it back, muttering a silent apology."})>>
+<</if>>
+
+
+/* breasts */
+<<if $breasts >= 40>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "As you work, you notice people constantly staring at your chest. Making sure your clothing fits well, you try to cover them up a bit, but it does little in keeping everyone from stealing furtive glimpses."})>>	
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "As you stretch a bit during work, you accidentally show a BIT too much cleavage, to the stunned surprise of your proximal coworkers. Oops!"})>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "As you go on about your work, you can't help but notice some coworkers trying to catch a look at your breasts. Creeps."})>>
+<</if>>
+<<if $breasts >= 60>>
+	<<set _officeEvents.push(
+	{warning: true,
+	message: "As you go on about your work, you can't help but notice some coworkers trying to catch a look at your breasts. Creeps."})>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: " As you work, you notice people constantly staring at your chest. Making sure your clothing fits well, you try to cover them up a bit, but it does little in keeping everyone from stealing furtive glimpses."})>>
+<</if>>
+<<if $breasts >= 80>>
+	<<set _officeEvents.push(
+	{warning: true,
+	message: "During work, people keep staring at your chest, and it’s really noticeable at this point. They do it even as Emma walks by, and forces her to remind everyone to get back to work. Emma is clearly not pleased by that..."})>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "Your breasts are... incredibly noticeable. That's just a fact. But must EVERYONE keep staring like that?! Come on people, this is an office!"})>>
+	<<set _officeEvents.push(
+	{warning: true,
+	message: "As you try to get some work done, your chest just feels incredibly restricted. You HAVE to get to the bathroom to let them breath a bit. As you lean against the back wall, you finally give them some air, and you can't help but realize how the office dress code doesn’t play very nice with your figure."})>>
+<</if>>
+<<if $breasts >= 100>>
+	<<set _officeEvents.push(
+	{warning: true,
+	message: " Your breasts are... incredibly noticeable. That's just a fact. But must EVERYONE keep staring like that?! Come on people, this is an office!"})>>
+<</if>>
+
+/* Lactation */
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof') == false>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _officeEvents.push(
+            {warning: false,
+            message: "During your shift you're working when you notice some co-workers staring at your chest. You stare back, thinking them just rude but then you notice the wet spots on your outfit! You rush to the bathroom to clear it up, only a few people noticing."})>>
+        <<set _officeEvents.push(
+            {warning: true,
+            message: "During your shift you're working when you notice some co-workers staring at your chest. You stare back, thinking them just rude but then you notice the wet spots on your outfit! You rush to the bathroom to clear it up, but you're pretty sure Emma saw it..."})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _officeEvents.push(
+            {warning: false,
+            message: "During your shift you keep getting distracted as your tits are just painfully full. It isn't noticable, but your co-workers does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof')>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _officeEvents.push(
+            {warning: false,
+            message: "During your shift you do your work when you notice that under your clothing, your breasts start leaking. Luckily, you wear the right outfit and can easily go to the bathroom to clean it up!"})>>
+        <<set _officeEvents.push(
+            {warning: false,
+            message: "During your shift you do your work when you notice that under your clothing, your breasts start leaking. Luckily, you wear the right outfit and can easily go to the bathroom to clean it up!"})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _officeEvents.push(
+            {warning: false,
+            message: "During your shift you keep getting distracted as your tits are just painfully full. It isn't noticable, but your co-workers does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
+/* muscle */
+<<if $muscle >= 40>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "During a coffee break, people keep asking you about your workout regime, sharing some well-earned compliments. Heh, some of them even claim they can outlift you. Cute."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As you walk past the watercooler, you hear some whispering from your coworkers, barely audible. You don't know what exactly what they are saying, but given the hushed tones and the word 'steroids', you can guess who they were talking about."})>>
+<</if>>
+<<if $muscle >= 60>>
+	<<set _officeEvents.push(
+	{warning: false,
+	message: "As you lean back to think about a particularly challenging account, you suddenly hear a loud creaking, and suddenly fall backwards as the back of your chair breaks clean off! All eyes turn to you, but everyone is too polite to say anything, as you go hunt for a new one, blushing deeply."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As you walk past the watercooler you hear some whispering from your co-workers, barely audible. You don't know what it was about but given the hushed tones and that you heard 'steroids', you can guess who it was about."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As you walk past the watercooler, you hear some whispering from your coworkers, barely audible. You don't know what exactly what they are saying, but given the hushed tones and the word 'steroids', you can guess who they were talking about."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "When you get to the breakroom to heat your lunch in the microwave, you idly tap the machine’s buttons... cracking them open! You didn't even notice, yet there is a huge dent in the housing! Sheepishly, you look away, amazed at your own strength."})>>
+<</if>>
+<<if $muscle >= 80>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: " As you walk past the watercooler, you hear some whispering from your coworkers, barely audible. You don't know what exactly what they are saying, but given the hushed tones and the word 'steroids', you can guess who they were talking about."})>>
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day you idly scroll past the multiple accounts in your files. Deciding to just rest your back a bit, you lean forward, resting your huge arms on the table... and you hear the wood groan briefly before it collapses! Everyone turns to look at you, but nobody dares to say anything!"})>>
+<<set _officeEvents.push(
+    {warning: false,
+    message: "While rushing through some records, you hear a subdued crunch, and as you look down, you notice your mouse just... cracked in half. Seems you tapped straight through it, huh."})>>
+<</if>>
+
+/* clothes */
+<<if ['tight'].includes(setup.getFitDescriptionOfClothes($outfit.top()))>>
+    <<set _officeEvents.push(
+    {warning: false,
+    message: "During the day, your top is just a bit too tight, never being quite comfortable. That wouldn't be too bad if it wasn't being a BIT too revealing at times!"})>>
+    <<set _officeEvents.push(
+    {warning: true,
+    message: "During the working day, you try hard to ignore the tightness of your clothes, but you really should've worn some better suited to your size. You keep having to adjust it, and you're sure people got a bit too much to look at during the day."})>>
+<<elseif ['too small'].includes(setup.getFitDescriptionOfClothes($outfit.top()))>>
+    <<set _officeEvents.push(
+    {warning: true,
+    message: "It had to happen, given the tight clothing you were wearing! You moved just a bit too quickly, and you just ripped through them! The entire office heard the ripping noises, and you have no choice but to try and cover it up and HOPE the workday is over soon!"})>>
+<</if>>
+
+<<if ['tight'].includes(setup.getFitDescriptionOfClothes($outfit.bra()))>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "During the day, your bra is just uncomfortably tight, forcing you to take several breaks to adjust it."})>>	
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "Though you try to ignore it, you're sure that with how tight your bra is, your coworkers must have noticed it. Here's hoping they don't notice anything particularly inappropriate..."})>>	
+<<elseif ['too small'].includes(setup.getFitDescriptionOfClothes($outfit.bra()))>>
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day, you ignore the sounds coming from your bra, as it courageously tried to contain your breasts. With a sudden snap, it breaks in two, your tits noticeably coming free! You're not sure whether your coworker noticed, but you need to go home NOW!"})>>	
+<</if>>
+
+<<if ['tight'].includes(setup.getFitDescriptionOfClothes($outfit.bottom()))>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "Your pants were just a bit too tight, and as you walk around, you catch people staring at your legs. Creeps."})>>		
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day, you try to pretend everything is normal, but your bottom wear is just WAY too tight. Let's hope nobody notices it!"})>>	
+<<elseif ['too small'].includes(setup.getFitDescriptionOfClothes($outfit.bottom()))>>
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day, you try and pretend everything is normal, but your bottom wear is just WAY too tight. Let's hope nobody notices it!"})>>	
+<</if>>
+
+/* tongue */
+<<set _tempTongue to Math.round(($tongueLenght + 9 )* $heightMod)>>
+<<if $tongueLenght > 2>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As your get bored with your work, you yawn, and accidentally your tongue rolls out. Some coworkers get to see its full <<numeralConversion _tempTongue>> length! One of them drops his coffee mug on the ground, mercifully taking the attention away from you."})>>
+<</if>>
+
+/* dick */
+<<if $dick > 8>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As the day goes on, you see some peoples’ eyes drifting towards your noticeable bulge. They're too polite to say anything, but you know they are aware of it."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "In the middle of the day, you suddenly feel something...  coming to attention. Realizing you're growing hard out of nowhere, you rush towards the bathroom, hoping nobody spotted the noticeable bulge of your erection!"})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "During work, you get bored, idly scratching your bulge a bit... to the surprise of one coworker sitting across from you. His wide eyes meet yours. You know he knows. He knows you know he knows."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As you walk past the watercooler, you hear the word 'bulge' as it suddenly gets really quiet as you walk past. Subtle guys, real subtle."})>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As the day goes on, you see some peoples’ eyes drifting towards your noticeable bulge. They're too polite to say anything, but you know they know."})>>
+<</if>>
+<<if $dick >= 20>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "As the day goes on, you see some peoples’ eyes drifting towards your noticeable bulge. They're too polite to say anything, but you know they know."})>>
+<</if>>
+<<if $dick >= 30>>
+	<<set _officeEvents.push(
+    {warning: false,
+    message: "During the day, everyone desperately tries NOT to look at your bulge. It’s against company policy to discriminate based on appearance, but you KNOW this is pushing it."})>>
+<</if>>
+<<if $dick >= 40>>
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day, everyone desperately tries to NOT look at your bulge. It’s against company policy to discriminate based on appearance, but you KNOW this is pushing it."})>>
+<</if>>
+<<if $dick >= 50>>
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day everyone desperately tries to NOT look at your bulge. It’s against company policy to discriminate based on appearance, but you KNOW this is pushing it."})>>
+<</if>>
+<<if $dick >= 60>>
+	<<set _officeEvents.push(
+    {warning: true,
+    message: "During the day everyone desperately tries to NOT look at your bulge. It’s against company policy to discriminate based on appearance, but you KNOW this is pushing it."})>>
+<</if>>
+
+<<set _eventI to random(0, (_officeEvents.length - 1))>>
+
+<<set $officeEvent to _officeEvents[_eventI].message>>
+
+<<if _officeEvents[_eventI].warning and $difficulty != "sandbox">>
+	<<set $officeWarning += 1>>
+<</if>>
+
+<<print $officeEvent>>
+
+<</nobr>>
+
+

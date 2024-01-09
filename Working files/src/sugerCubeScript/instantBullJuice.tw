@@ -1,0 +1,31 @@
+:: instantBullJuice [noReturn] {"position":"550,1600","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "You drink the deep black liquid and it immediately feels like you got punched in the chest. It's oily and tastes like someone made coffee on the stove and just left it there for a few years!">>
+<<addMuscleSlow setup.balance.musclePotionsAllowancePerDay>>
+
+<<if _rand >= 1>>
+<<set _message += " Immediately, your stomach churns, and you almost collapse, feeling bloated and painful. A sick feeling travels through your belly and spreads from there to the rest of your body. Oddly enough, your muscles feel tighter afterwards, the rest of the feeling just gone. But you can't shake the feeling of your body feeling... heavier.">>
+<<set $motivation -= 10>>
+<<set $gut += 1>>
+<<set $fat += 1>>
+<<set $tiredness += 10>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " The aftertaste lingers, but the bitter feeling leaves you REALLY energized! Just aching to do something, lift something heavy. The fact is, your muscles feel like they just had an amazing workout!">>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("T-booster 29D");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

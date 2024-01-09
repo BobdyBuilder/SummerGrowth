@@ -1,0 +1,74 @@
+:: Cleaning [widget nobr] {"position":"1025,800","size":"100,100"}
+<<widget cleaning>>
+
+<<set $room to $args[0]>>
+
+<<if $args[0] is "Home">>
+	<<set _currentRoomCleaned to State.getVar("$livingRoomCleaned")>>
+<<elseif $args[0] is "Kitchen">>
+	<<set _currentRoomCleaned to State.getVar("$kitchenCleaned")>>
+<<elseif $args[0] is "Bathroom">>
+	<<set _currentRoomCleaned to State.getVar("$bathRoomCleaned")>>
+<<elseif $args[0] is "Bedroom">>
+	<<set _currentRoomCleaned to State.getVar("$bedRoomCleaned")>>
+<</if>>
+
+<<if _currentRoomCleaned < 1>>
+
+<<elseif _currentRoomCleaned < 2 and _currentRoomCleaned > 1>> It has a nice lived-in feel to it, though it could use some cleaning up.
+
+<br><br>
+<<elseif _currentRoomCleaned < 3 and _currentRoomCleaned > 2>> It has gotten quite messy lately. You should clean it up a bit.
+
+<br><br>
+
+
+<<elseif _currentRoomCleaned < 4 and _currentRoomCleaned > 3>> It's a huge mess though, and you really should make an effort to make it somewhat livable again. 
+
+<br><br>
+<<addToLog "Ugh, this house needs a thorough cleaning...">>
+<<elseif _currentRoomCleaned > 4>> It's a barely livable mess, though, and you really should at least make it somewhat habitable again!
+<<addToLog "Urgh, this room is disgusting... It's horrible to look at.">>
+<</if>>
+
+<<if _currentRoomCleaned > 1>>
+<<if $motivation > $exhaustion && $exhaustion + (10 * _currentRoomCleaned) < 100>>
+	<br><br>
+	
+	<<set _timeString to "time:" + (30 * _currentRoomCleaned)>>
+	<<set _roomCleanedExhaustionString to "exhaustion:" + (10 * _currentRoomCleaned)>>
+	<<gameLink "Clean the room" $return _timeString _roomCleanedExhaustionString>>
+	
+	<<if $args[0] is "Home">>
+		<<run State.setVar("$livingRoomCleaned", 0)>>
+	<<elseif $args[0] is "Kitchen">>
+		<<run State.setVar("$kitchenCleaned", 0)>>
+	<<elseif $args[0] is "Bathroom">>
+		<<run State.setVar("$bathRoomCleaned", 0)>>
+	<<elseif $args[0] is "Bedroom">>
+		<<run State.setVar("$bedRoomCleaned", 0)>>
+	<</if>>
+
+	<<script>>
+		if(!Number.isInteger(State.temporary.timeAdded)){
+		console.log("time was not proper value at " + State.temporary.timeAdded);
+		State.temporary.timeAdded = 30;
+		}
+	<</script>>
+	<<set _currentRoomCleaned to 0>>
+    <<script>>
+      var dialog = Dialog.setup("Room cleaned!");
+      new Wikifier(dialog, "It took some time, but you managed to get the room nice and livable again. Nothing like a freshly-cleaned room to make you feel proud of yourself!");
+      Dialog.open();
+    <</script>>
+    <<goto _room>>
+<</gameLink>>
+<br><br>
+<<else>>
+Unfortunately, you're just too tired to clean.
+<br><br>
+<</if>>
+<</if>>
+<</widget>>
+
+

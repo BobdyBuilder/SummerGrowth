@@ -1,0 +1,35 @@
+:: KrisCasualHookupGoesWrong-nevermind [nobr] {"position":"0,0","size":"100,100"}
+You grab Kris by her thin wrists, and she gasps. Looking deep into her eyes, she’s like a ragdoll in your hands, entirely subject to your whims… and your powerful physique. Her eyes lock with yours, a mix of surprise, thrill and desire - the shock of your sudden control making her heart stop briefly - as you pull her entire world away from her. There is no need for words, the two of you share a deep connection, as you overpower her outburst with sheer strength and control.<br><br>
+Kris opens her mouth, trying to somehow put in words her feelings, but you just shush her. It looks like she wants to somehow object - either to apologize, complain or justify her tantrum, but you are having none of that. <<if $height > 180>>You grab both of her wrists in one hand, and lift her off the ground by her arms. She trembles, her vulnerability coming to the surface - for an instant, she’s no more than prey in your eyes - you can see a brief hint of fear in her, but it quickly transitions into the same thrill you know and love. She raises her wounded foot towards you, in a vain attempt to touch your cobblestone abs, but you gently use your free hand to raise it towards your mouth, and you gently lick her sensitive skin, making her shiver. You bite the small piece of ceramic, tasting her blood as you spit out the hurtful debris. Pain and pleasure signals mix in her head, making her explore feelings she never knew.
+<</if>><br><br>
+<<if $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Enough of the distractions, I’m just going to ravage you now."<</Dialogue>><br><br>
+<<elseif $shyConfident > 1>> 
+<<Dialogue "player" "You">>"I’m sorry you got so frustrated - but you have a powerful sex goddess before you, and I think it would be petty of you to ignore that, wouldn’t you agree?"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"I’m sorry - I wish the night had go the way you planned… but why don’t we just put it all behind and have some fun?"<</Dialogue>><br><br>
+<</if>>
+You thought you had her, but she betrays herself with her distraction. You can see her repeatedly still looking at the contraption on the wall, and frowning. Her sigh almost kills the mood that you fought so hard for.<br><br>
+
+<span id="choice">
+    <<link "Don’t be like that, Kris. I just wanna fool around!" "KrisCasualHookupGoesWrong-forgetAllOfThis">><</link>>
+
+	<<PersonalityCheck $submissiveDominant >= 2 "You better forget that stupid toy, I’m having my way with you">>
+        <<goto "KrisCasualHookupGoesWrong-throwHerOnTheBed">>
+	<<Failed>>
+		<<replace "#choice">>
+            You hesitantly throw Kris on the bed - but in your uncertainty, you misjudge the strength necessary, and she flies clear off the bed, hitting her head against the wall. Shit! You knew she was petite and that you are pretty strong, but it genuinely surprised you just how far she flew, you weren’t even really trying that hard!<br><br>
+            You run to check on her - she has a small bump on her head and seems to have gotten knocked out cold. Shit shit shit shit…<br><br>
+            Your heart starts racing as you gently place her on the bed. Maybe you should call 911? She could have a concussion?!?<br><br>
+            You take a deep breath and close your eyes. There’s no sign of bleeding, swelling or hematoma. The bump isn’t even that pronounced. You check her breathing and her pupils, going back to some first-aid lessons you had back at babysitting school. Everything seems fine… well, except for how guilty you feel for what you just did.<br><br>
+            You go to her bathroom to try and come up with some improvised bandaging for her foot. You end up cleaning it with toilet paper and just putting an adhesive bandage you found on her bathroom mirror - and cover her with her blanket, trying to make her as comfortable as you possibly can.<br><br>
+            You hate when this strength thing rears its ugly head as curse. The excitement of your mounting power just goes to your head, and the growth has been so quick that you can literally say you don’t know your own strength - as you just so clumsily demonstrated.<br><br>
+            You sit down by her side for a few more minutes, and Kris moans something uninteligible, and you can just barely make out your own name. It brings a bittersweet smile to your face, and you hold her hand and give her a kiss to the forehead.<br><br>
+            You would probably never admit it to her… but you kind of enjoy this more emotional connection with her. The sex has been so great that you kind of forgot that you might genuinely care about Kris. Huh.<br><br>
+            Unsure of what else to do, you decide to leave her a note, and just go back home. So you make your way to the door, sighing.<br><br>
+            You chalk up this disastrous date to some unknown cosmic conflagration, and return home feeling regret and guilt.
+            <<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'A'>><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+</span>
+

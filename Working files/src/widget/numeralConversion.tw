@@ -1,0 +1,28 @@
+:: numeralConversion [widget nobr] {"position":"2400,700","size":"100,100"}
+<<nobr>>
+<<widget "numeralConversion">>
+<<set _test1 to $args[0]>>
+<<set _test to $args[1]>>
+<<if $measurementSystem is "imperial">>
+	<<if $args[0] >= 30 and $args[1] != true>>
+		<<set $tempFeet to Math.floor(($args[0] * 0.3937007874)/12)>>
+		<<set $tempInches to  Math.round(($args[0] * 0.3937007874) - ($tempFeet * 12))>>
+		<<print $tempFeet>>'<<print $tempInches>>"
+
+	<<else>>
+		<<print Math.round($args[0] * 0.3937007874)>>"
+<</if>>
+
+<<elseif $measurementSystem is "metric">>
+	<<if $args[0] >= 100 and $args[1] != true>>
+		<<print Number(($args[0] / 100).toFixed(2))>> meter
+	<<else>>
+		<<print Math.round($args[0])>> cm
+
+	<</if>>
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

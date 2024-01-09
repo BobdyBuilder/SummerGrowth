@@ -1,0 +1,191 @@
+:: Init [nobr] {"position":"100,500","size":"100,100"}
+<span class="hiden">
+<<set $playerFirstName to "Summer">>
+<<set $playerLastName to "Atlas">>
+
+<<set $returnVal to 0>>
+
+<<include "InitializeClothes">>
+<<include "initBody">>
+<<include "initInstantConsumables">>
+<<include "initQuests">>
+<<include "dialogInit">>
+<<include "initSkill">>
+<<include "initNPCData">>
+<<include "initBodyDialogFlags">>
+
+/* Event setup */
+<<set $indexesOfEventsUsed to []>>
+<<set $eventCounter to 0>>
+
+/* personality */
+<<set $shyConfident to -3>>
+<<set $carefreeCarefull to -2>>
+<<set $submissiveDominant to 1>>
+<<set $temporaryPersonalityGains to {
+	shyConfident: 0,
+	carefreeCarefull: 0,
+	submissiveDominant: 0
+}>>
+
+<<set $startingPersonalityPoints to 1>>
+<<set $addedConfident to 0>>
+<<set $addedShy to 0>>
+<<set $addedCareful to 0>>
+<<set $addedCarefree to 0>>
+<<set $addedDominant to 0>>
+<<set $addedSubmissive to 0>>
+
+/* Stats */
+<<set $startingSkillPoints to 2>>
+<<set $motivation to 40>>
+<<set $exhaustion to 50>>
+<<set $exhaustionWorkoutMod to 1>>
+<<set $maxMotivation to 100>>
+<<set $maxExhaustion to 100>>
+<<set $minimumExhaustion to 30>>
+<<set $money to 750>>
+<<set $loanTriggered to false>>
+<<set $tiredness to 0>>
+<<set $hoursAwake to 5>>
+<<set $addedMinimumExhaustion to 30>>
+
+<<set $baseWorkoutTime to setup.balance.baseWorkoutTime>>
+<<set $gymExhaustionPerWorkout to setup.balance.gymExhaustionPerWorkout>>
+<<set $gymMinimumExhaustionPerWorkout to setup.balance.gymMinimumExhaustionPerWorkout>>
+<<set $workoutSkillMuscleGainMod to 0.5>>
+<<set $workoutSkillTimeMod to 1>>
+<<set $workoutSkillExhaustionMod to 1>>
+<<set $workoutSkillMinimumExhaustionMod to 1>>
+<<set $skillExhaustionCost to setup.balance.skillGainExhaustion>>
+<<set $streamingExhaustion to setup.balance.streamingExhaustion>>
+
+/* House */
+<<set $livingRoomCleaned to 3>>
+<<set $bedRoomCleaned to 3>>
+<<set $bathRoomCleaned to 3>>
+<<set $kitchenCleaned to 3>>
+<<set $furniture to []>>
+
+/* jobs */
+<<set $streamingViewers to 3>>
+<<set $streamWarnings to 0>>
+<<set $amountOfStreams to 0>>
+
+/* Diets */
+<<set $cookingSkillPriceReduction to 1>>
+<<set $cookingSkillMotivationBonus to 1>>
+<<set $cookingSkilltimeReduction to 1>>
+<<set $cookingToolsTimeReduction to 1>>
+<<set $cookingMealPrep to false>>
+<<set $mealsPrepped to []>>
+<<set $diets to [
+	{ name: "Just eat like normal",
+	level: 0,
+	muscleGain: setup.balance.muscleAllowancePerDay * 0, 
+	fatGain: 0, 
+	price: setup.balance.baseMoneyPerDay,
+	time: 30,
+	happinessGain: 0, 
+	minimumExhaustion: 0,
+	description: "It's not so much a diet as just eating whatever you want. It won't make you fat, it won't make you lean, and it's not that fun or fast. Just a middle of the road option."},
+	{ name: "Save time", 
+	level: 1, 
+	muscleGain: setup.balance.muscleAllowancePerDay * -0.5, 
+	fatGain: -0.5, 
+	price: setup.balance.baseMoneyPerDay * 0.75,
+	time: 5,
+	happinessGain: -20, 
+	minimumExhaustion: 20,
+	description: "Skip breakfast. Rely on instant meals, maybe have a frozen pizza. You don't have the time today and while it is murder on your mood, it will at least help you save time."},
+	{ name: "Cheat day!",
+	level: 1,
+	muscleGain: setup.balance.muscleAllowancePerDay * 0.1,
+	fatGain: 0.5,
+	price: setup.balance.baseMoneyPerDay * 4,
+	time: 45,
+	happinessGain: 20,
+	minimumExhaustion: -5,
+	description: "Spoil yourself a bit, you earned it! Sure, it isn't the healthiest or quickest, but it helps your mood quite a bit."},
+	{ name: "Balance day", 
+	level: 1,
+	muscleGain: setup.balance.muscleAllowancePerDay * -0.5, 
+	fatGain: -1, 
+	price: setup.balance.baseMoneyPerDay * 1.25,
+	happinessGain: -10,
+	minimumExhaustion: 10,
+	time: 60,
+	description: "Right, you've been eating a bit too much lately. Time to cut back and eat healthy for a day or two. It isn't as delicious or filling, but it'll make sure you lose some weight."}
+]>>
+<<set $currentDiet to $diets[0]>>
+
+<<set $daysPlayed to 0>>
+<<set $gameDate = new Date('June 1, 2020 13:37:00')>>
+<<set $newDay to $gameDate.toDateString()>>
+<<set $newHour to $gameDate.getHours()>>
+<<set $oldDay to $gameDate.toDateString()>>
+<<set $oldHour to $gameDate.getHours()>>
+
+<<set $colors to [
+	"red",
+	"blue",
+	"white",
+	"gray",
+	"black",
+	"white",
+	"gray",
+	"black",
+	"white",
+	"gray",
+	"black",
+	"dark gray",
+	"off-white",
+	"biege",
+	"dark blue",
+	"light blue",
+	"green",
+	"light green",
+	"dark green",
+	"dark red",
+	"pale",
+	"pink",
+	"pink",
+	"yellow",
+	"orange",
+	"burgundy",
+	"brown",
+	"purple"
+]>>
+</span>
+
+<<set $workoutCycle to [
+	"legs",
+	"core",
+	"arms",
+	"pecs",
+	"back"
+]>>
+
+<<set $jobInterview to false>>
+<<set $jobInterviewOver to false>>
+<<set $dismissalOffered to false>>
+<<set $officeWarning to 0>>
+<<set $officeFired to false>>
+<<set $daysWorkedOffice to 0>>
+<<set $officePromotionBonus to 1>>
+<<set $streamingMoneyGained to 0>>
+
+<<set $log to []>>
+<<set $deletedLog to []>>
+
+<<set $history to 5>>
+<<run Config.history.maxStates = 3;>>
+<<run Config.history.controls = true;>>
+<<include "StoreRefresh">>
+
+<<set $globalGrowthMod to 1>> /* Growth multiplier. Unlike $growthMod, this can be changed for the story narrative */
+<<set $workingOutBonus to setup.balance.muscleAllowancePerDay>>
+
+<<set $muscleGainedFromPotions to 0>>
+
+

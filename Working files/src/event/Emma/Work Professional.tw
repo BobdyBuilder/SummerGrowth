@@ -1,0 +1,16 @@
+:: Work Professional {"position":"550,3825","size":"100,100"}
+<<set $emmaDateProfessional +=1>>
+Emma seems taken aback by that comment.
+
+<<Dialogue "Emma" "Emma">> "Would you believe you're the first person to ask that so directly?"<</Dialogue>>
+<<Dialogue "player" "You">> "Oh? I'm sorry if that wasn't proper. This is my first office job, actually, my first real job."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Not to worry, <<print $playerFirstName>>. Everyone approaches office politics differently. And I actually appreciate your candor here."<</Dialogue>>
+<<Dialogue "player" "You">> "For real?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "I do. I know how hard it is to have to skirt around directly asking this sort of thing. We can definitely talk about adjusting your responsibilities in the office."<</Dialogue>>
+<<Dialogue "player" "You">> "So…"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Let's just say that if it's really what you want, I'd be happy to have you start working directly under me. And I genuinely hope you learn something in the process."<</Dialogue>>
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

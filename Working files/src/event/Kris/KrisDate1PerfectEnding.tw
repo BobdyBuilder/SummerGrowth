@@ -1,0 +1,80 @@
+:: KrisDate1PerfectEnding [Done] {"position":"2100,2925","size":"100,100"}
+<<addMinutes 15>>Outside of the bar, you stare at each other, Kris fighting to regain her composure. You can clearly see she just isn't used to this, nor does she want it. She clearly expected hot steamy sex, but instead was forced to open up emotionally. Looking at her, it's strangely sweet how much she tries to maintain that alpha façade. Her effort, however, demands a small reward.
+
+<<if $submissiveDominant < 0 || $shyConfident>>With shaking hands<<else>>With confidence<</if>> you lean forward, and give Kris a contained and affectionate kiss. Your lips touch her cheek, and Kris instantly stops her rambling and stares at you like you just grew a second head. 
+
+<<Dialogue "KrisCasual" "Kris">>"The fuck was THAT for?!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Just... a small kiss. Because I appreciated this time we had together, and I was very glad we talked like friends. I... I enjoyed that. A lot."<</Dialogue>>
+
+Normally, Kris freaks you out with her intensity, but that feeling was gone now. Instead, There’s this tingling excitement you get as you look at her. You glimpsed into her madness a bit, you get her passion. You also realize that she isn't that crazy, she just... lacks focus. Kris, on the other hand, looks almost uncomfortable in her confusion.
+
+<<Dialogue "KrisCasual" "Kris">>"... You do realize I just want to fuck you, right?"<</Dialogue>>
+
+Utter silence. Was she trying to claw back into her alpha-bitch persona? Or was she trying to get a reaction out of you? Or... was she genuine trying to get her point across?
+
+<span id="choice"><<PersonalityCheck $shyConfident >= 1 "Tell her to be honest">><<replace "#choice">><<Dialogue "player" "You">>"Kris… For FUCK’S SAKE, drop the attitude and just tell me if you fucking enjoyed it or not."<</Dialogue>>
+
+Her face drops, and Kris sighs. Her mouth opens, but no witty remark comes out. She rubs her neck, clearly regretting what she said.
+
+<<Dialogue "KrisCasual" "Kris">>"... Sorry. This is all... new to me. Heh... I guess it's a lot easier to just ogle and admire and not... talk to people. Just... I don't mean it that... badly, okay? I just don't know how to express myself otherwise. I did enjoy myself tonight. Just... I guess I have a weird way of showing it."<</Dialogue>>
+
+She tries smiling, and it’s clear she's being sincere. She's TRYING, she just utterly lost and unsure how to do it.
+
+<<Dialogue "player" "You">>"I get it, really. Just don't be an ass ALL the time, can you do that?"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"... I'll try. I promise. And... fine. Listen... I... Uh... I guess... thanks for... tonight. It was good getting to know you."<</Dialogue>>
+
+While blushing deeply, Kris leans in, and kisses you softly. With a melancholic smile, she walks away, waving you off. Well... that was quite a rollercoaster of a date. But all in all, it seems that Kris isn't so bad as she might come off initially. Even though she has some trouble acknowledging it.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>><</replace>>
+<<Failed>><<replace "#choice">><<Dialogue "player" "You">>"K-Kris... c-could you just be honest for once? C-come on, you clearly enjoyed this..."<</Dialogue>>
+
+It’s difficult keeping your emotions in check. Your eyes are on Kris, watching how she reacts. Would she use this again, try to subjugate you again? Or will she actually listen, for once? The silence drags for an awkwardly long while.
+
+<<Dialogue "KrisCasual" "Kris">>"Okay. I DID enjoy tonight. But... listen, I DO want to fuck you. We... I... Eh... Yeah, I suppose I did enjoy this date. It was different. But do YOU understand I also want to fuck you silly? I.... eh... I'm not used to all this... lovey-dovey crap. It’s new to me. Give me some fucking time to adapt, alright?"<</Dialogue>>
+
+You gulp, chest filled with uncertainty. Kris claims that she'll try to adapt... but when it comes to her, it’s always so hard to tell. And yet, she still somehow surprises you: leaning forward, she hugs you. <<if $muscle > 50 || $fat > 50 || $breasts > 50>>Her arms barely go around you. <</if>> While normally this would be just horny groping, this is actually a very affectionate and warm hug, and she lets go without any protest. A thin, fragile smile appears on her face, her eyes staring at you, full of promise and hope.
+
+<<Dialogue "KrisCasual" "Kris">>"I'll try, okay, bi - <<print $playerFirstName>>. I'll try, okay? I guess I will see you around!"<</Dialogue>>
+
+While blushing deeply, Kris tiptoes and gives you a light peck. With a melancholic smile, she walks away, waving you off. Well... that was quite a rollercoaster of a date. But all in all, it seems that Kris isn't so bad as she might come off initially. Even though she has some trouble acknowledging it.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>><</replace>>
+<</PersonalityCheck>>
+
+<<PersonalityCheck $submissiveDominant >= 1 "Demand a straight anwser">><<replace "#choice">>You're done with this 'game'. Done with this constant feeling of just being something to be gawked at. Straightening up, <<if $height > 170>> you loom over Kris, looking down at her. For once, you're in charge, <</if>> you make it clear you're not happy with this.
+
+<<Dialogue "player" "You">>"Cut the crap this fucking instant or I'm done."<</Dialogue>>
+
+Kris swallows, her eyes wide and nervous.
+
+<<Dialogue "KrisCasual" "Kris">>"... S-sorry, <<print $playerFirstName>>. I just... I don't know how to handle this, okay? I'm used to ogling people like you, not... not talking with them. I'll t-try to change, okay? Please? It might take a while but... I promise I will try."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Good. This was a nice evening, but you need to work on that, Kris. I will see you later, okay?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Y-yeah... see ya later, big g - <<print $playerFirstName>>."<</Dialogue>>
+
+A bit awkwardly, Kris turns around to walk away. Yet she stops, turns around, and hugs you. <<if $muscle > 50 || $fat > 50 || $breasts > 50>>Her arms barely go around you. <</if>> While normally this would be just horny groping, this is actually a very affectionate and warm hug, and she lets go without any protest. A thin, fragile smile appears on her face, her eyes staring at you, full of promise and hope. With a wave, she walks off, leaving you with the memories of the weirdest date you've ever had. But, hey, at least Kris is trying.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>><</replace>>
+<<Failed>>
+<<replace "#choice">>You're done with this 'game'. Done with this constant feeling of just being gawked at. Straightening up, <<if $height > 170>> you loom over Kris, looking down at her. For once, you're in charge, <</if>> you make it clear you're not pleased. At least, that was what you thought.
+
+<<Dialogue "player" "You">>"Y-you can cut the crap right now or I'm done."<</Dialogue>>
+
+Kris swallows, her eyes wide and nervous.
+
+<<Dialogue "KrisCasual" "Kris">>"Hey, what the hell! I am fucking trying, okay? But this is fucking new territory for me too! I'll cut the alpha-bitch crap if we meet halfway!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"H-hey, now, I just want you to be honest! Is that so much to ask?!?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"... Fine. I'll try to turn it down a bit. Just put yourself in my shoes for once, alright? You think this is easy for me?"<</Dialogue>>
+
+A bit awkwardly, Kris turns around to walk away. Yet she stops, turns around, and hugs you. <<if $muscle > 50 || $fat > 50 || $breasts > 50>>Her arms barely go around you. <</if>> While normally this would be just horny groping, this is actually a very affectionate and warm hug, and she lets go without any protest. A thin, fragile smile appears on her face, her eyes staring at you, full of promise and hope. With a wave, she walks off, leaving you with the memories of the weirdest date you've ever had. But, hey, at least Kris is trying.
+
+<<link "Go home" "Home">><<addMinutes 15>><</link>><</replace>>
+<</PersonalityCheck>>
+</span>
+
+

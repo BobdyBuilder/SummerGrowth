@@ -1,0 +1,19 @@
+:: headDescription [widget] {"position":"3450,425","size":"100,100"}
+<<nobr>>
+<<widget "headDescription">>
+
+<<if $gender <= 10>>Your face is extremely feminine with sharp, beautiful curves. Piercing <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips make you look only more amazing. 
+<<elseif $gender <= 20>>Your face is very feminine with soft, beautiful curves. Bright <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips complete the look.
+<<elseif $gender <= 30>>Your face is very pretty and feminine, with nice curves and nice proportions. Nice <<print $eyeColor>> eyes with long eyelashes are sure to draw in attention while your <<lipsDescription>> lips complete the look.
+<<elseif $gender <= 40>>Your tomboyish face gives you a confident look. Bright <<print $eyeColor>> eyes with decent eyelashes and <<lipsDescription>> lips make you look feminine, while the overall contours of your head make you look a bit masculine.
+<<elseif $gender <= 50>>Your tomboyish face is always nice to see. Bright <<print $eyeColor>> eyes with decent eyelashes and <<lipsDescription>> lips make you look feminine, while the overall contours of your head make you look more masculine.
+<<elseif $gender <= 60>>Your boyish face is masculine, but with a clear feminine touch to it. Sharp <<print $eyeColor>> eyes and a decent jawline contrast with your softer nose and <<lipsDescription>> lips.
+<<elseif $gender <= 70>>You have a manly face with a sharp jawline and clear <<print $eyeColor>> eyes. A full nose and <<lipsDescription>> lips compliment your overall look. 
+<<elseif $gender <= 80>>Your very masculine face wouldn't be misplaced on a magazine cover. Radiating, <<print $eyeColor>> eyes draw a lot of looks and your broad, sharp jaw make a lot of people jealous. Even when you shave you seem to have a bit of a stubble and even your <<lipsDescription>> lips compliment your overall look.
+<<else>>Your extremely masculine face is the epitome of manliness; radiating, <<print $eyeColor>> eyes draw a lot of looks and your broad, sharp jaw make a lot of people jealous. Even when you shave you seem to have a bit of a stubble and your <<lipsDescription>> lips compliment your overall look.
+<</if>> <<tongueDescription>>
+
+<</widget>>
+<</nobr>>
+
+

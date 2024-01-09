@@ -1,0 +1,20 @@
+:: legLenghtDescription [widget] {"position":"3550,725","size":"100,100"}
+<<nobr>>
+<<widget "legLenghtDescription">>
+
+<<if $ass < 0>><<set $ass to 0>><</if>>
+
+<<if $legLenghtMod <= 0.8>>stubby
+<<elseif $legLenghtMod < 1>>short
+<<elseif $legLenghtMod is 1>>
+<<elseif $legLenghtMod < 1.1>>long
+<<elseif $legLenghtMod is 1.2>>incredibly long
+<<else>>stilt-like
+<</if>>
+
+
+
+<</widget>>
+<</nobr>>
+
+

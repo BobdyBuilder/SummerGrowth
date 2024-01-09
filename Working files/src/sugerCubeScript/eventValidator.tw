@@ -1,0 +1,13 @@
+:: eventValidator {"position":"225,50","size":"100,100"}
+<<script>>
+var events = setup.events;
+
+
+for (let i = 0; i < setup.events.length; i++) {
+	event = setup.events[i];
+
+
+}
+<</script>>
+
+

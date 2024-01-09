@@ -1,0 +1,43 @@
+:: instantBallGrow {"position":"750,1900","size":"100,100"}
+<<nobr>>
+
+<<if $dickActive is false and $futa>>
+<<set _message to " Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet, the taste is not too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly, afraid it won't go down well. But as quickly as it came, it fades, that unusual feeling instead traveling directly into your groin. A warm feeling spreads through it, giving you the sensation that it's building up, rolling into itself.">>
+<<set $dickStore += 1>>
+<<elseif $dickActive and $futa>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to " Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet the taste is not too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly afraid it won't go down well. But as quickly as it came, it just fades, the unusual feeling instead traveling down into your groin. Suddenly, you feel a sharp stab in your balls, pressure building up inside them. As you buckle over, you can practically feel them throbbing.">>
+
+<<set $balls += 1>>
+<<set _rand to random(0,2)>>
+
+<<if _rand >= 1>>
+<<set _message += " You can feel your heartbeat pumping in them, every pulse driving them bigger, and bigger, and bigger, the pressure becoming unbereable.">>
+<<set $balls += 1>>
+<<addMinutes 30>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " The pressure keeps building, almost to a painful degree. Though you can't even notice it any more, slowly precum starts dribbling out, indicating you will finally get the release you so desperately seek.">>
+
+<<set $balls += 1>>
+<<addMinutes 30>>
+<</if>>
+
+<<set _message += " As the pressure becomes too big, a glob of precum dribbles from your dick. Each throb is accompanied by another hearty dose, the pressure still building. These squirts turn into a constant flow, a puddle quickly gathering under you. As you climax, a huge jet sprays forward, hitting the wall across from you. Exhausted, you collapse to the ground, satisfied.">>
+
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("SPHE-GRO-001");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

@@ -1,0 +1,18 @@
+:: elenaMakesDinner0 [nobr] {"position":"0,0","size":"100,100"}
+You grab your phone and almost call Elena, but decide to text her instead to avoid any unnecessary anxiety.<br><br>
+You try to keep it casual and ask if she wants to do something later, to which she replies:<br><br>
+ELENA: How about dinner at my house later tonight?<br><br>
+Whoa, Nelly! That escalated quickly, but works perfectly for your secret plan. It will take some planning, but you think it should be manageable. <<if $skills[1].level > 3>><<set $flag.elenaMadePasta to true>>You offer to bring some homemade pasta, to which Elena responds promptly:<br><br>
+ELENA: Perfetto! I’ll make some tomato sauce using vegetables from my garden.<br><br>
+Wow, this is getting better and better by the minute!
+<</if>><br><br>
+And so you make a note to go visit Elena tonight after 7pm. Looking forward to it!
+<<link "Go home" "Home">>
+    <<set $flag.elenaMakesDinner1Datetime = new Date($gameDate)>>
+    <<if $gameDate.getHours() >= 19>>
+        <<set $flag.elenaMakesDinner1Datetime.setDate($flag.elenaMakesDinner1Datetime.getDate() + 1)>>
+    <</if>>
+    <<set $flag.elenaMakesDinner1Datetime.setHours(19,0,0,0)>>
+<</link>>
+
+

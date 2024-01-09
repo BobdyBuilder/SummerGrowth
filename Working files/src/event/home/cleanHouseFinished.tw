@@ -1,0 +1,13 @@
+:: cleanHouseFinished [nobr] {"position":"125,1750","size":"100,100"}
+<<script>>
+	  if (!Dialog.isOpen()){
+      var dialog = Dialog.setup("Goal Completed; House Cleaned!");
+      new Wikifier(dialog, "It took some time, but you managed to get the room nice and livable again. Nothing like a freshly-cleaned room to make you feel proud of yourself!");
+      Dialog.open();}
+	  else {
+	  Dialog.append("<br><br>And... Goal Completed; House Cleaned!<br><br>It took some time, but you managed to get the room nice and livable again. Nothing like a freshly-cleaned room to feel you feel proud of yourself!")
+	  }
+
+<</script>>
+
+

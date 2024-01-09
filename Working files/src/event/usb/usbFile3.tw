@@ -1,0 +1,8 @@
+:: usbFile3 {"position":"2000,1200","size":"100,100"}
+The file loads in, and what you are greeted with is a selfie of inhumanely large proportions. <<if $usbPasswordUnlocked[0] == true>> You see who you assume to be the same guy from the first picture, wearing the same shirt even, but blown up to gigantic proportions. How long has it been between these 2 selfies?! Years? Months? Weeks...? It's almost scary how big he has gotten.<<else>>You don't know who this is, or why you haven't heard of someone this... size. You're sure that someone THIS huge would be like an urban legend on the Internet. Who is he?<</if>><<if $muscle > 80>> Something else that stands out to you is how you're already bigger than him. Your own muscles would bulge just as much, your own pecs explode from your clothing. You pause for a second as you look at it, not sure how this makes you feel. <<else>> and looking at the sheer size on him, you wonder how he felt about it. This could be you at some point.<<if $shyConfident > 0>>But that physique does look amazing, and if you looked like that... would that be so bad?<<else>> You're no sure you even want to look like that. That size, that level of musculature... can he even walk normally in public? Maybe you should reconsider this whole potion business...<</if>><</if>>
+
+<img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Scenes/Toshi_selfie2.png" alt="alternatetext" style="width: 100%;">
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+
+

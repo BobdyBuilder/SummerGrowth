@@ -1,0 +1,32 @@
+:: streamingBodyDescr [nobr] {"position":"1425,1100","size":"100,100"}
+<<if $height <= 225 and $height >= 200>>
+	While you stream, some people take note of just how tall you are; some ask questions and beg you to show off your height a bit, or ask about your clothes! It's all in good fun, and hey, it draws in some more people!
+<<elseif $height <= 250 and $height >= 225>>
+	While you stream people in the chat keep talking about your height, asking for measurements, or just admiring how tall you are. It's kinda cute, and it even brings in some more viewers!
+<<elseif $height <= 300 and $height >= 250>>
+	Your gigantic stature is a topic the chat just won't let go; they want to know about your height, different measurements, where you buy clothes... it dominates the whole session! But it's all in good fun, and it draws in more viewers, even if they ARE a little obsessed.
+<<elseif $height >= 300>>
+	 Yeah, your stream draws a lot more people simply due to how tall you are. People want to know EVERYTHING about it, from your measurements to your... foot size?! Uhhh, sure.
+<</if>>
+
+<<if $breasts <= 60 and $breasts >= 40>>
+	 You knew people online were thirsty, but THIS thirsty... You're almost certain half the chat is here simply due to your cleavage, but hey, if it brings in the viewers...
+<<elseif $breasts <= 80 and $breasts >= 60>>
+	 Predictably, the only thing your chat can think about is well... your chest. And while it IS impressive, it'd be nice of them to just talk about ANYTHING else for a while. The tips keep rolling in, true, but your mods have a lot of work to keep the chat orderly and respectable. 
+<<elseif $breasts <= 100 and $breasts >= 80>>
+	 And immediately the chat goes WILD about your boobs. They're big, true, but they can't talk about anything else, like the horny teenagers most of them are. Words like 'goddess' and 'perfect waifu' are thrown around a lot, but what are you to do about it?
+<<elseif $breasts >= 100>>
+	 And like a beacon of horny was lit, the droves of desperate guys come crawling from all over the site. Drooling over your tits, they give your mods a HELL of a lot of work, and your chat is barely controllable.
+<</if>>
+
+<<if $muscle <= 60 and $muscle >= 40>>
+	 It's not often a female bodybuilder streams, and it shows. People keep asking about your lifting routine, your nutritional habits and more. It's actually a nice surprise!
+<<elseif $muscle <= 80 and $muscle >= 60>>
+	 Since you're easily the most muscular women on the site, your stream draws a LOT of people in. Though most people coming here because of your size, they are quite nice and supportive. Your mods are busy dealing with the less-than-nice people.
+<<elseif $muscle <= 100 and $muscle >= 80>>
+	 Your gigantic muscles bring people in droves; some supportive and interested, some crass and insulting, and some more than a little horny. Still, you try to keep the conversation going with the nice ones, and ignore the rest.
+<<elseif $muscle >= 100>>
+	 Your inhumanely large muscles bring in their own audience of people worshipping them, hating them, or just stunned by them. It's quite nice to see all the reactions and, hey, more views!
+<</if>>
+
+

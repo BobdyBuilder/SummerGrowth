@@ -1,0 +1,9 @@
+:: playEvent [widget nobr] {"position":"550,2300","size":"100,100"}
+<<widget "playEvent">>
+    <<script>>
+        SugarCube.State.setVar( '$currentEvent', SugarCube.setup.events.find((event) => event.name === SugarCube.State.getVar('_args')[0]) );
+        SugarCube.Engine.play('eventPassage');
+    <</script>>
+<</widget>>
+
+

@@ -1,0 +1,116 @@
+:: johanSupportiveAndDistant [nobr] {"position":"0,0","size":"100,100"}
+At this point, you may actually feel more at home at Johan’s apartment than your own, so you barge in without the usual fanfare. But as you get in, instead of that passionate version of Johan fully dedicated to whatever hobby he’s currently invested in, you just find him surfing the web, leaning his head against his hand as the mouse mindlessly scrolls. It’s not weird that he’s browsing, there’s just something missing you can’t quite put your finger on, that flame of passion he puts in all his endeavors.<br><br>
+<<Dialogue "player" "You">>"Howdy, partner! Surfing the interwebs today? Found anything interesting?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Oh, hi, <<print $playerFirstName>>. Yeah, doing some research here."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, research sounds way cool! What’s our next crazy project?"<</Dialogue>><br><br>
+<<if $johanLastMuscle < $muscle>>
+<<Dialogue "Johan" "Johan">>"Well, you see, I’ve been thinking about how strong you’ve gotten, and my comic book brain kinda kicked in, because it sure seems like your growth defies all explanation. So I was thinking here if - well, you know, if YOU want to - if there’s anything we can do to turbocharge it, figure out if there’s a limit. Who knows?"<</Dialogue>><br><br>
+<<if $muscle >= 80>><<Dialogue "player" "You">>"Seriously? You think I’m not strong enough as it is?"<</Dialogue>><br><br>
+You flex an insanely oversized bicep which just explodes into a mountain of power that seems bigger than your head to illustrate your point. Johan gulps and blushes, but explains himself.<br><br>
+<<Dialogue "Johan" "Johan">>"No, no, I don’t, at all. I’m just, well, blame my overexposure to comics, I guess, but I see your growth and it’s nothing short of supernatural, right? So I’m thinking, does it even have a limit? Are you able to achieve superstrength? Like, lifting a bus or something like that?"<</Dialogue>><br><br>
+At this point, you can’t lie that the thought never crossed your mind. But before you can answer, he’s back at it.<br><br>
+<<Dialogue "Johan" "Johan">>"I mean, don’t get me wrong - I had a moment of denial in the beginning, where I was concerned about your health, wellbeing and all - heck, I had a moment I was even worried the government would send special agents and everything. But I just assumed that you seemed to be enjoying it and... well, I wanna be useful, you know?"<</Dialogue>><br><br>
+<<elseif $muscle >= 60>>
+<<Dialogue "player" "You">>"I mean, it’s true that these muscles have exceeded every goal that I had ever imagined, at this point I feel I could easily win just about any bodybuilding competition I entered..."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"True, true, but you went from a petite girl to that in a matter of weeks, so, you know, I’m guessing it would be possible to go even further beyond - if that’s what you want, of course. And if so, I feel like I should support and help. Who knows how strong you could possibly get?"<</Dialogue>><br><br>
+He looks at you with sincere admiration, bordering on adoration. But there’s something missing that you can’t quite put a finger on, and it bugs the hell out of you.
+<<elseif $muscle >= 40>>
+<<Dialogue "player" "You">>"Truth be told, I was so used to being a weakling, it never crossed my mind I could ever be mistaken for a fitness nut like this. And I’d also be lying if I said I wasn’t excited about all these gains..."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Exactly - but the way I see it, whatever it is you went through, it’s unnatural. So you are playing outside of the usual rules. What I’m thinking is: what if we could take this to the next level?"<</Dialogue>><br><br>
+You can’t help but picture yourself bodybuilder big. Able to accomplish incredible feats of strength. You don’t even realize how your eyes open and sparkle, and you almost drool at the thought - something that even clueless Johan notices right away.<br><br>
+<<Dialogue "Johan" "Johan">>"So I’m thinking - maybe I can help? I don’t know if that’s what you want, but if it is, I want to help. Maybe it’s with nutrition, training routines, figuring out your metabolism or what those chemicals did, heck, maybe just finding clothes that fit - but, I want to be there for you."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"I guess I’ve been getting noticeably stronger, huh?  "<</Dialogue>><br><br>
+You say, as your feel your upper arm, which feels firm and beefy, something that would have been unthinkable just a few weeks ago.<br><br>
+<<Dialogue "Johan" "Johan">>"I’ll say. I don’t think anyone has had a such results like this before. But I got the impression it was something you were enjoying, so, well, I want to help you. If that’s what you want, that is."<</Dialogue>><br><br>
+<</if>>
+<<elseif $johanLastHeight < $height>>
+<<Dialogue "Johan" "Johan">>"Well, you see, I’ve been thinking about how big you’ve gotten, and my comic book brain kinda kicked in, because it sure seems like your growth defies all explanation. So I was thinking here if - well, you know, if YOU want to - if there’s anything we can do to turbocharge it, figure out if there’s a limit. Who knows?"<</Dialogue>><br><br>
+<<if $height >= 230>>
+<<Dialogue "player" "You">>"Johan, I am a LITERAL GIANT. Do you realize how much trouble I’m having getting through doors everywhere?!?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Weeeeelllllll, if you want to get TECHNICAL, there are legends about giants that are in average <<if $measurementSystem == 'metric'>>8 meters <<else>>26 feet<</if>> tall. That’s how big they they are in my tabletop games."<</Dialogue>><br><br>
+You reel back a bit from the thought of that. I mean, this would be completely impractical, right? Forget the fact you could never afford to eat properly, there would not be any clothes that would ever fit you...<br><br>
+And yet, you immediately picture yourself, big as a three-story house. It makes your stomach drop, picking up grown man like they were mere dolls. Before you know it, you can feel a cold sweat as your breath gets deeper. Even clueless Johan seems to notice how you are reacting.<br><br>
+<<Dialogue "Johan" "Johan">>"I mean, you ARE right that it’s not practical. But, at the same time, whatever has happened to you is clearly unnatural - and as far as I can tell, you seemed to really enjoy it your growth spurt these last few weeks. So maybe blame my comic book-addled brain, but I can’t shake the feeling that whatever is going on with you, we might just see where we can go with it."<</Dialogue>><br><br> 
+I mean, he is not wrong. You were always the one everyone made fun of. How many times were you teased, called names like short stuff and shrimp? What would they say now? You harbor mischievous revenge plans, but also other fantasies - you aren’t sure if it’s the feeling of power, towering over others, or just the giddy excitement of becoming something fantastic. Either way, you feel your feet tingle and a shiver running up your (rather long) spine as you ruminate about it.<br><br>
+<<elseif $height >= 205>>
+<<Dialogue "player" "You">>"Johan, I am the tallest person I know, I wouldn’t be surprised if I was the tallest human in town. What are you even talking about?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"By all means, correct me if I am wrong, but I could swear you seemed really excited by your growth spurt. It’s hard not to notice how gleeful you were every time you reached for something on a tall shelf, or when helping someone smaller."<</Dialogue>><br><br>
+You don’t say anything, but your face does, as Johan can tell that he is not wrong.<br><br>
+<<Dialogue "player" "You">>"So, you know, whatever growth spurt you had, it’s unnatural. And I can’t imagine you’ve tapped it out. So, if there’s anything I can do to help, I just want you to know I’m 100% behind you."<</Dialogue>><br><br>
+<<elseif $height >= 180>>
+<<Dialogue "player" "You">>"Really? I mean, now that I am officially taller than you, I kinda thought you’d be turned off... or bothered by that."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Like my grandma used to say, it’s more of you to love. And I just want you to know that it’s not a problem, I stand by your side - even if you grew more."<</Dialogue>><br><br>
+You wonder about how much more you COULD grow. Is there even a limit? This is crazy to begin with.<br><br>
+<<elseif $height >= 160>>
+<<Dialogue "player" "You">>"I mean, this growth spurt has been a little crazy - what if I got taller than you? Wouldn’t that be weird?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>, I didn’t fall for you because you were a fragile thing I could protect - I like you because you share my passions, and because you are such an awesome person. Heck, sometimes I feel like I am the one who needs protection here..."<</Dialogue>><br><br>
+You sense a hint of hurt in that admission, not resentment, just... disappointment?
+<<else>>
+<<Dialogue "player" "You">>"Well, not gonna lie, this growth spurt has pretty much been the best thing that ever happened to me. It certainly feels good not to be the shortest person in the room everywhere I go..."<</Dialogue>><br><br>
+Johan smiles, and seems genuinely happy about your increased stature, just like you.<br><br>
+<</if>>
+<<elseif $johanLastBreasts < $breasts>>
+<<Dialogue "Johan" "Johan">>"Well, look, this is a bit embarrassing, but I can’t ignore the mammaries in the room. You’ve, huh, became quite, erm, top-heavy... since I met you. And I’ve known people who got implants, but whatever this is, it’s the first time I’ve had to deal with someone growing progressively so fast like that. And I can’t pretend to know what that is like, but... I just want you to know you have my full support."<</Dialogue>><br><br>
+<<if $breasts >= 80>>
+<<Dialogue "player" "You">>"Frankly, I’m not sure a professional strongman could support these babies. I’d be lying if I said sometimes I don’t get afraid I’ll smother or crush you... "<</Dialogue>><br><br>
+Johan giggles nervously as he realizes you are not too far off from the truth.<br><br>
+<<Dialogue "Johan" "Johan">>"I know! But they are amazing, and yet, I don’t want you to think I only like you because of that. So, I don’t care how big or small they are, and I want you to be aware of that. Also, if there’s anything I can do to help, I want you to know you can count on me."<</Dialogue>><br><br>
+<<elseif $breasts >= 60>>
+<<Dialogue "player" "You">>"I mean, I always suspected you were a bit more of a boobs guy... and I guess I certainly deliver on that front. I don’t think I know anyone quite as buxom as myself."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"I mean, sure, but you are so much more than your breasts, <<print $playerFirstName>>. I am not gonna pretend like they aren’t a ton of fun (emphasis on the ton), but it’s not the reason I like you so much, get it? I just wanted to make sure you know that."<</Dialogue>><br><br>
+<<elseif $breasts >= 40>>
+<<Dialogue "player" "You">>"I’ve always been the petite girl, I admit my new assets are something I’m still getting used to myself."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"I mean, sure, but you are so much more than your breasts, <<print $playerFirstName>>. I am not gonna pretend like they aren’t a ton of fun, but it’s not the reason I like you so much, get it? I just wanted to make sure you know that."<</Dialogue>><br><br>
+<</if>>
+<<if $lactationUnlocked>>
+<<Dialogue "player" "You">>"But, uh, isn’t the, errrrr, you know... the, ahem, leaking... a bit disturbing?"<</Dialogue>><br><br>
+Johan blushes and briefly looks away with a deep breath, but he gathers his courage and turns back to look you in the eyes.<br><br>
+<<Dialogue "Johan" "Johan">>"Well, it WAS a bit of a surprise, I gotta admit. But I wouldn’t say it bothered me."<</Dialogue>><br><br>
+<</if>>
+<<elseif $johanLastDick < $dick>>
+<<Dialogue "Johan" "Johan">>"Look, there’s no way around it, so I’ll just say it. I just want you to know that I have no issues with your... your..."<</Dialogue>><br><br>
+He looks down at the bulge on your crotch, and you immediately get it.<br><br>
+<<Dialogue "player" "You">>"Oh."<</Dialogue>><br><br>
+Johan blushes, but his face becomes more determined than you’ve ever seen.<br><br>
+<<Dialogue "Johan" "Johan">>"Listen, I’m not going to pretend like it wasn’t a surprise, but the last thing I want is for you to feel weird about it. I mean, I know everything about people thinking you are weird, and sincerely? I kinda feel like it makes me feel closer and more like you than anything else. I’d even risk saying it’s somewhat reassuring - I, huh, don’t have a lot of experience with the ladies but I... huh... know how a penis works."<</Dialogue>><br><br>
+He is so adorable, twisting himself to tell you that. It’s clear that he’s uncomfortable, but he’s making a real effort to make you feel good, and it just makes you appreciate him even more.
+<<elseif $johanLastFat < $fat>>
+<<Dialogue "Johan" "Johan">>"Look, I’m just gonna come out and say it. You’ve been gaining a lot of weight, and maybe I don’t know how girls work, but I get the impression that it’s a touchy thing with women, and I just want you to know that I like you just the way you are. Sincerely, I might even say I like you being so fluffy."<</Dialogue>><br><br>
+This catches you off guard for a moment, but it’s clear he is being 100% sincere.<br><br>
+<<if $fat >= 80>>
+<<Dialogue "player" "You">>"Are you sure? I dunno, are you just saying this to appease me?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"The only thing that concerns me is your health, and as far as I can tell, you seem healthier than me. Otherwise, I can assure you I love every curve in your body, your hugs are literally the best I’ve ever received, and I never felt better or happier just resting my body against you. It’s the comfiest experience I’ve had in my entire life."<</Dialogue>><br><br>
+<<elseif $fat >= 60>>
+<<Dialogue "player" "You">>"B-b-but, how can that be? Aren’t other girls more attractive than me? Isn’t it weird for you?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"I can assure you I love every curve in your body, your hugs are literally the best I’ve ever received, and I never felt better or happier just resting my body against you. It’s the comfiest experience I’ve had in my entire life."<</Dialogue>><br><br>
+<<elseif $fat >= 40>>
+<<Dialogue "player" "You">>"Don’t you miss it when I was thin, though? Doesn’t it bother you at all?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Listen, I don’t care if you are super skinny or huge, as long as you are healthy, and as far as I can tell, you seem healthier than me. Not only that, but like my grandma used to say, there’s more of you to love. You feel just right in my arms, and that’s where I want you to be."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"I mean, I’ve put on some weight, are you sure that really doesn’t bother you? At all? What if I got fatter?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Listen, I don’t care if you are super skinny or huge, as long as you are healthy, and as far as I can tell, you seem healthier than me. Not only that, but like my grandma used to say, there’s more of you to love. You feel just right in my arms, and that’s where I want you to be."<</Dialogue>><br><br>
+<</if>>
+<<elseif $johanLastTougue < $tongue>>
+<<Dialogue "Johan" "Johan">>"Look, I’m just going to come out and say it, because I don’t want it to be left in the air. I just want you to know that I have no issues with your tongue."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"I’m not going to pretend like that is normal, but the truth is... I find it hot, and even if I didn’t, it’s not the reason I like you. I just want to make sure you know that."<</Dialogue>><br><br>
+<<elseif $skills.find(e => e.level>=4) != null>>
+<<Dialogue "Johan" "Johan">>"I’m going to come out and say this. I noticed how much time and effort you’ve been putting on your studies. And I’m not going to lie, I think there’s a part of my male pride that’s been slightly hurt, because I’ve been teased about my hobbies being stupid, and here I am, feeling kind of pathetic while you are some <<print $skills.find(e => e.level>=4).name>> genius. It... can be a little intimidating, I guess?"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "Johan" "Johan">>"Truth is... I’ve never dated before. Heck, I’ve never kissed a woman or been kissed. Other than my mom, but that doesn’t count. You know what I mean."<</Dialogue>><br><br>
+Johan seems to twist himself into a pretzel of embarrassment as he flubs his words, trying to reveal his vulnerability, this insecurity that clearly has been bugging him.<br><br>
+<</if>>
+<<Dialogue "Johan" "Johan">>"I want to be your faithful squire, your plucky sidekick. Or anything else you need. I don’t care what you look like, or what transformation or evolution you go through. And if you want to or accidentally end up changing even more, I just want you to know I’ll be there for you, no matter what."<</Dialogue>><br><br>
+He says it with such conviction, such fervor, that you can’t help but shed a single tear. You hold a sob, and come in for a hug, squeezing the poor guy.<br><br>
+<<Dialogue "player" "You">>"Oh, Johan, you are leaving me speechless here..."<</Dialogue>><br><br>
+He hugs you back, just as warmly. Yet, still, you get that lingering sensation that there’s something left unsaid, like a buzzing fly that keeps nagging you when you least expect.<br><br>
+<<Dialogue "Johan" "Johan">>"You are the best thing that has ever happened to me, <<print $playerFirstName>>. And I don’t know what crazy cosmic fluke made us end up together, but I am really happy that it did."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Me too, buddy. Me too."<</Dialogue>><br><br>
+You reply sincerely, as you rest your head against him, content. Without thinking, you kiss Johan passionately, and he kisses you back.<br><br>
+Things just become a blur after that, and soon you find yourself in a heavy make-out session with your neighbor, as you both lie down on the couch.<br><br>
+Soon enough, clothes start flying, as each of you explore the other’s body in a sensual and rather instinctive ritual, your conscience blurring as you feel yourself becoming one with Johan. You can’t even describe it as being horny, just literally mutually giving yourself away to your passion and your lover. It’s beautiful and wholesome, and impossible to put into words.<br><br>
+When you come back to your sense, you find both of you, seminaked, contently holding each other. You get up, kiss Johan on the forehead, get dressed and return to your apartment, feeling inexplicably fulfilled. Ah, life is good.
+<<link "Go home" "Home">><</link>>
+
+

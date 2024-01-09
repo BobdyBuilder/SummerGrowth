@@ -1,0 +1,100 @@
+:: ShiftPallette [nobr] {"position":"1600,1900","size":"100,100"}
+<<set _warehouseEvents to [
+]>>
+
+<<if $height >= 250>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "One of the advantages of working in a warehouse is that you finally have some room to stretch and move again. Gone are the tight doorways and ceilings, in are the huge corridors where you fit comfortably!"})>>   
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "One advantage of being so tall is that you got WAY better grip on these pallets! You can reach around a bit, properly grip them... perfect!"})>>   	
+<</if>>
+
+<<if $height >= 200>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "Given your height, carrying the pallets takes less time. Proper grip, long limbs, quick walking... heh, yeah, this IS a good workout!"})>>    	
+<</if>>
+
+<<if $height <= 170>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "It took a bit of adapting, managing to lift entire pallets at your height. But it turns out that when you can just lift them overheard, it's incredibly easy to get around!"})>>   
+	
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "Urgh, you could totally lift these pallets... if you weren’t so short! You just can't get a grip and, despite the strength being there, it doesn't matter if you can't lift them properly!"})>>   	
+<</if>>
+
+<<if $dick > 10>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "One BIG advantage of working in the warehouse is that you're mostly alone here. Just you, a lot of boxes to ship, and nobody around to see you if you have a wardrobe accident or... some other 'expansion' in certain private parts. At your desk, this would be awkward, but here there is nobody to notice!"})>>   
+<</if>>
+
+<<if $dick > 20>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "During your shift, you feel a stirring in your crotch. Now, normally, this would be a major problem if anyone saw it. Now? You don't mind it at all! You have the warehouse to yourself, happily lugging boxes to and fro!"})>>   
+<</if>>
+
+<<if $breasts >= 75>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "Right, this is a bit of a problem. Your chest is so huge that it’s next to impossible to hold the boxes in front of you. Under the arms they go, or in your hands."})>>
+<</if>>
+
+<<if $breasts >= 50>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "Right, when you lift an entire pallet, your tits are squashed against the huge stack in your hands. It’s good you're mostly alone in this warehouse, because otherwise it would look more than a bit weird."})>>
+<</if>>
+
+<<if $carefreeCarefull < 0>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "As you shift the pallet, it seems you're just not careful enough. As you mindlessly walk back and forth, you accidentally trip over a cable or something! Before you know it, you're on the floor, the entire pallet cascading all over the floor, and several boxes get badly flattened. Shit... well that is going to be deducted from your paycheck."})>>
+<</if>>
+
+<<if $carefreeCarefull < 1>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "As you shift the pallet, it seems you're just not careful enough. As you mindlessly walk back and forth, you accidentally trip over a cable or something! Before you know it, you're on the floor, the entire pallet cascading all over the floor, and several boxes get badly flattened. Shit... well that is going to be deducted from your paycheck."})>>
+<</if>>
+
+<<if $carefreeCarefull < 2>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "As you shift the pallet, it seems you're just not careful enough. As you mindlessly walk back and forth, you accidentally trip over a cable or something! Before you know it, you're on the floor, the entire pallet cascading all over the floor, and several boxes get badly flattened. Shit... well that is going to be deducted from your paycheck."})>>
+<</if>>
+
+<<if $muscle > 75>>
+    <<set _warehouseEvents.push(
+    {warning: false,
+    message: "Yeah, this is the real work. Not just shifting a few boxes, but entire pallets at the same time. Still, you could lift a stack of those, if you wanted."})>>   
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "You'd think pallets would be a real challenge for your strength. Well, it seems you were wrong. You lift entire pallets of the boxes like its nothing!"})>>  
+	
+<<elseif $muscle > 50>>
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "Well moving boxes like this might not be the most exciting, but you do manage it without breaking much of a sweat. And boring as it may be, you're making money with your body for once!"})>>  
+	<<set _warehouseEvents.push(
+    {warning: false,
+    message: "Another few boxes moved. You're not quite sure what’s in them all, but there seem to be documents, all kind of heavy stuff in some, and... just blocks of iron? Odd, but you don't care. You're making money for once, doing something your new body is suited for."})>>  
+	
+<</if>>
+
+<<set _eventI to random(0, (_warehouseEvents.length - 1))>>
+<<set _warehouseEvent to _warehouseEvents[_eventI]>>
+
+
+<<print _warehouseEvent.message>>
+
+<br><br>
+
+<<link "Continue with work" "jobWarehouse">><</link>>
+
+

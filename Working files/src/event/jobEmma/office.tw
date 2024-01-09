@@ -1,0 +1,75 @@
+:: office [nobr outOfHouse office] {"position":"1400,1500","size":"100,100"}
+<<if $jobInterview>>
+	<<goto "jobInterviewRoot">>
+<</if>>
+
+<<set _bodyDismissal to $muscle > 60 or $height > 240 or $fat > 80 or $breasts > 60 or $dick > 20>>
+
+<<set _jobSideGrade to $muscle > 40>>
+
+<<if _jobSideGrade and $daysWorkedOffice > 8 and $jobInterview is false and $jobWarehouse != true and $jobSideGradeOffered != true>>
+	<<set $jobSideGradeOffered to true>>
+	<<goto "jobSideGrade">>
+<</if>>
+
+<<if  _bodyDismissal and $dismissalOffered is false and $daysWorkedOffice > 8 and $jobInterview is false and $jobWarehouse is false>>
+	<<goto "jobDismissal">>
+<</if>>
+
+<<if $officeWarning > 3 and $daysWorkedOffice > 8 and $jobInterview is false>>
+	<<goto "jobFiring">>
+<</if>>
+
+<<set _rand to random(1,3)>>
+
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<if $skills[_i].name is "Book keeping">>
+		<<set _SkillI to _i>>
+	<</if>>
+<</capture>>
+<</for>>
+
+<<set _rand to random(-1,1)>>
+
+<<set _relevantSkill to $skills[_SkillI].level + _rand>>
+
+<<set _relevantSkill to Math.clamp(_relevantSkill, 0, 4)>>
+
+Arriving at the office, you make sure to get a big mug of what appears to be coffee and start your PC. 
+
+<<if $gameDate.getHours() >= 11>> Your eyes catch Emma's, who looks at you and then to the clock with an unhappy expression. Seems like you'll need to watch the time more closely...
+<</if>>
+
+Your entire inbox is full of tasks due today, meaning you won't have stop and think for a single second. As you get through it, you already know this is going to be a 'fun' day.
+
+<br><br>
+<span id="work">
+<<if $emmaBurnout != true>>
+<<if $emmaVisited is false>><<link "chat with Emma" "EmmaWork">><<set $eventCounter to setup.balance.eventTresshold + 1>><<set $emmaVisited to true>><</link>><br><br><</if>>
+<<else>>
+Emma probably is still recovering from her burnout. Her office is eerily silent, and her missing presence is noticable in every part of the building.
+<</if>>
+<<set _minutes to 0>>
+<<script>>
+	var dt2 = new Date(State.variables.gameDate.getTime());
+	dt2.setHours(17);
+
+  var diff =(dt2.getTime() - State.variables.gameDate.getTime()) / 1000;
+  diff /= 60;
+  console.log("got here: " + State.variables.gameDate);
+  console.log("got here: " + dt2);
+  console.log("got here: " + diff);
+  State.temporary.minutes = diff;
+<</script>>
+
+
+<<if $jobWarehouse != true>><<gameLink "get to work" "workResult" time:_minutes minexhaustion:30 exhaustion:30 motivation:-10>><</gameLink>><<else>><<link "Go to the warehouse to work there" "jobWarehouse">><<set $boxesShifted to 0>><</link>><</if>>
+
+<br><br>
+
+
+
+</span>
+
+

@@ -1,0 +1,12 @@
+:: addFatInstant [widget] {"position":"2700,800","size":"100,100"}
+<<nobr>>
+<<widget "addFatInstant">>
+
+<<set $fat += parseFloat($args[0])  * $growthMod * $globalGrowthMod>>
+<<set $fat to Math.clamp($fat, 0, 99999)>>
+
+
+<</widget>>
+<</nobr>>
+
+

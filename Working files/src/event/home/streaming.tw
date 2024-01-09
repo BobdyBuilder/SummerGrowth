@@ -1,0 +1,139 @@
+:: streaming [nobr noReturn streaming] {"position":"1325,1100","size":"100,100"}
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<if $skills[_i].name is "gaming">>
+		<<set _gamingSkillI to _i>>
+	<</if>>
+<</capture>>
+<</for>>
+
+<<set $streamedFlag to true>>
+
+<<set _rand to random(1,3)>>
+
+<<set $viewersGainedMod to 0>>
+
+Booting up the app, you check it out, several options available to you. 
+
+<<if $streamWarnings is 1>>
+
+<<elseif $streamWarnings is 2>>
+
+<</if>>
+<<if $streamWarnings < 3>>
+
+What kind of stream do you want to do?
+
+<br>
+<span id="streaming">
+<br>
+<<link "Stream some games">><<replace "#streaming">>
+
+<<streamingViewerIncomeCalc "gaming">>
+
+You boot up a game, setting everything up and starting a quick match. 
+<<skillIncrease "gaming" 10>>
+<<if $streamingViewers < 10>>
+	Now and then, someone lurks briefly in or leaves a lone comment, but mostly it's just you. Still, it's an enjoyable pastime!
+	<<if _rand is 3>>
+	And you even got a random tips of 10 bucks, nice!
+	<<set $money += 10>>
+	<</if>>
+<<elseif $streamingViewers < 20>>
+	You have a few subscribers who hang out, but it's nothing significant. Still, the tips are nice. And hey, it's all good fun!
+	<<if _rand is 3>>
+		And you even got some random tips, totaling 50 bucks! Nice!
+	<<set $money += 50>>
+	<</if>>
+<<elseif $streamingViewers < 50>>
+	With your reliable subscriber base, you quickly get a nice number of viewers and a nicely populated chat. You even had to recruit some mods just to keep everything orderly! And having a fun pastime that is also becoming a source of reliable income isn't anything to scoff at!
+<<elseif $streamingViewers < 100>>
+	Immediately, your chat is filled with people, and you can get going. The chat is almost too busy to keep up with, and your mods have their hands full at keeping everything orderly, but you're having a blast!
+<<elseif $streamingViewers < 500>>
+	The moment you come online, your chat is scrolling too fast to read. The mods are in overdrive and the tips and subscriptions start rolling in. You really have a large following, and it shows!
+<<else>>
+As one of the bigger streamers on the site, your chat is immediately filled to the brim and scrolls comically fast. It's a huge rush, so many people watching you, and you want to give them what they came looking for!
+<</if>>
+
+<<if $skills[_gamingSkillI].level is 0>>
+	Your skills are nothing to write home about, and match after match you're sniped with cruel efficiency. Still, it's fun to just play some games on stream!
+<<elseif $skills[_gamingSkillI].level is 1>>
+	And hey, since you're decent at this game, you even score a few kills! 
+<<elseif $skills[_gamingSkillI].level is 2>>
+	And with your skills, you're almost certain to get a nice audience, given you're almost a pro at this point!
+<<elseif $skills[_gamingSkillI].level is 3>>
+	As a staple of the community, your skills at the game are near the top: people come in just to watch your plays, and compliment you for it!
+<<else>>
+	With your skills, you slide into the top ranked matches, your stream almost an eSports hub. With that level of performance, you're sure you'll draw in a LOT of extra viewers! Hell, maybe even get an invitation to join a professional team!
+<</if>>
+
+<<include "streamingBodyDescr">>
+<<include "streamingEvents">>
+
+<<if $streamingViewers <= 1000000>>
+
+During the stream you had around <<print $streamingViewers>> viewers. <<if $subscribers > 0>>Of those <<print $subscribers>> subscribed, giving you a neat $<<print $subscribers * setup.balance.baseIncomePerStream>>!
+
+<<set $money += $subscribers * setup.balance.baseIncomePerStream>><</if>>
+
+<<else>>
+<<set _moneyGained to random(10000, 50000)>>
+During the stream you had WELL over a million viewers! And with the ads you run and all the subscribers, it earns you a very nice $<<print _moneyGained>>!
+<</if>>
+
+
+<</replace>><</link>>
+
+<br><br>
+
+<<link "Just chat with people">><<replace "#streaming">>
+
+<<streamingViewerIncomeCalc "talking">>
+
+Booting up the app, you join the conversation, just hanging out online and chatting with people.
+
+<<if $streamingViewers < 10>>
+	Now and then someone drifts in to take a look, but mostly, it's just you. Hey, it's an enjoyable past time, no matter what!
+	<<if _rand is 3>>
+		And you even got some random tips, totaling 50 bucks! Nice!
+	<<set $money += 50>>
+	<</if>>
+<<elseif $streamingViewers < 20>>
+	You have a few regulars who hang out with you, but it's nothing too big. Still, it's a nice additional income and hey, it's plenty of fun!
+	<<if _rand is 3>>
+		And you even got some random donations, totaling 50 bucks! Nice!
+	<<set $money += 50>>
+	<</if>>
+<<elseif $streamingViewers < 50>>
+	With your reliable viewer base, you quickly get a nice amount of people in the chat, which scrolls pleasantly fast. You even had to recruit some mods just to keep everything orderly! And besides, this fun pastime is also becoming a source of reliable income!
+<<elseif $streamingViewers < 100>>
+	Immediately, your chat is filled with people, and you can get going; the chat is almost too busy to keep up with, and your mods have their hands full at keeping everything orderly, but you're having a blast!
+<<elseif $streamingViewers < 500>>
+	The moment you come online, your chat starts scrolling comically fast, the mods are working in overdrive, and the donations and subscriptions start rolling in. You really got a large following, and it shows!
+<<else>>
+As one of the bigger streamers on the site, your chat is immediately filled to the brim and goes way too fast to read anymore. It's a huge rush, so many people coming online because of you, but you give them what they came for!
+<</if>>
+
+<<include "streamingBodyDescr">>
+<<include "streamingEvents">>
+
+<<if $streamingViewers <= 1000000>>
+
+During the stream you had around <<print $streamingViewers>> viewers. <<if $subscribers > 0>>Of those <<print $subscribers>> subscribed, giving you a neat $<<print $subscribers * setup.balance.baseIncomePerStream>>!
+
+<<set $money += $subscribers * setup.balance.baseIncomePerStream>><</if>>
+
+<<else>>
+During the stream you had WELL over a million viewers! And with the ads you run and all the subscribers, it earns you a very nice $<<print _moneyGained>>!
+<</if>>
+
+<</replace>><</link>>
+</span>
+<<else>>
+	Unfortunately, you got banned from the site, so you can't stream anymore...
+<</if>>
+
+<br><br>
+[[Return|$return]]
+
+

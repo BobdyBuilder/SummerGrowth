@@ -1,0 +1,18 @@
+:: Professional Ending {"position":"850,4175","size":"100,100"}
+<<Dialogue "player" "You">> "Well, I'd say tonight was enjoyable. And I'm happy I got the chance to know you a little better!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Likewise. I'm happy we got a chance to spend some time together."<</Dialogue>>
+She extends her palm for a handshake, which you happily return. She responds by placing her other hand on your shoulder.
+
+<<Dialogue "Emma" "Emma">> "I'll tell you what. You really proved yourself at work today. And tonight you showed you care about your work just as much as I do. I'd like you to work more closely with me in the future."<</Dialogue>>
+<<Dialogue "player" "You">> "Uh? Am I getting a promotion?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Not as such. Do you have any idea how much approval that requires to go through? But I'd like to keep a closer eye on you. Fast-track you towards moving up if you continue to prove yourself. And that means working more closely with me. Assuming you're interested, of course."<</Dialogue>>
+<<Dialogue "player" "You">> "Are you kidding me? I'd love to take the opportunity to learn from the best!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "That's what wanted to hear. We’ll talk more back at the office."<</Dialogue>>
+She shakes your shoulder friendly before letting herself into the building. As she slips inside, she turns to you once again.
+
+<<Dialogue "Emma" "Emma">> "Keep up the good work, <<print $playerFirstName>>. I'm impressed."<</Dialogue>>
+With Emma safely escorted, you decide to make your way back home, your mind reeling with what she has in mind for you in the future.
+
+<<link "Continue" "Home">><<set $emmaFirstDateDone to true>><</link>>
+
+

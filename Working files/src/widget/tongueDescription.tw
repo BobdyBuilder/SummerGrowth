@@ -1,0 +1,37 @@
+:: tongueDescription [widget] {"position":"3450,625","size":"100,100"}
+<<nobr>>
+<<widget "tongueDescription">>
+
+<<set $tempTongueLower to Math.round(($tongueLenght + 8 )* $heightMod)>>
+<<set $tempTongueUpper to Math.round(($tongueLenght + 10 )* $heightMod)>>
+
+<<if $measurementSystem is "imperial">>
+    <<set $tempTongueLower -= 2>>
+    <<set $tempTongueUpper += 2>>
+<</if>>
+
+
+
+<<if $tongueLenght < 0>><<set $tongueLenght to 0>><</if>>
+
+<<if $tongueLenght <= 0>>
+<<elseif $tongueLenght <= 1>>
+When you open your mouth, you take a look at your longer than average tongue. You estimate it to be around <<numeralConversion $tempTongueLower>> long. You might be able to touch your nose with it!
+
+<<elseif $tongueLenght <= 2>>
+When you open your mouth, you take a look at your long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long. You are easily able to touch your nose and chin with it!
+
+<<elseif $tongueLenght <= 4>>
+When you open your mouth, you take a look at your incredibly long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long. You can easily reach your eyebrows with it, as well as the bottom of a jar of peanut butter. Not that you would ever do that...
+
+<<elseif $tongueLenght <= 6>>
+When you open your mouth, you take a look at your inhumanly long tongue. You estimate it to be between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long! You have no idea how it fits in your mouth or how you can still speak normally with it, but why not enjoy it? There's plenty of things you can imagine doing with a tongue this long. You do have to watch out that it doesn't roll out of your mouth and freaks others out when you yawn, though, fun as it might be.
+
+<<else>>
+When you open your mouth, you take a look at your ridiculously long tongue. It snakes out of your mouth, ending between <<numeralConversion $tempTongueLower>> and <<numeralConversion $tempTongueUpper>> long! There's so much you can do with a tongue this long and sensitive, you'd wish everyone had one! You do have to watch out that it doesn't roll out of your mouth and freaks others out when you yawn, though...
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

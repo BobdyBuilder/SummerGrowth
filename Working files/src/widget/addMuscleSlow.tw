@@ -1,0 +1,21 @@
+:: addMuscleSlow [widget] {"position":"2600,900","size":"100,100"}
+<<nobr>>
+<<widget "addMuscleSlow">>
+<<set _workoutOutfitBonus to 1>>
+
+<<script>>
+    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
+        console.log(State.variables.outfit.bonuses());
+        if(State.variables.outfit.bonuses()[i].name == setup.clothingBonuses.WorkoutWear.name){
+            State.temporary.workoutOutfitBonus = 1.2;
+            break;
+        }
+    }    
+<</script>>
+
+<<set $muscleStore += parseFloat($args[0]) * _workoutOutfitBonus * $globalGrowthMod>>
+
+<</widget>>
+<</nobr>>
+
+

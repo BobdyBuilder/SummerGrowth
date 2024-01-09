@@ -1,0 +1,21 @@
+:: Flirty Start {"position":"850,3600","size":"100,100"}
+<<set $emmaDateFlirty += 1>>
+Emma blushes, her brow furrowing a bit.
+
+<<Dialogue "Emma" "Emma">> "I… will pretend I didn't hear that. We can still go out to dinner. but as friends and coworkers, and nothing more. Am I clear?"<</Dialogue>>
+<<Dialogue "player" "You">> "Hey, if that is what you want to think…"<</Dialogue>>
+Her cheeks get even redder as she turns her gaze to her phone.
+
+<<Dialogue "Emma" "Emma">> "Come on. I have a good restaurant in mind."<</Dialogue>>
+She takes you into the city's commercial district<<if $muscle >= 90 || $fat >= 70 || $breasts >= 100 || $height >= 300>>, the crowd naturally parting around your titanic frame<<elseif $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>, your sheer size causing you to awkwardly bump into more than one passerby<</if>>. You gape at the many trendy shops, nightlife, and fancy restaurants that light up the neighborhood, a far cry from your downtrodden dorm building. You feel out of your depth, suddenly worried about how much Emma is going to spend on your meal. But before too long, she leads you to a smaller, nondescript building. Inside is a small, trendy-looking bistro that is surprisingly quiet and subdued. The two of you find yourselves a table, and you quietly sit across from Emma.
+
+<<Dialogue "Emma" "Emma">> "Oh. Excuse me."<</Dialogue>>
+Before sitting, Emma stops to take off her suit jacket. She quickly slips it off her shoulders, and you can't help but to stop and stare for a moment. Has she always been this broad? Without the padding of her jacket, Emma looks surprisingly muscular, much more so than you could have suspected. You try not to stare at her exceptionally form-fitting shirt, until she rolls up her sleeves, revealing a pair of beefy, defined forearms and killing any remaining doubt you might still harbor. Rather than drawing any further attention to her body, she sits and grabs the menu casually, but still exuding an air of authority.
+
+<<Dialogue "Emma" "Emma">> "Sorry about that. Office clothes can be a bit stifling at the end of day."<</Dialogue>><<if $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>><br><<Dialogue "player" "You">> "Oh, yeah. Don't worry, I totally understand."<</Dialogue>><br>Emma can’t help but utter a quiet chuckle.<br><br><<Dialogue "Emma" "Emma">> "Yes, I suppose you do, don't you?"<</Dialogue>><</if>><br>There's a slight pause as she scans the menu over her glasses. How do you fill the silence?<br><br>
+
+[[Make conversation about work|Work Chat]]
+[[Comment on her body|Fitness Chat]]
+[[Ask what she does for fun|Hobby Chat]]
+
+

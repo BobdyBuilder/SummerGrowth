@@ -1,0 +1,41 @@
+:: sleepUpdateBreasts {"position":"400,0","size":"100,100"}
+/* Breast growth Logic: */
+<<set $breasts += $breastsStore>>
+
+<<if $breastsStore > 0.5 && $postSleepBreastsDialog1 is false>>
+	<<set $postSleepBreastsDialog1 to true>>
+<<elseif $breastsStore > 0.5 && $postSleepBreastsDialog1 is true && $postSleepBreastsDialog2 is false>>
+	<<set $postSleepBreastsDialog2 to true>>
+<<elseif $breastsStore > 0.5 && $postSleepBreastsDialog2 is true && $postSleepBreastsDialog3 is false>>
+	<<set $postSleepBreastsDialog3 to true>>
+<<elseif $breastsStore > 0.5 && $postSleepBreastsDialog3 is true && $postSleepBreastsDialog4 is false>>
+	<<set $postSleepBreastsDialog4 to true>>
+<<elseif $breastsStore > 0.5 && $postSleepBreastsDialog4 is true && $postSleepBreastsDialog5 is false>>
+	<<set $postSleepBreastsDialog5 to true>>
+<<elseif $breastsStore > 0.5 && $postSleepBreastsDialog5 is true>>
+     <<set $postSleepBreastsDialogRepeat to true>>
+<</if>>
+
+
+<<set $breastsStore *= 0.8>>
+
+/* Lactation: */
+<<if $lactationUnlocked>>
+	<<set $milkStored += ($milkCapacity / setup.balance.milkProductionFactor) * $milkProduction>>			
+	
+	<<if $lactationDialog1 != true>>
+		<<set $lactationDialog1 to true>>
+	<<elseif $lactationDialog1 && $milkStored >= $milkCapacity / 2 && $lactationDialog2 != true>>
+		<<set $lactationDialog2 to true>>
+	<<elseif $lactationDialog2 && $milkStored >= $milkCapacity / 2 && $lactationDialog3 != true>>
+		<<set $lactationDialog3 to true>>
+	<<elseif $lactationDialog3 && $milkStored >= $milkCapacity / 2 && $lactationDialog4 != true>>
+		<<set $lactationDialog4 to true>>
+	<<elseif $lactationDialog4 && $milkStored >= $milkCapacity / 2 && $lactationDialog5 != true>>
+		<<set $lactationDialog5 to true>>
+	<<elseif $lactationDialog5 && $milkStored >= $milkCapacity / 2 && $lactationDialogRepeat != true>>
+    	<<set $lactationDialogRepeat to true>>
+	<</if>>
+<</if>>
+
+

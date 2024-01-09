@@ -1,0 +1,44 @@
+:: elenaMakesDinner2 [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "Elena" "Elena">>"//Oh, no!//"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What is it, girlie?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//L'orchidea!// It won’t survive this climate once summer is over!"<</Dialogue>><br><br>
+Huh. You hadn’t thought of that. Gardening really isn’t your strong suite.<br><br>
+<<Dialogue "player" "You">>"Uh, isn’t there anything you can do about that?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"We’d need a... uh... how do you say it? //Une serra//, uh... the glass wall garden."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"A greenhouse?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//Sì!!!//"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, can’t we BUILD one? Your garden seems like it has enough space to spare, right? How expensive would that be?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"Well, I think we could build a small one for $1000. "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oof, that’s kinda expensive. Is that just the materials?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"No, the material would just be a fraction of that."<</Dialogue>><br><br>
+That fact brings a naughty smile to your face.<br><br>
+<<if $shyConfident < -1>>
+<<Dialogue "player" "You">>"Huh, if we can find instructions only - would that require more than a couple of people and sufficient height and strength?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"N-not really?"<</Dialogue>><br><br>
+<<elseif $shyConfident < 1>>
+<<Dialogue "player" "You">>"I mean, is it something that a couple of strapping, strong, tall women couldn’t handle after some research?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I s-suppose not?"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Damn, where could we possibly find a couple of superhumanly tall and strong people who could tackle such a task?!?"<</Dialogue>><br><br>
+You say, faking a stretching yawn, pulling your arm in a huge flex that displays your mountainous biceps, which you look at with surprise.<br><br>
+<<Dialogue "player" "You">>"Oh, wait! I think I might be stronger than pretty anyone we could possibly hire."<</Dialogue>><br><br>
+<</if>>
+<<Dialogue "Elena" "Elena">>"You’d help me with that?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, seeing all the stuff you already set up outside? I kinda think you could probably manage on your own. But I’d actually love to help."<</Dialogue>><br><br>
+Elena is shocked. You can see her little gears going off in her head, as she seems to ponder the viability. It’s so endearing, and it makes you feel warm and fuzzy inside.<br><br>
+<<Dialogue "Elena" "Elena">>"Yeah, I think I can afford the materials. Would it be okay if I called you when they arrive and we could, maybe, devote a weekend to work on that?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I don’t think I’d ever skip on an excuse to spend a weekend with you."<</Dialogue>><br><br>
+Again, Elena blushes.<br><br>
+<<if $shyConfident > 1>>
+<<Dialogue "player" "You">>"Besides, I’d never pass an opportunity to show off my muscles AND appreciate yours, getting all sweaty and pumped with some work clothes - sounds like a literal dream... AND I’d get a workout on top of that! Win-win, if you ask me!"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Just the thought of seeing you working, lifting heavy stuff in the yard in construction clothes? Phew!"<</Dialogue>><br><br>
+You say under your breath, fanning yourself.
+<</if>>
+Elena’s excitement is now growing. Not wanting to ruin the moment, you figure you should give her some time to process all of that. So you look at your phone and mention it’s getting late, as you point towards the door. Elena, however, stops you by grabbing your hand, as she tells you to wait before she rushes to the fridge.<br><br>
+She pulls out a small individual portion of tiramisu in a plastic container, which she hands to you.<br><br>
+<<Dialogue "Elena" "Elena">>"I made some for dessert. It would be a pity to let it go to waste..."<</Dialogue>><br><br>
+With a sigh, you give Elena a peck on the cheek and softly whisper a thank you, stepping backwards towards the door with the treat in hand. Elena just stands there, frozen with a hand over her cheek where you kissed her, mouth agape and eyes wide open.<br><br>
+<<Dialogue "player" "You">>"I’ll be waiting for that call!"<</Dialogue>><br><br>
+And you walk off into the night, strangely excited with the prospect of a construction job.
+<<link "Go home" "Home">><</link>>

@@ -1,0 +1,31 @@
+:: Date Accept {"position":"750,3500","size":"100,100"}
+<<addMinutes 600>><<set $emmaDateProgress to 0>><<set $emmaDateFlirty to 0>><<set $emmaDateProfessional to 0>><<set $emmaDateFriendly to 0>>A look of relief washes over Emma's face as you acquiesce to her request.
+
+<<Dialogue "Emma" "Emma">> "Thank goodness."<</Dialogue>>
+She turns her attention back to her computer, clicking on a few things and tapping away at the keyboard.
+
+<<Dialogue "Emma" "Emma">> "I'm printing off an extra copy of the most important information now. If you could, please grab it and come back here so we can get down to business."<</Dialogue>>
+The rest of the day flies by as you and Emma buckle down, crunch numbers, and prepare a presentation. You dutifully rush between her office, your computer, and the office printer even after everyone else has left the building. Finally, hours after you should have been home, Emma heaves a sigh of relief and leans back in her desk chair.
+
+<<Dialogue "Emma" "Emma">> "And with that. I believe we are done. Thank you again, <<print $playerFirstName>>. Without your help, I probably would have worked straight through the weekend to finish this."<</Dialogue>>
+As she speaks, you turn to the office window. You can see that the sun has almost completely set. The very last purple-orange tinges of dusk are just poking up above the horizon.
+
+<<Dialogue "player" "You">> "Yeah. It looks like we both missed out on our evenings. Still, no regrets."<</Dialogue>>
+Only as you finish saying this, your tummy rumbles, and you realize how hungry you are. The inevitable result of working through dinnertime, apparently. As Emma rises from her desk, you can hear her give a quiet grunt and put a hand to her abdomen. Apparently, she is in full agreement.
+
+<<Dialogue "player" "You">> "Well, we both busted our ass to get this finished. Why don't we celebrate? We could go out and grab some dinner together, maybe?"<</Dialogue>>
+She cocks an eyebrow at you, her face quickly adopting a familiar stern expression.
+
+<<Dialogue "Emma" "Emma">> "Miss <<print $playerLastName>>, you would do well to remember that fraternizing with your superiors is frowned upon, for obvious reasons. While I am immensely grateful for the help you gave me today, I should hope you aren't entertaining any silly ideas."<</Dialogue>>
+
+<<Dialogue "player" "You">> "Who said anything about fraternizing? I just want to spend some quality time with my awesome boss!"<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">> "Let me be perfectly clear here: I take my commitment to this job very seriously, and courtship with other employees is not something I am willing to entertain - it would compromise my responsibilities in a way I am not at all comfortable with."<</Dialogue>>
+
+You get the impression Emma is speaking from experience - there was a bitter edge when she said that. It gives you an uneasy sense of dread, but at the same time, it also stirs something inside of you, wanting to reach out for the person you feel she is shielding inside.
+
+[[No, not at all! This is just dinner among coworkers. You could consider it a bonding activity.|Professional Start]]
+[[Why does it have to be romantic? I consider you a friend by now. I just wanted to get a chance to know you better.|Friendly Start]]
+[[If you don’t want it to be romantic, it doesn’t have to be. But… doesn’t it sound exciting?|Flirty Start]]
+
+

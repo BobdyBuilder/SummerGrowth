@@ -1,0 +1,124 @@
+:: StoryCaption [header nobr] {"position":"400,700","size":"100,100"}
+<<if ndef $shyConfident>>
+  <<script>>
+	State.variables.shyConfident = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.carefreeCarefull = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+	State.variables.submissiveDominant = Math.floor(Math.random() * (3 - -3 + 1)) + -3;
+  <</script>>
+  <<set _debugging to true>>
+<</if>>
+
+<<set document.title = "Summer Growth">>
+
+<<if $gameStarted is true>>
+<<include "FrameUpdate" "hide">>
+<<if !tags().includes('noEventTrigger')>>
+<<include "EventManager">>
+<<include "EndingManager">>
+<</if>>
+
+<<set $tags to tags()>>
+
+<<liveblock>>
+    <<script>>
+        if (setup.isOutfitTight()) {
+            const tightClothesSlots = setup.getTightOutfitClothesArray().map(clothes => clothes.slot);
+            State.temporary.outfitTightWarning = 'These clothes are too tight: ' + tightClothesSlots.join(' ');
+        }
+    
+        if (setup.isOutfitNude()) {
+            State.temporary.outfitNudeWarning = `You're practically nude! Get some clothes on! You're missing the following: ` + setup.getNudeOutfitSlots().join(' ');
+        }
+    <</script>>
+    
+    <div class="warning"> 
+        <<if setup.isOutfitTight()>>
+            <img src="https://i.imgur.com/IIR3hEI.png" @title="_outfitTightWarning">
+        <</if>>
+        <<if setup.isOutfitNude()>>
+            <img src="https://i.imgur.com/HmBr1GW.png" @title="_outfitNudeWarning"> 
+        <</if>>
+    </div>
+<</liveblock>>
+
+<<set _lactationWarning to "Your breasts are getting full.">>
+<<if $lactationUnlocked>>
+	<<if $breastsFullness == "overflowing">>
+    	<p id="warning"><img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Icons/LactationOverflowingIcon.png" @title="_lactationWarning"> 
+            </p> 
+    <<elseif $breastsFullness == "full">>
+		<p id="warning"><img src="https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Icons/LactationFullIcon.png" @title="_lactationWarning"> 
+            </p> 
+	<</if>>
+<</if>>
+
+<div id="log">
+<table id="logTable">
+  <tr>
+    <th>Notes</th>
+    <th><<if $log.length > 0>><<link "Clear log">>	
+			<<for _i to 0; _i < $log.length; _i ++>>
+			  <<capture _i>>
+				<<set $deletedLog.push($log[_i])>>
+			  <</capture>>
+			<</for>>
+			<<set $log to []>><<goto $return>>	
+			<</link>><</if>></th>
+  </tr>
+<<for _j to 0; _j < $log.length; _j ++>>
+		<<capture _j>>
+		<tr>
+    		<td>[<<print $log[_j].time>>] <<print $log[_j].message>></td>
+    		<td><<link "X">>
+			<<set $deletedLog.push($log[_j])>>
+			<<run $log.deleteAt(_j)>><<goto $return>>		
+			<</link>></td>
+	    	
+  		</tr>
+		<</capture>>
+<</for>>
+
+</table>
+</div>
+<br>
+
+<table id="motivationExhaustionTable">
+  <tr>
+    <th>
+		<div id="motivationBarContainer" class="barContainer">
+			<div id="motivation" class="bar"></div>
+			<div id="motivationChange" class="bar"></div>
+		</div>
+	</th>
+    <th>
+	 	<div id="exhaustionBarContainer" class="barContainer">
+			<div id="exhaustion" class="bar"></div>
+			<div id="exhaustionBarFloor" class="barFloor"></div>
+			<div id="exhaustionChange" class="bar"></div>
+			<div id="exhaustionBarFloorChange" class="bar"></div>
+		</div>
+	</th>
+  </tr> 
+</table>
+
+<<script>>
+			var maxMotivation = State.variables.maxMotivation;
+			var currentMotivation = State.variables.motivation;
+	
+			var maxExhaustion = State.variables.maxExhaustion;
+			var currentminimumExhaustion = State.variables.minimumExhaustion;
+			var currentExhaustion = State.variables.exhaustion;
+		document.getElementById("exhaustion").style.height = Math.round((currentExhaustion / maxExhaustion) * 100) + "%";
+		document.getElementById("motivation").style.height = Math.round((currentMotivation/ maxMotivation) * 100) + "%";	
+		document.getElementById("exhaustionBarFloor").style.height = Math.round((currentminimumExhaustion / maxExhaustion) * 100) + "%";
+<</script>>
+
+<br>
+Money: $<<live Math.round($money)>>
+<br>
+<<live $gameDate.toLocaleString("en-US", { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' } )>>
+
+<<live $gameDate.toLocaleTimeString('en-GB')>>
+<</if>>
+
+

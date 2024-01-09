@@ -1,0 +1,33 @@
+:: instantFatGain [noReturn] {"position":"650,1800","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "It almost comes out in a glob, but DAMN, is this awesome! It’s the most buttery cream or most creamy butter you ever tasted, and despite feeling yourself fattening up, this stuff is just TOO GOOD to pass!">>
+
+<<set _rand to random(0,2)>>
+
+<<if _rand >= 1>>
+<<set _message += " You keep chugging it, letting it drip down your chin, staining your clothing. This stuff is the best meal you ever had!">>
+<<addFatSlow 2>>
+<<set $fat += 2>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " Finally, you let out a loud burp.">>
+
+<<addFatSlow 2>>
+<<set $fat += 2>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("FA-GAIN 23A");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

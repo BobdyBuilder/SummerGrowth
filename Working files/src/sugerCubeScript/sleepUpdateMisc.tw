@@ -1,0 +1,21 @@
+:: sleepUpdateMisc [nobr] {"position":"500,200","size":"100,100"}
+<<if $tongue > 1 && $postSleepTongueDialog1 is false>>
+    <<addTrigger "postSleepTongueDialog1" false false>>
+    <<set $postSleepTongueDialog1 to true>>
+<<elseif $tongue > 2 && $postSleepTongueDialog1 is true && $postSleepTongueDialog2 is false>>
+    <<addTrigger "postSleepTongueDialog2" false false>>
+    <<set $postSleepTongueDialog1 to true>>
+<<elseif $tongue > 3 && $postSleepTongueDialog2 is true && $postSleepTongueDialog3 is false>>
+    <<addTrigger "postSleepTongueDialog3" false false>>
+    <<set $postSleepTongueDialog3 to true>>
+<<elseif $tongue > 4 && $postSleepTongueDialog3 is true && $postSleepTongueDialog4 is false>>
+    <<addTrigger "postSleepTongueDialog4" false false>>
+    <<set $postSleepTongueDialog4 to true>>
+<<elseif $tongue > 5 && $postSleepTongueDialog4 is true && $postSleepTongueDialog5 is false>>
+    <<addTrigger "postSleepTongueDialog5" false false>>
+    <<set $postSleepTongueDialog5 to true>>
+<<elseif $postSleepTongueDialog5 is true>>
+    <<addTrigger "postSleepTongueRepeat" false true>>
+<</if>>
+
+

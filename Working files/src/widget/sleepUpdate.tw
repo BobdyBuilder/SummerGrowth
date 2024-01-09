@@ -1,0 +1,42 @@
+:: sleepUpdate [widget] {"position":"600,100","size":"100,100"}
+<<nobr>>
+<<widget "sleepUpdate">>
+
+/* Tiredness */
+<<set $exhaustion += $tiredness>>
+<<set $tiredness *= 0.5>> 
+
+<<include "sleepUpdateHeight">>
+
+
+/* Diet */
+/* Diet */
+<span id="foodHidden" style="visibility: hidden;"><<getMeasurement "weight" false>></span>
+
+<<set $foodCostMod to ($weight /93)>>
+<<set $money -= $foodCost>>
+
+<<set $muscleGrowthMaxDiet to $currentDiet.muscleGain>>
+<<set $fat += $currentDiet.fatGain>>
+<<set $fat += $fatStore>>
+<<set $fatStore *= 0.5>>
+<<set $fat to Math.clamp($fat, 0, 99999)>>
+
+<<if $foodCostMod > 1.2 && $foodCost > 0>>
+	<<addToLog "<b>You're eating quite a lot more lately. You spent around $<<print Math.round($foodCost)>> on food today alone!</b>">>
+<</if>>
+
+<<include "sleepUpdateMuscle">>
+
+<<include "sleepUpdateBreasts">>
+
+<<include "sleepUpdateDick">>
+
+<<include "sleepUpdateMisc">>
+
+<<include "temporaryPersonalityUpdate">>
+
+<</widget>>
+<</nobr>>
+
+

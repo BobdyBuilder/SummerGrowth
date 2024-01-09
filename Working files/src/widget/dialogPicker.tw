@@ -1,0 +1,134 @@
+:: dialogPicker [widget nobr] {"position":"325,1850","size":"100,100"}
+<<widget dialogPicker>>
+/* $args[0]: The character that needs the Dialog. */
+
+<<script>>console.log(setup);<</script>>
+<<set _dialog to "">>
+<<set _listUsed to "">>
+<<set _indexUsed to 0>>
+
+/* Get's all the various tables of the character. */
+<<set _triggerName to "$" + $args[0] + "Triggers">>
+<<set _triggers to State.getVar(_triggerName)>>
+<<set _usedTriggerName to "$" + $args[0] + "UsedTriggers">>
+<<set _usedTriggers to State.getVar(_usedTriggerName)>>
+
+
+
+<<set _triggerStrings to []>>
+<<for _i to 0; _i < _triggers.length; _i ++>>
+  <<capture _i>>
+	<<if setup.bodytypes.indexOf(_triggers[_i].trigger) is -1>>
+		<<set _triggerStrings.push(_triggers[_i].trigger)>>
+	<<else>>		
+		<<if _triggers[_i].trigger is $bodyType>>
+			<<set _triggerStrings.push(_triggers[_i].trigger)>>
+		<<else>>
+			/* Done to keep various lists in sync. */ 
+			<<set _triggerStrings.push("blocked")>>
+			<<script>>console.log("DialogPicker: skipped dialog because bodytype is no longer relevant");<</script>>
+		<</if>>
+	<</if>>
+  <</capture>>
+<</for>>
+
+<<script>>console.log(State.temporary);<</script>>
+
+/* Handles immediate logic. */ 
+<<set _immediatesName to "setup." + $args[0] + "Immediates">>
+<<set _immediates to State.getVar(_immediatesName)>>
+<<if _immediates.length > 0>>
+<<for _i to 0; _i < _immediates.length; _i ++>>
+  <<capture _i>>
+	<<if _triggerStrings.includes(_immediates[_i].trigger) and 
+		_usedTriggers.includes(_immediates[_i].trigger) is false>>
+		<<set _dialog to _immediates[_i].string>>
+		<<set _triggerIndex to _triggerStrings.indexOf(_immediates[_i].trigger)>>
+		<<set _listUsed to "_immediates">>
+		<<set _indexUsed to _i>>
+	 	<<break>>
+	<</if>>
+  <</capture>>
+<</for>>
+<</if>>
+
+<<set _possibleRepeatables to 0>>
+
+/* Handles Responses logic. */
+<<if _dialog is "">>
+<<set _responsesName to "setup." + $args[0] + "Responses">>
+<<set _responses to State.getVar(_responsesName)>>
+<<set _possibleResponces to []>>
+<<for _i to 0; _i < _responses.length; _i ++>>
+  <<capture _i>>
+	<<set _triggerUsedDebug to _responses[_i]>>
+	<<if _triggerStrings.includes(_responses[_i].trigger) and 
+		_usedTriggers.includes(_responses[_i].trigger) is false>>
+	  <<set _possibleResponces.push(_responses[_i])>>
+	  
+	<<set _triggerIndex to _triggerStrings.indexOf(_responses[_i].trigger)>>
+	<<if _triggers[_triggerIndex].repeatable>>
+		<<set _possibleRepeatables += 1>>
+	<</if>>
+	<</if>>
+  <</capture>>
+<</for>>
+<<if _possibleResponces.length > 0>>
+
+	<<set _randomResponceInt to random(0, (_possibleResponces.length -1))>>
+	<<set _randomResponce to _possibleResponces[_randomResponceInt]>>
+	<<set _triggerIndex to _triggerStrings.indexOf(_randomResponce.trigger)>>
+	<<set _dialog to _randomResponce.string>>
+	<<set _listUsed to "responses">>
+	<<set _indexUsed to _randomResponceInt>>
+	<<set _responseUsed to true>>
+<</if>>
+<</if>>
+
+<<set _fullUsedTrigger to _triggers[_triggerIndex]>>
+<<if _dialog != "">>  
+  <<if _fullUsedTrigger.repeatable is false>>
+  	<<set _usedTriggers.push(_fullUsedTrigger)>>
+	<<run _triggers.deleteAt(_triggerIndex)>>
+  <</if>>
+  <<run State.setVar(_triggerName, _triggers)>>
+<</if>>
+
+<<set _fillerName to "setup." + $args[0] + "Filler">>
+<<set _filler to State.getVar(_fillerName)>>
+
+<<if _responseUsed>>
+	<<if _fullUsedTrigger.repeatable>>
+	<<if _filler.length > 0>>
+	<<set _randFiller to random(0,_possibleRepeatables)>>
+	<<if _randFiller is 0>>
+		<<set _dialog to "">>
+	<</if>>
+	<</if>>
+	<</if>>
+<</if>>
+
+<<if _dialog is "">>
+
+<<set _rand to random(0, (_filler.length -1))>>
+<<set _dialog to _filler[_rand]>>
+	<<set _listUsed to "filler">>
+	<<set _indexUsed to _rand>>
+<</if>>
+
+<<print _dialog>>
+<br><br>
+
+<<script>>
+console.log("Used " + State.temporary.listUsed + " " + State.temporary.indexUsed);
+<</script>>
+
+<<set _name to $args[0]>>
+<<script>>console.log(State.temporary.name);<</script>>
+
+<<if $args[0] != "PostSleep">>
+<<updateNPCLastSeen _name>>
+<</if>>
+<</widget>>
+
+

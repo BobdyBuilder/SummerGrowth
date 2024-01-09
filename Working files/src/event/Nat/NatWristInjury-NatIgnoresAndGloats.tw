@@ -1,0 +1,13 @@
+:: NatWristInjury-NatIgnoresAndGloats [nobr] {"position":"0,0","size":"100,100"}
+Nat is only going to end up hurting himself, so you decide to back down. You remove half of the weight off the barbell as a sign of truce, and you even pretend it feels heavier than it actually does, as if you are at your limit, even though you probably could have managed the original setting (and probably even a bit more). Still, you worry about <<rivalMy>> injury, and you figure it's up to you to be the figurative “bigger man”. The irony of that concept makes you chuckle discreetly, since you don't want Nat to feel insulted.<br><br>
+When Nat returns to <<rivalMy>> set, <<rivalI>> announces loudly that <<rivalI>> is going back to <<rivalMy>> previous weight, but you notice that <<rivalI>> actually resets it to <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>>. Alright, champ, I won't tell anyone if you don't.<br><br>
+<<RivalI>> still struggles with the weights, but at least <<rivalI>> seems to have SOME idea of <<rivalMy>> limit, which brings you a bit of relief - it would be disastrous if his injury got worse at this point, given that the bodybuilding competition is coming up.<br><br>
+As <<rivalI>> finishes the set, <<rivalI>> starts unloading the weight for you (does <<rivalI>> think you didn't notice <<rivalI>> was exaggerating about the weight <<rivalI>> proclaimed so loudly to everyone?). As you go back to your set, <<rivalI>> starts pulling a very flamboyant double-biceps pose, followed by several other classic bodybuilding poses. True, <<rivalMy>> biceps DO look amazing, once again <<rivalMy>> gift of perfect genetics granting <<rivalMy>> biceps perfect insertion - and granting <<rivalMe>> a perfect mix of peak and mass that IS enviable. You roll your eyes as you find yourself just tensing your arms artificially to give the curls SOME challenge. But Nat keeps putting on a show, and soon <<rivalMy>> entourage is back. Great…<br><br>
+As you finish the non-exercise, you start putting the <<if $measurementSystem == 'metric'>>40 kilograms<<else>>90 pounds<</if>> back… but Nat interrupts you, correcting that it's supposed to be <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>
+<<Dialogue "player" "You">>"Uh, are you sure about that?"<</Dialogue>><br><br>
+Nat gives a dismissive nod, as <<rivalI>> waits for you to increase the weight.
+
+<<link "That's how you want to play? Go ahead, then, see if I care!" "NatWristInjury-NatBlamesProtagonist">><</link>>
+<<link "Nat, we had enough fun, but you need to take it easy now." "NatWristInjury-TellTakeItEasy">><</link>>
+
+

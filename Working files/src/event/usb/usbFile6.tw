@@ -1,0 +1,22 @@
+:: usbFile6 {"position":"1900,1300","size":"100,100"}
+This file opens quickly and you're presented with a handwritten note. The scanned paper comes from a doctor’s office, describing a full body review of someone named Toshi. By now, you got a good idea of who this might be.
+
+<br>'Medical examination, May 4th, patient; Toshi [DATA CORRUPTED].</b>
+
+Though Toshi shows a musculature and height increase that medical science cannot explain, his health doesn't seem to have been impacted at all. His cardiovascular system seems to have adapted incredibly well to the physiological expansion, and even the stress on joints caused by the huge increase in weight seems to be compensated by unexplained reinforced durability. It's downright remarkable how, despite the logical conclusion that Toshi SHOULD have all kind of side effects from excessive growth, there are none our team can discern. His vitals are fine, and although his blood panel is all over the place, somehow his metabolic functions appear to be just fine. His diet, though extreme, also corresponds to someone of his new size.
+
+As his situation is unprecedented, and well beyond the experience of a general practitioner. Having a man show up, nearly <<if $measurementSystem == 'metric'>>215 centimeters<<else>>7 feet<</if>> tall and more muscular than any bodybuilder on record isn't something we normally handle. Especially if that man used to be of average height and on the thin side. 
+
+One more troubling thing, though, was Toshi's reaction to his changes. One would expect episodes of body dysmorphia, or any manifestation of stress. Yet the impression I got from him was more... what the youth these days would classify as 'stoked'. He was overly excited, and while I'm happy the changes did not cause him concern, his reaction to my suggestion of having his changes studied by a more experienced medical team did mark a change in his behavior. He immediately became evasive in his answers. He is known for being very scatterbrained. And though I've known him since he was a small boy, this new behavior does worry me.  His personality has changed dramatically, and though he does not seem to be aware of it, this raises questions about psychological implications.
+
+From what I've observed, his growth was not spontaneous, and Toshi is aware of the trigger, somehow. Whatever it is, it also seems to have affected his personality. Though the changes so far could be perceived as positive, I'm worried about him. He's never been this secretive.
+
+<b>END OF FILE</b>
+
+So, Toshi had gone to a medical practitioner and had himself reviewed. This feels odd to you; this matches what has happened to your body so far, and reading that those odd drinks could even change your personality... it does make you wonder who YOU even are, or who you want to be. As you take some time to sit down and ponder all of this, you wonder why you are still consuming that shit. But on the other hand... you just read a written record that your health is fine. And who else in the world even has this opportunity? 
+
+Well, one person. Toshi.  
+
+<<link "Continue with this later" "pcUsbHacking">><</link>>
+
+

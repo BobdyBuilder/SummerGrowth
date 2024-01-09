@@ -1,0 +1,32 @@
+:: instantBodyShrink [noReturn] {"position":"550,2000","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "Well, at least it's a small bottle? You can down it in a single sip, barely any liquid in it. The drink goes down smoothly but feels incredibly heavy on your stomach. So heavy, in fact, that you get the feeling your entire body just sinks in a bit.">>
+<<set $height -= 5>>
+
+<<if _rand >= 1>>
+<<set _message += " The feeling doesn't go down, your body just feeling compressed somehow.">>
+<<set $muscle += 2>>
+<<set $fat += 2>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " Something else you notice is just how stiff your fingers and muscles feel; almost like you had worked on them too hard or something. Odd.">>
+<<addMuscleSlow 2>>
+<<addFatSlow 2>>
+
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("B-shrink");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

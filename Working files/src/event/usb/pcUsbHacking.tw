@@ -1,0 +1,405 @@
+:: pcUsbHacking [nobr] {"position":"1800,1100","size":"100,100"}
+<<script>>
+    if (State.variables.usbPasswordUnlocked == null) {
+        State.variables.usbPasswordUnlocked = [false, false, false, false, false, false, false];
+    }
+<</script>>
+
+<<if $hackingUnlocked == undefined>>
+<<set $hackingUnlocked to true>>
+<<set $hackingProgress to 0>>
+Eagerly, you plug the USB stick into your old PC, dropping the box with the stuff you got from... Toshi, was it? It seems the old occupant of this room had plenty of stuff, and who knows what this little treasure trove holds! Your PC is frustratingly slow, making you tap impatiently. Normally when you plug in a hard drive or something, you get the results instantly, but not this time. A new window does pop up eventually, revealing a handful of files. Looking over the names... JACKPOT! On the screen, you see the following:
+<br><br>
+
+• Selfie.png
+<br>
+• Experiment_log_01.txt
+<br>
+• Selfie_2.png
+<br>
+• Experiment_log_02.txt
+<br>
+• Inventory.txt
+<br>
+• Doctors note.txt
+<br>
+• Chemistry notes.docx
+<br><br>
+
+You decide to go for the first exciting one; Experiment_log_01.txt. With a pounding heart you double-click on it to open it, and... what?!? A small prompt the likes of which you’ve never seen before, requesting a password. Password?!? What kind of password? Who the fuck password-protects files on an unprotected USB key? Out of frustration, your hand slams against the desk, <<if $muscle > 60>>cracking the wood. You're lucky the table is still able to support your PC but you should avoid such displays of rage.<<elseif $muscle > 40>> which shakes as your fist hits it, the wood groaning menacingly. Right, newfound strength... you should keep that in mind...<<else>> barely missing your keyboard.<</if>>
+
+<br><br>
+
+Well, here you are. Assuming he picked secure passwords, then it should be next to impossible to just guess them. But come on, you're no quitter. Those file names... those do NOT look like the kind of names a safety-minded individual would use. So, 7 files... 7 passwords. Time to do some research.
+
+<br><br>
+
+<<link "continue" "pcUsbHacking">><</link>>
+<<else>><<nobr>>
+
+<<set _selfiePassword to "Enter Password">>
+<<set _log1Password to "Enter Password">>
+<<set _selfie2Password to "Enter Password">>
+<<set _log2Password to "Enter Password">>
+<<set _inventoryPassword to "Enter Password">>
+<<set _doctorNotePassword to "Enter Password">>
+<<set _notesPassword to "Enter Password">>
+
+<</nobr>>7 files... 7 passwords. Let's go.
+
+<br><br>
+
+<<if $usbPasswordUnlocked[0] != true>>
+Selfie.png password:
+<br>
+<<textbox "_selfiePassword" _selfiePassword autofocus>>
+<<button "Check password">>
+	<<if _selfiePassword == "awesomeFLEX">>
+    <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("You're in!");
+          new Wikifier(dialog, "It took a LOT of guesses, but here you are! The password turns out to be... awesomeFLEX. Well, that says something about the frame of mind of the person that made it. But for now, let's ignore that, and see what this baby holds!");
+          Dialog.open();
+          }
+          <</script>>
+		<<replace "#result1">>Got it!
+        <<set $usbPasswordUnlocked[0] to true>>
+        <<link "View file" "usbFile1">><</link>><</replace>>
+	<<else>>
+		<<replace "#result1">>Nope, that’s not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result1"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[0] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("You're in!");
+          new Wikifier(dialog, "It took a LOT of guesses, but here you are! The password turns out to be... awesomeFLEX. Well, that says something about the frame of mind of the person that made it. But for now, let's ignore that, and see what this baby holds!");
+          Dialog.open();
+          }
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>Selfie.png.txt</b>
+<br>
+	<<link "View file" "usbFile1">><</link>>
+<</if>>
+
+<br><br>
+
+<<if $usbPasswordUnlocked[1] != true>>
+Experiment_log_01.txt password:
+<br>
+<<textbox "_log1Password" _log1Password autofocus>>
+<<button "Check password">>
+	<<if _log1Password == "assw0rd">>
+		<<replace "#result2">>Got it!
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("You're in!");
+          new Wikifier(dialog, "Using a few nifty tutorials online, you managed to get the password. And you can't believe what the password is just assw0rd. Whoever made these is either trolling you, an idiot, or a genius. Or perhaps all of the above, you frankly can’t tell at this point.");
+          Dialog.open();
+          }
+          <</script>>
+        <<set $usbPasswordUnlocked[1] to true>>
+        <<link "View file" "usbFile2">><</link>><</replace>>
+	<<else>>
+		<<replace "#result2">>Nope, that’s not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result2"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[1] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("You're in!");
+          new Wikifier(dialog, "Using a few nifty tutorials online, you managed to get the password. And you can't believe what the password is just assw0rd. Whoever made these is either trolling you, an idiot, or a genius. Or perhaps all of the above, you frankly can’t tell at this point.");
+          Dialog.open();
+          }
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>Experiment_log_01.txt</b>
+<br>
+	<<link "View file" "usbFile2">><</link>>
+<</if>>
+
+<br><br>
+
+<<if $usbPasswordUnlocked[2] != true>>
+selfie2.png password:
+<br>
+<<textbox "_selfie2Password" _selfie2Password autofocus>>
+<<button "Check password">>
+	<<if _selfie2Password == "bigger">>
+		<<replace "#result3">>Got it!
+        <<script>>
+          if (Dialog.isOpen() == false) {
+    var dialog = Dialog.setup("You're in!");
+    new Wikifier(dialog, "You keep on insisting, and after a few attempts... you're in! You finally guess the password, which turned out to be 'bigger'. It’s the kind of string that is both really easy and super hard to guess. Well, time to see what this baby holds!");
+    Dialog.open();
+}
+
+          <</script>>
+        <<set $usbPasswordUnlocked[2] to true>>
+        <<link "View file" "usbFile3">><</link>><</replace>>
+	<<else>>
+		<<replace "#result3">>Nope, thats not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result3"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[2] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+    var dialog = Dialog.setup("You're in!");
+    new Wikifier(dialog, "You keep on insisting, and after a few attempts... you're in! You finally guess the password, which turned out to be 'bigger'. It’s the kind of string that is both really easy and super hard to guess. Well, time to see what this baby holds!");
+    Dialog.open();
+}
+
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>selfie2.png</b>
+<br>
+	<<link "View file" "usbFile3">><</link>>
+<</if>>
+
+
+<br><br>
+
+<<if $usbPasswordUnlocked[3] != true>>
+experiment_log_2.txt password:
+<br>
+<<textbox "_log2Password" _log2Password autofocus>>
+<<button "Check password">>
+	<<if _log2Password == "assword">>
+		<<replace "#result4">>Got it!
+        <<script>>
+          if (Dialog.isOpen() == false) {
+    var dialog = Dialog.setup("You're in!");
+    new Wikifier(dialog, "And that’s one file down! The password was... assword. You don't know whether to laugh or groan. Perhaps both.");
+    Dialog.open();
+}
+
+          <</script>>
+        <<set $usbPasswordUnlocked[3] to true>>
+        <<link "View file" "usbFile4">><</link>><</replace>>
+	<<else>>
+		<<replace "#result4">>Nope, that’s not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result4"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[3] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+				var dialog = Dialog.setup("You're in!");
+				new Wikifier(dialog, "And that’s one file down! The password was... assword. You don't know whether to laugh or groan. Perhaps both.");
+				Dialog.open();
+			}
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>experiment_log_2.txt</b>
+<br>
+	<<link "View file" "usbFile4">><</link>>
+<</if>>
+
+<br><br>
+
+<<if $usbPasswordUnlocked[4] != true>>
+inventory.txt password:
+<br>
+<<textbox "_inventoryPassword" _inventoryPassword autofocus>>
+<<button "Check password">>
+	<<if _inventoryPassword == "admin">>
+		<<replace "#result5">>Got it!
+        <<script>>
+          if (Dialog.isOpen() == false) {
+    var dialog = Dialog.setup("You're in!");
+    new Wikifier(dialog, "And of course the password is admin. This guy protected his files, and then chose the most... obvious password possible. Well, let's dig in!");
+    Dialog.open();
+}
+
+          <</script>>
+        <<set $usbPasswordUnlocked[4] to true>>
+        <<link "View file" "usbFile5">><</link>><</replace>>
+	<<else>>
+		<<replace "#result5">>Nope, that’s not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result5"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[4] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+				var dialog = Dialog.setup("You're in!");
+				new Wikifier(dialog, " And of course the password is admin. This guy protected his files, and then chose the most... obvious password possible. Well, let's dig in!");
+				Dialog.open();
+			}
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>inventory.txt</b>
+<br>
+	<<link "View file" "usbFile5">><</link>>
+<</if>>
+
+<br><br>
+
+<<if $usbPasswordUnlocked[5] != true>>
+Doctors note.txt password:
+<br>
+<<textbox "_doctorNotePassword" _doctorNotePassword autofocus>>
+<<button "Check password">>
+	<<if _doctorNotePassword == "123">>
+		<<replace "#result6">>Got it!
+        <<script>>
+          if (Dialog.isOpen() == false) {
+    var dialog = Dialog.setup("You're in!");
+    new Wikifier(dialog, "... These are getting lazier and lazier. Did he just run out of passwords?");
+    Dialog.open();
+}
+
+          <</script>>
+        <<set $usbPasswordUnlocked[5] to true>>
+        <<link "View file" "usbFile6">><</link>><</replace>>
+	<<else>>
+		<<replace "#result6">>Nope, that’s not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result6"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[5] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+				var dialog = Dialog.setup("You're in!");
+				new Wikifier(dialog, "... These are getting lazier and lazier. Did he just run out of passwords?");
+				Dialog.open();
+			}
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>Doctors note.txt</b>
+<br>
+	<<link "View file" "usbFile6">><</link>>
+<</if>>
+
+<br><br>
+
+<<if $usbPasswordUnlocked[6] != true>>
+Chemistry notes.docx password:
+<br>
+<<textbox "_notesPassword" _notesPassword autofocus>>
+<<button "Check password">>
+	<<if _notesPassword == "qwerty123">>
+		<<replace "#result7">>Got it!
+        <<script>>
+          if (Dialog.isOpen() == false) {
+    var dialog = Dialog.setup("You're in!");
+    new Wikifier(dialog, "You got it! And this is a big file, let's see what it holds!");
+    Dialog.open();
+}
+
+          <</script>>
+        <<set $usbPasswordUnlocked[6] to true>>
+        <<link "View file" "usbFile7">><</link>><</replace>>
+	<<else>>
+		<<replace "#result7">>Nope, that’s not it...<</replace>>
+	<</if>>
+<</button>>
+<br>
+<span id="result7"></span>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "try to hack it" "pcUsbHacking" exhaustion:$skillExhaustionCost time:60>>
+	<<set $hackingProgress += Math.random() * (($carefreeCarefull * 2) + 20)>>
+	<<if $hackingProgress > 50>>
+    	<<set $hackingProgress to 0>>
+        <<set $usbPasswordUnlocked[6] to true>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+				var dialog = Dialog.setup("You're in!");
+				new Wikifier(dialog, "You got it! And this is a big file, let's see what it holds!");
+				Dialog.open();
+			}
+          <</script>>
+    <</if>>
+<</gameLink>>
+<<else>>
+You just don't have the energy to work on hacking it right now.
+<</if>>
+
+<<else>>
+<b>Chemistry notes.docx</b>
+<br>
+	<<link "View file" "usbFile7">><</link>>
+<</if>>
+
+<br><br>
+
+<<link "Continue with this later" "Bedroom">><</link>>
+<</if>>
+
+

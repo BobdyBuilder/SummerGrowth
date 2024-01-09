@@ -1,0 +1,43 @@
+:: addToLog [widget nobr] {"position":"2675,150","size":"100,100"}
+<<widget addToLog>>
+
+<<set _message to $args[0]>>
+<<set _time to $gameDate.toLocaleTimeString('en-GB')>>
+
+<<set _duplicate to false>>
+<<set _removed to false>>
+
+<<if $log.length == 0>>
+<<else>>
+  <<set _duplicate to false>>
+  <<for _i to 0; _i < $log.length; _i ++>>
+		  <<capture _i>>
+			  <<if $log[_i].message == _message>>
+				  <<set _duplicate to true>>
+			  <<break>>
+			  <</if>>
+		  <</capture>>
+  <</for>>
+<</if>>
+
+<<if _duplicate is false>>
+  <<for _i to 0; _i < $deletedLog.length; _i ++>>
+		  <<capture _i>>
+			  <<if $deletedLog[_i].message == _message>>
+				  <<set _removed to true>>
+			  <<break>>
+			  <</if>>
+		  <</capture>>
+  <</for>>
+<</if>>
+
+<<if _duplicate is false and _removed is false>>
+  <<set $log.push({
+  time: _time,
+  message: _message
+  })>>
+<</if>>
+
+<</widget>>
+
+

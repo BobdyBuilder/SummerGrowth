@@ -1,0 +1,54 @@
+:: Sleep {"position":"1125,700","size":"100,100"}
+Select how long you want to sleep. There is no point in sleeping less than 4 hours. <input type="number" id="wakeUpTime" name="wakeUpTime" min="4" max="24">. 
+<<nobr>>
+
+<<set _hoursOfSleep to 0>>
+<<set _sleepTime to 0>>
+<<set _sleepMotivationGain to 0>>
+<<set _sleepExhaustionGain to 0>>
+<<set _sleepMinimumExhaustionGain to 0>>
+
+<<timed 0s>><<script>>
+const timeBox = document.getElementById("wakeUpTime");
+timeBox.addEventListener('change', (event) => {
+	if(timeBox.value < 4)
+	{
+		timeBox.value = 4;
+	}
+	else if (timeBox.value > 24)
+	{
+		timeBox.value = 24;
+	}
+
+    const result = timeBox.value;
+
+    var hours = parseInt(timeBox.value);
+
+    State.temporary.hoursOfSleep = hours;
+
+    State.temporary.sleepTime = State.temporary.hoursOfSleep * 60;
+    State.temporary.sleepMinimumExhaustionGain = State.temporary.hoursOfSleep * -10;
+    $(document).trigger(":liveupdate");
+    var confirmButton = document.getElementById("confirmButton");
+    if (State.temporary.hoursOfSleep < 4) {
+        confirmShortSleepButton.style.display = 'inline';
+        confirmLongSleepButton.style.display = 'none';
+    } else {
+        confirmLongSleepButton.style.display = 'inline';
+        confirmShortSleepButton.style.display = 'none';
+    }
+});
+<</script>><</timed>>
+
+<<set _minimumExhaustionString to "minexhaustion:_sleepMinimumExhaustionGain">>
+<<set _exhaustionString to "exhaustion:_sleepMinimumExhaustionGain">>
+<<set _timeString to "time:_sleepTime">>
+
+
+
+<<liveblock>><span id="confirmShortSleepButton" style="display: none;"><<gameLink "confirm" "Home" _minimumExhaustionString _exhaustionString _timeString "sleep:true">><</gameLink>></span>
+
+<span id="confirmLongSleepButton" style="display: none;"><<gameLink "confirm" "postSleep" _minimumExhaustionString _exhaustionString _timeString "sleep:true">><</gameLink>></span><</liveblock>>
+
+<</nobr>>
+

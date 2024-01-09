@@ -1,0 +1,155 @@
+:: Cheats [noReturn noEventTrigger] {"position":"1700,200","size":"100,100"}
+<<link "Goto event testing" "eventTesting">><</link>>
+
+<table id="store">
+  <tr>
+  	<th></th>
+    <th></th>
+    <th></th>
+	<th></th>
+	<th></th>
+  </tr>		
+		<tr>
+			<td>Stats</td>
+		  <td><<link "Add motivation" "Cheats">><<set $motivation to 100>><</link>></td>
+		  <td><<link "remove exhaustion" "Cheats">><<set $exhaustion to 0>><</link>></td>
+		  <td><<link "add exhaustion" "Cheats">><<set $exhaustion to $maxExhaustion>><</link>></td>
+		  <td><<link "Add money" "Cheats">><<set $money += 500>><</link>></td>
+		</tr>
+		<tr>
+		<td>Muscle</td>
+		  <td><<link "Muscle +20" "Cheats">><<set $muscle += 20>><</link>></td>
+		  <td><<link "Muscle -20" "Cheats">><<set $muscle -= 20>><</link>></td>
+		  <td><<link "Muscle +5" "Cheats">><<set $muscle += 5>><</link>></td>
+		  <td><<link "Muscle -5" "Cheats">><<set $muscle -= 5>><</link>></td>
+		</tr>
+		<tr>
+		<td>Height</td>
+		  <td><<link "Height +100" "Cheats">><<set $height += 100>><</link>></td>
+		  <td><<link "Height +5" "Cheats">><<set $height += 5>><</link>></td>
+		  <td><<link "Height -5" "Cheats">><<set $height -= 5>><</link>></td>
+		  <td><<link "Height -100" "Cheats">><<set $height -= 100>><</link>></td>
+		</tr>
+		<tr>
+		<td>Fat</td>
+		  <td><<link "Fat +20" "Cheats">><<set $fat += 20>><</link>></td>
+		  <td><<link "Fat +5" "Cheats">><<set $fat += 5>><</link>></td>
+		  <td><<link "Fat -5" "Cheats">><<set $fat -= 5>><</link>></td>
+		  <td><<link "Fat -20" "Cheats">><<set $fat -= 20>><</link>></td>
+		</tr>
+		<tr>
+		<td>Bodyhair</td>
+		  <td><<link "Bodyhair +" "Cheats">><<set $bodyHairMod += 1>><</link>></td>
+		  <td><<link "Bodyhair +" "Cheats">><<set $bodyHairMod += 1>><</link>></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+		<tr>
+		<td>Breasts</td>
+		  <td><<link "Breasts +5" "Cheats">><<set $breasts += 5>><</link>></td>
+		  <td><<link "Breasts -5" "Cheats">><<set $breasts -= 5>><</link>></td>
+		  <td><<link "Breasts +20" "Cheats">><<set $breasts += 20>><</link>></td>
+		  <td><<link "Breasts -20" "Cheats">><<set $breasts -= 20>><</link>></td>
+		</tr>
+		<tr>
+		<td>Dick</td>
+		  <td><<link "dick +10" "Cheats">><<set $dick += 10>><</link>></td>
+		  <td><<link "dick +1" "Cheats">><<set $dick += 1>><</link>></td>
+		  <td><<link "dick -1" "Cheats">><<set $dick -= 1>><</link>></td>
+		  <td><<link "dick -10" "Cheats">><<set $dick -= 10>><</link>></td>
+		</tr>
+		<tr>
+		<td>Dick girth</td>
+		  <td><<link "girth +1" "Cheats">><<set $dickGirthMod += 0.1>><</link>></td>
+		  <td><<link "girth -1" "Cheats">><<set $dickGirthMod -= 0.1>><</link>></td>
+		  <td><<link "girth +5" "Cheats">><<set $dickGirthMod += 0.5>><</link>></td>
+		  <td><<link "girth +5" "Cheats">><<set $dickGirthMod += 0.5>><</link>></td>
+		</tr>
+		<tr>
+		<td>Dick Erection</td>
+		  <td><<link "erect +1" "Cheats">><<set $dickErectionMod += 0.1>><</link>></td>
+		  <td><<link "erect -1" "Cheats">><<set $dickErectionMod -= 0.1>><</link>></td>
+		  <td><<link "erect +5" "Cheats">><<set $dickErectionMod += 0.5>><</link>></td>
+		  <td><<link "erect -5" "Cheats">><<set $dickErectionMod -= 0.5>><</link>></td>
+		</tr>
+		<tr>
+		<td>Tongue</td>
+		  <td><<link "Tongue +1" "Cheats">><<set $tongueLenght += 1>><</link>></td>
+		  <td><<link "Tongue -1" "Cheats">><<set $tongueLenght -= 1>><</link>></td>
+		  <td><<link "Tongue +10" "Cheats">><<set $tongueLenght += 10>><</link>></td>
+		  <td><<link "Tongue -10" "Cheats">><<set $tongueLenght -= 10>><</link>></td>
+		</tr>
+		<tr>
+		<td>lips</td>
+		  <td><<link "Lips +1" "Cheats">><<set $lips += 1>><</link>></td>
+		  <td><<link "Lips -1" "Cheats">><<set $lips -= 1>><</link>></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+		<tr>
+		<td>Hips & Ass</td>
+		  <td><<link "hips +1" "Cheats">><<set $hips += 1>><</link>></td>
+		  <td><<link "hips -1" "Cheats">><<set $hips -= 1>><</link>></td>
+		  <td><<link "ass +1" "Cheats">><<set $ass += 1>><</link>></td>
+		  <td><<link "ass -1" "Cheats">><<set $ass -= 1>><</link>></td>
+		</tr>
+		<tr>
+		<td>personality</td>
+		  <td><<link "confidence +1" "Cheats">><<set $shyConfident += 1>><</link>></td>
+		  <td><<link "shyness + 1" "Cheats">><<set $shyConfident -= 1>><</link>></td>
+		  <td><<link "carefree +1" "Cheats">><<set $carefreeCarefull -= 1>><</link>></td>
+		  <td><<link "Carefull +1" "Cheats">><<set $carefreeCarefull += 1>><</link>></td>
+		</tr>
+		<tr>
+		<td>personality</td>
+		  <td><<link "submissive +1" "Cheats">><<set $submissiveDominant -= 1>><</link>></td>
+		  <td><<link "dominant + 1" "Cheats">><<set $submissiveDominant += 1>><</link>></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+		<tr>
+		<td>skills</td>
+		  <td><<link "working out" "Cheats">><<skillIncrease "Working out" 100>><</link>></td>
+		  <td><<link "book keeping" "Cheats">><<skillIncrease "Book keeping" 100>><</link>></td>
+		  <td><<link "refreshClothes" "Cheats">><<include "InitializeClothes">><</link>></td>
+		  <td></td>
+		</tr>
+		<tr>
+		<td>dates</td>
+		  <td><<link "johan first date" "johanDate1.1">><</link>></td>
+		  <td><<link "Trigger sewing tutorial" "Cheats">><<set $simonOpinion += 40>><</link>></td>
+		  <td><<link "add 10 fabric""Cheats">><<set $fabric += 10>><</link>></td>
+		  <td><<link "Elena first date" "ElenaDateStart">><</link>></td>
+		</tr>
+		<td>General</td>
+		  <td><<link "Reset stores" "Cheats">><<include "StoreRefresh">><</link>></td>
+		  <td><<link "Get the office job" "Cheats">><<set $job to true>><<set $jobOffice to true>><</link>><<link "Go home" "Home">><</link>></td>
+		  <td><<link "refreshClothes" "Cheats">><<include "InitializeClothes">><</link>></td>
+		  <td></td>
+ 		<tr>
+		<td>personality</td>
+		  <td><<link "confidence +1" "Cheats">><<set $shyConfident += 1>><</link>></td>
+		  <td><<link "shyness + 1" "Cheats">><<set $shyConfident -= 1>><</link>></td>
+		  <td><<link "carefree +1" "Cheats">><<set $carefreeCarefull -= 1>><</link>></td>
+		  <td><<link "Carefull +1" "Cheats">><<set $carefreeCarefull += 1>><</link>></td>
+		</tr>
+        
+		<tr>
+		<td>Lactation</td>
+		  <td><<link "enable lactation" "Cheats">><<set $lactationUnlocked to true>><</link>></td>
+		  <td><<link "Fill breasts" "Cheats">><<set $milkStored to $milkCapacity>><</link>></td>
+		  <td></td>
+		  <td></td>
+		</tr>
+        <td>potion crafting</td>
+		  <td><<link "unlock potion crafting" "Cheats">><<set $furniture.push("distilation still")>><</link>></td>
+		  <td><<link "unlock all recipes" "Cheats">><<script>>State.variables.potionIngredientCombinations.forEach(e => e.discovered = true);<</script>><</link>></td>
+		  <td><<link "add 10 of every potion" "Cheats">><<script>>State.variables.consumables.forEach(element => element.amount = 5);<</script>><</link>></td>
+		  <td></td>
+		</tr>
+		<tr>
+</table>
+
+[[Return|$return]]
+
+

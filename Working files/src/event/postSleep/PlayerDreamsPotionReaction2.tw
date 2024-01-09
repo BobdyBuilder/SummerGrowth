@@ -1,0 +1,31 @@
+:: PlayerDreamsPotionReaction2 [nobr] {"position":"0,0","size":"100,100"}
+You fall from your bed, drenched in sweat. What a horrible nightmare! You cough, and putting your hand on your forehead, you realize you are burning up with a fever. Your eyes sting and your breathing is shallow. As you try to get up, you feel like your body weighs several tons, taking all the effort you can muster to make it to your bathroom. You’ve been sick before, but this feels worse than you ever remember.<br><br>
+You lean against the sink with one arm, as your free hand splashes some water against your face. You reach for the flu syrup inside the medicine cabinet, but you are so groggy that you just manage to tip it off, as it rolls under the old bathtub. You groan, kneeling to reach for it, but the cold tiled floor feels to good against your burning skin that you just end up lying face-up, reaching under the tub as you gaze at the ceiling - which seems to be too far and too close at the same time. Wow, you must be REALLY messed up.<br><br>
+Your fingers find the syrup bottle, and you close your eyes to alleviate the burning as your remove the cap of the bottle with your teeth and, without thinking, down its entire contents without even thinking that it’s probably asking for some sort of overdose. But your brain isn’t really processing things properly right now. And with that, you pass out.<br><br>
+You wake up, with absolutely no concept of how much time has passed. Weirdly, you don’t feel bad at all. In fact, you feel GREAT! But as you look around, you realize something weird must have happened?<br><br>
+You try to take stock of your surroundings, but it’s borderline surreal what you find. You blink a few times, trying to make sense of all stuff, and it’s WILD. The first thing: your pajama is in TATTERS, with just some of the fabric hanging precariously around your body. There are puddles of water everywhere, and your laptop is open and on, which you could swear was closed and off before?<br><br>
+You follow the trail of water, and find it leads to the bathroom where you passed out. Except - uh, you had filled the bathtub to soak and clean your towels… and the metal clawfoot bathtub is now on the other side of the bathroom. You run some math in your head, and you know that between the tub itself and the water and towels, this must weigh close to a half ton. It is basically impossible to be moved like that. And yet, there it is. Even weirder, because it’s not where it was… you now see the full bottle of flu syrup where it used to be. Is your memory so messed up? Nothing makes sense!<br><br>
+You go back to the living room, and sit by your laptop. Huh. <<if $shyConfident < 0>>There’s a Picstagram account on-screen - GiantQueenXXXL. And there’s a lot of blurry, dark pictures of a gigantic woman with huge breasts… wearing the tatters of pajamas… taking selfies while flexing huge muscles. It’s hard to see who it is because of how crappy the pictures came out, but you don’t even need to check your phone to know exactly who that is. But… you’re WAY to shy to have ever done such a thing… right?!?<<else>>There is one of those sites for people to ask questions, and there’s a half dozen queries asking if people think tall, hugely breasted and muscular girls are unnatractive, and how to best hide these features. And that account is still logged in. The demure and shy tone, though, feels downright alien to your extroverted self.<</if>><br><br>
+You shake your head, trying to make sense of the whole situation. While still trying to drink everything in, you go back to the bathroom to try and push the bathtub back to its original location, hoping it won’t be too hard to fix the pipe. But it is very clear you won’t be able to even DRAG the thing unless you empty it first. Weirdly, there are no dragging scratches anywhere, like it was lifted up when it was moved. But as you give up on moving it before draining the tub, you notice something in the wastebasket - another metallic bottle, crushed, but looking fairly similar to the one you drank from when you moved in.<br><br>
+That is A LOT to process!<br><br>
+
+<span id="choice">
+	<<link "Wait, did my body and personality change temporarily? These potions could be dangerous!">>
+		<<replace "#choice">>
+		    <<set $flag.natPlayerPotionDreamExcited to false>>
+            You feel a tinge of existential horror as you realize that you could possibly just have experienced a Mr. Hyde moment that you have no recollection of. The evidence is all there - and apparently the changes can be even more drastic than you ever realized. You are still figuring out how exactly these concoctions can affect you, as you ponder all implications. It seems like these can be much more powerful than you ever realized.<br><br>
+            You don’t want to think about side-effects and how permanent some of these changes could be. There are so many possibilities, but the fact is, there is so much you don’t know yet... and you just can’t wave it all off like it doesn’t matter.<br><br>
+            <<link "Continue" "PlayerDreamsPotionReaction3">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Are there limits to what these potions can do? Just how big and strong can I get?">>
+		<<replace "#choice">>
+		    <<set $flag.natPlayerPotionDreamExcited to true>>
+            You look at your own hands, trying to wrap your head around the fact that you might have been, even if temporarily, like a freaking superheroine! Is that a sign that there is no upper limit to how much you can change? You feel your skin tingling at the thought of jumping over buildings or lifting cars... is that even possible? As your heart races faster and faster, your knuckles tighten as you fantasize about it.<br><br>
+            You feel an urge to hunt down these metallic bottles, even if just to better understand them and keep them away from unsuspecting people who might not realize what they truly are.<br><br>
+            <<link "Continue" "PlayerDreamsPotionReaction3">><</link>>
+		<</replace>>
+	<</link>>
+</span>
+

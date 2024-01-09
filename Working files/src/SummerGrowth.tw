@@ -1,0 +1,25 @@
+:: StoryTitle
+Summer Growth
+
+
+:: StoryData
+{
+	"ifid": "117D85AB-CE68-497C-87FA-CCDDD8A2517E",
+	"format": "SugarCube",
+	"format-version": "2.36.1",
+	"start": "Start",
+	"tag-colors": {
+		"Done": "green",
+		"TODO": "red",
+		"TODO2": "red",
+		"home": "blue",
+		"inside": "green",
+		"intro": "orange",
+		"noEventTrigger": "purple",
+		"outOfHouse": "green",
+		"storage": "gray",
+		"widget": "purple"
+	},
+	"zoom": 1
+}
+

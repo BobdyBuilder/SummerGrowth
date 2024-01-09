@@ -1,0 +1,42 @@
+:: ElectronicsStore [storage outOfHouse mall] {"position":"2600,1625","size":"100,100"}
+It's big, it's loud, and they have everything you could wish for, as long as it takes batteries or connects to an electric outlet. The industrial, shiny building stands in stark contrast to the more subdued old buildings around it, which is jarring but convenient.
+
+<<nobr>>
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Price</th>
+	<th></th>
+  </tr>
+<<for _i to 0; _i < $electronicStoreInventory.length; _i ++>>
+		<<capture _i>>		
+		<<if $furniture.includes($electronicStoreInventory[_i].name) is false>>
+		<tr>
+    		<td><<print $electronicStoreInventory[_i].name>></td>
+    		<td><<print $electronicStoreInventory[_i].description>></td>
+	    	<td>$<<print $electronicStoreInventory[_i].price>></td>
+			<td>
+                <span id="result">
+                    <<if $electronicStoreInventory[_i].price > $money>>
+                        You can't afford that.
+                    <<else>>
+                        <<link "buy - 00:05 🕛">>
+                            <<addMinutes 5>>
+                            <<set $money -= $electronicStoreInventory[_i].price>>
+                            <<set $furniture.push($electronicStoreInventory[_i].name)>>
+                            <<goto "ElectronicsStore">>
+                        <</link>>
+                    <</if>>				 
+                </span>
+            </td>
+  		</tr>
+		<</if>>
+		<</capture>>
+<</for>>
+</table>
+<</nobr>>
+
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

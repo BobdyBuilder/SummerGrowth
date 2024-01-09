@@ -1,0 +1,22 @@
+:: gaming [noReturn] {"position":"1325,1000","size":"100,100"}
+<<nobr>>
+<<set _gamingResult to random(0,5)>>
+<<skillIncrease "gaming" 20>>
+<<if _gamingResult is 0>>
+Oh, COME ON! That kill was TOTALLY stolen, you just can't believe this bullshit! Despite the often frustrating matches, it felt good to just hang back and relax a bit, wasting time on fun games. And hey, time enjoyed is not time wasted, right?
+<<elseif _gamingResult is 1>>
+You played some good matches online! Despite the occasional frustrating opponents, it was good to just unwind a bit, getting better at the game. And hey, time enjoyed is not time wasted right?
+<<elseif _gamingResult is 2>>
+The servers were teeming with fresh blood due to the recent update, and they came to you like lambs to the slaughter. Left, right, and center, you mowed them down as they begged for mercy, striding among them like a war god. Or a bratty kid. You had a good time, nonetheless.
+<<elseif _gamingResult is 3>>
+Ugh, a new update just released and OF COURSE all try-hards came from under their rocks! Just having fun? NOPE! Spawncamped into oblivion, of course, with no chance of even having the slightest fun. Despite the frustration, it felt good to just spend some time gaming.
+<<else>>
+You played some nice, relaxing matches. No real bad games, no real good games, it was just plain old mind-numbing fun. And, hey, sometimes that's just what the doctor ordered, right?
+<</if>>
+
+
+<</nobr>>
+
+[[Return|$return]]
+
+

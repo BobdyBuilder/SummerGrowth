@@ -1,0 +1,8 @@
+:: RollDice [widget] {"position":"2475,50","size":"100,100"}
+<<nobr>>
+<<widget "RollDice">>
+<<set $rolledDice to random(1, $args[0])>>
+<</widget>>
+<</nobr>>
+
+

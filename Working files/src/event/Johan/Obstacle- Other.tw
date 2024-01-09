@@ -1,0 +1,91 @@
+:: Obstacle- Other {"position":"650,2575","size":"100,100"}
+<<if $dndCharacter.class is "rogue" || $dndCharacter.class is "cleric">>You see Johan break into an even bigger smile as you say that.<<set $DateSuccess += 1>>
+
+	<<Dialogue "Johan" "Johan">>"That's what I like to hear! What are you thinking?"<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Well, I probably can't just cross it with a jump... There has to be some way to make it easier, right? Am I carrying anything with me?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Sure! Let's say you're carrying... standard adventurer's gear. You've got food and water, a <<if $measurementSystem == 'metric'>>three-meter<<else>> ten-foot <</if>> pole, <<if $dndCharacter.class is "rogue">>a few spare daggers<<elseif $dndCharacter.class is "cleric">>a holy symbol<</if>>, a <<if $measurementSystem == 'metric'>>15 meter<<else>>50 foot<</if>> coil of rope-"<</Dialogue>>
+
+	<<if $dndCharacter is "rogue">><<Dialogue "player" "You">>
+	"Rope! That will do! Now is there a tree or something like that by the canyon?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"There is now!"<</Dialogue>>
+
+	He takes his marker to the grid between you, drawing a puffy cloud shape on one of the hexagons.
+
+	<<Dialogue "player" "You">>"Is that supposed to be a tree?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"The top of a tree, yes. I never claimed to be an artist. Now I think I'm starting to figure out your plan."<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Yeah! I'm gonna tie my rope to the tree and Tarzan swing my way across this thing."<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Alright! Give me a d20 roll and we'll see how solid your plan is."<</Dialogue>>
+
+	You fumble through the pile of dice in front of you for a moment, taking a moment to examine each of them, before Johan helpfully points out the roundest of them. You give it a gentle toss across the table and it comes up on a 13.
+
+	<<Dialogue "player" "You">>"Is that good?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Well, it's out of 20. So, pretty good. I'm gonna say you get your knot tied nice and tight around the branch. You want to give it a shot, describing the scene?"<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Oh. Okay! Sure, I'll do my best. So... I'm gonna say I get the rope in place... I back up until I have it taut... Then I'm gonna take off towards the gap. Once I get up to speed, I just... jump and hang onto the rope for dear life? Like, I'm picturing myself screaming as I sail across the canyon."<</Dialogue>>
+
+	The two of you both break into laughter as you picture the scene you're laying out.
+
+	<<Dialogue "player" "You">>"I know, not very dashing or heroic, right?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"No, but it is very human. And I like that a lot more. Fortunately, your plan is good enough, and you sail across the chasm... maybe not gracefully, but successfully."<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Woohoo!"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"With your first mission accomplished - with aplomb, I might add - are you ready to head onward to the dungeon itself?<</Dialogue>>
+	<<elseif $dndCharacter.class is "cleric">>
+	
+	<<Dialogue "player" "You">>"A holy symbol! Right! Can I just, uh... Pray my way across, maybe?"<</Dialogue>>
+
+	Johan thinks quietly for a moment. It seems like you've come up with a solution that he didn't exactly prepare for.
+
+	<<Dialogue "Johan" "Johan">>"Hmm. What exactly are you hoping for here? Because honestly, your magic is mostly relegated to simple actions, like sparking a fire."<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Well... Not that I was hoping that a bridge would pop into existence in front of me, but... maybe I could ask for guidance or something? Like, have my deity help me figure out what to do? Because I'm a bit stumped."<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Well... You do have a spell that functions similarly to that. We can totally go with that. Or something similar anyway. So... Let's say you get to ask one question, and you can get a vague answer from up above."<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Oh, man, one question... Uh, let's see... I feel like I'm asking a genie for a wish, I need to be careful how I phrase this...
+	Okay. Is there any way across here that I'm not thinking of? And I hold up my holy symbol over my head, like, presenting it to the sky."<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Very good! As you hold up your symbol, you see the sunlight gleaming off of it, bouncing off towards the ground. It's as if one of those picturesque sunbeams you see coming down from between the clouds, aiming right at a spot on the lip of the canyon."<</Dialogue>>
+
+	<<Dialogue "player" "You">>"A sign! I'm gonna go check it out!"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"You step over to the edge, where you saw the light shining. You carefully peer over, and you don't see anything immediately. But as you look closely down at the wall, you can see what look like handholds! Manmade handholds, deliberately carved into the wall. They're small and subtle, so subtle that it's no surprise you didn't notice them originally. And to your amazement, another set on the opposite side. It seems someone has been through here previously!"<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Praised be! I'll take it!"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"The climb may take you some time, but it should be completely safe. And with this, hopefully there's nothing keeping you from the dungeon you came out here to delve into!"<</Dialogue>><</if>>
+	<<else>>Johan pauses and gives a thoughtful nod.
+
+	<<Dialogue "Johan" "Johan">>"I had thought this was fairly straightforward, but I'm all for creative solutions. What are you thinking?"<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Well, what do I have with me? Maybe I have something on my that could be helpful."<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Let's see, you've probably got all of the standard adventuring gear. Food and water, a <<if $measurementSystem == 'metric'>>three-meter<<else>> ten-foot <</if>> pole, a <<if $measurementSystem == 'metric'>>15 meter<<else>>50 foot<</if>> coil of rope -"<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Ooh, rope is good! Maybe I can fashion something together and, like, Tarzan-swing across the canyon. Is there a tree or something similar nearby?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Now there's a thought! Fortunately, there's a tree right near the canyon!"<</Dialogue>>
+
+	<<Dialogue "player" "You">>"Nice. So my character just kinda walks up and ties the rope around the thick part of the tree. Then I'm gonna get a running start and just... go for it?"<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>""All right! You start running, hold on tight to the rope. You jump, swing, and... <<if $dndCharacter.class is "paladin">>you hear a crack behind you! Your heavy armor was too much for the tree to bear!<<elseif $dndCharacter.class is "Barbarian">>you hear a crack behind you! Your weight was too much for the tree to bear!<<else>>you feel your hands slipping! Your strength is failing you, and you can't maintain your grip on the rope! Before you know it, the rope is completely gone!<</if>> You're sailing through the air, totally helpless! This could be the end! But then, beyond all odds, the other edge is getting closer! You desperately reach, and you feel your hands dig into the dirt on the other side! You slow to a stop, and while you're hanging precariously... you're not dead."<</Dialogue>>
+
+	You realize now that you've been holding your breath through his description of the scene. You relax and exhale.
+
+	<<Dialogue "player" "You">>"Maybe not the smartest decision I've ever made."<</Dialogue>>
+
+	<<Dialogue "Johan" "Johan">>"Not for me to say. But hey, you're alive! It may take a minute, but you should be able to safely pull yourself up the wall. And then, hopefully, there's nothing keeping you from the dungeon!"<</Dialogue>>
+
+	<</if>>
+	[[Venture onward!->Goblin Encounter]]
+
+

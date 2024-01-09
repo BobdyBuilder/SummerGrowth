@@ -1,0 +1,58 @@
+:: JohanFiller [nobr] {"position":"1300,2425","size":"100,100"}
+<<set setup.events.push({
+		name: 'JohanFiller1',
+		locationTags: ['johan'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ["johan"],
+		content: '<<set $johanOpinion += 1>><<Dialogue "Johan" "Johan">>Oh hey! Welcome, come on in! I was just doing some hobby stuff, painting some miniatures, you know. I JUST ran out of leadbelcher but-<</Dialogue>><br>And there Johan went into his own little world again. Passionately, he shows you some of the miniatures he painted and... he is good, real good. And you really get the feeling he\'s trying to share his hobby with you, not just talking at you. And it\'s hard not to get caught up in it. Somehow, you even promise him you\'ll try it one day, where did THAT come from?!<br><br><<link "Go back home" "Home">><</link>>'
+	}, {
+		name: 'JohanFiller2',
+		locationTags: ['johan'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ["johan"],
+		content: '<<set $johanOpinion += 1>><<Dialogue "Johan" "Johan">>Hey there <<print $playerFirstName>>, how are you doing?<</Dialogue>><br><<Dialogue "player" "You">>Doing well, just thought I\'d drop by. Anything up with you?<</Dialogue>> <br><<Dialogue "Johan" "Johan">>You know, the usual. busy with studying, hobby clubs taking whatever time I have left... but still, it\'s all decent enough! Also, thanks for dropping by, I really appreciate it! I\'m often so busy I rarely just... you know. Talk to people.<</Dialogue>> <br><<Dialogue "player" "You">>I mean, if you ever want to drop by...<</Dialogue>> <br><<Dialogue "Johan" "Johan">>I\'ll take you up on that! Listen, I have to go, I got a Harlequin list I got to run against some Space Marines, but I\'ll drop by for sure!<</Dialogue>>  <br>As you watch him leave, you wonder if he ever will drop by. Something tells you that, though he truly intends to, he might just never quite find the time.<br><<link "Go back home" "Home">><</link>>'
+	}, {
+		name: 'JohanFiller3',
+		locationTags: ['johan'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ["johan"],
+		content: '<<set $johanOpinion += 1>>As Johan opens the door, his white shirt is streaked with blood, large splatters on his hands, and even a splotch on his face. Normally, this would shock you, but given his hobbies...<br><<Dialogue "player" "You">>... Spilled some paint again?<</Dialogue>><br><<Dialogue "Johan" "Johan">>... You know, it kinda hurts you barely even reacted to it.<</Dialogue>>  <br><<Dialogue "player" "You">>Heh, you\'re not a hard person to figure out, Johan. So... how did this happen?<</Dialogue>><br><<Dialogue "Johan" "Johan">>...The knocking startled me.<</Dialogue>><br><<Dialogue "player" "You">>...Shall I just leave you to clean this and come back another time?<</Dialogue>><br><<Dialogue "Johan" "Johan">>That\'d be appreciated.<</Dialogue>><br><<link "Go back home" "Home">><</link>>'
+	}, {
+		name: 'JohanFiller4',
+		locationTags: ['johan'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ["johan"],
+		content: '<<set $johanOpinion += 1>><<Dialogue "player" "You">>Hey, Johan, thought I\'d drop by! How\'re you doing, you big ol\' nerd?<</Dialogue>><br><<Dialogue "Johan" "Johan">>Oh come on, I\'m not that much of a - Yeah, you got me. Heh, so, how are you doing?<</Dialogue>><br>Slowly, you look down at the shirt he\'s wearing, depicting something that is some kind of gruff military man apparently carrying an entire metric-chunkton of armor on each of his shoulders.<br><<Dialogue "player" "You">>Hehe, listen I don\'t mind. It\'s kinda... Nice you\'re so passionate.<</Dialogue>><br><<Dialogue "Johan" "Johan">>Huh, really?! Most people just find it a bit too much! Don\'t you?<</Dialogue>><br><span id="choice"><<link "No, no, not at all!">><<replace "#choice">><<Dialogue "player" "You">>No, no, not at all! It\'s nice to see someone so passionate, it\'s refreshing! Just be yourself, you big nerd! <</Dialogue>><br>Johan smiles warmly, clearly appreciating it.<br><br> <<Dialogue "Johan" "Johan">>Hey, thanks, really. Some people get really judgmental about it so... you know, thanks!<</Dialogue>><br><<Dialogue "player" "You">>Hey, no worries, you do you! Anyway, I gotta run but let\'s chat more later, alright? Hehe, might even be more nerd stuff!<</Dialogue>><br><br><<link "Go back home" "Home">><</link>><</replace>><</link>> <br><<link "Maybe sometimes it\'s a bit much but...">><<replace "#choice">><<Dialogue "player" "You">>Well... sometimes... it\'s a bit much you know? Like, it\'s awesome you do it but... well... you know, try to... be... you know, you but... uhm... Well, your hobbies are awesome but you\'re exclusively talking about them!<</Dialogue>> <br> <<Dialogue "Johan" "Johan">>...Ah. I\'ll keep that in mind, no problem. Anyway, I have a thing to get to so...<</Dialogue>> <br> Johan becomes more subdued, and immediately it\'s clear that while he will try to take this advice to heart... it hurt him a bit. Well. That could\'ve gone better. <br><br><<link "Go back home" "Home">><<set $johanOpinion -= 10>><</link>><</replace>><</link>></span>'
+	}, {
+		name: 'JohanFiller5',
+		locationTags: ['johan'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ["johan"],
+		content: '<<set $johanOpinion += 1>><<Dialogue "Johan" "Johan">>Oh, hey, welcome! Are you enjoying your room alright? No big problems?<</Dialogue>><br><<Dialogue "player" "You">>It\'s in the basement, it\'s damp, it\'s a student dorm. It\'s decent enough for me to be honest, what more could I ask for?<</Dialogue>><br><<Dialogue "Johan" "Johan">>Yeah, true. I\'m at least happy we FINALLY got something done about that mice infestation last year.<</Dialogue>><br><<Dialogue "player" "You">>... Do I even want to know more?<</Dialogue>><br><<Dialogue "Johan" "Johan">>Oh, the guy who was there before you made a lot of food, but wasn\'t very good about cleaning up so we got TONS of mice. Big ones, too! We only got rid of them after he moved ou- are you okay? You seem a bit pale...<</Dialogue>><br><<Dialogue "player" "You">>... Nope. All okay. Listen, I\'m off to buy some mousetraps...<</Dialogue>><br><<link "Go back home" "Home">><</link>>'
+	}, {
+		name: 'JohanFiller6',
+		locationTags: ['johan'],
+		conditions: [],
+		repeatable: true,
+		retriggerable: false,
+		priority: 'filler',
+        npc: ["johan"],
+		content: '<<set $johanOpinion += 1>><<Dialogue "Johan" "Johan">>Oh, morning, didn\'t expect you to drop by. Did anything happen?<</Dialogue>><br><<Dialogue "player" "You">>No, just wanted to see how you were doing. Just trying to get out a bit, you know.<</Dialogue>><br><<Dialogue "Johan" "Johan">>I totally get that. There are so few people around here, it tends to get a bit lonely. Last summer, I was the only person here, so you can probably imagine what it was like.<</Dialogue>><br><<Dialogue "player" "You">>I\'ll be honest, I\'m kinda getting the same vibe right now. Like, its nice, being the only ones here but...<</Dialogue>><br><<Dialogue "Johan" "Johan">>... but this is a bit too much, yeah, I feel the same. Listen, if you want to come over for dinner anytime...<</Dialogue>><br><<Dialogue "player" "You">>You know what, I\'ll take you up on that!<</Dialogue>><br><<Dialogue "Johan" "Johan">>Always welcome!<</Dialogue>><br><<link "Go back home" "Home">><</link>>'
+})>>
+
+

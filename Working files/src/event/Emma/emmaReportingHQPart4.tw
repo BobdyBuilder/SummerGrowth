@@ -1,0 +1,44 @@
+:: emmaReportingHQPart4 [nobr] {"position":"0,0","size":"100,100"}
+You wake up as the sun is still rising in the horizon, only to be surprised by the fact Emma is not in the room. However, there’s a note glued to the mirror.<br><br>
+<<Dialogue "Emma" "Emma">>"I went for a jog, figured you deserved some sleep. If you get up before 7:30, I’ll meet you downstairs for breakfast, I should be back by then."<</Dialogue>><br><br>
+Damn, Emma is a FUCKING MACHINE. You check the the clock - just past 6:30. You get dressed and head down to check the continental breakfast the hotel supplies as part of the package.<br><br>
+And lo and behold, there is Emma, in workout gear, having some coffee alone at one of the tables.<br><br>
+<<Dialogue "player" "You">>"Let me guess, you are a morning person."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Eh, those definitions are overrated. It’s less about the time you are the most active, and more about how to make the most of it."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I should have seen that one coming. So, do we need to go present our work at HQ today?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, God, no. Never have a meeting when an email will do, I always say. Besides, they are waiting for the other branches before we convene anyway, which means we have the rest of the day off until our flight back. How would you like to do some sightseeing?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What happened to making most of your time?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I’d argue that’s exactly what we’d be doing - it’s not like there will be more work until then anyway, and we are here, might as well make the most of it, wouldn’t you agree?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Can’t argue with that!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I was going to suggest we hit the famous market by the pier. I mean, there’s also an aquarium nearby, but I figured you would enjoy that, unless you have other ideas?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Are you kidding me? If there’s one thing I learned is to let you lead, because you are like a friggin’ encyclopedia and always surprise me with the best stuff!"<</Dialogue>><br><br>
+Emma raises her clip-ons with that smug smile of hers.<br><br>
+<<Dialogue "Emma" "Emma">>"And you love it, I know."<</Dialogue>><br><br>
+And so the two of you get a bus to the market, which turns out to be just as worthy of all the fame it has - it’s this weirdly hipster-feeling farmer’s market, complete with crafts, gifts, but most importantly, some REALLY yummy looking restaurants. It’s kind of a perfect date for the two of you. Though, would Emma be okay for you to refer to it that way? Her original conversation about a professional relationship still echoes in your mind, and the last thing you want is to bookend this trip with some awkward conversation from your boss about fraternizing too much.<br><br>
+You are having a blast, also self-conscious regarding your concern, which makes you scale the casualness a bit. This does not go unnoticed by your keen-eyed boss.<br><br>
+<<Dialogue "Emma" "Emma">>"You can relax, <<print $playerFirstName>>. We earned this."<</Dialogue>><br><br>
+<<if $shyConfident > 1 || $submissiveDominant > 1>>
+As she says that, something clicks. And the words are out of your mouth before you even process them.<br><br>
+<<Dialogue "player" "You">>"Emma! Earlier, when we went out after work for the first time - you talked about boundaries. But... you are special to me. And I don’t want to let work get in the way of that. D-does that mean... I should quit? Or am I reading too much into this?"<</Dialogue>><br><br>
+Emma stops, mid-step, and turns to you, with a very serious face. You heart seems to skip a beat.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"So, uh, hypothetically speaking, I know that you take work and personal boundaries very seriously, so I wanted to know what you think about, erm, you know, if someone got close to their boss after working with her... them, working with them. You know, would it be weird, if they developed a friendship outside of the office? Without showing any favouritism, of course!!!"<</Dialogue>><br><br>
+Emma bursts out in laughter so suddenly she almost spits her tea.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"I guess I owe you an apology. Sometimes I put up more barriers than I should in the name of professionalism, for more reasons than I can count. I suppose I should be the one taking the advice about relaxing."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wait! Does that mean...?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Yes, <<print $playerFirstName>>, I consider you more than just my employee. But don’t get me wrong, I did not invite you because of that - I genuinely trusted you to be the most suitable person for this task. You might have noticed, but we are not exactly brimming with the best and the brightest back at the office..."<</Dialogue>><br><br>
+She gives you a side eye and says with the straightest face:<br><br>
+<<Dialogue "Emma" "Emma">>"And if you tell anyone I said that, you’ll be summarily let go."<</Dialogue>><br><br>
+You sincerely cannot tell if she’s joking or not, so for now you’ll just assume she isn’t.<br><br>
+<<Dialogue "Emma" "Emma">>"But I have to confess, as Friend Emma, not Boss Ms. Fray: it sure feels good not to have to carry all the burden alone."<</Dialogue>><br><br>
+She then proceeds to steal a bite of your pistachio icecream.<br><br>
+<<Dialogue "player" "You">>"HEY!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"You can direct your complaints to HR!"<</Dialogue>><br><br>
+She says, mid-laugh, lips smeared in the delicacy. You look at her, still a bit mad - that ice cream is REALLY GOOD! But her creamy lips just sorta jump out, and she freezes, tongue still partially out. Unconsciously, you start approaching her, your own mouth opening as you both get closer and closer...<br><br>
+<<Dialogue "randomPerson" "Random Guy">>"EXCUSE ME, COMING THROUGH!"<</Dialogue>><br><br>
+A guy carrying a large plastic tray filled with ice and fish comes bumping you apart, breaking the trance. Both of you continue on your way, in silence for a few minutes, avoiding direct eye contact. Emma occasionally points out one of the many fun places in the market, with some random curious tidbits. You just nod. The rest of the tour gets quite awkward, until Emma receives a message that they are convening again at HQ.<br><br>
+<<Dialogue "Emma" "Emma">>"I need to hurry back to the hotel, change, and go to that meeting. I’m guessing I’ll be back later at the hotel, do not wait for me to have lunch - there’s no lack of options here anyway. I can let you know when I’m done. Oh, and save the receipt, HQ will comp you for that, just don’t get anything alcoholic, OK?"<</Dialogue>><br><br>
+And before you can reply, she has skedaddled. It takes some of the ice cream melting over your hand for you to wake up. With a deep sigh, you look for a cool restaurant to drown your sorrow with some tasty food.<br><br>
+<<link "Continue" "emmaReportingHQPart4.1">><</link>>
+

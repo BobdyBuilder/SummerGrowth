@@ -1,0 +1,4 @@
+:: rivalName [widget nobr] {"position":"550,2300","size":"100,100"}
+<<widget "rivalName">><<= setup.getRivalName()>><</widget>>
+
+

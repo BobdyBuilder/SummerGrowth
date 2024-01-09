@@ -1,0 +1,19 @@
+:: Hobby Friendly {"position":"1050,3825","size":"100,100"}
+<<set $emmaDateFriendly += 1>>
+<<Dialogue "Emma" "Emma">> "Is that so? Tell me a little more. What's your usual order?"<</Dialogue>>
+<<Dialogue "player" "You">> "Uh…"<</Dialogue>>
+You weren't lying when you said you liked your coffee, but to you that just meant knowing what to buy at the grocery store. When it comes to actually ordering, though, you tend to pick from the pretty pictures on the menu.
+
+<<Dialogue "player" "You">> "Eh, two creams, two sugars?"<</Dialogue>>
+Emma snorts loudly, but manages to contain herself.
+
+<<Dialogue "Emma" "Emma">> "I'm sorry. I'm truly not a coffee snob, I swear. Maybe just a little?"<</Dialogue>>
+<<Dialogue "player" "You">> "Oh, please. I heard that laugh. How do you take your coffee, then?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Black, of course. Perhaps with a little cream if it’s one of the bitter brews. But honestly, I don't judge other people for how they drink their coffee, even if it's just a caffeine delivery mechanism for you."<</Dialogue>>
+<<Dialogue "player" "You">> "That just means you've got to share some of your good stuff with me in the future."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "More than fair. Perhaps I'll invite you for a cup from my personal stock in my office as a thank you gift on Monday."<</Dialogue>>
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

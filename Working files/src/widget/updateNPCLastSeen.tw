@@ -1,0 +1,30 @@
+:: updateNPCLastSeen [nobr widget] {"position":"325,1950","size":"100,100"}
+<<widget "updateNPCLastSeen">>
+<<set _name to $args[0].toLowerCase()>>
+
+<<set _visitedName to "$" + _name + "Visited">>
+<<run State.setVar(_visitedName, true)>>
+
+<<set _muscleName to "$" + _name + "LastMuscle">>
+<<run State.setVar(_muscleName, $muscle)>>
+
+<<set _fatName to "$" + _name + "LastFat">>
+<<run State.setVar(_fatName, $fat)>>
+
+<<set _breastsName to "$" + _name + "LastBreasts">>
+<<run State.setVar(_breastsName, $breasts)>>
+
+<<set _dickName to "$" + _name + "LastDick">>
+<<run State.setVar(_dickName, $dick)>>
+
+<<set _heightName to "$" + _name + "LastHeight">>
+<<run State.setVar(_heightName, $height)>>
+
+<<run State.setVar("$" + _name + "LastTongue", $tongue)>>
+
+<<set _amountVisitedName to "$" + _name + "AmountVisited">>
+<<set _newAmount to State.getVar(_amountVisitedName) + 1>>
+<<run State.setVar(_amountVisitedName, _newAmount)>>
+<</widget>>
+
+

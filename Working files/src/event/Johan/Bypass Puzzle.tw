@@ -1,0 +1,46 @@
+:: Bypass Puzzle {"position":"650,2975","size":"100,100"}
+<<if $carefreeCarefull < 1>><<set $DateSuccess += 1>><</if>>
+<<Dialogue "Johan" "Johan">>
+"Hmm. Well, that's a very loaded question. What is your idea of another way through the door?"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"I mean, it looks like it's just rock, right? No offense, but I'd much rather just bash my way through the door than solve a puzzle."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Ha! You're a classic adventurer already. I'm certainly not going to stop you from trying."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"All right. I came down a long hallway to get here, so I'm gonna get some distance, sprint up, and flying kick the thing!"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"DEFINITELY a classic adventurer, you've even got a flare for the theatrical! Let me see a Strength roll!"<</Dialogue>>
+
+You dutifully toss your die across the table. It's a 20!
+
+<<Dialogue "Johan" "Johan">>
+"Wow. Well, when the dice speak, it's hard to argue with them. You charge at the door, leaping into a kung-fu action pose, and <<if $dndCharacter.class is "wizard" || $dndCharacter.class is "warlock" || $dndCharacter.class is "cleric" || $dndCharacter.class is "rogue">>despite all odds, <</if>>you crash straight through the door, landing dramatically on the other side."<</Dialogue>>
+
+<<if $carefreeCarefull < 0>>You give a quiet fist pump, filled with pride.
+
+<<Dialogue "Johan" "Johan">>
+"But now you're on the other side of the door. And you aren't alone back here."<</Dialogue>>
+<<else>>You heave a sigh of relief.
+
+<<Dialogue "Johan" "Johan">>
+"That tense?"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Being impulsive doesn't exactly come naturally to me. But I didn't think I could get through the door the way you intended."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Well, the good news is that any way you can get through an obstacle like this is 'intended!' There are rarely wrong answers. So kudos for thinking outside the box. But I do have some bad news for you."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Oh, no. What's that?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"You're on the other side of the door now. And you're not alone.<</Dialogue>><</if>>
+
+[[Oh no.->Final Boss]]
+
+

@@ -1,0 +1,18 @@
+:: Fitness Professional {"position":"850,3825","size":"100,100"}
+<<set $emmaDateProfessional += 1>>
+Emma nods to herself, visibly relaxing in her seat.
+
+<<Dialogue "Emma" "Emma">> "Thank you. It's refreshing to hear someone else take such a positive view of it."<</Dialogue>>
+<<Dialogue "player" "You">> "Is it really that rare?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "I suppose not, in the grand scheme of things. Most people will have nothing to say about it, honestly. But aside from that, most people just don't get it. No matter how I portray myself, if I share this, people will invariably just peg me as a meathead or vain. Or both."<</Dialogue>>
+<<Dialogue "player" "You">> "Well, that's not fair at all! You are neither of those things. If anything, it means you're even more dedicated! Heck, now I know where you get your work ethic from."<</Dialogue>>
+A smile crosses Emma's face. She seems warmer than you've ever noticed before.
+
+<<Dialogue "Emma" "Emma">> "Well, thank you, <<print $playerFirstName>>. I’m humbled by these compliments."<</Dialogue>>
+<<Dialogue "player" "You">> "I mean it!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "As do I. Words cannot express how glad I am that you think so."<</Dialogue>>
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

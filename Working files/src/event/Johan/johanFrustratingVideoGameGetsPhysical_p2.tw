@@ -1,0 +1,82 @@
+:: johanFrustratingVideoGameGetsPhysical_p2 {"position":"2025,3400"}
+
+Johan eventually reaches Act 7, which he informs you is the final one. The difficulty somehow manages to ramp up even more, and you find yourself firmly gripping the cushion to the point it might just rip apart under your fingers. <<if $johanFrustratingVideoGameGetsPhysicalChoice2 === "A">>But your boy is calm and collected, still struggling, sure, but he just gives this aura that he's got this. The excitement is contagious, almost like you are partially responsible for his amazing performance.<<else>>The growing tension is inevitable, and every mistake feels like a small disaster on its own. But both of you persevered under bated breath. And just like that, your tag team continues as you cheer him on, through gritted teeth and sheer force of will.<</if>>
+
+The tension is palpable. The level is absurdly hard, but Johan eventually makes it to the door at the end of the stage, where another cutscene plays out - you can't really get what is going on because the subtitles are all in Japanese, but the four sweaty palms wait anxiously for the upcoming boss battle. And so, a floating monster starts tossing flames everywhere.
+
+Johan dodges masterfully, and your eyes flick between the dramatic combat and the two health gauges at the top of the screen. Johan starts well, but the boss quickly catches up and leaves the hero with just a few bars of HP left. You gasp, but Johan just frowns as he figures out the patterns and how to best avoid the attacks. He closes his eye for a split second and takes a deep breath, and when he opens them back up, he just starts dodging all attacks and carefully slices the boss, little by little.
+
+It takes a bit, but he eventually carves the flying monster until both are at their last bar of energy. And then, with a perfectly timed magic attack, he defeats the monster!
+
+<<Dialogue "player" "You">>"WOOHOOOOOOO!!!"<</Dialogue>>
+
+Both of you start celebrating as the cutscene plays, and you give him a tight hug... but then the weirdly scary music kicks in, and your attention comes back to the screen.
+
+<<Dialogue "player" "You">>"Uh, Johan, what is going on?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Uh, I dunno? I never played this before."<</Dialogue>>
+
+And the cutscene shows the blood reaching the evil sword, with lightning everywhere as the music gets scarier and scarier. Johan dives back to the controller he had let go of, as ANOTHER boss battle starts, this time, a giant face stuck to the wall while stuff drips from the ceiling!
+
+<<Dialogue "player" "You">>"WHAT THE HELL?!?"<</Dialogue>>
+
+But Johan is back to total focus. He loses a guy just trying to get his bearings on what is going on, leaving him with just 2 lives. The amount of dodging going on is INSANE. Your heart feels like it's about to come out of your mouth. He loses another life, but his face now is so fierce you get almost scared.
+
+And there you see it. Johan is in the zone. He somehow manages to dodge every crazy projectile coming from every direction. He just dances around everything as he slowly chips away at the boss health bar. As it does, a smile grows on your face, and you start cheering for him! The madman is actually going to do it!
+
+And as the last sword strikes the boss, having lost only 2 bars of health, you hear the absurdly fake digital explosion sound coming from the TV, and another cutscene plays. Both of you start laughing nervously, but this time Johan doesn't let go of the controller, JUST IN CASE.
+
+<<Dialogue "player" "You">>"Johan, why is the music still like that, all scary-like?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"I guess we are about to find out?"<</Dialogue>>
+
+And the freaking boss is back, even bigger now! And the ninja hasn't even recovered his own HP! Johan starts attacking the head, but his bar isn't coming down.
+
+<<Dialogue "player" "You">>"WHAT THE FUCK IS GOING ON?!?"<</Dialogue>>
+
+<<if $johanOpinion > 30>>
+<<Dialogue "Johan" "Johan">>"Chill, I got this."<</Dialogue>>
+
+<<else>>
+<<Dialogue "Johan" "Johan">>"I, uh, dunno?!?"<</Dialogue>>
+
+<</if>>
+Johan continues to attack the head, to no avail.
+
+<<Dialogue "player" "You">>"Maybe attack the big bright shining heart thing?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"I can't get there because of those floating hands! I'll stick to the head for now."<</Dialogue>>
+
+And he does, until it eventually blows up, taking the floating hands with it. Except now it's vomiting DOZENS of balls everywhere all over the screen.
+
+<<Dialogue "player" "You">>"AAAAAAAHHHHHHHHHH!!!"<</Dialogue>>
+
+You squeeze Johan's thigh, <<if $muscle >40>>forgetting your own strength for a second, making him wince, but he maintains his concentration nonetheless. You apologize in silence, but keep your hand there.<<else>>but he stays completely focused like you hadn't.<</if>> You aren't even breathing anymore as you watch him rush there and attack the heart. It's a race of both bars coming down quickly, and you aren't sure who is going to win!
+
+But Johan pulls through, and kills the boss a third time. This time the cutscene shows the evil sword splitting apart, and the hero and his girlfriend running away from the castle.
+
+In complete silence, the two of you wait until the castle crumbles, and the digital couple watches the sky before the credits start rolling.
+
+For a second, both of you just stare in partial disbelief. Is it really over? It would seem so. You hear the clacking of the cheap plastic controller hitting the ground, and Johan squeezes your <<if $muscle>=65>>treetrunk<<elseif $muscle>=40>>beefy<<else>>available<</if>> thigh. He himself seems blissfully unaware of his gesture, <<if $shyConfident < -1>>but you find yourself blushing a deep red as your shoulders tense.<<elseif $shyConfident < 1>>making you suppress a gasp, as you squeeze your hands tight, unsure whether you should make a move.<<else>>but you bite your lips seductively and place your own hand on his thigh - which he is apparently also oblivious to.<</if>> But as the tingling up your spine subsides, you just enjoy this moment of unexpected intimacy with Johan, struggling with your own desires to just pounce on him right there.
+
+Eventually Johan just comes back to this planet, and gets up in an abrupt motion, raising his arms and making a very serious face. Frowning, it just serves as a further reminder that you’ll have to be the one making the moves here. Slightly disappointed, you join his celebration by jumping as well<<if $breasts >=45>>, making your large breasts wobble as your hops make them act defiantly against your top<</if>>. <<if $muscle>=45>>He jumps on your arms as you bounce around with him.<</if>> You hold your friend tightly as the excitement mounts. <<if $breasts>=40>>Johan squishes against your bountiful breasts, laughing loudly and nervously with you.<</if>>. But as the laughing starts to wear off and the breathing comes back to normal, you find yourselves looking deeply into each other’s eyes in silence, mouths slightly open. You start tilting your head towards the geeky companion, and squeezing him tighter... until repeated beepeing loudly interrupts at the worst possible time.
+
+Johan turns his head to his laptop, connected to the little ancient console through a capture card, where a window shows an extremely speedy chat, and several subscription notifications.
+
+<<Dialogue "Johan" "Johan">>"Wow, everyone is subscribing to my channel!"<</Dialogue>>
+
+You let go of him, so he can reply to the hundreds of chat messages.
+<<Dialogue "player" "You">>"Oh, you were livestreaming this?"<</Dialogue>>
+
+You say, slightly disappointed at the unexpected distraction, grabbing your elbow as you look to the ground awkwardly.
+
+<<Dialogue "Johan" "Johan">>"Look how excited they are, this is so cool!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Yeah. Very... cool. Exciting."<</Dialogue>>
+
+You say, lying through your teeth.
+
+You watch as Johan basks in the very deserving fame he is receiving. But deep inside, you wish he was more receptive to someone else's attention. Sigh. Oh, well. Maybe some other time...
+
+<<link "Continue" "Home">><<set $johanOpinion += 20>><</link>>
+

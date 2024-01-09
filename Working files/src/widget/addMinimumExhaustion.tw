@@ -1,0 +1,17 @@
+:: addMinimumExhaustion [widget] {"position":"2450,525","size":"100,100"}
+<<nobr>>
+<<widget "addMinimumExhaustion">>
+<<set _input to parseInt($args[0])>>
+
+<<set $minimumExhaustion += _input>>
+
+<<if $minimumExhaustion >= 100>>
+	<<set $minimumExhaustion to 100>>
+<<elseif $minimumExhaustion <= 0>>
+	<<set $minimumExhaustion to 0>>
+<</if>>
+<<update>>
+<</widget>>
+<</nobr>>
+
+

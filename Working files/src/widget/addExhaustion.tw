@@ -1,0 +1,27 @@
+:: addExhaustion [widget] {"position":"2450,425","size":"100,100"}
+<<nobr>>
+<<widget "addExhaustion">>
+<<set _input to parseInt($args[0])>>
+
+<<if $gameDate.getHours() >= 21>>
+	<<set $exhaustion += _input * 1.5>>
+<<elseif $gameDate.getHours() <= 6>>
+	<<set $exhaustion += _input * 1.5>>
+<<else>>
+	<<set $exhaustion += _input>>
+<</if>>
+
+<<if $args[1] is "workout">>
+	<<set $exhaustion to $exhaustion * $exhaustionWorkoutMod>>
+<</if>>
+
+<<if $exhaustion >= $maxExhaustion>>
+	<<set $exhaustion to $maxExhaustion>>
+<<elseif $exhaustion <= 0>>
+	<<set $exhaustion to 0>>
+<</if>>
+<<update>>
+<</widget>>
+<</nobr>>
+
+

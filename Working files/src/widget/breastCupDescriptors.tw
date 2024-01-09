@@ -1,0 +1,32 @@
+:: breastCupDescriptors [widget] {"position":"3650,725","size":"100,100"}
+<<nobr>>
+
+<<widget "breastCupDescriptors">>
+
+<<if $_breastsRandomized <= 8>>AA-cup
+<<elseif $_breastsRandomized <= 12>>A-cup
+<<elseif $_breastsRandomized <= 16>>B-cup
+<<elseif $_breastsRandomized <= 20>>C-cup
+<<elseif $_breastsRandomized <= 24>>D-cup
+<<elseif $_breastsRandomized <= 28>>E-cup
+<<elseif $_breastsRandomized <= 32>>F-cup
+<<elseif $_breastsRandomized <= 36>>G-cup
+<<elseif $_breastsRandomized <= 40>>H-cup
+<<elseif $_breastsRandomized <= 44>>I-cup
+<<elseif $_breastsRandomized <= 48>>J-cup
+<<elseif $_breastsRandomized <= 52>>K-cup
+<<elseif $_breastsRandomized <= 56>>L-cup
+<<elseif $_breastsRandomized <= 60>>M-cup
+<<elseif $_breastsRandomized <= 64>>N-cup
+<<elseif $_breastsRandomized <= 68>>O-cup
+<<elseif $_breastsRandomized <= 72>>P-cup
+<<elseif $_breastsRandomized <= 76>>Q-cup
+<<elseif $_breastsRandomized <= 80>>R-cup
+<<else>>un-measurable
+<</if>>
+
+<</widget>>
+
+<</nobr>>
+
+

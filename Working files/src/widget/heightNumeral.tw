@@ -1,0 +1,21 @@
+:: heightNumeral [widget] {"position":"3250,425","size":"100,100"}
+<<nobr>>
+<<widget "heightNumeral">>
+
+<<if $measurementSystem is "imperial">>
+
+<<set $heightInchesTotal to Math.round($height * 0.3937007874)>>
+<<set $heightFeet to Math.floor($heightInchesTotal / 12)>>
+<<set $heightInches to ($heightInchesTotal - ($heightFeet * 12))>>
+<<print $heightFeet>>'<<print $heightInches>>"
+
+<<elseif $measurementSystem is "metric">>
+<<print Number(($height / 100).toFixed(2))>> meter
+<</if>>
+
+
+
+<</widget>>
+<</nobr>>
+
+

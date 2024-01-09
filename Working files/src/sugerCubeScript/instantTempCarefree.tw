@@ -1,0 +1,19 @@
+:: instantTempCarefree {"position":"1050,1600","size":"100,100"}
+<<nobr>>
+
+<<set _message to "It's hard to nail the taste of this drink. Not that you really care. It feels good and goes down smoothly, and it refreshes you. Why even care about the taste? You can't even be bothered by the incoming headache. Who gives a fuck?">>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Temp-Care");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<set $temporaryPersonalityGains.carefreeCarefull -= 1>>
+<<set $carefreeCarefull -= 1>>
+
+<</nobr>>
+
+

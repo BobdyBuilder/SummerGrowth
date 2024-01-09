@@ -1,0 +1,20 @@
+:: johanOverwhelmedByDateIdea-toughLove [nobr] {"position":"0,0","size":"100,100"}
+<<if $shyConfident > 1 && $muscle >45>>You approach Johan with a scowl, and lift him off the ground by his collar.<<elseif $shyConfident > 1>>You walk up to Johan’s face, your noses almost touching, as you stare him down.<<else>>You sigh, frustrated, rolling your eyes and putting a hand on Johan’s shoulder.<</if>><br><br>
+<<Dialogue "player" "You">>"Dude, cheer up! Yeah, you might not be the classic stud, but own up to who you are. Embrace the geek! Be the best nerd you can be! We literally live in an age of geek chic. Make the most of it!"<</Dialogue>><br><br>
+Johan looks confused, as his eyes can’t break away from your unnering gaze. He gulps, and you go on, with increased aggressiveness.<br><br>
+<<Dialogue "player" "You">>"You think I just hang out with you out of pity? Is that how lowly you think of me? No, I am here all the time because I think you’re awesome, Johan. Sheesh! I don’t know who this person you are so interested in to look up a romantic restaurant is, but just grow a spine and ask her already, you hear? Or I’ll kick your ass!"<</Dialogue>><br><br>
+Johan gasps loudly. He is almost hyperventilating at this point, and he closes his eyes and flinches, almost like you WERE going to hit him (which you wouldn’t, really). Still cowering, he just blurts out:<br><br>
+<<Dialogue "Johan" "Johan">>"Well, would you?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Would I WHAT?"<</Dialogue>><br><br>
+You respond, irritated.<br><br>
+<<Dialogue "Johan" "Johan">>"Would you go out with me?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What does it matter if I would? I’m talking about the girl you were planning to invite in the first place, doofus!"<</Dialogue>><br><br>
+He opens his eyes, even more confused than you, just watching you in utter beffudlement.<br><br>
+...<br><br>
+Oh.<br><br>
+OH!<br><br>
+<br>
+Shit. How dense can you be?!?<br><br>
+
+<<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>>
+

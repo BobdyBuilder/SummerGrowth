@@ -1,0 +1,110 @@
+:: initBody [nobr] {"position":"100,400","size":"100,100"}
+/* Height */
+<<set $height to 150>>
+<<set $heightMod to 1>>
+<<set $heightStore to 0>>
+
+/* Muscle */
+<<set $muscle to 20>>
+<<set $muscleStore to 0>>
+<<set $muscleGrowthMax to setup.balance.muscleAllowancePerDay * 0.5>>
+<<set $muscleGrowthMaxTemp to 0>>
+<<set $muscleGrowthMaxDiet to 0>>
+<<set $muscleGrowthMod to 1>>
+<<set $muscleGrowthMaxTotal to 0>>
+<<set $exhaustionWorkoutMod to 1>>
+<<set $strengthMod to 1>>
+
+/* Fat */
+<<set $fat to 20>>
+<<set $fatStore to 0>>
+<<set $gut to 0>>
+
+/* Breasts */
+<<set $breastsStore to 0>>
+<<set $breasts to 10>>
+<<set $fatBreastsMod to 0>>
+
+/* Lactation */
+<<set $lactationUnlocked to false>>
+<<set $milkStored to 0>>
+<<set $milkCapacity to 0>>
+<<set $milkCapacityModifier to 1>>
+/* in relation to capacity. */
+<<set $milkProduction to 0>>
+<<set $lactationUnlockedPoints to 0>>
+<<set $lactationSetting to true>>
+<<set $lactationMorningRoutineEmptying to false>>
+
+
+<<set $HelloDataScrubber_ThankyouForInvestigatingTheGame_SayHiInDiscord to true>>
+
+/* Dick */
+<<set $dickActive to false>>
+<<set $dick to 0>>
+<<set $dickGirthMod to (5/6)>>
+<<set $dickErectionMod to 1.5>>
+<<set $dickStore to 0>>
+<<set $dickDialog to false>>
+<<set $dickDialogFollowUp to false>>
+<<set $balls to 0>>
+
+/* Looks */
+<<set $eyeColor to "red">>
+<<set $bodyHairMod to 0>>
+<<set $hairColor to "black">>
+<<set $tongueLenght to 0>>
+<<set $lips to 0>>
+<<set $hips to 0>>
+<<set $ass to 0>>
+<<set $gender to 50>>
+<<set $bodyArchetype to "Generic">> 
+<<set $bodyType to "skinny">>
+<<set $looks to 0>>
+<<set $legLenghtMod to 1>>
+
+<<set $breastsSizeFormat to "USA">>
+<<set $measurementSystem to "imperial">>
+
+<<set $topSize to $muscle + $fat + $breasts>>
+<<set $bottomSize to $muscle + $fat + $ass>>
+
+<<set $bimbo to 0>>
+<<set $himbo to 0>>
+
+<span class="hidden">
+	<<numeralConversion $height>>
+	<<getMeasurement "chest" true>>
+	<<getMeasurement "waist" true>>
+	<<getMeasurement "hips" true>>
+	<<getMeasurement "neck" true>>
+	<<getMeasurement "upperArm" true>>
+	<<getMeasurement "lowerArm" true>>
+	<<getMeasurement "wrist" true>>
+	<<getMeasurement "thigh" true>>
+	<<getMeasurement "knee" true>>
+	<<getMeasurement "calve" true>>
+	<<getMeasurement "ankle" true>>
+	<<getMeasurement "weight">>
+</span>
+
+<<set $measurementProgress to  [
+    {
+        date: new Date('June 1, 2020'),
+        measurements: {
+            chest: $chestSize,
+            waist: $waistSize,
+            hips: $hipsSize,
+            neck: $neckSize,
+            upperArm: $upperArmSize,
+            lowerArm: $lowerArmSize,
+            wrist: $wristSize,
+            thigh: $thighsSize,
+            knee: $kneeSize,
+            calve: $calveSize,
+            ankle: $ankleSize,
+            weight: $weight
+        }
+    }]>>
+
+

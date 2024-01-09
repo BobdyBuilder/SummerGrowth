@@ -1,0 +1,57 @@
+:: heightDescription [widget] {"position":"3250,525","size":"100,100"}
+<<nobr>>
+<<widget "heightDescription">>
+
+<<if $height <= 150>>
+At <<heighNumeral>> tall, you are really short! People can just look straight over your head and a almost everything is out of reach. Buying clothes is also a hassle, since sometimes you've got more luck looking in the children's section!
+
+<<elseif $height <= 165>>
+At <<heighNumeral>> tall, you are pretty short. You are used to being the shortest in the room, or at least one of the shortest. Buying clothes is also a hassle, though most stores will have something your size.
+
+<<elseif $height <= 175>>
+At <<heighNumeral>> tall, you are pretty average. It brings no issues to your daily life, but no advantages either.
+
+<<elseif $height <= 185>>
+At <<heighNumeral>> tall, you are pretty tall. You often find yourself having to look down a bit to talk to people, but nothing out of the ordinary. 
+
+<<elseif $height <= 200>>
+At <<heighNumeral>> tall, you are really tall! Most of the time you're the tallest in the room, and people are forced to look up a bit so they can talk to you. Buying clothes is a hassle, however, since few stores carry size that fit you properly. 
+
+<<elseif $height <= 230>>
+At <<heighNumeral>> tall, you are incredibly tall! You are always the tallest person in the room and people have to crane their necks to even talk to you! At this height, doorways are a constant risk to your forehead. Buying clothes is also a hassle, since only a few online stores even carry decent sizes for your build. 
+
+<<elseif $height <= 250>>
+At <<heighNumeral>> tall, you are gigantic! You are always easily the tallest person in the room and people have to take a step back to even talk to you! At this height, doorways are a constant issue, as you are forced to duck in order to cross them. And that is when you can even stand up straight in a room! Buying clothes is a major issue, since very few online stores carry anything that will fit. 
+
+<<elseif $height <= 300>>
+At <<heighNumeral>> tall, you are gigantic! You might just be the tallest living person, if not the tallest person ever. You are always easily the tallest person in the room, with some other barely reaching your stomach! Being indoors is a massive hassle as you can rarely stand up straight, and you basically have to crawl to get through doors. All your clothing now has to be custom-made to even have a chance of fitting!
+
+<<elseif $height <= 350>>
+At <<heighNumeral>> tall, you are a true giant! There's no doubt you're the tallest person ever as you tower over everyone, wherever you go. Outside, you are always the center of attention. People want to take pictures of you or just stand in awe of your stature. Some of them don't even reach your hip! Indoors are a massive hassle as you can never stand up straight, and you basically are forced to crawl through doors. All your clothing now must be custom-made, at unprecedented sizes!
+
+<<elseif $height <= 450>>
+At <<heighNumeral>> tall, you are a towering giant! Your height is utterly unprecedented, and you are always sure to be the center of attention even at a distance. When you go outside, people stand in awe of you, not sure whether to ask for a picture or hide. At this point, even ordinary "tall" people barely stand taller than your thighs! Being indoors is next to impossible at this juncture, as you can never stand up straight and you have no option but crawl to get through doors. All your clothing now has to be custom-made, and can hardly be recognized as something a person would wear!
+
+<<elseif $height <= 650>>
+At <<heighNumeral>> tall, you are a taller than some buildings! Your height is utterly unprecedented, and you're always sure to be the center of attention wherever you go... and its adjacent areas. Ordinary people look at you in awe, having to crane their necks to even understand how tall you are. At this point, they barely reach your knees! You can't go inside anymore as you simply won't fit in constructions anymore. Still, being able to tower over buildings is somewhat of a compensation for that...
+
+<<elseif $height <= 1000>>
+At <<heighNumeral>> tall, you tower over everything around! You've been told that people even travel from abroad to see you, with only the bravest of them daring to ask you for a picture! Ordinary people are now barely bigger than your head. You could easily hold one in your hand, if you wanted to! With your towering size you do have to be careful though; you wouldn't want to accidentally damage some buildings, right?
+
+<<elseif $height <= 1500>>
+At <<heighNumeral>> tall, you're taller than most buildings in town! Whenever you stroll across the town you see the people running and hiding, with only the bravest daring to get closer. Most of them are not even as tall as your fingers! Even your normal footsteps make buildings shake, and you leave footprints wherever you go, but hey, you still have to enjoy a stroll every now and then, right?
+
+<<elseif $height <= 2000>>
+At <<heighNumeral>> tall, you're a true giant of legends! People come from all continents to see the 8th wonder of the world that you've become, though barely anyone dares to come too close. They barely come up to your ankles, and considering how much force a single step of your gigantic feet delivers, you kind of understand why they tend to hide. Still, a bit of damage to some property is worth having you around, right?
+
+<<elseif $height <= 5000>>
+At <<heighNumeral>> tall, you are bigger than the protagonists of those cheesy sci-fi movies from the 50s! The entire town has become your playground as most people have either moved away or moved in to gawk at your miraculous height. Nobody even reaches your ankle anymore, yet some of them still approach you, even though your feet could level buildings without you even noticing! After all, it's a bit hard to notice small things like stadiums of that when you are THIS tall.
+
+<<else>>
+At <<heighNumeral>> tall, your height no longer makes any sense! You can walk out of the town and not even notice. It feels kind of lonely, actually, as people are no more than ants at this point! Completely detached from your former reality, survival has become somewhat of an issue since your mere nourishment can cause environmental imbalance on a whim. But hey, at least you get a nice massage from lightning when it rains.
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

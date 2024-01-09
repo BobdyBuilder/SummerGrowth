@@ -1,0 +1,27 @@
+:: Fitness Chat {"position":"750,3725","size":"100,100"}
+<<set $emmaDateFlirty += 1>>
+<<set $emmaDateProgress += 1>>
+<<set $FitnessChosen = 1>>
+<<Dialogue "player" "You">> "Speaking of which, I had never noticed you were quite so… built… before. I hope I’m not being too forward."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Mmm? Ah, yes. This has been an interest of mine for a long time."<</Dialogue>>
+She casually twists her wrist, causing her forearm to writhe and tense subtly.
+
+<<Dialogue "player" "You">> "It seems more than just a hobby. You're absolutely jacked! Hell, if you told me you were a professional bodybuilder under that suit, I wouldn't be surprised."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Funny that you should say that. While I don't compete myself, bodybuilding is a great source of inspiration to me. Even though I'm likely never to appear on stage myself, I hold a deep respect for that art form, and I try to emulate it in my training."<</Dialogue>>
+<<Dialogue "player" "You">> "Why wouldn't you want to compete, though? I mean, you're putting yourself through a lot of grueling work, making a body a lot of people would be jealous of. Why keep that to yourself?"<</Dialogue>>
+She sighs, closing her eyes pensively.
+
+<<Dialogue "Emma" "Emma">> "I've heard that a lot, and somehow I still don't have an answer I'm happy with. But in short, I don't do this for other people. I do it for myself. That, and, unfortunately, the sport is perceived by many as unprofessional. And I don't want to jeopardize my career for the sake of a hobby."<</Dialogue>>
+<<Dialogue "player" "You">> "Oh. That makes sense, I guess."<</Dialogue>>
+<<if $muscle >= 50 || $fat >= 50 || $breasts >= 50>><<Dialogue "Emma" "Emma">> "I figured you would be one to sympathize. I assume you also get judged preemptively for a figure that is on the end of the bell curve yourself."<</Dialogue>>
+<<Dialogue "player" "You">> "Did that affect your decision to hire me, by chance?"<</Dialogue>>
+She stops, looking off into the distance. You seem to have caught her off guard. When she replies, it comes with a cautious tone.
+
+<<Dialogue "Emma" "Emma">> "Not consciously, at least. But perhaps I did sense a bit of a kindred spirit in you."<</Dialogue>>
+<</if>>
+
+[[You should know I’m not going to judge you over this! Hell, we could work out together!|Fitness Friendly]]
+[[How did you know I like my girls with some beef?|Fitness Flirty]]
+[[That’s very admirable, being able to balance two passions like this.|Fitness Professional]]
+
+

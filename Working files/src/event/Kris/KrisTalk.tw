@@ -1,0 +1,24 @@
+:: KrisTalk [Done] {"position":"2150,2725","size":"100,100"}
+<<addMinutes 15>><<Dialogue "player" "You">>"Yeah, doing well... just a lot going on, you know. With how expensive food is getting and all the issues with clothes not fitting and stuff... it’s a lot. But thank you for asking. How was your day?"<</Dialogue>>
+
+You smile a bit, but Kris seems to be a bit shaken by this. She shifts from left to right, trying to get comfortable, before answering you. Her air of bravado has taken a bit of a hit; it seems she wasn't expecting you to actually converse with her.
+
+<<Dialogue "KrisCasual" "Kris">>"Ehm, well, yeah, doing fine, I guess? Work is a hassle, as always, but fuck it, I need to make money, right?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"At the Coffee Corner, right? Is that your only job? Or do you have other gigs?"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"... Yeah. Well, the only work I do is on paper, if you catch my drift. Got to make ends meet, after all. But really, I fucking hate it and wish I could do something else."<</Dialogue>>
+
+You listen to her, rather stunned. Kris is aggressively bored; she's not rude or anything, but she's keeps spitting out information with little thought. It seems she expected a different outcome for the question, but this is also the first time Kris is doing anything resembling opening up. Perhaps you could learn a bit more about her here.
+
+<<Dialogue "player" "You">>"... I've been meaning to ask. You don't seem to enjoy working in the Coffee Corner at all... Why did you even apply there?"<</Dialogue>>
+
+<<Dialogue "KrisCasual" "Kris">>"There is a gym nearby, and I got to see some nice and BIG people training there... hehehe... but come oooon, let's not talk about all this boring stuff when I got someone as amazing as you here! How about you give me a flex, big girl?"<</Dialogue>>
+
+[[KrisTalk2<-Ask why she is so interested in big people]]
+
+[[KrisTalk3<-Aks her about herself]]
+
+[[KrisFlex<-Flex a bit for her]]
+
+

@@ -1,0 +1,23 @@
+:: Work Chat {"position":"450,3725","size":"100,100"}
+<<set $emmaDateProfessional += 1>>
+<<set $WorkChosen = 1>>
+<<set $emmaDateProgress += 1>>
+<<Dialogue "player" "You">> "So, I never actually got to ask you, how long have you been with the company? We've been working together for a bit now, but I never thought to ask you about your career."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Certainly. Well, I do have a long history with the company, but it's not exactly exciting."<</Dialogue>>
+<<Dialogue "player" "You">> "Don't sweat it. After everything that's happened to me since I moved here, I could use some boring deets."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Well, if you insist… in truth, I started here as an intern out of college. And it has been my full-time job ever since."<</Dialogue>>
+<<Dialogue "player" "You">> "Wow! So you have been working there for quite a while!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Not by many standards. I'm still young, after all. With any luck, my career is just getting started, modesty aside."<</Dialogue>>
+<<Dialogue "player" "You">> "Wait, but... okay, I know better than to ask about a woman’s age, but I must know."<</Dialogue>>
+<<Dialogue "Emma" "Emma">>"Heh. No worries. I remember your birthday from your onboarding papers. I'm four years older than you, almost to the day."<</Dialogue>>
+
+<<Dialogue "player" "You">> "What? Holy crap, you're already running an office? And here I am fumbling my way trying to start with college life."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Don't beat yourself up over that. After all, who knows? You might just have my job by the time you graduate."<</Dialogue>>
+<<Dialogue "player" "You">> "What's your secret? Come on, you gotta spill the tea!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "I like to think I don't have one. I got to where I am through business savvy and my work ethic. I'm a firm believer that a person can accomplish whatever they put their mind to if they have sufficient knowledge and dedication."<</Dialogue>>
+
+[[That is seriously impressive! Please don’t sell yourself short, you should take some pride in those accomplishments!|Work Friendly]]
+[[Maybe you and I can talk about what it would take for me to… get ahead in the business?|Work Flirty]]
+[[Is there any way I can assist you directly? To learn more from you?|Work Professional]]
+
+

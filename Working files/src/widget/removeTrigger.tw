@@ -1,0 +1,38 @@
+:: removeTrigger [widget nobr] {"position":"125,2250","size":"100,100"}
+<<widget removeTrigger>>
+/* $args[0]: the trigger to be removed. */
+/* $args[1]: The character to remove it from. */
+/* $args[2]: Can the trigger be added multiple times. */
+
+<<set _triggerToAdd to {trigger: $args[0], repeatable: $args[1]}>>
+<<set _triggerString to $args[0]>>
+<<set _repeatable to $args[1]>>
+<<set _redoable to $args[2]>>
+
+<<for _i to 0; _i < setup.characters.length; _i ++>>
+		<<capture _i>>
+		<<if setup.characters[_i].name is $args[1]>>
+		
+		/* Gets the character trigger list. */
+		<<set _characterTriggerName to "$" + setup.characters[_i].name + "Triggers">>		
+		<<set _characterTriggers to State.getVar(_characterTriggerName)>>
+		
+<<for _j to 0; _j < _characterTriggers.length; _j ++>>
+		<<capture _j>>
+		
+		<<if _characterTriggers[_j].trigger is $args[0]>>
+		<<run _characterTriggers.deleteAt(_j)>>
+		<</if>>
+		<</capture>>
+<</for>>		
+		
+		<<run _characterTriggers.delete($args[0])>>
+		<<run State.setVar(_characterTriggerName, _characterTriggers)>>
+		
+		<</if>>
+		<</capture>>
+<</for>>
+
+<</widget>>
+
+

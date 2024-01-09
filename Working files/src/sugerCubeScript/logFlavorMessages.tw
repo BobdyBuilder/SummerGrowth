@@ -1,0 +1,68 @@
+:: logFlavorMessages [nobr] {"position":"800,200","size":"100,100"}
+<<if $introOver is true>>
+<<set _roll to random(1,5)>>
+
+<<if _roll >= 4>>
+
+<<set _flavorText to []>>
+
+<<if $tags.includes("home") and $height > 190 and $height < 200>>
+	<<set _flavorText.push("Huh... you're almost as tall as the door. Well, that's going to be fun!")>>
+<<elseif $tags.includes("home") and $height > 200 and $height < 220>>
+	<<set _flavorText.push("Man, these doors are small... let's hope you don't forget to duck too often.")>>
+<<elseif $tags.includes("home") and $height > 220 and $height < 250>>
+	<<set _flavorText.push("Why are all these doors so small?! Urgh!")>>
+<<elseif $tags.includes("home") and $height > 250 and $height < 300>>
+	<<set _flavorText.push("Yeah, you're almost forced to CRAWL through doors now!")>><</if>>	
+	
+<<if $tags.includes("home") and $dick > 5 and $dick < 10>>
+	<<set _flavorText.push("It's a good thing you're inside, because if people saw the bulge in your pants right now..!")>>
+<<elseif $tags.includes("home") and $dick > 10 and $dick < 20>>
+	<<set _flavorText.push("Urgh, it's a good thing you're inside, because you just got a random erection. Do guys have to deal with this all the time?!")>>
+<<elseif $tags.includes("home") and $dick > 20>>
+	<<set _flavorText.push("Yup, another random erection. And with your size, it's a good thing you're home!")>>
+<</if>>
+
+<<if $tags.includes("outOfHouse") and $dick > 5 and $dick < 10>>
+	<<set _flavorText.push("Shit, shit, shit! You don't know what it is, but your bulge is really showing! You're sure people are staring!")>>
+<<elseif $tags.includes("home") and $dick > 10 and $dick < 20>>
+	<<set $erectionOutside to true>>
+	<<set _flavorText.push("You're pretty sure your bulge is really showing. But, given your size? Hard for it not to be.")>>
+<<elseif $tags.includes("home") and $dick > 20>>
+	<<set $erectionOutside to true>>
+	<<set _flavorText.push("Yup, another random erection. And you're pretty sure a lot people saw it. But at your size, come on!")>>
+<</if>>
+
+
+<<if $tags.includes("home") and $muscle > 60 and $muscle < 80 and $muscleGrowthStyle is "Fantasy">>
+	<<set _flavorText.push("Heh... your shoulders just rubbed against both sides of the door. Seems like you're really getting wide!")>>
+<<elseif $tags.includes("home") and $muscle > 80 and $muscle < 100 and $muscleGrowthStyle is "Fantasy">>
+	<<set _flavorText.push("Yeah, you're so wide now, you're having trouble getting through doors sideways...")>>
+<<elseif $tags.includes("home") and $muscle > 100 and $muscleGrowthStyle is "Fantasy">>
+	<<set _flavorText.push("You're so muscular now, you have to force your way through doors! Not that you mind, of course!")>>
+<</if>>	
+
+<<if $tags.includes("storage") and $height < 170>>
+	<<set _flavorText.push("Why are thing stored on the high shelves?! You can barely reach them!")>>
+<</if>>
+
+<<if _flavorText.length > 0>>
+	<<set _randLogItemI to random(0, _flavorText.length - 1)>>
+	<<addToLog _flavorText[_randLogItemI]>>
+<</if>>
+
+<</if>>
+
+<<if $jobInterview>>
+	<<if $gameDate.getDate() is $jobInterviewDate.getDate()>>
+		<<addToLog "<b>Don't forget, you have the job interview today at 14:00! Better make sure you're on time and well dressed!</b>">>
+	<</if>>
+<</if>>
+
+<<if $gameDate.getDate() is $flag.johanOverwhelmedByDateIdeaDate?.getDate()>>
+    <<addToLog "<b>You have a date with Johan TODAY!</b>">>
+<</if>>
+
+<</if>>
+
+

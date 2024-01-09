@@ -1,0 +1,21 @@
+:: clothingSize [widget nobr] {"position":"2575,150","size":"100,100"}
+<<nobr>>
+<<widget "clothingSize">>
+<<set _size to parseInt($args[0])>>
+<<if _size is 0>> XXS
+<<elseif _size is 1>> XS
+<<elseif _size is 2>> S
+<<elseif _size is 3>> M
+<<elseif _size is 4>> L
+<<elseif _size is 5>> XL
+<<elseif _size < 8>>
+<<set _amountX to Math.ceil((_size - 5) / 2)>>
+X<<for _i to 0; _i < _amountX; _i ++>>X<</for>>L
+<<else>>
+<<print _size - 4>>XL
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

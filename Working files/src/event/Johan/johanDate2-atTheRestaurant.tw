@@ -1,0 +1,92 @@
+:: johanDate2-atTheRestaurant [nobr] {"position":"0,0","size":"100,100"}
+You can see Chez Manon in front of you - it would be hard to miss. The place, despite being in the middle of historical downtown, was remodelled with a very modern and clean aesthetic: a stark outdoor patio, adorned by very light wooden beams illuminated with warm LEDs that simulate old-timey lightbulbs. Each clean table has just a candle and square plates, which push this minimalist look to its limits. But it feels super inviting and chic - you can see how the place would be one of the most popular romantic restaurants in a hipster college town.<br><br>
+Johan takes the initiative and approaches the girl who is at the reception, and confirms his reservation. The girl escorts you two to your table, and Johan makes a point of pulling your chair himself. <<if $muscle > 55 || $height >195>>However, he struggles to push the chair forward once you sit down, and you use your legs to help, trying not to make it obvious.<</if>> He proceeds to take his seat, and tucks the napkin on his collar as he blabbers about how nice the place looks. <<if $carefreeCarefull < -1>>You put your own napkin on your lap, and try not to snicker at the cartoonish display. It takes a bit for Johan to realize that he is the only person in the entire place to have done so - which makes him blush and remove it, copying what you did and going silent, as he keeps his hands over his lap. You laugh, and tell him that it’s okay. It makes him relax, and comment he’s not used to fancy dining. You once again reassure him that it’s okay, and he seems to believe it.<<elseif $carefreeCarefull < 1>>You do the same, but quickly realize that the two of you are the only ones in the entire place to do so, and copy the other patrons, who seem to have placed it on their laps. Johan is confused for a second, but immediately imitates you. You shrug, which brings both of you to laughter.<<else>>You do the same, oblivious to the fact that you are the only ones who have not rested their napkins on their laps, as the etiquette for a fancy place would dictate. But neither of you really care that much.<</if>><br><br>
+The waiter comes in, handing each one a menu, and makes some suggestions. Johan feels a bit overwhelmed initially, which is exacerbated when wine options are laid in front of him, but you rest your hand over his, and he calms down.<br><br>
+<<Dialogue "player" "You">>"I think we’re going to stick to non-alcoholic tonight, but thanks for offering those. We’ll have some water for now, but we’ll need some time to figure out the order."<</Dialogue>><br><br>
+The waiter nods, and leaves a basket of breadsticks before leaving the table. Johan grabs one and starts munching like a rabbit going through a carrot.<br><br>
+<<Dialogue "JohanFancy" "Johan">>"Thanks for the save. I think I get a bit of decision paralysis on situations like this."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"That is actually kind of adorable, but really, it’s just picking a meal. Anything catches your fancy?"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Well, I don’t really like fish, but I’m a really big fan of pasta..."<</Dialogue>><br><br>
+<<if $skills[1].level >= 4>>
+    <<Dialogue "player" "You">>"But what is it about fish you don’t like? I mean, there’s a lot of different kinds of fish dishes."<</Dialogue>><br><br>
+    <<Dialogue "JohanFancy" "Johan">>"I dunno, it’s just that fishy taste that gets to me, my mom had a hard time trying to convince me to have fish sticks when I was a kid."<</Dialogue>><br><br> 
+    <<Dialogue "player" "You">>"Weren’t you eating a tuna sandwich the other day?"<</Dialogue>><br><br>
+    <<Dialogue "JohanFancy" "Johan">>"But that’s different, that’s like tuna salad, it’s not fishy."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"I’m guessing you might have an issue with the fish oil, why don’t you try something a bit different that you might like? They have this seared salmon with passion fruit sauce that I’m betting you are going to love."<</Dialogue>><br><br>
+    Johan looks a bit insecure about this, looking at the menu with visible concern, but he looks back at you and feels much more reassured.<br><br>
+    <<Dialogue "JohanFancy" "Johan">>"You know what? Nothing ventured, nothing gained. I’ll try it."<</Dialogue>><br><br> <<set $flag.johanDateSalmon to true>>
+<<elseif $skills[1].level > 1 || $shyConfident > 1>>
+    <<Dialogue "player" "You">>"Well, this truffled spaghetti with meatballs may sound kinda boring, but I’m willing to bet it’s going to be the best pasta you ever had."<</Dialogue>><br><br>
+    <<Dialogue "JohanFancy" "Johan">>"That is a very confident recommendation. I don’t think I’d ever order something like that in such a nice restaurant, but how could I refuse after this level of endorsement?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Pretty sure you won’t regret this."<</Dialogue>><br><br>
+<<else>>
+    <<Dialogue "player" "You">>"Uh, wow. There’s a lot of options here. I’m not quite sure myself, everything sounds really appetizing."<</Dialogue>><br><br>
+    Johan picks up on your indecisiveness, and discreetly pulls out his phone. He does a sneaky lookup of online reviews, and pockets the device once again, before confidently proclaiming:<br><br>
+    <<Dialogue "JohanFancy" "Johan">>"Well, their ravioli di zucca sounds pretty good, would you like to share a portion? Otherwise I might just order that for myself."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Yum, that DOES sound delish..."<</Dialogue>><br><br> <<set $flag.johanDateRavioli to true>>
+<</if>>
+Even though he might have cheated a bit, this confident Johan is kind of a turn on. The pasta may not be the only delish thing on the menu tonight, you think to yourself as you lick your lips. <<if $lips >=6>>You are immediately reminded of how full your lips have become, partly due to Johan’s reaction, partly to how soft and plump they feel under your tongue. <<elseif $lips >=4>>Your engorged lips seem to really command Johan’s attention, and you feel giddy with how sexy they make you feel.
+<</if>>
+<<if $tongueSize > 8>>You never realized, however, that due to your enlarged tongue, you put on quite a show, like a giant snake revealing its impressive appendage - causing Johan to jerk back for a second in shock, and some of the other patrons in the restaurant to look at your table.<</if>><br><br>
+
+
+<<if $shyConfident > 1 && $muscle >= 50 && $skills[1].level > 2 || $shyConfident > 1 && $muscle >= 50 && $skills[0].level > 2 || $submissiveDominant > 1 && $muscle >= 50>><<Dialogue "player" "You">>"Well, these muscles need A LOT of protein, so I’m getting a double portion of the lemon chicken with steamed greens."<</Dialogue>><br><br>
+As to further drive the point, you place your palm on the back of your hand, giving a very immodest albeit somewhat discreet demonstration of the girth of your arms. Despite that, you can tell several diners turn their eyes to your gargantuan muscles, generating a bit of buzz around the romantic patio - including some jealous dates.
+<<elseif $flag.johanDateRavioli && $skills[1].level > 2>>
+<<Dialogue "player" "You">>"Actually, this ravioli sounds amazing - the pumpkin gives it a slightly sweet taste that should go amazingly well with the butter sauce and nuts. We totally should share one big serving of that!"<</Dialogue>><br><br>
+Johan seems excited with your enthusiasm, cherishing that you approved of his suggestion.
+<<elseif $flag.johanDateRavioli && $skills[1].level < 3>>
+<<Dialogue "player" "You">>"That sounds great!"<</Dialogue>><br><br>
+While you are more than willing to go with his suggestion, you aren’t really sure what a zucca is, and pray that it’s nothing disgusting like slugs. It can’t be THAT bad, right? Besides, he’s so happy that you accepted his suggestion that you’d be willing to eat something nasty if just to see that smile of satisfaction it brought to his face.
+<<elseif $skills[1].level > 3>>
+<<Dialogue "player" "You">>"I didn’t realize they did molecular gastronomy here - I’m actually very curious about this sea-themed one, look: table smoked tasmanian ocean trout with miso pearls, edible sand, and sea foam!"<</Dialogue>><br><br>
+Johan looks confused with what you just said, raising an eyebrow and staring at you like you’ve gone insane... but then he shrugs and answers:<br><br>
+<<Dialogue "JohanFancy" "Johan">>"I have no idea how whatever you just said is a dish, but we don’t come to places like this everyday, so might as well go crazy, am I right?"<</Dialogue>><br><br>
+You really weren’t planning to sound like a snob, but the fact that Johan took it in such high spirits is endearing, and you can’t resist stretching over the table to give him a kiss on the forehead.<<set $flag.johanDateMolgas to true>>
+<<else>>
+<<Dialogue "player" "You">>"That sounds great!"<</Dialogue>><br><br>
+It does sound yummy, but let’s face it, you didn’t come here for the food, but for the company.
+<</if>><br><br>
+Johan flags one of the waiters and puts in the order for both of you. It’s a new side of him you didn’t really know before, and while it’s not really a big deal, you do feel cherished and taken care of in a way you weren’t really used to. You could almost swear his smile feels brighter and warmer. And as he turns his gaze back to you, he starts looking confused.<br><br>
+<<Dialogue "JohanFancy" "Johan">>"Are you alright, <<print $playerFirstName>>? You have this funny expression, was it something I did?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"It was, actually, you being so adorable I want to squish you."<</Dialogue>><br><br>
+Johan gulps, clearly not used to this kind of compliment. But takes it in good stride, and giggles, replying:<br><br>
+<<Dialogue "JohanFancy" "Johan">>"I gotta admit, I don’t know why I even got worried - I thought this dating thing was a lot harder and scarier, but maybe I just had a false impression from all those Japanese dating simulators I played - they really make going out with a girl feel like some sort of arcade witchcraft - but this is pretty cool and chill. And this place may be fancier than what I am used to, but I’m loving it!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, you are certainly enjoying those bread sticks, you should leave some for me!"<</Dialogue>><br><br>
+Johan freezes with a piece of bread almost inside his open mouth, looks at you, then silently passes it over. Giggling, you respond:<br><br>
+<<Dialogue "player" "You">>"Nah, it’s okay. I can always ask for more. Just make sure you save some space so we can have dessert!"<</Dialogue>><br><br>
+<<Dialogue "JohanFancy" "Johan">>"Oh, no worries about that!"<</Dialogue>><br><br>
+Johan says, still chewing his bread.<br><br>
+<<Dialogue "JohanFancy" "Johan">>"I would never skip dessert. I have a separate stomach for that! It’s quantum-shifted from my regular stomach in another dimension, so I can eat as much as I want and I’ll always have space for dessert!"<</Dialogue>><br><br>
+His sci-fi excuse is as crazy as it is endearing, but you still make a point to open and point at your mouth, and Johan quickly picks up what you are asking - he feeds you a breadstick, and you look at him with loving and hungry eyes.<br><br>
+<<if $muscle >= 50 || $breasts >= 45 || $ass >= 3 || $height >= 195>>
+However, your growth seems to have turned quite a few heads, as it becomes harder and harder to ignore the hubbub as a lot of the other patrons seem to be talking about you. You really make a point of trying to filter out, but it’s just impossible.<br><br>
+<<if $muscle >= 50>>”Did you see the physique of that woman? I guess she must be here for the bodybuilding show...”<br><br>
+“Man, I bet she’s the one who opens all the jars in the house!”<br><br>
+“I wonder what would make a woman like that to even go out with a wimp like that!”<br><br><</if>>
+<<if $breasts >= 45>>”Whoa, those are some humongous breasts she has there! No way those aren’t implants!“<br><br>
+”With a chest like that, I wonder what she’s even doing with that nerd - I really would think she wouldn’t date down like that!“<br><br>
+”I bet that guy run some multibillionaire tech company, someone with boobs like that has got to be a gold digger.“<br><br><</if>>
+<<if $ass >= 3>>”Look at those assets - baby got back! What is she even doing with that loser?”<br><br>
+”That girl does not skip leg day - she looks like she could squat three of that dude with ease!”<br><br>
+”Did you see that woman? Those have to be ass implants. She can barely fit in that chair, what makes someone spend money on stuff like that? I bet she’s really insecure!”<br><br><</if>>
+<<if $height >= 195>>”That girl is TALL! Who even dates with a guy who is that much shorter?”<br><br>
+”The manlet over there lucked out - though I bet she’s the one who calls the shots in bed.”<br><br>
+”Can you even imagine how awkward it must be for her to kiss him? She would have to bend down - I would never go for a date like that!”<br><br><</if>>
+“That dork is dressed like he just came off his shift at the IT department - that girl is gonna dump his sorry ass so hard, I can’t wait to see.”<br><br>
+While people are trying to be somewhat discreet, the comments make your blood boil. Worse yet, you can see Johan shrinking in his chair, clearly affected by all the judgement that is going on.
+<</if>>
+
+<<if $flag.johanDatePensive>>
+    It does not help that he was already dealing with his whole insecurity on the way there - you can see that is getting into that same introspective mood... he’s not even attacking the breadsticks anymore.<br><br>
+    Yeah, the atmosphere has clearly changed. It’s a lot more tense in here, and try as you might, it’s very hard to ignore how uncomfortable you two are. Try as you might, it feels like you are some sort of sideshow in this fancy place, and it really bothers you. But what can you do about that?<br><br>
+    <span id="choice">
+        <<link "Alright, everyone, this ain’t the circus! Have you never seen a grown woman before?" "johanDate2-protagonistStandsUpForHerself">><</link>>
+        <<link "Calling more attention to myself isn’t going to help anything..." "johanDate2-johanDefendsProtagonist">><</link>>
+    </span>
+<<else>>
+    The small talk goes on, and both of you are just having a blast until the food arrives - it looks and smells as good as one would expect - <<if $flag.johanDateRavioli>>the big portion of ravioli di zucca comes piping hot, and the slight sweetness of the pumpkin really works well with the butter sauce and nuts. The two of you continue the conversation, but most of the time is spent enjoying the dish... and Johan even offers to let you have the last few pieces, which you gladly accept. A gentleman to the end, truly.<<elseif $flag.johanDateMolgas>>As your molecular gastronomy order arrives, you can see Johan’s eyes widening as he realizes what “table smoked” meant, and despite his distaste for fish, the playful beach-like presentation pique his curiosity, making him reference all kinds of sci-fi media trying to evoke things he is familiar with. You offer him a bite of the edible sand, and he swears you are not supposed to eat THAT. But you take a bite, and your expression of culinary delight both surprises and impresses him - and he is quick to use his own spoon to nab a bit, before being equally (though much more comically) delighted. You try some of his food in return, and before you know it, it’s all gone - time sure passes by fast when you are having a good time!<<elseif $flag.johanDateSalmon>>The waiter puts the plate of salmon in front of Johan, who looks at it apprehensively: he is somewhat mesmerized by the contrast of the deep pink of the sockeye salmon fillet with the bright yellow and black dotted passion fruit sauce. You can see he is truly hesitant to take a bite, but you look him in the eye and say you are confident he’ll enjoy it - otherwise, you’ll switch plates. He brings a forkful to his lips, and slowly chews for a second, before he starts shouting with his mouth still full, praising just how amazing it tastes! You are equally happy to break his prejudice against fish, but it’s hard to suppress laughter as he attacks the fillet like he was starving. Frankly, you are just overjoyed to see him enjoying himself so much, and follow his example, eating your dish - which is just as good.<<else>>As your dishes arrive, conversation slows down a bit because the food is so good both of you can scarcely talk as you savor the famous delicacies of Chez Manon - and the place seems to deserve every bit of praise it receives. And sure, the food is great and the atmosphere is awesome, but it really is Johan’s company that makes for this perfect night.<</if>><br><br>
+    <<link "Continue" "johanDate2-dessert">><<set $flag.johanDateUneventful to true>><</link>>
+<</if>>
+
+

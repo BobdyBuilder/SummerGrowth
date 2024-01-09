@@ -1,0 +1,15 @@
+:: weightConversion [widget nobr] {"position":"2300,700","size":"100,100"}
+<<nobr>>
+<<widget "weightConversion">>
+
+<<if $measurementSystem is "imperial">>
+<<print Math.round($args[0] * 2.20462262)>>lbs
+
+<<elseif $measurementSystem is "metric">>
+<<print Math.round($args[0])>> kg
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

@@ -1,0 +1,10 @@
+:: NatWristInjury-TellStopShowingOff [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Alright, Nat… you did your little show, we all know how big and strong you are… clap, clap, clap et cetera, woooooo! Nobody here is denying that your body is amazing - so how about you take it down a notch?"<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you kidding me? Do you think I got where I am by playing it safe?"<</Dialogue>>
+You sigh, frustrated, as you expected Nat to act with just a bit more maturity.<br><br>
+<<Dialogue "player" "You">>"Actually, yes. You don't need to be an asshole and show off at every opportunity - people will still admire you if you work within your limits - and I'm pretty sure your wrist would agree."<</Dialogue>><br><br>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Pffft! I've had injuries before, I know my limits, okay? I don't need a beginner waltzing in and trying to teach me how to lift. So why don't you sit down on your corner while I finish my routine?"<</Dialogue>>
+
+<<link "Continue" "NatWristInjury-NatBlamesProtagonist">><</link>>
+
+

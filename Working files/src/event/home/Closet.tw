@@ -1,0 +1,217 @@
+:: Closet {"position":"1225,800","size":"100,100"}
+<<liveblock>>
+<<nobr>>
+<<addMinutes 5>>
+
+<span class="important">An outfit needs to have the same bonus on two pieces of clothing to apply. Clothing fit is determined by its size, but some body features can also make certain pieces with the right size not fit; very big breasts, for example. The icon after the size indicates how it fits you. green is a perfect fit, orange a tight fit, and red means it's either too big or too small.</span>
+
+<span id="outfitTable">
+<table id="store">
+  <tr>
+    <th>Type</th>
+    <th>Current item</th>
+	<th>Size needed</th>
+    <th>Bonuses</th>
+    <th>Fit</th>
+    <th>Style</th>
+  </tr>  
+  <tr>
+    <td>Top</td>
+	<td>
+    	<<if $outfit.top() == null || $outfit.top() === setup.emptyClothes>>
+        	<<set _topName to '-'>>
+		<<else>>
+        	<<set _topName to $outfit.top().name>>
+		<</if>>
+    	<<link _topName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose top - Size needed: " + setup.playerSizeNeeded('top'));
+          new Wikifier(dialog, "<<clothingSelection 'top'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('top')>></td>
+    <td class="clothingBonuses">
+        	<<print setup.getReadableBonusFromClothing($outfit.top(), true)>>
+    </td>
+        <td>
+        	<<print setup.getReadableFitFromClothing($outfit.top())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.top())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Bottom</td>
+		<td>
+        <<if $outfit.bottom() == null || $outfit.bottom() === setup.emptyClothes>>
+        	<<set _bottomName to '-'>>
+		<<else>>
+        	<<set _bottomName to $outfit.bottom().name>>
+		<</if>>
+    	<<link _bottomName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose bottom - Size needed: " + setup.playerSizeNeeded('bottom'));
+          new Wikifier(dialog, "<<clothingSelection 'bottom'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>    	
+    </td>
+    <td><<print setup.playerSizeNeeded('bottom')>></td>
+    <td class="clothingBonuses">
+        	<<print setup.getReadableBonusFromClothing($outfit.bottom(), true)>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.bottom())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.bottom())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Underwear</td>
+		<td>
+        <<if $outfit.underwear() == null || $outfit.underwear() === setup.emptyClothes>>
+        	<<set _underwearName to '-'>>
+		<<else>>
+        	<<set _underwearName to $outfit.underwear().name>>
+		<</if>>
+    	<<link _underwearName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose underwear - Size needed: " + setup.playerSizeNeeded('underwear'));
+          new Wikifier(dialog, "<<clothingSelection 'underwear'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('underwear')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.underwear(), true)>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.underwear())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.underwear())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Bra</td>
+		<td>
+    	<<if $outfit.bra() == null || $outfit.bra() === setup.emptyClothes>>
+        	<<set _braName to '-'>>
+		<<else>>
+        	<<set _braName to $outfit.bra().name>>
+		<</if>>
+    	<<link _braName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose bra - Size needed: " + setup.playerSizeNeeded('bra'));
+          new Wikifier(dialog, "<<clothingSelection 'bra'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('bra')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.bra(), true)>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.bra())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.bra())>>
+    </td>
+  </tr>
+    <tr>
+    <td>Overwear</td>
+		<td>
+    	<<if $outfit.overwear() == null || $outfit.overwear() === setup.emptyClothes>>
+        	<<set _overwearName to '-'>>
+		<<else>>
+        	<<set _overwearName to $outfit.overwear().name>>
+		<</if>>
+    	<<link _overwearName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose overwear - Size needed: " + setup.playerSizeNeeded('overwear'));
+          new Wikifier(dialog, "<<clothingSelection 'overwear'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('overwear')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.overwear(), true)>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.overwear())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.overwear())>>
+    </td>
+  </tr>
+  <tr>
+    <td>Shoes</td>
+		<td>
+    	<<if $outfit.shoes() == null || $outfit.shoes() === setup.emptyClothes>>
+        	<<set _shoesName to '-'>>
+		<<else>>
+        	<<set _shoesName to $outfit.shoes().name>>
+		<</if>>
+    	<<link _shoesName>>
+        <<script>>
+          if (Dialog.isOpen() == false) {
+          var dialog = Dialog.setup("Choose footwear - Size needed: " + setup.playerSizeNeeded('shoes'));
+          new Wikifier(dialog, "<<clothingSelection 'shoes'>>");
+          Dialog.open();
+          }
+          <</script>>
+        <</link>>
+    </td>
+    <td><<print setup.playerSizeNeeded('shoes')>></td>
+    <td class="clothingBonuses">
+    	<<print setup.getReadableBonusFromClothing($outfit.shoes(), true)>>
+    </td>
+        <td>
+        <<print setup.getReadableFitFromClothing($outfit.shoes())>>
+    </td>
+    <td>
+    	<<print  setup.getReadableArchetypesFromClothing($outfit.shoes())>>
+    </td>
+  </tr>
+  </table>
+</span>
+
+<<outfitDescription>>
+
+<br><br>
+
+ Your current bonuses are:
+<br><span id="appliedBonuses"></span>
+
+<<timed 0s>>
+<<script>>
+    let $spanAppliedBonuses = $('span#appliedBonuses');
+    $spanAppliedBonuses[0].innerHTML = '';
+    for (const bonus of State.variables.outfit.bonuses()) {
+        $spanAppliedBonuses[0].innerHTML += `<p><b> ●${bonus.name}</b><br>${bonus.description}</p>`;
+    }
+<</script>>
+<</timed>>
+
+<</nobr>>
+<</liveblock>>
+
+<<link "Back" "Bedroom">><</link>>
+
+

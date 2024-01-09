@@ -1,0 +1,15 @@
+:: Lab [nobr home] {"position":"1225,900","size":"100,100"}
+<<set $skills[5].hidden = false>>
+<<if $fullBrewingUnlocked is true>>
+    <<if $firstTimeFullBreweing != true>>Alright, Tasha gave your the primer you needed. Now you know what to do with the distilled components. It’s time to start mixing and matching. Hmmm, you could get those and combine them with each other, or maybe even add them to existing potions? It’s time to experiment! You crack your knuckles, feeling a bit like a mad scientist from a horror movie - and just as eager to do some SCIENCE!
+    <<set $firstTimeFullBreweing to true>><<else>>Here you are, back in the lab. It's time to do some SCIENCE! Hell yeah!<</if>>
+<<else>>
+    Well, here you are. At your new chemistry still; it makes your kitchen look more like a junkey's lab than a normal ktichen, but hey you're in college. Time to experiment right! Now, tasha taught you how to do the basics. Time to put a potion in here, and have some fun!
+<</if>><br><br>
+
+<span class="important">You can craft or break down a potion here. Use the left panel to craft a potion by mixing 2 ingredients (You might need to blindly mix ingredients at first). Every failed attempt will have a chance to reveal a recipe. Found recipes will be saved and you can check at the bottom of this page. Use the right panel to break down a potion into ingredients.</span><br>
+
+<<LabWidget $fullBrewingUnlocked>>
+
+<<link "Go back" "Kitchen">><</link>>
+

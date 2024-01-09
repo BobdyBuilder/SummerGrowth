@@ -1,0 +1,18 @@
+:: Bedroom [nobr home] {"position":"1225,900","size":"100,100"}
+The one place in your home that is 100% you: neatly arranged and well decorated, it has quickly become your little corner away from the world. Inside here you can shut out all outside noises and just relax. With a big bed and your desk, you have everything you need. Well, other than perhaps a small fridge.
+
+<<set _room to passage()>>
+<<cleaning _room>>
+<br><br>
+
+<<linkreplace "Go to sleep">><<include "Sleep">><</linkreplace>>
+
+<<link "Change your outfit - 00:05 🕛" "Closet">><</link>>
+<br><br>
+
+<<link "Spend some time on your PC" "pc">><</link>>
+<br><br>
+
+<<link "Go back" "Home">><</link>>
+
+

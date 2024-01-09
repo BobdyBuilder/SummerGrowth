@@ -1,0 +1,71 @@
+:: postSleepDietDescription [widget nobr] {"position":"1225,500","size":"100,100"}
+<<widget "postSleepDietDescription">>
+
+<<set _morningRoutineWeight to ($muscle + $fat) * $heightMod>>
+<p> 
+<<if $currentDiet.name is "Just eat like normal">>
+	Your basic diet isn't too out there. Some pancakes for breakfast, or maybe a bowl of granola with yogurt to get you going in the morning. Maybe some candy every so often, but not too much (of course). At lunch, you stick to a simple but practical sandwich. Dinner could be anything. Perhaps some pasta, or anything quick to make. Adventurous, it is not, but very simple, decently healthy, and, hey, requires little effort!
+<<elseif $currentDiet.name is "Save time">>
+	Today you just don't have much time. So you rush through everything, including your breakfast. A bit of fruit will have to do, or something else you can eat on the go. And without taking time to prepare, lunch and dinner will be mostly the same; instant noodles or maybe a microwave dinner, if you're lucky. It’s not good for your mood, but that’s the sacrifice you’ve made.
+<<elseif $currentDiet.name is "Cheat day!">>
+	YES, YES, CHEAT DAY! Oh, you've been looking forward to this; cake for breakfast, or no, maybe a couple of chocolate croissants! Whatever it is, then maybe you can prepare a big brunch, and then a SECOND big brunch or lunch or whatever, and then for dinner just pig out with a huge meal of whatever you feel like! Today is a good day for your mood, but not for your waistline!
+<<elseif $currentDiet.name is "Balance day">>
+	With all that’s going on it’s no surprise your body could use some help now and then, and today you're going to make up for it. For breakfast, some fruit with yogurt, and for lunch simply a nice vegetable soup. For dinner, you stick to broccoli with salmon. Recent events have made life stressful enough, and more than ever you realize that you need to take good care of your body.
+<<elseif $currentDiet.name is "Protein rich diet">>
+	Right, for today you have something special prepared to make sure you can optimize your muscle growth to its full potential: protein bulking. You start the day with a huge amount of cottage cheese and low-sugar granola. A few protein bars will get you through the morning, while for lunch you're already preparing an easy meal of chicken breast and broccoli. And for dinner, surprise, surprise, more chicken breast and broccoli! Sure, it’s not the tastiest, but it'll get your guns growing!
+<<elseif $currentDiet.name is "Lean diet">>
+	Today, you decided to go for a more lean diet; not something that'll leave you hungry or unsatisfied, but will help you lose some weight. A fruit salad for breakfast, some yogurt for lunch and some white fish, perhaps a nice salad for dinner... simple, lean and efficient! Or so you hope, at least.
+<<elseif $currentDiet.name is "Fancy cooking">>
+	Today is the day you're flexing those cooking muscles, trying new recipes or just having fun with it. For breakfast you'll be making croque monsieur, or perhaps eggs benedict with some oak-smoked salmon. For lunch you have it all planned out; a nice home-made stir-fry, and for dinner... nothing better than beef wellington. Will it be expansive as hell? Yes. Will it be bad for your waist? Sure. Is it worth it? OH, HECK, YEAH.
+<<elseif $currentDiet.name is "Cutting">>
+	You have a goal in mind, and that goal is cutting down on flab while keeping your muscles. Lean protein and a small caloric deficit will do just that. Cottage cheese for breakfast, some fruit for lunch, and white fish and chicken for dinner. Is it pleasant to eat? No. Will it help you get that summer bod? Fuck yeah!
+<<else>>
+DEBUG: postSleepDietDescription FALLTHROUGH WITH <<print $currentDiet.name>>
+<</if>>
+</p>
+<p>
+<<if _morningRoutineWeight < 40>>
+Still, its surprising how small your portions actually are. Your body doesn't need much, given how little fuel is required. One advantage though: cooking is a breeze!
+<<elseif _morningRoutineWeight < 50>>
+Still, despite your recent growth, you still eat less than most. It’s increasing, sure, but your portions are small and cooking is quickly accomplished.
+<<elseif _morningRoutineWeight < 60>>
+Still, it’s surprising that you eat an amount of food that even other people would consider average! Due to your growing body, it’s somewhat amazing how much you need now! Well, amazing to you; according to others, you're finally eating like a normal person. But to you, it looks HUGE.
+<<elseif _morningRoutineWeight < 80>>
+ You spend more and more time cooking as your growing body just needs bigger piles of food to keep it fueled. Muscle, fat, height.... a lot is changing, and all of it requires nourishment. But there are some advantages; you got more experienced at cooking such amounts, and with a big mouth you can eat more!
+<<elseif _morningRoutineWeight < 100>>
+The pile of food you eat every day keeps growing, and it’s almost worrying you by now! Others have started noticing too, and you need to buy more and cook more. It’s a good thing you can cook these amounts with ease, and wolf it down quicker, otherwise it'd become quite a bother.
+<<elseif _morningRoutineWeight < 125>>
+The portion of food you eat is HUGE; your body is growing and, with it, the fuel it needs. Cooking has become quite a challenge, as the pile you need just keeps growing, and growing, and growing. Eating it is not the hard part; preparing is. Luckily, you're getting handy at that, but some cooking lessons could come in handy.
+<<elseif _morningRoutineWeight < 150>>
+The piles of food you need to eat are almost ridiculous; it would be more than enough for multiple people, but your growing body requires all the fuel it can get to just maintain your current size, let alone keep growing! Each meal is huge and takes time to prepare, but cooking family-sized meals is no longer a hassle for you.
+<<elseif _morningRoutineWeight < 250>>
+The fridge is almost bursting at the seams with how much you now eat in a single day. Preparing it is almost a workout in and of itself, and consuming it a small spectacle. You can have a regular-sized meal in a single bite, no longer even really needing to chew. It’s all just fuel for your enormous growing body, and a growing body will always need more.
+<<else>>
+Each portion for you is now enough to feed a family for a day, that's how much you eat. It’s utterly ridiculous, and yet each day you now prepare such gigantic meals, only to consume them in a single sitting. Sometimes it’s just emptying an entire container into your waiting mouth, while sometimes you just take a huge pan and eat straight from it. Your growing body needs fuel, and it hungers for more.
+<</if>>
+<p>
+<<if $morningRoutineCoffee>>
+	<p>No morning would be complete without your cup of coffee. No matter what is going on you always like to sit down, and relax with a nice, warm cup in the morning.</p>
+<</if>>
+	
+<<if $morningRoutineSuppliesTaken > 0>>
+	<p>And, of course, you take your daily regimen of supplements, wishing they'd taste better... but unfortunately, they don't.</p>
+<</if>>
+	
+<<if $lactationMorningRoutineEmptying is true>>
+	<p>Your expectations for college life: buying a lot of stuff, drunk parties... you didn't expect spending half an hour on the sink, squeezing milk out of your tits. Amazing. <<if $breasts > 100>>It's surprising you can get it done so quickly, considering those things barely fit through a door... each. Yet you squeeze and massage them, letting it all out. The sink nearly overflows, but luckily these buildings have decent plumbing.<<elseif $breasts >= 80>>And God, these things have gotten large... you just let them hang, though it's getting harder and harder not to make a mess with their immense size. Oh well, nothing to do but wait until they're empty.<<elseif $breasts >= 50>>You got huge breasts, no way around that. And as such, it takes longer for you to milk yourself dry. Heh... milk yourself. Fucking insane that you even do that these days...<<elseif $breasts >= 25>> So here you are, your tits above the sink, being massaged to empty them. Yeah, this is JUST how you imagined college life would be.<</if>></p>
+
+<<if $carefreeCarefull >= 1>><p>You also make sure to log how much you're leaking. Gotta keep a check on this after all...</p><</if>><</if>>
+	
+<<if $personalityChanged == true>>
+	<p>When you get started, a raging headache comes over you. You quickly go for painkillers, or just anything to make it to go away, but it only lowers it a bit. You also feel the changes to your personality slowly fading; it seems that overriding your personality isn't something that comes free of charge...</p>
+	<<if $temporaryPersonalityGains.shyConfident === 0 &&
+         $temporaryPersonalityGains.carefreeCarefull === 0 &&
+         $temporaryPersonalityGains.submissiveDominant === 0 >>
+	    <<set $personalityChanged to false>>
+	<</if>>
+<</if>>
+
+<</widget>>
+
+

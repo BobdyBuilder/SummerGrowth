@@ -1,0 +1,14 @@
+:: ShoppingCenter [outOfHouse outside mall] {"position":"2300,1525","size":"100,100"}
+There is a decent shopping center downtown, with various shops in the old buildings that make up the heart of the city. Restaurants, bars, clothing stores and plenty of other places ensure that you can find almost anything around these parts (or anyone, for that matter). The colorful storefronts are surprisingly welcoming, and since it's a relatively small town, the prices are delightfully modest.
+
+<<gameLink "Visit Allison's Apparel" "ClothingStore" time:5>><</gameLink>>
+<<gameLink "Visit Tasha's Thrifts" "SecondHandStore" time:5>><</gameLink>>
+<<gameLink "Visit the Bulk Barn" "FitnessStore" time:5>><<if !$eddyIntro>><<set $eventCounter to setup.balance.eventTresshold + 1>><</if>><</gameLink>>
+<<gameLink "Visit the Coffee Corner" "BookStore" time:5>><</gameLink>>
+<<gameLink "Visit Everything Electronixz" "ElectronicsStore" time:5>><</gameLink>>
+<<gameLink "Visit the Big and Tall Boutique" "BigTallStore" time:5>><</gameLink>>
+<<gameLink "Visit Simon's Sewing & Tailoring" "Tailor" time:5>><</gameLink>>
+
+<<gameLink "Go home" "Home" time:30>><</gameLink>>
+
+

@@ -1,0 +1,55 @@
+:: Obstacle- Jump {"position":"550,2575","size":"100,100"}
+<<Dialogue "Johan" "Johan">>"Ooh, the gutsy, straightforward approach! I like it! All right, grab your 20-sided die and let’s see if you have what it takes."<</Dialogue>>
+
+You look through the pile of dice Johan has set in front of you. After you spend a few seconds trying to count the number of sides on each one as quickly as possible, Johan leans in and points out the roundest of the bunch.
+
+<<Dialogue "Johan" "Johan">>"Sorry about that. I sometimes forget everything I need to explain. But you'll go ahead and roll that and add your Strength here <<if $dndCharacter.class is "barbarian" or $dndCharacter.class is "paladin">>, and your proficiency bonus here<</if>>... And the higher the total number, the better you do."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Right. Seems easy enough. All right, here it goes!"<</Dialogue>>
+
+You give the little die a toss across the table. And comes to rest on a 15.
+
+<<Dialogue "player" "You">>"Is that good?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Well, it's a 15 out of 20. So yes, I'd say so! Whether it's good //enough// is a different question. Let's see here... The chasm is this far across, default jump distance is equal to Strength, plus... mmm..."<</Dialogue>>
+
+He rapidly mumbles to himself, apparently doing some calculations rapidly in his head.
+
+<<if $dndCharacter.class is "barbarian" or $dndCharacter.class is "paladin">><<set $DateSuccess += 1>>
+
+<<Dialogue "Johan" "Johan">>"Okay! So, off we go! Filled with confidence, you charge at the yawning chasm. You slowly gather speed until you're at a full sprint. Before you know it, you're at the point of no return! You wait until your feet are at the very lip of the crevice and leap!"<</Dialogue>>
+
+He pauses dramatically. You hadn't realized until just now how invested you were in this. You're actually leaning in a bit, excited to see whether the imaginary you succeeds.
+
+<<Dialogue "Johan" "Johan">>"You put all the strength you have into your legs and launch yourself through the air! You sail through the air, the wind rushing against you! You reach the peak of your jump, looking down briefly to see the bottom of the chasm, looming menacingly below..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Gah, don't say that!"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"But quickly you see the other side of the chasm approaching! Just as suddenly as you started the jump, your feet slam into the ground on the other side!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"So... I made it?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"You sure did, safe and sound!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Man, that was a lot of suspense for a quick jump!"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"I'd never have it differently! The whole fun of this is that you don't always know how things are going to end up. No sense in spoiling the movie for yourself, right?
+But you were very right in that this was just a jump. You still have a dungeon to delve into! Shall we move on?"<</Dialogue>>
+
+<<else>><<Dialogue "Johan" "Johan">>"Okay, off we go! You break into a sprint, rapidly picking up speed as you approach the lip of the chasm, and then leap into the air! With all your strength, you launch yourself up, and forward! And then, as you reach the apex, you realize that you're not going to make it. You start to fall, slowly at first, then quicker..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Wait, what? No, I can't die yet!"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"But! You're still moving forward, and you realize you can still save yourself! Give me another d20 roll!"<</Dialogue>>
+
+You quickly reach for the same die and toss it across the table. It's an 18!
+
+<<Dialogue "Johan" "Johan">>"As you reach the wall and the other side, you scramble to grab onto something, and your hands find two solid rocks. You cling on for dear life, and you realize that you've stopped. You did it! You're alive!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Whew. So, I'm not dead."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Nope. You lucked out and saved yourself. Your story isn't over quite yet! With a little effort, you should be able to climb up the side of the wall. Shall we get a move on to get to the dungeon itself?"<</Dialogue>><</if>>
+
+[[Journey onward!->Goblin Encounter]]
+
+

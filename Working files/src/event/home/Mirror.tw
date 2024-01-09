@@ -1,0 +1,10 @@
+:: Mirror {"position":"1125,1100","size":"100,100"}
+<<nobr>><<include BodyTypeUpgrade>><</nobr>>
+
+<<fullBody>>
+
+<<bodyDescription>>
+
+<<link "That's enough for now." "Bathroom">><</link>>
+
+

@@ -1,0 +1,21 @@
+:: lipsDescription [widget] {"position":"3450,525","size":"100,100"}
+<<nobr>>
+<<widget "lipsDescription">>
+
+<<if $lips < 0>><<set $lips to 0>><</if>>
+
+<<if $lips <= 0>>thin
+<<elseif $lips <= 1>>average
+<<elseif $lips <= 2>>plump
+<<elseif $lips <= 3>>kissable
+<<elseif $lips <= 4>>sensual
+<<elseif $lips <= 5>>thick
+<<elseif $lips <= 6>>incredibly full
+<<else>>huge
+<</if>>
+
+
+<</widget>>
+<</nobr>>
+
+

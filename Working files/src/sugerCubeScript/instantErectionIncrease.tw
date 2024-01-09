@@ -1,0 +1,43 @@
+:: instantErectionIncrease [noReturn] {"position":"650,1900","size":"100,100"}
+<<nobr>>
+
+<<if $dickActive is false and $futa>>
+<<set _message to " The bright blue liquid easily slips down your throat, though the long neck is awkward to drink from. The taste is odd, almost medicinal like a fruit-flavored multivitamin. There's something bubbly about it, rising and falling only to become stronger after you drink it. A warm feeling spreads through your groin, giving you the impression of something extending out of nowhere.">>
+<<set $dickStore += 1>>
+<<elseif $dickActive and $futa>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to " The bright blue liquid easily slips down your throat, though the long neck is awkward to drink from. The taste is odd, almost medicinal like a fruit-flavored multivitamin. The taste is almost bubbly, rising and falling only to become stronger after you drink it. In your pants, though, you feel some... movement. You feel something stirring as your dick slowly starts hardening, pushing against your clothes. It keeps growing more and more erect, but something is off. It's getting bigger WAY faster than it's getting harder! The feeling coming from it is insane, radiating an indescribable heat. As you clutch it with both hands, your tongue hangs from your mouth and eyes roll up, and you know you are in for an intense ride. Your hands spread outwards, your dick expanding outwards in all directions.">>
+
+<<set $dickErectionMod += 0.1>>
+<<set _rand to random(0,2)>>
+
+<<if _rand >= 1>>
+<<set _message += "You basically collapse from the pleasure, your legs just giving out under you. A pent-up orgasm just won't come, making it more and more intense as slowly your mind is fogged up by lust. You spend some time just laying there, unable to do anything else but feel the huge piece of meat grow and grow.">>
+<<set $dickErectionMod += 0.1>>
+<<addMinutes 30>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += "The pressure keeps building, almost to a painful degree. Though you can't even notice it any more, slowly precum starts dribbling out, indicating you will finally get the release you so desperately seek.">>
+
+<<set $dickErectionMod += 0.1>>
+<<addMinutes 30>>
+<</if>>
+
+<<set _message += "Looking down, you notice that your erect dick is FAR bigger than normal, a veritable veiny sausage between your legs. Painfully hard, you start stroking it, hoping you can come soon. It seems its sensitivity grew proportionally with its size, and it takes mere seconds for you to ejaculate like a geyser, thick ropes covering the wall in front of you. When you are finally done, you find yourself laying against the wall, breathing heavily. Slowly, your dick shrinks down to its original size; it seems you just get bigger when you are erect.">>
+
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Erecto-10");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

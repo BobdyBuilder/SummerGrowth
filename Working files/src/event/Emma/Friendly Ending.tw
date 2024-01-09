@@ -1,0 +1,20 @@
+:: Friendly Ending {"position":"750,4175","size":"100,100"}
+<<Dialogue "player" "You">> "You know, tonight was a lot of fun! I really wish we had the opportunity to do something like this sooner."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "What do you mean, exactly?"<</Dialogue>>
+<<Dialogue "player" "You">> "Like, going out and having dinner with a coworker! I never had the chance to get to know you at work."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Ah! Yes, of course. I must admit, I also enjoyed myself quite a bit."<</Dialogue>>
+<<Dialogue "player" "You">> "That sounded almost painful for you to say."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> Well, I don't do this often. Going out on a whim. Or spending time with friends in general, unless it's a special occasion. I'd like to do this again, if the opportunity arises."<</Dialogue>>
+<<Dialogue "player" "You">> "Dinner with friends?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Anything with friends, really. You're nice, <<print $playerFirstName>>. Let's find an excuse to hang out again sometime."<</Dialogue>>
+<<Dialogue "player" "You">> "Sounds like a plan!"<</Dialogue>>
+Emma gives you a pat on the shoulder before letting herself into the building. She pokes her head out of the door before shutting it behind herself.
+
+<<Dialogue "Emma" "Emma">> "Talk to you soon, <<print $playerFirstName>>."<</Dialogue>>
+With Emma successfully escorted back, and no longer quite so intimidating, you happily count tonight as a success. You make your way back home, pondering what Emma might like to do for fun as you go.
+
+
+
+<<link "Huh, that went well!" "Home">><<set $emmaFirstDateDone to true>><</link>>
+
+

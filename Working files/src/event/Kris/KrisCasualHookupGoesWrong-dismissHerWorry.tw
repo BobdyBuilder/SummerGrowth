@@ -1,0 +1,26 @@
+:: KrisCasualHookupGoesWrong-dismissHerWorry [nobr] {"position":"0,0","size":"100,100"}
+<<Dialogue "player" "You">>"Hey, I’m on your side, you know? What happened to the chill “no fucks given” barista I knew?"<</Dialogue>><br><br>
+Kris sighs, closes her eyes and tries to relax a bit.<br><br>
+<<Dialogue "Kris" "Kris">>"Sorry, sometimes I just get a bit of an edge."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Don’t we all? Believe me, I’ve had my days as well. "<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Yeah, I just… urrrrgh! This sucks!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"You seem like you need to let go a bit..."<</Dialogue>><br><br>
+She grabs her pillow, digs her face into it, and screams for a prolonged time - loudly, but muffled.<br><br>
+<<Dialogue "player" "You">>"Better?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Actually… yeah! That did help!"<</Dialogue>><br><br>
+You smile, and run your fingers through her hair.<br><br>
+<<Dialogue "player" "You">>"Sorry, I guess it’s partly my fault for showing up unannounced and all."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"NO!!! I mean, no, I love that. You definitely should do that more. I guess I’m just cursed or something."<</Dialogue>><br><br>
+You laugh, but she actually seems a bit serious about it. And as the awkward silence settles in, you make an executive decision about the evening.<br><br>
+<<Dialogue "player" "You">>"I… should get going."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"But we were just getting started!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, and it wasn’t going so well. No worries, though, I bet next time it will be extra-special. Who knows, I might even… be bigger?"<</Dialogue>><br><br>
+This seems to catch her attention. And so you playfully grab your clothes and get dressed again.<br><br>
+<<Dialogue "Kris" "Kris">>"Promise me?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"That you will be bigger?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Hahaha! Kris, you are impossible, you know that?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"It’s the reason you can’t resist me."<</Dialogue>><br><br>
+With more laughter, you make your way out. Kris watches you all the way into the elevator, and you do hope that next time things work a little better.
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'B'>><</link>>
+

@@ -1,0 +1,93 @@
+:: Partial Success {"position":"550,3175","size":"100,100"}
+You and Johan go back and forth, taking turns to narrate your climactic battle with the lich. Despite any misgivings you may have had earlier, you can feel you've finally begun to enjoy yourself with this. And frankly, you've realized that it’s mostly due to Johan’s masterful companionship.
+
+<<Dialogue "Johan" "Johan">>
+"The lich floats further into the air, raising a hand as if calling someone to him. You hear a groan and clattering, and two dead bodies lying on the floor next to you begin to shamble to life!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Ah, not going to fight me like a man, are you? I'll take care of these lame zombies, and then I'm coming for you!"<</Dialogue>>
+
+Several turns go by...
+
+<<Dialogue "Johan" "Johan">>
+"The zombies crumple to the floor before you, but you look up, as you realize... The lich is holding a fireball in his hand! He lifts his arm into the air, pitching the incandescent sphere towards you, and before you know it, it explodes in front of you! Dealing... 35 damage! And, unfortunately, I think that's enough to put you down."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"What? No! I just started playing and my character's dead?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Whoa, whoa, not dead. You're just unconscious. And you may be lucky. Maybe the lich wants you alive. There's still plenty of room for a story we can tell here!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Really?!?"<</Dialogue>>
+
+You look over at him. His eyes shine brightly. It looks like he is actively trying not to bounce in place out of sheer excitement.
+You did enjoy yourself today. And more importantly, Johan has been incredibly sweet since you moved in. Is this the time to make a move?
+
+<span id="choice"><<link "Make your move">><<replace "#choice">><<Dialogue "player" "You">>
+"So… If there's more story to tell, do you maybe want to meet up and do this again sometime?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Oh? Yes, I was hoping you would say that! I'd love to do something along these lines, in fact I was hoping to get a group together for a new campaign I wanted to run-"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Johan, I mean you and me. Alone."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Oh. Uh, sure! That would make for a unique challenge. This was actually the first time I've done a solo session, but maybe we can-"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"While going for coffee, maybe?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"... I'm honestly more of a tea drinker, but I'd be happy to - "<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"Johan. I'm asking you on a date."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Oh. OH."<</Dialogue>>
+
+There's a tense moment of silence. Johan doesn't look like he knows what to do with this information, the internal debate clearly visible in his expression.
+
+<<Dialogue "Johan" "Johan">>
+"Actually... Yes. Yes, I'd like that very much!"<</Dialogue>>
+
+His face lights up with a broad smile. You can't help but smile back.
+Before you can say another word, you hear the door behind you fly open, and several excited voices announce the arrival of the original game party. Johan's friends let themselves in, before quickly going quiet upon realizing someone else is there.
+
+<<Dialogue "Johan" "Johan">>
+"Oh, shoot! I actually forgot for a moment! I'm sorry - "<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"No, no, it's okay! When do you - "<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Here, take my phone number! I'll talk to you again soon!"<</Dialogue>>
+
+In a whirlwind, you and Johan's friends awkwardly shuffle by each other and apologize, you find yourself in the hallway outside Johan's apartment, leaning against his door, speechless as your heart races with the realization of what just happened. As you take a moment to collect yourself, you can hear the voices excitedly shouting from inside his apartment, almost snapping you from the silly trance you find yourself in.
+
+<<if $muscle >= 80 || $fat >= 80 || $breasts >= 80 || $height >= 210>>"Holy fuck, dude, who was that?! She's gigantic!"<<elseif $muscle >= 50 || $fat >= 50 || $breasts >= 50 || $height >= 210>>"Damn dude, who is that big chick?!"<<else>>"Hey, who is that girl?"<</if>>
+"She... she's my new neighbor from across the hall, and she - "
+"And you got her number! Look at you!"
+"Come on, really, it's not like that, we just - "
+
+You sigh contently as you head back to your apartment.
+
+<<link "Go home" "Home">><<set $johanOpinion += 10>><<addMinutes 60>><</link>><</replace>><</link>>
+<<link "Johan's great, but I don't want to date him.">><<replace "#choice">><<Dialogue "player" "You">>
+"You know? That sounds like a lot of fun. I'd love to come back around and play some more another time."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Really? That's great! In fact, I could even introduce you to my group. They're a great bunch, I think you'll fit right in."<</Dialogue>>
+
+You smile contentedly and give him a pat on the shoulder.
+
+<<Dialogue "player" "You">>
+"Thanks, Johan. You're a great friend."<</Dialogue>>
+
+Shortly after, Johan's friends arrive, and you take that as your excuse to leave. You say goodbye, thanking him again, and swear you'll be back for the next game.
+
+<<link "Go home" "Home">><<set $johanOpinion += 5>><<addMinutes 60>><</link>><</replace>><</link>></span>
+
+

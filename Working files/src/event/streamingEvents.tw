@@ -1,0 +1,225 @@
+:: streamingEvents [nobr] {"position":"1525,1100","size":"100,100"}
+<<nobr>>
+
+<<set _streamEvents to [
+	{warning: false,
+	message: ""
+	},
+	{warning: false,
+	message: ""
+	},
+	{warning: false,
+	message: ""
+	}
+]>>
+
+/* height */
+<<if $height >= 200>>
+
+<</if>>
+<<if $height >= 225>>
+
+<</if>>
+<<if $height >= 250>>
+
+<</if>>
+
+/* breasts */
+<<if $breasts >= 40>>
+	<<set _streamEvents.push(
+	{warning: false,
+	message: "During the stream you yawn and stretch, making your top stretch and reveal quite a bit. The chat notices it immediately, and you're sure some screenshots were taken!"})>>	
+	<<set _streamEvents.push(
+	{warning: false,
+	message: "During the stream you lean forward, giving chat a generous view of your cleavage. You're QUITE sure some people made screenshots."})>>
+	<<set _streamEvents.push(
+	{warning: true,
+	message: "During the stream, you get a bit too enthusiastic and, in the heat of the moment, your top slips a bit, revealing your nipples! SHIT!"})>>
+<</if>>
+<<if $breasts >= 60>>
+	<<set _streamEvents.push(
+	{warning: true,
+	message: "During the stream you get a BIT too enthusiastic! Your breasts wobble around a lot, and the chat is quite entranced, but you're sure at one point they saw more than they should've! FUCK."})>>
+<</if>>
+<<if $breasts >= 80>>
+	<<set _streamEvents.push(
+	{warning: true,
+	message: "During the stream you get a BIT too enthusiastic! Your gigantic breasts wobble around a lot, and the chat is quite entranced, but you're sure at one point they saw more than they should've! FUCK."})>>
+<</if>>
+<<if $breasts >= 100>>
+<<set _streamEvents.push(
+	{warning: true,
+	message: "As you stream, you notice that the only thing your chat is talking about are your tits. You get the feeling you'll get a warning on your channel soon..."})>>
+<</if>>
+
+/* Lactation */
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof') == false>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts, and with clothing that doesn't really hide it. It doesn't take long for two big wet spots to appear, and for the chat to go wild. And you KNOW you'll get a warning for this..."})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts, and with clothing that doesn't really hide it. It doesn't take long for two big wet spots to appear, and for the chat to go wild. And you KNOW you'll get a warning for this..."})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts, and with clothing that doesn't really hide it. It doesn't take long for two big wet spots to appear, and for the chat to go wild. And you KNOW you'll get a warning for this..."})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your stream you keep getting distracted as your tits are just painfully full. It isn't noticable, but chat does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
+<<if $lactationSetting && $outfit.bonuses().map(bonus => bonus.name).includes('Lactation-proof')>>
+    <<if $breastsFullness === 'overflowing'>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts. Yet you wear the right clothing, and while your tits are constantly leaking, the chat is non the wiser!"})>>
+        <<set _streamEvents.push(
+            {warning: true,
+            message: "Maybe it wasn't so smart to stream with painfully full breasts. Yet you wear the right clothing, and while your tits are constantly leaking, the chat is non the wiser!"})>>
+    <</if>>
+    <<if ['overflowing', 'full'].includes(State.variables.breastsFullness)>>
+        <<set _streamEvents.push(
+            {warning: false,
+            message: "During your stream you keep getting distracted as your tits are just painfully full. It isn't noticable, but chat does notice you seem a bit distracted."})>>
+    <</if>>
+<</if>> 
+
+/* muscle */
+<<if $muscle >= 40>>
+ <<set _streamEvents.push(
+    {warning: false,
+    message: "During a particularly nice point in the stream, you give a loud cheer, flexing your biceps. The chat LOVES it!"})>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "As you stream, you just can't help but get a bit pumped, and chat notices. Soon plenty of FLEX emotes fill the chat, all of them loving it! Time to give them what they want!"})>>
+<</if>>
+<<if $muscle >= 60>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "You don't know what is going on during the stream, but you just keep getting pumped, your muscles showing quite a bit now and then. Not an issue, but the chat LOVES it! Someone suggests changing the channel name to MuscleQueenXXL!"})>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "It's kind of fun how chat just loves to chat about your size. Giving them a quick provocative flex, you grant their wishes, and they seem to love every single moment of it!"})>>
+<</if>>
+<<if $muscle >= 80>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: " You don't know what is going on during the stream, but you just keep getting pumped, your muscles showing quite a bit now and then.  You get more and more into it, climaxing in a massive flex, which rips your clothes and reveals your underwear! You're certain you didn't turn off the camera in time, and that chat got to see more than you wanted..."})>>
+<</if>>
+
+/* clothes */
+<<if ['tight'].includes(setup.getFitDescriptionOfClothes($outfit.top()))>>
+    <<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream, your top is just a bit too tight, never being quite comfortable. That wouldn't be too bad if it wasn't a BIT too revealing at times, giving chat just a bit too much to look at!"})>>
+    <<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream you try to ignore the tightness of your clothes, but you really should've worn a better fitting outfit. You keep having to adjust it and you're sure the chat got a bit too much to look at."})>>
+<<elseif ['too small'].includes(setup.getFitDescriptionOfClothes($outfit.top()))>>
+    <<set _streamEvents.push(
+    {warning: true,
+    message: "It had to happen, given the tight clothing you were wearing! You moved just a bit too abruptly, a bit too forcefully and you just ripped them clean! Screenshots were taken, and you're sure they'll be all over the net soon..."})>>
+<</if>>
+
+<<if ['tight'].includes(setup.getFitDescriptionOfClothes($outfit.bra()))>>
+    <<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream, your bra is just uncomfortably tight, and as you adjust it, you gave the chat a bit too much to look at!"})>>	
+    <<set _streamEvents.push(
+    {warning: false,
+    message: "Though you try to ignore it, you're sure that with how tight your bra is, it gives the chat a bit too much to look at. Your fears are confirmed once the chat will talk about nothing else..."})>>	
+<<elseif ['too small'].includes(setup.getFitDescriptionOfClothes($outfit.bra()))>>
+    <<set _streamEvents.push(
+    {warning: true,
+    message: "SHIT. During the stream, you ignored the sounds coming from your bra as it tried to contain your breasts. With a sudden snap, it suddenly broke, your tits noticeably plopping down! The chat noticed, as you weren't quick enough to end the stream!"})>>	
+<</if>>
+
+<<if ['tight'].includes(setup.getFitDescriptionOfClothes($outfit.bottom()))>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "Your pants were just a bit too tight and as you walked off-cam to show something, the inevitable happened: the chat got to see just a BIT too much!"})>>		
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream you get up at one point to get something, and it seems your pants were too tight! When you check back, the chat is talking about your generous backside!"})>>	
+<<elseif ['too small'].includes(setup.getFitDescriptionOfClothes($outfit.bottom()))>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: "During the stream you get up at one point to get something, and it seems your pants were too tight! When you look back, the chat is talking about your generous backside!"})>>	
+<</if>>
+
+/* tongue */
+<<set _tempTongue to Math.round(($tongueLenght + 9 )* $heightMod)>>
+<<if $tongueLenght > 2>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream you yawn, and accidentally let your tongue roll out. The chat gets to see its full <<numeralConversion _tempTongue>> length! Though stunned, they seem to love it, immediately demanding tongue emotes."})>>
+<</if>>
+<<if $tongueLenght >= 4>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream you get a bit too playful, and stick out your tongue for the chat. It seems they were kind of impressed with the <<numeralConversion _tempTongue>> long appendage!"})>>
+<</if>>
+<<if $tongueLenght >= 6>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream you yawn, and accidentally your tongue rolls out. The chat gets to see its full <<numeralConversion _tempTongue>> length! Though stunned, they seem to love it, immediately demanding tongue emotes."})>>
+<</if>>
+
+/* dick */
+<<if $dick > 14>>
+	<<set _streamEvents.push(
+    {warning: false,
+    message: "During the stream you get up, and the chat accidentally gets a sight of your bulge. FUCK! The chat explodes, and although mods try to control the mob, the damage is done..."})>>
+<</if>>
+<<if $dick >= 20>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: "For some reason during the stream you started getting a chubby. Despite trying to focus on other things, you just kept getting hard, and you're pretty sure the chat noticed it!"})>>
+<</if>>
+<<if $dick >= 30>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: "During the stream your pants get incredibly tight, and you're sure chat has noticed, given the amount of eggplant emotes flooding in..."})>>
+<</if>>
+<<if $dick >= 40>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: "With how big your bulge is, it's almost impossible to keep it off-screen sometimes, and well, the chat is catching on just how... BIG that thing is!"})>>
+<</if>>
+<<if $dick >= 50>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: "During the stream you get up and the chat accidentally gets a sight of your bulge. FUCK! The chat explodes, and though the mods try to control it, the damage is done..."})>>
+<</if>>
+<<if $dick >= 60>>
+	<<set _streamEvents.push(
+    {warning: true,
+    message: "During the stream you get up and the chat accidentally gets a sight of your bulge. FUCK! The chat explodes, and though the mods try to control it, the damage is done..."})>>
+<</if>>
+
+<<set _eventI to random(0, (_streamEvents.length - 1))>>
+
+<<set $streamEvent to _streamEvents[_eventI].message>>
+
+<<print $streamEvent>>
+
+<<if _streamEvents[_eventI].message != "">>
+	
+<</if>>
+
+<<if _streamEvents[_eventI].warning is true>>
+<<set _saveChance to $carefreeCarefull + random(0,1)>>
+	<<if _saveChance > 1>>
+		While you should've gotten a warning here for the... 'incident', your careful nature allowed you to get away with just a warning! Lucky!
+	<<else>>
+		<<set $streamWarnings += 1 and $difficulty != "sandbox">>
+Checking your inbox, you suddenly get a red message. SHIT! Seems like what happened on the stream did NOT fit the terms of service. If you get three of those, your channel WILL be removed!
+	<</if>>
+<</if>>
+
+<</nobr>>
+

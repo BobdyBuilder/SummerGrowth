@@ -1,0 +1,19 @@
+:: instantTempShy {"position":"950,1700","size":"100,100"}
+<<nobr>>
+
+<<set _message to " You remove the cork, and give it a tentative sniff. Odd, no discernible smell. Carefully, you give it a lick. Again, doesn't seem to taste like anything. Yet, when you chug it down, it blossoms from nowhere. The mildest hint of vanilla, hidden in the milky drink. It's quite nice and makes you relax, despite the headache you feel incoming.">>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Temp-shy");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<set $temporaryPersonalityGains.shyConfident -= 1>>
+<<set $shyConfident -= 1>>
+
+<</nobr>>
+
+

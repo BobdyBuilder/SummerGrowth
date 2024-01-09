@@ -1,0 +1,112 @@
+:: EventManager [nobr] {"position":"500,700","size":"100,100"}
+<<script>>
+var events = setup.events;
+
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+if(State.variables.outfit.bonuses().map(bonus => bonus.name).includes('Intimidating')){
+    State.variables.eventCounter += 0.5;
+}
+else{
+    State.variables.eventCounter++;
+}
+
+if (State.variables.eventCounter > setup.balance.eventTresshold && tags().length > 0) {
+    var immediateEvents = [];
+    var responseEvents = [];
+    var fillerEvents = [];
+
+    /* Removes all items that have already been used, already been triggered, or whose tags do not line up with the current scene tag. */
+    for (let i = 0; i < setup.events.length; i++) {
+
+    if(State.passage == undefined)
+    {
+    	continue;
+    }
+
+        var event = setup.events[i];
+        if ((State.variables.indexesOfEventsUsed.indexOf(i) != -1 && !event.repeatable) ||
+            tags().filter(x => event.locationTags.indexOf(x) !== -1).length == 0 || event.content === "") {
+            continue;
+        }
+
+        var useable = true;
+
+        /* Making sure the conditions for the event match up.*/
+        /* Filler content should always be accesible.*/
+        if(event.priority === 'filler' && event.conditions.length == 0)
+        {
+        /* Empty condition for better reability.*/
+        }
+        else
+        {
+                for (let j = 0; j < event.conditions.length; j++) {
+                    if (!event.conditions[j]()) {
+                        useable = false;
+                        break;
+                    }
+                };
+        }
+
+
+        if (useable != true) {
+            continue;
+        }
+
+        if (event.priority == "immediate") {
+            immediateEvents.push(event);
+            continue;
+        }
+
+        if (event.priority == "response") {
+            responseEvents.push(event);
+            continue;
+        }
+
+        if (event.priority == "filler") {
+            fillerEvents.push(event);
+            continue;
+        }
+
+    };
+     /* Saving it so we can later return to the correct scene. */
+    if(immediateEvents.length > 0 || responseEvents.length > 0 || fillerEvents.length > 0)
+    {
+    		var oldScene = State.variables.currentScene;
+    if(tags().includes('noReturnDialog') || tags().includes('noEventTrigger'))
+	{
+		console.log("EventManager: didn't set new scene");
+    }
+    else
+    {
+        State.variables.currentScene = State.passage;
+    console.log('EventManager: set new scene from  ' + oldScene + ' to ' + State.variables.currentScene);
+    	
+    }
+    }
+
+    if (immediateEvents.length > 0) {
+        State.variables.currentEvent = immediateEvents[0];
+        State.variables.indexesOfEventsUsed.push(setup.events.indexOf(immediateEvents[0]));
+        State.variables.eventCounter = 0;
+
+        setTimeout(() => Engine.play("eventPassage"), Engine.minDomActionDelay);
+    } else if (responseEvents.length > 0) {
+        State.variables.currentEvent = responseEvents[Math.floor(Math.random() * responseEvents.length)];
+        State.variables.indexesOfEventsUsed.push(setup.events.indexOf(State.variables.currentEvent));
+
+        State.variables.eventCounter = 0;
+
+        setTimeout(() => Engine.play("eventPassage"), Engine.minDomActionDelay);
+    } else if (fillerEvents.length > 0) {
+        State.variables.currentEvent = fillerEvents[Math.floor(Math.random() * fillerEvents.length)];
+        State.variables.indexesOfEventsUsed.push(setup.events.indexOf(State.variables.currentEvent));
+
+        State.variables.eventCounter = 0;
+
+        setTimeout(() => Engine.play("eventPassage"), Engine.minDomActionDelay);
+    }
+}
+<</script>>
+
+

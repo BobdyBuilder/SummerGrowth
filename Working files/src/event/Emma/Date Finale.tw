@@ -1,0 +1,22 @@
+:: Date Finale {"position":"750,4075","size":"100,100"}
+<<addMinutes 60>>You chat through the evening, dessert, and Emma's post-dinner coffee. The sun has long since set, but both of you have barely noticed time pass. It's only as Emma's phone buzzes and she apologetically checks her messages that either of you notice how late it's gotten.
+
+<<Dialogue "Emma" "Emma">> "Oh, my. I knew this was a late dinner, but I suppose time still got away from us."<</Dialogue>>
+<<Dialogue "player" "You">> "Well, you know what they say. Time you enjoyed wasting is not wasted time."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Hmm. I can see some truth there. I did enjoy this evening. But both of us should probably get home at a decent hour."<</Dialogue>>
+Emma pulls some cash from her handbag to pay for the meal, but stops cold as she looks into her purse. You hear her mutter something under her breath.
+
+<<Dialogue "player" "You">> "Something wrong?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Somehow, I managed to leave my house keys in the office. I hate impose even more after everything you've already done today, but would you mind accompanying me back there? I'd feel better having someone else this late at night."<</Dialogue>>
+<<Dialogue "player" "You">> "Of course! Come on, let’s not waste any time."<</Dialogue>>
+You and Emma leisurely stroll back the way you came, the streets surprisingly quiet in the cool night air. It's unusually quiet. You can't quite think of what to say anymore, despite the fact that you feel like you know Emma better than you ever expected to. But even if the words aren't coming, you know very well how you feel about her after tonight.
+
+You reach the front of the office building and Emma stops.
+
+<<Dialogue "Emma" "Emma">> "Thank you again, <<print $playerFirstName>>. I enjoyed this time together."<</Dialogue>>
+
+<<if $emmaDateFlirty > 1 || $emmaDateFlirty == null>>[[Make your move on Emma.|Flirty Ending]]<</if>>
+<<if $emmaDateFriendly > 1 || $emmaDateFriendly == null>>[[Ask if she wants to hang out as friends again.|Friendly Ending]]<</if>>
+<<if $emmaDateProfessional > 1 || $emmaDateProfessional == null>>[[Thank her for the bonding opportunity as her employee.|Professional Ending]]<</if>>
+
+

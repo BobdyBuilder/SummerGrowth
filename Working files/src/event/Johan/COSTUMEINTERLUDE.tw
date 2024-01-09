@@ -1,0 +1,97 @@
+:: COSTUMEINTERLUDE [nobr] {"position":"0,0","size":"100,100"}
+You quickly cobble up some underwear for the costume, trying to figure out the most practical way to keep it looking consistent with the final product.<br><br>
+<<Dialogue "player" "You">>"You know, this really reminds me of that time we played that tabletop RPG - it kinda feels like it was just yesterday, you know, but at the same time it’s like another lifetime?"<</Dialogue>><br><br>
+The comment brings this hint of a nostalgic smile to Johan’s face.<br><br>
+<<if $dndCharacter.class === 'barbarian'>>
+<<if $shyConfident > 1 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"I never told you, but it was such a rush playing a barbarian - it was strangely empowering, you know, imagining myself as imposing warrior, capable of amazing physical feats..."<</Dialogue>><br><br>
+Johan cocks his head, looking at you.<br><br>
+<<Dialogue "Johan" "Johan">>"As opposed to...?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What do you mean?"<</Dialogue>><br><br>
+Johan cocks his head, looking at you.<br><br>
+<<Dialogue "Johan" "Johan">>"I mean, look at yourself. You don’t really NEED the fantasy, do you? Looking at you, I would hazard a guess you could benchpress a <<if $muscle >= 80>>semitruck<<elseif $muscle >= 60>>small car<<elseif $muscle >= 40>>horse<<else>>grown man<</if>>!"<</Dialogue>><br><br>
+Casually squeezing your upper arm, and feeling the bulky firmness gives you a general sense of how powerful you’ve become lately. Johan isn’t wrong. But whereas this would have come with glee and excitement before, there’s an edge of melancholy this time around. You almost bring it up, but you end up just letting it go for now.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"Come to think of it, I keep coming back to that time I played as a barbarian when we did that tabletop session - kinda crazy, in retrospect!"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"How so?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I dunno, I don’t quite see myself as that carefree and courageous character, it somehow made sense at the time, but it’s just not who I am anymore..."<</Dialogue>><br><br>
+You find yourself getting quieter as you explain that, like a little worm burrowing in your conscience - it’s bothersome and awkward, and Johan seems to pick up on that. He scooches a little closer, almost looking like he is homing in for a hug, but just places a hand on your shoulder as you put the finishing touches on your work.<br><br>
+<</if>>
+<<elseif $dndCharacter.class === 'cleric'>>
+<<Dialogue "player" "You">>"I remember how I was that meek and shy cleric, hiding under that big hat."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"You make that sound like a bad thing?"<</Dialogue>><br><br>
+<<if $shyConfident > 0>>
+<<Dialogue "player" "You">>"I guess I really got out of my shell since then. I never realized I would someday be a confident woman, but I feel so proud of everything I’ve accomplished since then. I’ve grown in so many ways..."<</Dialogue>><br><br>
+The comment makes Johan sigh melancholic. You frown, concerned, but just let it go.
+<<else>>
+<<Dialogue "player" "You">>"It was a nice way to express myself, liberating even, like realizing it’s okay to be like this, you know?"<</Dialogue>><br><br>
+It brings a warm smile to Johan’s face.<br><br>
+<<Dialogue "Johan" "Johan">>"It really is."<</Dialogue>><br><br>
+<</if>>
+<<elseif $dndCharacter.class === 'paladin'>>
+<<Dialogue "player" "You">>"I never told you, but it was so exciting playing a paladin - there was a bizarre joy in the certainty of my convictions, no space for self-doubt, just the will to enact it all!"<</Dialogue>><br><br>
+<<if $shyConfident > 1 && $submissiveDominant > 1>>
+<<Dialogue "Johan" "Johan">>"I wouldn’t say you’d need much roleplaying for that these days."<</Dialogue>><br><br>
+You chest puffs up, and you realize it’s true. You feel like a go-getter, this unstoppable force of nature, and it’s very comforting. Johan, on the other hand, seems somewhat miffed by your excitement, but you can’t quite put your finger on why that is so.<br><br>
+<<Dialogue "player" "You">>"Yeah, heretics out there should watch out!"<</Dialogue>><br><br>
+That does elicit a snicker from Johan, and breaks some of the tension, which you are thankful for.<br><br>
+<<else>>
+<<Dialogue "Johan" "Johan">>"I guess it’s hard to even imagine that, huh?"<</Dialogue>><br><br>
+And you realize it’s true, and not only due to roleplaying, but you feel like you’re a different person from those not-so-distant halcyon days. 
+<</if>>
+<<elseif $dndCharacter.class === 'warlock'>>
+You get a brief flashback of your tabletop warlock roleplaying character, and the fond memories come flooding your mind.<br><br>
+<<if $submissiveDominant > 1 && $carefreeCarefull < 0>>
+<<Dialogue "player" "You">>"Ah, I will miss those warlock powers I got granted by that... was it a devil or a demon? Either way, I’d wreak so much havoc with them... "<</Dialogue>><br><br>
+The comment brings a sudden warm smile to Johan’s lips, which fade almost immediately as he looks fondly at you and then down at himself.<br><br>
+<<Dialogue "Johan" "Johan">>"There’s no denying you are a force of nature, <<print $playerFirstName>>."<</Dialogue>><br><br>
+Where is this awkwardness coming from? You decide to just ignore it and hope that it passes, but the feeling lingers. Either way, you just keep working on your costume.
+<<else>>
+<<Dialogue "player" "You">>"Man, it reminds me of those abilities from my tabletop warlock character. Kinda weird, thinking back, to have such powers, I am not even sure what I’d do with them. It feels like a lifetime ago, almost like I was a different person somehow."<</Dialogue>><br><br>
+<<if $muscle >= 50 || $height >= 185>>
+Johan gives you a side-eye, before saying:<br><br>
+<<Dialogue "Johan" "Johan">>"Uh, I wouldn’t exactly call you powerless by most definitions. You can get pretty intimidating as is, you realize that, right?"<</Dialogue>><br><br>
+He got you there, not gonna lie.<br><br>
+<<else>>
+<<Dialogue "Johan" "Johan">>"I dunno, I feel like they do fit you. But I’d be lying if I told you that you aren’t a bit of a mystery. You certainly shook up my life quite a bit, that I can say with certainty."<</Dialogue>><br><br>
+He smiles, faintly, and it’s adorable, but you can’t help but shake that there’s an underlying melancholy there. You shrug it off, and work to finish your costume.
+<</if>>
+<</if>>
+<<elseif $dndCharacter.class === 'rogue'>>
+<<if $submissiveDominant < 0 && $carefreeCarefull < 0>>
+You keep working, and this subdued version of Johan kind of messes with you. Sneakily, you poke him on the ribs.<br><br>
+<<Dialogue "player" "You">>"Don’t make me have to employ my stealth to rob you of those doldrums."<</Dialogue>><br><br>
+Your energy seems to lighten up Johan to a degree, not enough to fight back, but he at least seems to be a little less self-conscious for now.<br><br>
+<<Dialogue "player" "You">>"You know, I feel like I owe you for that, it’s like you unearthed this side of me that was buried, this identity I didn’t even know I had. It feels so good to be sneaky, like I had this mischievous streak I never realized."<</Dialogue>><br><br>
+Johan giggles and leans his head against your shoulder, and you both sigh with content. Thankfully, you are almost done with your costume.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"Actually, it’s kinda weird, in retrospect? At the time, it didn’t feel like roleplaying, it felt a bit like discovering myself. Now, I look back and I am not sure I recognize that person anymore."<</Dialogue>><br><br>
+This makes Johan seem a bit glum, as he uninterestedly says:<br><br>
+<<Dialogue "Johan" "Johan">>"People grow and change. It’s part of life. Well, MOST people do. You should be glad, it means you are evolving as a person."<</Dialogue>><br><br>
+OK, that was so bizarre. You aren’t sure where that came from, but Johan really seems to have something bothering him. You wish with all your being you knew how to get him out of it, but your best plan is the one you are already on, so you just press on finishing your costume.
+<</if>>
+<<elseif $dndCharacter.class === 'wizard'>>
+<<Dialogue "player" "You">>"Let’s face it, <<print $playerFirstName>> the Wise does sound pretty awesome..."<</Dialogue>><br><br>
+Johan snorts, remembering your wizard character from yestersessions gone.<br><br>
+<<if $shyConfident > 1 && $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"I don’t know, but something about it just felt RIGHT, being this all-knowing ancient being. I dunno, it made me feel powerful..."<</Dialogue>><br><br>
+<<if $muscle >= 50 || $height >= 185>>
+<<Dialogue "Johan" "Johan">>"Not that much of a stretch, though..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Heh, I suppose not."<</Dialogue>><br><br>
+But there’s something wrong. It wasn’t resentment, but Johan’s comment had a weird edge to it. You decide to play it safe and ignore it, because you trust your plan to cheer him up with some geeky goodness at the event - and so you get back to your costume.
+<<else>>
+<<Dialogue "Johan" "Johan">>"Well, roleplaying is also cool because of the power fantasy. I know I enjoy that aspect quite a bit."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"For real, for real."<</Dialogue>><br><br>
+And so you put the finishing touches on your costume, eager to try it on.<br><br>
+<</if>>
+<<else>>
+<<Dialogue "player" "You">>"Was that weird? It didn’t feel weird at the time, but I can’t say the same now. Thinking back it just kinda flowed out of me, but now it’s like I was possessed by a spirit or something."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Well, roleplaying is also cool because of the power fantasy. I know I enjoy that aspect quite a bit."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Huh. I suppose that’s true. But it felt so real then, so... true. Like I could actually do magical shit and stuff. Now, it’s like being an adult thinking about what it was like being childish. I dunno, feels alien or something."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"People grow and change. It’s part of life. Well, MOST people do. You should be glad, it means you are evolving as a person."<</Dialogue>><br><br>
+OK, that was so bizarre. You aren’t sure where that came from, but Johan really seems to have something bothering him. You wish with all your being you knew how to get him out of it, but your best plan is the one you are already on, so you just press on finishing your costume.
+<</if>>
+<</if>>
+<<Dialogue "player" "You">>"Well, this ought to do it for me! I’ll go change and we can get going!"<</Dialogue>><br><br>
+<<link "Off to the Ren Faire we go!" "RENFAIR">><</link>>
+

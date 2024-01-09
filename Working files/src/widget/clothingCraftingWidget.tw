@@ -1,0 +1,106 @@
+:: clothingCraftingWidget [widget nobr] {"position":"2900,2025","size":"100,100"}
+<<widget "clothingCraftingWidget">>
+
+<<set _allClothes to clone(setup.allClothes)>>
+<<set _allClothesTypes to []>>
+<<set _emptyList to [""]>>
+
+<<for _i to 0; _i < _allClothes.length; _i ++>>
+        <<capture _i>>
+			<<set _allClothesTypes.push(_allClothes[_i].name)>>
+        <</capture>>
+<</for>>
+
+<<set _newProject to 
+	{
+		i: 0,
+		name: "",
+		style: "",
+		fabric: 0,
+		timeNeeded: 0,
+		newSize: 0,
+		dump:0
+	}
+>>
+<<set _style to "">>
+
+<table id="store">
+  <tr>
+    <th>Type</th>
+	<th>Size</th>
+	<th>Time to make in minutes</th>
+	<th>Fabric needed</th>
+	<th></th>
+  </tr>
+
+<tr id="row">
+  <td>
+  	<<listbox "_newProject.name">>
+	<<optionsfrom _allClothesTypes>>
+	<</listbox>>
+  </td>
+
+  <td>
+  	<<listbox "_newProject.dump">>
+	<<optionsfrom setup.getAllSizeNames()>>
+	<</listbox>>
+  </td>
+  <td>
+  <span class="time">60</span>
+  </td>
+    <td>
+  <span class="fabric">1</span>
+    <<timed 0s>><<script>>
+	State.temporary.newProject.fabric = 1;
+	State.temporary.newProject.timeNeeded = 60;
+	var boxes = $(".macro-listbox#listbox--newprojectdump, .macro-listbox#listbox--newprojectname");
+    boxes.on("change", function () {	
+		var mod = $(".macro-listbox#listbox--newprojectdump").children(":selected").val();
+        var index = $(".macro-listbox#listbox--newprojectname").children(":selected").val();
+        console.log(mod);
+        console.log(index);
+		State.temporary.newProject.newSize = mod;
+        State.temporary.newProject.i = index;
+        $(this).parents("#row").find(".time").fadeOut(250, function () {	
+			
+			var value = (parseInt(mod) + parseInt(1)) * 60;
+			State.temporary.newProject.timeNeeded = value;
+            $(this).text(value).fadeIn(250);
+        });
+		$(this).parents("#row").find(".fabric").fadeOut(250, function () {		
+			var value = parseInt(mod) + parseInt(1);
+			
+			State.temporary.newProject.fabric = value;
+			
+            $(this).text(value).fadeIn(250);
+        });
+    });
+	<</script>><</timed>>
+  </td>
+    <td>
+  <<link "craft" "sewing">>
+  	<<if $fabric >= _newProject.fabric>>	
+  	<<set _newCraftingProject to {
+			clothing: setup.allClothes[_newProject.i],
+			fabric: _newProject.fabric,
+			timeNeeded:  _newProject.timeNeeded,
+			timeSpend: 0,
+			newSize: _newProject.newSize
+		}>>
+	<<set _newCraftingProject.clothing.size to _newProject.newSize>>
+  	<<set $sewingProjects.push(_newCraftingProject)>>
+	<<set $fabric -= _newProject.fabric>>
+	
+	<<script>>
+		console.log(State.temporary.newCraftingProject);
+	<</script>>
+	<<else>>
+	Not enough fabric
+	<</if>>
+  <</link>>
+  </td>
+</tr>
+</table>
+<</widget>>
+
+

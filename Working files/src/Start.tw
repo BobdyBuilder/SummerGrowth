@@ -1,0 +1,25 @@
+:: Start [intro] {"position":"100,700","size":"100,100"}
+<<nobr>>
+In Summer Growth, you guide your character through a summer filled with strange happenings and growth, as she tries to find the creator of the experiment she accidentally drank. As time passes, she will have to manage her rate of growth and adapt to everyday life as she does so. 
+<br><br>
+The goal of the game is to keep up with your growing body and make the best of it. As this is a beta, there are very few endings.
+
+<br><br>
+<<link "New Game" "startSettings">><<set $gameStarted to true>><</link>><br><br>
+
+<</nobr>>
+
+
+<<nobr>>
+
+<<set $difficulty to "medium">>
+<<set $rivalGender to 'male'>>
+<<set $growthMod to 1>>
+<<set $muscleGrowthStyle to "Fantasy">>
+<<set $measurementSystem to "imperial">>
+<<set $iconSize to "125px">>
+<<set $debug to false>>
+<<set $futa to false>>
+
+<</nobr>>
+

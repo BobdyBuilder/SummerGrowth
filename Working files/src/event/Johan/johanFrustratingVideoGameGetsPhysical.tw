@@ -1,0 +1,88 @@
+:: johanFrustratingVideoGameGetsPhysical {"position":"1900,3600"}
+You stop at the door of Johan's apartment, and something feels... off? You hold the doorknob, hearing only some high-pitched beeping coming from inside the apartment. You can't quite put your finger on it, but something is missing - that geeky vibration that emanates from Johan's high energy. You step in through the unlocked door, and find a very still Johan sitting on the sofa, illuminated by an old CRT screen - the source of the bleepy-bloopy noises.
+
+You silently approach, and Johan seems to be completely concentrated, holding an old-school controller, attached to a weird blocky red-and-cream plastic console, with a garish yellow cartridge in it. Your eyes flow through the wires connecting this setup of prehistoric devices, and Johan appears completely oblivious to your presence. So you take a second to try and decipher what the hell is going on.
+
+The old tube TV is displaying whatever he is playing. You are cool enough to parse the 8-bit aesthetic to a certain degree - seems like there's an indigo-wearing... ninja? He brandishes a sword and uses magic as he traverses on top of a train, fighting birds and other harder-to-visualize monsters. The music is actually quite catchy, but the game seems exceptionally hard - and this explains Johan's absolute concentration.
+
+<<Dialogue "player" "You">>"What are you playing, Johan?"<</Dialogue>><br><br> 
+He jumps in the sofa, which almost costs him a life in the game as he misses a jump between train cars, but the ninja just grabs to the side of it before he pauses.
+
+<<Dialogue "Johan" "Johan">>"Oh, hey there, <<print $playerFirstName>>. Sorry, didn't notice you there. I got a hold of this vintage copy of Ninja Side Story 2 and figured I'd try to beat it, it's supposed to be really hard. My uncle played this as a kid, and he kept talking about how frustrated he was that he could never get to the end. So I decided to stream it... but it's kind of kicking my ass, and I'm still on Act 2. But I made this whole CRT setup with original hardware to give me an edge, you see, on a flat display, it would be a problem because..."<</Dialogue>>>
+
+You blink a few times, trying to process everything he just told you. He goes on about cathode ray tubes, RCA jacks, interlacing, display lag and some other things that just go straight over your head, so you just interrupt him after a bit.
+
+<<Dialogue "player" "You">>"Hey, huh, so that sounds REALLY interesting and all, but..."<</Dialogue>><br><br>
+
+<span id="choice">
+	<<link "Maybe I’m spending too much time with Johan. I don’t want to give him the wrong impression...">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"... I just remember I, uh, left my hair dryer on... in the stove... unlocked. Or something."<</Dialogue>>
+
+            <<Dialogue "Johan" "Johan">>"Uh, huh. Uh, huh."<</Dialogue>>
+
+            Johan nods absent-mindedly, and gets back to his game. You watch for a couple more minutes, sort of transfixed at how crazy hard it looks - it's A LOT of precision timing, split-second reactions and careful strategizing. But he seems to be in the groove, and maybe you'd end up being more of a distraction than you'd like. That, and you convince yourself that it would be pretty boring, so you might as well return to your apartment. Surely he'll be just fine on his own, right?
+
+            <<link "Continue" "Home">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "How about I just sit down here and watch you play?">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"... mind if I just sit down and watch? I can cheer or just spectate silently if you prefer."<</Dialogue>>
+
+            <<Dialogue "Johan" "Johan">>"Uh, huh. Uh, huh."<</Dialogue>>
+
+            Alright, guess he doesn't mind? Jumping over the couch, you land by his side. <<if $muscle>35 || $height>180>>Your weight makes the sofa pillow depress quite a bit, and Johan sorta falls closer to you due to this displacement, your thighs touching. You can hear him gulp and slightly blush, but his eyes don't break away from the screen for even a split second.<</if>> You start watching as he tries hard to get through the game.
+
+            Watching as he gets through the train stage, excitement builds as the team proceeds into a cave. With each passing second, you are more invested whether the tiny pixelated ninja lives or dies. You start learning about his many power-ups, like doppelgangers and fireballs, as he traverses the unforgiving terrain filled to the brim with unforgiving opponents. Your breath is held several times as he falls into bottomless pits and needs to repeat these hard segments - figuring out this is probably one of those old-school titles with limited lives and continues, so there's a real risk of failure looking ever present.
+
+            As he reaches the top of the mountain, he is forced to fight this weird dude that makes rain spiders on the poor hero. But Johan is on a roll, and he quickly figures out the patterns, and he has enough of the powerup to make short work of the villain!
+
+            You open your arms and go in for a hug, but Johan's eyes are glued to the screen, where a cinematic cutscene unfolds. <<if $muscle >= 60>>The gargantuan appendages remain depressingly ignored.<<elseif $muscle >=40>>The offering of a very toned embrace goes largely unnoticed.<<else>>Aaaaaand he’s in Johan world, and your inviting congratulatory gesture remains in the vacuum of his obliviousness.<</if>> Your arms stay up for a few seconds, but given the lack of response, you decide to get up and make some popcorn.
+
+            You hurry, knowing exactly where to get the bag and microwave it while you try to keep watching from afar. Johan continues, unshakeable, as he proceeds through the digital forest.
+
+            You come back and find yourself trying not to bother him by asking questions about the game. You want to know more, but you can't help but just admire this side of Johan you don't get to see so often - quiet, focused, completely committed to the task. His movements are small and efficient, and his eyes reveal a determination you don't remember seeing before. Before you know, you are paying less attention to the screen and just sort of staring at him. The small twitches of the muscle on his forearms, the almost mechanical precision of his fingertips. The almost imperceptible quivering of his lips as his breathing accelerates when he's facing some challenge. You don't even realize you started breathing through your mouth, now slightly open, <<if $shyConfident > 1>>as your start approaching his almost immobile body.<<else>>as you find yourself magnetically attracted, but too insecure to let yourself get closer to him.<</if>>
+
+            <<Dialogue "Johan" "Johan">>"YES!!!"<</Dialogue>>
+
+            The trance is broken as he raises his hand and fist pumps after defeating a tough boss. You turn back to the screen, surprised, watching another cutscene as you pretend that didn't just happen.
+
+            But as he progresses, things get scary really quick. You've heard of difficulty curves before, but by the time he reaches Act 5, it proves to be more of a difficulty wall - one Johan seems to hit headfirst. He loses quite a few lives to the fire pit, and you can notice his forehead scrunching, and the sweating increasing. His arms and shoulders get a lot more tense, and before every tense moment he grimaces. Just then, he gets sniped by an enemy, and sighs as he loses another guy. You shouldn't be hurting this much about a videogame, but you are, seeing Johan like this. It makes you feel a ball in the pit of your stomach, and you just want to lift that weight from him... but how?
+
+            <span id="choice2">
+                <<link "Relax, Johan, it's just a game!">>
+                    <<replace "#choice2">>
+                        <<Dialogue "player" "You">>"Take a deep breath. Do you need a quick pause? It's okay if you can't do it. No one is going to think any less of you."<</Dialogue>>
+
+                        Johan continues, repeating the same segment for the third time.
+
+                        <<Dialogue "Johan" "Johan">>"No, you see, these games? It's kinda like ballet - you gotta get in the groove, it's all about the patterns and repetition. I need to try this over and over until I get it just right. I need to get in the zone."<</Dialogue>>
+
+                        This comment is actually quite eye-opening. Your attention shifts back to the screen, and you immediately get what he's talking about. There really is a choreography he's repeating every time he tries to get across the slippery ice of the next stage, and with each repetition, he does it more elegantly. It's... it's actually kinda beautiful, and it stirs some weird emotions inside of you. With each round, he manages to get better, and go a bit farther. You slowly realize you probably never would have gotten so far, and your admiration increases as your rapt attention gets even more entrenched on the session.
+
+                        <<link "Continue" "johanFrustratingVideoGameGetsPhysical_p2">><<set $johanFrustratingVideoGameGetsPhysicalChoice2 = "A">><</link>>
+                    <</replace>>
+                <</link>>
+
+                <<link "You can do this! You are my ninja!">>
+                    <<replace "#choice2">>
+                        <<Dialogue "player" "You">>"Johan, you are as much a ninja as this blue guy. You can totally do this. Take a deep breath and try again, you got this!"<</Dialogue>>
+
+                        Johan quickly turns, still a bit shocked, to look you deep in your eyes. It's his turn to be shocked, as he gazes at the confidence you have in him. And he smiles, excited, because he seems to trust you more than he trusts himself. With a grin, his attention comes back to the screen, a bit more relaxed, and looking a lot more confident.
+
+                        His next run is phenomenal, he dodges enemies like a real ninja, the fantastic acrobatics and swordplay are a joy to behold. It's like a ballet. And as he gets to the next stage, which is ice-themed, you see that there is a choreography he's repeating every time he tries to get across the slippery floor, and with each repetition, he does it more elegantly. It's... it's actually kinda beautiful, and it stirs some weird emotions inside of you. With each round, he manages to get better, and go a bit farther. You slowly realize you probably never would have gotten so far, and your admiration increases as your rapt attention gets even more entrenched on the session.
+
+                        <<link "Continue" "johanFrustratingVideoGameGetsPhysical_p2">><<set $johanFrustratingVideoGameGetsPhysicalChoice2 = "B">><</link>>
+                    <</replace>>
+                <</link>>
+            </span>
+		<</replace>>
+	<</link>>
+</span>
+
+
+
+
+

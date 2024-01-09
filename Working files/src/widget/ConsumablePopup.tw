@@ -1,0 +1,45 @@
+:: ConsumablePopup [widget nobr] {"position":"550,1400","size":"100,100"}
+<<nobr>>
+<<widget "ConsumablePopup">>
+
+<<if $args[0] == undefined>>
+  <<script>>
+      console.log("ConsumablePopup used without proper parameters");
+  <</script>>
+<</if>>
+
+<<set _index to $args[0]>>
+
+<<set _usedConsumable to $consumables[_index]>>
+
+<<set _name to _usedConsumable.name>>
+<<set _message to "">>
+<<set _code to "">>
+
+<<for _i to 0; _i < _usedConsumable.effects.length; _i ++>>
+		<<capture _i>>	
+          <<set _rand to 1 - Math.random()>>
+
+          <<if _usedConsumable.effects[_i].chance >= _rand>>
+				<<set _message += _usedConsumable.effects[_i].description()>>
+                <<set _code += _usedConsumable.effects[_i].code()>>
+                <<set $consumables[_index].effects[_i].discovered to true>>
+          <</if>>        
+		<</capture>>
+<</for>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup(State.temporary.name);
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<print _code>>
+
+
+<</widget>>
+<</nobr>>
+
+

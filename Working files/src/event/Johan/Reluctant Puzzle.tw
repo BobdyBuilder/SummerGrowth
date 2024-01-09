@@ -1,0 +1,26 @@
+:: Reluctant Puzzle {"position":"450,2975","size":"100,100"}
+<<set $DateSuccess -= 1>>
+You sigh heavily.
+
+<<Dialogue "player" "You">>
+"Man. I genuinely, positively, do not think I have this in me. Is there any way I can talk you into just letting me pass?"<</Dialogue>>
+
+Johan stops in place for a moment, as if processing the situation.
+
+<<Dialogue "Johan" "Johan">>
+"What? But... come on, I promise this will be fun! I'll even give you a hand!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"I don't know, dude. I'm sure this seems fun from where you're sitting, but I just can't get into this. Is there any way we can get ahead to the good part?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Oh. Yeah, yeah, we can do that. It's all right, not everyone likes puzzles in their game. We can jump ahead to what's next."<</Dialogue>>
+
+Johan reluctantly reaches and retrieves the picture of his puzzle, a wistful look on his face.
+
+<<Dialogue "Johan" "Johan">>
+"So, then, in that case... Let's just say that your character sticks it through and with some effort, she solves the puzzle. The door loses its glow and rolls out of the way, revealing a dark passageway on the other side."<</Dialogue>>
+
+[[Let's see what's inside.->Final Boss]]
+
+

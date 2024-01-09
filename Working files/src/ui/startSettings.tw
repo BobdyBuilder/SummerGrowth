@@ -1,0 +1,86 @@
+:: startSettings [nobr intro] {"position":"100,800","size":"100,100"}
+<<include "Init">>
+
+Before we start the game, there are some global settings that determine how easy or hard the game is. These can be changed at any time in the 'Settings' menu on the left.
+<br><br>
+
+<h2>Game Difficulty</h2>
+<br>
+Determines the difficulty of the game. This does not determine how fast the player grows, merely the challenge during the game. This determines the price of some clothes, the weekly rent they player must pay, and the price of food.
+<br>
+<<radiobutton "$difficulty" "sandbox" autocheck>> Sandbox - far more money and items available, it's impossible to get fired from jobs.
+<br>
+<<radiobutton "$difficulty" "easy" autocheck>> Easy - more money and items available.
+<br>
+<<radiobutton "$difficulty" "medium" autocheck>> Medium - the game is made to have some challenge balancing money and growth.
+<br>
+<<radiobutton "$difficulty" "hard" autocheck>>  Hard - the game will make an active attempt to bankrupt you and cause a game over.
+<br>
+<br>
+<h2>Growth speed </h2>
+<br>
+Determines the general speed at which the main character will grow. This makes the game quicker.
+<br>
+<<radiobutton "$growthMod" 0.5 autocheck>> Slow
+<br>
+<<radiobutton "$growthMod" 1 autocheck>> Medium
+<br>
+<<radiobutton "$growthMod" 1.5 autocheck>>  Fast
+<br>
+<br>
+<h2>Daily amount of potions </h2>
+<br>
+Determines the amount of potions that will appear in the shop daily.
+<br>
+<<radiobutton "$dailyConsumableAmount" 1 autocheck>> 1
+<br>
+<<radiobutton "$dailyConsumableAmount" 2 autocheck>> 2
+<br>
+<<radiobutton "$dailyConsumableAmount" 3 autocheck>>  3
+<br>
+<br>
+<h2>Muscle growth Style</h2>
+<br>
+Determines the style of muscle growth. At 'Fantasy' you can expect the protagonist to be the size of a large male bodybuilder by mid-game. At 'Realistic' you can expect her to aim for a Grecian Ideal Physique, resulting in more realistic development.
+<br>
+<<radiobutton "$muscleGrowthStyle" "Realistic" autocheck>> Realistic
+<br>
+<<radiobutton "$muscleGrowthStyle" "Fantasy" autocheck>> Fantasy
+<br>
+<br>
+<h2>Add Futa content</h2>
+<br>
+When this is on, the female protagonist can grow a penis.
+<br>
+<<radiobutton "$futa" true autocheck>> on
+<br>
+<<radiobutton "$futa" false autocheck>> off
+<br>
+<br>
+<h2>Add lactation content</h2>
+<br>
+When this is on, the protagonist can start leaking milk
+<br>
+<<radiobutton "$lactationSetting" true autocheck>> on
+<br>
+<<radiobutton "$lactationSetting" false autocheck>> off
+<br>
+<br>
+<h2>Measurement system</h2>
+Determines the measurement system used in the game.
+<br>
+<<radiobutton "$measurementSystem" "imperial" autocheck>> Imperial
+<br>
+<<radiobutton "$measurementSystem" "metric" autocheck>> Metric
+<br><br>
+<h2>Rival gender</h2>
+This determines the gender of the rival you will encounter.
+<br>
+<<radiobutton "$rivalGender" 'male' autocheck>> Male
+<br>
+<<radiobutton "$rivalGender" 'female' autocheck>> Female
+<br><br>
+
+<<button [[Go on|startPoints]]>><</button>>
+
+

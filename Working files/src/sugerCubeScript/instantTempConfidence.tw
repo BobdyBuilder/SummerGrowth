@@ -1,0 +1,19 @@
+:: instantTempConfidence {"position":"950,1600","size":"100,100"}
+<<nobr>>
+
+<<set _message to "This drink just feels... strong. It has hints of coffee and cocoa, tastes you won't soon forget. The little container brings a smirk to your face. This feels... good. Real good. The caffeine triggers a mild headache, but fuck it! You can deal with that, no problem!">>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Temp-con");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<<set $temporaryPersonalityGains.shyConfident += 1>>
+<<set $shyConfident += 1>>
+
+<</nobr>>
+
+

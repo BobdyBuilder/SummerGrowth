@@ -1,0 +1,13 @@
+:: sewingTutotialFinished {"position":"25,1750","size":"100,100"}
+<<script>>
+	  if (!Dialog.isOpen()){
+      var dialog = Dialog.setup("Goal Completed; Sewing learned!");
+      new Wikifier(dialog, "With your new sewing machine and the skill to use it, you can start adjusting your clothes, or later even make new ones!<br> And the effort allows you to focus better, giving you +1 carefulness!");
+      Dialog.open();}
+	  else {
+	  Dialog.append("<br><br>And... Goal Completed: Sewing learned!<br><br>With your new sewing machine and the skills to use it, you can start adjusting your clothes, or even make new ones given enough practice! The effort allows you to focus better, giving you +1 carefulness!")
+	  }
+
+<</script>>
+
+

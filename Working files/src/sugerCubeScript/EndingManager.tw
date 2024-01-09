@@ -1,0 +1,60 @@
+:: EndingManager {"position":"1925,3500"}
+<<script>>
+if(State.variables.endingWarningsUsed == undefined){
+    State.variables.endingWarningsUsed = [];
+}
+
+if(State.variables.ending == undefined){
+for (let i = 0; i < setup.endings.length; i++) {
+
+        var ending = setup.endings[i];
+
+        if (ending.content === "") {
+            continue;
+        }
+
+        if(State.variables.endingWarningsUsed.indexOf(ending.name) != -1){
+            continue;
+        }
+
+        var useable = true;
+
+        /* Making sure the conditions for the ending match up.*/
+        if(ending.triggers.length == 0)
+        {
+        /* Empty condition for better reability.*/
+        }
+        else
+        {
+                for (let j = 0; j < ending.triggers.length; j++) {
+                    if (!ending.triggers[j]()) {
+                        useable = false;
+                        break;
+                    }
+                };
+        }
+
+        if(useable){
+            console.log(ending);
+            if(ending.warning && State.variables.endingWarningsUsed.indexOf(ending.name) == -1){
+                if (Dialog.isOpen() == false) {
+                    var dialog = Dialog.setup(ending.header);
+                    new Wikifier(dialog, ending.content);
+                    Dialog.open();
+                }
+                State.variables.endingWarningsUsed.push(ending.name);
+            }
+            else{
+                State.variables.ending = ending.content;
+                Config.history.controls = false;
+                $("#ui-bar-history").hide();
+                $("#story-caption").hide();
+
+                setTimeout(() => Engine.play("EndingPassage"), Engine.minDomActionDelay);
+            }
+        }
+}
+}
+
+<</script>>
+

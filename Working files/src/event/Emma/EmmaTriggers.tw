@@ -1,0 +1,6 @@
+:: EmmaTriggers [nobr] {"position":"1400,2125","size":"100,100"}
+<<set $EmmaTriggers to ["blocked"]>>
+
+<<set $EmmaUsedTriggers to ["blocked"]>>
+
+

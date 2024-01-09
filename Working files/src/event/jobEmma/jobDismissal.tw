@@ -1,0 +1,52 @@
+:: jobDismissal {"position":"1400,1700","size":"100,100"}
+When you arrive at the office and turn on your PC you notice your entire agenda has been cleared. And replaced with a single meeting with Emma. Fuck.
+
+As you enter her office, she welcomes you in, handing you a cup of the GOOD coffee from the personal machine in her office. Patiently, she sits you down, your file in front of her. Despite all these signs, something is off, as she doesn't seem angry at all. But her professional tone does put you on edge.
+
+<<Dialogue "Emma" "Emma">>"Please, take a seat Miss <<print $playerLastName>>. You've been with us for... some time now, and I have got to say, we are decently pleased with your performance. There’s always a learning curve, but your deliveries have yet to disappoint."<</Dialogue>>
+
+You sigh with relief, some of the tension dissipating. However, Emma gets up, and sits on her desk. Oh, shit.
+
+<<Dialogue "Emma" "Emma">>"HOWEVER... It cannot have escaped you that your... physique makes working here at the office a larger challenge than... what we are used to. Now, as company policy, we cannot discriminate on appearance, bodily ability or build. And we at Financial Gains and Bulk Orders LLC, we strive to follow that policy to the letter. But, you happen to be a rather... extreme case, and at this point we have to discuss costs and benefits. Miss <<print $playerLastName>>, we are not firing you. However, we would like to settle this amiably. For this reason, we're ready to offer you a settlement; We can terminate your contract immediately, and in return you will be given severance package of $2000. Would these be agreeable terms?"<</Dialogue>>
+
+<span id="choice"><<link "Deal!">><<set $officeFired to true>><<replace "#choice">><<Dialogue "player" "You">> "I... don't know what to say! But... taking everything in consideration..."<</Dialogue>>
+
+<span id="choice2"><<link "Take it!">><<replace "#choice2">>You hesitate only for a moment, before grabbing her hand.
+
+<<Dialogue "player" "You">> "I’ll take it!"<</Dialogue>>
+
+Emma smiles warmly, clearly happy this got settled in a friendly way.
+
+<<Dialogue "Emma" "Emma">>"Very well. Then, on behalf of Financial Gains and Bulk Orders LLC, let me thank you for all your hard work. We do truly appreciate it, and we're most happy that we could manage to settle it like this. So, <<print $playerFirstName>>, thank you SO much for all your work, and I wish you the best in the future."<</Dialogue>>
+
+<<link "And thank you for everything too!" "Home">><<set $money += 2000>><<set $officeFired to true>><</link>>
+<</replace>><</link>>
+
+<<link "Negotiate for more">><<replace "#choice2">>You hesitate, scratching your head.
+
+<<Dialogue "player" "You">> "Well... I'm not sure. It’s a nice offer and all but, this is my job, I do depend on the income. While your offer is generous..."<</Dialogue>>
+
+<<Dialogue "Emma" "Emma">>“... It is not a long-term solution. Very well. I have the authority to raise the amount to $2500, but that is my final offer."<</Dialogue>>
+
+<<Dialogue "player" "You">> "I’ll take it!"<</Dialogue>>
+
+Emma smiled warmly, clearly happy this got settled in a friendly way.
+
+<<Dialogue "Emma" "Emma">>" Very well. Then, on behalf of Financial Gains and Bulk Orders LLC, let me thank you for all your hard work. We do truly appreciate it, and we're most happy that we could manage to settle it like this. So, <<print $playerFirstName>>, thank you SO much for all your work, and I wish you the best in the future."<</Dialogue>>
+
+<<link "And thank you for everything too!" "Home">><<set $money += 2500>><<set $officeFired to true>><</link>>
+
+<</replace>><</link>></span>
+<</replace>><</link>>
+
+<<link "No thank you.">><<replace "#choice">><<Dialogue "player" "You">> “...While it’s a very... um... generous offer, I am unable to accept it. This is my job."<</Dialogue>>
+
+There is a long silence before Emma speaks again, her face becoming just that bit colder.
+
+<<Dialogue "Emma" "Emma">>"Very well. In that case, the offer is withdrawn, and I look forward to continuing our working relation."<</Dialogue>>
+
+<<link "...Get to work." "office">><<set $dismissalOffered to true>><</link>>
+<</replace>><</link>>
+</span>
+
+

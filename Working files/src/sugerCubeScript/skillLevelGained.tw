@@ -1,0 +1,163 @@
+:: skillLevelGained [noReturn] {"position":"1800,200","size":"100,100"}
+<<nobr>>
+<<set _added to "">>
+
+/* WHEN UPDATING, ALSO UPDATE IN STARTUP SCENE */
+
+<<set $skills[$skillIndexGained].level += 1>>
+
+<<if $skills[$skillIndexGained].level is 1>>
+	<<set _skillLevel to "beginner">>
+	  <<if $skills[$skillIndexGained].name is "Sewing">>
+			<<set _added to "<br> And not only that, you can now scrap projects and recover 50% of the fabric!">>
+			<<set $fabricScrapPercentage to 0.5>>
+	  <</if>>
+	  <<if $skills[$skillIndexGained].name is "Working out">>
+		<<set _added to "<br> And with the basics of working out understood, you are confident you can now get a good workout quicker, without getting as tired.">>
+		<<set $workoutSkillTimeMod -= 0.25>>
+		<<set $workoutSkillMuscleGainMod +=  0.1>>
+		<<set $workoutSkillExhaustionMod -= 0.1>>
+	  <</if>>
+	  <<if $skills[$skillIndexGained].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, all your cooking is now cheaper and tastes better, making it all more enjoyable to eat. Also, you learned a few new recipes!">>
+			<<set $cookingSkillPriceReduction to 0.9>>
+			<<set $cookingSkillMotivationBonus to 1.1>>
+			<<set $diets.push({ name: "Protein rich diet",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0.2, 
+			  fatGain: 0.1, 
+			  price: setup.balance.baseMoneyPerDay * 1.2,
+			  time: 60,
+			  happinessGain: -20, 
+			  minimumExhaustion: 10,
+			  description: "Eating a protein-rich diet will let you bulk up faster, but it's hard to maintain and pretty expensive."})>>
+			<<set $diets.push({ name: "Lean diet",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0, 
+			  fatGain: -0.5, 
+			  price: setup.balance.baseMoneyPerDay * 1.2,
+			  time: 60,
+			  happinessGain: -20, 
+			  minimumExhaustion: 10,
+			  description: "This lean diet is perfect for maintaining muscle, while still losing weight."})>>
+	  <</if>>
+      <<if $skills[$skillIndexGained].name is "Chemistry">>
+			<<set _added to "<br> And not only that, you can now buy some of the ingredients online!">>
+			<<set $chemistryOnlineShopping to true>>
+	  <</if>>
+	  
+<<elseif $skills[$skillIndexGained].level is 2>>
+	<<if $skills[$skillIndexGained].name is "Working out">>
+		<<set $shyConfident += 1>>
+		<<set $workoutSkillMuscleGainMod +=  0.1>>
+		<<set _added to "<br> And not only that, all this knowledge about working out has made you more confident too! +1 Confidence.">>
+		
+		<<elseif $skills[$skillIndexGained].name is "Sewing">>
+			<<set _added to "<br> And not only that, you can now craft clothing from scratch using your sewing machine!">>
+		<</if>>
+		
+		<<if $skills[$skillIndexGained].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, all your cooking is now ready faster, and with some new recipes to boot!">>
+			<<set $cookingSkilltimeReduction to 0.9>>
+			<<set $diets.push({ name: "Fancy cooking",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0.2, 
+			  fatGain: 0.5, 
+			  price: setup.balance.baseMoneyPerDay * 5,
+			  time: 120,
+			  happinessGain: -30, 
+			  minimumExhaustion: -20,
+			  description: "With this, you'll really challenge your cooking skills. It won't be cheap or healthy, but it'll be FUN."})>>
+	  <</if>>
+      <<if $skills[$skillIndexGained].name is "Chemistry">>
+			<<set _added to "<br> And not only that, you now can order more ingredients online!">>
+			<<set $chemistryOnlineShopping2 to true>>
+	  <</if>>
+		
+	<<set _skillLevel to "intermediate">>
+<<elseif $skills[$skillIndexGained].level is 3>>
+	<<if $skills[$skillIndexGained].name is "Book keeping">>
+		<<addTrigger "expertBookKeeper" false false>>
+		<<set $carefreeCarefull += 1>>
+		<<set _added to "<br> And not only that, you got the feeling that all this knowledge about tracking finances has made you more aware of risks. +1 Carefulness.">>
+	<</if>>
+	<<if $skills[$skillIndexGained].name is "Cooking">>
+			<<set $cookingMealPrep to true>>
+			<<set _added to "<br> And not only that, you can now prepare meals in advance in the kitchen, enabling you to save time!">>
+	  <</if>>
+	  <<if $skills[$skillIndexGained].name is "Working out">>
+		<<set _added to "<br> And now you're a true gym rat, you'll have no problem getting even more gains in!">>
+		<<set $workoutSkillTimeMod -= 0.25>>
+		<<set $workoutSkillMuscleGainMod +=  0.1>>
+		<<set $workoutSkillMinimumExhaustionMod -= 0.1>>
+	  <</if>>	  
+	<<if $skills[$skillIndexGained].name is "Sewing">>
+			<<set _added to "<br> And not only that, you can now scrap projects and get 75% of the fabric back!">>
+			<<set $fabricScrapPercentage to 0.75>>
+	  <</if>>
+	  <<if $skills[$skillIndexGained].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, your cooking got EVEN faster, and with some new recipes, too!">>
+			<<set $cookingSkilltimeReduction to 0.8>>
+			<<set $diets.push({ name: "Cutting",
+			  level: 0,
+			  muscleGain: setup.balance.muscleAllowancePerDay * 0.2, 
+			  fatGain: -1, 
+			  price: setup.balance.baseMoneyPerDay * 1.2,
+			  time: 45,
+			  happinessGain: -30, 
+			  minimumExhaustion: -20,
+			  description: "This diet is tailor-made for minimizing muscle loss and maximizing fat loss."})>>
+	  <</if>>
+      <<if $skills[$skillIndexGained].name is "Chemistry">>
+			<<set _added to "<br> And not only that, you now have a chance of creating an additional random ingredient when splitting a potion!">>
+			<<set $chemistrySplitbonus to true>>
+	  <</if>>
+	  
+	<<set _skillLevel to "expert">>
+<<elseif $skills[$skillIndexGained].level is 4>>
+	<<set _skillLevel to "master">>
+	<<if $skills[$skillIndexGained].name is "Working out">>
+		<<set $workoutSkillMuscleGainMod +=  0.2>>
+		<<set $workoutSkillMinimumExhaustionMod -= 0.2>>
+		<<set $shyConfident += 1>>
+		<<set _added to "<br> And not only that, you get the feeling that all this knowledge about working made you more confident as well! +1 Confidence.">>
+		<<addTrigger "expertWorkout" false false>>
+	<</if>>
+	<<if $skills[$skillIndexGained].name is "Sewing">>
+			<<set _added to "<br> And not only that, sewing sessions now only take 20 minutes instead of 30!">>
+			<<addTrigger "expertSewing" false false>>
+	  <</if>>
+	  <<if $skills[$skillIndexGained].name is "Cooking">>
+			<<set _added to "<br> And with what you learned, all your cooking is now cheaper, quicker, and tastier! It's the best of all worlds!">>
+			<<set $cookingSkillPriceReduction to 0.8>>
+			<<set $cookingSkillMotivationBonus to 1.2>>
+			<<addTrigger "expertCook" false false>>
+	  <</if>>
+	<<if $skills[$skillIndexGained].name is "Book keeping">>
+		<<addTrigger "expertBookKeeper" false false>>
+		<<set $carefreeCarefull += 1>>
+		<<set _added to "<br> And not only that, you got the feeling that all this knowledge about tracking finances has made you more aware of risks. +1 Carefulness.">>
+		<<addTrigger "expertBookKeeping" false false>>
+	<</if>>
+    <<if $skills[$skillIndexGained].name is "Chemistry">>
+			<<set _added to "<br> And not only that, You can now buy all ingredients online through your computer!">>
+			<<set $chemistryOnlineShopping3 to true>>
+	  <</if>>
+<</if>>
+
+<<set _text to "Your skill in " + $skills[$skillIndexGained].name + " improved! You're now a " + _skillLevel + ".">>
+
+
+<<set _text += _added>>
+
+
+<<script>>
+	console.log(State.temporary.text);
+	var dialog = Dialog.setup("Skill gained!");
+	new Wikifier(dialog, State.temporary.text);
+	Dialog.open();
+<</script>>
+
+<</nobr>>
+
+

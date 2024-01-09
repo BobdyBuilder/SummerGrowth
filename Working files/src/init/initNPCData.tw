@@ -1,0 +1,90 @@
+:: initNPCData [nobr] {"position":"200,400","size":"100,100"}
+<<set $minorCharacters to 
+[
+	"Eddy",
+	"Simon",
+	"Tasha"
+]>>
+
+<<set $johanVisited to false>>
+<<set $johanLastMuscle to $muscle>>
+<<set $johanLastFat to $fat>>
+<<set $johanLastBreasts to $breasts>>
+<<set $johanLastDick to $dick>>
+<<set $johanLastHeight to $height>>
+<<set $johanLastTougue to $tongue>>
+<<set $johanAmountVisited to 0>>
+<<set $johanOpinion to 10>>
+
+<<set $emmaVisited to false>>
+<<set $emmaLastMuscle to $muscle>>
+<<set $emmaLastFat to $fat>>
+<<set $emmaLastBreasts to $breasts>>
+<<set $emmaLastDick to $dick>>
+<<set $emmaLastHeight to $height>>
+<<set $emmaLastTougue to $tongue>>
+<<set $emmaAmountVisited to 0>>
+<<set $emmaOpinion to 0>>
+<<set $emmaFirstDateTime = new Date('June 1, 2020 13:37:00')>>
+
+<<set $elenaVisited to false>>
+<<set $elenaLastMuscle to $muscle>>
+<<set $elenaLastFat to $fat>>
+<<set $elenaLastBreasts to $breasts>>
+<<set $elenaLastDick to $dick>>
+<<set $elenaLastHeight to $height>>
+<<set $elenaLastTougue to $tongue>>
+<<set $elenaAmountVisited to 0>>
+<<set $elenaOpinion to 0>>
+
+<<set $elenashyVisited to false>>
+<<set $elenaShyLastMuscle to $muscle>>
+<<set $elenaShyLastFat to $fat>>
+<<set $elenaShyLastBreasts to $breasts>>
+<<set $elenaShyLastDick to $dick>>
+<<set $elenaShyLastHeight to $height>>
+<<set $elenaLastTougue to $tongue>>
+<<set $elenaShyAmountVisited to 0>>
+<<set $elenaShyOpinion to 0>>
+<<set $elenaUnlocked to false>>
+
+<<set $krisVisited to false>>
+<<set $krisLastMuscle to $muscle>>
+<<set $krisLastFat to $fat>>
+<<set $krisLastBreasts to $breasts>>
+<<set $krisLastDick to $dick>>
+<<set $krisLastHeight to $height>>
+<<set $krisLastTougue to $tongue>>
+<<set $krisOpinion to 0>>
+<<set $krisAmountVisited to 0>>
+
+<<set $krisObsessedVisited to false>>
+<<set $krisObsessedLastMuscle to $muscle>>
+<<set $krisObsessedLastFat to $fat>>
+<<set $krisObsessedLastBreasts to $breasts>>
+<<set $krisObsessedLastDick to $dick>>
+<<set $krisObsessedLastHeight to $height>>
+<<set $krisLastTougue to $tongue>>
+<<set $krisObsessedOpinion to 0>>
+<<set $krisObsessedAmountVisited to 0>>
+
+<<addTrigger "krisBored" false false>>
+<<set $krisInterested to false>>
+<<set $krisObsessed to false>>
+<<set $krisLove to 0>>
+
+<<set $tashaOpinion to 0>>
+<<set $simonOpinion to 0>>
+<<set $eddyOpinion to 0>>
+
+<<set $natVisited to false>>
+<<set $natLastMuscle to $muscle>>
+<<set $natLastFat to $fat>>
+<<set $natLastBreasts to $breasts>>
+<<set $natLastDick to $dick>>
+<<set $natLastHeight to $height>>
+<<set $natLastTougue to $tongue>>
+<<set $natAmountVisited to 0>>
+<<set $natOpinion to 0>>
+
+

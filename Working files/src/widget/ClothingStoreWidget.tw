@@ -1,0 +1,164 @@
+:: ClothingStoreWidget [widget nobr] {"position":"2500,1525","size":"100,100"}
+<<widget "ClothingStoreWidget">>
+
+<<set _storeClothes to $args[0].slice()>> /* keeps the shallow copy of original list */
+<<set _isOnline to $args[0] == $onlineInventory>>
+<<set _filteredStoreClothes to _storeClothes.slice()>>
+<<set _range to 10>>
+
+<<script>>
+console.log(State.temporary.filteredStoreClothes);
+<</script>>
+
+<span id="outfitTable">
+<table id="store">
+    <tr>
+        <td>
+            Show slot:<br>
+            <<listbox "$shoppingSlot" autoselect>>
+                <<optionsfrom ['-', 'top', 'bottom', 'underwear', 'overwear', 'bra', 'shoes']>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with style:<br>
+            <<set _stylesCopy to [...setup.allStyles]>>
+            <<set _stylesCopy.unshift('All styles')>>
+            <<listbox "$shoppingStyle" autoselect>>
+                <<optionsfrom _stylesCopy>>
+            <</listbox>>
+        </td>
+        <td>
+            Show only with bonus:<br>
+            <<set _bonusCopy to function () {
+                var arr = ['-'];
+                console.log("bonusCopy info:");
+                for (var prop in setup.clothingBonuses) {
+                    console.log(prop);
+                    if (setup.clothingBonuses.hasOwnProperty(prop)) {
+                        var innerObj = {};
+                        innerObj[prop] = setup.clothingBonuses[prop];
+                        console.log(Object.values(innerObj)[0]);
+                        console.log(Object.values(innerObj)[0].hideInStores);
+                        if(Object.values(innerObj)[0].hideInStores == false){
+                            arr.push(Object.values(innerObj)[0].name);
+                        }                       
+                    }
+                }  
+                console.log(arr); 
+                return arr;
+            }>>
+            <<listbox "$shoppingBonuses" autoselect>>
+                <<optionsfrom _bonusCopy()>>
+            <</listbox>>
+        </td>
+    </tr>
+  </table>
+</span>
+
+<<timed 0s>>
+<<script>>
+const inputs = $('#listbox-shoppingslot, #listbox-shoppingstyle, #listbox-shoppingbonuses, #checkbox-shoppingaffordable');
+const clothes = State.temporary.storeClothes;
+
+inputs.on('change', function () {
+    setup.setClothesTable(clothes);
+});
+setup.setClothesTable(clothes);
+<</script>>
+<</timed>>
+
+<<liveblock>>
+<span id="outfitTable">
+
+<<set _rowDisplaySize to function (rowIndex) {
+    const clothing = State.temporary.filteredStoreClothes[rowIndex];
+
+    const sizes = {};
+    for (let i = 0; i < setup.getAllSizeNames().slice(clothing.availableSizes[0], clothing.availableSizes[1]).length; i++) {
+        sizes[setup.getReadableFitFromSize(i, clothing.slot, clothing.tolerance)] = i;
+    }
+    return sizes;
+}>>
+
+<table id="store">
+  <tr>
+    <th>Clothing piece</th>
+    <th>Price</th>
+	<th>Size</th>
+    <th>bonuses</th>
+    <th>Style</th>
+    <th></th>
+  </tr>    
+    <<for _i to 0; _i < _filteredStoreClothes.length; _i ++>>
+        <<capture _i>>
+            <<set _rowDisplaySizes to _rowDisplaySize(_i)>>
+            <tr @data-num="_i">
+                <td>
+                    <<print _filteredStoreClothes[_i].name>>                    
+                </td>
+                <td>$<<print setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<listbox "_filteredStoreClothes[_i].size" autoselect>>
+                        <<optionsfrom _rowDisplaySizes>>
+                    <</listbox>></td>
+                <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
+                <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
+                <td>
+                    <<if setup.getPriceFromClothing(_filteredStoreClothes[_i]) <= $money>>
+                        <<link 'buy'>>
+                            <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>  
+                            <<set _filteredStoreClothes[_i].id to Date.now()>>
+                            <<if _isOnline == false>>                                    
+                                <<set $wardrobe.push(_filteredStoreClothes[_i])>>
+                                <<script>>
+                                    console.log('User bought: ');
+                                    console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
+                                    if (!Dialog.isOpen()) {
+                                        new Wikifier(Dialog.setup('Item bought'), 'You added the <<print _filteredStoreClothes[_i].name>> to your wardrobe');
+                                        Dialog.open();
+                                        
+                                        $('.macro-live').trigger(':liveupdateinternal'); /* update to refresh money */
+                                    }
+                                <</script>>
+                            <<else>>
+                                <<set $storeOnlineBoughtDelay.push(_filteredStoreClothes[_i])>>
+                                <<script>>
+                                    console.log('User bought: ');
+                                    console.log(State.temporary.filteredStoreClothes[State.temporary.i]);
+                                    if (!Dialog.isOpen()) {
+                                        new Wikifier(Dialog.setup('Item bought'), 'The <<print _filteredStoreClothes[_i].name>> will be delivered soon.');
+                                        Dialog.open();
+                                        
+                                        $('.macro-live').trigger(':liveupdateinternal'); /* update to refresh money */
+                                    }
+                                <</script>>
+                            <</if>>                                                              
+                        <</link>>
+                    <<else>>
+                        Too expensive
+                    <</if>>
+                </td>
+            </tr>   
+        <</capture>>
+    <</for>>
+  </table>
+</span>
+
+<<timed 0s>>
+<<script>>
+const inputs = $('[name^=\'listbox--filteredstoreclothes-isize\']');
+
+inputs.on('change', function () {
+    const mod = $(this).children(':selected').val();
+    
+    const rowIndex = Number($(this).closest('tr').attr('data-num'));
+
+    State.temporary.filteredStoreClothes[rowIndex].size = parseInt(mod);
+    $('.macro-live').trigger(':liveupdateinternal');
+});
+<</script>>
+<</timed>>
+
+<</liveblock>>
+<</widget>>
+
+

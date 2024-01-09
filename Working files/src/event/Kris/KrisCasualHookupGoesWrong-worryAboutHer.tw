@@ -1,0 +1,11 @@
+:: KrisCasualHookupGoesWrong-worryAboutHer [nobr] {"position":"0,0","size":"100,100"}
+Kris has always been about loud and exuberant displays of emotion, but this pissed side of her concerns you. You tilt your head, and ask:<br><br>
+<<Dialogue "player" "You">>"Hey, Kris… what’s bothering you? You sure you are okay?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Of course I’m not okay! This is all bullshit! Fuck! Why does everything keep going wrong?"<</Dialogue>><br><br>
+She kicks the wall with her injured foot, and immediately regrets it. The pain seems to feed her frustration, and you see that little ball of energy just waiting to blow at any second - like she exhausted all her “no fuck given” juice and became this weird gremlin. It would be cute, really, if it wasn’t so heartbreaking. You can see she’s been bottling stuff up for a while, and it had a toll on her. You are treading into new territory here, and you feel a knot on your stomach as you start trying to figure out your next step.<br><br>
+<<Dialogue "player" "You">>"Take a deep breath, girl. You’ve got me, remember?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Yeah, a lot of good it’s going to do unless I need to lift the sofa or get something from a tall shelf…"<</Dialogue>><br><br>
+You know she didn’t say that to hurt you but… ouch.<br><br>
+<<link "Hug Kris and try to calm her down" "KrisCasualHookupGoesWrong-calmHerDown">><</link>>
+<<link "Hey, watch that tongue! Just chill down, dude!" "KrisCasualHookupGoesWrong-dismissHerWorry">><</link>>
+

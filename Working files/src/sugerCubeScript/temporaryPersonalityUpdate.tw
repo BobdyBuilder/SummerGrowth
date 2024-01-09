@@ -1,0 +1,50 @@
+:: temporaryPersonalityUpdate [nobr] {"position":"400,200","size":"100,100"}
+<<set _shyConfidentTemporaryChange to $temporaryPersonalityGains.shyConfident>>
+
+<<set _carefreeCarefullTemporaryChange to $temporaryPersonalityGains.carefreeCarefull>>
+
+<<set _submissiveDominantTemporaryChange to $temporaryPersonalityGains.submissiveDominant>>
+
+<<if _shyConfidentTemporaryChange != 0>>
+	<<if _shyConfidentTemporaryChange >= 0>>
+		<<set _shyConfidentTemporaryChange -= 1>>
+		<<set $shyConfident -= 1>>
+	<<elseif _shyConfidentTemporaryChange <= 0>>
+		<<set _shyConfidentTemporaryChange += 1>>
+		<<set $shyConfident += 1>>
+	<</if>>
+	<<set $temporaryPersonalityGains.shyConfident to _shyConfidentTemporaryChange>>
+	<<addMinimumExhaustion setup.balance.personalityChangeMaxExhaustionPentalty>>
+	<<addMotivation setup.balance.personalityChangeMotivationPentalty>>
+	<<set $personalityChanged to true>>
+<</if>>
+
+<<if _carefreeCarefullTemporaryChange != 0>>
+	<<if _carefreeCarefullTemporaryChange >= 0>>
+		<<set _carefreeCarefullTemporaryChange -= 1>>
+		<<set $carefreeCarefull -= 1>>
+	<<elseif _carefreeCarefullTemporaryChange <= 0>>
+		<<set _carefreeCarefullTemporaryChange += 1>>
+		<<set $carefreeCarefull += 1>>
+	<</if>>
+	<<set $temporaryPersonalityGains.carefreeCarefull to _carefreeCarefullTemporaryChange>>
+	<<addMinimumExhaustion setup.balance.personalityChangeMaxExhaustionPentalty>>
+	<<addMotivation setup.balance.personalityChangeMotivationPentalty>>
+	<<set $personalityChanged to true>>
+<</if>>
+
+<<if _submissiveDominantTemporaryChange != 0>>
+	<<if _submissiveDominantTemporaryChange >= 0>>
+		<<set _submissiveDominantTemporaryChange -= 1>>
+		<<set $submissiveDominant -= 1>>
+	<<elseif _submissiveDominantTemporaryChange <= 0>>
+		<<set _submissiveDominantTemporaryChange += 1>>
+		<<set $submissiveDominant += 1>>
+	<</if>>
+	<<set $temporaryPersonalityGains.submissiveDominant to _submissiveDominantTemporaryChange>>
+	<<addMinimumExhaustion setup.balance.personalityChangeMaxExhaustionPentalty>>
+	<<addMotivation setup.balance.personalityChangeMotivationPentalty>>
+	<<set $personalityChanged to true>>
+<</if>>
+
+

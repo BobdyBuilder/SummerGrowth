@@ -1,0 +1,10 @@
+:: Tailor [outOfHouse mall tailor] {"position":"2700,1625","size":"100,100"}
+<<if $simonOpinion is 0>><<goto "SimonIntroduction">><<elseif $simonOpinion >= 10 && $sewingUnlocked != true>><<goto "tailorUnlock">><<elseif $sewingUnlocked && $fabric > 0 && $quests[$sewingTutotial].started is true && $quests[$sewingTutotial].completed is false>><<goto "sewingTutorial">><</if>>Tucked into a tiny corner of the mall is a tailor. The signage is minimalist to the point of nonexistence, and the inside of the shop isn't any flashier. Bare walls and hard concrete floors with rack upon rack of clothes in every size imaginable, from doll-tiny to so big they seem like some sort of prank. And in the middle of it all sits a huge man, hunched over working the sowing machine with thick, muscular arms. He barely speaks, only nodding to acknowledge your arrival. Few know anything about him, but if the derelict sign outside is any indication, this is Simon, of Simon Sewing & Tailoring.
+
+<<if $sewingUnlocked && $furniture.indexOf("sewing machine") is -1>><<if $money >= 100>><<link "Buy sewing machine ($100)" "Tailor">><<set $furniture.push("sewing machine")>><<set $money -= 100>><</link>><<else>> Buy sewing machine ($100) - you can't afford it.<</if>><</if>>
+
+<<TailorWidget>>
+
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

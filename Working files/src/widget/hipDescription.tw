@@ -1,0 +1,23 @@
+:: hipDescription [widget] {"position":"3550,825","size":"100,100"}
+<<nobr>>
+<<widget "hipDescription">>
+
+<<if $hips < 0>><<set $hips to 0>><</if>>
+
+<<if $hips <= 0>>boyish
+<<elseif $hips <= 1>>slender
+<<elseif $hips <= 2>>well-formed
+<<elseif $hips <= 3>>curvy
+<<elseif $hips <= 4>>girly
+<<elseif $hips <= 5>>womanly
+<<elseif $hips <= 6>>childbearing
+<<elseif $hips <= 7>>impossibly wide
+<<elseif $hips <= 8>>brood-mother
+<<else>>door-straining
+<</if>>
+
+
+<</widget>>
+<</nobr>>
+
+

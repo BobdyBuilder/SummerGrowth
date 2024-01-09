@@ -1,0 +1,20 @@
+:: SimonIntroduction {"position":"2700,1725","size":"100,100"}
+You almost didn’t see the discreet tailor shop there, but you quickly realize this could come in handy. With the move and all that has been going on, your clothing isn't in the best shape. Inside the cramped workshop, a giant hunches over a tiny and ancient-looking pedal-powered sewing machine. He has several pins in his mouth, and is calmly working on some unrecognizable article of clothing, spools of fabric surrounding him.
+
+<<Dialogue "player" "You">>"Um, excuse me. Do you repair clothes?"<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Sir? I need something adjusted?"<</Dialogue>>
+He slowly and casually takes pin by pin from his mouth, very meticulously placing them on a blue cushion resting on this work surface.<br><br>
+<<Dialogue "Simon" "Simon">>"... I'm busy."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Right but... um, I got this ripped... think you could fix it later? No hurry."<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"... Leave it on top of that pile."<</Dialogue>>
+
+He raises his chin towards a tall pile of varied articles of clothing. You carefully place it there, and the man doesn’t even acknowledge it. His squinting eyes continue purely focused on the task at hand. You can’t help but notice that, despite his immense size, his hands are so incredibly deft it's almost entrancing to watch.
+
+<<link "Go back" "Tailor">><<addMinutes 5>><<set $simonOpinion += 1>><</link>>
+
+

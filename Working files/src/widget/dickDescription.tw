@@ -1,0 +1,119 @@
+:: dickDescription [widget] {"position":"3550,625","size":"100,100"}
+<<nobr>>
+<<widget "dickDescription">>
+<<if $futa>>
+<<set $tempDick to setup.getTempDick()>>
+<<set $tempDickGirth to Math.round($dickGirthMod * $tempDick)>>
+<<set $tempDickGirthErect to Math.round($tempDickGirth * (1 + ($dickErectionMod / 4)))>>
+<<set $tempDickErect to Math.round($dickErectionMod * $tempDick)>>
+
+<<if $dick <=2>>
+
+<<elseif $dick <=4>>
+Your penis looks incredibly small, at only <<numeralConversion $tempDick>> long when flaccid. 
+
+<<elseif ($dick * $heightMod) <=8>>
+
+Your penis looks surprisingly small, at only <<numeralConversion $tempDick>> long when flaccid. 
+
+<<elseif $dick <=10>>
+You have a decent penis at <<numeralConversion $tempDick>> long when flaccid. 
+
+<<elseif $dick <=14>>
+You have a pretty big penis, at <<numeralConversion $tempDick>> long when flaccid! When it is erect, it shows a bit of a bulge - which you have to be mindful of. 
+
+<<elseif $dick <=18>>
+Your <<numeralConversion $tempDick>> long flaccid penis feels pretty hefty to you. If you're not mindful of the clothes you buy, it can result in a pretty clear bulge, though that's not really an issue, right?
+
+<<elseif $dick <=22>>
+Your <<numeralConversion $tempDick>> long flaccid penis looks gigantic on you! No matter the clothing you buy, there will always be a significant bulge that leaves nothing to the imagination.
+
+<<elseif $dick <=35>>
+Your <<numeralConversion $tempDick>> long flaccid penis looks more like it belongs on a horse than on you! No matter what you wear, an enormous bulge that leaves nothing to the imagination will be on display, even if you find clothing that can accommodate your considerable meat.
+
+<<elseif $dick <=50>>
+Your <<numeralConversion $tempDick>> long flaccid penis easily dangles past your knees! No matter what you wear, that gigantic bulge will leave nothing to the imagination, even if you find clothing that can accommodate your sizeable meat.
+
+<<elseif $dick <=80>>
+Your <<numeralConversion $tempDick>> long flaccid penis almost reaches the ground and looks completely inhumane to you! It's useless trying to buy clothing for it now, since it simply won't fit any article you are able to buy.
+
+<<else>>
+Your <<numeralConversion $tempDick>> long flaccid penis now constantly drags across the ground if you don't actively lift if up. Normally, you'd buy underwear for this, but you're not sure it would even be practical!
+<</if>>
+
+<<if $dickErectionMod <= 1.4>>
+When your penis gets erect, it becomes <<numeralConversion $tempDickErect>> long; it's clear you're a shower, not a grower.
+<<elseif $dickErectionMod <= 1.6>>
+When your penis gets erect it becomes <<numeralConversion $tempDickErect>> long.
+<<elseif $dickErectionMod <= 1.8>>
+When your penis gets erect, it becomes a pretty impressive <<numeralConversion $tempDickErect>> long; it's clear you're a shower!
+<<elseif $dickErectionMod <= 2>>
+When your penis gets erect, it just keeps getting bigger, not stopping until it reaches well over <<numeralConversion $tempDickErect>> long. It's hard to believe an erection can pump it so big!
+<<else>>
+When your penis gets erect, it just keeps going and going, not stopping until it reaches an unbelievable <<numeralConversion $tempDickErect>> long! It's incredibly veiny, every pump making it rise higher and higher!
+<</if>>
+
+<<if $dickGirthMod <= 0.8>>
+It's surprisingly thin, though, with a girth of <<numeralConversion $tempDickGirth>> when soft and <<numeralConversion $tempDickGirthErect>> when hard.
+<<elseif $dickGirthMod <= 0.9>>
+Its girth is average at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, which is pretty good.
+<<elseif $dickGirthMod <= 1>>
+Its girth is fairly impressive at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, making it thicker than most dicks this size.
+<<elseif $dickGirthMod <= 1.5>>
+Its girth is incredible at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, making it an incredibly thick log!
+<<else>>
+Its girth is humongous at <<numeralConversion $tempDickGirth>> when soft, and <<numeralConversion $tempDickGirthErect>> when hard, making it look almost disproportional!
+<</if>>
+
+<<if $tempDickErect <= 25>> 
+<<elseif $tempDickErect <= 30>> 
+With your length, you might need to watch out a bit with your partners, as you're certainly on the bigger side.
+<<elseif $tempDickErect <= 35>> 
+With your length, you need to watch out a bit with your partners, as your huge rod could easily be too much for some people!
+<<elseif $tempDickErect <= 40>> 
+Finding partners that can take your entire length will be almost impossible, and even then it'll take a huge amount of foreplay and care from you to not hurt them!
+<<else>>
+Finding a partner that can take this entire dick will be completely impossible!
+<</if>>
+
+<<if $tempDickGirthErect <= 20>> 
+<<elseif $tempDickGirthErect <= 25>> 
+Though with your girth it might take a little extra work to get it in... it will surely be more rewarding in the end!
+<<elseif $tempDickGirthErect <= 30>> 
+Though with your girth it might take a little extra work to get it in... some people might actually be concerned at first sight!
+<<elseif $tempDickGirthErect <= 35>> 
+Your girth you will require considerable work to make it into even the biggest size-lovers! It's simply too thick for almost anyone!
+<<elseif $tempDickGirthErect <= 75>> 
+With your girth it'll be impossible to find anyone that can properly take you in, as it is literally too thick!
+<<else>>
+With your oversized girth, it'll be impossible to find anyone that can properly accommodate you, as it is just too thick! Hell, your glans is bigger than people's heads!
+<</if>>
+<</if>>
+
+<<if $dick + $balls  < 4>>
+Below your dick are two tiny testicles. They're almost lost beneath your dick, yet they're there.
+<<elseif $dick + $balls  < 10>>
+Below your dick are a few of fairly average testicles. While their presence still confuses you, at least they make a nice pair!
+<<elseif $dick + $balls  < 15>>
+Below your dick are two big balls, no other way of putting it. They got some real heft to them, lifting your dick a bit, making your bulge even more noticeable.
+<<elseif $dick + $balls  < 20>>
+There is no denying: below your dick are two VERY big and hefty balls. They move and sway with every step and push your dick out a lot, giving you a humongous bulge. And they're sensitive too!
+<<elseif $dick + $balls  < 30>>
+Below your dick are huge, heavy balls. They move and sway with every step, and push your dick out a lot, giving you a gigantic bulge. It's almost impossible to hide them, and given how sensitive they are...
+<<elseif $dick + $balls  < 40>>
+Below your dick are gigantic bowling balls, fighting for space. They move and sway with every step, and push your dick out a lot, giving you a ridiculous bulge. Every time you move your legs, they get pushed out, almost like you're showing off. It's almost impossible to hide them, and given how sensitive they are...
+<<elseif $dick + $balls  < 50>>
+Below your dick are two monstrous testicles, fighting for space. With every step, they are pushed aside, only to come swinging back. They are covered in veins and constantly shifting. It's downright hypnotic! It is impossible to hide them, and given how sensitive they are...
+<<elseif $dick + $balls  < 60>>
+Below your dick are two monstrous testicles, fighting for space. With every step, they are pushed aside, only to come swinging back. They are covered in veins and constantly shifting, enough to be almost audible. It's downright hypnotic! They hang well below your knees, absurd as it may seem. It is impossible to hide them, and given how sensitive they are...
+<<elseif $dick + $balls  < 70>>
+Below your dick are two monstrous testicles, fighting for space. With every step, they are pushed aside, only to come swinging back. They are covered in veins and constantly shifting, enough to be almost audible. It's downright hypnotic! They hang well below your calves, absurd as it may seem. It is impossible to hide them, and given how sensitive they are...
+<<else>>
+Below your dick are two monstrous testicles, fighting for space. With every step, they are pushed aside, only to come swinging back. They are covered in veins and constantly shifting, enough to be almost audible. It's downright hypnotic! They drag on the ground, forcing you to lift them up as you walk, it's simply absurd. It is impossible to hide them, and given how sensitive they are...
+
+<</if>>
+
+<</widget>>
+<</nobr>>
+
+

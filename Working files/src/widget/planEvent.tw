@@ -1,0 +1,12 @@
+:: planEvent [widget] {"position":"2100,0","size":"100,100"}
+<<nobr>>
+<<widget "planEvent">>
+/* $args[0]: Name of the event */
+/* $args[1]: The day of the event, 0 is sunday */
+/* $args[2]: Time of the event */
+
+
+<</widget>>
+<</nobr>>
+
+

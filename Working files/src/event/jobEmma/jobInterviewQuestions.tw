@@ -1,0 +1,133 @@
+:: jobInterviewQuestions [nobr] {"position":"1600,1500","size":"100,100"}
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<if $skills[_i].name is "Book keeping">>
+		<<set _skillI to _i>>
+	<</if>>
+<</capture>>
+
+<</for>>
+
+<<set $jobInterview to false>>
+<<set $jobInterviewOver to true>>
+
+<<set $jobInterview to true>>
+<<set _day to $gameDate.getDay()>>
+<<set $jobInterviewDate to new Date('June 1, 2020 13:37:00')>>
+<<if _day + 7 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 7)>>
+<<elseif _day + 6 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 6)>>
+<<elseif _day + 5 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 5)>>
+<<elseif _day + 4 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 4)>>
+<<elseif _day + 5 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 5)>>
+<<elseif _day + 5 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 5)>>
+<<elseif _day + 5 is 1>>
+	<<set $jobInterviewDate.setDate($gameDate.getDate() + 5)>>
+<</if>>
+<br><br>
+
+
+<<set $firstJobDay to $gameDate>>
+
+<br>
+<span id="question1">
+
+<<link "Talk about your book-keeping skills">>
+<<replace "#question1">>
+<<if $skills[_skillI].level < 2>>
+
+<<Dialogue "player" "You">>"Errr, well, I might not know much about... you know, administration or bookkeeping but... I have a real can-do attitude and I don't mind working late!"<</Dialogue>>
+<br>
+
+Emma blinks a few times, her face frozen with visible confusion and annoyance. Taking a deep breath, she pinches the bridge of her nose.
+
+<br><br>
+<<Dialogue "Emma" "Emma">>“... Do you have ANY relevant skills...?"<</Dialogue>>
+
+<br><br>
+<span id="question2">
+<<link "...No, but I can try?">>
+<<replace "#question2">>
+
+<<Dialogue "player" "You">>"Well... no, but I am a fast learner, and I will give it my best shot?"<</Dialogue>><br>
+
+<<Dialogue "Emma" "Emma">>“... Fine. We're severely understaffed and I need more people ASAP. We'll start you off at a reduced wage. You start next Monday at 9 AM, and the shift ends at 5 PM. The workdays go from Mondays to Thursdays. Congratulations, Ms. <<print $playerLastName>>."<</Dialogue>><br>
+
+While rubbing her temple, she gives you a contract to sign. You get the feeling that as soon as you leave her office, she will go for a large mug of coffee, which she sorely needs.<br><br>
+
+<<link "...You got the job?!" "Home">><<set $job to true>><<set $jobOffice to true>><<set $jobInterview to false>><</link>>
+<</replace>><</link>><br><br>
+<<link "...I'll see myself out." "Home">><<set $jobInterview to false>><</link>>
+</span>
+
+
+<<elseif $skills[_skillI].level < 4>>
+
+<<Dialogue "player" "You">>"Though I have no professional experience in the area, I've done some online courses and have a decent amount of knowledge on it. Here are some samples of my work and-"<</Dialogue>>
+<br>
+
+Impressed, Emma grabs the papers you prepared. Browsing through them, she is convinced you at least know enough for the job, and while far from a professional, her lips slowly form into a hesitant smile.
+
+<<Dialogue "Emma" "Emma">>"While its clear you're not traditionally educated on this... I can certainly appreciate the effort and dedication it took for you to accomplish this in your free time. I think we can start you off as a paid trainee. You would work Mondays through Thursdays, from 9 AM to 5PM. We'll give the basic orientation, and, of course, as you improve, so will your wages. Your thoughts?"<</Dialogue>><br>
+
+<<link "I look forward to working with you!" "Home">><<set $job to true>><<set $jobOffice to true>><<set $jobInterview to false>><</link>>
+<<link "This is not for me, sorry." "Home">><<set $jobInterview to false>><</link>>
+
+<<elseif $skills[_skillI].level < 5>>
+
+You can't help but smile, your recent attempts at learning some accounting are certainly paying off here.
+
+<<Dialogue "player" "You">>"You'll find I've done several certified online courses and have gone through plenty of materials on the topic."<</Dialogue>>
+<br>
+With confidence, you slide her a list, and immediately clear that she is very pleased.<br><br>
+
+<<Dialogue "Emma" "Emma">>"Well, since this is an entry level position, you certainly seem qualified enough... I think we can safely start you off as a trainee, which comes with an entry-level salary. You would work from Mondays through Thursdays, 9 AM to 5 PM. We'll run you through the basic orientation, and, assuming there are no issues, I plan to approve a small pay bump to your initial wage, given your education. Would these be agreeable terms?"<</Dialogue>><br>
+
+<<link "I look forward to working with you!" "Home">><<set $job to true>><<set $jobOffice to true>><<set $jobInterview to false>><</link>>
+<<link "This is not for me, sorry." "Home">><<set $jobInterview to false>><</link>>
+
+<</if>>
+<</replace>><</link>><br><br>
+
+
+
+<<if $muscle > 40>><<link "Try to flex your way through the interview">>
+<<replace "#question1">>
+A stupid idea stirs up in your head, and against your better judgement, you decide to roll with it. Putting on a playful face, you decide to lean back, 'accidentally' showing off your <<getMeasurement "upperArm" true>> arms. Emma's eyes immediately change from curiosity to interest; clearly she was intrigued, at the very least!<br><br>
+
+<<Dialogue "player" "You">>"Well, though my experience is... unorthodox... you could say I bring a lot to the table for Financial <b>Gains</b> and <b>Bulk</b> Orders LLC! I have a LOT of experience with BIG, LONG TERM GAINS-"<</Dialogue>><br>
+
+Slowly you move your arms and push your chest out, making sure to make it pop. You're still not unable to properly read Emma’s reaction, but you’ve got this far, there’s no turning back now.<br><br>
+
+<<Dialogue "player" "You">>"-And you can say I've got plenty of GROWTH potential! You're looking at some solid, rock-hard numbers and I'll be SURE to get them even bigger! I mean, higher! And with your help, I'm sure we can INFLATE those targets even-"<</Dialogue>><br>
+
+Suddenly Emma cannot hold her giggling any longer. Her fist slams against the desk loudly as tears form on her eyes. It almost seems like she would run out of breath when a ripping sound came from your clothes, strained from your posing! Emma looks up, smiling and a bit stunned, trying to calm herself down.<br><br>
+
+<<Dialogue "Emma" "Emma">>"Goddamn it, I never expected... ANYONE... would have the guts to pull a stunt like that. God, that was... did you really expect that would work? That you could flex and that... that... that I'd give you the job just because of those delectable muscles? I... really, the sheer hubris... <</Dialogue>><br>
+Yet, she pauses for a moment, recomposing herself with a deep breath. She looks at you, twice as serious as when she started, pursing her lips. Then she rolls her eyes and continues:<br><br>
+<<Dialogue "Emma" "Emma">>"You know what? At least I can’t fault you for your determination. And seeing as all I got today was incompetent buffoons and the overly confident incompetents, I might as well give you a chance! But I will scrutinize your work, and any mistakes will cost you the job. Do I make myself clear?"<</Dialogue>><br>
+
+<<link "... That worked?!" "Home">><<set $job to true>><<set $jobOffice to true>><<set $jobInterview to false>><</link>>
+
+<</replace>><</link>><br><br><</if>>
+<<link "Try to bullshit your way through.">>
+<<replace "#question1">>
+
+<<Dialogue "player" "You">>"Well, you'll find I have a great synergistic energy which can be exploited with maximum expenditure to move unilaterally towards business targets.  Combined with my single-implementation pattern of thinking, I will work to my utmost limit to streamline my business analytical systems while deriving towards optimal entropic retention."<</Dialogue>><br>
+
+Emma blinks a few times, resting her forehead on her hand.
+
+<<Dialogue "Emma" "Emma">>“... Get out."<</Dialogue>><br>
+
+<<link "Got it!" "Home">><<set $jobInterview to false>><</link>>
+
+<</replace>><</link>>
+
+</span>
+
+

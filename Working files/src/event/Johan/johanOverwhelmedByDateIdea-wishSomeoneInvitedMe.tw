@@ -1,0 +1,18 @@
+:: johanOverwhelmedByDateIdea-wishSomeoneInvitedMe [nobr] {"position":"0,0","size":"100,100"}
+You sigh, feeling somewhat defeated.<br><br>
+<<Dialogue "player" "You">>"I wish I had a cool guy like you inviting me to a place like that..."<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"Y-y-you d-do?!?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What girl wouldn’t, seriously? You’re such a sweet, passionate dude, and to go out on such a nice restaurant, it’s sooo romantic. I can almost picture the scene in my head - a candlelit table, the guy showing up in a nice suit, pulling my chair for me, ordering a nice plate confidently..."<</Dialogue>><br><br>
+You feel a shiver go down your spine as you picture this scene in your head, like something out of a romantic movie. Johan’s eyes dart around like he’s taking mental notes of every word you said, mumbling in silence before his gaze returns to you.<br><br>
+<<Dialogue "Johan" "Johan">>"S-so, w-would you?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Would I what?"<</Dialogue>><br><br>
+<<Dialogue "Johan" "Johan">>"You know, go out with me. To Chez Manon?"<</Dialogue>><br><br>
+He looks at you with huge begging eyes. Wait, what?<br><br>
+...<br><br>
+Oh.<br><br>
+OH!<br><br>
+<br>
+Shit. How dense can you be?!?<br><br>
+
+<<link "It was YOU all along!" "johanOverwhelmedByDateIdea-itWasYouAllAlong">><</link>>
+

@@ -1,0 +1,184 @@
+:: Hammy Start {"position":"450,2775","size":"100,100"}
+<<set $DateSuccess += 1>>
+<<if $shyConfident >= 1>><<Dialogue "player" "You">>
+"Stand down, vile beasts! I, <<print $playerFirstName>>, champion of all things good, will strike you down where you stand!"<</Dialogue>>
+
+Johan breaks into a big grin. He looks like he's barely containing his excitement.
+
+<<Dialogue "Johan" "Johan">>
+"You regret this today, dullteeth! Now we kills you and take you golds! Goblins, attack!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"I grab my <<if $dndCharacter.class is "wizard" || $dndCharacter.class is "warlock">>spellbook<<else>>weapon<</if>> and get into my battle stance! Let's do this!"<</Dialogue>>
+
+Your declaration is accompanied by a visible demonstration, as you dramatically hold an imaginary <<if $dndCharacter.class is "wizard" or $dndCharacter.class is "warlock">>book<<else>>weapon<</if>> behind you, and thrust your other arm forward in a defensive-looking pose you vaguely remember from a video game cover. Johan claps his hands appreciatively.
+
+<<Dialogue "Johan" "Johan">>
+"I love that spirit! You're a natural at this! But we still need to see how you fare tactically!"<</Dialogue>>
+<<else>>You summon up all the courage you have in you, take a deep breath, and shout the first words that come to mind.
+
+<<Dialogue "player" "You">>
+"No!"<</Dialogue>>
+
+...
+A lengthy silence follows as you fail to find more than one word.
+
+<<Dialogue "player" "You">>
+"Uh... You... You won't be getting any... gold or trinkets, or... anything of the sort today! You... little, evil... monster things!"<</Dialogue>>
+
+You feel yourself blushing fiercely as you finish your ad-lib. But in spite of your less-than-professional performance, Johan is absolutely eating it up. He looks like he can barely contain himself with excitement.
+
+<<Dialogue "Johan" "Johan">>
+"Hey, that was pretty great for your first real attempt. You've got the spirit of it!"<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"You don't need to humor me."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"No, really! It takes guts to really get into character, especially when we're doing it on the fly like this. But the actual acting isn't everyone's favorite part. Maybe you'll like combat better."<</Dialogue>><</if>>
+
+Johan adjusts the several miniature goblins surrounding your character, then tosses the 20-sided die your way again.
+
+<<Dialogue "Johan" "Johan">>
+"Numbers one to twenty! Whoever rolls the highest gets to move first."<</Dialogue>>
+
+He starts rolling initiative for each of the goblins, and you gives your die another toss across the table.
+
+<<Dialogue "Johan" "Johan">>
+"All right! That plus your Dex gives you a 19, so it looks like you get to move first! What's your approach here? It's turn-based, like a strategy video game. You can move your character on the battlefield here, and you can do one thing, like attacking with your weapon or casting a spell on your turn. What do you want to do?"<</Dialogue>>
+
+<span id="choice"><<link "Maybe I can slip away from them and make them come at me one by one?">><<replace "#choice">><<Dialogue "Johan" "Johan">>
+	"Aha! The all-time classic strategy of kiting! I like your thinking, but will it be enough to survive?"<</Dialogue>>
+	
+	You move your character back the way you came, taking a potshot at one of the goblins as you go.
+	
+	<<Dialogue "Johan" "Johan">>
+	"That's a hit! Okay, so for damage, you look down here on your sheet, where it lists your weapons. Then you can see here where it says 'Attack' and 'Damage,' it's important not to get those confused. See, the difference is that the Attack number here is a flat number, and that's what you're adding to your die rolls to see if you hit. The damage is represented as a die that you roll..."<</Dialogue>>
+	
+	Before you know it, he's off on another tangent. You feel confident that you're getting it, but that feeling slowly fades the more he delves into the specifics. Eventually he looks back at you and sees the look of confusion on your face.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Goodness, I'm sorry. Getting to share my hobby with someone is just too exciting! I'll help with the math, die and such for the time being. You focus on the strategizing! For now, you land your first attack and deal some significant damage to the goblin!"<</Dialogue>>
+	
+	<<Dialogue "player" "You">>
+	"Okay. I'm gonna finish moving away and put as much distance between myself and them as possible."<</Dialogue>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"It's a good start, but the goblins are already in a frenzy! They're going to charge at you with all they've got!"<</Dialogue>>
+	
+	Johan's little goblins rush at your character one after another, Johan narrating the frantic chase all the way through. He continues to roll dice for the goblins whenever they attack. Your die seems to love you today, as you land hit after hit, but the goblins outnumber you, and get their hits in as they chase you.
+	<<if $dndCharacter.class is "rogue" || $dndCharacter.class is "warlock">>You move back and forth along the cave and, one by one, the goblins fall. You take a few hits in the process, but your strategy seems to have worked even better than you hoped.<<set $DateSuccess += 1>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"Well done! Came out of the battle with a few scrapes, but that's hardly unexpected. I hope you haven't worn yourself out too much, because there's still more cave to trek through!"<</Dialogue>>
+	<<else>>You move back and forth along the cave, scoring hits against the goblins whenever you can. Unfortunately, you never seem to be able to break away from the crowd. You bring them all down before too long, but your HP is looking very low by the time it's done.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Not too bad for a first crack at combat. Maybe not the strategy I would have chosen for your class, but I can't deny that it got you through the fight! Now, are you ready to see more of what the game has to offer?"<</Dialogue>><</if>>
+[[Onward!->Puzzle Door]]<</replace>><</link>>
+<<link "Is there maybe some way I can take care of them without fighting?">><<replace "#choice">><<Dialogue "Johan" "Johan">>
+	"Ah-ha, already thinking outside the box! I like it. What are your thoughts here?<</Dialogue>>
+	<<if $dndCharacter.class is "wizard" or $dndCharacter.class is "cleric">><<Dialogue "player" "You">>
+	"Well, magic, I'd assume? How do I know what kind of spells I can cast and everything?<</Dialogue>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"Ah, right! One moment!"<</Dialogue>>
+	
+	Johan ducks quickly beneath the table and comes back with a tiny box, about the size of a deck of playing cards. He opens it and, sure enough, there are cards on the inside. But instead of a normal deck of cards, they have text all over their front side. He starts selecting a few and passing them over to you. <<set $DateSuccess += 1>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"So, these are the spells that you have access to currently. Each card has the name at the top and the spell’s effect beneath it. Now, note at the bottom that the spell's level is also listed, and this is one of the most important steps of casting a spell. You're limited to the number of spells of each level listed on your character sheet. Now, as far as how the spells function, that's dependent on whether it calls for a saving throw or an attack roll..."<</Dialogue>>
+	
+	Before you know it, Johan is off on another tangent as he continues to deal you more cards. Your confusion only grows along with the pile in front of you. Fortunately, he snaps out of it and sees you looking utterly lost.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Sorry. It's just easy to get excited when sharing one of my favorite hobbies with someone. How about you just tell me what you want to do and I'll help you make it happen?"<</Dialogue>>
+	
+	<<Dialogue "player" "You">>
+	"Okay. The plan is to incapacitate them without fighting them directly. Maybe I could freeze them into icicles, or put them to sleep-"<</Dialogue>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"Sleep! That's the exact name of one of your spells, even! Want to lead off with that one?"<</Dialogue>>
+	
+	The two of you go back and forth narrating the fight scene, Johan helping you understand how magic works. You work your head overtime to come up with new and creative ways to take out the little goblins. Freezing them, making them float in the air so they can't reach you, making them think you're their friend so they don't want to fight...
+	By the end of it, you've taken a few hits from the goblins. Your HP isn't low enough to make you worry, but it's enough for you to notice it. Johan looks at you with a big grin, seeming genuinely pleased with you.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Well played! Way to play to your class's strengths. But you haven't recovered the artifact yet. Ready to move forward?"<</Dialogue>>
+	<<else>><<Dialogue "Johan" "Johan">>
+	"An interesting thought! What were you thinking, specifically?"<</Dialogue>>
+	
+	<<Dialogue "player" "You">>
+	"Hmm. We're in a cave, right? Do you think I could cause a cave-in on them or something?"<</Dialogue>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"That's certainly an inventive solution. You're definitely welcome to try. You do have some <<if $dndCharacter.class is "barbarian" || $dndCharacter.class is "Paladin">>javelins<<else>>daggers<</if>> in your inventory. I'm picturing you throwing one up at a weak-looking section of rock. But you would be stuck on the other side of the cave-in from your destination unless you do something."<</Dialogue>>
+	
+	<<Dialogue "player" "You">>
+	"Oof... I don't know how else I'm going to get through here, so I'm going to do the action movie hero thing. Charge right on through the middle and throw my weapon as I do!"<</Dialogue>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"All right, roll for it!"<</Dialogue>>
+	
+	You bite your lip as you toss your die across the table once more. It slows to a stop. 20!
+	
+	<<Dialogue "Johan" "Johan">>
+	"Wow. The dice truly love you today. Normally I probably wouldn't let someone get away with this, but if the dice are on your side, who am I to argue?
+	That said, the goblins are going to take their swings at you as you run through. Get ready to take some damage!"<</Dialogue>>
+	
+	Johan rolls his dice a few times, announcing each successful hit and telling you how much damage you take in the process. You get cut and bonked quite a few times on the way through. But regardless, your successful roll gets you through the challenge.
+	
+	<<Dialogue "Johan" "Johan">>
+	"You hurl your weapon into the air with all your might, and with a resounding //CLANG// it bounces off the rocks on the ceiling. You can hear cracking and rumbling reverberating all around you, everyone frozen in place... Then all at once the ceiling comes down! With a mighty ''CRASH'', tons of rock slam down on top of the goblins, crushing them completely. No sign of movement from beneath the pile.
+	I have to say, that was quite a novel idea. I would have handled it a little differently, but if nothing else, this makes for a wonderful story! Now, are you ready to head on to see what comes next?<</Dialogue>><</if>>
+[[Onward!->Puzzle Door]]<</replace>><</link>>
+<<link "All right, come at me you little punks!">><<replace "#choice">><<Dialogue "Johan" "Johan">>
+"Woo, combat! "All right, grab your dice and square up!"<</Dialogue>>
+
+You grab your character figurine and move it straight forward to meet the goblin. You readily grab your 20-sided die and give it a roll, trusting Johan to guide you through how this actually works.
+
+	<<Dialogue "Johan" "Johan">>
+	"That's a hit! Okay, so for damage, you look down here on your sheet, where it lists off your weapons. Then you can see here where it says 'Attack' and 'Damage,' it's important not to get those confused. See, the difference is that the Attack number here is a flat number, and that's what you're adding to your die rolls to see if you hit. The damage is represented as a die that you roll...<</Dialogue>>
+	
+	Before you know it, he's off on another tangent. You feel confident that you're getting it, but that feeling slowly fades the more he delves into the specifics. Eventually he looks back at you and sees the look of confusion on your face.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Sorry about that. It's just so exciting to get to share this hobby with a newcomer! For now, just know that you hit the goblin pretty hard. You focus on strategizing, I'll handle the math and what you need to roll.<</Dialogue>>
+	
+	<<Dialogue "player" "You">>
+	"All right. No fear, let's bash some goblins!"<</Dialogue>>
+	
+	<<if $dndCharacter.class is "paladin" || $dndCharacter.class is "barbarian">>You wade right into the battle, <<if $dndCharacter.class is "paladin">>sword<<else>>axe<</if>> raised high. Following up on your first attack, you start cutting a swath through the horde of ankle biters as they charge you. Each time you toss the die and land another hit you can feel the adrenaline building up.
+	
+	<<Dialogue "player" "You">>
+	"Woo! Another one bites the dust! Bring it on!"<</Dialogue>>
+	
+	Johan lets out a loud laugh at your reaction, his grin spreading across his face.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Man, as much fun as I have playing this, I can't remember the last time I saw someone get so fired up over a fight! Come on, clean out the last of these gobs!"<</Dialogue>>
+	
+	By the end of the fight, you take a few blows and lose some HP, but the goblins are certainly no match for you. They all lie incapacitated on the floor as your character brushes herself off.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Handled like a true warrior! But that's not going to be the last test today. Ready to see what happens next?"<</Dialogue>>
+	
+	<<else>>You gleefully go to town, taking swing after swing at the green cannon fodder. You start to feel genuinely excited about this dramatic fight. Despite your passionate narration, you quickly realize you're being overwhelmed.
+	
+	<<Dialogue "player" "You">>
+	"Shoot! I keep getting hit! How close am I to winning?"<</Dialogue>>
+	
+	<<Dialogue "Johan" "Johan">>
+	"There's only a couple left, and they're looking worn out! Don't worry, I think you've got this!"<</Dialogue>>
+	
+	<<Dialogue "player" "You">>
+	"Grah! Okay, come on, dice! Get me through this, please!"<</Dialogue>>
+	
+	With some difficulty, you manage to bring the last of the goblins down with your hit points mostly intact. You heave a sigh of relief as Johan describes the last one falling.
+	
+	<<Dialogue "Johan" "Johan">>
+	"Well, it wasn't exactly clean, but one-on-many combat rarely is! Good on you for tackling it. Feeling ready to move on to something else?"<</Dialogue>>
+	<</if>>
+[[Onward!->Puzzle Door]]<</replace>><</link>></span>
+
+

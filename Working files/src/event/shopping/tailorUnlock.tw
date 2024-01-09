@@ -1,0 +1,34 @@
+:: tailorUnlock {"position":"2700,1825","size":"100,100"}
+<<set $sewingUnlocked to true>>For the umpteenth time, you enter the now tiny shop, trying to get past the stacks of fabrics and articles of clothing. And for the umpteenth time, you drop your clothes on the huge pile, knocking over a stack of fabric in the progress. Cursing under your breath, having had enough, you are faced with an unexpected reaction.
+
+<<Dialogue "Simon" "Simon">>"... Need some help?"<</Dialogue>>
+
+The constant whirr of the machine, a constant in this small room, stops dead, and the wooden chair screeches for the first time, Simon standing up (well, as much as he can given the low ceiling). The shock makes you jump, knocking over another pile of clothes.
+
+<<Dialogue "player" "You">>"No, no, I can clean this up, no problem!"<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"Didn't mean the pile. I meant your outfit."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Y-yeah... that's why I'm here. To get something adjusted. Again."<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"No."<</Dialogue>>
+
+<<Dialogue "player" "You">>"N-no...?"<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"No. You come in here, day after day with torn clothes and adjustments. You're going to need to make your own clothes soon or later, especially if you keep growing that much."<</Dialogue>>
+
+How did he - Well, he did see you come in day after day with new clothes, and witnessed all your changes first-hand. But how is he so casual about all this? There is something else going on, you know it.
+
+<<Dialogue "Simon" "Simon">>"I got this sewing machine you can buy. You get some fabric and I'll teach you how to use it."<</Dialogue>>
+
+<<Dialogue "player" "You">>"B-but... "<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"You're a good customer, and at this point I feel like I'm robbing you. Buy the machine. Buy some cloth. I get mine from Tasha, she always has some lying around. Come back when you got both, and I'll explain the basics."<</Dialogue>>
+
+It would seem he is serious about it. Well, you could use the help, so it sounds like a good plan.
+
+<<addQuest "sewingTutotial">>
+
+<<link "Go back" "Tailor">><<addMinutes 5>><</link>>
+
+

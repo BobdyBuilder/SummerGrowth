@@ -1,0 +1,10 @@
+:: addBreastsSlow [widget] {"position":"2700,900","size":"100,100"}
+<<nobr>>
+<<widget "addBreastsSlow">>
+
+<<set $breastsStore += parseFloat($args[0]) * $growthMod * $globalGrowthMod>>
+
+<</widget>>
+<</nobr>>
+
+

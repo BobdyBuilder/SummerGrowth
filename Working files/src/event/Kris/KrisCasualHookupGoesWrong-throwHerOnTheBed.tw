@@ -1,0 +1,39 @@
+:: KrisCasualHookupGoesWrong-throwHerOnTheBed [nobr] {"position":"0,0","size":"100,100"}
+With your undeniable strength, you toss her like a doll on the bed. You watch her for a second, giving her the time to use your safe word just to be sure, but while her lips are invitingly open, her tongue is still, just like her eyes - drinking your enormity as she lays on her elbows upon the bed.<br><br>
+You crawl over her, the size difference making itself more pronounced than ever - your mass overshadows her, a small plaything under your imposing silhouette. With your powerful arms, you slowly lower yourself over her. <<if $dick > 1>>Your engorged dick tickles her abdomen, making her bite her lips.<</if>> As your entire weight presses upon Kris, she moans.<br><br>
+<<Dialogue "Kris" "Kris">>"Squish me, I want to feel all of you on me! I want to see how heavy you are!!!"<</Dialogue>><br><br>
+Her demanding tone takes you by surprise, and you certainly do worry a bit if her small frame can, in fact, handle <span class="hidden"><<getMeasurement "weight" false>></span><<print $weight>> of she-beef just smothering her, but you comply: you relax your arms, and just let your body press against her.<br><br>
+You never expect it to feel so erotic, but there is something indescribable about feeling her soft, cold skin pressing against you - your synapses revel on the contrast between the two of you, and all kinds of endorphins flood your brain as the joy of both feeling like a titanic creature AND the perception of having this fragile plaything blur the rest of your senses. You feel Kris squirming, and each movement sends shivers down your spine and makes the hairs on your arms stand on end. <<if $weight >=200>> However, you might just be a little TOO heavy for her, and you notice her struggling getting more agitated - can Kris even breath? You raise yourself again with your arms, and Kris gasps for air.<br><br>
+<<Dialogue "Kris" "Kris">>"Holy shit, *gasp*, we might have to look into *huff* sexual asphyxiation, babe! This was HOT!!!"<</Dialogue>><br><br>
+You laugh, and lower yourself gently over her, giving her hardened nipples a naughty lick, which makes her squirm.
+<<else>>
+Still, you are pretty heavy, and decide to flip over to the side before she bruises a rib or something. As you do, you find a heaving Kris, looking really flushed and turned on.<br><br>
+<</if>>
+<<Dialogue "Kris" "Kris">>"It’s like sexing up a mountain - I can’t believe how big you’ve gotten, babe! I could do this all night!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Is that a promise?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"More like a threat."<</Dialogue>><br><br>
+You laugh, and reply with a smirk:<br><br>
+<<Dialogue "player" "You">>"What if I don’t want to?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"You are not that good a liar, <<print $playerFirstName>>."<</Dialogue>><br><br>
+But her smile fades briefly, before she continues:<br><br>
+<<Dialogue "Kris" "Kris">>"But… I will do as my mistress commands."<</Dialogue>><br><br>
+Her serious face stuns you for a second. There’s something… unusual… about it. Kris feels centered. Willing, certainly, but also determined. It’s like an entire side of her that feels incredibly surprising. <<if $submissiveDominant > 0>>But also indescribably hot: she seems to be submitting entirely to your will, making you feel even more powerful - something that is not physical, but psychological - you are not just meek <<print $playerFirstName>>, but a fierce master, someone who can order and not be questioned. It makes your genitals drip with desire, your loins tingling like never before. 
+<</if>><br><br>
+<<Dialogue "player" "You">>"You will do anything I say?"<</Dialogue>><br><br>
+Kris nods, still serious.<br><br>
+<<Dialogue "Kris" "Kris">>"Yes, mistress!"<</Dialogue>><br><br>
+You stop for a moment, and flip over on your back on the bed, lifting the lithe girl with ease over you, before putting her down on top of you.<br><br>
+<<if $submissiveDominant > 0>>
+<<Dialogue "player" "You">>"Please me with your tongue. I want to cum like I have never before… and you may admire my body as you see fit while you do."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"I bet you are pretty good with that tongue of yours, why don’t we have some fun with that?"<</Dialogue>><br><br>
+<</if>>
+Kris flashes her pierced tongue with a grin, and goes to town on you. While her hands explore your statuesque legs, and tongue lashes at your clit like a kid on a rampage in a candy store. <<if $dick > 1>>At the brief moments when she can detach her hands from your rock-hard quadriceps, she pistons your veiny dick, elevating the pleasure in ways your mind can barely describe.<</if>> Your abdomen contracts and squirms as she explores your nether region, and for all your strength and willpower, you find yourself unable to control your own body, trembling at her deft touch.<br><br>
+You find yourself pumping your hips as pleasure takes over your brains completely, and you revert into a primal mode, no more than a cavewoman. But Kris keeps at it, dutifully, bringing you closer and closer to climax. You thought your lung capacity had increased considerable from all the exercise… but you still find yourself hunting for air as she makes your insides melt - and you climax explosively, lifting your hips from the mattress as high as they will go, raising Kris with you - and she grapples your firm buttocks and, dangling, does not let go - and keeps at it with her tongue until you climax another two times.<br><br>
+Spent, you drop down your hips, and the bed trembles under the two of you. Slowly, Kris drags herself over your ample torso, and lays her head between your breasts.<br><br>
+<<Dialogue "Kris" "Kris">>"Was I a good girl?"<</Dialogue>><br><br>
+Running your fingers through her hair, you respond, contently:<br><br>
+<<Dialogue "player" "You">>"Good? You were amazing, Kris."<</Dialogue>><br><br>
+And so you two end up falling asleep, forgetting the big mess left behind.<br><br>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'B'>><</link>>
+

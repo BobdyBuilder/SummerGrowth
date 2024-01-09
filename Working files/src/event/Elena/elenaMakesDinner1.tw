@@ -1,0 +1,108 @@
+:: elenaMakesDinner1 [nobr] {"position":"0,0","size":"100,100"}
+<<if $skills[1].level > 3>>
+You break out the tools and ingredients to make some spaghetti, preparing the dough, cutting it, palms white with flour, as you daydream about a very intimate meal with Elena. And that’s not even the best part, you remind yourself, as you pack the fresh fettuccine and prepare your other gift. This will be great!<br><br>
+<</if>>
+Wearing the wicker basket on your shoulders like a backpack, a grin spreads through your face. It’s quite the heavy cargo, but thankfully you’ve been developing your strength in a way that makes this quite manageable. But you are sure to call a lot of attention as you make your way to the bus so you can reach Elena’s distant house.<br><br>
+As you approach the modest abode, the sun is starting to set in the horizon. You start to feel the giddiness bubbling, anxiously waiting to see Elena’s reaction. You face the door, rapping your knuckles and wait as you hear the heavy footsteps gently approaching. Your hips are doing a little dance as you try to hide you excitement. As the door opens, you bite your lip.<br><br>
+<<Dialogue "Elena" "Elena">>"//Ciao//, <<print $playerFirstName>>"<</Dialogue>><br><br>
+In your head, you wanted to let the surprise for later, but you just can’t hold yourself. You unstrap the oversized wicker basket from your back, and present it to Elena, who freezes, in utter shock. She doesn’t even blink, though you see her fingers twitching, so you raise the wicker basket towards her, and she tentatively raises her hands, still incredulous.<br><br>
+<<Dialogue "Elena" "Elena">>"Is that... for me?"<</Dialogue>><br><br>
+Elena finally starts blinking furiously as if she’d been saving them until now, and she treats the basket as some sort of forbidden fruit, cautious to even touch it, as she admires the enormous orange bloom.<br><br>
+<<Dialogue "player" "You">>"Yeah! It just happened that the original plan was for them to be transferred to another garden, but they had issues with some infection and couldn’t take them, and asked if another party could adopt them, and, well, I figured it would be something you might be interested in."<</Dialogue>><br><br>
+Elena finally grabs the heavy basket as if it had no discernible weight, and places it in her living room, as if hypnotized. You let yourself in, and make yourself comfortable in her kitchen. <<if $flag.elenaMadePasta>>You grab the pasta you made at home, and place it on the counter. <<else>>You look at the pasta Elena set out on the counter, it looks fresh - you wonder if she made it herself, but there’s no evidence around to suggest so. <</if>>The ripened tomatoes from her garden are an amazingly bright red and still have long stems attached, which give them an even fresher look - causing you to salivate just from looking at them.<br><br>
+You call Elena’s attention, and she quickly snaps out of her trance and comes back to the kitchen, setting out a pan, plates and silverware for dinner.<br><br>
+<<Dialogue "player" "You">>"I’d love to help with dinner, is there anything I can do?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I want to make the sauce, old family recipe, but you can cook the fettuccine."<</Dialogue>><br><br>
+And so you fill the pan with water from the tap and add some salt, setting it to boil on the range while you stop and watch as Elena chops the tomatoes and onions. Her rather large hands deftly handle the knife, fingers bent inwards as the vegetables are sliced, then cubed. It’s kind of amazing, as you watch her every movement, the enormous muscles on her arms twitching with the quick chopping motion. It’s somewhat hypnotizing, as her arm contracts and relaxes, making it grow and then jiggle, even though she seems to be controlling her own amazing strength to employ merely a tiny fraction of it. She’s clearly very experienced, doing it extremely fast and also making it seem much easier than it actually is. Though it is quite cute how she starts sniffling as the onion makes her cry, and you just want to hug her since she looks so miserable, but your water is almost boiling and you decide against it. You eventually place the pasta in the water, which you stir as Elena puts her ingredients in a sauce pan and heats next to your pan. You start a timer to keep better control of the pasta as Elena stirs her sauce for a bit before partially covering her saucepan. The two of you exchange occasional glances, amused at the fact that you have to fight for space since there’s only so much stove for two huge women with aprons that really barely reach over their oversized chests. And since you both have to face the pans diagonally, it means you are facing each other as you take care of your respective pans.<br><br>
+<<Dialogue "player" "You">>"I, uh, sorry, a bit cramped here, heh!"<</Dialogue>><br><br>
+Elena isn’t exactly sure how to respond, as this house wasn’t really built for one giantess - let alone two. She tries to avoid your gaze, looking at her own pan, but she futilely pretends she isn’t stealing glances at you. <<if $shyConfident < -1>>Not that you can say much - as you are doing pretty much the same thing.<<else>>You, on the other hand, can’t help but just admire her amazing physique - enough that you are actually thankful you have the easier job of watching the pasta, because you would probably burn the sauce.<</if>> There’s something incredibly enticing about Elena’s appearance: you get lost in her beautiful eyes, but here, so up close and personal with her - it’s almost impossible not to admire every curve from her head to her toes. As your gaze climbs up from her exposed ankles in sandals, you appreciate the gentle slope that manifests from the back of her feet into calves as big as a bowling ball (and probably just as hard). Relaxed, they seem like a soft fluffy pillow begging to be bitten... but as she awkwardly switches her weight between each leg in her nervous twitching, that pillow reveals its hidden definition, valleys appearing as a much more angular shape emerges, as if a canyon was slowly sculpted by the forces of nature. You can only wonder at the herculean amount of weight those calves could lift. But even as you delight yourself with them, Elena’s equally impressive thighs command your attention, the lines of separation between each muscle making your mouth salivate - those adductors could probably crush watermelons in the blink of an eye. It takes a lot of willpower for you not to think about cleaning watermelon juice from between her legs with your tongue...<br><br>
+On the bright side, your mind is quickly taken away from the gutter... as you somehow get even more distracted by the fact that her outstretched dress reveals the contours of her amazing abs. Elena’s bodyfat is not super low, but her abdominal muscles are so large that you can see several cobblestones poking through the dress, and you wonder if she could undress and maybe you’d try grating the parmesan against her tummy...<br><br>
+<<print $playerFirstName.toUpperCase()>>!!! GET A HOLD OF YOURSELF. Or better yet, maybe Elena could, just grab you in those big, juicy, toned arms, just look at those horseshoe triceps, you want to just bite them and hang from her arms like a fish gladly hooked to some nice meat.<br><br>
+Thankfully, your naughty daydreaming is cut short by the ringing of the pasta timer (otherwise you’d be thirsting over her traps right now).<br><br> 
+<<Dialogue "player" "You">>"I think the pasta is ready, let me try some... should I go ahead and strain it?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I can take care of that. Go ahead and set the table, I have some orange juice in //il frigo//."<</Dialogue>><br><br>
+You go ahead and set the table, and you go to the fridge to grab the juice, but you also spot a bottle of red wine in there.<br><br>
+<<if $shyConfident > 1 || $carefreeCarefull < -1>>
+<<Dialogue "player" "You">>"Oh, should I pop this bottle of Merlot? Would probably go well with the pasta."<</Dialogue>><br><br>
+Elena seems hesitant, but eventually caves and agrees.
+<<elseif $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"Oh, Look at this Merlot! I’m serving some, the occasion deserves a little celebration!"<</Dialogue>><br><br>
+Elena seems somewhat hesitant, but is too shy to object.
+<<else>>
+You ponder grabbing the Merlot, but ultimately decide against it. The juice will do just fine for this situation. 
+<</if>><br><br>
+You sit down as Elena brings two EXTREMELY generous plates of fettuccine al pomodoro, beautifully plated with a fresh leaf of basil on top, along with some parmesan and a simple grater. She places them down and offers the parmesan, which you gladly accept. She carefully scratches the block, creating a delicate layer of yellow powder, and you can’t help but be amused by the fact she’s being super careful, and could probably crumple the metal grater with ease with her fingers alone. Heck, if the cheese wasn’t so oily, she could probably squeeze it into dust in her palm. The idea makes you giggle, confusing Elena, which you just dismiss by shaking your head.<br><br>
+With the pasta plated and ready, Elena sits across from you.<br><br>
+<<Dialogue "Elena" "Elena">>"Thank you."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, I barely did anything, the sauce was the harder part anyway!"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I mean //il fiore//, the orchid. I still cannot believe. "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, I can totally say the same about this sauce, these tomatoes are UNBELIEVABLE! Damn, I feel like I should come here for dinner everyday!"<</Dialogue>><br><br>
+Elena once again blushes, matching the bright red tomato. She rushes to get another forkful of pasta, and it’s no surprise that it’s adorable as usual.<br><br>
+<<Dialogue "Elena" "Elena">>"It is so beautiful, and I don’t know that I could ever have managed to get one, but you did, and it means so much that you thought of me."<</Dialogue>><br><br>
+Her eyes keep bouncing back towards the flower, and eventually Elena smears the side of her lips with a bit of sauce. You grab your napkin and lean forward, making her take a deep breath and her eyes widen. Her legs contract so much that her flexed quads literally lift the table off the ground. It isn’t until she realizes that you are just cleaning some sauce that her body relaxes, as she giggles nervously and blushes again.<br><br>
+<<Dialogue "player" "You">>"See? Maybe it wasn’t such a bad idea to open up to strangers after all!"<</Dialogue>><br><br>
+Elena smiles a weak and bittersweet smile, moving her eyes away from yours and into the plate of pasta, which she rolls around her fork distractedly.<br><br>
+<<Dialogue "player" "You">>"What is it?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//Non è niente//, it’s nothing."<</Dialogue>><br><br>
+Cocking your head, you put your fork down.<br><br>
+<<Dialogue "player" "You">>"Yeah, right. You think it was bad opening up to me?"<</Dialogue>><br><br> 
+<<Dialogue "Elena" "Elena">>"No, no! You’ve been great. It’s more that you understand me. You know what it’s like... to be like THIS!"<</Dialogue>><br><br>
+She waves her free hand over herself, flexing her back and traps for effect - which, admitedly, makes her look so much bigger it’s not even funny. It hits you hard just how Elena views herself, feeling shame of her size.<br><br>
+You reach your hand across the table, caressing her soft golden tresses.<br><br>
+
+<span id="choice">
+	<<link "It doesn’t matter what others think. It’s what inside of you that’s important.">>
+		<<replace "#choice">>
+            You let your hand slide down her wide neck, bulbous shoulders, and waving over the soft-skinned but firm waves of muscles of her arms all the way down to her hand, which you hold in yours.<br><br>
+            <<Dialogue "player" "You">>"I see your hand, fully aware that your strength could hurt and destroy things if you wanted. You are right that I am probably not as fragile as the average person, but you know what? While you would not surprise me if you just uprooted a tree stump with these fingers in your backyard, that is never what comes to my mind when I look at your hand."<</Dialogue>><br><br>
+            You lift her hand up, looking at her calloused palm against the light from the bulb on the ceiling.<br><br>
+            <<Dialogue "player" "You">>"I see this hand with dirt-encrusted nails and I see a green thumb capable of raising amazing plants - a feat I don’t think most could accomplish. I see life-giving care and tender love, a gentle force capable of bringing color and happiness into this world."<</Dialogue>><br><br>
+            Elena’s lip starts to quiver, and as she pouts, a soft sob quickly brings tears to her eyes. She now can’t keep her wet eyes away from you, making you sigh. You gently get up, so you can go around the table, pulling her up for a warm hug. Elena wraps her arms tightly around you, her firm body enveloping you. You never thought giant muscles could be so heartwarming, but here you are.<br><br>
+            <<Dialogue "player" "You">>"I’m no damsel in distress, but I gotta say, you somehow make me feel safe and protected in your arms."<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"//Il sentimento è reciproco//, so do I."<</Dialogue>><br><br>
+            She says, softly purring as she lays her head against your shoulder. You can feel her fingers truly digging into your skin, as if she was afraid you could just be snatched away from her at any second.<br><br>
+            <<Dialogue "player" "You">>"You don’t need to worry. I ain’t going anywhere, Elena."<</Dialogue>><br><br>
+            She sighs, without raising her head, as she ceases to grip you so hard and just cuddle in your arms. There is no doubt how grateful she is.<br><br>
+            <<Dialogue "player" "You">>"You have a very gentle soul, and that is what sticks with me, you know? I don’t know that I would have requested to adopt that orchid if I wasn’t entirely sure you would take perfect care of it."<</Dialogue>><br><br> 
+            But suddenly, that makes Elena take an alarmed step back, with shock on her face.<br><br>
+			<<link "Continue" "elenaMakesDinner2">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "You need to accept who you are, and others will too.">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Elena, you are so much more than your physique. But instead of worrying about what OTHERS think, you really need to start by learning to love yourself. Don’t you enjoy your own strength? I see you at the gym all the time!"<</Dialogue>><br><br>
+            Elena’s head retreats into her shoulders, like a turtle, as she looks around as if the answer is hiding somewhere in the room.<br><br>
+            <<Dialogue "Elena" "Elena">>"I just, uh, I don’t care about strength. What I love is exercising. Even before I..."<</Dialogue>><br><br>
+            Her voice trails off, as she looks at a photo on a shelf. Your turn your head, and see what you can only assume is Elena before she started growing. You reach for the frame, grabbing it in your hands, which makes her gulp loudly.<br><br>
+            <<Dialogue "player" "You">>"Yeah, you clearly like working out, I don’t see any problems with that. Do you?"<</Dialogue>><br><br>
+            Elena seems visibly confused by your question.<br><br>
+            <<Dialogue "player" "You">>"I don’t know how old this picture is, but it would seem that you put the effort in all along. Doesn’t seem to me like you have changed that much, frankly - I see the same beautiful golden eyes, the same cute smile, the same well-cared for garden. I really don’t see what the problem is. What is it that bother you?"<</Dialogue>><br><br>
+            Elena frowns, looking somewhat irritated by your dismissive tone. She opens her mouth, hesitates for a second, then replies with an unusual edge:<br><br>
+            <<Dialogue "Elena" "Elena">>"I just want to be //normale//. The thought of //ferire gli altri//, hurting others... scares me so much!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"But did you?"<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"What?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Hurt others? Knowing you, I’d guess you are so careful it’s never happened."<</Dialogue>><br><br>
+            Elena pouts, forehead scrunching even more.<br><br>
+            <<Dialogue "Elena" "Elena">>"No, but I broke many things."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Oh, Elena. My dear..."<</Dialogue>><br><br>
+            You reach her cheek with the back of your hand, caressing it tenderly.<br><br>
+            <<Dialogue "player" "You">>"Was breaking things something you only started doing after you grew? Never had any accidents before?"<</Dialogue>><br><br>
+            You can see the frustration in her face, not because you are wrong, but because you seem to have nailed it.<br><br>
+            <<Dialogue "player" "You">>"We are all human. We occasionally hurt others and break things by accident. What matters most is your intention - and I know for a fact you’d never hurt anyone on purpose. And that is the reason I care so much about you. And I think so should you: there’s no point to self-loathing about something you MIGHT do by accident."<</Dialogue>><br><br>
+            <<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>..."<</Dialogue>><br><br>
+            That seems to get across to her, as she leans her face towards your chest, coming in for a hug. You wrap your equally meaty arms around her, wanting nothing more than to protect and cheer her up. While her massive body feels solid under your embrace, there’s a frailty you can’t describe and just increases your urge to be her support.<br><br>
+            <<Dialogue "Elena" "Elena">>"//Grazie, mi fiore...//"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"So, you know, it would help me a lot if you started loving yourself more... because I also want to love you and it’s hard when you see yourself like that."<</Dialogue>><br><br>
+            Elena sighs.<br><br>
+            <<Dialogue "Elena" "Elena">>"//È difficile//, it’s hard. But I promise I’ll try."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I know."<</Dialogue>><br><br>
+            You say, as you run your hand against her cobbled back, the bumps of the muscle somehow feeling incredibly comforting in their firmness.<br><br>
+            <<Dialogue "player" "You">>"As I know you’ll nurse and nurture that orchid I brought like no one else could."<</Dialogue>><br><br>
+            Elena sobs a giggle, feeling bittersweet happiness. But suddenly, that makes Elena take an alarmed step back, with shock on her face.<br><br>
+			<<link "Continue" "elenaMakesDinner2">><</link>>
+		<</replace>>
+	<</link>>
+</span>
+
+

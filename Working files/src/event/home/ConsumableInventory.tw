@@ -1,0 +1,83 @@
+:: ConsumableInventory {"position":"1025,1000","size":"100,100"}
+<<nobr>>
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Amount</th>
+  </tr>
+<<for _i to 0; _i < $consumables.length; _i ++>>
+		<<capture _i>>	
+		<<if $consumables[_i].amount > 0>>\
+		<tr>
+    		<td><<link $consumables[_i].name>><<set $consumables[_i].amount -= 1>><<ConsumablePopup _i>><<goto "ConsumableInventory">><</link>> </td>
+    		<td>
+            	<<print $consumables[_i].description>>
+            	<<for _j to 0; _j < $consumables[_i].effects.length; _j ++>>
+                        <<capture _j>>	
+							<<if $consumables[_i].effects[_j].discovered && $consumables[_i].effects[_j].shortDescription() != "">>
+                            		<br>
+                                    ● <<print $consumables[_i].effects[_j].shortDescription()>>
+                            <</if>>
+                        <</capture>>
+                <</for>>            
+            </td>
+			<td><<print $consumables[_i].amount>></td>
+  		</tr>
+		<</if>>
+		<</capture>>
+<</for>>
+</table>
+<</nobr>>
+
+<<nobr>>
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>Available</th>
+	<th>Daily dose</th>
+	<th>Days left</th>
+	<th>New daily dose</th>
+  </tr>
+<<for _i to 0; _i < $gymStoreSupplies.length; _i ++>>
+		<<capture _i>>	
+		<<if $gymStoreSupplies[_i].amount > 0>>
+		<<set _amount to 0>>
+		<tr>
+    		<td><<print $gymStoreSupplies[_i].name>></td>
+    		<td><<print $gymStoreSupplies[_i].description>></td>
+			<td><<print $gymStoreSupplies[_i].amount>></td>
+			<td><<live $gymStoreSupplies[_i].takeDaily>></td>
+			<td><<live Math.floor($gymStoreSupplies[_i].amount / $gymStoreSupplies[_i].takeDaily)>></td>
+			<td>
+			<span @id="_i"></span>
+			<<numberbox "_amount" $gymStoreSupplies[_i].takeDaily>><<button "Set">>
+			<<set _replace to "#" + _i>>
+			<<if Util.isNumeric(_amount)>>
+			<<set _amountLocal to parseInt(_amount)>>
+			<<if _amountLocal <= 0>>
+			<<replace _replace>>Please type in a number greater than 0<</replace>>
+			<<elseif _amountLocal > 10>>
+			<<replace _replace>>You can take 10 of a supplement each day at most.<</replace>>
+			<<else>>
+			<<replace _replace>>
+			<<set $gymStoreSupplies[_i].takeDaily to _amountLocal>>
+			<<update>>
+			<</replace>>
+			<</if>>
+			<<else>>
+				<<replace _replace>>Please type in a number<</replace>>
+			<</if>>			 
+			<</button>></td>
+  		</tr>
+		<</if>>
+		<</capture>>
+<</for>>
+</table>
+<</nobr>>
+
+
+<<link "Return" "Bathroom">><</link>>
+
+

@@ -1,0 +1,64 @@
+:: jobWarehouse [nobr office] {"position":"1600,1700","size":"100,100"}
+Well, here you are in the warehouse. It’s full of crates and boxes to be move, a PC to log your work on, and the long rods of fluorescent lighting to keep you company. The floor is concrete, the ceiling steel, and you're quite sure that you're the only one coming here. Time to get started!
+
+<br>
+
+<<gameLink "Take a break" "jobWarehouse" time:20 exhaustion:-10>><</gameLink>>
+
+<br>
+<<if $muscle > 75>>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 5 < 100>>
+<<gameLink "Shift the boxes one at a time" "ShiftBoxes" time:10 exhaustion:5>><<set $boxesShifted += 20>><</gameLink>>
+<<else>>
+Yeah, you'll need a small break before you can lift boxes again.
+<</if>>
+
+<br>
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 10 < 100>>
+<<gameLink "Move entire pallets at a time" "ShiftPallette" time:15 minexhaustion:1 exhaustion:10>><<set $boxesShifted += 30>><</gameLink>>
+<<else>>
+Those pallets are a bit too heavy to shift, given how tired you are. Maybe take a short break, or lift something lighter.
+<</if>>
+<br>
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 20 < 100>>
+<<gameLink "Shift whole stacks at a time" "ShiftStacks" time:20 minexhaustion:5 exhaustion:20>><<set $boxesShifted += 50>><</gameLink>>
+<<else>>
+Those stacks are a bit too heavy to shift, given how tired you are. Maybe take a short break, or lift something light.
+<</if>>
+
+<<elseif $muscle > 50>>
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 10 < 100>>
+<<gameLink "Shift the boxes one at a time" "ShiftBoxes" time:20 minexhaustion:2 exhaustion:10>><<set $boxesShifted += 10>><</gameLink>>
+<<else>>
+Yeah, you'll need a short break before you can lift boxes again.
+<</if>>
+<br>
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 30 < 100>>
+<<gameLink "Move entire pallets at a time" "ShiftPallette" time:15 minexhaustion:1 exhaustion:10>><<set $boxesShifted += 30>><</gameLink>>
+<<else>>
+Those stacks are a bit too heavy to shift. Maybe take a short break, or lift something lighter.
+<</if>>
+
+<<elseif $muscle > 20>>
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 10 < 100>>
+<<gameLink "Shift the boxes one at a time" "ShiftBoxes" time:20 minexhaustion:2 exhaustion:10>><<set $boxesShifted += 10>><</gameLink>>
+<<else>>
+Yeah, you'll need a short break before you can lift boxes again.
+<</if>>
+
+<</if>>
+
+<br>
+
+<<set _moneyEarned to $boxesShifted * setup.balance.moneyPerBoxShifted>>
+
+<<set _linkString to "Clock out, and cash out +$" + _moneyEarned + ",-">>
+
+<<link _linkString "Home">><<set $money += _moneyEarned>><</link>>
+
+

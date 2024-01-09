@@ -1,0 +1,305 @@
+:: InitializeClothes [nobr] {"position":"0,500","size":"100,100"}
+<<set $sewingProjects to []>>
+<<set $favoriteStyle to 'casual'>>
+/* The base outfit container. The only acces point by which the clothing logic may */
+/* be approached.*/
+<<set $outfit to {
+    topId: 1,
+    top: function () {
+        return State.variables.wardrobe.find(item => item.id == this.topId) || setup.emptyClothes;
+    },
+    bottomId: 2,
+    bottom: function () {
+        return State.variables.wardrobe.find(item => item.id == this.bottomId) || setup.emptyClothes;
+    },
+    braId: 4,
+    bra: function () {
+        return State.variables.wardrobe.find(item => item.id == this.braId) || setup.emptyClothes;
+    },
+    underwearId: 3,
+    underwear: function () {
+        return State.variables.wardrobe.find(item => item.id == this.underwearId) || setup.emptyClothes;
+    },
+    overwearId: 5,
+    overwear: function () {
+        return State.variables.wardrobe.find(item => item.id == this.overwearId) || setup.emptyClothes;
+    },
+    shoesId: 6,
+    shoes: function () {
+        return State.variables.wardrobe.find(item => item.id == this.shoesId) || setup.emptyClothes;
+    },
+    style: function () {
+
+        if (this.top() == undefined && this.bottom() == undefined && this.overwear() == undefined && this.bra() == undefined && this.bottom() == undefined && this.underwear() == undefined && this.shoes() == undefined) {
+            return undefined;
+        }
+
+        /*find most common object*/
+        function mode(arr) {
+            return arr.sort((a, b) =>
+                arr.filter(v => v === a).length
+                - arr.filter(v => v === b).length
+            ).pop();
+        }
+
+        /*setup objects*/
+        var retval = [];
+        var presentArchetypes = [];
+
+        /*add all the archetypes of the clothing to a single heap*/
+        if (this.top() != undefined && this.top().archetypes != undefined) {
+            presentArchetypes.push(this.top().archetypes);
+        }
+        if (this.bottom() != undefined && this.bottom().archetypes != undefined) {
+            presentArchetypes.push(this.bottom().archetypes);
+        }
+        if (this.underwear() != undefined && this.underwear().archetypes != undefined) {
+            presentArchetypes.push(this.underwear().archetypes);
+        }
+        if (this.bra() != undefined && this.bra().archetypes != undefined) {
+            presentArchetypes.push(this.bra().archetypes);
+        }
+        if (this.overwear() != undefined && this.overwear().archetypes != undefined) {
+            presentArchetypes.push(this.overwear().archetypes);
+        }
+        if (this.shoes() != undefined && this.shoes().archetypes != undefined) {
+            presentArchetypes.push(this.shoes().archetypes);
+        }
+        presentArchetypes = mode(presentArchetypes.flat());
+        /*get how many times each different archetype is present*/
+        return presentArchetypes;
+    },
+    fit: function () {
+    },
+    bonuses: function () {
+        /* fixed that ==/=== is not working by calling function to get bonus - Waffle */
+        const presentBonuses = [];
+        if (this?.top?.()?.bonuses != null) {
+            this.top().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
+        }
+        if (this?.bottom?.()?.bonuses != null) {
+            this.bottom().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
+        }
+        if (this?.underwear?.()?.bonuses != null) {
+            this.underwear().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
+        }
+        if (this?.bra?.()?.bonuses != null) {
+            this.bra().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
+        }
+        if (this?.overwear?.()?.bonuses != null) {
+            this.overwear().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
+        }
+        if (this?.shoes?.()?.bonuses != null) {
+            this.shoes().bonuses
+                .forEach(bonus => presentBonuses.push(bonus));
+        }
+        presentBonuses.push(setup.clothingBonuses.FavoriteStyle);
+    
+        const results = [];
+        for (const bonus of Object.values(setup.clothingBonuses)) {
+            let filteredBonus = presentBonuses.filter(presentBonus => presentBonus.name === bonus.name);
+            if (filteredBonus.length > 1) {
+                /* add if the same bonus is included more than once */
+                results.push(filteredBonus[0]);
+            }
+        }
+    
+        return results;
+    }
+}>>
+
+/* Starting wardrobe object. */
+<<set $wardrobe to [
+	{
+        	id: 1,
+            name: 'plain T-shirt',
+            tolerance: 1.3,
+            archetypes: ['casual', 'tomboy'],
+            bonuses: [
+            		setup.clothingBonuses.WorkoutWear,
+                    setup.clothingBonuses.Comfortable
+            	],
+            size: 2,
+            slot: 'top'
+        },
+        {
+        	id: 2,
+            name: 'jeans',
+            tolerance: 1.1,
+            archetypes: ['casual', 'nerdy'],
+            bonuses: [
+                    setup.clothingBonuses.Comfortable
+            	],
+            size: 1,
+            slot: 'bottom'
+        },
+        {
+        	id: 3,
+            name: 'briefs',
+            tolerance: 1.3,
+            archetypes: ['casual'],
+            bonuses: [
+            		setup.clothingBonuses.Comfortable
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+        {
+        	id: 4,
+            name: 'cotton bra',
+            tolerance: 1.1,
+            archetypes: ['casual'],
+            bonuses: [
+                    setup.clothingBonuses.Comfortable
+            	],
+            size: 1,
+            slot: 'bra'
+        },
+        {
+        	id: 5,
+            name: 'hoodie',
+            tolerance: 1.5,
+            archetypes: ['casual', 'tomboy', 'punk', 'sporty'],
+            bonuses: [
+                    setup.clothingBonuses.Baggy,
+            		setup.clothingBonuses.LactationProof,
+                    setup.clothingBonuses.ExtraWarm
+            	],
+            size: 1,
+            slot: 'overwear'
+        },
+        {
+        	id: 6,
+            name: 'runners',
+            tolerance: 1.3,
+            archetypes: ['casual', 'sporty', 'nerdy'],
+            bonuses:  [
+            		setup.clothingBonuses.WorkoutWear
+            	],
+            size: 1,
+            slot: 'shoes'
+        },
+        {
+        	id: 7,
+            name: 'gym shorts',
+            tolerance: 1.1,
+            archetypes: ['gym', 'casual', 'exposed'],
+            bonuses: [
+            		setup.clothingBonuses.WorkoutWear
+            	],
+            size: 1,
+            slot: 'bottom'
+        },
+        {
+        	id: 8,
+            name: 'boybriefs',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+       	{
+        	id: 9,
+            name: 'sports bra',
+            tolerance: 1.1,
+            archetypes: ['gym'],
+            bonuses: [
+            		setup.clothingBonuses.WorkoutWear
+            	],
+            size: 0,
+            slot: 'bra'
+        },
+   		 {
+         	id: 10,
+            name: 'geeky shirt',
+            tolerance: 1.2,
+            archetypes: ['casual', 'geek'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'top'
+        },
+        {	
+        	id: 11,
+            name: 'old jeans',
+            tolerance: 1.2,
+            archetypes: ['casual', 'goth', 'punk'],
+            bonuses: [
+            		setup.clothingBonuses.Stretchy
+            	],
+            size: 0,
+            slot: 'bottom'
+        },
+        {
+        	id: 12,
+            name: 'bikini',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            		setup.clothingBonuses.Stretchy
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+        {
+        	id: 13,
+            name: 'padded bra',
+            tolerance: 1,
+            archetypes: ['casual', 'basic'],
+            bonuses: [
+            		setup.clothingBonuses.LactationProof
+            	],
+            size: 1,
+            slot: 'bra'
+        },
+        {
+        	id: 14,
+            name: 'black worn trenchcoat',
+            tolerance: 1.25,
+            archetypes: ['punk', 'goth'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'overwear'
+        },
+        {
+        	id: 15,
+            name: 'boyshorts',
+            tolerance: 1.2,
+            archetypes: ['casual'],
+            bonuses: [
+            	],
+            size: 1,
+            slot: 'underwear'
+        },
+        {
+        	id: 16,
+            name: 'old bra',
+            tolerance: 1.1,
+            archetypes: ['casual', 'basic'],
+            bonuses: [
+            	],
+            size: 0,
+            slot: 'bra'
+        },
+        {
+        	id: 17,
+            name: 'combat boots',
+            tolerance: 1,
+            archetypes: ['goth', 'punk'],
+            bonuses: [
+            	],
+            size: 3,
+            slot: 'shoes'
+        }
+]>>
+
+<<set setup.storePopulator()>>
+

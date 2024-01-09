@@ -1,0 +1,47 @@
+:: Date Midpoint {"position":"750,3950","size":"100,100"}
+<<addMinutes 60>>Before long, you're attended to by a cheery waiter. You only realize as he approaches that you've been so busy talking that you haven't even taken a single glance at the menu. You quickly grab it and speedread through your options as Emma addresses the server.
+
+<<Dialogue "Emma" "Emma">> "Why don't we split some arancini as an appetizer, and I will have the soup of the day with the chicken Florentine. $playerFirstName, do you have any preferences?"<</Dialogue>>
+You quickly scan through the options, trying to remember your etiquette while you decipher dishes you've never heard of, and keep an eye on Emma's reaction, all at once.
+
+<<Dialogue "player" "You">> "Ahhh! I suppose I'll have the same thing she’s having!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Hmm. A sensible choice."<</Dialogue>>
+And a safe one. You figure it is better not to get something overly pricy. And maybe it would be endearing to follow her lead? That’s your hope, at least.
+
+<<Dialogue "Emma" "Emma">> "Oh. I know you're probably done with work for the day, but I just had a thought that I wanted to run by you. May I?"<</Dialogue>>
+<<Dialogue "player" "You">> "Oh, please! Go ahead."<</Dialogue>>
+Emma reaches into her jacket pocket to retrieve a pen, then begins jotting her thoughts down on her drink napkin as she speaks. You nod along and respond when you're able. For a moment, it seems like she's more talking to herself than to you, as many of her musings involve business jargon that are go right over your head. Before you get too bogged down in her rundown of the day's affairs, your waiter returns with the appetizer that Emma previously ordered.
+
+<<Dialogue "Emma" "Emma">> "Ah, perfect. These are one of my favorites."<</Dialogue>>
+You give the dish a quick poke with your fork. As far as you can tell, they are nothing more than fried dough balls.
+
+<<Dialogue "player" "You">> "What are these again?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Rice and cheese, fried in bread crumbs. Classic combination, but a guilty pleasure we can all indulge in from time to time, right?"<</Dialogue>>
+She forks one of the dumplings, and takes a bite, which steams discreetly, revealing the rice inside. With closed eyes, Emma lets out a pleasurable but dignified moan as she chews very slowly.
+
+<<Dialogue "player" "You">> "Doesn't exactly seem like healthy food, though. <<if $fat >= 50>>I mean, it's not like I'm going to scoff at it, but...<</if>> Are you sure you're not going to ruin that sculpted physique of yours?"<</Dialogue>>
+Emma simply shrugs.
+
+<<Dialogue "Emma" "Emma">> "Thirty extra minutes on the treadmill tomorrow are but a small price to pay for this experience."<</Dialogue>>
+<<Dialogue "player" "You">> "Is that a guesstimate, or are you actually counting your calories here?"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Oh, I keep close track of my nutritional intake as well as my heart rates, and I make sure to do my research on any meal before I order it."<</Dialogue>>
+<<Dialogue "player" "You">> "Wow. I'm impressed, but I'm starting to get the feeling you never take a break."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "What do you mean?"<</Dialogue>>
+<<Dialogue "player" "You">> "I mean, you seem to have turned exercising and eating into a science. You apparently worked yourself into a corner at work and even now you're still thinking about it. I mean, talk about the stereotype of a workaholic!"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "I will give you that point, that is not totally inaccurate. I do tick all the boxes. But I wouldn't classify it as an addiction. Think of it more as my natural state of being."<</Dialogue>>
+<<Dialogue "player" "You">> "Now I'm lost."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Simple. I'm at my happiest when I'm busy. When I have a project to work on, or a goal to work towards. It's less working myself to the bone and more indulging on my core drives. You don't get to climb the career ladder unless you're labelled a ‘workaholic.’ You don't achieve peak fitness unless you're labelled a ‘workaholic.’"<</Dialogue>>
+To punctuate her point, she lifts an arm into a flex and pulls the sleeve taut. Despite the fact that her arm isn't actually exposed, you can clearly make out the steely peak through the fabric.
+
+<<Dialogue "player" "You">> "Well, it's hard to argue with the results <<if $muscle >= 60>> Even if I feel like I can give her a run for her money<</if>>."<</Dialogue>>
+<<if $muscle >= 60>>You laugh, your prominent chest and shoulders bouncing with the movement.<</if>>Emma responds with a satisfied smirk.
+
+<<Dialogue "Emma" "Emma">> "I'm glad you agree."<</Dialogue>>
+Before you even know what's happened, the two of you have polished off the appetizers and your main courses have arrived. There's another quiet moment as you both dig into your meals.
+
+
+<<if $WorkChosen isnot 1>>[[Make conversation about work|Work Chat]]<</if>>
+<<if $FitnessChosen isnot 1>>[[Comment on her body|Fitness Chat]]<</if>>
+<<if $HobbyChosen isnot 1>>[[Ask about what she does for fun|Hobby Chat]]<</if>>
+
+

@@ -1,0 +1,1839 @@
+:: initInstantConsumables [nobr] {"position":"200,500","size":"100,100"}
+<<set $storeOnlineBought to []>>
+<<set $storeOnlineBoughtDelay to []>>
+<<set $ingredientOnlineBought to []>>
+<<set $ingredientOnlineBoughtDelay to []>>
+
+/* Transformables */
+<<set $potionIngredients to []>>
+
+<<set $potionIngredientCombinations to [
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.potionIngredients.push("FatIngredient");
+                State.variables.potionIngredients.push("FatIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'FatIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.potionIngredients.push("MuscleIngredient");
+                State.variables.potionIngredients.push("MuscleIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'MuscleIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'ShyIngredient',
+        effect: () => {State.variables.potionIngredients.push("ConfidentIngredient");
+                State.variables.potionIngredients.push("ConfidentIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'ConfidentIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.potionIngredients.push("ShyIngredient");
+                State.variables.potionIngredients.push("ShyIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'ShyIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'SubmissiveIngredient',
+        effect: () => {State.variables.potionIngredients.push("DominantIngredient");
+                State.variables.potionIngredients.push("DominantIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'DominantIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'DominantIngredient',
+        effect: () => {State.variables.potionIngredients.push("SubmissiveIngredient");
+                State.variables.potionIngredients.push("SubmissiveIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'SubmissiveIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.potionIngredients.push("CarefulIngredient");
+                State.variables.potionIngredients.push("CarefulIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'CarefulIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'CarefulIngredient',
+        effect: () => {State.variables.potionIngredients.push("CarefreeIngredient");
+                State.variables.potionIngredients.push("CarefreeIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'CarefreeIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'SlowIngredient',
+        effect: () => {State.variables.potionIngredients.push("InstantIngredient");
+                State.variables.potionIngredients.push("InstantIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'InstantIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'InstantIngredient',
+        effect: () => {State.variables.potionIngredients.push("SlowIngredient");
+                State.variables.potionIngredients.push("SlowIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'SlowIngredient (2x)'
+    },
+    {
+        ingredientOne: 'Opposium',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.potionIngredients.push("MasculineIngredient");
+                State.variables.potionIngredients.push("MasculineIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'MasculineIngredient (2x)'
+    },
+    {
+        ingredientOne: 'FeminineIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Taste-improver").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Taste-improver'
+    },
+    {
+        ingredientOne: 'FatIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "FA-GAIN 23A").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'FA-GAIN 23A'
+    },
+    {
+        ingredientOne: 'FutaIngredient',
+        ingredientTwo: 'LiquidIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "SPHE-GRO-001").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'SPHE-GRO-001'
+    },
+    {
+        ingredientOne: 'FutaIngredient',
+        ingredientTwo: 'HeightIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Girth grow").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Girth grow'
+    },
+    {
+        ingredientOne: 'FutaIngredient',
+        ingredientTwo: 'FutaIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Erecto-10").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Erecto-10'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'HeightIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "B-shrink").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'B-shrink'
+    },
+    {
+        ingredientOne: 'HeightIngredient',
+        ingredientTwo: 'SlowIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "B-gr0w").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'B-gr0w'
+    },
+    {
+        ingredientOne: 'ConfidentIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Mot-V10").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Mot-V10'
+    },
+    {
+        ingredientOne: 'CarefreeIngredient',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Exhaust-B-g0n3").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Exhaust-B-g0n3'
+    },
+    {
+        ingredientOne: 'LiquidIngredient',
+        ingredientTwo: 'Opposium',
+        effect: () => {State.variables.consumables.find(i => i.name === "BRA-SHRINK-T1").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'BRA-SHRINK-T1'
+    },
+    {
+        ingredientOne: 'LiquidIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Milk--").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Milk--'
+    },
+    {
+        ingredientOne: 'LiquidIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Milk++").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Milk++'
+    },
+    {
+        ingredientOne: 'FeminineIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Ton-shrink/01'
+    },
+    {
+        ingredientOne: 'FeminineIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Ton-shrink/01'
+    },
+    {
+        ingredientOne: 'MuscleIngredient',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "lip-shrink//XX").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'lip-shrink//XX'
+    },
+    {
+        ingredientOne: 'MuscleIngredient',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Shy").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-shy'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Con").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-Con'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Care").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-Care'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'SubmissiveIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Temp-Sub").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Temp-sub'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'DominantIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Dom").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Dom'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'SubmissiveIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Sub").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Sub'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'ConfidentIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Con").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Con'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'ShyIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Shy").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Shy'
+    },
+    {
+        ingredientOne: 'SlowIngredient',
+        ingredientTwo: 'CarefulIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Carl").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Carl'
+    },
+    {
+        ingredientOne: 'PermanentIngredient',
+        ingredientTwo: 'CarefreeIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Perm-Care").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Perm-Care'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-muscle").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-muscle'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'HeightIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-height").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-height'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'FeminineIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-breasts").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-breasts'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Insta-fat").amount += 1},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'Insta-fat'
+    },
+    {
+        ingredientOne: 'InstantIngredient',
+        ingredientTwo: 'InstantIngredient',
+        effect: () => {State.variables.potionIngredients.push("PermanentIngredient");
+                State.variables.potionIngredients.push("PermanentIngredient");},
+        discovered: false,
+        pinned: false,
+        resultDesc: 'PermanentIngredient (2x)'
+    }
+    
+]>>
+
+<<set $consumables to [
+    {
+        name: "Taste-improver",
+        description: "Looking at it, you might almost mistake it for a gel instead of a liquid. It doesn’t slosh as you shake it, but more like… unfurls like a carpet?",
+        transform: "instantTongueGrowth",
+        ingredients: [
+            "CarefreeIngredient",
+            "SubmissiveIngredient",
+            "Opposium",
+            "FeminineIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As the ingredients mix, they seem to gel and solidify, rolling into themselves like waves. It takes a while to transfer the substance into its final container, but you watch, mesmerized, as it unfurls itself to its destination.",
+        uses: 0,
+        price: 30,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "",
+                description: () => "The thick liquid goes down your throat, the rich fluid filling your mouth with a wave of rolling tastes! Bitter, sweet, umami, sour, salty... you taste it all at once, in almost sickening amounts. After smacking your lips a few times, something feels... off. The taste fades as quickly as it came, leaving your mouth oddly numb. It's just... weird.",
+                shortDescription: () => "",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $tongueLenght += 1>>",
+                description: () => " As the aftertaste lingers and you make weird movements in your mouth, it takes a second for you to realize what's wrong; it feels very cramped, like it can barely contain your tongue! It only lasts for a second, but it's hard to ignore!",
+                shortDescription: () => "Lenghtens tongue",
+                chance: 0.5,
+                discovered: false
+            },
+            {
+                code: () => "<<set $lips += 1>>",
+                description: () => " You make an involuntary puckering motion as you realize something's wrong; your lips just feel... bloated! It only lasts for a second, but you're sure something feels different!",
+                shortDescription: () => "Thickens lips",
+                chance: 0.5,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "END 001A booster",
+        description: "According to Toshi’s spectrograph notes, this one has a weird name, and notes side-effects such as \'enlarged lips, chest, hips and distraction\'...?",
+        transform: "instantBimboJuice",
+        ingredients: [
+            "CarefreeIngredient",
+            "SubmissiveIngredient",
+            "Opposium",
+            "FeminineIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, your glass stirrer rod starts sticking more and more, like you have dipped it in bubblegum. It takes some effort to scrape it all off the beaker, but you successfully transfer it to the container.",
+        uses: 0,
+        price: 40,
+        forSale: 0,
+        settings: [],
+        HideInStores: false,
+        dropRate: 1,
+        effects: [
+            {
+                code: () =>  "<<set $motivation += 10>><<addBreastsSlow setup.balance.breastAllowancePerDay>>",
+                description: () =>  "The thick liquid pours down your throat, tasting sweet, chewy and tasty. It's intoxicating, though the bubblegum flavor is incredibly intense.",
+                shortDescription: () =>  "Adds motivation and grows breasts",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () =>  "<<set $motivation += 10>><<set $hips += 1>>",
+                description: () =>  "A heat washes over your body, traveling down your stomach into your legs. Some of it rises to your chest again, making sweat break out over your entire body as you feel nothing short of amazing. The heat lingers in your chest and hips, almost like they are pushing outwards.",
+                shortDescription: () =>  "Increases motivation and grows hips, breasts and fat",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => State.variables.lactationSetting ? "<<set $lips += 1>><<set $breasts += setup.balance.breastAllowancePerDay>><<addFatSlow 3>><<set $lactationUnlockedPoints += 1>>" : "<<set $lips += 1>><<set $breasts += setup.balance.breastAllowancePerDay>><<addFatSlow 3>>",
+                description: () =>  "The taste remains on your lips for a long time, though it's rather pleasant and smooth. They almost feel softer and... fuller?",
+                shortDescription: () => State.variables.lactationSetting ? "From Toshis’s notations: Grows lips, breasts and fat, adds lactation" : "Grows lips, breasts and fat",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "T-booster 29D",
+        description: "Another weird name from Toshi’s notes. It feels heavy, and the liquid inside somehow feels heavier, and strong. <b>Better be careful with this one, because it might cause some odd changes if you take too many at once!</b>",
+        transform: "instantBullJuice",
+        ingredients: [
+            "DominantIngredient",
+            "Opposium",
+            "FutaIngredient",
+            "MuscleIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The ingredients mix quickly, but the beaker seems to get heavier as you do, which seems to go against all laws of physics you are aware of. You carefully dump the results in the appropriate container.",
+        uses: 0,
+        price: 40,
+        forSale: 0,
+        settings: [],
+        HideInStores: false,
+        dropRate: 1,
+        effects: [
+            {
+                code: () =>  "<<addMuscleSlow setup.balance.musclePotionsAllowancePerDay>>",
+                description: () =>  "You drink the deep black liquid and it immediately feels like you got punched in the chest. It's oily and tastes like someone made coffee on the stove and just left it there for a few years!",
+                shortDescription: () => "Adds muscle",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $motivation -= 10>><< set $gut += 1>><< set $fat += 1>><< set $tiredness += 10>>",
+                description: () => " Immediately, your stomach churns, and you almost collapse, feeling bloated and painful. A sick feeling travels through your belly and spreads from there to the rest of your body. Oddly enough, your muscles feel tighter afterwards, the rest of the feeling just gone. But you can't shake the feeling of your body feeling... heavier.",
+                shortDescription: () => "Removes motivation, adds tiredness and fat",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => "",
+                description: () => " The aftertaste lingers, but the bitter feeling leaves you REALLY energized! Just aching to do something, lift something heavy. The fact is, your muscles feel like they just had an amazing workout!",
+                shortDescription: () => "",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Lact-aid",
+        description: "There’s something very milky about this liquid... but somehow it makes you want to fill the container more so than consume it...",
+        transform: "instantLactaid",
+        ingredients: [
+            [
+            "FeminineIngredient",
+            "Opposium",
+            "FatIngredient",
+            "LiquidIngredient"
+        ],
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The solution turns opaque and milky as you mix the ingredients in, and before you know, your tongue is making an involuntary sucking motion. You transfer the final product to its container, and resist the urge to fill it to the brim with something else.",
+        uses: 0,
+        price: 30,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.8,
+        effects: [
+            {
+                code: () => "<<set $motivation += 20>>",
+                description: () => "This... tastes quite good! Warm, refreshing, creamy, and not too sweet! Licking your lips, you feel like you can’t have more of it soon enough!",
+                shortDescription: () => "Adds motivation",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => State.variables.lactationSetting ? "<<addBreastsSlow setup.balance.breastAllowancePerDay>><<set $lactationUnlockedPoints += 1>><<if $lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor>><< set $milkProduction += 1>><</if>>" : "<<addBreastsSlow setup.balance.breastAllowancePerDay>>",
+                description: () => State.variables.lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor ? " You feel refreshed, like you just had a nourishing meal. You should get more of this stuff!  Your nipples swell up a bit, with a pleasant heat. You intuitively know your breasts got more productive!" : " You feel refreshed and like you just had a nourishing meal. You should get more of this stuff!",
+                shortDescription: () => State.variables.lactationSetting ? "Adds to lactation, and grows breasts" : "Grows breasts",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => State.variables.lactationSetting ? "<<set $lactationUnlockedPoints += 1>><<if $lactationUnlocked && $milkProduction <= setup.balance.milkProductionFactor>><< set $milkProduction += 1>><</if>><<addFatSlow 5>>" : "<<addFatSlow 5>>",
+                description: () => " And you don't know why, but you just want MORE! Your body screams for it, begging for it! Maybe it's time for a snack, something nice, creamy and buttery!",
+                shortDescription: () => State.variables.lactationSetting ? "Adds to lactation, and slowly adds fat" : "Slowly adds fat",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Puberty++, 001C",
+        description: "...What an unusually weird name. The liquid is just so... bizarre. Bright orange with white streaks in it, almost like one of those old-fashioned lava lamps. It seems to be swirling in constant in motion, and the smell cannot be described as anything but 'awkward'.",
+        transform: "instantPuberty",
+        ingredients: [
+            "HeightIngredient",
+            "InstantIngredient",
+            "SlowIngredient",
+            "SlowIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You add the reagents into the beaker, but instead of getting a homogenous solution, the resulting substance seems to be bright orange with white streaks. Huh. You try to dissolve it completely, but it stubborn and awkwardly refuses. You dump what you got into a container, squinting confusedly.",
+        uses: 0,
+        price: 50,
+        forSale: 0,
+        settings: [],
+        HideInStores: false,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "",
+                description: () => "Drinking the liquid feels just... awkward. The density and viscosity is completely uneven, and some dribbles on your chin as you try to chug it. The overly sweet and sour taste just lingers far too long on your lips. If you had to take a guess at what this was, you'd guess someone boiled a crab in soda and added a pineapple, straining it through a dirty sock. As the oily liquid glides down, it takes a lot of effort to not throw up.",
+                shortDescription: () => "",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<addHeightSlow setup.balance.heightAllowancePerDay>><<set $tiredness += 10>>",
+                description: () => " The odd, almost sickening feeling travels through your body and spreads, lingering in your limbs. They feel awkward and dull, bringing flashbacks of teenage years gone by. Even the soreness is familiar.",
+                shortDescription: () => "Adds height and tiredness",
+                chance: 0.66,
+                discovered: false
+            }, {
+                code: () => "<<if $futa>><<addDickSlow 2>><</if>><<if $lactationSetting>><<set $lactationUnlockedPoints += 1>><</if>><<set $tiredness += 10>><<addBreastsSlow setup.balance.breastAllowancePerDay>>",
+                description: () => "A haze washes over your mind, and concentrating becomes a challenge. A bunch of lewd thoughts surface violently on your mind as you start sweating buckets. It is over just as quickly as it came, but they will keep coming back occasionally for the rest of the day.",
+                shortDescription: () => "<<if $futa>>Grows dick, <</if>> grows breasts, adds tiredness <<if $lactationSetting>>adds lactation<</if>>",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Muscle Boost 29D",
+        description: "While the name from Toshi’s notes is very self-explanatory, somehow looking at the mixture intuitively gives you an aura of sheer power. The smell of the liquid reminds you of beef jerky, and not in a pleasant way.",
+        transform: "instantMuscleBoost",
+        ingredients: [
+            "ConfidentIngredient",
+            "MuscleIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you stir the contents, the smell of beef jerky permeates the air, and there’s a bizarre electric feeling going up your arm, almost as if it was generating a static charge as it thickens. You carefully transfer it to a container, feeling like you are handling radioactive material.",
+        uses: 0,
+        price: 30,
+        forSale: 0,
+        settings: [],
+        HideInStores: false,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "",
+                description: () => "As the liquid pours down your throat, you can only describe it as 'meaty'. It is thick, and you swear there is sinew in it. As it reaches your stomach, it feels like a punch in the gut, almost making you double over!",
+                shortDescription: () => "",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $muscle += setup.balance.musclePotionsAllowancePerDay>><<addMuscleSlow setup.balance.musclePotionsAllowancePerDay>>",
+                description: () => "The tense, sickening feeling continues to travel through your body as all your muscles contract in unison. It might sound horrible, but somehow it feels like the most intense workout ever conceived, all your muscles just feel HUGE AND SOLID!",
+                shortDescription: () => "Adds instant muscle, and adds muscle over the next few days",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => "<<set $breasts -= random(5,10)>><<set $fat -= random(1,5)>>",
+                description: () => "As the feeling subsides, you can't help but performing an impromptu flex. A new, pronounced vein pops up on your arm. GOD, this feels SO GOOD! You feel lighter, nimbler, just... better!",
+                shortDescription: () => "Reduces fat and breasts",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "FA-LOSS 133X",
+        description: "The liquid in this container looks... thin. Thinner and somehow more liquid than even water? You have no idea how that can be, but it seems this bottle hides quite a surprise.",
+        transform: "instantFatLoss",
+        ingredients: [
+            "Opposium",
+            "FatIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you stir the reagents together, it’s almost like they are dissolving? For a second you could swear the liquid evaporated, but no, it just feel like it’s losing density somehow? You transfer it to a proper storage container, with a strange feeling like you are dumping a gaseous substance instead of a solution.",
+        uses: 0,
+        price: 50,
+        forSale: 0,
+        settings: [],
+        HideInStores: false,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "<<set $fat -= 1>>",
+                description: () => "Damn, this is sour! Is this a drink or some kind of washing detergent?! The aftertaste only gets worse as it almost seeps into your tongue. Immediately, you feel... off. Somehow, a heatwave washes over you, like your entire body is boiling from the bottom up. And you can't shake the feeling you're a bit lighter.",
+                shortDescription: () => "Reduces fat",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $fat -= 1>><<addFatSlow -2>>",
+                description: () => " It keeps going for a while, and you're not sure whether it's good or bad.",
+                shortDescription: () => "Reduces fat over the next few days",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => "<<set $fat -= 1>><<addFatSlow -2>>",
+                description: () => " Finally, you give a soft burp. Despite not having had a meal in a while, you feel like the exact opposite of hungry. Odd.",
+                shortDescription: () => "Reduces fat over the next few days",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "FA-GAIN 23A",
+        description: "You wonder how a liquid can look so thick. It's almost like butter, but somehow still thicker while still being a liquid. Seems curiously appetizing, though!",
+        transform: "instantFatGain",
+        ingredients: [
+            "FatIngredient",
+            "FatIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As the sulution thickens while stirring the ingredients together, you find yourself salivating and resisting an urge to just dump the results straight into your mouth. With restraint, you keep it in a container, biting your lips as you admire the buttery concoction.",
+        uses: 0,
+        price: 30,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.8,
+        effects: [
+            {
+                code: () => "",
+                description: () => "It almost comes out in a glob but DAMN, is this tasty! It's the most buttery cream or most creamy butter you ever had, and though you can almost feel yourself fattening as you consume it, this stuff is just HEAVENLY!",
+                shortDescription: () => "",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<addFatSlow 2>><<set $fat += 2>>",
+                description: () => "You keep chugging it, letting it drip down your chin as it seeps into your clothing. This stuff is just better than the best meal you ever had!",
+                shortDescription: () => "Adds fat over the next few days",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => "<<addFatSlow 2>><<set $fat += 2>>",
+                description: () => " Finally, you let out a loud burp.",
+                shortDescription: () => "Adds fat over the next few days",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "SPHE-GRO-001",
+        description: "This liquid is white, chunky, and has floating orbs in it. Its appearance is just insane, starkly contrasting with the plain container it is stored in. It could even pass for a miniature lava lamp.",
+        transform: "instantBallGrow",
+        ingredients: [
+            "FutaIngredient",
+            "LiquidIngredient",
+            "LiquidIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As the reagents mix, small orbs start gelling into existence, kinda like the pearls in bubble tea? You try to dissolve them, but to no avail. They plop loudly as you transfer the final product into its container, shaking it as you observe the floating balls with curiosity.",
+        uses: 0,
+        price: 50,
+        forSale: 0,
+        settings: ["futa"],
+        HideInStores: true,
+        dropRate: 0.75,
+        effects: [
+            {
+                code: () => "<<if $dickActive is false and $futa>><<set $dickStore += 1>> <<elseif $dickActive and $futa>><<set $balls += 1>><</if>>",
+                description: () => "<<if $dickActive is false and $futa>>Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet, the taste ain’t too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly, afraid it won't go down well. But it fades as quickly as it came, leaving you with a bizarre tingling in your groin. A warm feeling spreads through it, giving you the sensation that it's building up, almost like rolling into itself? <<elseif $dickActive and $futa>>Drinking it feels off. Liquid should not go down your throat in CHUNKS. Yet, the taste ain’t too bad; like buttery popcorn. It feels odd in your stomach, and you clutch your belly, afraid it won't go down well. But it fades as quickly as it came, leaving you with a bizarre tingling in your groin. Suddenly, you feel a sharp stab in your balls, pressure building up inside them. As you buckle over, you can practically feel them throbbing.<</if>>",
+                shortDescription: () => "<<if $dickActive is false and $futa>>Can cause Futa <<elseif $dickActive and $futa>>Grows balls <</if>>",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Girth grow",
+        description: "It just screams THICC. Even from just holding the container it feels like your fingers are being forcefully being spread apart. It's weird that how girthy it is in your hand.",
+        transform: "instantGirthIncrease",
+        ingredients: [
+            "FutaIngredient",
+            "FatIngredient",
+            "HeightIngredient",
+            "FutaIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You dutifully stir the reagents together, and the process reminds you of a liquid version of rising bread dough - which makes no sense, but it’s almost like its expanding as you do. You get slightly panicked, assuming it will just overflow the beaker, but it never does. You transfer it to a proper container, almost swearing it’s spreading your fingers apart as you do.",
+        uses: 0,
+        price: 50,
+        forSale: 0,
+        settings: ["futa"],
+        HideInStores: true,
+        dropRate: 0.75,
+        effects: [
+            {
+                code: () => "<<if $dickActive is false and $futa>><<set $dickStore += 1>> <<elseif $dickActive and $futa>><<set $dickGirthMod += 0.1>> <</if>>",
+                description: () => "<<if $dickActive is false and $futa>>The taste is not the worst, best described as... almost carrot-like? But like a really THICK carrot, though you have NO idea how you got that mental image from taste alone. A warm feeling spreads through your groin, giving you the sensation of something bulging. <<elseif $dickActive and $futa>> The taste ain’t the worst, best described as... almost carroty? But like a really THICK carrot, though you have NO idea how you got that mental image from the taste alone. A warm feeling spreads through your groin, making your dick throb. Oddly enough, it does not feel like it is lengthening.<</if>>",
+                shortDescription: () => "<<if $dickActive is false and $futa>> Adds to futa<<elseif $dickActive and $futa>> Thickens dick<</if>>",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Erecto-10",
+        description: "The vivid blue liquid lives up to its Toshi-given name, having an indescribable floaty vibe. You half expect it to glow in the dark. Is it your eyes or is it almost like it’s making the container itself stretch?",
+        transform: "instantErectionIncrease",
+        ingredients: [
+            "HeightIngredient",
+            "HeightIngredient",
+            "SlowIngredient",
+            "FutaIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You observe the mixture with rapt attention as you mix it, and you could almost swear it has a faint glow? You get a confusing impression that the beaker is stretching like it was warping reality, but you just blink forcefully, realizing it’s just your imagination. Still, you pour the vivid blue liquid into its container, wondering it’s properly sealed after you put the cap on.",
+        uses: 0,
+        price: 50,
+        forSale: 0,
+        settings: ["futa"],
+        HideInStores: true,
+        dropRate: 0.75,
+        effects: [
+            {
+                code: () => "<<if $dickActive is false and $futa>> <<set $dickStore += 1>><<elseif $dickActive and $futa>><<set $dickErectionMod += 0.1>> <</if>>",
+                description: () => "<<if $dickActive is false and $futa>>The bright blue liquid easily slips down your throat, but the rim of the container seems almost unwielding. The taste is odd, almost medicinal, like a fruit-flavored multivitamin. There's something bubbly about it, rising and falling only to become stronger after you drink it. A warm feeling spreads through your groin, giving you the impression of something telescoping out of nowhere. <<elseif $dickActive and $futa>>The bright blue liquid easily slips down your throat, but the rim of the container seems almost unwielding. The taste is odd, almost medicinal like a fruit-flavored multivitamin. It is almost bubbly, rising and falling only to become stronger after you drink it. In your pants, though, you feel some... movement. You feel something stirring as your dick slowly starts hardening, pushing against your clothes. It keeps growing more and more erect, but something is off. It's getting bigger WAY faster than it's getting harder! The feeling is insane, radiating an indescribable heat. As you clutch it with both hands, your tongue hangs from your mouth and eyes roll up, and you know you are in for an intense ride. Your hands spread outwards, your dick expanding outwards in all directions.<</if>>",
+                shortDescription: () => "<<if $dickActive is false and $futa>>Adds to futa <<elseif $dickActive and $futa>>Makes erections bigger <</if>>",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "B-shrink",
+        description: "The liquid fills the container feeling oddly heavy, almost like it had been compressed.",
+        transform: "instantBodyShrink",
+        ingredients: [
+            "Opposium",
+            "HeightIngredient",
+            "SlowIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "After pouring the ingredients into the beaker and stirring, you get the confounding sensation that you ended up with LESS liquid than you poured in. How is that even possible? You take a whiff, expecting that it somehow evaporated, but there’s no sign of that. Weird. You transfer it into a container and double-check that the lid is perfectly airtight.",
+        uses: 0,
+        price: 10,
+        forSale: 0,
+        settings: [],
+        HideInStores: false,
+        dropRate: 0.75,
+        effects: [
+            {
+                code: () => "<<set $height -= 5>>",
+                description: () => "Well, this makes the bottle feel tinier than it actually is? You can down it in a single sip, like it’s no more than a shot. The drink goes down smoothly but feels incredibly heavy in your stomach. So heavy, in fact, you get the feeling your entire body just sinks into itself a bit.",
+                shortDescription: () => "Makes you shorter",
+                chance: 1,
+                discovered: true
+            },
+            {
+                code: () => "<<addMuscleSlow 2>><<addFatSlow 2>>",
+                description: () => "The feeling doesn't subside, your body just feels like it’s being compressed.",
+                shortDescription: () => "Adds muscle and fat over the next few days",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => "<<addMuscleSlow 2>><<addFatSlow 2>>",
+                description: () => "Something else you notice is just how stiff your fingers and muscles feel; almost like you had worked them too hard or something. Odd.",
+                shortDescription: () => "Adds muscle and fat over the next few days",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "B-gr0w",
+        description: "The contents wobble within the container, a sort of jelly-like drink.",
+        transform: "instantBodyGrow",
+        ingredients: [
+            "HeightIngredient",
+            "FatIngredient",
+            "Opposium",
+            "MuscleIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you stir the ingredients together, the rod starts weirdly gripping the resulting substance, which feels almost... rubbery? You could almost swear it requires extra effort to dislodge the rod from it, which you accomplish carefully. Even pouring it into another container feels like there’s a wobbly jelly-like grip to it.",
+        uses: 0,
+        price: 30,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "<<addHeightSlow setup.balance.heightAllowancePerDay>>",
+                description: () => "The drink looks rather inviting. But it makes for an incredibly awkward gulping experience. Is this one even a liquid? Going down, it felt almost rubbery.",
+                shortDescription: () => "Makes you taller over the next few days",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $muscle -= 3>><<set $fat -=3>>",
+                description: () => " A shudder goes through you, and for some odd reason you get a sensation that can only be described as stretching. Your entire body just feels a little bit... thinner?",
+                shortDescription: () => "Removes muscle and fat",
+                chance: 0.66,
+                discovered: false
+            },
+            {
+                code: () => "<<set $muscle -= 3>>",
+                description: () => " Something else you notice is just how stiff your fingers and muscles feel; almost like you had worked them too hard or something. Odd.",
+                shortDescription: () => "Removes muscle",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "ASS-69",
+        description: "The container feels bottom-heavy in your hands, with a sweet, peach-like substance. Subtle.",
+        transform: "instantAssIncrease",
+        ingredients: [
+            [
+            "FatIngredient",
+            "FatIngredient",
+            "Opposium",
+            "MuscleIngredient"
+        ],
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you stir the rod around the mixing ingredients, the resulting solution feels clearly uneven, like the bottom part is denser than the layer above it. Still, a sweet scent almost distracts you from that as you transfer it, confirming your impression that there the solution feels layered and heterogenous.",
+        uses: 0,
+        price: 20,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "<<set $ass += 1>>",
+                description: () => "Geez, this drink is sweet! You half-expected it from the smell alone, but it's almost like concentrated sugar syrup! It sticks to your lips, and you can almost feel it slither down your throat... yet, the feeling keeps travelling lower and lower...",
+                shortDescription: () => "Increases ass",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Mot-V10",
+        description: "The bright-green liquid stands out quite a bit, and seems like it never stops moving.",
+        transform: "instantMotivation",
+        ingredients: [
+            "Opposium",
+            "ShyIngredient",
+            "CarefulIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You start stirring the solution, but as you do, you could swear you need less and less effort to do so with each swirl, almost like substance is stirring itself? You shake your head as you look at the bright green liquid, which you almost spill as it shows a life of its own while you transfer it into the proper container.",
+        uses: 0,
+        price: 10,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "<<set $motivation += 50>>",
+                description: () => "It's odd how the green liquid seems to have a life of its own. It just keeps swirling frantically, even when you don't touch the bottle at all. Downing it isn't unpleasant either, reminding you of a nice cup of matcha tea.",
+                shortDescription: () => "Adds motivation",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $motivation += 50>>",
+                description: () => "The taste lingers a fair bit, which you didn't expect. It's quite pleasant; it would make for a great breakfast drink.",
+                shortDescription: () => "Adds motivation",
+                chance: 0.5,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Exhaust-B-g0n3",
+        description: "A rather unassuming substance with a vibrant and sirupy appearance.",
+        transform: "instantExhaustion",
+        ingredients: [
+            "Opposium",
+            "DominantIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You carefully eyedrop the reagents into the beaker, which seems to interact instantly and require no stirring, despite becoming slightly viscous. You pour the sirupy result into a container, feeling quite excited and anxious to try it out.",
+        uses: 0,
+        price: 25,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => "<<set $exhaustion -= 50>>",
+                description: () => "Shaking the almost vibrant yellow liquid, you wonder whether this really is safe to drink. But... here goes nothing! Downing it, you immediately feel your throat burning, but it's a good burn; a burn that reinvigorates you, a burn that sweeps the tiredness away.",
+                shortDescription: () => "Removes exhaustion",
+                chance: 1,
+                discovered: false
+            },
+            {
+                code: () => "<<set $exhaustion -= 50>>",
+                description: () => "What you didn't expect though, is the kickback. The moment it hits your stomach, the warmth becomes almost unbearable, nearly knocking you over. Luckily, you remain standing as the feeling fades, and only renewed energy remains in its place.",
+                shortDescription: () => "Removes exhaustion",
+                chance: 0.33,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "BRA-SHRINK-T1",
+        description: "A rather small serving of just a few drops of clear liquid, smelling strongly of lemon.",
+        transform: "instantBreastShrink",
+        ingredients: [
+            "Opposium",
+            "ShyIngredient",
+            "CarefulIngredient",
+            "InstantIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "",
+        uses: 0,
+        price: 10,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 1,
+        effects: [
+            {
+                code: () => !State.variables.lactationUnlocked ? "<<set $breasts *= 0.9>>" : "<<set $breasts *= 0.9>><<if $milkProduction != 0>><< set $milkProduction -= 1>><</if>>",
+                description: () => !State.variables.lactationUnlocked ? "The surprisingly small serving barely wets your tongue, and immediately your hands involuntarily tighten. You feel like you're going to crush the container, such was the punch of this small drink. It's so incredibly sour that your lips pucker up. Yet, it doesn't linger very long; the feeling somehow travels across your body, especially around your chest. You have no idea how, but somehow it makes you feel like your chest is tightening, along with your breath! And as you look down, it is much more than a feeling: your chest actually seems to shrink before your eyes!" : " The surprisingly small bottle is quickly emptied, and immediately your hands tighten involuntarily. You feel like you're going to crush the container, such was the punch of this small drink. It's so incredibly sour that your lips pucker up. Yet, it doesn't linger very long; the feeling somehow travels across your body, especially around your chest. You have no idea how, but somehow it makes you feel like your chest is just tightening, along with your breath! And as you look down, it is much more than a feeling: your chest actually seems to shrink before your eyes! After the feeling is gone, you prod your chest tentatively, making sure your boobs are fine. Heh... well, they feel normal again. Normal, and a bit less tight. Maybe it has diminished your milk production?",
+                shortDescription: () => !State.variables.lactationUnlocked ? "Shrinks breasts" : "Shrinks breasts and reduces lactation",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Milk--",
+        description: "At first glance, it smells like a cleaning liquid, but it has a nice, lemony scent to it. Normally, you'd never consider drinking this, but when you think of the other concoctions...",
+        transform: "instantLactationRemoval",
+        ingredients: [
+            "MuscleIngredient",
+            "MasculineIngredient",
+            "InstantIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "After carefully pouring all ingredients together, you immediately sense an aroma that makes you think of medical clinics - it’s that remarkable citric smell of cleaning products that feels immediately recognizable. Instinctually, you feel like its not quite fit for consumption, but it still gives you a super-familiar vibe as you pour it into its proper storage.",
+        uses: 0,
+        price: 10,
+        forSale: 0,
+        settings: ["lactation"],
+        HideInStores: true,
+        dropRate: 0.75,
+        effects: [
+            {
+              code: () => State.variables.lactationUnlocked ? "<<if $milkProduction != 0>><< set $milkProduction -= 1>><< /if>>" : "",
+                description: () => State.variables.lactationUnlocked ? "The clear liquid washes down your throat quite smoothly, and you feel a nice and refreshing sensation travelling down. It has a slight hint of lemon, and immediately relaxes your body, especially around your chest. For some reason the pressure there just seems to ease up, a tightness that has been a constant since you started lactating." : "This drink tastes like... Nothing. Odd. You expected this clear liquid to have some taste, but, right now, it just tastes like water. Your mouth does feel rather dry, somehow? But as far as you can tell, it doesn't seem to do anything.",
+                shortDescription: () => State.variables.lactationUnlocked ? "Reduces lactation" : "nothing",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Milk++",
+        description: "A simple bottle, with a liquid inside it that can only be described as thick, sweet, and incredibly creamy syrup.",
+        transform: "instantMilkCapacityIncrease",
+        ingredients: [
+            "Opposium",
+            "DominantIngredient",
+            "HeightIngredient",
+            "LiquidIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You carefully mix the reagents into the beaker, and the solution almost immediately turns white and opaque, and feels very creamy as you stir it up. It somehow brings a nostalgic feeling of childhood mornings as it finishes mixing, and you smile as you transfer it to its storage container.",
+        uses: 0,
+        price: 10,
+        forSale: 0,
+        settings: ["lactation"],
+        HideInStores: true,
+        dropRate: 0.75,
+        effects: [
+            {
+                code: () => State.variables.lactationUnlocked ? "<<set $milkCapacityModifier += 0.1>>" : "",
+                description: () => State.variables.lactationUnlocked ? "As you expected, this drink is not just sugary, it's almost sickeningly sweet. Even refined sugar isn't this sweet, but despite you almost gagging while drinking it, the taste slowly grows on you. It travels down, feeling more pleasant as the flavor slowly softens, with a hint of almond. All in all, very pleasant experience, ending as a shudder travels over your entire body. And as you relax, the pressure in your chest lessens, but your boobs don't feel any less bloated. Odd." : "You expected this would taste extremely sweet, yet when it hits your tongue... nothing. Odd.",
+                shortDescription: () => State.variables.lactationUnlocked ? "Reduces the capacity of your breasts" : "Nothing",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Ton-shrink//01",
+        description: "This one gives a vibe of being very tasty. It has a bright blue hue, but is otherwise unremarkable. However, you're almost salivating just looking at it!",
+        transform: "instantTongueShrink",
+        ingredients: [
+            "MasculineIngredient",
+            "ShyIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The reagents mix with ease as they are poured into the beaker, and almost immediately acquire a bright blue hue. It doesn’t feel particularly weird or unusual, though it seems to effortlessly whet your appetite just looking at it. But you dutifully place the result into a proper container, eager to try it later.",
+        uses: 0,
+        price: 15,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => State.variables.tongue > 1 ? "<<set $tongue -= 1>>" : "",
+                description: () => State.variables.tongue > 1 ? "As you drink the liquid, your mind immediately goes to images of odd berries that make everything taste sweet. As the sticky texture lingers in your mouth, you smack your lips and try to scrape the weird stuff from the roof of your mouth. Heh, you must be making some weird faces right now. Yet, the way your tongue feels in your mouth definitely feels just as funny. More comfortable, like it just fits better." : "As you drink the liquid, your mind immediately goes to images of odd berries that make everything taste sweet. As the sticky texture lingers in your mouth, you smack your lips and try to scrape the weird stuff from the roof of your mouth. Heh, you must be making some weird faces right now. But as far as you can tell, there are no discernible changes. Odd...",
+                shortDescription: () => State.variables.tongue > 1 ? "Shrinks your tongue" : "Nothing",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "lip-shrink//XX",
+        description: "Instead of a liquid, this one is a waxy substance, perfect to be applied like a lip balm.",
+        transform: "instantLipShrink",
+        ingredients: [
+            "MuscleIngredient",
+            "HeightIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As the reagents interact they quickly morph into a waxy yet oily paste, which sticks to the bottom of the beaker. You reach for the proper scraper, transfering into an appropriate storage container, thinking this should probably work better as a balm instead of a drink.",
+        uses: 0,
+        price: 10,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => State.variables.lips > 1 ? "<<set $lips -= 1>>" : "",
+                description: () => State.variables.lips > 1 ? "This one is not so much a drink as some sort of lip balm? You reach for the waxy substance, which feels oily and dry. Well, why not apply some to your lips? As you put it on, it feels really refreshing; like that strong scent of menthol from analgesic heat rub sprays. It's quite nice, and your lips feel tight, but tingly!" : " This one is not so much a drink as some sort of lip balm? Opening the small container, you find only a little bit of it left, looking extremely dried up. Well, why not apply some to your lips? As you put it on, it feels really refreshing, but that's it. A bit anticlimactic...",
+                shortDescription: () => State.variables.lips > 1 ? "Shrinks lips" : "Nothing",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Temp-Caring",
+        description: "A clear liquid with a very sharp aroma. Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempCareful",
+        ingredients: [
+            "Opposium",
+            "DominantIngredient",
+            "MuscleIngredient",
+            "FatIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. You end up with a clear liquid, distinguishable by its very sharp aroma. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $temporaryPersonalityGains.carefreeCarefull += 1>><<set $carefreeCarefull += 1>>",
+                description: () => "The taste of this drink is, how to even put it?!? Very... precise? You get a sharp taste of lemon, and very clear sweet notes. Not actual sugar, rather, some hard to explain alternative with a slightly bitter aftertaste. It's pleasant, but gives you the urge to document and annotate everything, your brain suddenly feeling more active.",
+                shortDescription: () => "Makes you temporarily more careful",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Temp-shy",
+        description: "A pleasantly understated liquid. Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempShy",
+        ingredients: [
+            "SlowIngredient",
+            "DominantIngredient",
+            "CarefulIngredient",
+            "ConfidentIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. You end up with a liquid so discreet, you almost forget that it’s there. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $temporaryPersonalityGains.shyConfident -= 1>><<set $shyConfident -= 1>>",
+                description: () => "You give it a tentative sniff. Odd, no discernible smell. Carefully, you give it a lick. Again, doesn't seem to taste like anything. Yet, when you chug it down, it blossoms from nowhere. The mildest hint of vanilla, hidden in its milky consistency. It's quite nice and makes you relax, despite an incoming headache.",
+                shortDescription: () => "Makes you temporarily shyer",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Temp-Con",
+        description: "This substance smells bold and strong. Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempConfidence",
+        ingredients: [
+            "SlowIngredient",
+            "DominantIngredient",
+            "CarefulIngredient",
+            "ConfidentIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. A bold aroma immediately fills the room and makes itself impossible to ignore. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $temporaryPersonalityGains.shyConfident += 1>><<set $shyConfident += 1>>",
+                description: () => "This drink just feels... strong. It has hints of coffee and cocoa, tastes you won't soon forget. It brings a smirk to your face. This feels... good. Real good. The caffeine triggers a mild headache, but fuck it! You can deal with that, no problem!",
+                shortDescription: () => "Makes you temporarily more confident",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Temp-Care",
+        description: "This liquid has the most confounding smell. Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempCarefree",
+        ingredients: [
+            "SlowIngredient",
+            "ShyIngredient",
+            "CarefulIngredient",
+            "ConfidentIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. Before you know it, an unexpected pleasant but hard-to-describe smell assails your nostrils. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $carefreeCarefull -= 1>><<set $temporaryPersonalityGains.carefreeCarefull -= 1>>",
+                description: () => "It's hard to nail the taste of this drink. Not that you really care. It feels good and goes down smoothly, while refreshing you at the same time. Why even care about the taste? You can't even be bothered by the incoming headache. Who gives a fuck?",
+                shortDescription: () => "Temporarily makes you more carefree",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Temp-sub",
+        description: "A whiff of this liquid gives you the strange impression that it will conform to your palate? It feels predictable somehow. Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempSubmissive",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "SubmissiveIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. You end up with a clear liquid, which generates an unexpected wave of... not nostalgia, but this feeling that it’s supposed to taste just like you expect it to, whatever that is. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $temporaryPersonalityGains.submissiveDominant -= 1>><<set $submissiveDominant -= 1>>",
+                description: () => "The drink goes down smoothly, and has a really nice, pleasant taste. It's... sweet, though a bit understated. Nice and fresh, almost like the taste was tailor-made for you. It's comfort in a bottle, you realize. And you feel... well, you feel very comfortable, calmer and despondent. There’s a mild headache coming on, but you just go with the flow. At least for the time being.",
+                shortDescription: () => "Temporarily makes you more submissive",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Temp-Dom",
+        description: "A bold, strong drink that almost seems metallic in nature? Toshi’s notes warn that it can temporarily change your personality.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you mix the ingredients, you feel the solution heat up unexpectedly inside the beaker, an explosive albeit short-lived liberation of energy. It seems to have an almost metallic feel to it, unexplainably so. You can’t help but wonder if this warmth means something specific...",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>><<set $temporaryPersonalityGains.submissiveDominant += 1>>",
+                description: () => "Oh, this is SPICY! It feels like a kick to the head, but in a good way! Cinnamon and pepper and just... sheer liquid willpower. After drinking it, you shake your head, smiling from ear to ear. Yeah, you feel FUCKING AMAZING! You get a raging headache, but to hell with it! You're not about to let anyone or anything tell you what to do!",
+                shortDescription: () => "Temporarily makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Dom",
+        description: "A bold, strong drink with a bit of a kick to it. It makes you feel bold, alive, like it has too much caffeine? Given what you know of this chemistry stuff, it probably will change your personality. Not something to be taken lightly...",
+        transform: "instantPermDominant",
+        ingredients: [
+            "PermanentIngredient",
+            "DominantIngredient",
+            "DominantIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The ingredients mix rather violently, almost boiling over. The black smoke coming out of it warns you that whatever this is, it is rather serious. It looks like coffee, but the kind of coffee you can barely remember but still talk about decades later.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant += 1>>",
+                description: () => "The moment you drink it it feels like you got punched in the good. But it is the good kind of punch, the kind of punch that wakes you up and makes you want to rip your shirt off and fight someone on a skyscraper. Life can BRING IT. Slowly you crush the can, smirking at it.",
+                shortDescription: () => "Permanently makes you more dominant",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Sub",
+        description: "A rather understated drink, that despite its seemingly simple taste has hidden notes to it. It feels mellow and relaxing, but also safe.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "InstantIngredient",
+            "ConfidentIngredient",
+            "SubmissiveIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The mixing here feels forgiving, easy, and relaxing. It is almost like the concoction wants to be mixed, the incredients combining and inviting you in. It does preciesly what you want, and before you realize it you're done.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $submissiveDominant -= 1>>",
+                description: () => "You barely remember drinking this. But when you're done you feel your shoulders releave their tension, and your body almost melting into the room with how calm you are. Yeah. If you had to bend or break, you'd bend with anything now.",
+                shortDescription: () => "Permanently makes you more submissive",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Shy",
+        description: "This drink needs to be observed to really notice anything about it; neither thin nor thick, not really smelling of anything except maybe a hint of cinnemon. Yet for its lack of apperent flavor, there is plenty hidden there.",
+        ingredients: [
+            "PermanentIngredient",
+            "ShyIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The recipe is a bit harder to mix than the other variants; it's like the recipe hides a bit. But once you measure everything out, shake it a bit, it mixes quite easily.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $shyConfident -= 1>>",
+                description: () => "Another really smooth, really PLEASANT drink. You feel more relaxed after, and your head feels clearer. A small headache lingers for a few seconds but fades, taking something with it though you can't quite place what.",
+                shortDescription: () => "Permanently makes you more shy.",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Con",
+        description: "Spicey, forward, and downright presenting itself. Yeah, with this drink you don't have to guess what the strong sour and sweet flavors mean; boldness. And you know its here to stay if you drink it.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "PermanentIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "The moment you mix the ingredients together, the entire apperatus shakes and fizzles, before it utterly flattens down to tell you its done. Neat.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $shyConfident += 1>>",
+                description: () => "You knew what you were getting into when you drank this; the bold flavor, the lingering aftertaste, the small headache... as you drain it you grin, and know you can take on the world just that little bit better!",
+                shortDescription: () => "Permanently makes you more confident.",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Care",
+        description: "You don't care enough to really describe this. It tastes nice.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "How do you make this? yeah, you don't care to remember.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $carefreeCarefull -= 1>>",
+                description: () => "You drink it. And tbh, you throw the can away and don't care about how it tasted.",
+                shortDescription: () => "Makes you more carefree. or something.",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Perm-Carl",
+        description: "A precisely and accuretely measured drink.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "SlowIngredient",
+            "ConfidentIngredient",
+            "ConfidentIngredient",
+            "ShyIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "As you begin to mix the ingredients in your trusty jug, the first thing you notice is the faint smell of sweetness that fills the air. You carefully pour in a measure of the syrupy liquid, watching as it swirls around the jug, coating the sides with a thick film. The carbonation bubbles rise to meet the surface of the syrup, creating a delicate froth that clings to the rim of the jug. With a steady hand, you slowly sprinkle in a pinch of spices - a delicate mixture of nutmeg, cinnamon, and clove. Each spice adds its own distinct layer of flavor, blending together like a masterpiece of taste. The syrupy sweet smell of the liquid grows stronger as you stir the mixture, creating a fragrant aroma that fills the air.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => "<<set $carefreeCarefull += 1>>",
+                description: () => "As you raise the soda to your lips, the first thing you notice is the gentle fizz that dances along the rim of the glass. You take a small sip, letting the bubbles tickle the tip of your tongue before the flavor washes over your senses. At first, there's a delicate hint of sweetness, as though you're tasting the essence of a honeyed flower, but then a complex layer of spices unfolds - notes of citrus, ginger, and cloves swirl together, forming a symphony of flavor on my palate. The texture is smooth and airy, with a soft, creamy mouthfeel that blends perfectly with the delicate carbonation.",
+                shortDescription: () => "Permanently makes you more careful",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Insta-muscle",
+        description: "The drink is a bright blue color, almost like a gemstone or a priceless diamond. It sparkles with energy, and you can almost feel the carbonation fizzing on your tongue. The flavor is intense and intoxicating, like a combination of berry, vanilla, and mint, with a slight hint of peppermint.",
+        transform: "instantTempDominant",
+        ingredients: [
+            "MuscleIngredient",
+            "PermanentIngredient",
+            "ConfidentIngredient",
+            "HeightIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "You only need to do a bit of work for this drink, but the moments the fumes hit you you instantly feel alive. Strong. POWERFUL. Oh, you can't wait to drink this!",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => `<<set $muscle += (setup.balance.musclePotionsAllowancePerDay * 5)>>`,
+                description: () => `As you take a sip of the soda, you feel a sensation unlike any other. The carbonation hits your tongue, and you can feel it bubbling like a volcano about to erupt. Then, something extraordinary begins to happen - your muscles start to grow at a breathtaking speed. In just a matter of seconds, you feel as though you've been pumped full of the strongest steroids imaginable.
+
+                Your shoulders broaden, and your chest swells outwards. The veins in your arms and biceps begin to bulge as though they're ready to burst at any moment. You can feel the power coursing through your body, and it's like you can do anything - run faster than a speeding train, lift a car with one arm, or brawl with a bear and win. It's like you're a superhero, and you can't get enough of this incredible sensation.
+
+                But the growth doesn't stop there - it only gets more intense. Your chest balloons out, and your biceps grow visibly bigger. You can feel the weight of your muscles pulling on your bones, and it's almost too much to bear. But you love it - you love the feeling of becoming something more than human, something more than mortal.
+
+                It's like you're a god, and anything is possible. You can do anything, go anywhere, and conquer whatever you set your mind to. You've never felt so alive, so powerful, so unstoppable - and it's all thanks to this incredible drink. After you've downed it all the feeling resides, and though you're not as big as you felt one thing is certain; you're bigger.`,
+                shortDescription: () => "Instantly adds more muscle",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Insta-height",
+        description: "The drink is rather milky, but has a nice smell to it. It almost reminds you of banana, but not the fake banana flavor; the genuine thing. ",
+        transform: "instantTempDominant",
+        ingredients: [
+            "MuscleIngredient",
+            "PermanentIngredient",
+            "ConfidentIngredient",
+            "HeightIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "This one is special; as you pour in the first ingredient, nothing much happens. But the moment you pour in the second, the first ingredient almost reaches out to gobble it up! A bit touches your hand, and you felt a small electric zapp!",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => `<<set $height += 2.5>>`,
+                description: () => `As you take a sip of the concoction, you feel a tingling sensation in your mouth, almost as though your tongue is being electrified. Your taste buds are assaulted by a riot of flavor, causing your senses to come alive in a way that you've never experienced before. The bubbles in the concoction burst against your tongue, releasing an explosion of flavor that radiates through your entire body like a wave of pure energy.
+
+                Suddenly, you feel a strange sensation in your bones. It's as though they're elongating, stretching your body like a piece of rubber. As you look in the mirror, you notice that you've grown two inches taller in a matter of seconds. Your muscles bulge, your chest swells, and your shoulders broaden. It's like you've been transformed into a superhero, with incredible strength and agility. The sensation is indescribable, a rush of power that fills you with excitement and a sense of accomplishment.
+
+                But the effects of the concoction don't stop there. You feel a sudden burst of energy that propels you forward, giving you the ability to run faster than you ever thought possible. Your movements are fluid and graceful, like a ballet dancer in full flight. The feeling quickly fades, but one thing doesn't; you being taller.`,
+                shortDescription: () => "Instantly increases height",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    },
+    {
+        name: "Insta-breasts",
+        description: "This just smells and looks like double instant heavy cream! ",
+        transform: "instantTempDominant",
+        ingredients: [
+            "MuscleIngredient",
+            "PermanentIngredient",
+            "ConfidentIngredient",
+            "HeightIngredient"
+        ],
+        amount: 0, 
+		FirstTimeDrink: true, 
+		CraftingDescription: "Though you're adding two clear ingredients together, adding them instantly makes them pale white and thicken into a thick cream. As you stir it you feel the weight and fattyness of it increasing - interesting.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0.5,
+        effects: [
+            {
+                code: () => `<<set $breasts += 5>>`,
+                description: () => `As you swig the contents of the potion-like flask, you can feel its power coursing through your veins. It's as though the substance is alive, pulsing with energy as it flows through your body. And as you swallow, you feel a strange sensation in your chest. It's as though a force is acting upon your breasts, causing them to shift and expand. Suddenly, your chest grows bigger, puffing out and bulging in a way that makes you almost catch your breath.
+
+                The sensation is intense, almost overwhelming, as your body continues to grow and swell. Your breasts bulge and your skin stretches, causing your shirt to tighten around your chest. As the potion wears off you need to catch your breath, noticing how much heavier your breasts feel.`,
+                shortDescription: () => "Instantly increases breast size.",
+                chance: 1,
+                discovered: false
+            }
+        ]
+    }
+    /* Work from here bob  
+Insta-dick
+Insta-balls
+Insta-fat*/
+    ]>>
+
+/* consumables deck */
+<<set _settings to []>>
+<<if $futa is false>>
+    <<set _settings.push("futa")>>
+<</if>>
+<<if $lactationSetting is false>>
+    <<set _settings.push("lactation")>>
+<</if>>
+<<set $consumablesDeck to []>>
+<<for _i to 0; _i < $consumables.length; _i ++>>
+  <<capture _i>>
+  	<<if $consumables[_i].settings.includesAny(_settings)>>
+		/* makes sure no settings get ignored */
+		
+	<<elseif $consumables[_i].settings.includes("lactation") && $lactationUnlocked != true>>
+		/* Prevents lactation potions showing before its relevant */
+		
+	<<elseif $consumables[_i].HideInStores is false>>
+	  <<for _j to 0; _j < $consumables[_i].uses; _j ++>>
+		<<set $consumablesDeck.push($consumables[_i].name)>>
+	  <</for>>
+	  <<set $consumablesDeck.push($consumables[_i].name)>>
+	<<else>>
+	<</if>> 
+  <</capture>>
+<</for>>
+
+/* Gym Supplies */
+<<set $gymStoreSupplies to [
+		{ name: "creatine",
+	description: "A supplement that allows you to get just that bit more out of your workout. Best taken daily to maximize effects.",
+	amount: 0,
+	daily: true,
+	price: 1,
+	takeDaily: 0,
+	effect: "lowerExhaustion",
+	effectStore: 0,
+	effectScale: 0.1},
+		{ name: "BCAA",
+	description: "A kind of protein that helps you with recovery.",
+	amount: 0,
+	daily: true,
+	price: 2,
+	takeDaily: 0,
+	effect: "raiseMax",
+	effectStore: 0,
+	effectScale: 0.25},
+		{ name: "protein powder",
+	description: "Plain old whey protein powder to help you get that bit more out of your workout.",
+	amount: 0,
+	daily: true,
+	price: 1,
+	takeDaily: 0,
+	effect: "raiseMax",
+	effectStore: 0,
+	effectScale: 0.1},
+		{ name: "citrulline malate",
+	description: "An amino acid that helps with recovery.",
+	amount: 0,
+	daily: true,
+	price: 5,
+	takeDaily: 0,
+	effect: "raiseMax",
+	effectStore: 0,
+	effectScale: 0.1},
+		{ name: "Glutamine",
+	description: "An amino acid essential to muscle recovery.",
+	amount: 0,
+	daily: true,
+	price: 2,
+	takeDaily: 0,
+	effect: "raiseEfficiency",
+	effectStore: 0,
+	effectScale: 0.15},
+		{ name: "Caffeine",
+	description: "Simply caffeine, to make you get more out of your lifts.",
+	amount: 0,
+	daily: true,
+	price: 3,
+	takeDaily: 0,
+	effect: "raiseEfficiency",
+	effectStore: 0,
+	effectScale: 1},
+		{ name: "Nitric oxide boosters",
+	description: "A post-workout supplement that aids with recovery.",
+	amount: 0,
+	daily: true,
+	price: 5,
+	takeDaily: 0,
+	effect: "raiseEfficiency",
+	effectStore: 0,
+	effectScale: 1}
+] >>
+
+/* Books */
+<<set $books to [
+	{ name: "On the Maddening Mountains",
+	description: "A classic book of cosmic horror, recounting the tales of explorers in an ancient city. Just gazing at the cover makes it obvious that the writer got off on using the most arcane words possible. And why is everything described as 'Stygian'?",
+	skill: "",
+	bought: false,
+	time: 2,
+	progress: 0,
+	price: 20},
+	{ name: "The South Sea Trade Company",
+	description: "A textbook about of the South Sea Company, some kind of historical financial institution that bankrupted Britain. It might be a dry read, but you might learn something about money?",
+	skill: "Book keeping",
+	bought: false,
+	time: 5,
+	progress: 0,
+	price: 30},
+	{ name: "Arts & Crafts",
+	description: "A rather colorful book full of all kinds of tips for arts and crafts, written by one 'Melany Fairweather Gingerblossom. You wonder if the author is a woman or some woodland spirit?",
+	skill: "Sewing",
+	bought: false,
+	time: 3,
+	progress: 0,
+	price: 30},
+	{ name: "The Ideals of Transhumanism",
+	description: "A deep (and rather heavy) exploration of the human condition, dressed in a heavy dollop of sci-fi narrative. Though the text feels dense and excessively philosophical, it seems like an interesting read!",
+	skill: "",
+	bought: false,
+	time: 10,
+	progress: 0,
+	price: 55},
+	{ name: "Pride and Punishment",
+	description: "This 19th century novel tells the story of a wife on the brink of losing her fortune, so she starts plotting the murder of an unscrupulous pawnbroker in order to achieve greatness. This treatise on the woes of society has it all, with plenty of very descriptive snapshots of the Europe of old. There were rumbling that the sequel, Crime and Prejudice, would be adapted into an action movie...",
+	skill: "",
+	bought: false,
+	time: 8,
+	progress: 0,
+	price: 55},
+	{ name: "Bound in Desire",
+	description: "This romance novel sports a couple of impossibly fit, scantily-clad models on a high-contrast black and white cover. Just looking at it could make an entire room of genre-readers moisten their underwear. The back cover explains some rules of this animalistic society and their gammas and thetas or whatnot... but let's face it - you are reading this for the steamy smut.",
+	skill: "",
+	bought: false,
+	time: 4,
+	progress: 0,
+	price: 20},
+	{ name: "Eating Healthy!",
+	description: "A book about nutrition, full of tips about how one can cook healthier meals. Though a little condescending, you might just learn a lot from it!",
+	skill: "Cooking",
+	bought: false,
+	time: 9,
+	progress: 0,
+	price: 60},
+	{ name: "EAT BIG GET BIG",
+	description: "The all-caps title in bold red letters, on a sign held by a strongman makes it clear this is an aggressively written cookbook with all kinds of recipes for... getting bigger? Like, more muscular? You're not sure, as the writer seems to have had multiple strokes while writing this, overusing terms like 'beefcake', 'hypermass' and 'gainz', all peppered with an excessive use of exclamation marks.",
+	skill: "Cooking",
+	bought: false,
+	time: 12,
+	progress: 0,
+	price: 10},
+	{ name: "Anatomical Lifting",
+	description: "This book is a deep-dive anatomical approach to fitness, and despite being INCREDIBLY dense, you're sure you can learn a lot from it!",
+	skill: "Working out",
+	bought: false,
+	time: 12,
+	progress: 0,
+	price: 80},
+	{ name: "Smart Money",
+	description: "The cover gives you the same vibe of a con-man trying to sell a get-rich-quick scheme, but you get the impression you can still learn a thing or two about keeping track of your finances from it. Or at least, you hope so...",
+	skill: "Book keeping",
+	bought: false,
+	time: 4,
+	progress: 0,
+	price: 100},
+	{ name: "YOU can be CONFIDENT!",
+	description: "While the title screams it was made for insecure people, this self-help book seems to be focused on fostering confidence. Might be interesting...",
+	skill: "confident",
+	bought: false,
+	time: 8,
+	progress: 0,
+	price: 50},
+	{ name: "Pleasing People the Subtle Way",
+	description: "An interesting book about how you could please people by being less assertive. An odd approach, perhaps, but if it makes it easier to make them happy...",
+	skill: "shy",
+	bought: false,
+	time: 5,
+	progress: 0,
+	price: 10},
+	{ name: "Your Will, Your Way",
+	description: "The cover has a big leather whip on it. Subtle it ain't. And it clearly is not trying to be. Yeah, this is a book about dominance.",
+	skill: "dominant",
+	bought: false,
+	time: 5,
+	progress: 0,
+	price: 10},
+	{ name: "The Sensual Sub",
+	description: "This treatise on sexual relations seems to champion the benefits of letting others take control. Corny, but it stirs something in you...?",
+	skill: "submissive",
+	bought: false,
+	time: 3,
+	progress: 0,
+	price: 25},
+	{ name: "The Focused Mind",
+	description: "This educational book is a laundry list of lifehacks to help you becoming more focused and attentive on your daily life, allowing you to be more careful. Hmm, something about that is enticing to you.",
+	skill: "carefull",
+	bought: false,
+	time: 6,
+	progress: 0,
+	price: 50},
+	{ name: "Not a Single Fuck Given",
+	description: "A philosophical analysis about 'letting go' with a new-agey and Zen perspective about the benefits of a carefree lifestyle. Sounds interesting, but not always helpful.",
+	skill: "carefree",
+	bought: false,
+	time: 2,
+	progress: 0,
+	price: 250}			
+	
+] >>
+
+<<set $electronicStoreInventory to[
+	{ name: "web cam",
+	price: 40,
+	description: "A decent plug and play webcam."},
+	{ name: "bathroom scale",
+	price: 60,
+	description: "A simple bathroom scale you can use to weigh yourself."},
+	{ name: "heavy duty bathroom scale",
+	price: 240 ,
+	description: "A bathroom scale made to hold up to 300kg, or 650lbs."},
+	{ name: "Coffee machine",
+	price: 20 ,
+	description: "A simple coffee machine, the perfect morning companion."},
+	{ name: "Good fridge",
+	price: 200 ,
+	description: "Finally, a freezer that doesn't accidentally thaw half your food!"},
+	{ name: "Good freezer",
+	price: 400 ,
+	description: "A freezer where you can store stuff WAY longer! Time to buy in bulk!"},
+	{ name: "basic kitchen appliances",
+	price: 100 ,
+	description: "A few basic kitchen appliances that will help you prepare your food faster."},
+	{ name: "good kitchen appliances",
+	price: 500 ,
+	description: "Some extra tools for the kitchen, like a stainless-steel wok and big pans, making the preparation of meals even quicker."},
+	{ name: "professional kitchen appliances",
+	price: 2000 ,
+	description: "Your kitchen would be indistinguishable from any restaurant with these!"}
+]>>
+
+<<set $fitnessStoreInventory to[
+	{ name: "measuring tape",
+	price: 2,
+	description: "A simple roll of measuring tape."},
+	{ name: "starter weightset",
+	price: 40,
+	description: "A simple set of weights, perfect for beginners. Colorful and fun, it might not pose a huge challenge, but it will surely help you lay a solid foundation!"},
+		{ name: "decent weight set",
+	price: 500,
+	description: "A weight set that most people could use at home. It has adjustable dumbbells and plenty of bars, practical for almost any exercise you could think of."},
+		{ name: "excellent weight set",
+	price: 4000,
+	description: "With this weight set, you could easily rival most gyms, and assuredly beat almost any other home gym!"},
+	{ name: "medium sized mirror",
+	price: 50,
+	description: "A bigger mirror, so you can see more of your body."},
+	{ name: "big mirror",
+	price: 200,
+	description: "An even bigger mirror, so you can see your whole body - unless you were to grow gigantic, but that could never happen... right?"}
+]>>
+
+<<set $dailyConsumableAmount to 1>>
+
+<<set $fabric to 0>>
+
+

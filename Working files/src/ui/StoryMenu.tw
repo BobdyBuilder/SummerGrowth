@@ -1,0 +1,12 @@
+:: StoryMenu [noEventTrigger] {"position":"300,1000","size":"100,100"}
+<<if $gameStarted is true>>
+<<link "skills & traits" "CharacterSheet">><</link>>
+<<link "Goals" "questlog">><</link>>
+<<if $debug is "true">><<link "Debug commands">><<goto "Cheats">><</link>><</if>>
+<</if>>
+<<link "Settings" "Settings">><</link>>
+<<link "Credits" "Credits">><</link>>
+<<link "Help" "Help">><</link>>
+<<link "Changelog" "Changelog">><</link>>
+
+

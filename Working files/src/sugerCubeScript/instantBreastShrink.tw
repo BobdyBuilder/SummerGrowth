@@ -1,0 +1,26 @@
+:: instantBreastShrink {"position":"750,1600","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+<<set _message to "The surprisingly small bottle is quickly emptied, and immediately your hands tighten. You feel like you're going to crush the small fragile thing in your fingers, that's how big a punch the tiny dose had. It's so incredibly sour you feel your mouth pucker up. Yet, it doesn't stay like this; the feeling somehow travels across your body, especially lingering in your chest. You got no idea how, but somehow it makes you feel like your chest is just tightening! And as you look down, it doesn't just feel like it; your chest seems to have actually shrunk!">>
+<<set $breasts *= 0.9>>
+
+
+<<if $lactationUnlocked>>
+	<<set _message to "After the feeling is gone, you prod your chest a bit, making sure you are fine. Heh... well, they feel normal again. Normal, and a bit less tight. Maybe it has lessened how much milk your tits produce too!">>
+	<<if $milkProduction != 0>>
+		<<set $milkProduction -= 1>>
+	<</if>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("BRA-SHRINK-T1");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

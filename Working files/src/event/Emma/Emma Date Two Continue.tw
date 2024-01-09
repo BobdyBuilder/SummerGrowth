@@ -1,0 +1,8 @@
+:: Emma Date Two Continue {"position":"750,4475"}
+<<Dialogue "Emma" "Emma">>"Excellent. I was just about to make my way there. I'll text you the address and we can meet there."<</Dialogue>>
+
+You nod enthusiastically, and you wave to one another as Emma makes her way out of the office. As much as you'd like to just spring up and follow her... Well, now that you know she's paying attention you can't clock out early. You resign yourself to a few very slow minutes of waiting before you can acceptably leave.
+
+<<gameLink "Make your way there" "Emma Date Two Gym" time:30>><</gameLink>>
+
+

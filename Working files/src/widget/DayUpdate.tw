@@ -1,0 +1,63 @@
+:: DayUpdate [widget nobr] {"position":"800,100","size":"100,100"}
+<<nobr>>
+<<widget "DayUpdate">>
+<<set $daysPlayed += 1>>
+<<include "StoreRefresh">>
+<<include "NPCDialogRefresh">>
+
+<<set $storeOnlineBought to $storeOnlineBoughtDelay>>
+<<set $storeOnlineBoughtDelay to []>>
+<<set $ingredientOnlineBought to $ingredientOnlineBoughtDelay>>
+<<set $ingredientOnlineBoughtDelay to []>>
+
+
+<<set $bimbo -= 1>>
+
+<<set $livingRoomCleaned += 0.25>>
+<<set $kitchenCleaned += 0.35>>
+<<set $bathRoomCleaned += 0.35>>
+<<set $bedRoomCleaned += 0.25>>
+
+<<set $deletedLog to []>>
+
+<<set $johanVisited to false>>
+<<set $elenaVisited to false>>
+<<set $elenashyVisited to false>>
+<<set $emmaVisited to false>>
+<<set $krisVisited to false>>
+<<set $krisObsessedVisited to false>>
+
+<<if $elenaDate is true>>
+	<<set $elenaDate1 to true>>
+	<<set $elenaDate to false>>
+<</if>>
+
+<<if $krisDate1Delay>>
+<<set $krisDate1 to true>>
+<</if>>
+
+<<if $daysPlayed == $dayOfEmmaBulkDate>>
+    <<script>>
+        if (!Dialog.isOpen()) {
+            new Wikifier(Dialog.setup('Reminder!'), 'You promised Emma you would mealprep with her. She will be expecting you!');
+            Dialog.open();
+        
+        }
+    <</script>>
+<</if>>
+
+<<if $moneyWarningCountDown == undefined>>
+    <<set $moneyWarningCountDown to 0>>
+<</if>>
+
+<<if $moneyWarningCountDown != undefined && $moneyWarningCountDown > 0>>
+    <<set $moneyWarningCountDown -= 1>>
+<</if>>
+
+<<if $money > (($muscle - 20) * 2 + ($fat -20) * 2 + ($height - 150) * 2)>>
+    <<set $moneyWarningCountDown to 99999>>
+<</if>>
+<</widget>>
+<</nobr>>
+
+

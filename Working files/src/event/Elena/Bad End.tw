@@ -1,0 +1,52 @@
+:: Bad End {"position":"1325,3125","size":"100,100"}
+You refuse to let go, looking at her pleadingly.
+
+<<Dialogue "player" "You">>
+"Elena, please. Let me in. Whatever this is, it's not going to get better if you don’t accept other people’s help."<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“No, I… This is not… Please, just leave it alone.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“You don’t mean that! Come on, I know this is hard. Let me help you!”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“Please!”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Just tell me!”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“//BASTA!//”<</Dialogue>>
+
+Elena’s voice booms out, louder than you had thought possible from her. You don’t know the word, but she clearly means ‘stop’. Everything around you seems to freeze, as does the crowd around you, staring at the two of you.
+
+Her face is downcast again. She’s trembling, and her voice is muffled and shaky.
+
+<<Dialogue "Elena" "Elena">>
+“I… I do not think this is working. I think I should go home.”<</Dialogue>>
+
+As she looks up at you again, her eyes shimmer with sadness.
+
+<<Dialogue "Elena" "Elena">>
+"This isn't working out."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"But... can we stay friends at least? Workout partners?"<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+"I guess. I don’t know."<</Dialogue>>
+
+It’s quiet. Painfully so. Elena has clearly said her piece, but… now the words are failing to come to you.
+
+<<Dialogue "player" "You">>
+“I… I’m sorry.”<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>
+“I know. Goodbye, <<print $playerFirstName>>.”<</Dialogue>>
+
+With that, she turns and leaves. The crowd around you begins to move again, quietly murmuring about the brief spectacle. And you’re left standing alone. You silently kick yourself, wondering where everything went wrong. Whatever happens next with Elena, you know this; an apology is in order.
+
+<<link "Go home" "Home">><<addMinutes 180>><</link>>
+
+

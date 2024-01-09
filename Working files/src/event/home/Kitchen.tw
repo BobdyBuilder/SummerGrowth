@@ -1,0 +1,69 @@
+:: Kitchen [nobr home storage] {"position":"1025,900","size":"100,100"}
+As with most apartment kitchens, it is very small, but you managed to cram all your stuff in there. The stove top has seen better days, and you wonder what the eldritch symbols on the oven mean, but at least you got a huge fridge and plenty of storage space! 
+
+<<set _room to passage()>>
+<<cleaning _room>>
+
+<br><br>
+
+<<if $cookingMealPrep || $debug is "true">>
+<<set _mealPrepCount to 1>>
+Make <<limitedNumberbox  "_mealPrepCount" _mealPrepCount 1 99>> meals in advance.
+
+<<liveblock>>
+<<set _cookingTime to ((_mealPrepCount -1) * 5) + 40>>
+<<set _cookingMotivation to Math.clamp((20 - _mealPrepCount), 0, 20)>>
+<<set _cookingExhaustion to Math.clamp((10 + (0,5 * _mealPrepCount)), 0, 100)>>
+
+<br>
+
+<<gameLink "Cook meals" "Kitchen" time:_cookingTime motivation:_cookingMotivation exhaustion:_cookingExhaustion>>
+
+<<if $furniture.includes("Good freezer")>>
+	<<set _daysUntillSpoiling to 60>>
+<<elseif $furniture.includes("Good fridge")>>
+	<<set _daysUntillSpoiling to 4>>
+<<else>>
+	<<set _daysUntillSpoiling to 2>>
+<</if>>
+
+<<set _newDate to new Date()>>
+<<set _newDate.setDate($gameDate.getDate() + _daysUntillSpoiling)>>
+<<for _i to 0; _i < _mealPrepCount; _i ++>>
+        <<capture _i>>  
+			<<set $mealsPrepped.push({
+			 expiration: _newDate.toISOString().split('T')[0]
+			})>>
+        <</capture>>
+<</for>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Placeholder");
+new Wikifier(dialog, "TBD: flavor text here");
+Dialog.open();
+}
+<</script>>
+
+
+<</gameLink>><</liveblock>>
+
+<<timed 0s>>
+<<script>>
+var boxes = $(".macro-limitedNumberbox");
+boxes.on("change", function () {
+$(".macro-live").trigger(":liveupdateinternal");
+});
+<</script>>
+<</timed>>
+
+<br><br>
+<</if>>
+
+<<if $furniture.contains("distilation still")>>
+<<link "Go use your lab" "Lab">><</link>>
+<</if>>
+
+
+<<link "Go back" "Home">><</link>>
+

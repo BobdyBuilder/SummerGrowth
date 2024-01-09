@@ -1,0 +1,5 @@
+:: EndingPassage {"position":"2200,2200"}
+<h1>GAME OVER</h1>
+
+<<print $ending>>
+

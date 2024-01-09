@@ -1,0 +1,193 @@
+:: potionIngredientPurchaseWidget [widget] {"position":"1325,1000","size":"100,100"}
+<<nobr>> <<widget "potionIngredientPurchaseWidget">>
+
+<<set _ingredientsAvailable to [
+    {
+        name: "MuscleIngredient",
+        pricePerPiece: 10,
+        playerbuys: 0
+    },
+    {
+        name: "Opposium",
+        pricePerPiece: 20,
+        playerbuys: 0
+    },
+    {
+        name: "HeightIngredient",
+        pricePerPiece: 15,
+        playerbuys: 0
+    },
+    {
+        name: "FatIngredient",
+        pricePerPiece: 15,
+        playerbuys: 0
+    },
+    {
+        name: "LiquidIngredient",
+        pricePerPiece: 10,
+        playerbuys: 0
+    }
+]>>
+
+<<if $chemistryOnlineShopping2>>
+    <<set _ingredientsAvailable = _ingredientsAvailable.concat(
+        [
+            {
+            name: "FeminineIngredient",
+            pricePerPiece: 10,
+            playerbuys: 0
+            },
+            {
+            name: "MasculineIngredient",
+            pricePerPiece: 10,
+            playerbuys: 0
+            },
+            {
+            name: "FutaIngredient",
+            pricePerPiece: 15,
+            playerbuys: 0
+            },
+            {
+            name: "SlowIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "InstantIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            }
+        ]
+    )>>
+<</if>>
+
+<<if $chemistryOnlineShopping3>>
+    <<set _ingredientsAvailable = _ingredientsAvailable.concat(
+        [
+            {
+            name: "CarefreeIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "CarefulIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "ConfidentIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "ShyIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "DominantIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "SubmissiveIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            },
+            {
+            name: "PermanentIngredient",
+            pricePerPiece: 20,
+            playerbuys: 0
+            }
+        ]
+    )>>
+<</if>>
+
+<<set _ingredientsAvailable.sort(function(a,b) {
+    if(a.name === b.name) return;
+    return a.name > b.name ? 1 : -1;
+})>>
+
+<table id="store">
+    <tr>
+        <th>Ingredient</th>
+        <th>You have</th>
+        <th>On delivery</th>
+        <th>Amount to buy</th>
+        <th>Price per piece</th>
+        <th>total cost</th>
+    </tr>
+    <<for _ingredient range _ingredientsAvailable>>
+        <tr class="ingredientTr">
+            <td class="ingredientName">_ingredient.name</td>
+            <td><<print window.getPotionIngredientsCountByName(_ingredient.name)>></td>
+            <td class="ingredientOnDelivery"><<print window.getPotionIngredientsOnDeliveryCountByName(_ingredient.name)>></td>
+            <td><input class="ingredientAmount" type="number" value="0" min="0"></td>
+            <td>_ingredient.pricePerPiece</td>
+            <td class="ingredientPriceSubtotal">0</td>
+        </tr>
+    <</for>>
+    <tr>
+        <td colspan="5"></td>
+        <td id="ingredientPriceTotal">0</td>
+    </tr>
+    <tr>
+        <td colspan="5" style="border: hidden; border-top: unset;"></td>
+        <td style="border: hidden; border-top: unset;"><<button "Buy">>
+            <<script>>
+                const $ingredientTr = $('.ingredientTr');
+                let totalAmount = 0;
+                for (const tr of $ingredientTr) {
+                  const $tr = $(tr);
+                  const trName = $tr.find('.ingredientName')[0].innerText;
+                  const trAmount = Number($tr.find('.ingredientAmount')[0].value);
+                  totalAmount += trAmount;
+                
+                  /*add to delivery*/
+                  for (let i = 0; i < trAmount; i++) {
+                    State.variables.ingredientOnlineBoughtDelay.push(trName);
+                  }
+                
+                  /*update on delivery count*/
+                  $tr.find('.ingredientOnDelivery').text(getPotionIngredientsOnDeliveryCountByName(trName));
+                }
+                
+                if (totalAmount > 0) {
+                  State.variables.money -= Number($('#ingredientPriceTotal').text());
+                
+                  /* update to refresh money */
+                  $('.macro-live').trigger(':liveupdateinternal');
+                  
+                  /*dialog*/
+                  new Wikifier(Dialog.setup('Ingredients bought'), 'Ingredients will be delivered soon.');
+                  Dialog.open();
+                }
+            <</script>>
+        <</button>></td>
+    </tr>
+</table>
+
+<<timed 0s>> <<script>>
+$('.ingredientAmount').on('change', function () {
+  let totalPrice = 0;
+  for (const tr of $('.ingredientTr')) {
+    /*subtotal*/
+    const $tr = $(tr);
+    const trName = $tr.find('.ingredientName')[0].innerText;
+    const trAmount = Number($tr.find('.ingredientAmount')[0].value);
+    
+    const ingredient = State.temporary.ingredientsAvailable.find(i => i.name === trName);
+    const subTotal = ingredient.pricePerPiece * trAmount;
+    $tr.find('.ingredientPriceSubtotal').text(subTotal);
+
+    /*total*/
+    totalPrice += subTotal;
+  }
+
+  $('#ingredientPriceTotal').text(totalPrice);
+});
+<</script>> <</timed>>
+
+<</widget>> <</nobr>>
+
+

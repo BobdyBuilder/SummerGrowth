@@ -1,0 +1,67 @@
+:: workResult {"position":"1300,1600","size":"100,100"}
+<<nobr>>
+<<for _i to 0; _i < $skills.length; _i ++>>
+<<capture _i>>
+	<<if $skills[_i].name is "Book keeping">>
+		<<set _SkillI to _i>>
+	<</if>>
+<</capture>>
+<</for>>
+
+<<if $skills[_SkillI].level >= 4 && $daysWorkedOffice > 16>>
+	<<set $emmaPromotion2 to true>>
+<<elseif $skills[_SkillI].level >= 2 && $daysWorkedOffice > 8>>
+	<<set $emmaPromotion1 to true>>
+<</if>>
+
+
+<<run $gameDate.setHours(17)>>
+<</nobr>>
+<<if $skills[_SkillI].level is 0>>
+	Looking at your tasks you feel utterly incompetent. While most of them are similar, they all require some understanding of accounting that you simply don't have. You manage to get some work done, but if you want to avoid being fired, you should REALLY read up on bookkeeping, accounting and stuff.
+	<<set _gainedMoney to setup.balance.baseMoneyPerDay * 0.9 * $officePromotionBonus>>
+	
+	<<skillIncrease "Book keeping" 20>>
+	
+<<elseif $skills[_SkillI].level is 1>>
+	Looking at the tasks, you at least have SOME idea of what needs to be done, and your basic understanding already helps a lot. As you get to work, you tackle them one by one, though you now know the reward for completing all of them: even more work. 
+	<<set _gainedMoney to setup.balance.baseMoneyPerDay * 1 * $officePromotionBonus>>
+	
+	<<skillIncrease "Book keeping" 10>>
+	
+<<elseif $skills[_SkillI].level is 2>>
+	Opening the cascading list, you get to work, and it isn't too hard. It seems even the understanding of bookkeeping you have is enough and you make quick work of it all, even allowing for a break now and then without compromising your deadlines!
+	<<set _gainedMoney to setup.balance.baseMoneyPerDay * 1.25 * $officePromotionBonus>>
+	
+	<<skillIncrease "Book keeping" 5>>
+	
+<<elseif $skills[_SkillI].level is 3>>
+	The mailbox chimes open and you rush through your tasks, and you gotta admit... it's almost getting a bit boring! Your skills allow you to just drop them like flies, but they feel more and more repetitive. Still, another dollar made, right?
+	<<set _gainedMoney to setup.balance.baseMoneyPerDay * 1.5 * $officePromotionBonus>>
+	
+	
+	<<skillIncrease "Book keeping" 1>>
+	
+<<else>>
+	With your outstanding skills, all your work is done in under an hour, and the rest is mostly spent online looking at pictures of cute pets or silly stuff. People are really happy with all the work you do, but it is anything but challenging!
+	<<set _gainedMoney to setup.balance.baseMoneyPerDay * 2 * $officePromotionBonus>>
+	
+	
+<</if>>
+
+<<include "jobEvents">>
+<<include "jobBodyDescr">>
+
+<br><br>
+
+You earned $<<print _gainedMoney>> today!
+<<set $money += _gainedMoney>>
+<br><br>
+
+<<if $emmaDate1 != true>>
+<<link "Go home" "Home">><<set $daysWorkedOffice += 1>><</link>>
+<<else>>
+<<link "Go on the date with Emma - 04:00 🕛" "emmaDate1.2">><<set $daysWorkedOffice += 1>><</link>>
+<</if>>
+
+

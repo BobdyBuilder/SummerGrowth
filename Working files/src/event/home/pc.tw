@@ -1,0 +1,58 @@
+:: pc [nobr] {"position":"1225,1000","size":"100,100"}
+Let's see... there is plenty you can do on this thing. <<if $furniture.includes("web cam")>>It has a webcam you could use for streaming, if you wanted to.<</if>>
+<br><br>
+<<if $furniture.includes("web cam")>>
+<<if setup.isOutfitNude() && $debug != "true">>Best not to stream while you're barely dressed, or you might just get kicked out of the website real quick.<br><br>
+<<elseif $motivationPercentage >= $exhaustionPercentage && $exhaustion + $streamingExhaustion < 100>><<gameLink "stream for a bit" "streaming" motivation:10 exhaustion:$streamingExhaustion time:60>><</gameLink>>
+<<else>> You don't feel like streaming<</if>>
+<br><br><</if>>
+<<gameLink "Play some games" "gaming" motivation:20 exhaustion:-10 time:60>><</gameLink>>
+<br><br>
+
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+<<gameLink "Improve a skill" "improveSkill" exhaustion:$skillExhaustionCost time:60 motivation:5>><</gameLink>>
+<br><br>
+<<else>>
+You just don't have the energy to improve a skill right now.
+<br><br>
+<</if>>
+
+<<if $hackingUnlocked>>
+<<link "Try to hack the USB stick" "pcUsbHacking">><</link>>
+<br><br>
+<</if>>
+
+<<link "Check your progress" "measurementProgressView">><</link>>
+<br><br>
+
+<<if $quests[$getJobI].started is true and $quests[$getJobI].completed is false and $jobInterview is false and $jobInterviewOver is false>>
+<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + 10 < 100>>
+<<gameLink "Look for a job" "jobSearch" motivation:-10 exhaustion:10 time:30>><</gameLink>><br><br>
+<<else>>
+Ugh, you're just way too tired to look for a job.<br><br>
+<</if>>
+<</if>>
+
+<<linkreplace "Shop for clothes online - 00:30 🕛">><<addMinutes 30>>
+Luckily enough, it's easy to find clothing online. It'll be delivered the next day at 9AM, even if you're not at home. <br>
+
+<<update>><br>
+
+<<ClothingStoreWidget $onlineInventory>>
+
+<</linkreplace>><br><br>
+
+<<if $chemistryOnlineShopping>>
+    <<linkreplace "Shop for Chemistry ingredients online - 00:15 🕛">><<addMinutes 15>>
+    Now that you know a bit about how the weird concoctions are made, you can find some of the ingredients online. The shipment will be arrived in a day.<br>
+
+    <<update>><br>
+
+    <<potionIngredientPurchaseWidget $onlineInventory>>
+
+    <</linkreplace>><br><br>
+<</if>>
+
+
+<<link "That's enough of that" "Bedroom">><</link>>
+

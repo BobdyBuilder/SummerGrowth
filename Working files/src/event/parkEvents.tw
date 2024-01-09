@@ -1,0 +1,99 @@
+:: parkEvents {"position":"100,100","size":"100,100"}
+<<set setup.events.push(
+    {
+        name: 'parkFiller',
+        locationTags: ['park'],
+        conditions: [			 
+            () => true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: "It's nice taking it slow and just going for a walk in the park. With everything that has been going on it's a rare enough treat that you get to you just walk around a bit, and contemplate everything that's going on. It's quiet here, with not many people around, and as you let the sun warm your face, you reflect on the recent events. Those weird drinks. Your body. It'd be insane, all these changes, if they hadn't become this weird new norm. But for the time being, you're just yourself, merely enjoying nature as you listen to the crisp bristling of leaves in the summer sun and the welcome song of a bird. Your body might feel heavier than it used to, your personality changed, but here, you still feel like yourself. <<set $exhaustion -= 10>><<set $motivation += 10>>"
+    },
+    {
+        name: 'parkFiller2',
+        locationTags: ['park'],
+        conditions: [			 
+            () => true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: "Okay, this was a good call. Fresh air, warm sun, nothing but nature and a nice park to relax. It's a textbook - or perhaps storybook - summer. Flowers are in full bloom, <<if $elenaOpinion >= 20>>many of which Elena would love,<</if>> birds are happily singing, and for just a few moments, you can really relax. Though the last weeks have been crazy, you often forget how much it can exhaust you. But here you are, just relaxing and enjoying it while you stroll around. Not too many people around too, so you don't have to worry about people noticing your... changes.<<set $exhaustion -= 10>><<set $motivation += 10>>"
+   },
+    {
+        name: 'parkHeight',
+        locationTags: ['park'],
+        conditions: [			 
+            () => true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: "Today is a great day for a walk in the park! You decide to just go for a casual stroll around the lake, and just chill for a bit.<br><br>As you walk around, you see all kinds of people: couples holding hands, joggers, park staff tending the plants, rollerbladers and bikers, old people feeding the birds, kids playing on the playground, all kinds of athletes using the park’s many facilities…<<if $height >= 230>>Alright, this is getting a bit ridiculous. You stopped being the one doing the people-watching, and are now the subject of everyone else at the park, who will stop whatever they are doing just to stare at you. You see cyclists falling and people walking into poles as they turn their necks to really confirm that they’ve just spotted a giant.<br><br>This might take some getting used to.<<elseif $height >= 210>>The experience has now radically changed, however. You basically tower over everyone else, even the people on the basketball court. In fact, every time you pass by, you tend to get an invitation to join them - some have even asked for your number. You guess that being tall has its advantages.<<elseif $height >= 190>>It’s kind of shocking, though… you notice that you are now decided above average, more in common with the tallest people than the others. It makes your heart race a little bit, and you giggle to yourself as you are reminded that you might still have not reached your potential.<<elseif $height >= 170>>But something has changed. You don’t feel so short anymore. In fact, you feel distinctly average. It’s kind of unusual to look at adults who are shorter than you. It’s kind of funny, being excited about the prospect of mediocrity… but maybe that’s just because you realize that’s just the beginning? <<elseif $height >= 150>>You enjoy just doing some good old people watching, but you can’t help being reminded of your below-average height. <<if $muscle <=25>>At one point, a kid even invites you to play with him, thinking you are just a child.<</if>><br><br>I mean, you are quite happy with your body, but part of you seems to… you aren’t sure, there’s just this DESIRE to be taller, even if just a little bit. Oh well… it is what it is.<</if>> As you finish your stroll, you head back home."
+   },
+    {
+        name: 'parkHeight2',
+        locationTags: ['park'],
+        conditions: [			 
+            () => true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: "You walk into the park, and spot an exercise area with all kinds of equipment, pull-up bars, incline sit-up stations… and varied bars for stretching… ohhhh, you could use a good stretch!<<if $height >= 230>>As you reach the bar, you stop and realize you might have outgrown it - in more ways than one!<br><br>You kick your leg up, all the way over your head in a perfect split. You hug your leg with your arm, and realize it now stands taller than the stall bars. Well, I guess you don’t need to come back here for a good stretch after all!<<elseif $height >= 210>>Without hesitation, you just stop right at the stall bars and kick your leg up 135 degrees, reaching the ninth bar - the next to last one on the device. You casually extend your opposite arm over your head in a ballet motion, as you notice other people casually glancing at your display of flexibility.<<elseif $height >= 190>>You find the stall bars at their usual place in the exercise area, and confidently stand before them. With little effort, you raise your foot to a 90 degree angle, comfortably resting it on the sixth bar from the ground. You lean forward, hugging your tight as you feel every tendon stretch. It gives you a fuzzy warm feeling.<<elseif $height >= 170>>You return to the stall bars, and with a sweeping motion, plant your foot firmly on the fourth bar from the ground, at a 75 degree angle. You reach for your foot, and can actually hold to the very tip of your sneakers! You continue to stretch, feeling as your legs lengthen and your muscles relax.<<elseif $height >= 150>>You timidly approach the stall bars, feeling quite intimidated by their height. You raise your leg up at 60 degrees, barely reaching the third bar from the ground. Ugh, you look around, and it makes you feel so tiny! Yet, you push on, bending your back forward as you try to reach your foot. Your fingertips can almost make it… wiggling very close to your shoelaces.<</if>> Satisfied and very limber, you head back home."
+   },
+    {
+        name: 'parkCatInTree',
+        locationTags: ['park'],
+        conditions: [			 
+            () => State.variables.height >= 170
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `The park seems unusually quiet as you traverse its verdant paths. But suddenly, you hear a child crying from the tree’s nearby. You bring yourself to a sudden stop. Pinpointing the distressed voice, you make haste to find its source.<br><br>You see a small girl in a yellow dress, bawling her eyes out by a tree. A few people seem to have gathered around here, looking at the girl and the tree. You kneel next to her, curving down to try to get as close as possible.<br><br><<Dialogue "player" "You">>"Hey there. Are you okay? What is wrong?"<</Dialogue>><br><br><<Dialogue "randomPerson" "Random girl">>"It’s… (sob)... Emilia (sob)... my cat (sob)... she climbed that tree and can’t get down!"<</Dialogue>><br><br>You check the tree, and just like she said, a young tabby seems to have climbed on one of the branches (which you estimate to be about <<if $measurementSystem == 'metric'>>3 meters<<else>>10 feet<</if>> off the ground), and now is desperately walking across it, trying to figure its way down. The other adults see it, but no one knows how to get it down.<br><br>  <<Dialogue "player" "You">>"Hey, listen. Emilia is going to be okay, alright? Let aunt <<print $playerFirstName>> take care of her, just calm down and give me one minute, alright?"<</Dialogue>><br><br><<if $height >= 245>>Standing up, and realize that you can probably reach the cat easily by stretching your arms. You start from the tip of the branch, bringing your extremely long arms up, and shushing gently - the cat is quite nervous and suspicious, and starts fleeing toward the beginning of the branch. You carefully and slowly follow it, until it is cornered at the trunk. You continue shushing, and envelop the scared feline in your sizable hands. It squirms, digging its claws on your skin, but you hold it as gently as you can, as you pull it away from the branch.<br><br>As you bring it down, the cat’s claws dig deeper, but you maintain your cool and make sure not to hurt it, as you kneel near the girl again, handing her Emily.<br><br><<elseif $height >= 210>>You check the tree, and realize that you might just make it to the beginning of the branch if you tiptoe and stretch your arms. You recruit a tall man with his son to help - the son grabs a stick and sits on his father’s shoulders, trying to make the cat go towards the trunk, where you wait, stretched as far as you can. Very gently you pick the cat up, biting your lip as it digs its claws on your hands.<br><br>You carefully bring the cat down, bracing for the sting of its claws, but not letting the poor girl know your pain. You kneel near the girl, handing Emily over.<br><br><<elseif $height >= 190 && $muscle >= 45>>You can ALMOST reach the branch, but not enough. You spot a nearby wrought iron bench… hmmm…<br><br>You grab the bench, and lift it off the ground. You carry the bench to the base of the tree, where the added height might just… YES!<br><br>You tiptoe from the top of the bench, and manage to nab the cat by the scruff of its neck, and carefully climb down. You return it to the little girl, with a smile.<<elseif $height >= 190>>You can ALMOST reach the branch, but not enough. You spot a nearby wrought iron bench… hmmm…<br><br>You ask for some help carrying the bench, grabbing it from one side while a man grabs the other one. He is somewhat surprised at the ease with which you carry the heavy piece, looking occasionally at your arms, but helps you drop it next to the tree.<br><br>The added height might just… YES!<br><br>You tiptoe from the top of the bench, and manage to nab the cat by the scruff of its neck, and carefully climb down. You return it to the little girl, with a smile.<<elseif $muscle >= 35>>You show your flexed biceps for the girl, as you whisper softly:<<Dialogue "player" "You">>"Don’t tell anyone, but I’m pretty strong, see? I’m going to help you out! Don’t worry!"<</Dialogue>><br><br>You deftly climb the tree, sitting on top of the branch where the cat has stranded itself. Your weight seems to put a lot of stress on it, but you are pretty sure you can do this… you calmly shush the cat, and scoop it by the tummy, while holding the trunk with your other hand. You cradle the cat on your chest with one arm, as you move your leg over the branch, sitting on it. You carefully turn to wrap your legs around the tree, and use your free arm to bring yourself down enough so that you can jump without scaring the cat too much.<br><br>As you land, you hand the cat over to the girl.<<else>>You aren’t so sure you got this… if only you were a bit taller or strong enough to lift yourself up the tree… hmmm…<br><br>Unsure of how to proceed, a man offers to help you up there. He cups his hands, and boosts you up to the branch. You sit on it, and plan your next step.<br><br>You calmly shush the cat, and scoop it by the tummy, while holding the trunk with your other hand. You cradle the cat on your chest with one arm, as you move your leg over the branch, sitting on it. You carefully turn to wrap your legs around the tree, and use your free arm to bring yourself down enough so that you can jump without scaring the cat too much.<br><br>As you land, you hand the cat over to the girl.<</if>><<Dialogue "randomPerson" "Random girl">>"Thank you, aunt <<print $playerFirstName>>!"<</Dialogue>><br><br><<Dialogue "player" "You">>"I’m glad to help! Just… make sure to put a leash on Emilia the next time you go out, okay?"<</Dialogue>><br><br>You tap the girl on the head, and smile as you watch her go, hugging her cat. It feels pretty good to help. You come back home with a big smile and a feeling of accomplishment.`
+   },
+    {
+        name: 'parkBreasts',
+        locationTags: ['park'],
+        conditions: [			 
+            () => true
+        ],
+        repeatable: true,
+        retriggerable: false,
+        priority: 'filler',
+        npc: [],
+        content: "It’s such a nice day at the park, but for once, you just feel like relaxing a bit. And so you find yourself a nice bench, and sit down.<br><br><<if $breasts >= 100>>The bench audibly creaks from the weight of the two cannons you have on your chest. They basically rest over your legs, so big that they are - distraction, thy name is mammaries. You are forced to basically slouch down over them, and thus generating a huge field of diversion.<br><br>At this point, you are just willingly wreaking havok: people falling from bikes, running into the lake, letting their dogs run away, tripping into each other. You are a goddess of mischief, and your two breasts are your willing servants.<<elseif $breasts >= 75>>Your breasts jiggle as you do so, and you bite your lips with the satisfaction that you are the undisputed emperor of the boobs. Not a single soul could compare to you in the mammaries department - and the many looks you are getting only further prove that.<br><br>You drape your arms over the back of the bench, putting your sweater puppies in full display. Few people can resist a good stare, and you are pretty sure you might have made some girlfriends break up over the ogling you caused. A guy even ran face first into a streetlight, he was so distracted. You place your hands over these trophies, and give them a big, satisfied squeeze.<<elseif $breasts >= 50>>As you start automatically judging every female breast in your vicinity, you smile triumphantly as you realize you might as well be the king of the mounds - your mammaries make for a nice display, more sizeable than pretty much all the competition - and rightly so, you catch quite a feel sneaky glances from passers-by.<<elseif $breasts >= 35>>You watch other women passing by, and feel quite pleased about your breasts. You might be decidedly average in size, but they are perky and firm, giving you a nice edge. You surreptitiously cop a feel, and feel a shiver go up your spine as you do. You never thought you'd be so pleased with them!<br><br><<elseif $breasts >= 20>>As you look around, you start comparing your figure to other girls, and you notice you are a bit lacking in the breast department. You bring a hand to your chest, realizing you could probably have gone out without a bra. You frown, feeling jealous of all the other women and their bigger chests. Well, I guess not everyone can win the boobie lottery!<br><br><</if>>Relaxed and satisfied, you get up and head home."
+   },
+    {
+        name: 'parkKrisVibes',
+        locationTags: ['park'],
+        conditions: [			
+        () => State.variables.krisInterested,
+            () => State.variables.krisObsessedOpinion >= 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['kris'],
+        content: 'It’s just another great day at the park, and it feels good to just relax for a change. It’s a large park, and you usually don’t see many familiar faces there, but that’s not the case today: as you pass by the fountain, you see Kris sitting on the bench, arms draped over the back, eyes closed and head tilting - presumably to the rhythm of the music she must be listening with her earphones.<br><br>This, in theory, is a completely normal scene by almost everyone’s standards, but your brain is having major cognitive whiplash processing it: in a park, full of very fit, scantily dressed females exercising, Kris has her EYES CLOSED! You find a bench that should be out of her general field of view, and decide to just watch her for a bit.<br><br>You are utterly mesmerized. There is a sense of calm in Kris that almost takes your breath away. She’s just vibing, and her usual energy of longing is entirely absent, replaced by an unusual sense of… just simple contentment. The experience feels somehow borderline religious, as if you had just found the Buddha, hanging out in the park, exuding an aura of pure zen.<br><br>Uh oh! There’s a tourist approaching her - the tall blonde woman must be over <<if $measurementSystem == "metric">>2 meters<<else>>6’6”<</if>> tall! This won’t end well…<br><br>The blonde taps Kris on the shoulder, and the little firecracker opens her eyes. The tourist points at some pictures on a book, and Kris calmly starts giving her directions. The tourist gives her a polite bow and goes on her way, and Kris closes her eyes and gets back to her vibing.<br><br>You are nothing short of flabbergasted. Who would’ve guessed that Kris could turn off her lecherous side? You resist an urge to just go there and squish her… and decide to get away before YOU are the one with the uncontrollable desires.'
+   }
+    )>>
+ 
+ 
+ <<for _i to 0; _i < setup.events.length; _i ++>>
+		<<capture _i>>	
+			<<if setup.events[_i].locationTags.contains("park")>>
+				<<set setup.events[_i].content = "<<set $currentScene to \"Home\">>" + setup.events[_i].content>>
+			<</if>>
+		<</capture>>
+<</for>>
+
+

@@ -1,0 +1,164 @@
+:: ElenaDate2Start {"position":"1500,3500","size":"100,100"}
+
+You see the magnificent building of the Natural History Museum in the distance, its classical architecture contrasting with the small town feel of its surroundings, and you find yourself accelerating your pace unconsciously - feelings of anxiety and excitement bubbling in your stomach. As you approach, you recognize the large figure of Elena waiting for you, reading a hardbound book on the steps of the building. It’s very refreshing to see her so concentrated on her reading, as she exudes this aura of peace and concentration that is very refreshing - when she’s at the gym, she’s usually alternating between a very intense focus and jittery nervousness about being watched. Here, she’s just calm and chill, like the rest of the world isn’t even there - but still heavily invested on the book, with a hint of delight. It’s hard to put in words, but this happier, freer Elena is just… centered and content.
+
+Elena is wearing a flowy summer dress with a blue-and-yellow pattern of hummingbirds, which is surprisingly baggy despite her size, since she couldn’t find something that fits her well. The windy day is making her hair and dress fly and flow, giving her a wispy, almost ethereal feel that contrasts sharply with her bulky and firm muscles. It’s almost like the dress is caringly caressing her flesh, giving her enormous silhouette an inexplicable weightless appearance.
+
+As you approach, she puts the book away in her comically small purse (or at least it looks that way given the size difference) and waves at you with a smile.
+
+<<Dialogue "player" "You">>"Hey, Elena. You look pretty cute in that."<</Dialogue>>
+
+She stammers, her usual nervousness coming back to the surface:
+<<Dialogue "Elena" "Elena">>"Davvero? Per niente!"<</Dialogue>>
+
+She says, waving her hands in front of her.
+<<Dialogue "player" "You">>"I have NO idea what you just said, but from your face, I’m going to guess you just modestly disagreed..."<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>"It’s just… it is so difficile - difficult - to find clothes that fit me… this looks like a sacco di patate… a potato sack… on me!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Nonsense - I mean, yeah, this needs some tapering at your tiny waist. I would say that I can only imagine how hard it is for you to find clothes but…"<</Dialogue>>
+
+You move your hands from your head to your thighs, as if presenting your entire body as evidence in court.
+
+<<Dialogue "player" "You">>"I might just an idea or two about what it’s like getting clothes for you."<</Dialogue>>
+
+You finish the thought with a smile. Still, she looks at your attire and tries to come up with a similar compliment, but it’s clear that she’s struggling a bit. 
+<<Dialogue "Elena" "Elena">>"Ah, si… your… uh… <<print $outfit.top().name>>... it… is… cool?"<</Dialogue>>
+
+You laugh and tap her back, and Elena quickly joins with her own awkward laugh.
+
+<<Dialogue "player" "You">>"Shall we go in?"<</Dialogue>>
+
+Elena nods, and grabs two tickets from her purse - apparently she had this figured out already.
+<<Dialogue "player" "You">>"You paid for my ticket? You really didn’t have to!"<</Dialogue>>
+
+<<Dialogue "Elena" "Elena">>"Per sogno!"<</Dialogue>>
+
+She says, quite emphatically, and frowns with an almost indignant expression, making it clear that it would be an affront to try and pay her back for it. 
+<<Dialogue "player" "You">>"You win this one! But I’ll get the next one, then! Uh… thank you, though, that was really sweet!"<</Dialogue>>
+
+You smile, and wave your hand towards the museum entrance with a formal bow. The big girl giggles and excitedly walks up the stairs, with you following right behind.
+
+Elena pauses briefly in front of the revolving door, realizing it will be a major struggle to try and make it through that. But you came prepared, and you open the handicapped door for her, trying to muster your most cavalier expression as you once again wave her in. Elena blushes, and you guess she isn’t quite used to people treating her gentlemanly - but she sure seems to appreciate it.
+
+As you follow her inside, your eyes take a second to adjust from the bright sunny morning light to the subdued and dark interior… and all you can see is Elena, mouth agape as she looks up to the spacious entrance foyer. Her neck cranes as she absorbs the large room, looking very impressed. Initially, you wonder if the museums in Italy just aren’t as nice, which makes no sense to you. But then it dawns on you - it might just be the first time that she didn’t feel cramped inside a public building since her growth. You decide to give her a second to take all of that in, as she seems to really be enjoying herself.
+
+As the wonder subsides, you place an arm around her shoulder, still in silence. Elena has a momentary flinch, almost like your touch zapped her with a static shock… but then she quickly relaxes, her tense shoulders slowly melting under your fingers. You amicably walk her towards the person checking tickets, like any two platonic friends would. The teenage boy seems just like any other bored summer worker, eyes glued to his phone and not really caring much about his task. But as you hand him the pair of tickets, you see his eyes following your wrist, up your arm and just getting shocked at the two gigantic females, dropping his phone to the ground. This clearly makes Elena uncomfortable, so you intervene:
+
+<<Dialogue "player" "You">>"I’m sorry, I guess everyone is doing e-tickets nowadays. We’re sort of old-fashioned… but I like saving paper ticket stubs as mementos."<</Dialogue>>
+
+Elena looks at you, as you hand her one of the stubs, and she presses it against her ample bosom like you just gave her the world’s most precious treasure. As you walk away, she gets her book from her purse and opens the last page, where a dry white chrysanthemum rests, and she stores the stub there alongside it, before returning the tome with a satisfied smile.
+
+The two of you walk through the large gallery, and follow the signs that lead to the flower exhibit - which is being held in a greenhouse attached to the back of the museum. To get there, you pass through the prehistory hall, which is just ahead.
+
+This even darker room is filled with dinosaur fossils and bright dioramas, feeling a bit like a movie theater. And once again Elena’s head turns around, trying to take it all in. However, there’s a weird melancholy in her expression now. 
+<<if $shyConfident > 0>>
+    You grab her hand and give it a tight squeeze. She sighs, and you can see she wants to explain, but it doesn’t come easy to her.
+
+<<else>>
+    You take a step forward, getting closer to her - but giving her space to share what is eating her. It doesn’t take long for her to create the courage to voice her thoughts.
+
+<</if>>
+Still processing everything, she walks over to a sign that talks about the Cretaceous–Paleogene extinction event - when an asteroid impact changed the environment and led to their downfall.
+
+<<Dialogue "Elena" "Elena">>"Isn’t it crazy? They were molto grande - very big - I actually feel small next to them… eppure… uh… and yet… they just vanished completely. All of them. The most precario link in the tapestry of life.<</Dialogue>>
+
+It hits you like a club, making you feel quite dumb for not realizing that before: Elena’s size doesn’t make her feel powerful… but the opposite. You can see how looking at these creatures brings anguish to her.
+
+
+
+<span id="choice">
+	<<link "But they did rule the Earth while they were around, right?">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Sure, they disappeared - but don’t people say they ruled the Earth before that? It must count for something, right?"<</Dialogue>>
+
+            Elena crosses her arms and slumps her shoulders. It’s pretty obvious that she has no interest to leverage her strength to do any conquering - and that you should have kept your stupid mouth shut. You stop in your tracks as she keeps going, and you realize you need to clean up that mess. With some quick thinking, you increase your pace to catch up to her, and you give her a hug from behind - making her entire body tense and get quite uncomfortable. 
+            <<if $shyConfident >= 0>>
+                You nuzzle her neck, a glaring display of affection with the intent of making her feel better, but Elena just isn’t in the right mood. She is still tense, but now also turtling - not quite confident enough to tell you to stop, but the message comes across clearly anyway. You open your arms, letting her go - and Elena just steps forward in a bit of a hurry. You sigh, frustrated… all you wanted was to comfort her, but apparently she isn’t quite ready for that yet.
+
+                You try to distract her, pointing out some of the dinosaurs you find the coolest and spouting some random trivia, but Elena just feels… distant. She is stuck in her thoughts, an impenetrable and inscrutable mind fortress that you would do anything to have a peek into. But how?
+
+                <<Dialogue "player" "You">>"Did you know that the fossilized bones are actually made of mineral rock, there’s actually no trace of the bone itself?"<</Dialogue>>
+
+                Elena nods absentmindedly, her introverted nature starting to make you feel uncomfortable. You raise a hand to put on her shoulder, but end up pulling it back. You run ahead of her towards the large T-Rex skeleton in the middle of room, making sure to stay under its spotlight, and you try your best to imitate its short hands by folding your arms in front of you, with your hands near your shoulders like you had no arms, and start impersonating the creature with big teeth snapping motions and comical grunts.
+
+                This elicits a giggle from Elena, who approaches and claps in congratulations for your little clownish display.
+
+                <<Dialogue "player" "You">>"Your turn. Pick one!"<</Dialogue>>
+
+                <<Dialogue "Elena" "Elena">>"Ma che?!?<</Dialogue>>
+
+                <<Dialogue "player" "You">>"Come on! I want to see YOUR dinosaur impersonation!"<</Dialogue>>
+
+                The girl just blushes and crosses her legs, holding her arms behind her back shyly. You give her arm a tap, and show her a big sign that has a chart with several different dinosaurs. You eventually tire Elena down into submission, and she looks intently at the chart, and a lightbulb goes off - she points at the apatosaurus, with a subtle but proud smile.
+
+                You take a step back with a big grin, and watch as she sort of curves her back forward, lowering her arms a bit to pretend to be a quadruped, while she makes the silliest face and pretends to munch on a philodendron. You burst out laughing at how cute she looks, and she gets uncomfortable for a second… but then realizes how silly the whole thing is and she starts to giggle herself.
+
+                <<Dialogue "player" "You">>"I’m sorry, Elena, I think you might just have to stick to being a human - the dinosaur life just isn’t for you!"<</Dialogue>>
+
+                At the very least, you seem to have distracted her a bit from her concern. You make your way towards the back of the exhibit, reaching for the door that leads out.
+
+
+            <<else>>
+                That was not what you intended, but you are not quite backing down yet. And so you whisper, gently:
+
+                <<Dialogue "player" "You">>"The thing is… strength is not only for imposing your will. You can also use it to protect those you care about."<</Dialogue>>
+
+                You can feel Elena’s rock-hard muscles slowly relaxing under your embrace, as her tension seems to disarm under your touch. She puts her hand on top of yours and sighs, and you open your arms, letting her go. She walks a couple of steps, then turns around with a sad smile.
+
+                <<Dialogue "Elena" "Elena">>"You are right. There are precious things that need to be protected. Credo che… I suppose… strength does become useful for that, dopo tutto.<</Dialogue>>
+
+                She stops in front of one of the dioramas, in which a model stegosaurus sits in front of a bunch of eggs. You see her resting one hand over her upper arm, looking pensive at the motherly reptile reproduction in front of her. You place your arm around her shoulder, but this time there is no tension or jerking - just a long sigh.
+
+                <<Dialogue "Elena" "Elena">>"There are several tipi of strength. Physical strength, sure. But it doesn’t do much by itself, does it? When the time comes and I have to protect something… will I have the other strength to do anything?<</Dialogue>>
+
+                As you two look at the diorama, you put a hand on your chest, and say calmly without looking at Elena:
+
+                <<Dialogue "player" "You">>"Real strength? I think it comes from the heart. It’s that emotion, love and caring, that allows us to do the impossible for those we need to protect. You don’t need to have big muscles to do incredible things when you have love. You know what they say, “love can move mountains”. Good luck trying to do that with muscles."<</Dialogue>>
+
+                Elena’s face turns towards you. You can see her eyes admiring you, like you somehow unlocked the secrets of the universe for her. It makes you laugh.
+
+                <<Dialogue "player" "You">>"Sorry, sometimes I get carried away with platitudes, I’m kinda corny that way!"<</Dialogue>>
+
+                You say, embarrassed, with a hand on the back of your head.
+
+                <<Dialogue "Elena" "Elena">>"No… that was very molto saggio… very wise. But… what does that have to do with corn?<</Dialogue>>
+
+                You burst into laughter, and she looks downright confused as you proceed to explain what “corny” means, while the two of you leave the prehistoric room.
+
+            <</if>>
+            [[Continue|ElenaDateCafetaria]]
+		<</replace>>
+	<</link>>
+
+	<<link "You shouldn’t judge them on size alone - they are much more than that!">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Well, sure, a lot of the dinosaurs were big, especially compared to other creatures of that time. But… dinosaurs weren’t only defined by their size. Not only there were small ones…"<</Dialogue>>
+
+            You point to a diorama that features an Aquilops, not bigger than a house cat.
+
+            <<Dialogue "player" "You">>"But there’s so much more to them - not everything that was big was a dinosaur - and the extinction certainly affected many creatures that were not dinosaurs. But you know what I like the most about them? There is so much to find out when you take the time to investigate!"<</Dialogue>>
+
+            You point her to one diorama that discusses theories of hot-blooded dinosaurs, feathered dinosaurs…
+
+            <<Dialogue "player" "You">>"We only have these fossils to go by, but the more we look, we find out all kinds of secrets. Sure, it’s easy to think about a violent T-Rex, but we probably had gentle giants like…"<</Dialogue>>
+
+            You approach a sign that shows the scale of a Brachiosaurus. The exhibit has a reproduction of one of its legs for scale, and it’s taller than Elena.
+
+            <<Dialogue "player" "You">>"These guys? Herbivores. Didn’t even eat meat. Can you imagine? Grazing a field like a goddamn prehistoric cow. Imagine of these just licking you!"<</Dialogue>>
+
+            Elena is dumbfounded, like you somehow did a magic trick and changed reality in front of her eyes. She is still looking at the giant fossils in front of her, but now with a weird child-like glee, like they could be enormous puppies instead of ferocious monsters. That idea seems to bring warmth deep inside her, allowing her to enjoy the entire exhibit under a completely new perspective… which you secretly hope she also applies to the way she perceives herself.
+
+            <<Dialogue "player" "You">>"Besides, you know… the asteroid DID wipe out A LOT of stuff that wasn’t dinosaurs or big. It says right here that it killed three quarters of all plant and animal life… it affected PLANKTON! Do you know how small those are?"<</Dialogue>>
+
+            Elena does a spin, looking at the entire exhibit, and then she rests her head on your shoulder, contemplative.
+
+            <<Dialogue "Elena" "Elena">>"Grazie, <<print $playerFirstName>>. It is not everyday that I find new enjoyment in things. Now… I feel like dinosaurs are going to make me smile every time I see one…"<</Dialogue>>
+
+            You wrap an arm around her waist, and she lets out a content sigh. You decide to let her savor this moment a bit more before you accompany her out of the dinosaur room, the two of you sharing a happy, if subdued, smile.
+
+			[[Continue|ElenaDateCafetaria]]
+		<</replace>>
+	<</link>>
+</span>
+

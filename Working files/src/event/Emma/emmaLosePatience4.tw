@@ -1,0 +1,8 @@
+:: emmaLosePatience4 [nobr] {"position":"0,0","size":"100,100"}
+As you make your way to the cafeteria to get a very deserved dose of the dark distillation, you see Emma, slamming the door of her office open.<br><br>
+<<Dialogue "Emma" "Emma">>"Who is handling the Zeddemore file? I misscheduled the due date - we need it out today!"<</Dialogue>><br><br>
+You see as a group of analysts stands up, and starts visibly panicking. You proceed to get your drink, as you watch the little ballet of employees running like a bunch of headless chicken, which is expected in such a situation. What ISN’T, however, is the fact that Emma seems to be joining in that dance, as control slips out of her hands.<br><br>
+This is so weird. You’ve seen your share of emergencies before, but Emma’s always calm and collected, helping everyone focus. Not today, though: the chaos slowly starts spreading like fire, and other teams also begin to panic. While you are somewhat pleased that this one does not affect you... you can’t help but feel bad for everyone - Emma in particular. You know she’s already under a lot of stress with all the incoming cuts - but for her to be this unfocused? There must be a lot of pressure stacking on her.<br><br>
+You finish your coffee and go back to your station, hoping that things get back to normal soon, but you get a nagging feeling that this might just be the beginning of something more serious.
+<<link "Return" "office">><</link>>
+

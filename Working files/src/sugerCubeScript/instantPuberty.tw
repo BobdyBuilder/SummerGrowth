@@ -1,0 +1,31 @@
+:: instantPuberty [noReturn] {"position":"550,1700","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "Drinking the liquid feels just... awkward. Some parts of the liquid are thicker than others, and some of it dribbles on your chin. The overly sweet and sour taste just lingers far too long on your tongue. If you had to take a guess at what this was, you'd say someone boiled a crab in soda and added in pineapple, then strained it through their socks. As the oily liquid glides down, all you can do is focus on not throwing up.">>
+
+<<set _message += " The odd, almost sickening feeling travels through your body and spreads, lingering in your limbs. They feel awkward and dull, reminding you of your early teenage years. Even the soreness is familiar.">>
+<<addHeightSlow setup.balance.heightAllowancePerDay>>
+<<set $tiredness += 10>>
+
+<<if _rand >= 2>>
+<<set _message += " A haze passes over your mind, making it hard to concentrate. A bunch of lewd thoughts invade your mind as you start sweating buckets. It all is gone as quickly as it came, but every now and then you still get some throughout the day.">>
+
+<<addDickSlow 2>>
+<<addBreastsSlow setup.balance.breastAllowancePerDay>>
+<<set $tiredness += 10>>
+<<set $lactationUnlockedPoints += 1>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("Puberty++");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

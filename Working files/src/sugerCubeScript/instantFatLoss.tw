@@ -1,0 +1,33 @@
+:: instantFatLoss [noReturn] {"position":"550,1800","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "Damn, this is sour! Is this something to drink or some kind of detergent?! The aftertaste only gets worse as it almost seeps into your tongue. Immediately, something feels... off. For some reason, a heatwave travels over you, like your entire body is boiling. And you can almost swear you feel a bit lighter.">>
+<<set $fat -= 1>>
+<<set _rand to random(0,2)>>
+
+<<if _rand >= 1>>
+<<set _message += "It keeps going for a while, and you're not sure whether this is a good or bad thing.">>
+<<addFatSlow -2>>
+<<set $fat -= 1>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += "Finally, you let out a soft burp. Despite not having had a meal in a bit, you are not hungry at all. Odd.">>
+
+<<addFatSlow -2>>
+<<set $fat -= 1>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("FA-LOSS 133X");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

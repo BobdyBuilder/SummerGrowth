@@ -1,0 +1,131 @@
+:: bookCase {"position":"1325,800","size":"100,100"}
+You could just sit back and enjoy a book. It's a good way to relax, and you might learn something! Unless you have already read it before, that is.
+
+<<nobr>>
+
+<<set _personalities to ["dominant","submissive","carefull","carefree","shy","confident"]>>
+
+<table id="store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+	<th>progress</th>
+	<th>Skill</th>
+	<th></th>
+  </tr>
+<<for _i to 0; _i < $books.length; _i ++>>
+		<<capture _i>>
+		
+		<<if  $books[_i].bought is true>>
+		<<set _progress to Math.round($books[_i].progress / $books[_i].time * 100)>> 
+		<tr>
+    		<td><<print $books[_i].name>></td>
+    		<td><<print $books[_i].description>></td>
+	    	<td><<if _progress <= 100>><<print _progress>>%<<else>>Finished<</if>></td>
+			<td><<live $books[_i].skill>></td>
+			<td><<if $motivationPercentage >= $exhaustionPercentage>><<if _progress < 100>>
+			
+
+			<<if $books[_i].skill != "">>	
+			<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + $skillExhaustionCost < 100>>
+			<<gameLink "read" "bookCase" time:60 exhaustion:$skillExhaustionCost motivation:10>>
+		
+			<<set $books[_i].progress += 1>>
+			
+			<<if $books[_i].progress >= $books[_i].time>>
+			
+			<<if _personalities.includes($books[_i].skill)>>
+				<<personalityIncrease $books[_i].skill 1>>
+			<<script>>
+			  if (Dialog.isOpen() == false) {
+			  var dialog = Dialog.setup("Book finished");
+			  new Wikifier(dialog, "The book was actually quite interesting, and you got the idea it taught you to be a bit more " + State.variables.books[State.temporary.i].skill + ". You might read it again, though it will take a bit longer before you get anything out of it again.");
+			  Dialog.open();
+			  }
+			<</script>>
+			<<set $books[_i].progress to 0>>
+			<<set $books[_i].time *= 1.5>>
+			
+			<<elseif $books[_i].skill != "">>
+				<<skillIncrease	$books[_i].skill 25>>			
+				<<set $books[_i].progress to 0>>
+				<<set $books[_i].time *= 1.25>>
+			<<script>>
+			  if (Dialog.isOpen() == false) {
+			  var dialog = Dialog.setup("Book finished");
+			  new Wikifier(dialog, "It was a fun read! And even better than that, you learned something about " + State.variables.books[State.temporary.i].skill);
+			  Dialog.open();			
+			  }
+			<</script>>
+			<<else>>
+			<<script>>
+			  if (Dialog.isOpen() == false) {
+			  var dialog = Dialog.setup("Book finished");
+			  new Wikifier(dialog, "It was a decent read! And though you didn't learn anything, it was just pleasant to spend some time reading it again.");
+			  Dialog.open();
+			  }
+			<</script>>
+			<</if>>
+	
+			<</if>>
+			<<update>>
+			<</gameLink>>	
+			<<else>>
+			You just can't find the motivation to improve a skill.
+			<</if>>
+			<<else>>
+			<<gameLink "read" "bookCase" time:60 exhaustion:0 motivation:20>>
+		
+			<<set $books[_i].progress += 1>>
+			
+			<<if $books[_i].progress >= $books[_i].time>>
+			
+			<<if _personalities.includes($books[_i].skill)>>
+				<<personalityIncrease $books[_i].skill 1>>
+			<<script>>
+			  if (Dialog.isOpen() == false) {
+			  var dialog = Dialog.setup("Book finished");
+			  new Wikifier(dialog, "The book was actually quite interesting, and you got the idea it taught you to be a bit more " + State.variables.books[State.temporary.i].skill + ". You might read it again, though it will take a bit longer before you get anything out of it again.");
+			  Dialog.open();
+			  }
+			<</script>>
+			<<set $books[_i].progress to 0>>
+			<<set $books[_i].time *= 1.5>>
+			
+			<<elseif $books[_i].skill != "">>
+				<<skillIncrease	$books[_i].skill 25>>			
+				<<set $books[_i].progress to 0>>
+				<<set $books[_i].time *= 1.25>>
+			<<script>>
+			  if (Dialog.isOpen() == false) {
+			  var dialog = Dialog.setup("Book finished");
+			  new Wikifier(dialog, "It was a fun read! And even better than that, you learned something about " + State.variables.books[State.temporary.i].skill);
+			  Dialog.open();			
+			  }
+			<</script>>
+			<<else>>
+			<<script>>
+			  if (Dialog.isOpen() == false) {
+			  var dialog = Dialog.setup("Book finished");
+			  new Wikifier(dialog, "It was a decent read! And though you didn't learn anything, it was just good to spend some time reading it again.");
+			  Dialog.open();
+			  }
+			<</script>>
+			<</if>>
+	
+			<</if>>
+			<<update>>
+			<</gameLink>>	
+			<</if>>
+			
+			<</if>><<else>>You can't bring yourself to read.<</if>></td>
+  		</tr>
+		<</if>>
+		<</capture>>
+<</for>>
+</table>
+<</nobr>>
+
+<<link "Go back" "Home">><</link>>
+
+

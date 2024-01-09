@@ -1,0 +1,37 @@
+:: instantBimboJuice [noReturn] {"position":"650,1500","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<set _message to "The thick liquid pours down your throat, tasting sweet, chewy and tasty. It's intoxicating, though the bubblegum flavor is incredibly intense.">>
+<<set $motivation += 10>>
+<<addBreastsSlow setup.balance.breastAllowancePerDay>>
+
+<<if _rand >= 1>>
+<<set _message += " A heat washes over your body, traveling down your stomach into your legs. Some of it rises to your chest again, making sweat break out over your entire body as you feel amazing. The heat lingers in your chest and hips, almost like they are pushing outwards.">>
+<<set $motivation += 10>>
+<<set $hips += 1>>
+<<set $breasts += setup.balance.breastAllowancePerDay>>
+<<addFatSlow 3>>
+<</if>>
+
+<<if _rand >= 2>>
+<<set _message += " The taste remains on your lips for a long time, though it's rather pleasant and smooth. They almost feel softer and... fuller? ... after you drank it.">>
+
+<<set $lips += 1>>
+<<set $breasts += setup.balance.breastAllowancePerDay>>
+<<set $lactationUnlockedPoints += 1>>
+<<addFatSlow 3>>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("END 001A booster");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

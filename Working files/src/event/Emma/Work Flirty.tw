@@ -1,0 +1,17 @@
+:: Work Flirty {"position":"450,3825","size":"100,100"}
+<<set $emmaDateFlirty += 1>>
+
+<<Dialogue "Emma" "Emma">> "Well, if you work hard like I did, I'm sure you'll make your way up the corporate ladder."<</Dialogue>>
+<<Dialogue "player" "You">> "Come on, surely you've exchanged a couple of favors in your career. I'm sure there’s something I can do for you."<</Dialogue>>
+<<if $muscle >= 50 || $breasts >= 50>>You give your chest an extra little thrust forward as you finish the sentence.<</if>> Emma fights to maintain a serious demeanor, even as her blushing cheeks betray her.
+
+<<Dialogue "Emma" "Emma">> "I hope you're not implying what I think you're implying."<</Dialogue>>
+<<Dialogue "player" "You">> "Well, you got us most of the way there. ‘Oh, <<print $playerFirstName>>, I'm going to need you to stay late today. Alone, with me, in a dark office. I need you, for something only you can help me with.'"<</Dialogue>>
+She stays silent, staring you down across the table as she takes a very long sip of water.
+
+
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

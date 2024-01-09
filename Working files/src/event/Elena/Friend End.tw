@@ -1,0 +1,36 @@
+:: Friend End {"position":"1575,3125","size":"100,100"}
+<<Dialogue "player" "You">>
+“You’ve been nothing but great to me so far, and I want to be sure I return the favor. I don’t know how many friends you have now, but I count you as one of my closest friends. So no matter what, I’m helping you through this whole thing, one way or another.”<</Dialogue>>
+
+Elena pauses for a moment, staring at your face. She seems almost surprised. But soon that gives way to a smile and a quiet sniffle.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Thank you <<print $playerFirstName>>. I… I do not have many people I usually count on. This… means more than I can express in words.”<</Dialogue>>
+
+Suddenly, Elena wraps her arms around you in a tight, almost backbreaking hug, her face buried in your shoulder.
+
+<<Dialogue "player" "You">>
+“Grk… glad to help!”<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Sorry! Sorry. It… It really does mean a lot.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“And I meant it. I’m by your side, a hundred percent.”<</Dialogue>>
+
+You both stand there, embracing each other for what feels like the briefest eternity. Eventually, Elena stands back up to her full height and forces herself to let you go. She opens her mouth to speak, but is cut off by a chime from her phone.
+
+<<Dialogue "ElenaHappy" "Elena">>
+“//Porca miseria//! It’s late already. I’m so sorry, I lost track of time. I need to go.”<</Dialogue>>
+
+<<Dialogue "player" "You">>
+“Ah, crap! I’m sorry, but I’ll see you at the gym, right?”<</Dialogue>>
+
+<<Dialogue "ElenaHappy" "Elena">>
+“Of course! Goodbye, and thank you!”<</Dialogue>>
+
+Before you can say anything more, Elena is grabbing her things and rushing out the door. Perhaps it was the right call to stay friends. After all, you have a good feeling you’re going to need each other.
+
+<<link "Go home" "Home">><<addMinutes 180>><</link>>
+
+

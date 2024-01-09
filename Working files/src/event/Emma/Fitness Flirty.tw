@@ -1,0 +1,17 @@
+:: Fitness Flirty {"position":"750,3825","size":"100,100"}
+<<set $emmaDateFlirty += 1>>
+Emma blushes, though she does an admirable job of maintaining her poker face nonetheless.
+
+<<Dialogue "Emma" "Emma">> "I'm not going to dignify that with a response. But I will admit that it is a rare sentiment. And rare is an understatement at that."<</Dialogue>>
+<<Dialogue "player" "You">> "That's a pity, really. Like I said, you clearly put a lot of work into that body, and I'm sure it's a true work of art! Strong, shapely, and sexy. You deserve to flaunt it."<</Dialogue>>
+Emma’s face remains reddened from your compliments. Her body is still rigid and stoic, but you can’t help but wonder if she flaring out her shoulders purposefully? Is she flirting back?
+
+<<Dialogue "player" "You">> "I've got to hand it to you. There's something amazing about a strong woman who's also a strong woman. I mean, like, a confident, driven women, who's also literally -"<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "Yes, <<print $playerFirstName>>, I follow."<</Dialogue>>
+You notice a hint of a smirk on her lips. She slumps the tiniest bit in her posture as she seems to relax somewhat. Score!
+
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

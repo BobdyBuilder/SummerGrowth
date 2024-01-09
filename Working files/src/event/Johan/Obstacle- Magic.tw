@@ -1,0 +1,86 @@
+:: Obstacle- Magic {"position":"450,2575","size":"100,100"}
+<<if $dndCharacter.class is "cleric" or $dndCharacter.class is "paladin">>Johan pauses for a moment. His face scrunches up as if he's thinking hard.
+
+<<Dialogue "Johan" "Johan">>"While, yes, you have magic at your fingertips, I'm struggling to think of a spell that you have access to that would help..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Well, I'm a sort of priest, right? Can I, like... pray to my god for help?"<</Dialogue>>
+
+You see a smile on Johan's face.
+
+<<Dialogue "Johan" "Johan">>"I like the way you think. Roll your d20, that 20-sided die there, and let's see what happens."<</Dialogue>>
+
+You fumble briefly through the small pile of dice in front of you, before Johan helpfully points out the roundest of the bunch. You give it a roll across the table. It comes to a stop revealing a 10.
+
+<<Dialogue "player" "You">>"Is that good?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"It's... exactly the middle of the road. Let's say you stop and make a quick prayer to your deity. As you speak, you begin to believe you feel their presence with you, and your confidence rises. Do you still want to go through with this?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"...Yeah. Let's do it."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Okay! With your renewed vigor, you brace yourself and begin to charge towards the ravine. Slowly, slowly you pick up speed, then take a deep breath and leap! You're now sailing through the air, only the strength of your faith to save you! Give me another d20 roll!"<</Dialogue>>
+
+You grab the same die and give it another roll, feeling a little tense as it clatters across the table. It slows to a stop on 13.
+
+<<Dialogue "Johan" "Johan">>You feel as though you're flying through the air, the other end of the ravine growing closer! You reach the peak of your jump. And you start to fall... and fall... and suddenly you're eye level with the edge of the ravine. You're falling faster, and faster, the other side now far out of reach! But then, you hit the side of the ravine, and slam to a stop. On reflex, you grab the first thing your fingers touch. You find yourself holding two rocks embedded in the canyon wall. You couldn't quite clear the ravine. But... you've caught yourself, and you're safe."<</Dialogue>>
+
+You realize that you've been holding your breath for a moment now. You breathe again, looking at Johan, who is still smiling happily.
+
+<<Dialogue "player" "You">>"So, I’m… uh… safe? That means I can climb up the wall?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"With some effort, yes. You slowly, carefully, start climbing your way up the canyon wall, and after a few minutes of work, you're at the ledge.
+That was a pretty good idea, by the way. Maybe not the choice I would have made, but full points for the lateral thinking."<</Dialogue>>
+<<elseif $dndCharacter.class is "barbarian" or $dndCharacter.class is "rogue">>There's a moment of silence. Johan stares back at you blankly from across the table.
+
+<<Dialogue "Johan" "Johan">>"Sorry to be blunt, but... how exactly did you get magic from the description I supplied for your character?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Um... Honestly, I just kinda thought... you know, with the setting and all... I just kinda figured I'd check? Maybe this is one of the worlds where if I wish hard enough, I can fly."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"You know what? Full credit for guts. If you're sure you want to go through with it, grab that 20-sided die, your d20, and give it a roll."<</Dialogue>>
+
+You fumble through your pile of dice for a moment, not totally sure which one Johan means. Fortunately, he helpfully sticks a hand out and points toward the roundest die of the bunch. Gently, you give it a toss across the table. It clatters and slows to a stop showing a 20! Both of you stop for a moment, grinning in disbelief.
+
+<<Dialogue "player" "You">>"Woo! That is a good thing, right?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"It's the best result you could have gotten! I'd say that's an auspicious sign! But was it good enough to clear the gap?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Wait, what do you mean? If I got the best result, then..."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Not guaranteed success, though! If you had tried to jump to the moon, I wouldn't have just let you succeed because you got lucky. But no takebacks now! The die has been cast, quite literally!
+Filled with confidence that your intense wishing has paid off, you charge toward the canyon, all but certain that you will magically make your way to the other side! You break into a full sprint, picking up speed as you near the ledge, then leap!"<</Dialogue>>
+
+Johan pauses dramatically and you realize you're holding your breath. You break into a smile and give him a nudge. He smiles back and flourishes.
+
+<<Dialogue "Johan" "Johan">>"And... your feet find ground on the other side! It's not exactly a graceful landing. You stumble forward a few paces, flailing your arms as you do. But you're alive, and in one piece!"<</Dialogue>>
+
+<<Dialogue "player" "You">>"Wow, that's a relief! It wouldn't have been very much of a story if I ended up just diving into a pit and dying right off the bat."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"That's the beautiful part of it, though! A skilled GM could make a story out of that anyway. But there's no need to worry about that now. Your first natural 20 got you across the canyon, and you've got a magical artifact to claim! Will you be heading off?"<</Dialogue>>
+<<elseif $dndCharacter.class is "wizard" or $dndCharacter.class is "warlock">><<set $DateSuccess += 1>>
+<<Dialogue "Johan" "Johan">>"You sure do! Forgive me for not whipping up a spell list for you on the spot, but you do have access to a spell that's just called Fly! It would require using up one of your higher-level spell slots, but it would be a guaranteed way across the chasm."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Sounds like a good deal! What am I supposed to do?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"This one's easy. All you have to do is say that you're casting the spell. And then, go ahead and describe what it looks like."<</Dialogue>>
+
+Johan leans forward expectantly.
+
+<<Dialogue "player" "You">>"Eh... What do you mean? Aren't you supposed to do that?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"I describe the world around you, sure. But your character is your own, you're in control of her! And I believe a good way of fleshing out a magic-user and making them your own is to describe what their magic looks like! Go ahead, don't be shy. Picture the moment in your head. You're casting a magic spell to fly over a canyon. Are you flying like Superman? Floating in a magic bubble? Just kind of walking on the air?"<</Dialogue>>
+
+You pause for a moment. You hadn't exactly had time to put thought into this, but Johan looks like he's hanging onto your every word. Words you have yet to utter. You would ask for some help with this, but... the only time you've seen Johan this excited is when he's in the middle of one of his tangents.  You can't let him down like that.
+
+<<Dialogue "player" "You">>"Um... I guess, I would lift my arms into the air, out to my side. Like, palms up. And all my clothes start flowing around me as if the wind is picking up. I just... kind of shut my eyes and stand still and this invisible force just kind of lifts me up into the air. Like... I'm still as a statue but floating softly and gently over the canyon."<</Dialogue>>
+
+There's a quiet moment as you finish your description. Johan is just continuing to stare at you with a smile on his face.
+
+<<Dialogue "player" "You">>"Uh... did I do this right?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"That was great, actually! I really like the mental image you got going there. Are you sure you've never done anything like this before?"<</Dialogue>>
+
+<<Dialogue "player" "You">>"No, never. Aside from, like, high school writing courses."<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>"Well, then it sounds like you have a knack for this stuff! Shall we move on and see what else you can do?"<</Dialogue>><</if>>
+[[Journey onward!->Goblin Encounter]]
+
+

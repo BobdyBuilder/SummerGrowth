@@ -1,0 +1,13 @@
+:: addQuestProgress [widget nobr] {"position":"2675,50","size":"100,100"}
+<<widget addQuestProgress>>
+
+<<for _i to 0; _i < $quests.length; _i ++>>
+<<capture _i>>
+	<<if $quests[_i].name is $args[0]>>
+		<<set $quests[_i].progress += 1>>
+	<</if>>
+<</capture>>
+<</for>>
+<</widget>>
+
+

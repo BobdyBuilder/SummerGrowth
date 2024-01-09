@@ -1,0 +1,33 @@
+:: sleepUpdateDick {"position":"500,0","size":"100,100"}
+/* dick growth Logic: */
+<<if $dickActive is false>>
+	<<if $dickStore > 3>>
+		<<set $dickDialog to true>>
+	<</if>>
+<<else>>
+	<<set $dick += $dickStore>>
+	
+	<<if $dickStore > 0.2 && $postSleepDickDialog1 is false>>
+	<<addTrigger "postSleepDickDialog1" false false>>
+	<<set $postSleepDickDialog1 to true>>
+<<elseif $dickStore > 0.2 && $postSleepDickDialog1 is true && $postSleepDickDialog2 is false>>
+	<<addTrigger "postSleepDickDialog2" false false>>
+	<<set $postSleepDickDialog2 to true>>
+<<elseif $dickStore > 0.2 && $postSleepDickDialog2 is true && $postSleepDickDialog3 is false>>
+	<<addTrigger "postSleepDickDialog3" false false>>
+	<<set $postSleepDickDialog3 to true>>
+<<elseif $dickStore > 0.2 && $postSleepDickDialog3 is true && $postSleepDickDialog4 is false>>
+	<<addTrigger "postSleepDickDialog4" false false>>
+	<<set $postSleepDickDialog4 to true>>
+<<elseif $dickStore > 0.2 && $postSleepDickDialog4 is true && $postSleepDickDialog5 is false>>
+	<<addTrigger "postSleepDickDialog5" false false>>
+	<<set $postSleepDickDialog5 to true>>
+<<elseif $dickStore > 1 && $postSleepDickDialog5 is true>>
+	<<addTrigger "postSleepDickRepeat" true false>>
+<</if>>
+	
+	
+	<<set $dickStore *= 0.5>>
+<</if>>
+
+

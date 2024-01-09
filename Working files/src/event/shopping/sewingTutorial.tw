@@ -1,0 +1,30 @@
+:: sewingTutorial {"position":"2700,1925","size":"100,100"}
+<<Dialogue "player" "You">>"I got what you asked. I think."<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"Good. Let's begin."<</Dialogue>>
+
+Ever a man of few words, he simply turns around and takes the fabric from your arms. Nodding at you to stand closer, he quickly gets to work. His voice is calm and oddly soothing, and surprisingly patient. You can see why he sits here, working to intently: there is an odd, calming zen quality to it. A practical teacher, he sits you down with the old sewing machine, and quickly lets you get to work, making some basic procedures. Before you even realize it, an hour has passed. Simon gets up, looking at your work.
+
+<<Dialogue "Simon" "Simon">>"Shoddy work, but it will do for now."<</Dialogue>>
+
+<<Dialogue "player" "You">>"Um... okay?"<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"You just started. Shoddy work is enough for now. That wasn't an insult."<</Dialogue>>
+
+Well, he's not once to mince words. His directness doesn't feel like derision. In fact, it seems closer to a compliment, if anything! But with this new skill, managing your growing need for clothing will become a LOT easier. You can now adjust clothing, and who knows! If you keep improving, you might just be able to make your own clothes soon enough.
+
+<<Dialogue "player" "You">>"Seriously, how can I thank you for this?"<</Dialogue>>
+
+<<Dialogue "Simon" "Simon">>"No need. You needed some help, and I like helping people. And besides, I've been wanting to get rid of that machine for a while now. Just takes up space. And if you ever need lessons, you know where to find me."<</Dialogue>>
+
+<<link "Go back" "Tailor">>
+	<<set $quests[$sewingTutotial].completed to true>>
+	<<set $quests[$sewingTutotial].progress to 1>>
+	
+	
+	<<set $carefreeCarefull += 1>>
+	<<include $quests[$sewingTutotial].finishedDialogue>>
+	<<addMinutes 60>>
+<</link>>
+
+

@@ -1,0 +1,18 @@
+:: KrisCasualHookupGoesWrong-imOut [nobr] {"position":"0,0","size":"100,100"}
+You look at Kris one more time. Yeah.<br><br>
+<<Dialogue "player" "You">>"Kris… I’m sorry, the mood is just gone. I’m going home."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"No, wait, <<print $playerFirstName>>,you can’t!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I can, and I will."<</Dialogue>><br><br>
+You get up and collect your clothes as you start getting dressed once again.<br><br>
+<<Dialogue "player" "You">>"Make sure you clean your foot well, I don’t want that to get infected - trust me, it starts like a silly injury, and the next thing you know, you end up in the hospital, having to walk with crutches for a month."<</Dialogue>><br><br>
+You tell her with a hopeful smile. You really don’t want to disappoint her, but you know your heart wouldn’t be in it if you stayed - and while this is just a casual hookup… it still feels somewhat special, and not something you want to rush - or worse yet, ruin.<br><br>
+Kris tries to apologize as she begs:<br><br>
+<<Dialogue "Kris" "Kris">>"Please, don’t go!"<</Dialogue>><br><br>
+Her tone is unexpectedly melancholic, replacing the usual desperation. You give her a firm hug and try to calm her down a bit:<br><br>
+<<Dialogue "player" "You">>"Really, don’t worry. I’d rather save this for another time when it will be mind-blowing, instead of trying to force it and have vanilla sex. It will be worth it, you’ll see."<</Dialogue>><br><br>
+Kris pouts and sighs, crossing her arms under her pert breasts.<br><br>
+<<Dialogue "player" "You">>"Now go clean up. I’ll be back before you know it."<</Dialogue>><br><br>
+And with that, you leave. Somehow, you feel some relief, knowing that forcing things would probably have led to a much sourer outcome.
+<br><br>
+<<link "Go home" "Home">><<addMinutes 60>><<set $flag.KrisCasualHookupGoesWrongEnding to 'A'>><</link>>
+

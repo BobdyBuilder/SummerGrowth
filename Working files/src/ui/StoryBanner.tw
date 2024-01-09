@@ -1,0 +1,7 @@
+:: StoryBanner [nobr] {"position":"300,800","size":"100,100"}
+<div id= "logo"> 
+                <p id="my-image"><img id="logoImage" src="https://i.imgur.com/Gv7Ettv.png"> 
+            </p> 
+        </div>
+
+

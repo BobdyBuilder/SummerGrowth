@@ -1,0 +1,32 @@
+:: NatOnLocalTv [nobr] {"position":"0,0","size":"100,100"}
+You get a call from Nat's agent - the TV station is running a piece on the bodybuilding competitors, and they asked some participants to come over, including Nat. You've never been to a TV station before, and it seems like it could be fun - so you dress up and leave to check on your friend.<br><br>
+The town's TV station isn't particularly big, but you are still awed with the cleanliness of the complex, housed within an 8-story building downtown. Nat's agent left you with the name of the show's producer, and you make your way to the opulent reception desk.<br><br>
+<<if $muscle >=50>>The secretary takes a look at your rather difficult to disguise build and immediately tells you that they are taping the bodybuilding segment on the 4th floor studio. 
+<<else>>
+You explain to the secretary that you came for the taping of the bodybuilding segment, and that you are coming to watch Nat's participation. 
+<</if>> 
+After getting your name, she gives you a keycard and a printed nametag, along with explanations on how to get to the studio. This is weirdly exciting, you think as you pass by several people you see on TV as you make your way to the studio.<br><br>
+Once you arrive at the 4th floor, a small woman with thick glasses and a clipboard rushes to you, giving a weird air of hurry that apparently is just part of live television routine. 
+<<if $muscle >=50>>
+Without asking any questions, she drags you to make-up, before you get a chance to explain you are not there to participate. In a flash, they do your hair and make-up while you try, quite unsuccessfully, to resolve this confusion. They also change your wardrobe, giving you a bikini and another set of clothes to put over it - despite all your objections. You are then dragged to the rather tiny but exceptionally well furnished green room.
+<<else>>
+You explain that you came to watch the taping of one of the participants, Nat, and were told to seek the producer. She quips some snarky lines that you can barely decipher before dragging you to the rather tiny but exceptionally well furnished green room.
+<</if>>
+<br><br>
+There, you see Nat and the agent, among a few other bodybuilders. You assume from the selection that they must have called some of the biggest ones that are signed up on the documentary.<br><br>
+<<Dialogue "player" "You">>"Hey, Nat! This television business is CUH-RAZY! I bet you are used to it, though, eh?"<</Dialogue>><br><br>
+<<if $flag.NatWristInjuryRoute === 'comp'>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh. Who called you here?"<</Dialogue>><br><br>
+<<RivalI>> asks, quite coldly. The agent immediately picks up on that, and very awkwardly explains that she figured a friendly face would be nice. <<RivalI>> scoffs at the word “friendly”, and turns around on <<rivalMy>> seat, arms crossed. I guess <<RivalI>>'s still mad at what happened at the gym the other day…<br><br>
+You decide to give <<rivalMe>> some space and go check the buffet - wow! They don't skimp on the food! There's a large table with all kinds of food and drink, and you try to decide which of the many options calls your name.<br><br>
+<<else>>
+<<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, nice to see you! How did you find out about this?"<</Dialogue>><br><br>
+Nat's agent snickers, and the three of you laugh. Your friend apologizes for not giving you more of a heads-up, but apparently the whole thing was quite sudden. You explain that you could get used to this VIP treatment, and Nat suggests you go check out the buffet, which you do. wow! They don't skimp on the food! There's a large table with all kinds of food and drink, and you try to decide which of the many options calls your name.<br><br>
+<</if>>
+As you peruse the many foodstuffs, the woman with the clipboard runs in, and starts rounding up all participants… 
+<<if $muscle >=40>>
+    <<link "You are escorted onstage" "NatOnLocalTv-onStage">><</link>>
+<<else>>
+    <<link "You are escorted audience" "NatOnLocalTv-onStage">><</link>>
+<</if>>
+

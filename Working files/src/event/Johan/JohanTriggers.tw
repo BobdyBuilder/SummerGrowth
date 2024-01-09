@@ -1,0 +1,6 @@
+:: JohanTriggers [nobr] {"position":"1300,2125","size":"100,100"}
+<<set $JohanTriggers to []>>
+
+<<set $JohanUsedTriggers to ["blocked"]>>
+
+

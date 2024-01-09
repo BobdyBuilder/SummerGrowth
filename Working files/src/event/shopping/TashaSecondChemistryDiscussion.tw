@@ -1,0 +1,48 @@
+:: TashaSecondChemistryDiscussion [] {"position":"2500,1625","size":"100,100"}
+
+You rush back to Tasha, questions about the process still in your mind. You can't find her behind the counter, or in the store... you call out, needing the anwsers.
+
+<<Dialogue "player" "You">>"Tasha? You there? Hello?"<</Dialogue>>
+
+You turn a corner and almost bump into the diminutive shopkeeper, who seems to have materialized like a cartoon character. She smiles brightly at you, almost mischievously.
+
+<<Dialogue "Tasha" "Tasha">>"Hello, dearie. Looking for something?"<</Dialogue>>
+
+You almost can’t catch your breath as you start retelling your little chemistry bizarre journey, retracing every step of how you broke down the liquid into different-colored components (but omitting the part where you drank the product of your labor, you don’t want to worry her with your crazy exploits).
+
+<<Dialogue "player" "You">>"And yet, I got this crazy-looking liquid, but it seemed, I don’t know, inert?"<</Dialogue>>
+
+A small white lie, right?
+
+Tasha, in an unusual turn from her usual cheery demeanor, raises an eyebrow and looks you in the eyes. Does she know? Nah, there’s no way.
+
+<<Dialogue "Tasha" "Tasha">>"Well, you see, chemistry is a really elegant science, my dear. Let’s take this from the top, shall we?"<</Dialogue>>
+
+She walks down to another aisle, and you follow her tiny footsteps, confused. She grabs a rolled up poster, and hands it to you, pointing commandingly to an empty wall surface. It takes a second for it dawn on you that she wants you to put it up, which you do. You see a familiar periodic table of elements. She grabs a nearby pool cue, and uses it to point at the top two elements on opposite sides of the chart.
+
+<<Dialogue "Tasha" "Tasha">>"These two, hydrogen and helium, are two different elements. Hydrogen has one proton in its composition, and helium has two. Two of the same thing, yet they are totally different elements. And going even further, hydrogen gas is composed of two hydrogen atoms, so it’s also two protons."<</Dialogue>>
+
+Your eyes widen in confusion. Where is she going with this?
+
+<<Dialogue "Tasha" "Tasha">>"That is to say, in chemistry, the sum of the products is so much more than a simple addition of the parts. You may have the same components, but their interactions can take many different forms, and act completely differently."<</Dialogue>>
+
+Your head starts slowly tilting, and hurting a bit. But as confusion settles in, Tasha laughs loudly, and sighs.
+
+<<Dialogue "Tasha" "Tasha">>"The real magic comes in from the interaction between things. All these particles are like planets orbiting over the sun, influenced by the forces that bind them together like gravity and electromagnetism. Hydrogen gas is a simple molecule, but organic molecules can take very large sizes, like a huge honeycomb of connections - and these connections allow them to react with other molecules."<</Dialogue>>
+
+Tasha looks at you, and you can only imagine your confusion is quite clear.
+
+<<Dialogue "Tasha" "Tasha">>"I mean, you had chemistry classes in high school, right? You learned how you can mix an acid and a base, in order to get water and a salt? Certain types of chemicals won’t react with each other at all, but some will, and create completely different substances."<</Dialogue>>
+
+You are silent for a second, trying to digest all of this, when it hits you like a truck!
+
+<<Dialogue "player" "You">>"Wait, so, what you are saying is that chemical components need to react with each other to have an effect? So, maybe mixing things up will cause them to be MORE reactive?!?"<</Dialogue>>
+
+<<Dialogue "Tasha" "Tasha">>"Uh, no, that is not what I am saying at all? What I mean is..."<</Dialogue>>
+
+But before she can complete that thought, you are already out the door, thinking about the possibilities. Duh, how could you not think of that before? You need to mix and match the components you broke down before they actually do something!
+
+You are going to need to try doing chemistry again. Your heart beats faster in anticipation, knowing you are finally getting closer to getting results.
+
+<<link "Continue" "Lab">><<set $fullBrewingUnlocked to true>><<addMinutes 60>><</link>>
+

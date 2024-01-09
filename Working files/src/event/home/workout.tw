@@ -1,0 +1,165 @@
+:: workout [noReturn nobr] {"position":"2000,800","size":"100,100"}
+<<set _workoutSkill to 0>>
+<<for _i to 0; _i < $skills.length; _i ++>>
+	<<capture _i>>
+	  <<if $skills[_i].name is "Working out">>
+	  <<set _workoutSkill to $skills[_i].level>>
+	  <<set $skills[_i].experience += 10>>
+	  <</if>>
+	<</capture>>
+ <</for>>
+ 
+ <<set _adj to [
+ 	"hesitation",
+	"unease",
+	"confidence",
+	"practiced ease",
+	"no hesitation",
+	"utter confidence"
+ ]>>
+ 
+ <<set _workoutPart to $workoutCycle.pop()>>
+ <<if $workoutCycle.length is 0>>
+ <<set $workoutCycle to [
+	"legs",
+	"core",
+	"arms",
+	"pecs",
+	"back"
+]>>
+ <</if>>
+ 
+ <<set _workoutNeed to Math.round($muscle / 20)>>
+ 
+ 
+ <<if $workout is "gym">>
+ <<set _workoutGiven to _workoutSkill + 3>>
+ 
+ With some <<print _adj[_workoutSkill]>> you walk up to the machines. 
+ 
+ <<if $height > 200>> It's pretty clear that they're not made for people your size. Getting on one would just be awkward, so you'll just have to stick to the free weights!  
+ <</if>>
+
+<<elseif $workout is "home">>
+<<if $furniture.includes("starter weightset")>> 
+	 <<set _workoutGiven to _workoutSkill + 1>>
+<</if>>
+<<if $furniture.includes("decent weight set")>> 
+	<<set _workoutGiven to _workoutSkill + 2>>
+<</if>>
+<<if $furniture.includes("excellent weight set")>> 
+	<<set _workoutGiven to _workoutSkill + 3>>
+<</if>>
+ <</if>>
+ 
+ With <<print _adj[_workoutSkill]>> you grab what you need, trying to remember how much you lifted last time. 
+ 
+ <<if _workoutNeed > _workoutGiven>>
+ The weights here feel rather... light. You'll either need to improve your routine somehow, or find some heavier weights if you still want to get a good workout.
+ <<elseif _workoutNeed is _workoutGiven>>
+ The weights here are starting to feel a bit light. You can still get a decent workout, but if you want to keep it that way, you should either look for some heavier weights or get better at working out.
+ <</if>>
+ 
+ <br><br>
+
+<<if _workoutSkill is 0>>
+It takes forever to get into it, and by the time you are done, you're still not sure whether you actually did something... right. You're feeling your muscles, but was it enough? Perhaps you should see if you can find some more information about working out. 
+
+<<elseif _workoutSkill is 1>>
+Since you know at least the basics, you can get started with some confidence. It takes you a bit to get into the zone, but when you're there, it's a decent workout!
+
+<<elseif _workoutSkill is 2>>
+The time you invested really pays off, as you can now confidently get to your workout, assured you're making good progress. 
+
+<<elseif _workoutSkill is 3>>
+You know precisely what you are doing, and it's easy for you to get started. Lifting weights almost feels like second nature now, and you're sure you'll be making quick progress!
+
+<<else>>
+You work out like a pro, knowing each workout with such precision that personal trainers might ask you for advice! It's no surprise you get started quickly, knowing precisely what to do.
+
+<</if>>
+
+
+<<if _workoutPart is "legs">>
+  <<if $muscle > 80>>
+  	Titanic legs tense before you even begin to lift, each and every fiber ready. Your muscles almost feal eager and anxious, knowing that you'll push them to even more insane sizes. Getting under the bar to squat, you contract them, the <<getMeasurement "thigh" true>> thighs exploding in size. Pushing the bar up, you feel the weight hit your shoulder and every muscle in your body tenses up, from your <<getMeasurement "calve" true>> calves to your shoulders, all focused to drive that weight UP. You have the feeling you are applying so much force into the ground that it wouldn't be surprising if you left footprints on the floor. With a grunt, you get the weight up. And then down you go, your humongous ass tensing. You complete rep after rep, before finally switching to deadlifts, raising the weight with such intensity that the entire building shakes. You don't even care if the neighbors might be bothered, as you feel the urge to find your limits.
+  <<elseif $muscle > 60>>
+  	With eager steps, you walk to the weights, loading up the bar and getting ready for squats. As you get under it, you feel the weight on your shoulders, assured that you can do it. Bracing yourself, you revel on your <<getMeasurement "thigh" true>> thighs tensing up, your <<getMeasurement "calve" true>> calves expanding outwards and contracting just to keep your body steady. Pushing up, you grit your teeth, the bar slowly rising and falling to the rhythm of your workout. With each rep, your muscles expand a bit more, push out a bit more, become that bit more defined. You can't stop. Won't stop. The workout reaches insane levels, the floor sometimes shaking from it. Squats, deadlifts, those are just the start. When you are finally done, you can barely walk, but you FEEL bigger!
+  <<elseif $muscle > 40>>
+  	Plating up the bar, you know you're in for a tough workout. Other people might complain about leg day, but you love it, finally able to prove just what you can do. Getting under the bar, you push up to derack it, and then lowering yourself. In instants, your ass feels like it's on fire. But you push through it, forcing yourself even if it takes every ounce of willpower within. Another rep. And another. Each one makes you feel more pumped, makes you feel stronger. When you're finally done working, out your legs just feel BIG, and they are at least <<getMeasurement "thigh" true>>!
+  <<elseif $muscle > 25>>
+  	With some hesitation, you plate up the leg press. That's A LOT of weight, but you're sure you can do it. You start, and before you know it, you are into the zone, repeating rep after rep, exercise after exercise. It takes some time before you feel a good pump going, but when it comes, it hits you like lightning! You marvel at your pumped muscles, admiring the work they enable!
+  <<else>>
+  	Though you try your hardest, the fact is that you just are not strong enough to lift a lot of weight. Nonetheless, you do what you can, dreaming of getting your body to become as big as possible. It's maybe not be much, but it's a start!
+  <</if>>
+<<elseif _workoutPart is "core">>
+  <<if $muscle > 80>>
+  	Laying down on the ground, you feel your back press against the cold floor below. You don't care. Your focus is somewhere else. As you tense the tectonic plates that form your abs, you swear you could almost hear the air around it implode, a shockwave coming from your stomach. You start doing simple crunches, though your mobility becomes compromised as your midsection simply bulges out too much with each new rep. You switch to doing planks, keeping your entire body rocksteady, despite the huge effort required to sustain that much mass. Sweat drips off of you onto the floor, but you just grit your teeth and push through. Soon enough, even your massive muscles become exhausted as the pain piles up - but you ignore it, powering through it.
+  <<elseif $muscle > 60>>
+  	Getting down on the floor, you start another grinding workout: crunches, planks, Russian twists... anything to obliterate your thick abs. It takes a good while to get started, but when you do, it's like a diesel engine in action, just a repetitive ritual of pure power and strength. Soon enough, they feel like they are growing like a spinach-fueled cartoon, their sizable mass defying all odds. By the time you're done, dripping with sweat, you have no doubts you have given your all.
+  <<elseif $muscle > 40>>
+  	Core workouts are never easy. The exercises look deceptively simple, but require concentration and unbounded willpower. Luckily, you easily manage to find that focus, completing a series of crunches, Russian twists and planks in various cycles to get the most of each. Soon enough, your entire core feels like it's on fire... and yet, you keep going, pushing that little bit more that ensures the workout goes to the next level.
+  <<elseif $muscle > 25>>
+  	Crunches, planks, Bulgarian splits... it all sounds simple, but over and over they kick your ass, or core, in this case. After a few minutes, the burn starts to get the best of you. And yet, you make sure to get all you can from this routine!
+  <<else>>
+  	Core. Freaking. Sucks. You can barely maintain form, and after just seconds it hurts more than you can handle, but you push through it and manage to get all you can, little as it may be.
+  <</if>>
+<<elseif _workoutPart is "arms">>
+  <<if $muscle > 80>>
+    Picking up the weight, your colossal arms tense up as veins are forced to the surface. Slowly, you start warming up, but your muscles are eager to grow more gigantic still, each rep forcing them to grow bigger, and bigger, and bigger, until your upper arms reach their astonishing <<getMeasurement "upperArm" true>> in size! Even your lower arms look humongous, appearing to be at least <<getMeasurement "lowerArm" true>>! Still, you push through every exercise you know: bicep curls, triceps extensions, switching from biceps to triceps to forearms, squeezing every little bit of mass you can out of this routine. By the time you are done, you finish with a monstrous flex, showing the world just how humongous you have become!
+  <<elseif $muscle > 60>>
+  	As you begin lifting, your arms quickly get an impressive pump, huge biceps tensing while every bulge in the triceps pushes out for bold contrast. Some veins come to the surface as a testament to your efforts; looking at them, you estimate your arms to be at least <<getMeasurement "upperArm" true>>! Heh, it's a good start, but you know you can still make them grow! With some extra curls, you try to coax a bit more mass out, gritting your teeth throughout the whole ordeal. Sweat pours from you in buckets, your arms screaming for rest. But you don't stop until you can't lift anymore, giving one mighty last flex to show the world who the boss is here!
+  <<elseif $muscle > 40>>
+  	When you begin lifting, you only need a small warm up before your arms are ready and you can truly get serious. Looking in the mirror, you see them swell up, pumped up from the workouts and just looking plain BIG. Hell, you've seen bodybuilders smaller than you! Mid-workout, you estimate your upper arms to be <<getMeasurement "upperArm" true>> while your forearms measure an impressive <<getMeasurement "lowerArm" true>>. But you know there is more to be had, and you refuse to give up until you get every last bit of effort in. By the time you are done, you can barely stand, your arms hanging by your side in complete exhaustion, but you have no doubts you just had the best session you could manage.
+  <<elseif $muscle > 25>>
+  	Grabbing the weights confidently, you just get going, and soon you feel a great pump coming. You don't know whether it's all the stuff that has happened recently or just the frustration powering your routine, but as soon as you start lifting, you know you are in the zone. Bicep curls, triceps extensions... you try your best, soon getting your arms to what you estimate to be <<getMeasurement "upperArm" true>>.
+  <<else>>
+  	Grabbing the weights, you are determined to do your best, little as it may be. You just don't have the muscles to do a respectable workout, your arms measuring a measly <<getMeasurement "upperArm" true>>. Still, you power through all of it, certain you'll get bigger soon enough!
+  <</if>>
+<<elseif _workoutPart is "back">>
+  <<if $muscle > 80>>
+  	Shoulders. Trapezius. Lumbar. You know them all, and you know you will feel them all soon enough, slowly starting the workout. Like an old steam train picking up speed, your pace starts slow but grows with inevitable certainty, each workout done picking up more intensity. Whether you're doing rows, shoulder raises or shrugs, there's undeniable intensity in your eyes and your every movement, and you refuse to stop before each and every muscle is pushed to utter exhaustion. The mountains on your back rise, the valleys deepen as a continent of muscles shift and reform with every rep. It sparks a thirst in your soul. You need more. More. MORE. You keep lifting, the building shaking from your movements. Only when all your muscles refuse to get more pumped you become satisfied, certain that this workout will grant you even more mass to your already titanic frame.
+  <<elseif $muscle > 60>>
+  	Working back and shoulders is always a challenge, given the proportionally smaller muscles there. Heh. Well, they are still huge in your case. It only takes a while before your back turns into a relief map of mountains and valleys, each more pronounced than the last. Shoulder raises, rows, shrugs, you do them all vying for that inevitable pump, delighting in witnessing as your outline becomes bigger and bigger before you. You drain every little bit of effort from the metal in your weights, irrigating them with your hard-earned sweat. You gave it your all, and you're sure this will just drive your body into becoming inevitably bigger and stronger.
+  <<elseif $muscle > 40>>
+  	The back and shoulders are difficult to train, but you won't take that as an excuse, and soon you forget all about it. It only takes a little while before they feel PUMPED and ready to go! Rows, extensions, shrugs, shoulder raises... you need no break, always eager to start the next one. Soon enough you find yourself tiring into exhaustion, and yet you sneak that extra rep at every chance. Soon enough, you find yourself collapsed on the floor, panting heavily, but smiling as you know you gave it all you got. And then some.
+  <<elseif $muscle > 25>>
+  	Back and shoulders time. You jump and twist them as you move your neck side to side,  loosening them up a bit before you start. You look forward to a good workout, maybe even a decent pump. Starting with shoulder raises, you find yourself incredibly focused. Before you know it, you feel it: a good pump coming. Rep after rep, exercise after exercise, you might be grinding your teeth and smiling, but deep inside you know it's just a matter of time before you grow even more.
+  <<else>>
+  	Uuuuurgh. Back and shoulders are the worst. You can barely get the weights up, and it just gets harder from there really fast. But you can get a decent workout going after a while. You're almost too weak to do even the most basic exercises. But you push through the pain, trying to get most out of it.
+  <</if>>
+<<elseif _workoutPart is "pecs">>
+  <<if $muscle > 80>>
+    Slowly, you lay down on your back, loving the groaning sound of the metal under you. It brings a smile to your face, knowing you're quickly outgrowing any workout surface available. With an iron grip you hold the bar, feeling the metal squeezed between your fingers, almost like it could give in to the pressure applied. As you start lifting, the huge tectonic plates you have for pecs shift, exploding outwards as if they know the herculean effort needed. The barbell goes up and down, once, twice, three times as your muscles swell up, each lift making them a bit more pumped. Feeling them grow only inspires you to work harder, veins pushing to the surface and sweat pouring out of your forehead. When you start your last set of reps, you can almost swear your muscles will explode, but you give it your best as you roar in defiance, the steel of the bar yielding to your unwavering will. As it rises, you feel unstoppable, each muscle in your body shivering with delight.
+  <<elseif $muscle > 60>>
+  	As you lay down you can feel the equipment bending. It lets you know just how gigantic you have become, hinting at how utterly pumped you are about to get. As you start lifting, your pecs swell up from the warm-up alone, like they are eager to explore their seemingly infinite potential. Pumping out reps, you get into the zone before you even realize it, your massive pecs towering with each movement. Rep after insane rep they keep at it, pressing weights that would make many a bodybuilder jealous. Gripping the weights harder and harder, you feel the mounting effort in your bones, but with gritted teeth you push through it all, your pecs rising more than they've ever done before. When you finally release the weight, you lay on the bench exhausted and panting, knowing you could not have expected more from yourself.
+  <<elseif $muscle > 40>>
+  	Laying down on the bench, you decidedly grab the bar, slowly lifting the huge weight. It feels good in your hand, really good. Slowly, the bar goes down, then up. Like the rhythmic beating of a drum, you lift slowly and steadily, each rep inflating your pecs like an imaginary pump. It doesn't take long before you're grinding out uncountable reps, vying to get every last bit of gain from the exercise. When you're finally done, you re-rack the bar, laying on the bench exhausted, but satisfied.
+  <<elseif $muscle > 25>>
+  	Grabbing the bar, you brace yourself for some serious bench pressing. Soon enough, you are off to the races. The weight you're lifting is not that impressive, but you're decided to do your best, giving it all you got. And so follows a long procession of reps. By the time you are done, you feel exhausted and happy, knowing you pushed yourself. 
+  <<else>>
+  	Grabbing the bar, you hope to get in the zone, but even with barely any weight loaded, it feels almost too heavy. You push yourself into completing a few reps before your chest is burning from the effort, forcing you to slow down. While you try your best, you just have to face it that it's simply not that much.
+  <</if>>
+<</if>>
+
+<<script>>
+    for (let i = 0; i < State.variables.outfit.bonuses().length; i++) {
+        console.log(State.variables.outfit.bonuses());
+        if(State.variables.outfit.bonuses()[i].name == setup.clothingBonuses.WorkoutWear.name){
+            State.temporary.workoutOutfitBonusDesc = true;
+            break;
+        }
+    }    
+<</script>>
+
+<<if _workoutOutfitBonusDesc>>
+<br><br>
+Wearing the right outfit certainly helps, as you feel these clothes really help you work out better!
+<</if>>
+
+<br><br>
+
+
+[[Return|$return]]
+
+

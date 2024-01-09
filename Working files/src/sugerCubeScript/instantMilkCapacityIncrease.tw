@@ -1,0 +1,23 @@
+:: instantMilkCapacityIncrease {"position":"850,1700","size":"100,100"}
+<<nobr>>
+
+<<set _rand to random(0,2)>>
+
+<<if $lactationUnlocked>>
+	<<set _message to " As you expected, this drink is not just sugary, it's almost sickeningly sweet. Even refined sugar isn't this sweet, but even though you almost gag while drinking it, the taste slowly grows on you. It travels down, feeling more pleasant as the flavor slowly softens, with even a hint of almonds coming in. All in all, very pleasant experience, ending as a shudder travels over your entire body. And as you relax, the pressure in your chest lessens, and your breasts don't feel any less bloated. Odd. ">>
+	<<set $milkCapacityModifier += 0.1>>
+<<else>>
+	<<set _message to " You expected this would taste extremely sweet, yet when it hits your tongue... nothing. Odd.">>
+<</if>>
+
+<<script>>
+if (Dialog.isOpen() == false) {
+var dialog = Dialog.setup("M-Store++");
+new Wikifier(dialog, State.temporary.message);
+Dialog.open();
+}
+<</script>>
+
+<</nobr>>
+
+

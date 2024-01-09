@@ -1,0 +1,18 @@
+:: TashaIntroduction {"position":"2400,1725","size":"100,100"}
+<<set $tashaOpinion += 10>>The thrift store is just fun to browse, and with all that has been going on, it's an easy way to pass time. Going through the various bins and displays, you find all kind of stuff; old toys, ancient furniture, weirdly labeled metal cannist - Wait, what? You grab the receptacle from the display, feeling the weight in your hand. It's almost identical to the one you found in your fridge, the one you drank by accident. Panicking, you search for the owner, finding a diminutive old lady. Running over to her, you grab her in a hurry, perhaps a bit rougher than you should.
+
+<<Dialogue "player" "You">>"E-Excuse me?! W-where did you get this bottle from?!"<</Dialogue>>
+
+<<Dialogue "Tasha" "Tasha">>"Hmmmm? Oh, that will be 5 dollars, my dear..."<</Dialogue>>
+
+<<Dialogue "player" "You">>"What? NO! I mean, where did you get this? Miss, please, this is rather important..."<</Dialogue>>
+
+Finally she seems to comprehend your query, adjusting her glasses and inspecting the odd metallic cannister and its label.
+
+<<Dialogue "Tasha" "Tasha">>"Let me see... Ah, yes. The university was getting rid of several boxes of the stuff a while ago. But someone mixed them in our stock room, so it takes a while to sort them out and get them on the shelves. And every now and then someone finds one and sells it back. Just come back later, I swear they keep popping up like mushrooms. Maybe I can be of more help after I’m done cleaning the stock room."<</Dialogue>>
+
+At least now you have a clue. The boxes were left behind, and have gone to... God knows where. It might be a good idea to check in with Tasha every now and then, and inquire further about where she got them from or if she knows anything else. But given how hard it is to keep a proper conversation with her, this might be a challenge unto itself.
+
+<<link "Go back" "SecondHandStore">><<addMinutes 5>><</link>>
+
+

@@ -1,0 +1,14 @@
+:: Work Friendly {"position":"350,3825","size":"100,100"}
+<<set $emmaDateFriendly +=1>>
+<<Dialogue "Emma" "Emma">> "I must thank you. Honestly, such earnestness is rare in the business world. I have to say, it's refreshing."<</Dialogue>>
+<<Dialogue "player" "You">> "Come on, let’s cut out the coworker talk. We're just hanging out as friends. You are such a kickass girl, I shouldn't have to tiptoe around saying that."<</Dialogue>>
+That earns a healthy guffaw from Emma.
+
+<<Dialogue "Emma" "Emma">> "Well, that might be the first time in my life I've been called ‘kickass.’"<</Dialogue>>
+<<Dialogue "player" "You">> "I will take ‘super cool’ as a substitute if that sounds more professional to you."<</Dialogue>>
+<<Dialogue "Emma" "Emma">> "No, no. That's how I know you're serious about it."<</Dialogue>>
+
+<<if $emmaDateProgress != 2>>[[The evening progresses...|Date Midpoint]]<<set $emmaDateProgress to 1>><</if>>
+<<if $emmaDateProgress == 2>>[[The evening progresses...|Date Finale]]<</if>>
+
+

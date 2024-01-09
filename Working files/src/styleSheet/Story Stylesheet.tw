@@ -1,0 +1,622 @@
+:: Story Stylesheet [stylesheet]
+:root {
+    --mcIcon: URL("https://i.imgur.com/eMD17Rt.png");
+    --iconSize: 125px;
+  	--randoIcon: URL("https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png");
+}
+
+
+[hidden] {
+  display: none;
+}
+
+
+.logo { 
+  width:auto; 
+  text-align:center; 
+} 
+
+img#logoImage{ 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  visibility: visible;
+} 
+
+#ui-bar-body {
+    height: calc(100% - 2.5em);
+    margin: 2.5em 0;
+    padding: 0 3em 0 1.5em;
+}
+
+#motivationExhaustionTable {
+    width: 1em;
+    margin-left: auto;
+    margin-right: 0;
+    height: 80vh;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+#motivationExhaustionTable th { height: 100%; }
+
+
+.barContainer{
+  position: relative;
+  height: 100%;
+  width: 1em;
+  background-color: #111;
+	background-image: linear-gradient(to right, rgba(68, 68, 68, 0.5), rgba(34, 34, 34, 0.5) 5px), linear-gradient(to bottom, rgba(68, 68, 68, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px);
+	border-radius: 10px;
+	z-index: 10;
+	visibility: visible;
+  
+}
+
+#motivationChange{
+  bottom: 80%;
+  height: 10%;
+  z-index: 30;
+  visibility: collapse;
+  background-color: #ffffff36;
+  animation: blinkingGlow 2s infinite;
+  box-shadow: 0px 0px 1em 0.25em #ffffff00;
+  /* in order: x offset, y offset, blur size, spread size, color */
+  /* blur size and spread size are optional (they default to 0) */
+}
+
+#exhaustionChange{
+  bottom: 40%;
+  height: 20%;
+  z-index: 30;
+  visibility: collapse;
+  background-color: #ffffff36;
+  animation: blinkingGlow 2s infinite;
+  box-shadow: 0px 0px 1em 0.25em #ffffff00;
+  /* in order: x offset, y offset, blur size, spread size, color */
+  /* blur size and spread size are optional (they default to 0) */
+}
+
+@keyframes blinkingGlow{
+  0%		{ box-shadow: 0px 0px 1em 0.25em #fff; background-color: #ffffff36;}
+  25%		{ box-shadow: 0px 0px 1em 0.25em #ffffff00; background-color: #000000d1;}
+  50%		{ box-shadow: 0px 0px 1em 0.25em #fff; background-color: #ffffff36;}
+  75%		{ box-shadow: 0px 0px 1em 0.25em #ffffff00; background-color: #000000d1;}
+  100%		{ box-shadow: 0px 0px 1em 0.25em #fff; background-color: #ffffff36;}
+}
+
+#motivationBarContainer{
+
+}
+
+#exhaustionBarContainer{
+  margin-left: auto; 
+margin-right: 0;
+}
+
+.barFloor{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 10em;
+  width: 1em;
+  background-color: #111;
+background-image: linear-gradient(45deg, #c71434 25%, #8f1d1d 25%, #8f1d1d 50%, #c71434 50%, #c71434 75%, #8f1d1d 75%, #8f1d1d 100%);
+  background-size: 28.28px 28.28px;
+  border-radius: 10px;
+  z-index: 5;
+  visibility: visible;
+}
+
+.bar{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 15em;
+  width: 1em;
+  border-radius: 10px;
+  z-index: 10;
+  visibility: visible;
+}
+
+#exhaustionBarFloorChange{
+   position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 10em;
+  width: 1em;
+  background-color: #111;
+  border-radius: 10px;
+  z-index: 15;
+  visibility: collapse;
+  animation: blinkingGlow 2s infinite;
+  box-shadow: 0px 0px 1em 0.25em #ffffff00;
+}
+
+.bar#exhaustion{
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), radial-gradient( circle at bottom right, #cc00006b, #cc000075 60% );
+}
+
+.bar#motivation{
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5px), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 5px), radial-gradient( circle at bottom right, #0c0, #00cc0085 60% );
+}
+
+.Header {
+  position: fixed;
+  top: 0;
+  background: silver;
+  left: 0;
+  Width: 100%;
+  border: 2px solid Gray;
+}
+
+.GoalClass{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  
+}
+
+.TutorialClass{
+  border-radius: 25px;
+  border: 2px solid Gray;
+  background: silver;
+  padding: 20px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  
+}
+
+
+.hidden{
+  visibility: hidden;
+  display:none;
+}
+
+.hide{
+  visibility: hidden;
+  display:none;
+}
+
+#store {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+#store td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#store th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: DarkGray;
+  color: white;
+}
+
+#log {
+  border: 1px solid #444;
+  overflow-y: auto;
+  max-height: 10vw;
+  display: block;
+}
+
+#logTable a:link {
+  color: red;
+}
+
+#logTable a:hover {
+  color: white;
+}
+
+#logTable th {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  color: white;
+}
+
+#logTable td, #customers th {
+  padding: 1px;
+}
+
+#logTable tr:hover {background-color: DarkGray;}
+
+h2 {
+ margin: 0px;
+  border:0px;
+}
+
+#story-caption {
+text-align: left;
+}
+  
+.speech {
+	color: white;
+	border: 2px solid white;
+	border-radius: 20px;
+	padding: 8px 8px 8px 8px;
+	box-shadow: 5px 5px 3px Black;
+}
+
+.name{
+ font-weight: bold;
+}
+
+.avatar {
+	display: block;
+	padding: 1px;
+	height: var(--iconSize);
+	width: var(--iconSize);
+	float: right;
+	margin: 0px 0px 0px 10px;
+	border: 2px solid white;
+	border-radius: var(--iconSize);
+	background-size: contain;
+}
+
+.player, .youngPlayer {
+	background-color: #13689E;
+}
+.player .avatar {
+  background-color: white;
+	background-image: var(--mcIcon);
+  	float: left;
+  	margin: 0px 10px 0px 0px;
+}
+
+.youngPlayer .avatar {
+  background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Young_mc.png);
+  	float: left;
+  	margin: 0px 10px 0px 0px;
+}
+
+.Johan, .JohanFancy {
+	background-color: #1C9E5B;
+}
+.Johan .avatar {
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Johan.png);
+}
+
+.JohanFancy .avatar {
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Johan_fancy.png);
+}
+
+.Emma, .EmmaFitness {
+	background-color: #9E2473;
+}
+.Emma .avatar{
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Emma.png);
+}
+
+.EmmaFitness .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Emma_swole.png);
+}
+
+.Elena {
+	background-color: #99B06D;
+}
+
+.Elena .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Elena.png);
+}
+
+.ElenaHappy {
+	background-color: #99B06D;
+}
+
+.ElenaHappy .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/ElenaHappy.png);
+}
+
+.Kris {
+	background-color: #982027;
+}
+
+.Kris .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Kris.png);
+}
+
+.KrisCasual {
+	background-color: #982027;
+}
+
+.KrisCasual .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisCasualBored.png);
+}
+
+.KrisObsessed {
+	background-color: #982027;
+}
+
+.KrisObsessed .avatar {
+	background-color: black;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisObsessed.png);
+}
+
+.KrisCasualObsessed {
+	background-color: #982027;
+}
+
+.KrisCasualObsessed .avatar {
+	background-color: black;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/KrisObsessesCasual.png);
+}
+
+.KrisMessage {
+	color: #9E2473;
+}
+
+.Tasha {
+	background-color: #c7b2b6;
+}
+
+.Tasha .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Tasha.png);
+}
+
+.Simon {
+	background-color: #8799A1;
+}
+
+.Simon .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Simon.png);
+}
+
+.Eddy {
+    background-color: #847049;
+}
+
+.Eddy .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/BulkBarnGuy.png);
+}
+
+.randomPerson {
+	background-color: #676767;
+}
+
+.randomPerson .avatar {
+	background-color: white;
+	background-image: var(--randoIcon);
+}
+
+.johanFriend1 {
+	background-color: #676767;
+}
+
+.johanFriend1 .avatar {
+	background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/johanFriend1.png);
+}
+
+.johanFriend2 {
+	background-color: #676767;
+}
+
+.johanFriend2 .avatar {
+	background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/johanFriend2.png);
+}
+
+.Natalie, .youngNatalie{
+	background-color: #9E6413;
+}
+
+.Natalie .avatar {
+	background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Nate_fem.png);
+}
+
+.Nathan, .youngNat {
+	background-color: #9E6413;
+}
+
+.Nathan .avatar {
+	background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/Nate_mal.png);
+}
+
+.youngNat .avatar{
+    background-color: white;
+	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/young_nate.png);
+}
+
+.\?\?\? {
+	background-color: #4d4d4d;
+}
+
+.\?\?\? .avatar {
+	background-color: black;
+}
+
+.quest {
+	background-color: #9E2A1C;
+}
+.quest .avatar {
+	background-image: url(https://i.imgur.com/1u5EHUo.png);
+}
+
+.logo { 
+  width:auto; 
+  text-align:center; 
+} 
+
+.warning {
+ text-align:left; 
+}
+
+img#logoImage{ 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+} 
+
+.mirror {
+  height: var(--iconSize);
+	width: var(--iconSize);
+}
+
+img#radarBackground {
+    width: 100%;
+    height: 100%;
+}
+
+canvas#myCanvas {
+    width: auto;
+    height: auto;
+    position: absolute;
+  	top: 0;
+	left: 0;
+    width: 80%;
+    padding-top: 10%;
+	padding-left: 10%;
+}
+
+canvas#secondCanvas {
+    width: auto;
+    height: auto;
+    padding: 0;
+    position: absolute;
+}
+
+div#canvasContainer {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+	position: relative;
+}
+
+a.shyConfident{
+	background:rgba(255,0,255, 0.4);
+  color:white;
+}
+a.submissiveDominant{
+	background:rgba(255,0,0, 0.5);
+  color:white;
+}
+a.carefreeCarefull{
+	background:rgb(102, 153, 255);
+  color:white;
+}
+
+.link-internal.macro-link {
+    display: block;
+    background: rgba(0, 0, 255, 0.0);
+    padding-left: 6px; 
+    border-left: 6px solid transparent;
+}
+
+a.link-internal.macro-gameLink {
+    display: block;
+    background: rgba(0, 0, 255, 0.0);
+    padding-left: 6px;
+    border-left: 6px solid transparent;
+}
+
+a.link-internal.macro-link:hover {
+    background: rgba(75, 75, 255, 0.2);
+    color: white;
+    border-left: 6px solid white;
+    padding-left: 6px; 
+}
+
+a.link-internal.macro-gameLink:hover {
+    background: rgba(75, 75, 255, 0.2);
+    color: white;
+    border-left: 6px solid white;
+    padding-left: 6px; 
+}
+
+a.macro-PersonalityCheck{
+   display: block; 
+  padding-left:5px;
+  border: 2px solid white;
+  border-radius: 2px;
+}
+
+a.macro-PersonalityCheck:hover{
+ background:rgba(75,75,255, 0.5);
+  color:white;
+  border-left: 6px solid white;
+  padding-left:10px;
+}
+
+a.macro-PersonalityCheck.Failed:hover{
+ background:rgba(255,0,0, 0.5);
+  color:white;
+  border-left: 20px solid white;
+  padding-left:10px;
+}
+
+a.macro-PersonalityCheck.Succes:hover{
+ background:rgba(0,255,0, 0.5);
+  color:white;
+  border-left: 20px solid white;
+  padding-left:10px;
+}
+.important{
+    background: rgba(50,50,150, 1);
+    display: block;
+    background-image: url('https://i.imgur.com/9YZwcRq.png');
+    background-repeat: no-repeat;
+    padding-left: 3em;
+    border-radius: 1em;
+    border-bottom-color: white;
+  background-size: 3em;
+    border: 4px;
+    border-style: solid;  
+  	font-weight:bold;
+}
+
+td.skillbar {
+    border-radius: 10px;
+}
+
+.loader {
+  position: inherit;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  animation: spin 2s linear infinite;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+h1#story-title {
+  display: collapse;
+}
+
+.boxShadow {
+    box-shadow: 0px 0px 20px 20px rgb(255 255 255 / 30%);
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+

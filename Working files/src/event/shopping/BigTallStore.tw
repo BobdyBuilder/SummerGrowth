@@ -1,0 +1,8 @@
+:: BigTallStore [outOfHouse mall] {"position":"2800,1625","size":"100,100"}
+The town's Big & Tall Boutique is ironically tiny, though the selection they offer for 'enhanced size' customers is pretty good. The clothes ARE more expensive, but at least they fit bigger folks decently. 
+
+<<ClothingStoreWidget $bigTallInventory>>
+
+<<link "Go back" "ShoppingCenter">><<addMinutes 5>><</link>>
+
+

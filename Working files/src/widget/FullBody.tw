@@ -1,0 +1,604 @@
+:: FullBody [nobr widget] {"position":"1125,1200","size":"100,100"}
+<<widget fullBody>>
+
+ <div id="fullImage" width="2000" height="2000" style="position: relative;">  <div class="loader">  </div>
+     <canvas id="canvas" width="2000" height="2000" style="display: none; position:inherit;"> Your browser does not support the HTML canvas tag. </canvas>  </div>
+
+     <<timed 0s>>
+        <<script>>
+            /**
+             * @return {string}
+             */
+            function getCurrentCutoutUrl() {
+                if (State.variables.furniture.includes('big mirror')) {
+                    return 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/cutour_big.png';
+                } else if (State.variables.furniture.includes('medium sized mirror')) {
+                    return 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/cutour_mod.png';
+                } else {
+                    return 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/cutour.png';
+                }
+            }
+
+            /**
+             *
+             * @return {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+             */
+            function getCurrentBody() {
+                const body = [{
+                    name: 'skinny',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_skinny.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_skinny.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                }, {
+                    name: 'average',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_average.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_average.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                }, {
+                    name: 'thick',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_thick.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_thick.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                }, {
+                    name: 'fat',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_fat.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_fat.png',
+                    genitalOffsetX: -50,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_fat.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_fat.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_fat.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_fat.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_fat.png']
+                }, {
+                    name: 'obese',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_obese.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_obese.png',
+                    genitalOffsetX: -125,
+                    genitalOffsetY: 50,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_obese.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_obese.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_obese.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_obese.png'
+                    ]
+                }, {
+                    name: 'thin',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_thin.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_thin.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                }, {
+                    name: 'athletic',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_ahtletic.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_athletic.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_athletic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_athletic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_athletic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_athletic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_athletic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_athletic.png'
+                    ]
+                }, {
+                    name: 'strong',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_strong.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_strong.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_strong.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_strong.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_strong.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_strong.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_strong.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_strong.png']
+                }, {
+                    name: 'heavy',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_heavy.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_heavy.png',
+                    genitalOffsetX: 0,
+                    genitalOffsetY: 10,
+                    leftBreastOffsetX: 15,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_heavy.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_heavy.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_heavy.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_heavy.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_heavy.png']
+                }, {
+                    name: 'bodybuilder',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_bodybuilder.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_bodybuilder.png',
+                    genitalOffsetX: -25,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_bodybuilder.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_bodybuilder.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_bodybuilder.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_bodybuilder.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_bodybuilder.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_bodybuilder.png']
+                }, {
+                    name: 'heroic',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_heroic.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_heroic.png',
+                    genitalOffsetX: -15,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_heroic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_heroic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_heroic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_heroic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_heroic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_heroic.png'
+                    ]
+                }, {
+                    name: 'strongman',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_strongman.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_strongman.png',
+                    genitalOffsetX: -30,
+                    genitalOffsetY: 50,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_strongman.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_strongman.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_strongman.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_strongman.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_strongman.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_strongman.png'
+                    ]
+                }, {
+                    name: 'sumowrestler',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_sumowrestler.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_sumowrestler.png',
+                    genitalOffsetX: -100,
+                    genitalOffsetY: 150,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_sumowrestler.png'
+                    ]
+                }, {
+                    name: 'hulk',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_hulk.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_hulk.png',
+                    genitalOffsetX: -25,
+                    genitalOffsetY: 20,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_hulk.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_hulk.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_hulk.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_hulk.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_hulk.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_hulk.png']
+                }, {
+                    name: 'gigantic',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_gigantic.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_gigantic.png',
+                    genitalOffsetX: 100,
+                    genitalOffsetY: 25,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    dickOverrides: ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_1_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_2_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_3_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_4_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_5_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_6_monstrous.png'
+                    ],
+                    ballsOverrides: ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_1_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_2_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_3_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_4_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_5_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_6_monstrous.png'
+                    ],
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_sumowrestler.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_gigantic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_gigantic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_gigantic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_gigantic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_gigantic.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_gigantic.png'
+                    ]
+                }, {
+                    name: 'monstrous',
+                    URL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/body_monstrous.png',
+                    legURL: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Body/leg_monstrous.png',
+                    genitalOffsetX: 25,
+                    genitalOffsetY: 0,
+                    leftBreastOffsetX: 0,
+                    rightBreastOffsetX: 0,
+                    leftBreastOffsetY: 0,
+                    rightBreastOffsetY: 0,
+                    dickOverrides: ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_1_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_2_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_3_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_4_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_5_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_6_monstrous.png'
+                    ],
+                    ballsOverrides: ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_1_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_2_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_3_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_4_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_5_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_6_monstrous.png'
+                    ],
+                    breastsOverrides: [
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_1_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_2_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_3_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_4_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_5_monstrous.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/overrides/breasts_6_monstrous.png'
+                    ]
+                }
+                ];
+
+                let muscleI = body.map(value => value.name)
+                    .findIndex(name => name === State.variables.bodyType);
+                if (muscleI === -1) {
+                    throw new Error(`'${State.variables.bodyType}' body was not found`);
+                }
+
+                return body[muscleI];
+            }
+
+            /**
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {{left: string, right: string}|string}
+            */
+            function getCurrentBreastsUrl(currentBody) {
+                let breastsUrls;
+                if ('breastsOverrides' in currentBody) {
+                    console.log('Used breasts override');
+                    breastsUrls = currentBody.breastsOverrides;
+                } else {
+                    breastsUrls = [{
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'
+                    }, {
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_1_left.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_1_right.png'
+                    }, {
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_1_left.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_1_right.png'
+                    }, {
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_2_left.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_2_right.png'
+                    }, {
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_3_left.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_3_right.png'
+                    }, {
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_4_left.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_4_right.png'
+                    }, {
+                        left: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_5_left.png',
+                        right: 'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Breasts/breasts_5_right.png'
+                    }
+                    ];
+                }
+
+                let breastsI = Math.floor(breastsUrls.length * (State.variables.breasts / 100));
+                if (breastsI < 0) {
+                    breastsI = 0;
+                } else if (breastsI > breastsUrls.length - 1) {
+                    breastsI = breastsUrls.length - 1;
+                }
+
+                return breastsUrls[breastsI];
+            }
+
+            /**
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string[]}
+            */
+            function _getBallsUrls(currentBody) {
+                if (!State.variables.dickActive) {
+                    return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'];
+                }
+
+                if ('ballsOverrides' in currentBody) {
+                    console.log('Used balls override');
+                    return currentBody.ballsOverrides;
+                }
+
+                return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_1.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_2.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_3.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_4.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_5.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/balls/balls_6.png'];
+            }
+
+            /**
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string}
+            */
+            function getCurrentBallUrl(currentBody) {
+                let ballsUrls = _getBallsUrls(currentBody);
+
+                let ballsI = Math.floor(ballsUrls.length * ((State.variables.dick + State.variables.balls) / 100));
+
+                if (ballsI < 0) {
+                    ballsI = 0;
+                } else if (ballsI > ballsUrls.length - 1) {
+                    ballsI = ballsUrls.length - 1;
+                }
+
+                return ballsUrls[ballsI];
+            }
+
+            /**
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string[]}
+            */
+            function _getPenisUrls(currentBody) {
+                if (!State.variables.dickActive) {
+                    return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/empty.png'];
+                }
+
+                if ('dickOverrides' in currentBody) {
+                    console.log('Used dick override');
+                    return currentBody.dickOverrides;
+                }
+
+                return ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_1.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_2.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_3.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_4.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_5.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/penis/penis_6.png'];
+            }
+
+            /**
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string}
+            */
+            function getCurrentPenisUrl(currentBody) {
+                let penisUrls = _getPenisUrls(currentBody);
+
+                let penisI = Math.floor(penisUrls.length * (State.variables.dick / 100));
+
+                if (penisI < 0) {
+                    penisI = 0;
+                } else if (penisI > penisUrls.length - 1) {
+                    penisI = penisUrls.length - 1;
+                }
+                return penisUrls[penisI];
+            }
+
+            /**
+            *
+            * @param currentBody {{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}|{genitalOffsetY: number, leftBreastOffsetY: number, leftBreastOffsetX: number, rightBreastOffsetY: number, rightBreastOffsetX: number, name: string, legURL: string, genitalOffsetX: number, breastsOverrides: string[], URL: string}}
+            * @return {string}
+            */
+            function getCurrentLipsUrl(currentBody) {
+                const lipsUrls = ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_1.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_2.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_3.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_4.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Lips/lips_5.png'
+                ];
+
+                let lipsI = Math.floor(lipsUrls.length * (State.variables.lips / 7));
+
+                if (lipsI < 0) {
+                    lipsI = 0;
+                } else if (lipsI > lipsUrls.length - 1) {
+                    lipsI = lipsUrls.length - 1;
+                }
+
+                return lipsUrls[lipsI];
+            }
+
+            /**
+            *
+            * @return {string}
+            */
+            function getCurrentBackgroundUrl() {
+                let backgroundUrls = ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_1.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_2.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_3.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_4.png',
+                    'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_5.png'
+                ];
+
+                if ((State.variables.krisObsessedOpinion >= 40 || State.variables.krisOpinion >= 40) && Math.random() < 0.02) {
+                    backgroundUrls = ['https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_1_k.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_2_k.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_3_k.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_4_k.png',
+                        'https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/Background_5_k.png'
+                    ];
+                }
+
+                let backGroundI = Math.floor(backgroundUrls.length * ((State.variables.height - 150) / 100));
+
+                if (backGroundI < 0) {
+                    backGroundI = 0;
+                } else if (backGroundI > backgroundUrls.length - 1) {
+                    backGroundI = backgroundUrls.length - 1;
+                }
+
+                return backgroundUrls[backGroundI];
+            }
+
+            /**
+            * @param breastsUrl {string|Object}
+            * @return {boolean}
+            */
+            function isBreastsUrlOverridden(breastsUrl) {
+                if (breastsUrl == null) {
+                    throw new Error('breastsUrl required');
+                }
+                return typeof breastsUrl === 'string';
+            }
+
+            async function loadImages() {
+                /**
+                *
+                * @param {String} src
+                * @param {Number} offsetX
+                * @param {Number} offsetY
+                * @return {{offsetX, offsetY, src, width, height}}
+                */
+                function generateBodyPart(src, offsetX, offsetY) {
+                    return {
+                        img: new Image(),
+                        src: src,
+                        offsetX: offsetX,
+                        offsetY: offsetY
+                    };
+                }
+
+                const myCanvas = document.getElementById('canvas');
+                const myContext = myCanvas.getContext('2d');
+
+                const bodyParts = [];
+
+                /* set images to load */
+                bodyParts.push(generateBodyPart(getCurrentBackgroundUrl(), 0, 0));
+                bodyParts.push(generateBodyPart('https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/hair.png', 0, 0));
+
+                const currentBody = getCurrentBody();
+                bodyParts.push(generateBodyPart(currentBody.URL, 0, 0));
+                bodyParts.push(generateBodyPart(getCurrentPenisUrl(currentBody), currentBody.genitalOffsetX, currentBody.genitalOffsetY));
+                bodyParts.push(generateBodyPart(getCurrentBallUrl(currentBody), currentBody.genitalOffsetX, currentBody.genitalOffsetY));
+                bodyParts.push(generateBodyPart(currentBody.legURL, 0, 0));
+
+                let breastsUrl = getCurrentBreastsUrl(currentBody);
+                if (isBreastsUrlOverridden(breastsUrl)) {
+                    let breastsSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl;
+                    bodyParts.push(generateBodyPart(breastsSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
+                } else {
+                    /* right breast */
+                    let rightBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.right.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.right;
+                    bodyParts.push(generateBodyPart(rightBreastSrc, currentBody.rightBreastOffsetX, currentBody.rightBreastOffsetY));
+                    
+                    /* left breast */
+                    let leftBreastSrc = ['overflowing', 'full'].includes(State.variables.breastsFullness) ?
+                        breastsUrl.left.replace(/(\.[\w\d_-]+)$/i, '_lac$1') : breastsUrl.left;
+                    bodyParts.push(generateBodyPart(leftBreastSrc, currentBody.leftBreastOffsetX, currentBody.leftBreastOffsetY));
+                }
+
+                bodyParts.push(generateBodyPart('https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Full%20body%20experiment/Statics/head.png', 50, 0));
+                bodyParts.push(generateBodyPart(getCurrentLipsUrl(currentBody), 0, 0));
+                bodyParts.push(generateBodyPart(getCurrentCutoutUrl(), 0, 0));
+
+                /* load images asynchronously */
+                const imageLoadBatchSize = Number.MAX_VALUE;
+                for (let i = 0; i < bodyParts.length; i += imageLoadBatchSize) {
+                    let chunk = bodyParts.slice(i, i + imageLoadBatchSize)
+                        .map(bodyPart => {
+                            return new Promise((resolve) => {
+                                bodyPart.img.addEventListener('load', () => resolve(bodyPart.img));
+                                bodyPart.img.src = bodyPart.src;
+                            });
+                        });
+                    await Promise.all(chunk);
+                }
+
+                /* draw images after all images are loaded */
+                for (const bodyPart of bodyParts) {
+                    myContext.drawImage(bodyPart.img, bodyPart.offsetX, bodyPart.offsetY, myCanvas.width, myCanvas.height);
+                }
+
+                /* mirror fadein */
+                $('.loader').fadeOut(2000);
+                setTimeout(() => {
+                    $('#canvas').fadeIn();
+                }, 2000);
+
+            }
+
+            loadImages();
+        <</script>>
+            <</timed>>
+            <</widget>>
+
+

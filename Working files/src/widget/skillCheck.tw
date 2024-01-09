@@ -1,0 +1,21 @@
+:: skillCheck [widget] {"position":"1800,300","size":"100,100"}
+<<nobr>>
+<<widget "skillCheck">>
+
+<<for _iSkillCheck to 0; _iSkillCheck < $skills.length; _iSkillCheck ++>>
+<<capture _iSkillCheck>>
+	<<if $skills[_iSkillCheck].name is $args[0]>>
+		<<if $skills[_iSkillCheck].level >= parseInt($args[1])>>
+			<<set $returnVal to true>>
+		<<else>>
+			<<set $returnVal to false>>
+		<</if>>
+	<</if>>
+<</capture>>
+<</for>>
+
+
+<</widget>>
+<</nobr>>
+
+

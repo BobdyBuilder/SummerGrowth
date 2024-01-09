@@ -1,0 +1,28 @@
+:: Puzzle Door {"position":"550,2875","size":"100,100"}
+<<Dialogue "Johan" "Johan">>
+"With the last of the goblins lying incapacitated on the cave floor, it goes back to that same deathly silence that you were greeted with when you first entered..."<</Dialogue>>
+
+<<Dialogue "player" "You">>
+"No screeching this time, right?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"I wouldn't be a very good dungeon master if I answered that directly."<</Dialogue>>
+
+Johan grins to himself as he gathers the goblins from the grid mat.
+
+<<Dialogue "Johan" "Johan">>
+"Ahead in the cave, you see something you hadn’t noticed before. Ahead, where the cave bends around a corner, there's a blue light, just about as bright as a torch, just faintly flickering just outside of view. As you carefully round the corner, you see a huge, circular door, easily taller than yourself. It's set apart cleanly into twelve different sections of stone, and each of them has some kind of rune on it. They're all glowing blue, giving off the light that tipped you off from around the corner."<</Dialogue>>
+
+Johan's hands once again dive behind his screen and retrieve an illustration of the door he described. Dang, he really did come prepared.
+
+<<Dialogue "player" "You">>
+"So, uh... now what?"<</Dialogue>>
+
+<<Dialogue "Johan" "Johan">>
+"Good question! Now what? You have the scene laid out before you. I promise there's a solution to this. What are you thinking?"<</Dialogue>>
+
+[[Wait, is this a puzzle? Ugh, do I have to?->Reluctant Puzzle]]
+[[Ooh, a puzzle! I bet I can crack this.->Excited Puzzle]]
+[[Hmm, I can give it a shot. But there has to be an easier way through this door, right?->Bypass Puzzle]]
+
+

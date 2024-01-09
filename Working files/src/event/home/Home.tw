@@ -1,0 +1,80 @@
+:: Home [nobr home] {"position":"1125,900","size":"100,100"}
+Though comfortable, this apartment has seen better days. It's clear that the previous owners hadn't put in the effort to maintain it and, despite the fact that you have tried to do so, the cracks show here and there. Despite that, it's still home. 
+
+<<if $furniture.includes("excellent weight set")>>
+In the corner of the room is a massive pile of weights; it's a good thing you're in the basement because you're not quite sure the floor could even handle such weights!
+<<elseif $furniture.includes("decent weight set")>>
+You keep your weight in the corner of the room, more than enough to keep you active at home. It might not rival a gym, but it sure helps you get in shape!
+<<elseif $furniture.includes("starter weightset")>>
+In the corner of the room, you see your dumbbells and workout mat. It's not much, but it sure is enough to get some workouts in.
+<</if>>
+
+<<set _room to passage()>>
+<<cleaning _room>>
+
+<<if $furniture.includes("excellent weight set") or $furniture.includes("decent weight set") or $furniture.includes("starter weightset")>>
+<<if $motivationPercentage >= $exhaustionPercentage and ($exhaustion +20) <= $maxExhaustion>>
+	<<workoutLink "home">>
+	<br><br>
+<<else>>
+  You're way too tired to work out.
+  <br><br>
+<</if>>
+<</if>>
+
+<<link "Go to the bathroom" "Bathroom">><<addMinutes 1>><</link>>
+<br>
+<<link "Go to the kitchen" "Kitchen">><<addMinutes 1>><</link>>
+<br>
+<<link "Go to the bedroom" "Bedroom">><<addMinutes 1>><</link>>
+<br>
+<<if setup.isOutfitNude() && $debug != "true">>
+You can't travel outside until you are properly dressed!<br>
+<<elseif $exhaustion <= $maxExhaustion * 0.95>>
+<<link "Go somewhere" "travel">><</link>>
+<br>
+<<else>>
+You're too tired to go anywhere.
+<br>
+<</if>>
+<<link "read something" "bookCase">><</link>>
+<br>
+
+<<if $furniture.indexOf("sewing machine") != -1 || $debug is "true">>
+<<link "Use the sewing machine" "sewing">><</link>><br>
+<</if>>
+
+<<gameLink "Just relax for a bit" "Home" time:60 motivation:10 exhaustion:-10>><</gameLink>>
+<br>
+<<if $debug is "true">><<link "[DEBUG]skip day" "Home">>
+	<<addMinutes 1440>>
+	
+	
+<</link>><</if>>
+
+<<if $storeOnlineBought.length > 0 and $gameDate.getHours() >= 9>>
+	<<script>>
+	if (Dialog.isOpen() == false) {
+		  var dialog = Dialog.setup("Order delivered");
+		  new Wikifier(dialog, "A package was left for you, with all the stuff you ordered in it.");
+		  Dialog.open();
+		  }
+	<</script>>
+	<<set $wardrobe to $wardrobe.concat($storeOnlineBought)>>
+	<<set $storeOnlineBought to []>>		  
+<</if>>
+
+<<if $ingredientOnlineBought.length > 0 and $gameDate.getHours() >= 9>>
+    <<script>>
+        if (Dialog.isOpen() == false) {
+            var dialog = Dialog.setup("Order delivered");
+            new Wikifier(dialog, "A package was left for you, with all the stuff you ordered in it.");
+            Dialog.open();
+        }
+        
+        State.variables.potionIngredients.push(...State.variables.ingredientOnlineBought);
+        State.variables.ingredientOnlineBought = [];
+    <</script>>
+<</if>>
+
+
