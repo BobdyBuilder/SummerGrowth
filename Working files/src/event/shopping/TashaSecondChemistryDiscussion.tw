@@ -44,5 +44,5 @@ But before she can complete that thought, you are already out the door, thinking
 
 You are going to need to try doing chemistry again. Your heart beats faster in anticipation, knowing you are finally getting closer to getting results.
 
-<<link "Continue" "Lab">><<set $fullBrewingUnlocked to true>><<addMinutes 60>><</link>>
+<<link "Continue" "Lab">><<set $fullBrewingUnlocked to true>><<set $fullBrewingUnlockedDay to $daysPlayed>><<addMinutes 60>><</link>>
 

@@ -1,0 +1,57 @@
+:: mainQuestEvents [nobr] {"position":"1800,2225","size":"100,100"}
+<<set setup.events.push(
+    {
+    name: 'mainQuest1Progress',
+    locationTags: ['secondHandStore'],
+    conditions: [
+            () => State.variables.mainQuestProgressMade,
+            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction1') /*TODO remove this condition for the next major patch*/,
+            /*() => State.variables.flag.PlayerDreamsPotionReaction3,*/ /*TODO uncomment this condition for the next major patch*/
+            () => State.variables.daysPlayed >= 10,
+        ],
+repeatable: false,
+    retriggerable: false,
+        priority: 'immediate',
+            npc: [],
+                content: 'Entering the thrift store, you walk around, and almost immediately run into Tasha. She enthusiastically smiles at your sight.<br><br><<Dialogue "Tasha" "Tasha">>"Oh, there you are dear, oh my, you\'ve changed! Did you get a new sweater? We have PLENTY of new sweaters here, along with some new arrivals! But never mind that, what DOES matter is I got that thing you were looking for!"<</Dialogue>><br><br>		<<Dialogue "player" "You">>"...The thing I was looking for?"<</Dialogue>><br><br><<Dialogue "Tasha" "Tasha">>"Yes, yes, you asked me to keep an eye out for more! Well, I found some of the goods that came in that same batch!"<</Dialogue>><br><br>With shaky hands, she gives you a box full of... junk. Well, that\'s a bit anticlimatic. While you rummage around in it you find mostly useless stuff, like receipts, a few cleaning products, a toothbrush and... wait, a USB stick! It even has a label on it; \'If found, return to Toshi\'. It even has an address on it. Wait, that’s YOUR ADDRESS! Now you not only have a name, but also some digital information that you might be able to salvage! Tasha says something, but you you are so hyped you don’t even pay attention, instead, you lift her tiny frame in your arms and hug her tight in gratitude. A bit stunned, the woman is left spinning in confusion as you hurry home to test this thing. <<set $currentScene to "pcUsbHacking">>'
+    },
+    {
+        name: 'mainQuestUsbFilesUnlocked',
+        locationTags: ['home'],
+        conditions: [
+                () => State.variables.usbPasswordUnlocked?.filter(i => !i).length === 0 /* there is no locked file */
+            ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `As you collect all parts of the compressed file in a folder, a new diary file is revealed. What was it that Toshi felt the urge to separate behind seven different passwords? Anxiously, you double-click the file, which seems to have a quick introduction, is a list of excerpts that were excised for the rest of his documents.<br><br>“I can’t believe I let my lawyer convince me that I had to redact all these vital observations from my computer and delete it everywhere for safety. Ugh, don’t these guys get how science is done? You can’t just erase progress! I’ll just separate the more, as he says, and I quote: ‘PROBLEMATIC’ entries and fragment it so no one else finds it. That ought to do it.”<br><br>Huh. So it does connect to all those rumors that made the news. What kind of trouble did he get into?<br><br>“August 20th, 2019<br>Just when I thought that my passion for academia was starting to wane, I had this dream - it was a bizarre surreal experience, a bear climbing a tree that just kept going on forever. But just as he was about die of hunger, he bites the bark and sucks the honey inside. It allows him to keep going forever... and when I woke up, I had this idea on how to genetically unlock the potential of the cells in our body.<br><br>I ran to the lab, and started experimenting, but quickly hit several roadblocks. I actually spent the last three days there, sleepless. My friends dragged me home when I just collapsed of exhaustion. And when I next woke up, I knew exactly what to do. That was last week.<br><br>I now have in my hands what I believe might be the first step in fully unlocking human potential. But I cannot run the risk of having someone stop my research with meager concerns about ethics and safety. Therefore, I will bring my findings to my apartment and purchase my own equipment so I can continue this away from the eyes of anyone who could tattle on me.”<br><br>Yikes, that’s going seriously into mad scientist territory there. I can understand why his lawyer had problems with THAT entry. But there are more!<br><br>“October 5th, 2019<br>I don’t understand why the distilled elements seem to have no effect whatsoever! I managed to have the cells react individually in a controlled environment - more efficient energy production, faster reproduction, more resilience, dramatic specialization... but as soon as I expose living organisms to it, nothing happens! I can’t have gone this far only to stop here! If my calculations are correct, the effects on living tissue would be unbelievable.”<br><br>A lot of the entries beyond this point are very frustrated ramblings with science that goes WAY over your head. But at some point he seems to start raving about the so-called Gene Unlocker - and the need to make a version SPECIFIC for humans, which leads to the January 2020 entry you had read in one of the previous files. Hmmm.<br><br>There is a separate picture he took of a napkin, it just seems like a long list of effects he scribbled down quite haphazardly. You go through it, seeing several effects listed: follicle growth stimulation, increased muscle density, improved vascular potential, instantaneous cellular multiplication, permanent synaptic rewiring, adipose redistribution, cellular reconstruction… the list goes on and on. It seems to confirm he achieved several of the possible effects speculated on the other file. It even suggests the possibility of even more undiscovered ones!<br><br>The entries seem rarer after this, since most of these were not redacted from the other documents. However, there is one later than all the other ones, around the same time that the scandal broke in the campus.<br><br>“February 13th, 2020<br>Fuck, I’m going to have to disappear for a while. I can’t believe I let someone else be affected by my experiments, and now the entire faculty is coming after my ass. I can’t believe they would do this when I’m so close to this major breakthrough. I could change humanity!<br><br>But right now, the most important thing is that I need to make everything that could link this back to me disappear! Since I only have this last bottle of Gene-Unlocker that I will take with me, I’ll get rid of the distillations all over the campus - should be easy to just leave some boxes around, people will think they are energetic drinks and just help themselves, making it harder to trace it back to me.<br><br>The bigger probem is that I need to somehow find someplace for this giant professional still I’ve been using to create further distillations! It’s already been pre-calibrated for the boiling point of all major elements in them, and I can’t risk the police finding it. I guess the best idea would be to sell it - but not online, where it would be easy to trace. The old chemistry professor that retired last year seems to have opened a thrift store, that might be a good place - her memory is crap and I doubt the cops would get anything from her.”<br><br>Wait, is he talking about Tasha? Is she a former chemistry professor? Wow, you’d never guess. It might be time to go talk to her - and maybe see if she still has this equipment!<<set $tashaChemistryProfessorDiscovered to true>>`
+    },
+    {
+        name: 'Main_quest_event_poster',
+        locationTags: ['outside', 'outOfHouse'],
+        conditions: [
+            () => true
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `It's a pretty nice day outside and a firm breeze gives the air that nice early summer crispness. People are going about their day, mindlessly walking around while you do much the same. It's a nice small town this, and you've grown to like it quite a bit here. You're about to reach your destination, rounding a corner, when a poster is blown right into your face. For a few seconds you stand there, wondering if this just really happened to you. You let out a deep sigh; it's going to be one of those days huh? 
+        
+        However, as you peel the paper off you can't help but glance at what's actually written on it. Only when you hold it in your hands do you notice that what you had in your face was actually the immense torso of a huge bodybuilder, printed on a large poster with above it the text 'The Muscle Mania!'. Below it are several smaller texts, <<if $bulkBarnJob == true>> including a small sponsorship from Eddy at the bulk barn, <</if>> though the one that draws your attention is the cash prize; damn, 50.000 dollar for the winner?! That's a lot of money! It seems soon this small town will be the center of a huge bodybuilding competition... Given some of the things that happened so far, you can't help but think this might be fun to visit.`
+    },
+    {
+        name: 'Main_quest_money_problems',
+        locationTags: ['home'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('Main_quest_event_poster'),
+            () => State.variables.fullBrewingUnlockedDay < State.variables.daysPlayed + 3
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: ``
+    }
+) >>
