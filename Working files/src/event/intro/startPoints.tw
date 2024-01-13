@@ -199,15 +199,15 @@ Before we begin the game, you can customize your starting character a bit. You c
     <span style="text-align:left;">
     <h2>Favorite clothing style:</h2>
     <h3>wearing clothes in this style gives +1 confidence</h3>
-    <<radiobutton "$favoriteStyle" "casual" autocheck>> casual <br>
-    <<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy <br>
-    <<radiobutton "$favoriteStyle" "nerdy" autocheck>> nerdy <br>
-    <<radiobutton "$favoriteStyle" "professional" autocheck>> professional <br>
-    <<radiobutton "$favoriteStyle" "stylish" autocheck>> stylish <br>
-    <<radiobutton "$favoriteStyle" "punk" autocheck>> punk <br>
-    <<radiobutton "$favoriteStyle" "sporty" autocheck>> sporty <br> 
-    <<radiobutton "$favoriteStyle" "sexy" autocheck>> sexy <br>
-    <<radiobutton "$favoriteStyle" "girly" autocheck>> girly <br>
+    <label><<radiobutton "$favoriteStyle" "casual" autocheck>> casual</label> <br>
+    <label><<radiobutton "$favoriteStyle" "tomboy" autocheck>> tomboy</label> <br>
+    <label><<radiobutton "$favoriteStyle" "nerdy" autocheck>> nerdy </label><br>
+    <label><<radiobutton "$favoriteStyle" "professional" autocheck>> professional </label><br>
+    <label><<radiobutton "$favoriteStyle" "stylish" autocheck>> stylish</label> <br>
+    <label><<radiobutton "$favoriteStyle" "punk" autocheck>> punk </label><br>
+    <label><<radiobutton "$favoriteStyle" "sporty" autocheck>> sporty</label> <br> 
+    <label><<radiobutton "$favoriteStyle" "sexy" autocheck>> sexy </label><br>
+    <label><<radiobutton "$favoriteStyle" "girly" autocheck>> girly </label><br>
 	</span>
 	</th>
   </tr> 
