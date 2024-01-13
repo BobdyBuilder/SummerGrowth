@@ -8,77 +8,77 @@ Before we start the game, there are some global settings that determine how easy
 <br>
 Determines the difficulty of the game. This does not determine how fast the player grows, merely the challenge during the game. This determines the price of some clothes, the weekly rent they player must pay, and the price of food.
 <br>
-<<radiobutton "$difficulty" "sandbox" autocheck>> Sandbox - far more money and items available, it's impossible to get fired from jobs.
+<label><<radiobutton "$difficulty" "sandbox" autocheck>> Sandbox - far more money and items available, it's impossible to get fired from jobs.</label>
 <br>
-<<radiobutton "$difficulty" "easy" autocheck>> Easy - more money and items available.
+<label><<radiobutton "$difficulty" "easy" autocheck>> Easy - more money and items available.</label>
 <br>
-<<radiobutton "$difficulty" "medium" autocheck>> Medium - the game is made to have some challenge balancing money and growth.
+<label><<radiobutton "$difficulty" "medium" autocheck>> Medium - the game is made to have some challenge balancing money and growth.</label>
 <br>
-<<radiobutton "$difficulty" "hard" autocheck>>  Hard - the game will make an active attempt to bankrupt you and cause a game over.
+<label><<radiobutton "$difficulty" "hard" autocheck>>  Hard - the game will make an active attempt to bankrupt you and cause a game over.</label>
 <br>
 <br>
 <h2>Growth speed </h2>
 <br>
 Determines the general speed at which the main character will grow. This makes the game quicker.
 <br>
-<<radiobutton "$growthMod" 0.5 autocheck>> Slow
+<label><<radiobutton "$growthMod" 0.5 autocheck>> Slow</label>
 <br>
-<<radiobutton "$growthMod" 1 autocheck>> Medium
+<label><<radiobutton "$growthMod" 1 autocheck>> Medium</label>
 <br>
-<<radiobutton "$growthMod" 1.5 autocheck>>  Fast
+<label><<radiobutton "$growthMod" 1.5 autocheck>>  Fast</label>
 <br>
 <br>
 <h2>Daily amount of potions </h2>
 <br>
 Determines the amount of potions that will appear in the shop daily.
 <br>
-<<radiobutton "$dailyConsumableAmount" 1 autocheck>> 1
+<label><<radiobutton "$dailyConsumableAmount" 1 autocheck>> 1</label>
 <br>
-<<radiobutton "$dailyConsumableAmount" 2 autocheck>> 2
+<label><<radiobutton "$dailyConsumableAmount" 2 autocheck>> 2</label>
 <br>
-<<radiobutton "$dailyConsumableAmount" 3 autocheck>>  3
+<label><<radiobutton "$dailyConsumableAmount" 3 autocheck>> 3</label>
 <br>
 <br>
 <h2>Muscle growth Style</h2>
 <br>
 Determines the style of muscle growth. At 'Fantasy' you can expect the protagonist to be the size of a large male bodybuilder by mid-game. At 'Realistic' you can expect her to aim for a Grecian Ideal Physique, resulting in more realistic development.
 <br>
-<<radiobutton "$muscleGrowthStyle" "Realistic" autocheck>> Realistic
+<label><<radiobutton "$muscleGrowthStyle" "Realistic" autocheck>> Realistic</label>
 <br>
-<<radiobutton "$muscleGrowthStyle" "Fantasy" autocheck>> Fantasy
+<label><<radiobutton "$muscleGrowthStyle" "Fantasy" autocheck>> Fantasy</label>
 <br>
 <br>
 <h2>Add Futa content</h2>
 <br>
 When this is on, the female protagonist can grow a penis.
 <br>
-<<radiobutton "$futa" true autocheck>> on
+<label><<radiobutton "$futa" true autocheck>> on</label>
 <br>
-<<radiobutton "$futa" false autocheck>> off
+<label><<radiobutton "$futa" false autocheck>> off</label>
 <br>
 <br>
 <h2>Add lactation content</h2>
 <br>
 When this is on, the protagonist can start leaking milk
 <br>
-<<radiobutton "$lactationSetting" true autocheck>> on
+<label><<radiobutton "$lactationSetting" true autocheck>> on</label>
 <br>
-<<radiobutton "$lactationSetting" false autocheck>> off
+<label><<radiobutton "$lactationSetting" false autocheck>> off</label>
 <br>
 <br>
 <h2>Measurement system</h2>
 Determines the measurement system used in the game.
 <br>
-<<radiobutton "$measurementSystem" "imperial" autocheck>> Imperial
+<label><<radiobutton "$measurementSystem" "imperial" autocheck>> Imperial</label>
 <br>
-<<radiobutton "$measurementSystem" "metric" autocheck>> Metric
+<label><<radiobutton "$measurementSystem" "metric" autocheck>> Metric</label>
 <br><br>
 <h2>Rival gender</h2>
 This determines the gender of the rival you will encounter.
 <br>
-<<radiobutton "$rivalGender" 'male' autocheck>> Male
+<label><<radiobutton "$rivalGender" 'male' autocheck>> Male</label>
 <br>
-<<radiobutton "$rivalGender" 'female' autocheck>> Female
+<label><<radiobutton "$rivalGender" 'female' autocheck>> Female</label>
 <br><br>
 
 <<button [[Go on|startPoints]]>><</button>>
