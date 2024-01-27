@@ -681,4 +681,113 @@ You motion to hug Emma, but she stiffens and pushes her chair backwards, sending
 		<</replace>>
 	<</PersonalityCheck>>
 </span>`
+},
+{
+    name: 'EmmaCoffeeTalk-1',
+    locationTags: ['emma'],
+    conditions: [
+        () => hasEventBeenTriggered('EmmaConfidesHerImage'),
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `You see Emma doing her usual rounds, her clipboard with a thicker stack of paper than usual, and her pace slower as she travels from employee to employee.<br><br>
+You watch as she hands a leaf to each employee, along with a little talk, and proceeds to the next, the ritual seemingly repeating over and over. When she is between people, you decide to approach her.<br><br>
+<<Dialogue "player" "You">>"Hello, there, boss. Are you campaigning to run for office?"<</Dialogue>><br><br>
+You immediately realize how lame that joke was, but try to keep a straight face, hoping it will be less embarassing if you don’t acknowledge it.<br><br>
+<<Dialogue "Emma" "Emma">>"Very funny. I don’t know that I would be on my popularity around here, but I am not certainly I was built for public office anyway, the private sector certainly suits me better. Why, I am sure you’d like me better in private, correct?"<</Dialogue>><br><br>
+Dang, she just flipped that on you like it was nothing, a discreet wink that was so hidden in her professional face you might think she was having a stroke. Note to self, don’t spar verbally with Emma, you’re hopelessly outmatched.<br><br>
+<<Dialogue "player" "You">>"But seriously, what’s with this paper distribution?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Union rules, I need to pass along a physical printout and tell each employee individually about changes to the benefits package - it’s a formality I wish I could include in an emails, but them’s the rules. Here’s yours, you’ll see that it’s discussing the changes that are coming with the cost cutting."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I bet you are even more bothered by the fact that it’s cutting into your productive time, right?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"You read me like a book, miss <<print $playerLastName>>. I had to cancel two appointments, it will probably take me all day to do this. I am not pleased, but I am not about to break the rules."<</Dialogue>><br><br>
+She’s trying to play it cool, but you can sense how flustered she is under her professional demeanor. You’ve got to know her enough that she’ll need to vent a bit - or we might just be on the way for another meltdown.<br><br>
+<<Dialogue "player" "You">>"Hey, how about we go out for some drinks after work?"<</Dialogue>><br><br>
+Emma is about to say something, which very much looks like it would be a no, but she stops herself. In a very uncharacteristic twist, she looks up and to the side in thought, mulling her answer. It’s brief, but Emma always feels like she has a script ready at all times, and it’s almost funny to see that reaction. She eventually looks back at you.<br><br>
+<<Dialogue "Emma" "Emma">>"You know what, my productivity is shot no matter what, if I try to sneak a partial task it’s not going to be dealt with properly anyway, might as well chalk that as PTO and invest it so I am more productive later."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Great! I’ll come pick you up at lobby when your shift ends. Have fun distributing those leaflets."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Only because I’ll be thinking of you while I do."<</Dialogue>><br><br>
+And so you go back to your tasks, taking a quick break to look at your phone to figure out a cool place to take her after your shift.
+<br><br><<link "return" "office">><</link>>`
+},
+{
+    name: 'EmmaCoffeeTalk-2',
+    locationTags: ['home'],
+    conditions: [
+        () => hasEventBeenTriggered('EmmaCoffeeTalk-1'),
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `Time seems to slow to a crawl when you are anxious, but you shift is finally over and you find yourself practically RUNNING to the lobby to meet Emma. She’s a couple minutes late, but you can tell she touched up her makeup, and while it seems like a silly small thing, it makes you feel important somehow.<br><br>
+<<Dialogue "Emma" "Emma">>"Well, here I am. Will you enlighten me in the way of the proletarian entertainment?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"No offense, but do you purposefully go out of your way to say these things to make me feel a bit dumb?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Apologies, it’s just my baseline, and I should be more considerate about how I make people feel."<</Dialogue>><br><br>
+She looks genuinely apologetic, so you start waving your palms as you hurriedly reply:<br><br>
+<<Dialogue "player" "You">>"No, no, that was a joke. Well, I do feel a bit dumb, but it’s just because I’m constantly in awe at how amazing you are with words."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Still, you have a point, I don’t usually take into consideration other people’s feelings as much as I focus on clarity. Perhaps it’s another thing I should look into."<</Dialogue>><br><br>
+You tug Emma by her meaty arm, hugging it as you pull her to the street and towards the nearby pub.<br><br>
+<<Dialogue "player" "You">>"Oh, no, we are not worrying about stuff right now, we are going to have ourselves a merry old time! Proletarian-style!"<</Dialogue>><br><br>
+She laughs, slipping her hand around your waist. It gives you a warm feeling all over. You wrap your own arm around her shoulder, and together you make your way to the place.<br><br>
+The pub is a weird mix - it feels very old-style with its wooden walls, dark ambiance and retro colorful stained glass sconces, but it also employs a digital menu with QR codes and mobile ordering. It actually works perfectly for you, however, as it means you get a lot of privacy as you score a nice booth by the back corner. It means the two of you can forget the rest of the world as you hold hands with Emma, getting lost in her confident eyes as she keeps commenting about the place and her own dislike of digital menus.<br><br>
+<<Dialogue "Emma" "Emma">>"I fully understand the efficiencies of these systems, but they clearly aren’t mature enough to be an adequate replacement of proper service. But I suppose there has to be a period of growing pains to get to a mature product."<</Dialogue>><br><br>
+You squeeze Emma’s hand hard. It’s such an interesting feeling, her calloused hands are very firm and strong, yet impeccably moisturized. Her short nails are functional but still trimmed and polished to perfection, feeling smooth and creating an interesting contrast with the textures the veins give to top of her hand. But it’s the way she uses that really gets to you - while you give it some random squeezes, Emma’s fingertips will occasionally travel over your palm and wrist, and it’s like she has a fucking map of yours nerves as she somehow sends chills and shocks through you like it was nothing! It’s a bit of an effort to even carry a conversatio, but you manage.<br><br>
+<<Dialogue "player" "You">>"So let me give you the first lesson in how the workforce enjoys their leisure time: we don’t really talk about businesses when we are having drinks."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Fair enough. So, what do we talk about?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, I suppose badmouthing our bosses behind their back won’t work here. Damn! But, we could learn more about each other!"<</Dialogue>><br><br>
+You bite your lips, and Emma starts running her bare feet over your calves. Her movements are both probing and seductive, like she’s winding you like a powerful coil, ready to blow megatons of energy with as little as a sneeze - and she does it all with the most stone-cold poker face you’ve ever seen, which only makes your blood boil even more. It takes all your willpower not to jump her right there and then!<br><br>
+<<Dialogue "player" "You">>"Anyone ever tell you how you really know your way around a woman’s body?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Several times, actually, though it really just comes naturally to me."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I should have known, everything feels so effortless for you..."<</Dialogue>><br><br>
+Emma blushes, and it’s adorable. You can’t help but laugh, and she goes for a sip of her cherry martini, stalling. <<if $shyConfident > 1>>So you move to the offensive.<br><br>
+<<Dialogue "player" "You">>"What I really want is to know more about you. How did you get into fitness?"<</Dialogue>><br><br>
+<<else>>You want to break the ice, so you decide to probe a bit.<br><br>
+<<Dialogue "player" "You">>"There’s so much I want to know about you. I could ask more about your taste in girls, but maybe we should start a little easier. Like, how did you get into fitness, for instance?"<</Dialogue>><br><br>
+<</if>>
+Emma puts down the drink, and looks nostalgic as she stares into the distance. She sighs, and says:<br><br>
+<<Dialogue "Emma" "Emma">>"It’s actually something from a long time ago, and it’s funny you asked that, because it’s also how I figured I was into girls. Wow, it feels like an eternity ago..."<</Dialogue>><br><br>
+Her phone buzzes with an email alert, and she reaches for it. Like lightning, you grab and put it in your pocket, looking at her with the most serious face.<br><br>
+<<Dialogue "player" "You">>"Nuh-huh, you can’t start with a line like that and not spill the tea!!! I’m confiscating this device until I hear this!"<</Dialogue>><br><br>
+Emma looks at you with that smile, oh, that smug smile, as she puts her elbows on the table, and rests her chin on her hands. You can’t help but appreciate the way she fills those tight sleeves, but frankly, it’s hard enough to pick where to look - her eyes command attention in a way that’s hard to put in words, and you get a chill down your spine as she starts telling her story.<br><br>
+<<Dialogue "Emma" "Emma">>"I suppose I could bore you for a bit with my younger years, but don’t come complaining later - I’m afraid it’s rather mundane, really."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I’ll be the judge of that."<</Dialogue>><br><br>  
+<<Dialogue "Emma" "Emma">>"Fine. Well, you see, my teenage years weren’t particularly interesting. Blue collar father, stay at home mother, small town. During the summer I was sent to a camp - and I was just another generic face in a sea of other teens - a gangly girl with no aspirations, just coasting along. And I suppose this would be entirely a non-story if not for that one camp counselor."<</Dialogue>><br><br>
+Her eyes again look into the distance, memories flooding in. Emma’s smile is no longer the smug one, but a very warm and melancholy one, and you wait with bated breath for her to continue.<br><br>
+<<Dialogue "player" "You">>"Go on...!!!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"You see, I was at that awkward phase, I suppose I was just the blank template of the person I was going to become. But it all changed when I woke up one morning before everyone else. I was still in the sweats I wore to sleep, grogily going out of the cabin. The sun had just started rising, and everything was still quiet. But as I made my way to the outhouse, I froze. There she was, gleaming against the sun, like a Greek goddess, doing chin ups on a tree branch. Her name was Joanna, and she was one of the conselours. I was literally mesmerized, I could not take my eyes off of her, wearing a sports bra and shorts, her toned midriff glistening with sweat running through it like a gutter. She would give these short, soft grunts every time she raised herself, her upper arms contracting with the belly of the biceps being one of the most beautiful curves I’d ever seen in a woman."<</Dialogue>><br><br>
+You just suck your moscow mule through the crazy straw, eyes completely glued to Emma as she continues.<br><br>
+<<Dialogue "Emma" "Emma">>"I guess I didn’t know at the time, she was the most incredible thing I’d ever seen. I don’t know if I realized at the time what my hormones were telling me, but I idolized Joanna. I wanted to be just like her - this picture of perfection, pure physical poetry. Yeah, I was incredibly turned on, but I guess it would take a while for me to be able to process THAT part. But I wasn’t ready to talk to her - no, it was downright intimidating, and I ended up returning to the cabin with a full bladder, but her physique was seared into my mind."<</Dialogue>><br><br>
+Your straw starts making a loud noise as you finish the entire cup in a single suck of the straw, the vodka going straight to your brain and making you woozy. You still keep sucking, unable to process any information until you actually run out of breath. Emma looks at you, concerned, and with a cough and a shake of your head, you keep your wide-open eyes trained on her.<br><br>
+<<Dialogue "player" "You">>"So did you go talk to her or what?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, I mean, there was a whole puppy love thing, sure, and I stalked her during that stay - oh, you bet I enrolled for every physical activity she was involved in, and even today I am not sure where my desire to be her ended and this crush started, but I can tell you, the second I got home from camp, I joined the gymnastics team and begged my parents for some equipment. Before I knew it, it sparked a passion in me, not only for the physical goals, but excellency in everything I committed myself to. Well, that, and my admiration for the female form, I suppose."<</Dialogue>><br><br>
+Emma completes, with a wink, as she runs the back of her hand through the side of your neck:<br><br>
+<<Dialogue "Emma" "Emma">>"And I must say, it does not get much finer than you."<</Dialogue>><br><br>
+It’s your turn to blush. <<if $muscle >80>>It doesn’t keep Emma from exploring your superhuman physique, carefully tracing each pencil-sized vein like a prospector looking for gold. 
+<<elseif $muscle >60>>It doesn’t keep Emma from exploring your top-level bodybuilder physique, probing the fibrous corners of each overdeveloped muscle, appreciating each striation like a wonder of nature. 
+<<elseif $muscle >45>>It doesn’t keep Emma from delighting herself in the soft-skinned but firm curves of your fitness competitor-level muscles, her fingers making wave-like motions with the ebb and flow of your physique. 
+<<elseif $muscle >30>>It doesn’t keep Emma from exploring your recent gains, showing deep appreciation for the effort you put recently as new curves emerge in your developing physique. 
+<<else>>It doesn’t keep Emma from fully appreciating your feminine curves, absent-mindedly running her fingers through every socially-acceptable part of your skin she has access to. 
+<</if>>She does it all with such delight that you can’t help but sort of melt under her, closing your eyes so you can appreciate every moment to the fullest. You both sigh at the same time, which then elicits chuckles from both.<br><br>
+<<Dialogue "player" "You">>"I guess we are sorta back to the puppy love phase, huh?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"No. I mean, you look amazing, but there’s so much more to you, <<print $playerFirstName>>. In some ways, I feel like you helped me unravel myself in a much more important way."<</Dialogue>><br><br>
+She holds your hand and mumbles a thank you, before reaching over for a deep and passionate kiss. It feels like a rocket igniting inside of you, her soft tongue probing gently as her hand squeezes yours, and you gently sway your hips as your back contracts and relaxes to the magical feelings she brings.<br><br>
+<<Dialogue "Emma" "Emma">>"And I’m not going to lie, I sort of wish I wasn’t cutting for the bodybuilding competition right now, otherwise I might just get a heavier drink and then <<if $muscle >45>>have you carry me back home<<else>>carry you back home<</if>> and fuck you silly."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, yeah, we still have that. Kinda regretting getting into that with you now."<</Dialogue>><br><br> 
+<<Dialogue "Emma" "Emma">>"Well, I’ll tell you what - why don’t we schedule some gym time together next week? I could use a little cheering, and you get to appreciate the goods in a forum where it’s more appropriate for me to don sportswear."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Hmmmm, I like the way you think."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"So, what do you say? Are you game? Or is a gym date too corny?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Sweaty, pumped up Emma in swimwear? I could do worse, I suppose."<</Dialogue>><br><br>
+Emma gives you a mock punch, and you two laugh. You begrudgingly return her phone so she can check her schedule, and agree to a little rendezvous at the gym next week after work.<br><br>
+<<Dialogue "Emma" "Emma">>"I have to say, these casual outings are not bad. Had I known, maybe I wouldn't have been so resistant."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, if it's an incentive you need, I can think of a few..."<</Dialogue>><br><br>
+You say, as you pull her close and give her another passionate kiss, squeezing her cheeks as you both get breathless. All is good.<br><br>
+<<Dialogue "Emma" "Emma">>"Hmmmm, while I would love to stay longer, I do still have to answer some emails. But I am glad you dragged me here. Maybe I'll make a habit of scheduling more confraternization with my employees."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I guess I now have my incentive to get that Employee of the Month prize."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"You are still getting no preferential treatment, just to be clear."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Damn. Had to try, though, right?"<</Dialogue>><br><br>
+Emma leaves a bill on the table and makes her way out. She turns around near the door, and waves at you, biting her lips, before disappearing. You sigh, contemplating drowning your sorrows in another drink. But knowing you'll be sharing that gym with Emma soon, you decide to keep your caloric intake down, as you want to look your best for her come next week!`
 }) >>
+
+
