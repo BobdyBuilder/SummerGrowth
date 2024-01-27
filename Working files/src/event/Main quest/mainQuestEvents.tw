@@ -52,6 +52,144 @@ repeatable: false,
         retriggerable: false,
         priority: 'response',
         npc: [],
-        content: ``
+        content: `You're going about your day at your home when you remember that your post box actually exists. Since you moved in here you haven't given it much thought; besides banks and other really old fashioned institutions, who even uses the post anymore? As you go upstairs, shuffling through the narrow staircase, through the hallway and into the main loby. As you pass Johan's door you hear some loud music playing, surely from some videogame or another. Opening your postbox you find the ussual; trash, spam, some coupons for food delivery. You idly shuffle through them, discarding most to the floor, when you see a much more intricate letter. It has the logo of the university on it, and even the little hologram in the top left corner. Already you can feel some anxiety building, as you did NOT expect such a letter and you can't think of anything you might have done to warrant it.
+        
+        You find yourself 10 minutes later in your bedroom, laying on your bed and staring up at the ceiling. Only one word kept repeating; fuck. FUCK. As you zone out and think on what to do, you can't really focus. Not with that news. The letter is still clutched in your hand, far heavier than it should be for someone of your mass. 
+        
+        The university you go to is the one of your dreams. The one you had picked out years ago, and one where you could do what you dreamed of. However, student loans are a thing; though your family has always been supportive, they simply don't make enough to allow you to go here and escape your small town. You've worked your ass off to get a scholarship; and now, before you even began to study here, you find that due to an 'administrative error' it got retracted. Its hard to not cry over this. With everything that has been going on here you almost forgot you actually are here to study. But not that your scholarship got retracted, you're pretty sure you won't be able to pay for even attending here. You need to pay your fees soon, and you simply don't have that kind of money. Neither does your family.
+        
+        Though...
+        
+        As you lay there your mind drifts to some time ago, when you were just walking around and that flyer hit you. And what Nate has been preparing for. The bodybuilding event. Muscle Mania. The cash prize there would be more than enough to keep you going, replacing your scholarship. And it's soon enough that you can attend, if you want to. It sounds ridiculous, but as you flex your arm you realize that your body body has changed so much, winning such a competition shouldn't be too hard. You're not sure if you want to do this, but you know you have to. You need to.
+        
+        But right now, this idea is too dumb to just do. You need to discuss this with someone, someone you trust... but who to call...
+        
+        <span id='part1'>
+            <<if $johanOpinion > 50 && XXX>>
+                <<link "Call Nate">>
+                    <<replace "part1">>
+                    <</replace>>
+                <</link>>
+            <</if>>
+
+            <<if $johanOpinion > 40 && setup.hasEventBeenTriggered('johanPinUpArt')>>
+                <<link "Johan is my ride or die. If anything, I can trust him to be totally sincere and supportive.">>
+                    <<replace "part1">>
+                        You tap the name, and soon the phone is ringing. After a few rings, Johan picks up and immediately fumbles the device, which clatters to the ground, making weird noises on your end as he yelps.
+
+                        <<Dialogue "Johan" "Johan">>"Hey there, <<print $playerFirstName>>. Sorry, was priming some miniatures, kinda hard to handle the phone, but I got you on speakerphone now."<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"Oh, is this a bad time? I don’t want to impose..."<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"Nah, I’m a natural multitasker, no need to..."<</Dialogue>>
+
+                        You hear the hissing of an aerosol, then some thumping and clanking as Johan goes OH NO!
+
+                        <<Dialogue "Johan" "Johan">>"Sorry. But you do have my full attention now."<</Dialogue>>
+
+                        You proceed to explain the entire thing about your rescinded scholarship, your little freakout... Johan says the occasional interjection, but seems to be mostly very attentively listening.
+
+                        <<Dialogue "Johan" "Johan">>"Whoa. That’s quite a lot of money. Can’t your parents get a loan or something?"<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"I mean, it’s complicated, but, I also had another idea. But before I commit, well, it’s a bit... I just want a second opinion."<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"Of course, I’ll be glad to help in any way I can. If my geek cred can be of any help, you have my sword."<</Dialogue>>
+
+                        You wave off the confusing reference, and just blurt it out:
+
+                        <<Dialogue "player" "You">>"I don’t know if you heard, but there’s going to be a bodybuilding competition in town at the end of summer. And the first prize is enough to cover it."<</Dialogue>>
+
+                        <<if $muscle >= 80>>
+                        Johan just remains silent for a second. You just confirm he’s still there:
+
+                        <<Dialogue "player" "You">>"So?"<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"Uh, I thought you were going to ask to borrow some paint for a fake suntan or something like that. I mean, you got this in the bag already, right?"<</Dialogue>>
+
+                        Damn, Johan, you know just what to say.
+
+                        <<Dialogue "player" "You">>"Oh, Johan. You know just what to say."<</Dialogue>>
+
+                        You just said that out loud. Oops. Thankfully, Johan is oblivious enough not to pick up on it.
+
+                        <<elseif $muscle >= 55>>
+                        <<Dialogue "Johan" "Johan">>"Whoa, that’s an amazing idea! I don’t know much about it, but I know you’ve certainly gotten big enough that it shouldn’t be too hard! That’s so cool! I’m gonna be friends with a bodybuilder! Who would have thought?"<</Dialogue>>
+
+                        Johan pulls another Johan, and just gives you his full support and makes you feel good about it.
+
+                        <<elseif $muscle >= 30>>
+                        <<Dialogue "Johan" "Johan">>"Actually, that’s kind of perfect. I’ve never seen anyone gain muscle so fast as you, might as well bank on that. I have no idea what the competition is like, but if you got this buff this fast, imagine what you can do if you get really serious?"<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"But unless I get first place, this will all be for naught! Am I crazy for doing this? Betting it all on a whim?"<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>, if there’s one thing I learned about you since you moved in, is that you are a professional destroyer of expectations. If you told me you were going to run for president, I’d ask where can I register to vote... and can I get a ride on Marine One? I always wanted to ride in a helicopter!"<</Dialogue>>
+
+                        Johan’s enthusiasm, as usual, is contagious, and you already feel like this is in the bag - even if your brain realizes that it’s not going to be easy.
+                        <<else>>
+                        <<Dialogue "Johan" "Johan">>"Well, that’s a daring plan, <<print $playerFirstName>>..."<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"Yeah, I should’ve known..."<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"... and I’ll be cheering for you on the first line when you win."<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"Wait, what?"<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"They do have seats for people to watch right? I admit I know jack shit about bodybuilding, but I assumed you’d go on a stage with an audience."<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"But, Johan, that means that I need to, you know, bodybuild. Get in shape, get big muscles, lose fat, have symmetry, learn to pose, all that."<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"You kinda lost me there, but I know you well enough to not bet against you. "<</Dialogue>>
+
+                        <</if>>
+                        It’s a good thing you decided to call, because you just feel like grabbing Johan and giving him a big kiss.
+
+                        <<Dialogue "player" "You">>"It sounded like a plan, but I was worrying about so many things - is it going to affect job interviews? What are people going to think? Am I even cut out for this?"<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"But, <<print $playerFirstName>>, how do YOU feel? That’s what matters, right?"<</Dialogue>>
+
+                        It hits you like a million bricks. You’ve been worrying about what others would think... but Johan is totally right. What does that matter?
+
+                        <<Dialogue "player" "You">>"You know what? You are right, Johan. I’m gonna do this! Thank you so much for your support!"<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"Glad to be of help. So, if you don’t mind, I got quite a few miniatures I gotta prep here so..."<</Dialogue>>
+
+                        <<Dialogue "player" "You">>"Ah, of course. Thanks again!"<</Dialogue>>
+
+                        <<Dialogue "Johan" "Johan">>"Cool. Have fun. And do let me know when you’ll be competing, I will totally bring a sign. They do that, like in pro wrestling, right? Must be similar, I assume?"<</Dialogue>>
+
+                        Suppressing a giggle, you hang up. Wow. I guess you are really doing this.
+
+                        There will be time to work on this, but for now, it’s time to get on with your day. You should do something nice for Johan later, though. He’s always there for you, the perfect cheerleader.’
+
+                        <<link "Continue" "Home">><</link>>
+                    <</replace>>
+                <</link>>
+            <</if>>
+
+            <<if $johanOpinion > 50 && XXX>>
+                <<link "Call Emma">>
+                    <<replace "part1">>
+
+
+                    <</replace>>
+                <</link>>
+            <</if>>
+            
+            <<if $johanOpinion > 50 && XXX>>
+                <<link "Call Elena">>
+                    <<replace "part1">>
+                        
+                    <</replace>>
+                <</link>>
+            <</if>>
+
+            <<if $johanOpinion > 50 && XXX>>
+                <<link "Call Kris">>
+                    <<replace "part1">>
+                        
+                    <</replace>>
+                <</link>>
+            <</if>>
+        </span>`
     }
 ) >>
