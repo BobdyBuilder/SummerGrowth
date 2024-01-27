@@ -546,6 +546,139 @@ And with that, you take your leave, and return home, hoping NOT to see her at wo
  <<link "Continue" $currentScene>><<set $emmaRelationship to false>><</link>>
 <</replace>><</link>></span>
 <</replace>><</link>></span><</replace>><</link>></span><<set $emmaBurnout to true>>`
+},
+{
+    name: 'EmmaConfidesHerImage',
+    locationTags: ['emma'],
+    conditions: [
+        () => false, /* FIXME NA13 is not added */
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `This took some planning, but you were truly happy most people just went along with your crazy idea. The moments waiting are a bit unnerving, but you can’t help but feel your feet tingling in anticipation.<br><br>
+Suddenly, the elevator dings, everyone ducks under their respective desks<<if $muscle >65 || $height >205>>, including yourself - and given your comically oversized body, it’s a bit humorous, making some of your coworkers giggle at your attempt at stealth<</if>>. The door slowly opens, and Emma comes out, very confused by the empty office and no lights on. She steps out, when...<br><br>
+<b>“SURPRISE!!!”</b><br><br>
+Emma jumps back, almost dropping her briefcase, as everyone pops out from their desks with poppers and party blowers. The boss is left wide-eyed and frozen, as you approach her.<br><br>
+<<Dialogue "player" "You">>"Hey, Emma. I talked to the team, everyone was worried when you were absent, and they wanted to do something special for you, so..."<</Dialogue>><br><br>
+<<Dialogue "randomPerson" "Employee">>"I hope you like coconut! This cake that Sue makes is really good!"<</Dialogue>><br><br>
+He hands Emma a slice of cake on a paper plate, and she still seems to be reeling from the whiplash of the surprise.<br><br>
+<<Dialogue "Emma" "Emma">>"Well, I can absolutely confirm it was a surprise, that is undeniable."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yeah, I originally wanted to do this right after you came back from your, erm, break, but it took some planning and I wanted to make sure to pull it off at a time it wouldn’t hurt productivity."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"How well you know me, miss <<print $playerLastName>>."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"We always aim to please. But right now, you should go mingle, I think everyone would like to let you know how much they like having you managing the office."<</Dialogue>><br><br>
+And so you <<if $muscle >55>>gently <<elseif $muscle < 35>>forcefully <</if>>push Emma towards the big hubbub, watching as she tries to navigate awkwardly as the overly-enthusiastic and extremely friendly crew hugs and praises her. It’s somewhat endearing to see how hard it is for her to accept that people look up to her and cherish her. For once, you can just sit back and relax as you watch the others do the work to help your boss.<br><br>
+You smile as Emma slowly allows her surprise and unease to melt, you can see her shoulders untensing, her smile widening and becoming more relaxed, her usual coldness and distance unraveling as she becomes just another employee instead of the stern boss - that is not to say, she’s still completely professional, but it’s like she doesn’t need to act like some constantly alert sentry.<br><br>
+You enjoy some cake and coffee yourself, keeping your distance as you watch Emma from afar, blossoming like a flower before your very eyes. It’s still very much her, but... more zen? You are not even sure how to put it in words - all you know is that you like what you see.<br><br>
+Eventually the celebration starts winding down, and Emma settles in the cafeteria exchanging some funny stories with other senior members of the staff that have been there since she joined the branch. But as they disperse, you come in, and pull a chair next to her.<br><br>
+<<Dialogue "player" "You">>"Who could’ve guessed, seems like you have some fans here in the office."<</Dialogue>><br><br>
+Emma smirks, taking a sip of the cheap coffee.<br><br>
+<<Dialogue "Emma" "Emma">>"I knew you were sneaky, but this was surprisingly crafty, miss <<print $playerLastName>>."<</Dialogue>><br><br>
+You take a purposefully long sip of the brown swill they somehow get away with classifying as a coffee brew, hiding your smile as you prepare your retort.<br><br>
+<<Dialogue "player" "You">>"Well, you know, they say you really ought to suck up to your boss to get ahead. I’m just really looking out for myself professionally."<</Dialogue>><br><br>
+Emma chuckles, but there’s that melancholy edge as she slumps a bit on her cheap plastic chair. Now it’s only the two of you in the cafeteria as everyone has returned to their work. She sighs, before continuing.<br><br>
+<<Dialogue "Emma" "Emma">>"You joke, but I have to admit I feel strangely self-conscious now about the way I deal with my professional persona."<</Dialogue>><br><br>
+Putting the cup down, you look at her rife with curiosity, your eyes showing how anxious you are for Emma to elaborate.<br><br>
+<<Dialogue "Emma" "Emma">>"Do you ever stop and question who you are and how you present to people?"<</Dialogue>><br><br>
+<<if $muscle >65>>
+<<Dialogue "player" "You">>"Actually, I mean, you certainly noticed it yourself, but not too long ago I used to be a pretty meek little girl, barely able to open a jar of pickles. These days I keep asking myself if I might just start benching small cars for a challenge - and I would probably not be surprised to find myself able to. And it’s weird, because I’m still the same person, but also not? And both the people who never met me as well as the people who witnessed my transformation treat me differently, and it can be disconcerting, no matter how much I try to ignore it."<</Dialogue>><br><br>
+<<elseif $muscle >45>>
+<<Dialogue "player" "You">>"Actually, it’s so weird to be in such great shape. I used to be one of those wallflowers who would get completely ignored in a crowd, and now I stand out and I am the target of all kinds of compliments as well as nasty comments. And it’s weird, because I’m still the same person, but also not? And both the people who never met me as well as the people who witnessed my transformation treat me differently, and it can be disconcerting, no matter how much I try to ignore it."<</Dialogue>><br><br>
+<<elseif $height >185>>
+<<Dialogue "player" "You">>"Actually, it’s so weird to stand out due to my height. I used to be one of those wallflowers who would get completely ignored in a crowd, and now I stand out and I am the target of all kinds of comments. And it’s weird, because I’m still the same person, but also not? And both the people who never met me as well as the people who witness my transformation treat me differently, and it can be disconcerting, no matter how much I try to ignore it."<</Dialogue>><br><br>
+<<elseif $dick > 8>>
+<<Dialogue "player" "You">>"Actually, it’s so weird to stand out due to my, huh, unusual genital situation. I used to be one of those wallflowers who would get completely ignored in a crowd, and now I stand out and I am the target of all kinds of weird comments. And it’s disconcerting, because I’m still the same person, but also not? And both the people who never met me as well as the people who witnessed my transformation treat me differently, and it can be disconcerting, no matter how much I try to ignore it."<</Dialogue>><br><br>
+<<elseif $shyConfident > 2>>
+<<Dialogue "player" "You">>"Actually, it’s so weird that my personality shifted so much. I used to be one of those wallflowers who would get completely ignored in a crowd, and now I just kind of seem to command attention and stand out so naturally. And it’s weird, because I’m still the same person, but also not? It raises all types of weird philosophical and existential questions that I don’t think I want to tackle."<</Dialogue>><br><br>
+<<elseif $skills[4].level > 3>>
+<<Dialogue "player" "You">>"You know, I moved out of my childhood home to find myself, to try and figure out what I wanted to do, but I never expected I’d suddenly discover this natural gift I had for modelling? Or rather, I mean, I put a lot of work in, I just never expected that I would be treated differently because of it, you know?"<</Dialogue>><br><br>
+<<elseif $skills[2].level > 3>>
+<<Dialogue "player" "You">>"You know, I moved out of my childhood home to find myself, to try and figure out what I wanted to do, but I never expected I’d suddenly get all passionate about a corporate career, studying bookkeeping and business management and somehow getting really good at it? I put a lot of work in, sure, but I never expected it would be something that would make me stand out and be recognized for."<</Dialogue>><br><br>
+<<elseif $skills[3].level > 3 && $streamingViewers >= 100>>
+<<Dialogue "player" "You">>"I know you told me the whole thing about streaming games, but I gotta confess, I kinda got swept by it, and before I knew it, I was kind of a big deal online and got competitive. And lo and behold, I got this whole online following now, but just a few weeks ago I was the kinda girl who would disappear in any crowd, and I find myself performing and I don’t know where I end and this online persona starts and it’s... disconcerting?"<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"I dunno, Emma, I moved out of my parents’s house to find myself because I couldn’t figure out what I wanted to do with my life, and arriving in this town caught me in this bizarre series of events that I could have never guessed in a million years. And while I’m still trying to figure out who I am, I see all these possibilities ahead of me and it’s certainly daunting. But also exciting? Though at the end of the day I feel like I am not sure who I am."<</Dialogue>><br><br>
+<</if>>
+It’s clear that Emma feels some kindred with what you just said. She takes another long sip, looking away in deep thought, before continuing.<br><br>
+<<Dialogue "Emma" "Emma">>"And let me guess, you found yourself taking in this persona before you even realized it was a mask you forced on yourself?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Whoa, whoa, whoa, step on the brake there, Emma! This escalated a bit fast for my taste!"<</Dialogue>><br><br>
+Emma chuckles again, before sighing.<br><br>
+<<Dialogue "Emma" "Emma">>"I never told you, but when I first interviewed you, I saw myself in you. We actually had some applicants who seemed more qualified, but all of them just rubbed me wrong in some way. But you? I saw something in your eyes - you had this eager earnest that I remember having, a long time ago. And maybe it was subconscious, but I sought that."<</Dialogue>><br><br>
+You blink repeatedly, looking around to confirm that it’s just the two of you as Emma seems to open up in ways you didn’t even think was possible.<br><br>
+<<Dialogue "Emma" "Emma">>"I wish you could’ve seen me in my first day at work. I had just moved here from another state, just a pimply teenager looking for a summer job, and they happened to have an opening in the mailroom. I came in everyday eager to prove myself, and despite being at pretty much the lowest position available, I worked as hard as I could."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I would have never guessed, I always figured you came in from some Ivy League school and just sort of waltzed into a high position."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I suppose that’s part of the mask, right? The thing is, there was another employee, this man, who was teaching me the ropes. I suppose I was always a fast learner, but I didn’t realize that the corporate world could be so cutthroat. And one day it all kind of came tumbling down - while I did have some responsibility, I wasn’t properly trained, and it was easy for him to blame ‘the new girl’. It was then that I learned that sometimes you just have to be on constant lookout and know that everyone is smelling the blood in the water. This was just the first of many incidents - including being passed for promotion just for being a woman. And I don’t think most people even realized they were being sexist, everyone seemed to just be perpetuating their old habits. So I rolled my sleeves and decided that I was not going let ANYTHING stand in my way. I was going to be the hardest working person in the office, and broadcast how serious and strict I was, because it was the only way I would be seen as an equal. And I suppose it worked, as my meteoric rise would prove. And yet, I feel like I sacrificed something in the process. The mask came with a cost."<</Dialogue>><br><br>
+You are speechless. I mean, it’s not like you did not know this side of Emma, but to see her opening her heart and explaining how she grew into this person...<br><br>
+<<Dialogue "Emma" "Emma">>"I mean, don’t get this wrong. It is still very much who I am, the person I grew into. There’s no doubt that I was finding myself in this process - it’s part of the reason I got so profoundly involved in fitness - not only because I ABSOLUTELY needed a way to vent all my frustrations, but I felt like I had to prove myself to be taken seriously. But today you made me look back, and it’s slightly unnerving to think that I had conquered this respect for this persona, but perhaps I could have found a balance - not to compromise my values, but somehow not expect my self worth to come exclusively from my excellence, as unsustainable as it might be."<</Dialogue>><br><br>
+You place your hand over Emma’s.<br><br>
+<<Dialogue "player" "You">>"I’m pretty sure the entire office realizes just how much you bring to the table, Emma. But you are right that you don’t need to be perfect for people to find you valuable. Heck, you took your chance with me, and I don’t know that I’ll ever live up to your standards!"<</Dialogue>><br><br>
+You laugh, but Emma goes extra serious when you say that.<br><br>
+<<Dialogue "Emma" "Emma">>"Maybe we both have something to teach each other here. I may be your senior, but in this short time, I feel like you have helped me grow more than you realize."<</Dialogue>><br><br>
+You motion to hug Emma, but she stiffens and pushes her chair backwards, sending a clear message. Yeah, she still has an image to maintain at the office.<br><br>
+
+<span id="choice">
+	<<PersonalityCheck $carefreeCarefull <= -2 "Oh, chill, Emma. You said it yourself, you need to learn to open up.">>
+		<<replace "#choice">>
+            You insist, and push yourself against her for a hug, and she just turns her head as you squeeze her taut torso. Immediately, she makes it clear you stepped over a line, but still you push, like trying to crack an eggshell. You can feel her muscles contracting as she tries to actively break away.<br><br>
+            <<Dialogue "Emma" "Emma">>"Look, I understand you mean well, <<print $playerFirstName>>, but this is not only a process for me, but just because I said I’m figuring myself out, it doesn’t mean that the other aspect is not still an important part of who I am. And my devotion and commitment to this job is a major element of that."<</Dialogue>><br><br>
+            You wince, aware of your mistake, and try to brush it off, but it’s just as awkward.<br><br>
+            <<Dialogue "player" "You">>"Yeah, duh, of course I know! It was like a joke, really. But it’s okay."<</Dialogue>><br><br>
+            Emma still looks at you dearly, however. You can almost feel a telepathic link telling you she just wants to run her fingers through your hair as she says it.<br><br>
+            <<Dialogue "Emma" "Emma">>"But it’s alright. I guess we both have things we need to figure out, and for once I’m glad I won’t have to do it alone. So we’ll tackle it together, and at times we’ll probably slip and mess up like this. The beauty is that, for once, I’m allowing myself not to be infallible all the time."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"See? Even when I mess up, I still score!"<</Dialogue>><br><br>
+            Emma chuckles, rolling her eyes.<br><br>
+            <<Dialogue "Emma" "Emma">>"Incorrigible, is what you are."<</Dialogue>><br><br>
+            You shrug, getting up, as Emma looks around to make sure no one is around, before pinching your <<if $muscle>80>>titanic <<elseif $muscle>55>>diamond-hard, perfectly shaped <<elseif $muscle > 40>>impressive bubble <</if>>ass. She mouths a silent ‘thank you’ as she stands up and straightens her impeccable suit.<br><br>
+            You return to your station, hoping to soon get an opportunity to spend some quality time with Emma away from the office.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            You start leaning against Emma for a hug, but you hesitate as she turns her face, and before you know the two of you are doing a weird awkward dance trying to sort of get out of each other’s way.<br><br>
+            <<Dialogue "Emma" "Emma">>"Look, I am looking forward to some warmer confraternizing, but not during business hours, I am sure you understand."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"O-of course!"<</Dialogue>><br><br>
+            You say, sort of avoiding eye contact and stepping aside with embarrassment as Emma recomposes herself.<br><br>
+            <<Dialogue "Emma" "Emma">>"Still, good job on the party. It does mean a lot to me. And, hey, maybe it’s a sign that you are management material!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"R-really?"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Well, keep studying, but who knows what tomorrow brings? I’m confident enough to say I think both of us want to find out."<</Dialogue>><br><br>
+            She gives you a wink, and returns to her office. How can Emma have such a commanding presence? You keep asking yourself that as you return to your station, having a hard time concentrating on your tasks for the rest of the day.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+	<<PersonalityCheck $shyConfident >= 2 "Well, I certainly look forward to learn more from you. In more ways than one (wink, wink!)">>
+		<<replace "#choice">>
+            You place a very confident hand on the cafeteria table by Emma’s side, as you start leaning over her. <<if $height > 190>>You tower over her, your imposing presence overshadowing her both literally and figuratively.<<elseif $height >165>>You leverage the fact you are taller than her, approaching slowly but confidently until you communicate that with your presence.<<else>>Despite not being taller than Emma, you still leverage the fact she is sitting down as you approach her, slowly and surely.<</if>> <<if $muscle >80>>You flex your humongous triceps and traps, cherishing the difference in mass between the two of you.<<elseif $muscle >60>>You let your developed triceps and pectoralis do the talking with a flex, a quick reminder of your impressive physique to entice your boss.<<elseif $muscle >45>>You flaunt your respectable physique by posing just right, making your triceps pop.<</if>><br><br>
+            <<Dialogue "player" "You">>"Well, I’m glad you had your day in the sun. You were really due for one. And I’m glad to see you appreciated it, but..."<</Dialogue>><br><br>
+            Emma looks intently into your eyes.<br><br>
+            <<Dialogue "player" "You">>"For now we’ll put a pin on it. Because I think you also need something a bit more personal, if you catch my drift."<</Dialogue>><br><br>
+            Your eyes scan Emma’s delectable clavicle, revealing just a hint of her defined pecs, what little of her upper body you can glimpse from that shirt (which you would pay top dollar to just rip off of her right now). You lick your lips, and Emma gets the message loud and clear, responding with that trademark smug smile and a raise of a single eyebrow.<br><br>
+            <<Dialogue "Emma" "Emma">>"I’m sure to find a window in my schedule for a one-on-one performance review, miss <<print $playerLastName>>."<</Dialogue>><br><br>
+            You whisper back in her ear.<br><br>
+            <<Dialogue "player" "You">>"God, it’s so hot when you make business lingo sound naughty."<</Dialogue>><br><br>
+            Emma’s smile opens, revealing her pristine whites, and she stands up, offering her hand for a shake. You both grab each others palms very firmly, and just that is enough to start making you wet.<br><br>
+            <<Dialogue "Emma" "Emma">>"I’ll call you off of business hours and we’ll arrange a meeting."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I’ll hold you to it."<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"I’m counting on that."<</Dialogue>><br><br>
+            And with that, you both go back to your respective duties, though you are left wondering if she’s going to be as distracted with certain thoughts as you.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<<Failed>>
+		<<replace "#choice">>
+            You try to approach her with a confident smile as you lay your hand on the table by her side, but end up hesitating and lose your balance, tripping and falling face-first on her bosom. Emma’s hands shoot up with impressive reflexes, trying to stabilize you, <<if $muscle >65 || $height >185 || $fat >55>>but your considerable size make that a fool’s errand, and you end up just pushing her chair back before tipping to the side and falling to the ground, which makes the entire cafeteria shake. Other employees come running to check on you, but you insist that everything is okay. Emma offers a hand to help you up, which you embarassedly accept.<<else>>her strong arms grabbing you firmly. Damn, she is STRONG. Her eyes lock on yours, and you find yourself blushing. Emma, on the other hand, just smirks, as she helps you up.<</if>><br><br>
+            <<Dialogue "Emma" "Emma">>"Do I need to go on my little workplace safety spiel?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"No..."<</Dialogue>><br><br>
+            You mutter under your breath, defeated. While you are extremely self-conscious of how pathetic you feel, you try to remind yourself that you just tried to lecture your boss on that very topic, so you try your best to just let that slip. Way to kill the mood, <<print $playerFirstName>>.<br><br>
+            <<Dialogue "Emma" "Emma">>"Well, that was great, but I do still have a lot of work ahead of me. And I assume so do you."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"True, true."<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Well, that was great, but I do still have a lot of work ahead of me. And I assume so do you."<</Dialogue>><br><br> 
+            <<Dialogue "Emma" "Emma">>"But I do want to pick up our conversation later. I’ll call you after work when I have some time, if that’s okay with you?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"OK? That’s pretty much perfect."<</Dialogue>><br><br>
+            Way to play it cool, <<print $playerFirstName>>.<br><br> Emma smirks.<br><br>
+            <<Dialogue "Emma" "Emma">>"Then I’ll see you around. And once again, thanks!"<</Dialogue>><br><br>
+            She leaves the cafeteria as you feel like you are still recovering your balance, and very much looking forward to that call.
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</PersonalityCheck>>
+</span>`
 }) >>
-
-
