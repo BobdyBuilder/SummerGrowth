@@ -788,6 +788,111 @@ You say, as you pull her close and give her another passionate kiss, squeezing h
 <<Dialogue "Emma" "Emma">>"You are still getting no preferential treatment, just to be clear."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Damn. Had to try, though, right?"<</Dialogue>><br><br>
 Emma leaves a bill on the table and makes her way out. She turns around near the door, and waves at you, biting her lips, before disappearing. You sigh, contemplating drowning your sorrows in another drink. But knowing you'll be sharing that gym with Emma soon, you decide to keep your caloric intake down, as you want to look your best for her come next week!`
+},
+{
+    name: 'EM30EmmaTakesCharge',
+    locationTags: ['home'],
+    conditions: [
+        () => hasEventBeenTriggered('EmmaCoffeeTalk-2'),
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `You packed your gym bag to the office, eager to spend some time in the gym with Emma. She seems to be less bashful about her physique lately - in fact, you even caught her one time gleefully helping someone switch the bottle on the water cooler. It’s small things, but they always seem to bring a smile to your face.<br><br>
+So when your shift is done, and Emma should also be done, you send her a text message asking if she’d like to walk to the gym together. She answers that she will need a minute, so you can go ahead. You hesitate, but figure it’s not worth arguing - and thus make your way there.<br><br>
+Once at the gym, you go to the changing room, where you put your own workout outfit. <<if $muscle >80>>It’s still somewhat surreal to see that you’ve basically grown into some sort of superhuman demonstration of hypertrophy potential - and a challenge to most of the equipment available in the gym. You stand out so much that you even wonder if there isn’t even an ethical issue in participating in the bodybuilding contest to begin with.<<elseif $muscle >60>>You looked at your enormous muscles, which just scream “Yeah, I am a bodybuilder”, veins punctuating the bloated flesh like parts of a physiological poem that confirm your right to compete in the event.<<elseif $muscle >45>>You revel on your physical accomplishments, which put you a step ahead in the upcoming bodybuilding competition as this paragon of female fitness, and make you feel worthy (in more ways than one).<<elseif $muscle >30>>You are glad to have built your body over the last few weeks, but you can’t help but feel like you still have a long road ahead of you, and Emma’s example only puts further pressure on you.<<else>>Your fitness journey is still only beginning, but you can’t help but wonder if maybe it was a bad idea to register for the bodybuilding competition, as you watch your rather muscle-deficient physique on the mirror.<</if>> <<if $fat > 40>>You also realize that you’ll probably have to start worrying about losing some fat, and the word “cutting” somehow feels more harmful than actual act of breaking the skin and bleeding. Still, it’s something you’ll have to worry as the competition approaches. <<elseif $fat >30>>Thankfully, you won’t need major worries about losing too much fat, as you already feel somewhat lean and on your way to be ready for the final stretch before the big day. <<elseif $fat >20>>The last bit of fluff you need to lose shouldn’t be much of a hurdle at this point, mostly the usual prep as the competition approaches, probably something you can do mostly with your diet. <<else>>You already feel super dry, with each muscle properly on display given your rather lean body - which you confirm with a nice pinch of very pliable skin. One less worry.<</if>><br><br>
+But what really dominates your mind is Emma. You briefly wonder if your physique is something that will affect her own performance AND her feelings for you as the stress of the fastly-approaching deadline comes. Bodybuilding is some serious business, but right now your focus is giving Emma all the support you can - this is HER moment to shine, and you want nothing but to be there for her.<br><br>
+And as if on command, you hear the characteristic sound of her fancy shoes clacking against the tile. You turn, but it’s her reaction that catches you: her eyes scan you from top to bottom, and that brings a smile to her face, which gives you butterflies in your stomach.<br><br>
+<<Dialogue "Emma" "Emma">>"Sorry, I was held up for a bit, but now I am here distraction-free, as a good workout should be. Though, I have to say, you are not about to make that easy."<</Dialogue>><br><br> 
+That makes you giggle, as you help her with her rather small and discreet gym bag. You find yourself lacking the wit to say something as clever, so you console yourself with just helping her fold her office outfit neatly as she puts it away in her locker, wearing her usual gym attire.<br><br>
+<<Dialogue "player" "You">>"Have I ever said you look really good in sportswear?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Well, right now what matters is that I don’t look good enough, but we will address that posthaste."<</Dialogue>><br><br> 
+<<Dialogue "player" "You">>"Yeah, that’s the spirit! I feel like I should have brought some pompoms to motivate you, though!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, worry not, you have plenty of other assets that will do a much more effective job at that!"<</Dialogue>><br><br>
+She says, as she sneaks a pinch to the bottom of your ass. The two of you exchange a knowing smile.<br><br>
+<<Dialogue "player" "You">>"Here, hand me your bottle, I’ll get you some cold water and meet you by the treadmill, I assume you’ll want to warm up with a short run?"<</Dialogue>><br><br>
+Emma briefly pauses, like she was going to correct you, but then she shakes her head and tosses you the bottle.<br><br>
+<<Dialogue "Emma" "Emma">>"See you there in a sec!"<</Dialogue>><br><br>
+You rush to get both your bottles filled up at the fountain, before setting yourself by the treadmill. But as Emma comes out of the changing room, time slows down - even though you’ve seen her change, you can’t help but appreciate as she walks confidently through the gym. Each step is strong and deliberate, and her eyes are straight and focused, like the world could be falling apart (or she could be getting quite a few looks from other gymgoers, which is probably a thing) and she would not even dignify that with a response. Instead, her shoulders move slightly but powerfully, giving her the sway of an apex predator feline. Her bulbous deltoids and pronounced trapezius only reinforce that, as do her wide-set hips and rounded glutes that contrast with her rather tight waist. As each leg efficiently gives another step with her respectable and pronounced quadriceps, you need to shake yourself off of wanting to be the very floor upon which she walks.<br><br>
+<<Dialogue "Emma" "Emma">>"Thanks!"<</Dialogue>><br><br>
+She says, while grabbing the cold water bottle from your hand and breaking your trance. She quickly taps the panel on the treadmill and is immediately on a quick incline jog, which you trip over yourself to imitate on the unit besides her.<br><br>
+<<if $muscle>65>>It is mostly trivial to keep up with her pace as you find yourself at peak physical condition, and despite the groaning of the equipment due to your weight, you could probably do this all day. <<elseif $muscle >40>>You manage to keep up with Emma’s cardio routine, finding yourself equally challenged, which you assume is a good thing. <<elseif $muscle >30>>Emma’s pace is not only grueling, but downright brutal as you try to keep up. Breathless, you force yourself to do your best, erratically trying to keep your feet properly balanced, but it’s an enormous challenge. You decide to slow your own treadmill a bit, allowing you to properly continue your exercise.<<else>>It quickly proves to be an insurmountable task, as you confirm you can barely even balance yourself at those setting, so you just set the device to a brisk pace and accept that you can’t quite match your workout buddy.<</if>> And so you find yourself distracted with Emma - watching as she bounces in her meticulously consistent run: the perfect form as she waves her toned arms back and forth, the way her solid legs efficiently move in what appears to be a clockwork motion, the slight bounce of her tight pecs, and those eyes. Oh, those determined eyes. The thin sheet of sweat making her glisten only accentuates her beauty. If it wasn’t the fact you were burning some seriously calories, you could probably just keep watching her forever.<br><br>
+Eventually Emma slows her own treadmill down, and you quickly get off yours, handing her a towel and trying to motivate her:<br><br>
+<<Dialogue "player" "You">>"Wow, that was pretty impressive! You’ll be ready for the competition in no time!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Oh, that? That was just my warmup - the actual cardio I do running outdoors."<</Dialogue>><br><br>
+<<if $carefreeCarefull < -1>><<Dialogue "player" "You">>"WHAAAAAAAAAAT?"<</Dialogue>><br><br>
+Ok, you are exaggerating a bit, which amuses Emma.<br><br><</if>>
+<<Dialogue "player" "You">>"Well, what’s next on the docket?"<</Dialogue>><br><br>
+Emma dries the sweat off her forehead with the towel as she starts laying down her plan:<br><br>
+<<Dialogue "Emma" "Emma">>"Well, the competition is all about symmetry, and I have a pretty solid upper body base, but my core needs some work - and I still think I can put a little effort on my back."<</Dialogue>><br><br>
+What seems like Emma just setting up a strategy, you realize, is her actually trying to impart her knowledge to you. She obviously knew exactly what she wanted to do before she even arrived, but she’s trying to break it down - and, you assume, include you so you aren’t just left as the inconsequential audience. It’s not the warmest show of affection you’ve ever seen, but she’s clearly trying.<br><br>
+<<Dialogue "player" "You">>"So, what?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I’m going to do some sets on the lat pulldown and my ab circuit on the bar."<</Dialogue>><br><br>
+<<if $skills[0].level > 2>>You nod, and put the wide bar on the pulldown machine, asking Emma how much weight should you set it to. Emma smiles, looking at you with a hint of concern:<br><br>
+<<Dialogue "Emma" "Emma">>"It’s adorable that you want to be so helpful, but you don’t need to do all that. I’m quite capable, and I’ll settle for your support... and maybe the occasional spot."<</Dialogue>><br><br>
+You take a step back, and let her do her thing. 
+<<else>>You look around, trying to figure out how to help, but before you even process it, Emma is already setting up the machine, and grabbing the handles, starting her first rep. 
+<</if>>
+And so she starts her first set, her back rippling and expanding as she methodically cranks her reps... and then she increases the weights and continues with her pyramid set. By the time she hits her third set, the reps slow down and become much more labored, until she seemingly stall on her fourth one, and you feel the urge to step in.<br><br>
+<<Dialogue "player" "You">>"If anyone can do it, it’s you, Emma!"<</Dialogue>><br><br>
+Emma grimaces, but you can see a hint of a smile as she hears your cheer, and with a soft grunt, she finishes the rep, and cranks that fifth one - slowly but suredly. Then she lets go of the load, and increases the weight one last time. It’s her max, and it’s going to be tough, you can already tell. You just place your hand on her back, and whisper in her ear:<br><br>
+<<Dialogue "player" "You">>"You got this!"<</Dialogue>><br><br>
+Emma smirks, and wraps her fingers around the bar tightly, her forearms tensing as she takes a deep breath, and you find yourself mimicking her in anticipation. She pulls the bar, and you can almost feel the enormous weight yourself<<if $muscle >55>> (even though you could probably do that with ease, but that’s beside the point)<</if>>. The bar acquiesces to her iron will, as you witness her pulling it down as if she was taming a wild horse. And she comes through, trembling, as the bar completes its circuit, being returned to its original position with full control. Emma sprouts her sinewy wings as she does so, as she finishes, she lets out a huge breath, and you erupt in applause.<br><br>
+<<Dialogue "player" "You">>"Woooooo! You did it!"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"And... huff... now, for the descent..."<</Dialogue>><br><br>
+Emma lowers the load to the previous one, to do another 5 reps as she tackles the backside of the pyramid set. You watch as she rests, her face reddened from the effort, trying to stretch her muscles as she psyches herself. You come in to spot her, just hovering your hands over the bar, but even as she struggles, you motion to hold the bar, but Emma just stares coldly at you - and you get the message. You watch her herculean effort as she proceeds to do her reps, lowering the weights and increasing the reps, until she is done.<br><br>
+You hand Emma her bottle once more, and she looks very pleased with herself. She takes a long sip and sighs, clearly drained from the effort.<br><br>
+<<Dialogue "Emma" "Emma">>"Alright, we’re losing daylight."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"You COULD take a break, you know?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I can’t rest when I have that medal on my neck."<</Dialogue>><br><br>
+Not much arguing against that. Emma gets up and walks up to the bar. <<if $muscle >60>><br><br><<Dialogue "Emma" "Emma">>"Can you help a girl get up?"<</Dialogue>><br><br>
+ You put your hands on her waist and, like a pair of ballet dancers, gently lift her so she can grab the bar. You catch Emma blushing at how easy you make it seem, which only makes you feel more awesome.<<elseif $muscle >45>><br><br><<Dialogue "Emma" "Emma">>"Can you help a girl get up?"<</Dialogue>><br><br>
+ You put your hands on her waist and, with a grunt and some effort, lift her enough to grab the bar. Emma appreciates the spot, nodding as you take a step back.
+<<elseif >>$muscle >30>><br><br><<Dialogue "Emma" "Emma">>"Can you help a girl get up?"<</Dialogue>><br><br>
+ You intertwine your fingers and bend down so Emma can use your hands as a step to grab the bar. Two things surprise you: Emma is CONSIDERABLY heavier than you expected, but also very graceful in her motions to get to the bar - not a side of her you are used to seeing, as opposed to that very practical and efficient one.
+<<else>>Emma grabs a stool and uses it to reach the hanging bar. She does it with unusual grace - not a side of her you are used to seeing, as opposed to that very practical and efficient one.
+<</if>><br><br>
+Again, Emma’s face goes into that state of full concentration as she starts raising her legs. She starts a whole routine to target her abs, raising, bending, twisting her legs, and it’s like a dance, Her entire body is perfectly still as her hips sway along, and the whole routing is repeated over and over as you see the bricks of her abs tensing in all kinds of ways - solid blocks of muscle, just waiting to spring out of her midsection with each movement of her aerial ballet. You feel like you should probably be saying some inspiring shit about now, but all you can do is watch, mesmerized by the simple yet effective routine. With a finger in your mouth, you almost let your other hand reach and feel those abs, but you hold yourself. Hopefully, Emma is so concentrated she won’t notice.<br><br>
+After a few minutes of those exercises, Emma drops down, stretching herself backwards, putting those abs in full, glorious display. You see the sweat running between the still noticeable grooves.<br><br>
+<<Dialogue "Emma" "Emma">>"You enjoyed that, didn’t you?"<</Dialogue>><br><br>
+And there’s that smug smile again. And you can’t exactly deny it.<br><br>
+<<if $shyConfident > 1>>
+<<Dialogue "player" "You">>"Enjoy? No, right now I’m just appraising the goods I’ll be delighting myself with later."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Well, aren’t you confident that you’ll get lucky?"<</Dialogue>><br><br>
+<<if $muscle >45>><<Dialogue "player" "You">>"Are you telling me you’ll resist THESE goods?"<</Dialogue>><br><br>
+And you reinforce that by flexing your even bigger arm right under her nose.<br><br>
+<<Dialogue "Emma" "Emma">>"Showoff."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Like YOU didn’t enjoy that either..."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"So you’re just gonna rub your physique on my face?"<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"I mean, if you are into that, it COULD be arranged. I’d rather you just lick these muscles, personally."<</Dialogue>><br><br>
+<</if>>
+<<else>>
+<<if $muscle >45>>
+<<Dialogue "player" "You">>"A girl can hope, right? I kinda hoped my own progress would somewhat incentivize you as well..."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"You can be assure that it does..."<</Dialogue>><br><br>
+She says, placing her palm on your muscular thigh, giving it a firm squeeze like it was ripened fruit. You involuntarily flex it, making Emma grin.<br><br>
+<<else>>
+<<Dialogue "player" "You">>"I can only hope. All I know is that I feel like the luckiest girl alive."<</Dialogue>><br><br>
+<<Dialogue "Emma" "Emma">>"Hey, don’t go selling yourself short - you sure do bring a lot to the table."<</Dialogue>><br><br>
+She says, licking her lips with a wicked smile. You can see the little gears turning in her head.<br><br>
+<</if>>
+<</if>>
+With a very slow and deliberate motion, Emma opens her legs wide into a near-split on the floor, stretching her awesomely sculpted back forward and raising her bulging glutes like a cat.<br><br>
+<<Dialogue "Emma" "Emma">>"I do need to stretch now, but maybe I can maximize this if only I had someone to give me a little push..."<</Dialogue>><br><br>
+<<if $shyConfident > 1>>With very little concern to the other patrons, you approach Emma from behind, giving her back a push as you let your own groin rub against her firm and toned flesh. You can feel yourself getting moist as you bite your lips almost to the point of bleeding, pulling Emma’s tendons to their very limit as she lets out a soft moan.<br><br>
+<<else>>
+You look around, concerned about other gymgoers, but everyone seems to be quite focused on their own workouts. You slowly approach Emma’s nicely muscled and inviting back, tentatively placing your two palms to help her stretch. As you do, she lets out a soft moan, and you blush deeply, as she coax you into pushing harder - which you do, begrudgingly.<br><br>
+<</if>>
+<<Dialogue "Emma" "Emma">>"Hmmmmm, I knew I could count on you to help me get limber."<</Dialogue>><br><br>
+As she says it, she slides into a yoga pose, like she was about to swim on the floor, and then lifts her legs off the ground in an impressive show of dexterity, flexibility and strength as she holds herself off the ground on her hands, legs spread - and her tights leaving very little to the imagination.<br><br>
+<<Dialogue "Emma" "Emma">>"I guess all this disciplined training might pay off - and I’m not talking about the demonstration I’ll put on the contest. There are other place all these could come in handy, if you catch my drift."<</Dialogue>><br><br>
+You gulp, and she lowers herself so she can elegantly get up.<br><br>
+<<Dialogue "Emma" "Emma">>"But right now I have other needs that need to be fulfilled."<</Dialogue>><br><br>
+She says, as she drags you by the collar into the dressing room. You don’t think you could resist even if you wanted - her commanding tone and actions just disarm you completely. And before you can even say a word, she’s pushed you against your locker, her hand over your shoulder pining you<<if $muscle >55>>, even though you are bigger and stronger, she still manages to somehow completely subdue you<</if>>.<br><br>
+<<Dialogue "Emma" "Emma">>"How about we shower and head back to my apartment, where we can do another type of exercise? I can guarantee it will be quite vigorous and will take your breath away."<</Dialogue>><br><br>
+You tremble under her, panting already from just imagining what she has in stock for you. You respond with but a silent nod, and Emma hands you a key fob before she goes to take a shower.<br><br>
+And so you start a rush to change, go back to your apartment and try to look as presentable as possible, and head to Emma’s apartment.<br><br>
+<<link "And off to Emma’s apartment we go!" "EM32EmmaTakesCharge-2">><<addMinutes 120>><</link>>`
 }) >>
-
-
