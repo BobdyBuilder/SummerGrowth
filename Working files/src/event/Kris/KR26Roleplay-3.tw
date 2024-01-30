@@ -1,6 +1,6 @@
 :: KR26Roleplay-3
 After an undetermined amount of time, the post-coital clarity sets in, and you find a slobbering Kris mumbling in her sleep, talking about what you assume to be giants as her drool glistens against your now enlarged breasts. You don’t feel as big and strong as before, but everything was such a lustful blur that your memory feels foggy and hazy at best. But as that heat dissipates, something else burns brightly in your chest, as you feel an unbreakable emotional attachment to Kris. This isn’t just your run-of-the-mill horny. This realization still reverberates through your hollow-feeling brain as Kris seems to awaken, pushing your breasts aside to look into your eyes.<br><br>
-<<Dialogue "Kris" "Kris">>"Hey, there, my big lover. That was AMAZING, just so you know."<</Dialogue>><br><br>
+<<Dialogue "KrisCasual" "Kris">>"Hey, there, my big lover. That was AMAZING, just so you know."<</Dialogue>><br><br>
 <span id="choice">
 	<<link "Kris... I think I fell in love with you.">>
 		<<replace "#choice">>
@@ -12,13 +12,14 @@ After an undetermined amount of time, the post-coital clarity sets in, and you f
             <<Dialogue "player" "You">>"I would expect no less from a ne’er-do-well such as yourself. But you shall not corrupt me so easily. Of course, at your present power level, I could do nothing to resist your evil attempts at forcing yourself upon me..."<</Dialogue>><br><br>
             And raising her eyebrows, she pulls the leather top away from your nipples with her chin and sneaks a playful lick around your aureola, making you shudder. You should have known better than springing it on her so suddenly - Kris is an agent of chaos, a free bird that does not roost down and can’t be contained. But maybe that’s for the best, you try to convince yourself, as she goes down on you, pulling your bottom out to start eating your pussy.<br><br>
             You shiver with pleasure as her palms spread your now even more muscular thighs, her deft tongue lashing viciously as you groan and squirm. And while Kris is a professional, part of your mind can’t help but dwell on your silly proclamation of love. Your only consolation is that you are pretty sure this spur of the moment comment will probably not get in the way of her sex-crazed fantasies. Right?
+			<<link "Go home" "Home">><</link>>
 		<</replace>>
 	<</link>>
 
 	<<link "Fuck yeah. This casual sex thing we have going is pretty awesome.">>
 		<<replace "#choice">>
             <<Dialogue "player" "You">>"Fuck yeah. Sorry, I think I might have ruined your leather outfit. But if you want rip what’s left, maybe I can fuck you for real now."<</Dialogue>><br><br>
-            <<Dialogue "Kris" "Kris">>"I’m still SuperLady - there isn’t one a piece of leather clothing that can resist my might!"<</Dialogue>><br><br>
+            <<Dialogue "KrisCasual" "Kris">>"I’m still SuperLady - there isn’t one a piece of leather clothing that can resist my might!"<</Dialogue>><br><br>
             And with that, she proceeds to rip your bottom off, and spread your strong thighs so she can eat your pussy, proving once again that her tongue has no equal. With quick and precise lashes, she makes you squirm in ways you did not know possible. You place a hand on her head, holding her tight as she rumbles you from the inside.<br><br>
             The two of you certainly have something great going there. As your breath gets ragged from the jolts of pleasure, you are left already anticipating your next hot sexual encounter with your favorite lusty goblin. And given her appetite for casual sex, you know it’s just a matter of time...
 			<<link "Go home" "Home">><</link>>
@@ -30,15 +31,15 @@ After an undetermined amount of time, the post-coital clarity sets in, and you f
             You sigh heavily, feeling guilty before you even open your mouth.<br><br>
             <<Dialogue "player" "You">>"Hey, Kris, look, this all has been worth it, but..."<</Dialogue>><br><br>
             She raises her torso, fully alert, as she looks at you in terror. Not the same ‘I’m scared you seem powerful enough to flatten me into a disc’ existential horror from before, but the kind of emotional dread that no words could probably do justice. You can almost feel her stomach dropping just from looking at her eyes, as she stares at you like an animal, afraid as they confront their hunter, knowing it’s curtains down.<br><br>
-            <<Dialogue "Kris" "Kris">>"<<print $playerFirstName>>, please, don’t..."<</Dialogue>><br><br>
+            <<Dialogue "KrisCasual" "Kris">>"<<print $playerFirstName>>, please, don’t..."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"It’s not anything serious, Kris. I’m loving every second with you. But maybe that’s the problem. This is going a bit fast, and I don’t know how I feel about it."<</Dialogue>><br><br>
-            <<Dialogue "Kris" "Kris">>"But... but... "<</Dialogue>><br><br>
+            <<Dialogue "KrisCasual" "Kris">>"But... but... "<</Dialogue>><br><br>
             Kris shoves two fingers into your vagina suddenly, bringing them out completely moistened, displaying them to you - trembling - as she babbles:<br><br>
-            <<Dialogue "Kris" "Kris">>"Look how much you are enjoying this! You can’t deny it! Please!"<</Dialogue>><br><br>
+            <<Dialogue "KrisCasual" "Kris">>"Look how much you are enjoying this! You can’t deny it! Please!"<</Dialogue>><br><br>
             Feeling bad, you reach out to hug Kris, feeling as she lets out a single sob, before pulling away from you and slapping your face.<br><br>
-            <<Dialogue "Kris" "Kris">>"FINE! Be that way! Just get out of here, I don’t want to see your face."<</Dialogue>><br><br>
+            <<Dialogue "KrisCasual" "Kris">>"FINE! Be that way! Just get out of here, I don’t want to see your face."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Kris, listen, this is not a goodbye, all I am asking for is some tim..."<</Dialogue>><br><br>
-            <<Dialogue "Kris" "Kris">>"GET OUT!"<</Dialogue>><br><br>
+            <<Dialogue "KrisCasual" "Kris">>"GET OUT!"<</Dialogue>><br><br>
             With an angered scream, you fall silent, and feel like the only thing left for you to do is get up, go back to your clothes and run back home, feeling miserable about how you left Kris. You hope some time will allow her to understand.
 			<<link "Go home" "Home">><</link>>
         <</replace>>
