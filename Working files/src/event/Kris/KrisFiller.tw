@@ -159,6 +159,29 @@
         priority: 'filler',
         npc: ['kris'],
         content: '<<set $krisOpinion += 2>><<set $krisObsessedOpinion += 2>>You are surprised to notice that Kris is not at the counter as you enter the Coffee Corner. Instead, she\'s smoking outside, checking her phone. It seems she\'s quite distracted as she takes no notice of you. Leaning against the back window, it would be quite easy to steal a glance at her phone, find out what she\'s looking at... or who she\'s talking to.<br><br><span id="choice"><<link "look">><<replace "#choice">>Leaning against the glass you can just hear fragments of a conversation…<br><br><<Dialogue "KrisObsessed" "Kris">>"Yeah, yeah... need it by tomorrow. Yeah, it’s for my new project. Hehe... even bigger. You should\'ve seen her. Hmm? Listen, I don\'t care about the fucking cost, I\'ll pay you, you know I\'m good for it! Tell you what, I\'ll pay you double next time. Yeah, yeah, fine! Just get me the stuff, she\'s gonna get huge!"<</Dialogue>><br><br>It seems Kris might be accruing a lot of debt, and you don\'t have to think hard to figure the reason. Perhaps you could bring it up later...? <br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>><br><<link "Don\'t look">><<replace "#choice">>Prying your eyes away, resist the temptation. It\'d be so interesting to read, and you\'re quite sure Kris would do the same to you... but you can\'t sink to her level, she does deserve her privacy. Quietly, you return to the shop entrance, avoiding her for today.<br><br><<link "Continue" "BookStore">><</link>><</replace>><</link>></span>'
+    },
+    {
+        name: 'KR26Roleplay',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('krisStepsInforTheProtagonist')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `You see your phone buzzing. Kris name flashes across the screen as a pile of messages starts an avalanche on your lock screen. With a sigh, you check what it is.<br><br>
+KRIS: Hey, gurl, you busy?<br><br>
+KRIS: I had an idea, mind coming over later tonight?<br><br>
+KRIS: No pressure.<br><br>
+KRIS: Actually, some pressure.<br><br>
+KRIS: Actually, I get off from work at 7pm, can you come as soon as you can after that?<br><br>
+KRIS: I’m waiting.<br><br>
+KRIS: Anxiously.<br><br>
+KRIS: You are coming, right?<br><br>
+You ponder how to answer that, <<if $submissiveDominant > 1>>but decide that you can just go there and surprise her should you so desire - not like Kris respect your boundaries either, so you aren’t about to feel guilty about.
+<<else>>and begrudgingly reply that you’ll be there when you have a chance, hoping not to regret that decision.<</if>><br><br>
+And so you go on with your day, wondering what kind of surprises await you at that apartment…<<set $flag.KR26Roleplay = true>>`
     }
 )>>
 

@@ -51,6 +51,12 @@
 	<</if>>
 <</if>>
 
+<<if $flag.KR26Roleplay>>
+	<<if $gameDate.getHours() >= 16>>
+		<<link "Go on the date with Kris" "KR26Roleplay-2">><<set $krisDate1Finished to true>><</link>><br>
+	<</if>>
+<</if>>
+
 <<if $jobInterview and $jobInterviewOver is false>>
   <<if $gameDate.getDate() is $jobInterviewDate.getDate()>>
   <<if $gameDate.getHours() <= 15 and $gameDate.getHours() >= 13>>
