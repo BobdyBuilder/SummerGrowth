@@ -686,7 +686,7 @@ You motion to hug Emma, but she stiffens and pushes her chair backwards, sending
     name: 'EmmaCoffeeTalk-1',
     locationTags: ['emma'],
     conditions: [
-        () => hasEventBeenTriggered('EmmaConfidesHerImage'),
+        () => setup.hasEventBeenTriggered('EmmaConfidesHerImage'),
     ],
     repeatable: false,
     retriggerable: false,
@@ -715,7 +715,7 @@ And so you go back to your tasks, taking a quick break to look at your phone to 
     name: 'EmmaCoffeeTalk-2',
     locationTags: ['home'],
     conditions: [
-        () => hasEventBeenTriggered('EmmaCoffeeTalk-1'),
+        () => setup.hasEventBeenTriggered('EmmaCoffeeTalk-1'),
     ],
     repeatable: false,
     retriggerable: false,
@@ -793,7 +793,7 @@ Emma leaves a bill on the table and makes her way out. She turns around near the
     name: 'EM30EmmaTakesCharge',
     locationTags: ['home'],
     conditions: [
-        () => hasEventBeenTriggered('EmmaCoffeeTalk-2'),
+        () => setup.hasEventBeenTriggered('EmmaCoffeeTalk-2'),
     ],
     repeatable: false,
     retriggerable: false,
