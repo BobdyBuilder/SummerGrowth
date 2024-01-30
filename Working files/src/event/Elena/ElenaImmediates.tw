@@ -340,4 +340,19 @@ An image takes place in your mind’s eye. Dressed in white flowy fabric, you do
 And so you snap out of your daydream. Holy shit, what was that? You grow completely red in the face, speechless.<br><br>
 <<Dialogue "player" "You">>"Uh, I just remembered, Elena, I, huh, have another thing I gotta do, so I should be going. I’m sure you can take it from here! So, tata! See ya later! Byeeee!!!"<</Dialogue>><br><br>
 Elena watches, mouth open, as you skedaddle out of there in a hurry, heart beating like crazy. You are still hyperventilating as you reach the bus stop, trying to process all of that in your head as you head back to your apartment.`
+}, {
+    name: 'EM33LoveDeclaration',
+    locationTags: ['postSleep', 'outside', 'home', 'gym', 'secondHandStore', 'elena'],
+    conditions: [
+        () => State.variables.gameDate >= State.variables.flag.elenaMakesDinner1Datetime
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `<<if $shyConfident < 2 || $shyConfident < 0 || ($elenaOpinion >= 50 || $shyConfident < -2) || $elenaOpinion >= 75>>
+    <<goto "EM33LoveDeclaration-ElenaMoves">>
+<<else>>
+    <<goto "EM33LoveDeclaration-PlayerMoves">>
+<</if>>`
 })>>

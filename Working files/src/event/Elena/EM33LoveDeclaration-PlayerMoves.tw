@@ -1,0 +1,46 @@
+:: EM33LoveDeclaration-PlayerMoves
+You arrive at the gym, resolute that this is the day you’ll confess your feelings to Elena. But you can’t help but wonder... what is the easiest way to break it easily so as to not freak her out? As you complete your series of side raises, shoulders fully pumped, Elena appears behind you, equally sweaty, smiling at you.<br><br>
+<<Dialogue "Elena" "Elena">>"//Ciao,// <<print $playerFirstName>>! How are you today?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, me? I’m great. Really getting an amazing workout, I’m getting so strong the police are going to make me get a permit for these guns!"<</Dialogue>><br><br>
+Great, <<print $playerFirstName>>, that was smooth. NOT! Can’t you keep your head straight when Elena is around? Geez! Elena raises an eyebrow, but also giggles at your joke. OK, maybe this is not quite a total loss yet.<br><br>
+Feeling more encourage, you drop your weights with a large thud, and despite being close to your limit, you decide to increase your load by 10%, hoping to catch Elena’s attention. But even on your first rep, you can feel your shoulder burning like they are about to catch fire. As you continue, you look in the mirror and realize that Elena is not even looking at you right now. You continue, now too embarrassed to stop, leading to some grunting in the process - which DOES get her attention.<br><br>
+<<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>, are you OK? //Forse stai esagerando...// Maybe you are overdoing it a bit?"<</Dialogue>><br><br>
+And as if on cue, you redouble your efforts, shoulders exploding in both size and pain as you pick up the pace on the impossible side raises. Your face contorts but you feel like you might just be able to complete the set...<br><br>
+Until it becomes painfully obvious you won’t, dropping your arms and scrunching your face while letting all the air out through your mouth. Elena rushes to your side and grabs the weights to put down as you reach for your shoulders.<br><br>
+<<Dialogue "Elena" "Elena">>"//Sei ferita?// Did you hurt yourself?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What, this? Naaaah, this is nothing, I do it everyday."<</Dialogue>><br><br>
+Elena looks at you weird once more, but you just flash a (pained) smile and she hovers around you for a bit longer, then turns around. You slap your forehead in frustration as she leaves, wondering how you are going to breach the subject.<br><br>
+Frustrated, you head for the bench, towel on your shoulders, and just dig your face into your palms as you sigh. How hard can it be to just say that you have feeling for her?<br><br>
+<<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>?"<</Dialogue>><br><br>
+You lift your chin, looking miserable, but Elena’s concerned face is like a beam of light, heating you from the inside with pure joy, and you can’t help but smile.
+<<Dialogue "Elena" "Elena">>"I’m sorry, I thought you weren’t feeling well. But you seem to be fine. //Mi dispiace.//"<</Dialogue>><br><br>
+And then, without thinking, you reach for her hand, grabbing it while you stare into Elena’s eyes.<br><br>
+<<Dialogue "player" "You">>"Wait!"<</Dialogue>><br><br>
+She looks confused, staring back at you, still somewhat concerned.<br><br>
+<<Dialogue "Elena" "Elena">>"Do you need help? Does it hurt?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"It does, right here!"<</Dialogue>><br><br>
+You bring her hand to your chest, feeling the rise and fall of your deep breathing, while you are certain that Elena must be noticing the rapid beating of your heart.<br><br>
+<<Dialogue "Elena" "Elena">>"Did you pull a chest muscle? Should I get some menthol cream, or do I need to massage it? I don’t think they have an instructor to help at this hour..."<</Dialogue>><br><br>
+You squeeze her hand, taking an even deeper breath, before continuing.<br><br>
+<<Dialogue "player" "You">>"No, Elena, what I need is... it’s you! I... think I’m falling in love with you."<</Dialogue>><br><br>
+Elena’s face freezes, and runs through the entire spectrum of colors as she blushes, her hand feeling your heart almost explode as it goes into overdrive.<br><br>
+<<Dialogue "player" "You">>"I... I’m sorry, I had a thousand plans on how I was going to tell you, I thought about making it cute, making it romantic, making it casual... I just didn’t want to freak you out, and I guess I failed. Heh. But, look, no pressure, I understand that it’s a lot, and you don’t need to answer..."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//Ti amo.//"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I don’t want to put even more pressure, I mean, I know you and..."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//Ti amo, mi fiore.//"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"... and I hope this doesn’t make things all weird because..."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I love you too, //mi fiore.//"<</Dialogue>><br><br>
+While you are still babbling, you see the smile on Elena’s face, and the entire thing hits you like a truck. Wait, did she just say that? Jaw dropping, you see the glint in her eyes as a single tear forms on its corner, and she lays her forehead against yours, while she turns the hand on your chest, squeezing yours.<br><br>
+You wrap an arm around Elena, standing up, and closing your eyes, you hone in for a kiss. The two sweaty bodies feel slick and firm against each other, igniting an ever stronger feeling of passion as your tongue probes into Elena’s mouth, and her free hand rests on your hips, slowing contouring the small of your back and making its way over your muscled shoulders.<br><br>
+It’s hard to say how much time has passed until you break from the kiss, but both of you are giggling and still holding hands.<br><br>
+<<Dialogue "player" "You">>"Wow, so I guess this is for real, then?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I suppose I did owe you for the help with the greenhouse!"<</Dialogue>><br><br>
+Elena says, in an unusual playful tone. It’s different, but it’s so delightful and energetic that it melts your heart - and makes you want to get to know even more of her.<br><br>
+And so the two of you exchange stares for another unknown amount of time until both of you realize that this can’t just continue on forever and you still have part of your workouts to finish.<br><br>
+<<Dialogue "player" "You">>"Uh, I suppose I still got a bunch of lifts ahead of me... but maybe we can, I dunno, do something some other time?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I would love that. Maybe some dinner at home?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"That... would be great, actually. Yours or mine?"<</Dialogue>><br><br>
+She shrugs.<br><br>
+<<Dialogue "Elena" "Elena">>"We can figure it out later? I suppose I should also get back to my routine."<</Dialogue>><br><br>
+And so you two keep trying hesitantly to let each other’s hand go for a full minute, figuring who will do it first, and laughing over it. And for the rest of the session at the gym, both of you keep exchanging smiles and stares, feeling like you are walking on air - neither realizing they are breaking their personal best in every lift without even feeling a challenge. All both of you can think of is what you will be doing together in the future, fantasizing about romantic dinners, moonlit walks in the park, messy gardening afternoons and many other silly opportunities to come.
+<<link "Go home" "Home">><</link>>

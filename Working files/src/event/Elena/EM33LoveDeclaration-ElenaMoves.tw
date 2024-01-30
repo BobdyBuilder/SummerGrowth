@@ -1,0 +1,53 @@
+:: EM33LoveDeclaration-ElenaMoves
+You start stretching for your upcoming strenuous workout, but the usual anticipation is different today. Sure, you are still looking forward to challenging yourself with the exercise, but something else is taking most of your brain right now - you watch Elena, already there deep into her workout, and it just tugs at your heart. There’s so much you want to say, so much you want to do with her, she occupies your mind in a way that is entirely novel to you. It feels good and warm inside, but it also makes you anxious and nervous and you just want to - you don’t even know.<br><br>
+And so you grab a pair of weights, sit down and start doing some shoulder presses, still peeking at Elena whenever you get a chance. It doesn’t take long for you to notice, as she is doing lat pulldowns on the machine, also stealing looks at you.<br><br>
+And so this song and dance continues as both of you go through your own routines, sort of avoiding, sort of approaching each other depending on the moment - neither of you admitting it, but both irresistably attracted to each other like the moon and the tides. And so this ebb and flow continues, until Elena eventually takes a step.<br><br>
+<<Dialogue "Elena" "Elena">>"//Ciao,// <<print $playerFirstName>>. Good workout?"<</Dialogue>><br><br>
+You wipe your forehead, in part to remove the dripping sweat, in part to catch your breath and think of a suitable response while your brain short-circuits with her presence.<br><br>
+<<Dialogue "player" "You">>"Uh, yeah, you know, getting a PB here and there, so can’t complain!"<</Dialogue>><br><br>
+You can tell from her look that she isn’t quite sure what you mean by PB, but also that she was making small talk as a bridge to something else, as she blushes and looks away, hands tucked behind her back, trying to work up the courage for her next line.<br><br>
+<<Dialogue "Elena" "Elena">>"So, hm, I was thinking, do you want to go have some coffee after this? I know a 24-hour diner nearby..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"YES! I mean, sure, yeah, I think I can."<</Dialogue>><br><br>
+Elena smiles, clapping her hands, before walking back to finish her routine. If you didn’t know better, you’d suspect she’s rushing through it - though, to be fair, so are you at this point...<br><br>
+And so you both finish and change, and Elena guides you to the nearby diner. It’s an old style joint, complete with battered old tables and an equally ancient waiter chewing gum and looking like she’d rather be anywhere else. Elena sits on one of the booths, which is incredibly cramped for people of your size, but with some squeezing, both of you manage to get in - though now your legs are squished against each other, making both of you very self-aware and timid.<br><br>
+<<Dialogue "Elena" "Elena">>"The nice thing is that this place is open all night, so I come here sometimes after my workouts. Well, the coffee here is a bit watered down and not that great, but they have really good French toast..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I could definitely go for some.."<</Dialogue>><br><br>
+And so you flag the waitress, who gives you a side-eye after grunting at Elena. You request two coffees and some French toast, and she turns around shouting some weird shorthand for the kitchen right there. Your eyes turn back to Elena, whose fists are tightly clenched, lips pursed and eyes trained directly at you, breath held so much she’s practically getting blue in the face. And then, without any warning, she just blurts it out:<br><br>
+<<Dialogue "Elena" "Elena">>"I can’t hold it anymore, <<print $playerFirstName>>, I think I’m falling in love with you. I’ve been struggling with these feelings, and I didn’t know if I should tell you, but I just couldn’t even sleep at night thinking about it, and I... "<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Elena..."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"... don’t want you to feel pressure, I’m okay with us staying //amiche//, just friends, //Dio mio//, I just had to get this off my chest, //mi dispiace//..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Elena, I..."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"... //questo è davvero imbarazzante.// Sigh! I understand if you want some time apart, and I will respect you if you are uncomfortable around me..."<</Dialogue>><br><br>
+And without saying a word, you just reach your hands across the table, grabbing Elena’s face and bringing it towards yours, locking lips as you close your eyes and just let yourself become one with her. Despite tensing for a second, Elena also starts melting under your hands and lips as she relaxes, reaching her hands around your torso and softly moaning as your tongues take the dance into the next level.<br><br>
+Eventually you let go of each other, and Elena settles back into her seat, speechless and breathless, looking at you with wide open eyes.<br><br>
+<<Dialogue "player" "You">>"Elena, I can’t say for sure when I started falling in love with you, but all I know is that it’s all I think about now. I want to be with you, I want to cherish and please you, I want find joy and comfort in your arms, and make you feel that as well. I... I love you, Elena."<</Dialogue>><br><br>
+Her lip quivers as a single tear falls down her cheek, which you immediately reach to wipe gently with your finger. Elena sobs, a bittersweet smile slowly forming as the waitress basically tosses two cups of coffee on the table with a loud clang. She shouts a loud ‘HERE YA GO, SWEETIE’ before heading back.<br><br>
+You put your hand on the back of your neck, blushing, as you take a sip of the coffee. You can’t quite believe you just went and said it, but you most assuredly did. Can’t unring that bell now.<br><br>
+<<Dialogue "Elena" "Elena">>"I never thought things would go like this. Now I am unsure how to proceed..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"How about one step at a time? Have some coffee and French toast, have a good chat, and let things go at their own pace?"<</Dialogue>><br><br>
+Elena nods, smiling, as her sobbing subsides. The waitress comes back with the French toast (and a side of grunt), which makes your stomachs rumble in unison. It does look very good, as she promised. Elena dumps a generous portion of syrup on it, and each one of you reach for a slice.<br><br>
+<<Dialogue "player" "You">>"Hmmmm, wow, these are amazing! Hmmmmmm..."<</Dialogue>><br><br>
+You keep praising the delicacy with your mouth half full, which seems to please Elena - though, really, you realize she might just be pleased with the outcome of this little rendezvous. You hold each other’s hand as you alternate between sips of the warm coffee and bites of the toast, staring at each others eyes. You are not sure if either of you ever felt so content. It’s weird how one can feel so peaceful and so excited at the same time, but this might just be love.<br><br>
+<<Dialogue "player" "You">>"Are you feeling as happy as I am right now?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I don’t know, I am not sure it is possible to be any happier than I am right now."<</Dialogue>><br><br>
+The two of you laugh, and then you sigh deeply before continuing.<br><br>
+<<Dialogue "player" "You">>"You truly are one of a kind, you know that, right?"<</Dialogue>><br><br>
+Elena blushes and smiles, contorting herself in the cutest way someone of her size can in the confines of the booth. She then reaches and places a hand on your shoulder, squeezing the round and firm flesh as she pouts slightly.<br><br>
+<<Dialogue "Elena" "Elena">>"You feel good."<</Dialogue>><br><br>
+You squirm under her strong but gentle fingers.<br><br>
+<<Dialogue "player" "You">>"So does you touching me."<</Dialogue>><br><br>
+With a low moan, you place a hand a hand over Elena’s upper arm, the relaxed muscle firm but not rock-hard, still, its curves incredibly sensual and inviting.<br><br>
+<<Dialogue "player" "You">>"There is something so comforting about your arms..."<</Dialogue>><br><br>
+With that comment, Elena timidly retracts her elbow a bit, tensing her arm, which explodes into a volcanic eruption of a biceps peak, but your hand just follows it, squeezing the now diamond-hard mountain.<br><br>
+<<Dialogue "player" "You">>"Hey, no need to be bashful. I truly admire your muscles, Elena. It puzzles me why you get so self-conscious about them."<</Dialogue>><br><br>
+Elena hesitates to answer as you squeeze her arm again, and it seems like she is about to protest, but you just interrupt her.<br><br>
+<<Dialogue "player" "You">>"It’s like when we were working on the greenhouse, you know? These muscles, they are the product of your passion, your dedication, this sheer determination I get to witness during late-night gym sessions. But while this brings to the surface what I love so much inside of you, it also reveals that part that part that interacts with the outside world - your loving care, the way you protect and nurture what is around you. The flowers and vegetables you raised, the way you leave your mark in the world. I think it was a mix of all of that... that made me fall in love with you."<</Dialogue>><br><br>
+Elena’s jaw drops, shaking slightly as she once again starts sobbing.<br><br>
+<<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>, I… I… don’t even know how to..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"You don’t need to. All you need is to know that you have someone who knows very well what you went through. Someone you can confide in, who you can just be yourself and don’t need to worry about being judged. Let me be your safe harbor."<</Dialogue>><br><br>
+And with that, Elena reaches across the table, wrapping her meaty arms around your wide back, cracking the table between the two of you. But neither cares (though the same cannot be said of the waitress, who comes in frustradely throwing her hands in the air). You hug Elena back, and whisper in her ear:<br><br>
+<<Dialogue "player" "You">>"I love you, Elena."<</Dialogue>><br><br>
+She just blurts back, melodramatically:<br><br>
+<<Dialogue "Elena" "Elena">>"//Ti amo anch'io, mi ​​fiore.//Me too, my flower, me too."<</Dialogue>><br><br>
+As you two leave the diner, hand in hand, the waitress tries to sweep the remains of the table, cursing both of you.
+<<link "Go home" "Home">><</link>>
