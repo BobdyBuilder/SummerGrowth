@@ -41,4 +41,9 @@ She pulls out a small individual portion of tiramisu in a plastic container, whi
 With a sigh, you give Elena a peck on the cheek and softly whisper a thank you, stepping backwards towards the door with the treat in hand. Elena just stands there, frozen with a hand over her cheek where you kissed her, mouth agape and eyes wide open.<br><br>
 <<Dialogue "player" "You">>"I’ll be waiting for that call!"<</Dialogue>><br><br>
 And you walk off into the night, strangely excited with the prospect of a construction job.
-<<link "Go home" "Home">><</link>>
+<<link "Go home" "Home">>
+    <<script>>
+        State.variables.flag.EL32GreenhouseConstructionDateTime = new Date(State.variables.gameDate.getTime() + 1000*60*60*24*5);
+        State.variables.flag.EL32GreenhouseConstructionDateTime.setHours(0, 0, 0, 0);
+    <</script>>
+<</link>>

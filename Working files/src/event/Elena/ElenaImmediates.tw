@@ -195,6 +195,149 @@ You should be able to go pick it up in a couple days, and you can message Elena 
     priority: 'immediate',
     npc: ['elena'],
     content: `<<goto "elenaMakesDinner1">>`
+}, {
+    name: 'EL32GreenhouseConstruction',
+    locationTags: ['postSleep', 'outside', 'home', 'gym', 'secondHandStore', 'elena'],
+    conditions: [
+        () => hasEventBeenTriggered('elenaMakesDinner2'),
+        () => State.variables.gameDate >= State.variables.flag.EL32GreenhouseConstructionDateTime,
+        () => State.variables.flag.EL32GreenhouseConstructionDateTime.getDay() = 6 /* Saturday */,
+        () => State.variables.flag.EL32GreenhouseConstructionDateTime.getHours() >= 4 && State.variables.flag.EL32GreenhouseConstructionDateTime.getHours() < 12 /* Morning */
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['elena'],
+    content: `Time flies by, and before you know it, Elena sends you a message that she has acquired all the materials for the construction of the greenhouse - the sun hasn’t even come out, but you bet she’s very eager to get a head start. <<if $skills[2].level > 2 || $carefreeCarefull > 1>>Thankfully, you’ve been dutiful lately and made sure to do some research on construction, feeling quite prepared for the task at hand<</if>>. And so you get ready and grab the bus towards her house, expecting to spend the whole day on this demanding project.<br><br>
+Hearing some noise on the backyard, you don’t even worry about knocking on the door: taking the route around the house, you just walk towards the clearing, finding Elena in a makeshift pair of overalls, trying to separate all the materials.<br><br>
+<<Dialogue "Elena" "Elena">>"//Ciao//, <<print $playerFirstName>>! Thank you again for coming."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Did you really think I’d leave you to do this by yourself? Not that I don’t think you couldn’t, just... I want to see this greenhouse built as well!"<</Dialogue>><br><br>
+Elena smiles, and walks to the back porch, where she grabs a bundle of blue denim.<br><br>
+<<Dialogue "Elena" "Elena">>"Here, I also got clothes for you."<</Dialogue>><br><br>
+She hands you a pair of oversized overalls that matches hers, and a huge shirt.<br><br>
+<<Dialogue "Elena" "Elena">>"I don’t want your clothes to be damaged helping me."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Awwww, you didn’t have to, but that’s cute!"<</Dialogue>><br><br>
+You head in to change, taking off your streetclothes before placing your legs into the enormous holes of the overalls. <<if $muscle >85>>Despite the large circumference, your beefy legs have to squeeze through, and the denim looks painted on given how stretched it is around the muscle. The definition of every muscle group is a reminder that you and Elena should have very little issue when it comes handling any tasks that require a lot of strength. As you pull the suspenders over your bulbous butt, you are happy that the outfil leaves your giant arms free, giving a lot of range for the hard work ahead (and frankly, who doesn’t like a good old fashioned GUN show?). Regardless, you clasp the suspenders in front <<if $breasts >80>>of your humongous tits, like they are wrapped around mountains and keeps them so taut on the way down it looks almost comical.
+<<elseif $breasts >60>>of your rather oversized breasts, digging into the fatty tissue but sucessfully holding the attire up.
+<<elseif $breasts >40>>of (or rather, around) your nice breasts, pushing them together in a rather visually pleasant fashion that really brings attention to your nice assets - though it could get a little uncomfortable or impractical.
+<<else>>of your breasts.
+<</if>> Would you look at that! This outfit is perfect to showcase your physique, and it’s impressive that it brings out the fact you are larger than your giant colleague.<br><br> 
+<<elseif $muscle > 70>>You fill the legs rather nicely, as Elena seems to have picked just the perfect size (which, in an of itself, must have been a challenge as this is way bigger than anything you’d find off the rack). It does still allow your muscular physique to be clearly on display, thick legs nicely wrapped in denim, as the curves of your nice ass are also displayed as you pull the suspenders over your defined shoulders - leaving your muscular arms on full display and with free range of motion, which is a great plus. Regardless, you clasp the suspenders in front <<if $breasts >80>>of your humongous tits, like they are wrapped around mountains and keeps them so taut on the way down it looks almost comical.
+<<elseif $breasts >60>>of your rather oversized breasts, digging into the fatty tissue but sucessfully holding the attire up.
+<<elseif $breasts >40>>of (or rather, around) your nice breasts, pushing them together in a rather visually pleasant fashion that really brings attention to your nice assets - though it could get a little uncomfortable or impractical.
+<<else>>of your breasts.
+<</if>>
+And so you take a look at the mirror, strangely giddy about the matching outfit (and muscularity) of your friend.<br><br>
+<<else>>
+Elena probably had quite a lot of work to find clothes this large, and the legs are a bit oversized despite your incredibly muscular physique - which, to be fair, still lags a bit behind hers. So the denim hangs a bit like a tent around your calves and thighs (which is somewhat of a rare feeling for you these days). Still, you fish the suspenders over your shoulders, clasping it on the front. While the piece is a little baggy, it’s nice to have your guns out so at least some of your muscles can be properly displayed. Sure, it makes it clear that despite being super-buff, you still have some ways to go until you match Elena, but that’s not a bad thing.<br><br>
+<</if>>
+The outfit makes you feel like a real farm girl! Now all you need is a reed of grass to put on your mouth and a cowboy hat and you’d be ready for Halloween!<br><br>
+Amused, you head back out, finding Elena measuring and marking the exact spot where the greenhouse will be built.<br><br>
+<<Dialogue "player" "You">>"That looks pretty big!"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I figured if we are doing this, might as well go ahead and plan for all my needs. Besides, I need to be able to navigate in there to tend to the flowers, right?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Point taken."<</Dialogue>><br><br>
+You watch as she carefully plants stakes on the corners, running some wire to mark where the walls will go. Alright! Now must start the hard work!
+<<Dialogue "Elena" "Elena">>"We need to remove about <<if $measurementSystem == 'metric'>>25cm<<else>>10 inches<</if>> of topsoil, do you think you could dig that out while I use the lumber planer on the wood I cut?"<</Dialogue>><br><br>
+You watch the pile of logs that were felled by your large friend, wishing you had come sooner to see her playing lumberjack - which must have been quite a sight - but nod in agreement. She shows you a very large shovel, and puts some safety googles, which look adorable on her face.<br><br>
+Grabbing the shovel, you start digging out the dirt from the assigned zone, trying to guess what <<if $measurementSystem == 'metric'>>25cm<<else>>10 inches<</if>> looks like. After taking a few scoops, you confirm the depth with the measuring tape, and get to clearing the rest properly. But before you do, you lean against the shovel and take a second to admire Elena’s task: she secured the log and grabbed a simple bladed planer and is shaving away the plank until it’s perfectly flat. The entire process is somewhat mistifying: first, she cuts the wood down to the correct size, very carefully measuring its dimensions - she gets her nose all the way to the tape, squinting, to get as precise as she can (which, given her own enormous dimensions, is both cute and unexpected). You are amazed with the ease with each she handles the extremely heavy-looking piece of lumber, shoulders and arms pumped and bulging each time she lifts and adjusts the log.<br><br>
+But once she has the piece down and marked, she grabs the planer, and her eyes turn very serious, a look of complete concentration. She starts running the planer, displaying a tremendous spectacle of both power and precision as wood shaving fly off, her back and leg muscles getting the mother of all workouts as they become surfaces as rough as the wood she’s shaving, her shirt barely able to contain the flesh under those two denim suspenders.<br><br>
+But you snap yourself awake with a shake of the head, and get back to digging. Truly, your task is no less physically demanding - removing this thick layer of topsoil and compacting the dirt underneath is one of the biggest workouts you’ve ever done, making the veins on your arms fully apparent, each muscle group fully pumped as sweat gives your entire physique a marvellous sheen under the rising sun. Despite enjoying the effort quite a bit, knowing that it’s making you even stronger, it is incredibly tiring work.<br><br>
+A couple of hours pass, and you seem about done with your digging. You look over at Elena, and she has a pile of measure wood, properly shaved into planks. It’s a pity each took a different task, but you did get to just appreciate looking at her while you dug.<br><br>
+<<Dialogue "player" "You">>"Phew, I’m done here. Do I need to do something to this big pile of dirt?"<</Dialogue>><br><br>  
+<<Dialogue "Elena" "Elena">>"Don’t worry, I’ll use it on pots and the garden later. Right now, we have a very difficult task."<</Dialogue>><br><br>
+She looks a bit worried, but you are not sure why. She lays some landscaping fabric down on the hole you dug, before pointing at a huge metal container.<br><br>
+<<Dialogue "Elena" "Elena">>"Now we need to place a layer of //calcare//, uh, limestone."<</Dialogue>><br><br>
+You look at the container, full of finger-sized pellets of limestone. She looks at it, reaching for buckets to start laying the material as the foundation for the greenhouse - but its hard filling the bucket with the large pebbles, and it would that hundreds, if not THOUSANDS of scoops to get it all there.<br><br>
+<<if $muscle > 89>><<Dialogue "player" "You">>"Excuse me, Elena, let me handle this."<</Dialogue>><br><br>
+You crack your knuckles loudly, looking very serious and decided as you approach the large container. Elena’s confusion increases as you place both hands on the side of it, and she gasps as you start trying to lift it.<br><br>
+Your fingers dig into the metal, deforming it to create some makeshift handles, the muscles on your arms, shoulders and back suddenly exploding as you start putting the effort to raise the incredible heavy load. Your calves and quads follow suit, huge veins dutifully pumping blood through your entire sweaty body. No, this is just too heavy, as you realize that this must weight as much as a compact car. But when you turn and see Elena’s face, looking at you in awe, something sparks inside of you. No, you can’t fail her now. Gritting your teeth, you take a very deep breath, and with a grunt, you redouble your efforts. You can feel your muscles hardening and tightening, the burning sensation spreading fast as the container trembles - and finally lifts a bit from the ground. Elena loudly yelps, making a motion to help. You turn your face to her and just shake your head dismissively, determined to do this on your own.<br><br>
+You feel like a goddamn superhero, like you were lifting a bus full of children into safety. Sure, the limestone pebbles aren’t as exciting, but you genuinely feel like the strongest person on the entire planet (which, being next to Elena, is a feat on its own). You slowly slide towards the hole, and with even more effort, you tip the container sideways, raising one side and lowering the other. It’s even harder, but you manage, as the pebbles start sliding and filling the pit, covering the hole.<br><br>
+In a matter of a couple of minutes, the entire surface is covered, and the now much lighter container can be put down somewhere safe. You arms look and feel so engorged you could swear they are bigger than just the usual workout pump.<br><br>
+<<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>! Are you okay?!?"<</Dialogue>><br><br>
+Elena jumps to your side, holding your absurdly huge upper arms, caressing them with worry - a mix of trying to ascertain if they are fine and massaging them affectionately. She looks at your face, <<if $shyConfident < -1>> finding you downright embarrassed and blushing - which creates a feedback loop of making her self-conscious about what she just did. She takes her hand off and her lips tighten into a thin line.<br><br>
+<<Dialogue "player" "You">>"I-I’m okay, Elena. No worries. Ready for my next task!"<</Dialogue>><br><br>
+Elena isn’t entirely convinced, but she certainly is awed. Deep inside, you hope that this helps her understand she doesn’t need to be embarrassed about her own muscles and strength.
+<<elseif $shyConfident < 1>>
+her unusual display filling your with pride as you smile back warmly at her and swear that you are doing just fine. Her puppy eyes persist, however, as she hugs your enormous arm - like a precious treasure that could just vanish at a moment’s notice. You put a hand on her back and promise that she has nothing to worry about. She looks back at you, and with a sigh, resigns herself to get back to work.<br><br>
+<<Dialogue "player" "You">>"So, what’s next?"<</Dialogue>><br><br>
+Taking a deep breath, you wait for her answer.
+<<else>>
+and you just grin right back at her, flexing your biceps under her fingers, making them somehow balloon and harden even more suddenly, definition exploding out of nowhere into absolute peaks of feminine power. This takes Elena by surprise, but even though she seems briefly shocked, you can see her eyes widen while she licks her lips.<br><br>
+<<Dialogue "player" "You">>"Damn, I knew I was strong, but I seriously did not think I was starting to get borderline superhuman! Did you see that?"<</Dialogue>><br><br>
+Elena just nods, unable to articulate a single word.<br><br>
+<<Dialogue "player" "You">>"I swear, this workout might actually make me even stronger, I don’t think I’ve ever done anything like this. Heck, can you imagine? Soon I might be lifting a car like a goddamn comic book character!"<</Dialogue>><br><br>
+You can see Elena’s eyes shifting uncomfortably as they seem to avoid looking at you. But you can’t just leave it alone.<br><br>
+<<Dialogue "player" "You">>"What is it, my muscles are making you uncomfortable? I’ll gladly give yours a little loving as well!"<</Dialogue>><br><br>
+And you step closer to Elena, giving her arm a firm squeeze, feeling the muscle contract involuntarily as you do. As she freezes, you add:<br><br>
+<<Dialogue "player" "You">>"Come on, Elena, just admit it - these muscles are pretty hot. I can clearly see you agree, no need to be so bashful!"<</Dialogue>><br><br>
+You can hear Elena breathing faster, but decide not to push her any more.<br><br>
+<<Dialogue "player" "You">>"Well, what are you waiting for? These muscles aren’t going to grow by themselves! Give me another task!"<</Dialogue>><br><br>
+<</if>>
+<<elseif $muscle > 70>>
+You look at the box, thinking for a second - when it finally hits you.<br><br>
+<<Dialogue "player" "You">>"Hey, Elena? You know what? I think between the two of us, we can lift this box."<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"//Ma che?!?// A forklift had to bring this here!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"So? How much can a forklift handle? I seriously think between the two of us, it’s not farfetched that we can do it."<</Dialogue>><br><br>
+Elena hesitates, takes a deep breath and looks at you and the container. You shrug:<br><br>
+<<Dialogue "player" "You">>"Why don’t we just try? What’s the worst that could happen? It’s not like we are going to break the stones?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"I couldn’t forgive myself if you got hurt!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Pretty sure I can handle myself. Besides, I promise I’ll be careful. Here, you take that side, and I’ll take this one, and we’ll just tip them in the hole."<</Dialogue>><br><br>
+Unable to fight back, Elena acquiesces and grabs one side of the container. With the other under your fingers, you start exerting pressure to lift the object off the ground. You watch as both your shoulders and arms start contracting, revealing the amazing effort being employed. For the first few seconds the box refuses to budge, and you admittedly start wondering if this wasn’t a bad idea... until it shakes, and slowly rises off the ground.<br><br>
+Heaving a bit, the two pairs of arms, fully pumped and with veins at full display, manage to move the large container towards the pit. You confer with Elena between deep breaths, figuring out the logistics of tipping the box sideways to dump its contents. Elena shows a mix of concern and concentration, but is too focused to make a fuss. So at the count of three, the two giant women start turning the box, and with a loud hissing sound, dump the thousands of pebbles into the hole. By the time it’s empty, the crate is light enough for Elena to handle by herself and put it somewhere safe.<br><br>
+<<Dialogue "Elena" "Elena">>"//Ce l'abbiamo fatta!!!// We did it!!!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I never doubted you could do it. And the two of us together? That box never had a chance!"<</Dialogue>><br><br>
+Elena stops for a second, looking at her dirt-caked hands. She slides one over her forearm, all the way to her upper arm, resting her palm over her pumped biceps, in a contemplative mood.<br><br>
+<<Dialogue "player" "You">>"You really are something else, Elena! I’m glad to have someone like you in my life."<</Dialogue>><br><br>
+She looks at you, still riding that vibe.<br><br>
+<<Dialogue "Elena" "Elena">>"I guess we are kind of cool."<</Dialogue>><br><br>
+The way she pronounces ‘cool’ with her thick accent is downright adorable and makes you want to squish her cheeks. But you settle for asking what’s next on the docket.
+<<else>>
+<<addMinutes 75>>and you just sigh, resigned, knowing this will be a long and boring task, but what else can you do? So you take your bucket and slowly the two of you just keep dumping bucketful after bucketful, getting very uncomfortable as you have to reach deeper into the box.<br><br>
+It takes a long time, but eventually you are 3/4 of the way down, enough for the two of you to just tip de box sideways and dump the rest.<br><br>
+<<Dialogue "player" "You">>"God, I thought we’d never finish."<</Dialogue>><br><br>
+You say, wiping your sweaty and dusty forehead.<br><br>
+<<Dialogue "player" "You">>"Phew, so what’s next?"<</Dialogue>><br><br>
+Hopefully nothing this bothersome, you hope.
+<</if>><br><br>
+Elena shows you a brief video on her phone on how to place, level and secure the timbers at the borders. Seems simples enough. Thankfully, due to the high strength shared by the two of you, handling the wood is fairly trivial, and the power tools make short work of the foundation built. You set some music on your phone and the two of you continue to prepare the base of the greenhouse, as well as start assembling the walls.<br><br>
+Hours pass by, and though it is hard work, you two find a groove where one occasionally stops to help the other, making sure each plank is straight and level while the other screws or nails it together. You constantly catch each other, head bopping to the rhythm of the music, laughing and smiling. There’s an indescribably feeling of joy as the tasks are accomplished as a team, giving you a sense of unity you’d never felt before. Chances are, either of you could have done this without the other... but together not only it goes several times faster - but you are having so much fun that time literally flies by as the skeleton of the building goes up.<br><br>
+By the time either of you actually bothers to look at the clock, it’s way past lunchtime, and your stomachs are collectively growling.<br><br>
+Elena’s face lights up with a smile.<br><br>
+<<Dialogue "Elena" "Elena">>"Oh, I prepared some lasagna for us. I’ll go in and get it in the oven, can you start anchoring the wires while I work on that?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Yes, ma’m!"<</Dialogue>><br><br>
+Elena giggles at your response, covering her mouth as she does so. You get working on drilling the holes and planting the anchors while she heads inside. It doesn’t take too long for you to start smelling the cheese and tomatoes from the sauce, making you salivate. Still, you just try to expedite the process so you can be ready when she comes out with the grub.<br><br>
+And before too long, the four walls are anchored and Elena comes out balancing a very large tray on her hands, still wearing her frilly pink apron. When you see the two humongous plates of homemade lasagna, you bite your lips with anticipation. Elena just approaches as you wipe your forehead, very elegantly crossing her legs and sitting down on the floor as she passes one of the stacked trays for you, before handing you a plate and a gigantic mug of ice-cold lemonade.<br><br>
+<<Dialogue "Elena" "Elena">>"//Ecco qui,// here you go."<</Dialogue>><br><br>
+Despite being a tad rude, you barely wait before digging into the delicious pasta. This elicits a happy laughter from Elena, who seems very proud of how hungrily you seem to attack the dish. She also hands you a napkin to clean your lips of the excess tomato sauce.<br><br>
+As you delight yourself in the lasagna, Elena grabs tiny spoonfuls, politely eating each as she seems to fail the urge to just watch you waiting. You smile back, speaking with your mouth full:<br><br>
+<<Dialogue "player" "You">>"WIS IS WEWICIOUS!"<</Dialogue>><br><br>
+She seems to understand that you find it delicious, as you wipe your plate clean before she’s even done with a third of hers.<br><br>
+<<Dialogue "player" "You">>"Thanks, Elena, this really hit the spot! Now I’m read to finish this!"<</Dialogue>><br><br>
+And so you get up, stretching while you wait for her to finish. You offer to bring the trays and plate in, and do the dishes, but she insists that you can just leave it by the door, which you do.<br><br>
+Fed and ready, you ask what is next.<br><br>
+<<Dialogue "Elena" "Elena">>"We need to build the... how do you call them? Uh, trusses?"<</Dialogue>><br><br>
+She shows you some diagrams, and you get to work. Now that you got this woodwork thing down pat, it’s rather trivial. Next up is installing the two so you have the base for the roof.<br><br>
+<<if $height >= 199>>
+Thanks to your height, both of you can just work on attaching the tresses by lifting the thing manually and placing it there. It’s a cinch, and makes you wonder how non-enhanced people even manage such a task - but that’s someone else’s problem. 
+<<else>>
+Given Elena’s height and strength, she can just raise and place the trusses on the frame, so you get a ladder and power tools, and get the piece attached for the frame rather quickly. 
+<</if>><br><br>
+With the base ready, the two of you proceeds to set the rest of the beams that form the ceiling of the structure. You can’t help but feel like the two of you were born for this, as things just somehow click and work. And soon you are back finishing the door frame and ready to start installing the sheathing on the lower half. Getting the plates nailed in is so simple and fun that Elena and you just start joking around, playing with the pieces and generally being goofs. The high sun certainly doesn’t make things easier, as the heat now has your clothes drenched in sweat and sticking to your skins - but it means you have a very good look at Elena’s upper body (which, you suppose, goes both ways). Despite her rather large proportions, there’s a lightness and softness to her that is hard to explain. Her graceful movements and peaceful disposition make you feel safe and welcome, and just kind want to lay your head against her chest and be hugged. And with all the fun going on, you sneak a few slaps against her solid back, which she takes with a happy disposition.<br><br>
+With the sill and trim done, she instructs you to start nailing the siding while she deals with the transparent part that will let the light through while keeping the heat in. Elena surprises you with her pick of material.While you fully expected to have it made with glass, she shows you a pile of twin-wall semiopaque polycarbonate sheets.<br><br>
+She explains that it was considerably cheaper and easier to install, which you can’t argue against. She starts cutting the sheets while you install the siding, and you find your heart racing as you realize you are close to getting done as the sun starts heading heading down.<br><br>
+By the time you are done with the siding, Elena has all the polycarbonate cut. It’s weird, you were fully expecting to deal with these heavy (well, comparatively, given your strength) and fragile plates - instead, it’s these pieces could be manipulated by a child, and are flexible enough that they don’t need to be treated like their brittle counterparts. In many ways, that is a big relief, as it enables the two of you to continue the process in the same relaxed way as before.<br><br>
+It’s hard to believe, but the only things left now are putting the ridge cap and the last beams on the roof. You both take a second to look at the fruits of your labor with pride, before putting these finishing touches.<br><br>
+<<Dialogue "player" "You">>"Wow, we really did it, didn’t we?"<</Dialogue>><br><br> 
+<<Dialogue "Elena" "Elena">>"That we did. And it’s not even that late in the afternoon."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, why don’t you do the honors and get the orchid, then?"<</Dialogue>><br><br>
+<<Dialogue "Elena" "Elena">>"Actually, would you mind? I want to get the temporary irrigation system in."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Sure, it’s still in the living room? I’ll get the trays in and do that!"<</Dialogue>><br><br> 
+<<Dialogue "Elena" "Elena">>"//Grazie//."<</Dialogue>><br><br>
+And so you head in, grabbing the trays on the way. You decide to go ahead and do the dishes so Elena doesn’t need to worry about that, before grabbing the oversized basket.<br><br>
+By the time you are back, she’s already ran the temporary hose and set up the pot for the orchid. As she finishes putting the dirt in, she watches as you carry the basket in.<br><br>
+An image takes place in your mind’s eye. Dressed in white flowy fabric, you don’t see a greenhouse, but a gazebo. And that’s not a plant pot, but an altar. As you make your procession towards Elena, she doesn’t have a trowel in her hand, but a box with rings, looking at you lovingly.<br><br>
+<<Dialogue "Elena" "Elena">>"You can just leave the basket there. I’ll transplant the //orchidea//, thanks!"<</Dialogue>><br><br>
+And so you snap out of your daydream. Holy shit, what was that? You grow completely red in the face, speechless.<br><br>
+<<Dialogue "player" "You">>"Uh, I just remembered, Elena, I, huh, have another thing I gotta do, so I should be going. I’m sure you can take it from here! So, tata! See ya later! Byeeee!!!"<</Dialogue>><br><br>
+Elena watches, mouth open, as you skedaddle out of there in a hurry, heart beating like crazy. You are still hyperventilating as you reach the bus stop, trying to process all of that in your head as you head back to your apartment.`
 })>>
-
-
