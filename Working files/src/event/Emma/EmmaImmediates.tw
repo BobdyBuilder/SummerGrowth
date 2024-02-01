@@ -791,7 +791,7 @@ Emma leaves a bill on the table and makes her way out. She turns around near the
 },
 {
     name: 'EM30EmmaTakesCharge',
-    locationTags: ['home'],
+    locationTags: ['emma'],
     conditions: [
         () => setup.hasEventBeenTriggered('EmmaCoffeeTalk-2'),
     ],
@@ -898,7 +898,7 @@ And so you start a rush to change, go back to your apartment and try to look as 
 },
 {
     name: 'EM35EmmaRegisterContest',
-    locationTags: ['home'],
+    locationTags: ['emma'],
     conditions: [
         () => hasEventBeenTriggered('EmmaBurnout'),
         () => hasEventBeenTriggered('NatWristInjury')
