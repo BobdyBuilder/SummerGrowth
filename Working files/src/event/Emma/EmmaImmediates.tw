@@ -895,4 +895,57 @@ She says, as she drags you by the collar into the dressing room. You don’t thi
 You tremble under her, panting already from just imagining what she has in stock for you. You respond with but a silent nod, and Emma hands you a key fob before she goes to take a shower.<br><br>
 And so you start a rush to change, go back to your apartment and try to look as presentable as possible, and head to Emma’s apartment.<br><br>
 <<link "And off to Emma’s apartment we go!" "EM32EmmaTakesCharge-2">><<addMinutes 120>><</link>>`
+},
+{
+    name: 'EM35EmmaRegisterContest',
+    locationTags: ['home'],
+    conditions: [
+        () => hasEventBeenTriggered('EmmaBurnout'),
+        () => hasEventBeenTriggered('NatWristInjury')
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: ['emma'],
+    content: `<<if $emmaRelationship>>
+    You go around looking for Emma, hoping she’s feeling better and back at her feet - and you sigh with relief when you see your boss, in her trademark pristine suit, looking sharp. You approach her, excited.<br><br>
+    <<Dialogue "player" "You">>"Hey there, boss! Glad to see you are feeling better."<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"Trust me, I’m also very glad to be back!"<</Dialogue>><br><br>
+    It takes some effort not to hug and kiss her right there, but you can see a glint in her eye that wasn’t there before, discreet as it is, knowing that the feeling is mutual. Even if there isn’t the time or the place.<br><br>
+    <<Dialogue "player" "You">>"Well, glad to see you, but I suppose I should get to work now..."<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"Actually, I’m about to take a coffee break, do you think you could spare a minute and join me?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"I’d like nothing more!"<</Dialogue>><br><br>
+    She invites you into her office, and brews two cups of espresso, her smile broadening as her own suppressed giddiness seems to bubble out.<br><br>
+    <<Dialogue "Emma" "Emma">>"I did it, <<print $playerFirstName>>! I actually did it!"<</Dialogue>><br><br>
+    Tilting your head, you look at her, confused with what could be making her so excited.<br><br>
+    <<Dialogue "Emma" "Emma">>"I filled the online application, and you are looking at competitor 22 for the heavyweight female division!"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Whoa, Emma, congratulations! I’m so proud of you!"<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"However... I do have to go down to the organization for some paperwork and a physical, and I was wondering if..."<</Dialogue>><br><br>
+    She hesitates, surprisingly.<br><br>
+    <<Dialogue "player" "You">>"Yes?"<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"Would it be too much of an inconvenience if you... came along with me? But only if it’s not a problem, of course."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"I’d be honored."<</Dialogue>><br><br>
+    Emma’s smile widens.<br><br>
+    <<Dialogue "Emma" "Emma">>"Is tomorrow morning not too disruptive to you?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Emma, you’re important to me. Even if I had to reschedule something - which I don’t - it would still be something I’d be willing to accommodate for the people who are special to me."<</Dialogue>><br><br>
+    Emma hands you the cup of java, and you catch her looking longingly at you.<br><br>
+    <<Dialogue "player" "You">>"No displays of affection in the office, right?"<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>""You got the words from my mouth."<</Dialogue>><br><br>
+    Emma replies painfully, before taking a sip.<br><br>
+    You finish your coffee, and put the cup back on the shelf.<br><br>
+    <<Dialogue "player" "You">>"Well, I ought to get back to my work, but I’ll see you at the bodybuilding’s registration center tomorrow morning then."<</Dialogue>><br><br>
+    You cut yourself before you add some endearing language at the end there. Emma is already behind her desk, focusing on work.
+<<else>>
+    You go around looking for Emma, hoping she’s feeling better and back at her feet - and you sigh with relief when you see your boss, in her trademark pristine suit, looking sharp. You approach her, excited.<br><br>
+    <<Dialogue "player" "You">>"Hey there, boss! Glad to see you are feeling better."<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"Trust me, I’m also very glad to be back!"<</Dialogue>><br><br>
+    You nod, glad to have been helpful in that process.<br><br>
+    <<Dialogue "player" "You">>"I just want you to remember, going forward, that you have friends here."<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"Most certainly!"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"You sure?"<</Dialogue>><br><br>
+    You ask for confirmation in a mocking tone. Emma squints with her smug smile.<br><br>
+    <<Dialogue "Emma" "Emma">>"I may be stubborn, but I am also a fast learner."<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Just checking!"<</Dialogue>><br><br>
+    You tap her on the back, and return to your duties, glad that things seem to have gotten better for her.
+<</if>>`
 }) >>
