@@ -1,0 +1,253 @@
+:: NA13NatMeetsEmma-1
+<<if $emmaRelationship>>
+    You arrive just in time to see Emma leaving her rideshare - she’s already dressed for work, so I guess jogging here wasn’t really an option for her.<br><br>
+    <<Dialogue "player" "You">>"Heya, boss!"<</Dialogue>><br><br>
+    <<Dialogue "Emma" "Emma">>"You know this whole boss gag is going to get old fast, right, Mrs. <<print $playerLastName>>?"<</Dialogue>><br><br>
+    <<Dialogue "player" "You">>"Point well taken, Emma."<</Dialogue>><br><br>
+    You wink at her, but despite her attempt at an icebreaker, you can immediately tell she’s uneasy even going into the event registration office. Her eyes dart around like she was about to commit a crime. Silently, you just squeeze her hand.<br><br>
+    <<Dialogue "player" "You">>"Hey, it’s alright. I’m proud of you."<</Dialogue>><br><br>
+    This really brightens her day, as she flashes a surprisingly non-smug smile.<br><br>
+    But as you reach the glass door, another familiar face is already there.<br><br>
+    
+    <<if $flag.NatWristInjuryRoute === 'coop'>>
+        <<Dialogue "player" "You">>"Well, well, well, look who’s here!"<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, hey, <<print $playerFirstName>>! What brings you here?"<</Dialogue>><br><br>
+        <<Dialogue "player" "You">>"As it turns out, a friend. I mean, not you, this is my... uh, boss? Yeah, my boss, Emma. Emma, this is my childhood friend, <<rivalName>>."<</Dialogue>><br><br>
+        <<Dialogue "Emma" "Emma">>"Nice to meet you, <<rivalName>>. <<print $playerFirstName>>, I thought you said you moved here and you didn’t know anyone around these parts."<</Dialogue>><br><br>
+        <<Dialogue "player" "You">>"Well, that’s true, I just bumped on Nat the other day, it was just as much of a surprise for me!"<</Dialogue>><br><br>
+        Nat offers his hand for Emma, and she takes the handshake. You watch as their gazes focus on each other, their foreheads slightly creasing and their eyes squinting a bit, as their hands tremble slightly. What is going on here?<br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"The pleasure is all mine."<</Dialogue>><br><br>
+        They keep holding hands for several second.<br><br>
+        <<Dialogue "player" "You">>"So, huh, I think the people we need to talk to will be over by that booth..."<</Dialogue>><br><br>
+        <<Dialogue "Emma" "Emma">>"Right. Well, I have a full day ahead of me, so I suppose I should be going."<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, life as model is pretty hectic, and I can’t let my fitness routine lag behind either."<</Dialogue>><br><br>
+        <<Dialogue "Emma" "Emma">>"Of course, must be hard trying to look so pretty."<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"All that paper pushing must be really taxing too, I know. So, you can let go."<</Dialogue>><br><br>
+        <<Dialogue "Emma" "Emma">>"You first."<</Dialogue>><br><br>
+        At this point you just start dragging Emma, who lets go of Nat’s hand, who starts smiling smugly - Emma’s face turns stone cold at that, so you just turn her around towards the reception desk.<br><br>
+        There’s no one there, so you just turn to Nat for some small talk to try to keep things lighter.<br><br>
+        <<Dialogue "player" "You">>"So, what brings you here?"<</Dialogue>><br><br>
+        <<if $rivalGender === 'female'>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, as it turns out, I registered under the female competition, but what they call male really is officially mixed - so I’m going to switch to that."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wow, exciting, huh? But maybe also a bit scary?"<</Dialogue>><br><br>
+            <<if $muscle >80>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Not that YOU would have any idea - what are the odds you’d lose, even in that category?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Hah, I had not idea that was allowed until now..."<</Dialogue>><br><br>
+                And with that, a bulb lights up in your head.<br><br>
+                <<Dialogue "player" "You">>"Well, perhaps you could use a little competition, then? REAL competition?"<</Dialogue>><br><br>
+            <</if>>
+        <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I originally had registered under the heavyweight class, thinking I could shed a couple of pounds - but turns out I put on more lean mass than I expected, so I’m going all out and will be competing in the super heavyweight class."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wow, exciting, huh? But maybe also a bit scary?"<</Dialogue>><br><br>
+            <<if $muscle >80>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Not that YOU would have any idea - what are the odds you’d lose, even in that category?"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Hah, if only that was allowed..."<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, technically, I think there’s no real gender restriction on the male competition, though I have no idea how they would deal with the clothing rules..."<</Dialogue>><br><br>
+                And with that, a bulb lights up in your head.<br><br>
+                <<Dialogue "player" "You">>"Oh, REALLY?"<</Dialogue>><br><br>
+            <</if>>
+        <</if>>
+        <<if $muscle >80>>
+            You can see the instant regret on his face as he realizes what he might have triggered. But he’s too proud to admit, and just goes into the building.
+        <<elseif $muscle >60>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I’d say you got yours in the bag for sure, it’s not going to be much of a challenge, I’m guessing."<</Dialogue>><br><br>
+            <<if $shyConfident > 1>>
+                <<Dialogue "player" "You">>"I guess not."<</Dialogue>><br><br>
+                You confirm with a big flex, your bulging arm growing explosively in a display that pretty much confirms his theory.<br><br>
+                <<else>>
+                <<Dialogue "player" "You">>"You really think so?"<</Dialogue>><br><br>
+                You discreetly give your arm a flex while feeling it with your other hand, and the huge unyielding bulging rock that erupts, pretty much impossible to even dent, and once again you feel a bit overwhelmed by your own physique.<br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you kidding me? You might just give ME a run for my money!"<</Dialogue>><br><br> 
+            <</if>>
+        <<elseif $muscle >45>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"It is, isn’t it? But it’s part of what makes bodybuilding so great, you know - pushing one’s limits, and finding what was inside of you all along. It’s what got me into it in the first place."<</Dialogue>><br><br>
+            Everything he said resonates deeply with you, and is also a reminder of everything you’ve always admired in him way back.<br><br>
+            <<Dialogue "player" "You">>"You are right - I really need to start really pushing myself!"<</Dialogue>><br><br> 
+        <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"But that’s the amazing thing - you need to put yourself out there. And that does come with risks. But also rewards. And this in itself is thrilling, isn’t it?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"It really is."<</Dialogue>><br><br>
+            And maybe your childhood friend doesn’t quite realize, but this tackles a lot of the stuff you’ve been dealing with since moving here. And you feel a kinship developing even more.<br><br>
+        <</if>>
+        Emma seems a bit uneasy at just how intimate your relationship with Nat is. Looking at her eyes, it bothers you how much she seems to glare at your old friend. You hold her hand and squeeze, looking her in the eyes. You can notice a hint of a warm smile as she looks back at you.<br><br>
+    <<else>>
+        <<Dialogue "player" "You">>"Oh, it’s you."<</Dialogue>><br><br>
+        <<if $rivalGender === 'female'>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hmph. You should know better, this IS my priority, unlike some other people. In fact, that’s why I’m here. I originally registered under the female competition, but what they call male really is officially mixed - so I’m going to switch to that. Now THAT’S what I call commitment"<</Dialogue>><br><br>
+        <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hmph. You should know better, this IS my priority, unlike some other people. In fact, I’m here to switch to a heavier weight class. I call that commitment."<</Dialogue>><br><br>
+        <</if>>
+        <<Dialogue "player" "You">>"Well, I’M here for a friend. Not that you would know what that’s like."<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Goes both ways, right? In any case, the competition comes first."<</Dialogue>><br><br>
+        <<if $muscle >80>>
+            <<Dialogue "player" "You">>"Let’s be sincere, it’s not even going to be a contest. I know I could pretty much wipe the floor on the heaviest male category even..."<</Dialogue>><br><br>
+            <<if $rivalGender === 'female'>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"And as usual, you are all bark and no bite."<</Dialogue>><br><br>
+            <<else>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, technically, I think there’s no real gender restriction on the male competition, though I have no idea how they would deal with the clothing rules..."<</Dialogue>><br><br>
+            <</if>>
+            <<Dialogue "player" "You">>"Oh, REALLY?"<</Dialogue>><br><br>
+            You can see the instant regret on his face as he realizes what he might have triggered. But he’s too proud to admit, and just goes into the building, grumpily grunting all the way.<br><br>
+        <<elseif $muscle >60>>
+            <<Dialogue "player" "You">>"I suppose these gains would raise ALL red flags though. I feel like I’m at the point that would be the case even in the heaviest male category..."<</Dialogue>><br><br>
+            <<if $rivalGender === 'female'>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"And as usual, you are all bark and no bite."<</Dialogue>><br><br>
+            <<else>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, technically, I think there’s no real gender restriction on the male competition, though I have no idea how they would deal with the clothing rules..."<</Dialogue>><br><br>
+            <</if>>
+            <<Dialogue "player" "You">>"Oh, REALLY?"<</Dialogue>><br><br>
+            You can see the instant regret on his face as he realizes what he might have triggered. But he’s too proud to admit, and just goes into the building.<br><br>
+        <<elseif $muscle >45>>
+            <<Dialogue "player" "You">>"Well, I’ll go and do my best at the competition, and that’s what matters."<</Dialogue>><br><br>
+            Nat seems a bit annoyed. It probably doesn’t help that you seem to be doing good enough that you could outshine him <<if $rivalGender === 'female'>>if you keep up growing at your current pace<<else>>by being a breakout hit in your category.<</if>><br><br>
+            <<Dialogue "player" "You">>"And I’m just going to push myself harder going forward!"<</Dialogue>><br><br>
+            You can hear him gulping.<br><br> 
+        <<elseif $muscle >30>>
+            <<Dialogue "player" "You">>"Well, I still got a long road ahead of me!"<</Dialogue>><br><br>
+            You say, flexing your arm and showing your budding, but still lacking, toned muscles. It’s a start, but you will need a lot more to have a shot at this competition.
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Like I told you so many times - this requires A LOT of effort and commitment. I don’t know what else I can say!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"A little support wouldn’t hurt..."<</Dialogue>><br><br>
+            All you get is some eye rolling as the two of you continue inside.<br><br>
+        <<else>>
+            <<Dialogue "player" "You">>"Well, I suppose I still have A LOT to prove."<</Dialogue>><br><br>
+            You say, flexing your arm and getting disappointed at the lackluster physique.
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Like I told you so many times - this requires A LOT of effort and commitment. I don’t know what else I can say!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"A little support wouldn’t hurt..."<</Dialogue>><br><br>
+            All you get is some eye rolling as the two of you continue inside.<br><br>      
+        <</if>>
+        Emma seems a bit uneasy with the tension between you and Nat. She probably can tell that you had a strong bond that has soured, and it somehow resonates with her. She squeezes your hand, and you look longingly at her. She flashes a warm, if a bit melancholy, smile. Deep inside, you regret how things developed between you and your childhood friend, but what can you do?<br><br>
+    <</if>>
+<<else>>
+    You get a call to present at the organization booth for the bodybuilding competition - it seems like they can conduct occasional doping checks, and you just happen to have lucked out. You can only hope whatever that weird drink you had when you moved in will not trigger anything - but it’s not like you have much of a choice anyway.<br><br>
+    You are quite surprised to see a familiar face when you arrive there.<br><br>
+    <<if $flag.NatWristInjuryRoute === 'coop'>>
+        <<Dialogue "player" "You">>"Well, well, well, look who’s here!"<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh, hey, <<print $playerFirstName>>! What brings you here?"<</Dialogue>><br><br>
+        <<Dialogue "player" "You">>"I guess I’m here to pee on a cup to prove a point, you could say!"<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ah, I’ve been there. Not pleasant, but I suppose it’s a necessary evil."<</Dialogue>><br><br>
+        <<Dialogue "player" "You">>"What about you?"<</Dialogue>><br><br>
+        <<if $rivalGender === 'female'>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, as it turns out, I registered under the female competition, but what they call male really is officially mixed - so I’m going to switch to that."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wow, exciting, huh? But maybe also a bit scary?"<</Dialogue>><br><br>
+            <<if $muscle >80>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Not that YOU would have any idea - what are the odds you’d lose, even in that category?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Hah, I had not idea that was allowed until now..."<</Dialogue>><br><br>
+            And with that, a bulb lights up in your head.<br><br>
+            <<Dialogue "player" "You">>"Well, perhaps you could use a little competition, then? REAL competition?"<</Dialogue>><br><br>
+            <</if>>
+        <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I originally had registered under the heavyweight class, thinking I could shed a couple of pounds - but turns out I put on more lean mass than I expected, so I’m going all out and will be competing in the super heavyweight class."<</Dialogue>><br><br>
+        <</if>>
+        <<Dialogue "player" "You">>"Wow, exciting, huh? But maybe also a bit scary?"<</Dialogue>><br><br>
+        <<if $muscle >80>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Not that YOU would have any idea - what are the odds you’d lose, even in that category?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Hah, if only that was allowed..."<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, technically, I think there’s no real gender restriction on the male competition, though I have no idea how they would deal with the clothing rules..."<</Dialogue>><br><br>
+            And with that, a bulb lights up in your head.<br><br>
+            <<Dialogue "player" "You">>"Oh, REALLY?"<</Dialogue>><br><br>
+            You can see the instant regret on his face as he realizes what he might have triggered. But he’s too proud to admit, and just goes into the building.
+        <<elseif $muscle >60>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I’d say you got yours in the bag for sure, it’s not going to be much of a challenge, I’m guessing."<</Dialogue>><br><br>
+            <<if $shyConfident > 1>>
+            <<Dialogue "player" "You">>"I guess not."<</Dialogue>><br><br>
+            You confirm with a big flex, your bulging arm growing explosively in a display that pretty much confirms his theory.<br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"You really think so?"<</Dialogue>><br><br>
+            You discreetly give your arm a flex while feeling it with your other hand, and the huge unyielding bulging rock that erupts, pretty much impossible to even dent, and once again you feel a bit overwhelmed by your own physique.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you kidding me? You might just give ME a run for my money!"<</Dialogue>><br><br> 
+            <</if>>
+        <<elseif $muscle >45>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"It is, isn’t it? But it’s part of what makes bodybuilding so great, you know - pushing one’s limits, and finding what was inside of you all along. It’s what got me into it in the first place."<</Dialogue>><br><br>
+            Everything he said resonates deeply with you, and is also a reminder of everything you’ve always admired in him way back.<br><br>
+            <<Dialogue "player" "You">>"You are right - I really need to start really pushing myself!"<</Dialogue>><br><br> 
+        <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"But that’s the amazing thing - you need to put yourself out there. And that does come with risks. But also rewards. And this in itself is thrilling, isn’t it?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"It really is."<</Dialogue>><br><br>
+            And maybe your childhood friend doesn’t quite realize, but this tackles a lot of the stuff you’ve been dealing with since moving here. And you feel a kinship developing even more.<br><br>      
+        <</if>>
+        As you two reach the desk, there’s someone else waiting at the counter - a very sharply dressed woman with an imposing figure.<br><br>
+        <<if !$jobWarehouse && !$jobOffice>>
+            <<Dialogue "Emma" "Businesswoman">>"I’ve been waiting here for 5 minutes, I think they don’t have anyone to help right now."<</Dialogue>><br><br>
+            She seems very impatient, which is amplified by her impressive an imposing aura. Despite her tailored suit disguising her physique, a quick look at her partially exposed calves makes it seem like she is a serious contender.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"I guess we’ll just wait here with you."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wow, you look great, you know? I’m <<print $playerFirstName>>!"<</Dialogue>><br><br>
+            <<if $muscle >= 40>>
+            <<Dialogue "Emma" "Emma">>"Coming from you, that’s quite the praise. I’m Emma."<</Dialogue>><br><br>
+            <<else>>
+            She looks somewhat uneasy with the small talk, but responds nonetheless.<br><br>
+            <<Dialogue "Emma" "Emma">>"Why, thank you, that’s very kind of you. I’m Emma."<</Dialogue>><br><br>
+            <</if>>
+        <<else>>
+            <<Dialogue "player" "You">>"Hey, Emma, what a nice surprise to see you here!"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Oh, Mrs. <<print $playerLastName>>!"<</Dialogue>><br><br>
+            Emma seems both surprised and uneasy with your presence. She fiddles a bit, avoiding eye contact - it would seem like she isn’t too happy to have someone from the office knowing she’s competing. And while she doesn’t say anything, you feel like you should give her some peace of mind.<br><br>
+            <<Dialogue "player" "You">>"Well, no one in the office needs to know about this, right? If you don’t tell them about me, I won’t tell them about you. God knows how unnerving can be to go on-stage even when you don’t know anyone."<</Dialogue>><br><br>
+            And that seems to do the trick, as she sighs with relief.<br><br>
+        <</if>>
+    <<else>>
+        <<Dialogue "player" "You">>"Oh, it’s you."<</Dialogue>><br><br>
+        <<if $rivalGender === 'female'>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hmph. You should know better, this IS my priority, unlike some other people. In fact, that’s why I’m here. I originally registered under the female competition, but what they call male really is officially mixed - so I’m going to switch to that. Now THAT’S what I call commitment"<</Dialogue>><br><br>
+        <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hmph. You should know better, this IS my priority, unlike some other people. In fact, I’m here to switch to a heavier weight class. I call that commitment."<</Dialogue>><br><br>
+        <</if>>
+        <<Dialogue "player" "You">>"Well, I’M here be tested for PEDs. So I must be doing pretty good, I’d say."<</Dialogue>><br><br>
+        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I know you well enough to know cheating is something you wouldn’t do. But we’ve all been there. If it makes you feel any better, it’s just a formality, they test randomly. And it’s just peeing in a cup, so it shouldn’t take too long."<</Dialogue>><br><br>
+        <<if $muscle >80>>
+            <<Dialogue "player" "You">>"Let’s be sincere, it’s not even going to be a contest. I know I could pretty much wipe the floor on the heaviest male category even..."<</Dialogue>><br><br>
+            <<if $rivalGender === 'female'>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"And as usual, you are all bark and no bite."<</Dialogue>><br><br>
+            <<else>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, technically, I think there’s no real gender restriction on the male competition, though I have no idea how they would deal with the clothing rules..."<</Dialogue>><br><br>
+            <</if>>
+            <<Dialogue "player" "You">>"Oh, REALLY?"<</Dialogue>><br><br>
+            You can see the instant regret on his face as he realizes what he might have triggered. But he’s too proud to admit, and just goes into the building, grumpily grunting all the way.<br><br>
+        <<elseif $muscle >60>>
+            <<Dialogue "player" "You">>"I suppose these gains would raise ALL red flags though. I feel like I’m at the point that would be the case even in the heaviest male category..."<</Dialogue>><br><br>
+            <<if $rivalGender === 'female'>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"And as usual, you are all bark and no bite."<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"I mean, technically, I think there’s no real gender restriction on the male competition, though I have no idea how they would deal with the clothing rules..."<</Dialogue>><br><br>
+            <</if>>
+            <<Dialogue "player" "You">>"Oh, REALLY?"<</Dialogue>><br><br>
+            You can see the instant regret on his face as he realizes what he might have triggered. But he’s too proud to admit, and just goes into the building.<br><br>
+        <<elseif $muscle >45>>
+            <<Dialogue "player" "You">>"Well, I’ll prove that I’m all natural, and then I’ll go and do my best at the competition."<</Dialogue>><br><br>
+            Nat seems a bit annoyed. It probably doesn’t help that you seem to be doing good enough that you could outshine him <<if $rivalGender === 'female'>>if you keep up growing at your current pace<<else>>by being a breakout hit in your category.<</if>><br><br>
+            <<Dialogue "player" "You">>"And I’m just going to push myself harder going forward!"<</Dialogue>><br><br>
+            You can hear him gulping.<br><br> 
+        <<elseif $muscle >30>>
+            <<Dialogue "player" "You">>"Well, I still got a long road ahead of me!"<</Dialogue>><br><br>
+            You say, flexing your arm and showing your budding, but still lacking, toned muscles. It’s a start, but you will need a lot more to have a shot at this competition.
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Like I told you so many times - this requires A LOT of effort and commitment. I don’t know what else I can say!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"A little support wouldn’t hurt..."<</Dialogue>><br><br>
+            All you get is some eye rolling as the two of you continue inside.<br><br>
+        <<else>>
+            <<Dialogue "player" "You">>"Well, cheating isn’t my biggest worry, I suppose I still have A LOT to prove."<</Dialogue>><br><br>
+            You say, flexing your arm and getting disappointed at the lackluster physique.
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"Like I told you so many times - this requires A LOT of effort and commitment. I don’t know what else I can say!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"A little support wouldn’t hurt..."<</Dialogue>><br><br>
+            All you get is some eye rolling as the two of you continue inside.<br><br>      
+        <</if>>
+        As you two reach the desk, there’s someone else waiting at the counter - a very sharply dressed woman with an imposing figure.<br><br>
+        <<if !$jobWarehouse && !$jobOffice>>
+            <<Dialogue "Emma" "Businesswoman">>"I’ve been waiting here for 5 minutes, I think they don’t have anyone to help right now."<</Dialogue>><br><br>
+            She seems very impatient, which is amplified by her impressive an imposing aura. Despite her tailored suit disguising her physique, a quick look at her partially exposed calves makes it seem like she is a serious contender.<br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"I guess we’ll just wait here with you."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Wow, you look great, you know? I’m <<print $playerFirstName>>!"<</Dialogue>><br><br>
+            <<if $muscle >= 40>>
+                <<Dialogue "Emma" "Emma">>"Coming from you, that’s quite the praise. I’m Emma."<</Dialogue>><br><br>
+                <<else>>
+                Emma looks somewhat uneasy with the small talk, but responds nonetheless.<br><br>
+                <<Dialogue "Emma" "Emma">>"Why, thank you, that’s very kind of you. I’m Emma."<</Dialogue>><br><br>
+            <</if>>
+        <<else>>
+            <<Dialogue "player" "You">>"Hey, Emma, what a nice surprise to see you here!"<</Dialogue>><br><br>
+            <<Dialogue "Emma" "Emma">>"Oh, Mrs. <<print $playerLastName>>!"<</Dialogue>><br><br>
+            Emma seems both surprised and uneasy with your presence. She fiddles a bit, avoiding eye contact - it would seem like she ain’t too happy to have someone from the office knowing she’s competing. And while she doesn’t say anything, you feel like you should give her some peace of mind.<br><br>
+            <<Dialogue "player" "You">>"Well, no one in the office needs to know about this, right? If you don’t tell them about me, I won’t tell them about you. God knows how unnerving can be to go on-stage even when you don’t know anyone."<</Dialogue>><br><br>
+            And that seems to do the trick, as she sighs with relief.<br><br>
+        <</if>>
+    <</if>>
+<</if>>
+
+<<link "Continue" "NA13NatMeetsEmma-2">><</link>>

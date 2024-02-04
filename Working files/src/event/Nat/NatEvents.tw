@@ -1160,10 +1160,20 @@ You change into your leotard, and meet Nat, eager to see what <<rivalI>> has in 
 		priority: 'immediate',
         npc: ['nat'],
 		content: `<<goto "NatOnLocalTv">>`
+	},
+    {
+		name: 'NA13NatMeetsEmma',
+		locationTags: ['home'],
+		conditions: [
+            () => setup.hasEventBeenTriggered('EM35EmmaRegisterContest')
+		],
+		repeatable: false,
+		retriggerable: false,
+		priority: 'immediate',
+        npc: ['nat'],
+		content: `<<goto "NA13NatMeetsEmma-1">>`
 	}
 )>>
 
 
 <<set setup.events.push(...setup.natEvents)>>
-
-

@@ -11,7 +11,7 @@ sugarcube-2:
         - "'Kris'|'KrisCasualObsessed'|'KrisCasual'|'KrisObsessed' &+ 'Kris'"
         - "'Johan'|'JohanFancy' &+ 'Johan'|'JO-HAN, The Magnificent'"
         - "'Elena'|'ElenaHappy' &+ 'Elena'"
-        - "'Emma'|'EmmaFitness' &+ 'Emma'|'Office lady'"
+        - "'Emma'|'EmmaFitness' &+ 'Emma'|'Office lady'|'Businesswoman'"
         - "'Nathan' &+ 'Nathan'"
         - "'youngNat' &+ 'Nathan'"
         - "'Natalie' &+ 'Natalie'"
