@@ -168,7 +168,7 @@
         ],
         repeatable: false,
         retriggerable: false,
-        priority: 'immediate',
+        priority: 'filler',
         npc: ['kris'],
         content: `You see your phone buzzing. Kris name flashes across the screen as a pile of messages starts an avalanche on your lock screen. With a sigh, you check what it is.<br><br>
 KRIS: Hey, gurl, you busy?<br><br>
