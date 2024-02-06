@@ -17,9 +17,7 @@ She stands there, looking into the distance, precariously balancing the car and 
 <<Dialogue "player" "You">>"Ah, okay, I get it!"<</Dialogue>><br><br>
 
 <span id="choice">
-	<<link "I guess I will play along... let’s drink all of these up!">>
-		<<replace "#choice">> <<link "Continue" "KR26Roleplay-2.1drinkPotion">> <<set $muscle += 10>> <</link>> <</replace>>
-	<</link>>
+    <<link "I guess I will play along... let’s drink all of these up!" "KR26Roleplay-2.1drinkPotion">><<set $muscle += 10>><</link>>
 
 	<<link "We can have plenty of fun without juicing, I’ll just put these bottles down and let our imagination do the trick.">>
 		<<replace "#choice">>
