@@ -773,6 +773,81 @@ Kris leans back, seductively rubbing her legs and looking at you hungrily. Despi
 But before she can complete her joke, time freezes as a sequence of events that will forever be ingrained in your brain unfolds.<br><br>
 As she walks, looking distractedly at you, Kris accidentally steps on the rope that is still tied to her ankles, and spins and stumbles, tripping over the weight plates that were moved to the ground. She hits her hips against the windowsill, and her wrist lands awkwardly over the ashtray she left there, making her arm slip… and she falls headfirst out of the 5th floor window.<br><br>
 <<link "You watch this in horror as you gasp and raise your hand towards Kris." "krisRolePlaying-2">><</link>>`
+    },
+    {
+        name: 'KR28KrisGoesOverTheTop',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KR27KrisPervsOverElena')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `As you leave your apartment, there’s a weird vibe in the air, but it’s hard to put a finger on it. Everything seems TOO quiet. But you also notice more police officers everywhere you go. And then there’s some police cars going around with their sirens on, which is pretty unusual for this little town.<br><br>
+You just shrug it off, going on your way, as you watch a familiar figure coming out of an alleyway and running the opposite direction of the police car, with a big sack on her back like some sort of goth Santa Claus. It’s the kind of surreal weirdness you expect from her, but still shocking.<br><br>
+As you pass by a sporting goods store, you notice that it is one of the places where cops are checking, talking to the owner in front of it. You get the feeling that these events are somehow connected. And like clockwork, your phone start chiming.<br><br>
+As you check your messages, you see Kris and her usual rambling, begging for you to meet her back at your apartment. All you can do is hope that she didn’t bring all that heat back with her. And so you make your way back home.<br><br>
+Unsurprisingly, you find your own door wide open, and hear a maniacal laughter as you approach it. And while you feel yourself already dreading before you even cross the threshold, you are still surprised as you find your apartment COVERED in her loot.<br><br>
+Wow! So it seems like Kris has been busy - you need to sidestep bottles and more bottles of the unusual concoctions you’ve become so used to all over the floor, reaching an inordinate amount of exercise equipment. It’s everything from jumping rope, exercise bands, weights of all kinds and sizes... you name it, it is there. And that’s not all, dozens and dozens of huge bottles of supplements seem to be stacked over towards your bedroom. Kris herself is laying down, in her best sexy pose, leaning her head against her arm, one leg bent over the other. She looks excitedly at you, eyes eager for your reaction for the treasure trove of growth supplies she has acquired - and frankly, you need a second to process all of that. She really did go all out, and as you take stock - geez, if you put all this to use, you can barely comprehend just how GIGANTIC you could become!<br><br>
+
+
+<span id="choice">
+	<<link "What have you done, Kris? Is that all you care about?">>
+		<<replace "#choice">>
+            Blinking, you try to articulate your feelings, but you can only sigh and scoff, as you try to not freak out completely and just not shout at her.<br><br>
+            <<Dialogue "player" "You">>"Kris, aside the fact that there seems to be a FUCKING MANHUNT for you in town right now, can we, FOR ONCE, just keep this being about US, and not your crazy sexual impulses? Can you see me for who I am for a second?!?"<</Dialogue>><br><br>
+            Kris freezes in shock, as you realize you failed to keep it cool and went a lot more aggressively than you expected. She bites her lips, frowning, and you feel bad for coming in so hot.<br><br>
+            <<Dialogue "player" "You">>"Listen, Kris, I’m honored that you went through all this trouble - well, I mean, I appreciate the effort, but it worries me that your behavior can get so self-destructive, and all for what?"<</Dialogue>><br><br>
+            Kris babbles some incoherent noises, looking around at everything she has gotten for you, utterly shocked at your reaction.<br><br>
+            <<Dialogue "player" "You">>"Not only I don’t want you getting in trouble, but do you realize that it makes me feel a bit inadequate? Like I’m not good enough for you unless I’m huge? Do you understand how that makes me feel?"<</Dialogue>><br><br>
+            You speak from your heart, and it certainly affects Kris more than you’ve ever experienced before, as her shock transfigures into an expression of sadness. She pouts and lets out a lone sob, before whispering:<br><br>
+            <<Dialogue "Kris" "Kris">>"I-I’m sorry, <<print $playerFirstName>>, I don’t care if you are huge or small. I mean, it’s fun and exciting, but I’d still want to be with you... no matter what."<</Dialogue>><br><br>
+            And in an unbelievable moment of self-reflection (and possibly, GASP, shame?!?), Kris avoids your eyes. You feel genuinely bad for chewing her out. You realize, sure, she was doing it for herself to a point... but she was also doing it for you.<br><br>
+            <<Dialogue "player" "You">>"Hey, how about we return this stuff, say we found it in an alley? We can put it all behind the building and I’ll let them know that it just appeared here."<</Dialogue>><br><br>
+            Kris smiles softly, nodding.<br><br>
+            <<Dialogue "Kris" "Kris">>"Yeah, of course. Though... the supplements I actually bought. You can keep those."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Kris, how much did you spend on those? I can’t imagine you are making that much money at the café..."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Nah, no worries. I did dig some into my groceries budget, but I got enough canned soup to last me the rest of the month."<</Dialogue>><br><br>
+            It’s your turn to sigh, as you roll your eyes.<br><br>
+            <<Dialogue "player" "You">>"I guess I’m just going to have to work out extra hard to make sure I get as much from all that as I can..."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Promise?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Are you kidding me? Just carrying all this stuff back there is probably going to be the biggest workout I get this week. Just how the hell did you bring all of this here so fast?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"A magician never reveals her tricks!"<</Dialogue>><br><br>
+            You start stacking as much of the material as you can, and you watch Kris trying to do the same. You can’t even get that mad at her, you realize. But maybe now she’ll settle down a bit and not get herself in as much trouble. You can only hope...
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Damn, girl, you won’t rest until I’m the biggest there ever was? Challenge accepted!">>
+		<<replace "#choice">>
+            You start to slightly salivate at the prospect of what this treasure trove could do to you, and biting your lips, you admit:<br><br>
+            <<Dialogue "player" "You">>"Fuck, Kris, with this much stuff, I am not even sure I can imagine how big and strong I could get..."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"That’s why I’m here to find out, together with you. I wasn’t planning to stop until you are the biggest, baddest, strong bitch in the planet."<</Dialogue>><br><br>
+            You start grabbing the bottles, piling them up until you cannot stack them safely anymore in your arms.<br><br>
+            <<Dialogue "player" "You">>"This is... whoa. With this I could..."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Become a giant muscular goddess? I’m betting on it, babe. Even if I have to whip you into shape! I actually got a whip somewhere in here!"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Aren’t you afraid of what I could do to you if I get that buff?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Afraid? Girl, I am not resting until you are using houses as stools and juggling school buses. I don’t think you get my commitment here."<</Dialogue>><br><br>
+            You laugh at her fantasy, obviously that’s impossible... right?<br><br>
+            <<Dialogue "Kris" "Kris">>"So, what are you waiting for?!?"<</Dialogue>><br><br>
+            <<if $carefreeCarefull < -1 && $submissiveDominant > 1>>
+            You mischievously reach for the heaviest pair of dumbbells you find in the mess, and bend down to pick them up, facing away from Kris.<br><br>
+            You start very slowly executing some dumbbell deadlifts, letting the entranced nympho just watch your glutes and hamstrings in all their glory. You savor each rep, letting out a soft moan which, from the reaction coming from Kris, makes it seem like she’s climaxing right there and then.<br><br> 
+            <<else>>
+            You watch at the never-ending piles of stuff and feel a bit overwhelmed. That, and you originally had some other plans before your day was taken over by Kris.<br><br>
+            <</if>>
+            <<Dialogue "player" "You">>"Listen, this does sound fun, but even if I wanted, I don’t think all this stuff you bought even fits in my stomach, and I do have other errands to run. That, and now I will have to reorganize my apartment because, huh... you made a bit of a mess."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Oh, no worries there. Here, you go back out, I’ll clean up and see myself out. We should make this a special occasion, you are totally right."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Kris, I think some of the weights you got me must be like three times heavier than you."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"A magician never reveals her tricks!"<</Dialogue>><br><br>
+            She says with a wink, and insists that you don’t have to worry.<br><br>
+            <<Dialogue "Kris" "Kris">>"I mean, until we meet again to have fun with some of this. I’ll be looking forward to a bigger you when we meet next time."<</Dialogue>><br><br>
+            Truth is, so are you. She really went all out... and as you leave, you can’t help but feel like Kris is the weirdest underachiever you’ve ever met. It seems that all she needs is the proper motivation...
+			<<link "Continue" $currentScene>><</link>>
+		<</replace>>
+	<</link>>
+</span>`
     }
 )>>
 
