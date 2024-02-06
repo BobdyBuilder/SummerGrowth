@@ -931,6 +931,17 @@ There’s a raw energy that Kris is exhuding right now, it’s very angry in its
 <<Dialogue "player" "You">>"Just... no kidnapping or murdering anyone for this? I wanna keep my options open if I decide to become a superhero someday."<</Dialogue>><br><br>
 You say that half in jest, but Kris might not have gotten the nuance. She already seems oblivious to the world, machinations taking over her brain as she walks away rubbing her hands together. You feel like you just created a monster, and hope nothing bad comes out of this...
 <</if>>`
+    },
+    {
+        name: 'KR31PlayerConfrontKrisAboutFeelings',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KR29KrisScaredAboutReversal') || setup.hasEventBeenTriggered('KR30KrisFreaksOutAboutReversal')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `<<goto "KR31PlayerConfrontKrisAboutFeelings-1">>`
     }
 )>>
-

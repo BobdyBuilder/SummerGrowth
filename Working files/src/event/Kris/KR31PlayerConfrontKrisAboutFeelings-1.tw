@@ -1,0 +1,148 @@
+:: KR31PlayerConfrontKrisAboutFeelings-1
+As you reach the Coffee Corner, you feel a ball in the pit of your stomach. The whole mess with Toshi still feels like a dream, making you realize that your new grown self has finally become your new normal, and the idea of going back to that old version is surreal - and slightly nightmarish. But with this maelstrom of feelings, you also realize it’s time to have a serious talk with Kris about where your relationship stands.<br><br>
+You see the nympho pixie, who is not slacking at her job for a change. She seems unusually cheerful, pouring a piping hot cup of coffee for a customer, who must be a regular - because he looks as surprised as you.<br><br>
+<<Dialogue "Kris" "Kris">>"Hey, <<print $playerFirstName>>! Just a second, I’ll be right over."<</Dialogue>><br><br>
+She finishes serving and charging the customer in expedient fashion, before jumping over the counter, giving your arm a slap before that impish smile melts you from the inside.<br><br>
+<<Dialogue "Kris" "Kris">>"Sup, girl! What can I get you? On the house, obvs!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Uh, actually, I wanted to know if we could have a talk after your shift? I just feel like we need to get some stuff straight."<</Dialogue>><br><br>
+Looking completely unfazed, Kris just turns around and nods to another employee, asking if she can hold the fort for a bit. It would seem that they are also pretty pleased with her and this new cheery demeanor, because she nods with a smile, before Kris tosses her the apron.<br><br>
+<<Dialogue "Kris" "Kris">>"You wanna sit down by the rotunda? There’s some nice places to sit there, and a booth that sells the best ice cream around!"<</Dialogue>><br><br>
+You smile weakly, agreeing to the plan. There’s a pang of guilty, knowing you are about to spring some heavy stuff on her, but there’s no easy way out of this.<br><br>
+Making your way to the rotunda, you realize you’ve never really hung out in this part of the mall. The large curved glass ceiling covers a large fountain with seats that would make for a great romantic spot. You are not sure if Kris is messing with you, but there’s not much you could do about it anyway. She rushes towards one of the wide seats, tapping her side so you can join her. <<if $muscle >= 50 || $height >= 190 || $fat >= 60>>The wooden seat slightly creaks under your mass, but holds bravely.<</if>> Kris looks at you expectantly, still happy enough to look like her face is beaming. This isn’t going to be easy.<br><br>
+<<Dialogue "Kris" "Kris">>"So, what’s up, girl?"<</Dialogue>><br><br>
+You bite your lips, trying to gather the words, and finally decide to just get it all out.<br><br>
+<<Dialogue "player" "You">>"Kris, this is such a weird time in my life, everything is changing so fast, I’m trying to figure out myself, my life, what I want to do... and who I want to be with."<</Dialogue>><br><br>
+Kris continues staring at you, now a bit more curious than just happy.<br><br>
+<<Dialogue "player" "You">>"I... there’s no getting around it, I like what we have. It was a bit shocking in the beginning, but whenever I think about you and what we do, it makes me all fuzzy inside. I find myself just wanting to spend more time with you, any chance I have."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Sounds easy enough to me. What’s the big deal?"<</Dialogue>><br><br>
+<<if $submissiveDominant > 1>>
+<<Dialogue "player" "You">>"I love being this big and powerful, but I love dominating you even more so. We have a great thing going. It awakened something in me, being in charge."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Shit. So much, Kris! I’m still not sure if you are still gonna be interested in me if I, you know, go back to meek old <<print $playerFirstName>>."<</Dialogue>><br><br>
+<</if>>
+Her expression starts showing small signs of concern, but Kris still holds a positive disposition overall.<br><br>
+<<Dialogue "player" "You">>"And the truth is, not only do I not want to lose you, but it got me thinking - I think maybe I want something else. I want more from you than just adoration and lust."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Uh, what do you mean?"<</Dialogue>><br><br>
+
+<span id="choice">
+	<<link "I don’t know how to make this more obvious, Kris. I love you.">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Kris, the truth is, this is not just physical, I... I have feelings for you. I am falling in love, I want to do more than just fuck you silly. I want to spend more time with you, learn who you are, what other things you like to do. Gosh, there’s so much, I don’t even know where to begin."<</Dialogue>><br><br>
+            And this made Kris gasp, now thoroughly shocked. Her legs turn away from you as she puts her hands on her knees and looks down to the ground. She doesn’t look sad, but weirded out.<br><br>
+            <<if $submissiveDominant > 2>>
+            <<Dialogue "player" "You">>"So if you still want a piece of THIS..."<</Dialogue>><br><br>
+            <<if $muscle >= 45>>You flex your pecs and traps, making your imposing figure to bloom - and clearly getting your point across.<<elseif $height >= 180>>You stand up, towering over the barista to clarify your point.<<elseif $dick > 8>>You tap your crotch, the bulge clearly visible through your clothes making the point obvious, before continuing.
+            <<else>>You wave your hand over your torso, presenting your body as if it was this incredible bargaining token - which, to Kris, it actually is - before continuing.<</if>><br><br>
+            <<Dialogue "player" "You">>"... you are going to have to decide where you stand and agree to some stipulations, because I’m not just going to let you get your way."<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"Listen, I want to make this clear, I love that you are so turned on by my body and everything, I don’t see it as just objectification, and I do believe we have a good thing going when things get naughty, but I ALSO want more beyond just sex."<</Dialogue>><br><br>
+            <</if>>
+            <<Dialogue "Kris" "Kris">>"L-like what?"<</Dialogue>><br><br>
+            The hesitation still feels weird, but it’s not entirely unexpected.<br><br>
+            <<Dialogue "player" "You">>"I mean, there’s more than just screwing each other silly, for starters - you know, cuddling, asking how each other’s day went... in fact, yeah, I want to take a more personal interesting in who you are, Kris. And it would also be fantastic if you wanted to know more about me than just how big and domineering I get."<</Dialogue>><br><br>
+            Kris reveals a glum face as her shoulders slump and she looks at you with puppy eyes.<br><br>
+            <<Dialogue "Kris" "Kris">>"I don’t know that I am that interesting... or that I could live up to your expectations, <<print $playerFirstName>>."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"And how do you know that? I know hardly anything about you, so how can you guess what I like or don’t like?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"BECAUSE I’M A FUCKING FAILURE, THAT’S WHY!"<</Dialogue>><br><br>
+            Kris raises her voice, angry, before gulping and trying very hard not to start sobbing. You raise a hand to put on her shoulder, but end up not quite making it there, still nervous about seeing this kind of reaction from Kris.<br><br>
+            <<Dialogue "player" "You">>"What do you mean, Kris?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Here I am, tossing my life away as a barely-functional barista, after dropping out of school because I could not even get good enough grades to handle that. I can barely hold a job, I got fired from so many other places before, and I just said FUCK IT to everyone and everything, if I can’t be good enough for them, I’ll just settle in whatever dead-end job will keep me and indulge in my pleasures because that’s the only thing I know how to do. There! Are you happy now? That you know that I’m just an underachiever who is only still going because I have my kinks to keep me getting by?"<</Dialogue>><br><br>
+            Without thinking, you reach and wrap Kris in a tight embrace, <<if $muscle >= 45 || $height >= 180>> the size difference enough for her to feel like a small doll in yours arms,<</if>> as you tell her not to worry.<br><br>
+            <<Dialogue "Kris" "Kris">>"Easy for you to say, you are like this amazing human being who magically appears to achieve everything, and I can’t even not disappoint everyone around me."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Hey, where is that even coming from?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"What if you know the real me and you just see I’m not worth it? What do I even have to offer other than my raging libido and my looks?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"I mean, those are fun, sure, but what makes you think that I’m going to just give up when I get to see what’s underneath?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"BECAUSE THERE’S NOTHING ELSE UNDERNEATH! I don’t know that there’s anything else left, I just gave up, because I can’t do anything right."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"That’s not true. I’ve seen you going around collecting funds and all these potions for me. That’s not nothing. It seems to me that you just need the right motivation."<</Dialogue>><br><br> 
+            <<Dialogue "Kris" "Kris">>"But that’s different. That was for you, because you are worth it."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"That’s just your opinion. And what if I told you I think YOU are worth it? If I can love you, you can’t be all that bad, right? Maybe you can even find it in you to love yourself if you let me know more of you."<</Dialogue>><br><br>
+            Her eyes widen. You are not sure if she’s having an epiphany or just surprised at you being so forthcoming, but Kris clearly did not expect that. You caress her cheek with the back of your hand, and Kris shudders, then reaches for your other hand like a children seeking comfort from a teddy bear. She brings your hand to her chest, before laying her head against your bosom.<br><br>
+            <<Dialogue "Kris" "Kris">>"You really think you could love me? Even when you see all my laziness, my vices, my weaknesses?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Well, would you stop loving me if you found out I almost didn’t make to college? That I was just a wallflower in school? That I had issues with commitment and never was too good with finances? Isn’t all of that what makes us human?"<</Dialogue>><br><br>
+            Kris sighs.<br><br>
+            <<Dialogue "player" "You">>"By the way, don’t you think I was worried about the possibility of my growth reversing? I’ve been small before, and I would be able to live going back to that... I ain’t so sure I would take losing you so easily. I lost sleep over it."<</Dialogue>><br><br>
+            Kris lifts her head to look you in the eyes.<br><br>
+            <<Dialogue "Kris" "Kris">>"Silly. I would just make sure you work out harder and be happy with whatever I can get. That’s just stupid."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Well, takes one to know one."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Ouch. Touché."<</Dialogue>><br><br>
+            Kris laughs. You run your fingers through her fine hair, it feels incredibly soft despite all the dye.<br><br>
+            <<Dialogue "player" "You">>"Don’t you need to get back to work?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"You know what? I’m taking a sick day. Because I’m homesick of you."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Well, I think I know just the cure for that..."<</Dialogue>><br><br>
+            <<if $muscle >= 50>>So you get up, easily scooping the small girl in your arms, and heading towards her apartment.<<else>>You get up, tugging Kris to follow you, as you lead her to her apartment.<</if>>’
+			<<link "Continue" "KR31PlayerConfrontKrisAboutFeelings-2A">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "I need a guarantee that you aren’t going to just leave me if I don’t correspond to your expectations!">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"I just had to deal with the real implication that my growth could be reversed, and all I could think was that you’d drop me like a rock if I couldn’t be huge for you."<</Dialogue>><br><br>
+            Kris jaw drops, as she is speechless from what you just said. Then she starts to laugh.<br><br>
+            <<Dialogue "Kris" "Kris">>"HAHAHA! Seriously? That was your fear? You thought you’d get rid of me just because you weren’t some giant of my dreams?"<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Is that really so hard to believe? Seems like a big enough priority for you."<</Dialogue>><br><br>
+            Kris squints, putting her index finger over her lips as she seems to be trying to properly articulate it as she just goes HMMMMMMMM...<br><br>
+            <<Dialogue "Kris" "Kris">>"How can I put it... Oh! You know those middle-aged dudes who get a junk car as a project, and then spend years fixing it? That’s why I’m so invested in you, you are like my project."<</Dialogue>><br><br>
+            <<if $shyConfident > 1 || $submissiveDominant > 1>>
+            <<Dialogue "player" "You">>"So you are telling me I’m a piece of junk? That’s how you try to make me feel better?"<</Dialogue>>
+            <<else>>
+            <<Dialogue "player" "You">>"You feel like I’m some piece of junk?"<</Dialogue>><br><br>
+            You say, pouting and feeling a bit hurt.
+            <</if>><br><br>
+            Kris gets flustered and embarrassed, shaking her hands in denial. It’s kind of adorable.<br><br>
+            <<Dialogue "Kris" "Kris">>"No, no, what I mean is, I don’t have many things in life I’m passionate about, that I put so much effort on. You may actually be the only thing I still really care about, <<print $playerFirstName>>."<</Dialogue>><br><br>
+            You blush at the unexpected praise.<br><br>
+            <<Dialogue "player" "You">>"Uh, but... do you know how I used to look? Would you really still care about me if I was this short, meek, wiry girl?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"<<print $playerFirstName>>, <<print $playerFirstName>>, you just don’t get it, do you? It’s not the destination, it’s the journey. Sure, having you being a towering muscle goddess is cool and I certainly wouldn’t turn that down, but what truly turns me on is seeing you grow. It’s your dedication, your desire... that’s what’s amazing to me."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Oh. Does... does this have anything to do with, you know, yourself? Don’t take this the wrong way, but you are not exactly an overachiever..."<</Dialogue>><br><br>
+            She seems bothered by that comment, her forehead scrunching visibly.<br><br>
+            <<Dialogue "Kris" "Kris">>"Let’s not talk about me, okay? The important thing is, I want to keep this thing we have going."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Just keep it casual... and steamy?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"You read my mind, girl. You don’t need to worry about what you look like, you can leave that to me. It’s what I do best, right?"<</Dialogue>><br><br>
+            You laugh at the comment, planting a passionate kiss on her lips.<br><br>
+            <<Dialogue "Kris" "Kris">>"But, hey, since I managed to sneak out of work, how about we make this fun? I have the keys to the pump room of the fountain, where we can get some privacy. Wanna fuck me silly?"<</Dialogue>><br><br>
+            <<if $shyConfident > 1 || $submissiveDominant > 1>>
+            <<Dialogue "player" "You">>"I thought you’d never ask."<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"Aren’t we going to get in trouble if we do that?"<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Girl, I don’t need any help to get more turned on! Now get up and let’s head there!"<</Dialogue>><br><br>
+            <</if>>
+			<<link "Continue" "KR31PlayerConfrontKrisAboutFeelings-2B">><</link>>
+		<</replace>>
+	<</link>>
+
+    <<link "The truth is, I don’t know that I have it in me to keep this up. It was fun, but I think whatever we have has run its course, Kris.">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Look, I don’t know how to break this, so I’m just going to say it."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Alright, I’m waiting."<</Dialogue>><br><br>
+            Kris crosses her arms impatiently, looking at you.<br><br>
+            <<if $shyConfident > 1 || $submissiveDominant > 1>>
+            <<Dialogue "player" "You">>"This thing we have, it just isn’t working for me. I’m dumping you."<</Dialogue>><br><br>
+            <<else>>
+            <<Dialogue "player" "You">>"Well, how do I put it? You are amazing in bed, Kris, and I had a lot of fun but... I’m not sure that’s what I want or need right now."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"What is that supposed to mean?"<</Dialogue>><br><br>
+            She sounds indignant, but still hasn’t figured it out.<br><br>
+            <<Dialogue "player" "You">>"I-it’s not you, it’s me. I just have some needs, and it goes beyond fucking like rabbits. I need companionship, and to talk about my feelings and stuff. And I don’t want to force you into something you are not into so, I’m jumping out here, I guess."<</Dialogue>><br><br>
+            <</if>>
+            Kris is shocked. Not just a bit. She’s frozen, eyes wide open and jaw dropped. Then she starts hyperventilating a bit, before she starts begging.<br><br>
+            <<Dialogue "Kris" "Kris">>"N-no. You can’t do that. Not after all we’ve had? I... I can change."<</Dialogue>><br><br>
+            <<Dialogue "player" "You">>"Maybe you can. But it would not be fair to you. This is about me. You should find someone who wants to be just like that... and it just isn’t me. I’m sorry, Kris. I really did enjoy all the fun times, more than I can describe."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Please, don’t leave me. I’m begging you, <<print $playerFirstName>>."<</Dialogue>><br><br>
+            It breaks your heart to see her like this. But deep inside you know that it is inevitable, and you don’t want to prolong her pain.<br><br>
+            <<Dialogue "player" "You">>"I’m sorry, Kris. It pains me to do this as well. But I don’t want to just string you along knowing that it’s not going to end well for both of us down the line. This way you can go ahead and find your next partner sooner instead of wasting your time on me."<</Dialogue>><br><br>
+            You watch as her sadness slowly fades into anger. And knowing her passionate nature, you fully expect her to lash out somehow, but it just dissolves as well, finally leaving her spent and disappointed.<br><br>
+            <<Dialogue "Kris" "Kris">>"I guess you are right. I should’ve seen this coming. Just another failure for my long checklist. Oh well. At least I can still stalk the clients at the Bulk Barn, I guess. Gotta thank Eddy for picking a spot just across the café, heh."<</Dialogue>><br><br>
+            And with that, Kris shrugs, gets up, and starts walking back to the Coffee Corner, before stopping and turning around to have the last word.<br><br>
+            <<Dialogue "Kris" "Kris">>"By the way, that means you are now fair game. So if you come into the store, I’ll treat you like any other customer. Just saying, nothing personal."<</Dialogue>><br><br>
+            You laugh and nod.<br><br>
+            <<Dialogue "player" "You">>"I would expect nothing less. And who knows, maybe we’ll still share a booty call one of these days, for old times sake."<</Dialogue>><br><br>
+            <<Dialogue "Kris" "Kris">>"Heh. I’d like that."<</Dialogue>><br><br>
+            And so Kris leaves, and you turn another page in this crazy summer. It’s not what you expected, but life can be like that sometimes. Not like it’s the first crazy thing to happen since you moved here.
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+</span>
+
+
+
+
+

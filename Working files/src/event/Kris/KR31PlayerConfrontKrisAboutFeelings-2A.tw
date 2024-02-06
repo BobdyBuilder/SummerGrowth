@@ -1,0 +1,50 @@
+:: KR31PlayerConfrontKrisAboutFeelings-2A
+<<if $muscle >= 50>>You push the door open with your foot as you carry Kris, making it into her apartment, and place her down on the unmade bed, before falling by her side.<<else>>You reach the apartment, still holding hands with Kris, and she opens the unlocked door, waving for you to go in first. You gingerly accept, crossing the messy living room as Kris takes the lead once more and throws herself on her bed. She taps her side, inviting you to join her, which you gladly do, taking your own dive with aplomb.<</if>><br><br>
+<<Dialogue "Kris" "Kris">>"Sorry for the mess."<</Dialogue>><br><br>
+<<if $bedRoomCleaned >= 1>>
+<<Dialogue "player" "You">>"Nah, you oughta see my apartment."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Kris, Kris... I'm not here for the ambiance, if that wasn't clear."<</Dialogue>><br><br>
+<</if>>
+Kris turns around to cuddle with you. You fully expect her to start undressing you, but she just rests her head against your <<if $muscle >= 40 && $fat < 25>>cobbled<<elseif $fat > 40>>soft<</if>> stomach, while her finger traces over your <<if $muscle >= 40 && $fat < 25>>toned<</if>> thigh.<br><br>
+A minute of silence passes. It’s surprisingly chill and relaxing, but still makes you all warm and fuzzy inside.<br><br>
+<<Dialogue "Kris" "Kris">>"You know, I didn’t think this would be this nice. But it turns out... it actually is. I could get used to this."<</Dialogue>><br><br>
+<<if $submissiveDominant > 1 || $shyConfident > 1>><<Dialogue "player" "You">>"I’m still gonna fuck you hard later, for the record."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Doesn’t have to be one or the other - I’m still planning to fool around later, just so you know."<</Dialogue>><br><br>
+<</if>>
+Kris purrs softly, squeezing your thigh hard.<br><br>
+<<Dialogue "Kris" "Kris">>"Not complaining."<</Dialogue>><br><br>
+Another blissful minute of just enjoying each other’s presence. Kris sighs, content.<br><br>
+<<Dialogue "player" "You">>"You sure you are okay?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"No, yeah, this is great."<</Dialogue>><br><br>
+...
+<<Dialogue "Kris" "Kris">>"It’s just that... nah, never mind."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What?"<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Nothing."<</Dialogue>><br><br>
+You flip around, leaning on your elbows, and look Kris in the eyes until she fesses up.<br><br>
+<<Dialogue "Kris" "Kris">>"Alright, alright. You made me think..."<</Dialogue>><br><br>
+<<if $carefreeCarefull < -1>>
+<<Dialogue "player" "You">>"Whoa, call the newspaper and the scientists!"<</Dialogue>><br><br>
+Kris slaps your arm playfully and pouts. You two laugh, and she continues.
+<<else>>
+You look at Kris, filled with curiosity. She hesistates, but continues.
+<</if>><br><br>
+<<Dialogue "Kris" "Kris">>"I guess I wanted to tell you. This whole underachiever routine... I feel like I hurt from failing so much, I was closing myself. And being horny was liberating and empowering, it was something that not only brought a lot of gratification and pleasure, but it felt like something I could excel at, you know? So I just went all in being, ahem, horny on main."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"But it definitely is who you are."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Sure, but now that you made me think about it... I do think I wanted more, but was afraid to go for it. I didn’t want to get hurt again. I did really mean it when I said I felt like a failure."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, Kris."<</Dialogue>><br><br>
+You kiss her forehead, and put a hand on her shoulder, giving it a squeeze.<br><br>
+<<Dialogue "Kris" "Kris">>"And I guess part of it also led me to be afraid to open up, you know? That you’d see me and just give up."<</Dialogue>><br><br>
+You raise an eyebrow.<br><br>
+<<Dialogue "player" "You">>"And you thought the whole scary-horny routine wasn’t gonna do that?"<</Dialogue>><br><br>
+She stops to think for a moment.<br><br>
+<<Dialogue "Kris" "Kris">>"You know, maybe that was something I could just use as an excuse to keep people at arms length. Avoid the pain. Which is what I’m really good at."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Well, how about, instead of avoiding it, you share it with someone special?"<</Dialogue>><br><br>
+Kris looks deep into your eyes. You stare back, and before you know it, the two of you just come in for a very passionate kiss.<br><br>
+Kris settles on her back, looking at the ceiling and holding your hand.<br><br>
+<<Dialogue "Kris" "Kris">>"I guess I’m really going to be alright after all."<</Dialogue>><br><br>
+You giggle, and roll over her, <<if $muscle >= 45 || $fat > 40 || $height > 180>>being careful not to smother her in the process,<</if>> and giving her a tight squeeze.<br><br>
+<<Dialogue "player" "You">>"I’ll make sure of that!"<</Dialogue>><br><br>
+And before you know it, both of you are hurriedly getting undressed.
+<<link "Go home" "Home">><</link>>
