@@ -844,11 +844,93 @@ Wow! So it seems like Kris has been busy - you need to sidestep bottles and more
             She says with a wink, and insists that you don’t have to worry.<br><br>
             <<Dialogue "Kris" "Kris">>"I mean, until we meet again to have fun with some of this. I’ll be looking forward to a bigger you when we meet next time."<</Dialogue>><br><br>
             Truth is, so are you. She really went all out... and as you leave, you can’t help but feel like Kris is the weirdest underachiever you’ve ever met. It seems that all she needs is the proper motivation...
-			<<link "Continue" $currentScene>><</link>>
+			<<link "Continue" $currentScene>><<set $flag.KR28KrisGoesOverTheTopApproved = true>><</link>>
 		<</replace>>
 	<</link>>
 </span>`
+    },
+    {
+        name: 'KR29KrisScaredAboutReversal',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KR28KrisGoesOverTheTop') && State.variables.flag.KR28KrisGoesOverTheTopApproved,
+            () => false /* FIXME meeting Toshi and learning about potion reversal (day 45) */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `As you reach the Coffee Corner for your usual dose of caffeination, your stomach suddenly drops: watching Kris eagerly jump over the counter and run towards you, you find yourself squeezing your fists, dreading having to tackle the matter at hand.<br><br>
+<<Dialogue "Kris" "Kris">>"Hey there, handsome. Got some stuff in the back for you, why don’t you sit down and I’ll bring a four-meal course for you..."<</Dialogue>><br><br>
+The aproned impish waif tries to push you towards one of the chairs, but you stand your ground firmly.<br><br>
+<<Dialogue "player" "You">>"Kris, we gotta talk."<</Dialogue>><br><br>
+The devious barista raises an eyebrow with a smirk, but she is smart enough to know from your tone that something is weird.<br><br>
+<<Dialogue "Kris" "Kris">>"I’m gonna go ahead and just say it, it’s not an option for you to break up with me. I’m like a haunted apparition, even if you try to avoid me, I’m gonna be around. I didn’t bust my ass on this project just to let you walk. You are my return on investment, if you know what I mean."<</Dialogue>><br><br>
+She winks playfully, and the irony of the underachiever being proud of her effort is not lost on you. Doesn’t make the conversation you are about to have any easier, however.<br><br>
+<<Dialogue "player" "You">>"Kris, I gotta tell you about something I found out..."<</Dialogue>><br><br>
+<br>
+<br>
+<br>
+After narrating your encounter with Toshi, and the discovery about the potential reversal of the effects of the chemical components that started your transformation, you watch Kris emote with several expressions you never quite seen before. She goes from surprise to shock, then indignant denial, until she reaches fear.<br><br>
+<<Dialogue "Kris" "Kris">>"W-wait. That can’t be. You can’t just lose all that. T-that’s not possible, people don’t just shrink overnight!"<</Dialogue>><br><br>
+<<if $submissiveDominant > 1 || $shyConfident > 1>><<Dialogue "player" "You">>"Yeah, but they also don’t grow like this out of nowhere, so I think it’s safe to say we’re in unknown waters when it comes to what may happen."<</Dialogue>><br><br> 
+<<else>><<Dialogue "player" "You">>"I know, this all sounds crazy, but I most certainly did not achieve this body naturally either, so I don’t think it’s out of the question that I could lose it just as easily."<</Dialogue>><br><br><</if>>
+<<Dialogue "Kris" "Kris">>"Just like that? Deflating like a balloon?!?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I mean, you should’ve seen Toshi. He got HUGE, and he’s still bigger than when he started, but... he certainly lost a lot of it."<</Dialogue>><br><br>
+Kris is stunned, nervously trying to process all that. She reaches for your <<if $muscle >= 80>>gigantic arm, her hand barely covering just a fraction of your triceps, <<elseif $muscle >= 50>>beefy arm, her fingers barely able to dent your triceps, 
+<<elseif $muscle >= 30>>toned arm, <<else>>arm, <</if>>holding onto it like a security blanket. Hyperventilating, she looks at you, trying to bargain her way out of this scenario.<br><br>
+<<Dialogue "Kris" "Kris">>"There’s gotta be a way to avoid this. Maybe if you just keep working out really hard - or I could try to make like an entire cauldron of these chemicals, you take a bath in it. This Toshi, he must know something, I’ll kidnap him if I have to..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Kris..."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"I could start studying chemistry, figure how this all works, there’s gotta be a way."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Kris!!!"<</Dialogue>><br><br>
+She stops, looking again into your eyes, her breath slowing down to a more manageable pace.<br><br>
+<<Dialogue "player" "You">>"Look, I can’t guarantee I’ll be the girl of your dreams, but I don’t want to lose this either. But..."<</Dialogue>><br><br>
+<<if $flag.KR26RoleplayLove>>
+You want to tell her that you are more afraid of losing her than your physical gains. Yet, you just choke. There’s no way to say that. Not now, not like this.
+<<else>>
+You wonder if Kris would stick with you should you revert back to your original body. Even though she can be quite overbearing, you’ve grown quite fond of the tiny goblin and her sexual energy. You just don’t feel quite ready to give that up. 
+<</if>><br><br>
+<<Dialogue "player" "You">>"... I figure I could count on you to give me a hand as I handle this."<</Dialogue>><br><br>
+You can still see the concern and fear in Kris’s eyes. It doubly painful for you, because you don’t like disappointing her, but you still have that nagging feeling she could just find someone bigger and replace you.<br><br>
+<<Dialogue "Kris" "Kris">>"Hell, isn’t that what I’ve been doing all along? I don’t care if I need to break into a military facility or a pharmaceutical company, I’m not gonna just accept this sitting down."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Look, I’m all for being proactive about this, but... can we keep this on the right side of the law?"<</Dialogue>><br><br>
+But before you are done saying this, she’s already gone. You can’t shake the feeling she’s not taking this well. Kris seems really scared, but you can’t exactly say WHY. You figure she might need some time to sort things out - and so do you, if you plan to stop these transformations from reverting.`
+    },
+    {
+        name: 'KR30KrisFreaksOutAboutReversal',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KR28KrisGoesOverTheTop') && State.variables.flag.KR28KrisGoesOverTheTopApproved !== true,
+            () => false /* FIXME meeting Toshi and learning about potion reversal (day 45) */
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ['kris'],
+        content: `As you reach the Coffee Corner for your usual dose of caffeination, your stomach suddenly drops: watching Kris eagerly jump over the counter and run towards you, you find yourself squeezing your fists, dreading having to tackle the matter at hand.<br><br>
+<<Dialogue "Kris" "Kris">>"Hey there, handsome. Got some stuff in the back for you, why don’t you sit down and I’ll bring a four-meal course for you..."<</Dialogue>><br><br>
+The aproned impish waif tries to push you towards one of the chairs, but you stand your ground firmly.<br><br>
+<<Dialogue "player" "You">>"Kris, we gotta talk."<</Dialogue>><br><br>
+The devious barista raises an eyebrow with a smirk, but she is smart enough to know from your tone that something is weird.<br><br>
+<<Dialogue "Kris" "Kris">>"I’m gonna go ahead and just say it, it’s not an option for you to break up with me. I’m like a haunted apparition, even if you try to avoid me, I’m gonna be around. I didn’t bust my ass on this project just to let you walk. You are my return on investment, if you know what I mean."<</Dialogue>><br><br>
+She winks playfully, and the irony of the underachiever being proud of her effort is not lost on you. Doesn’t make the conversation you are about to have any easier, however.<br><br>
+<<Dialogue "player" "You">>"Kris, I gotta tell you about something I found out..."<</Dialogue>><br><br>
+<br>
+<br>
+<br>
+After narrating your encounter with Toshi, and the discovery about the potential reversal of the effects of the chemical components that started your transformation, you watch Kris emote with several expressions you never quite seen before. She goes from surprise to anger, then indignant denial, until she reaches a look of utter determination.<br><br>
+<<Dialogue "Kris" "Kris">>"No, nuh-huh. Ain’t no way I’m letting some scrawny nerd take this away because he doesn’t understand his own chemicals. Nope, in fact, I’m going to show him and make you bigger than his wildest dreams!"<</Dialogue>><br><br>
+Wow, okay, Kris got in a mood there. You’ve seen her obsessed, but she’s crossed the line into psychotic supervillain at this point.<br><br>
+<<Dialogue "player" "You">>"Hey, I do appreciate the enthusiasm, Kris, but I just want you to understand there’s a real chance I might revert back to my old self. And I feel we should talk about this."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Talk? The time for talking is over. I’m a woman of action, and I’m gonna dig to the bottom of this, there’s no way there isn’t a way to make these changes permanent. Or maybe even unleash even more powerful ones. And I’m on the fucking job! I’m done fantasizing and role-playing, I’m going to make you superhuman, full stop, or die trying!!!"<</Dialogue>><br><br>
+There’s a raw energy that Kris is exhuding right now, it’s very angry in its determined, and you can’t help but ride it and believe that it would be possible. But while the idea of balancing trucks on your fingertip is mouth-watering, you force yourself to focus on the fact that your dear friend might actually be in such a headspace that she would commit heinous crimes for it.<br><br>
+<<if $carefreeCarefull > 1>>
+<<Dialogue "player" "You">>"I want to do this, Kris. With you. But I know how passionate you can get. Let’s do this together, because there’s no point in me getting even bigger if you are stuck in jail."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Oh, if I have my way, there’s no jail that could keep you away from me. You’d be bending those bars and tearing down walls like putty."<</Dialogue>><br><br>
+<<else>>
+<<Dialogue "player" "You">>"Just... no kidnapping or murdering anyone for this? I wanna keep my options open if I decide to become a superhero someday."<</Dialogue>><br><br>
+You say that half in jest, but Kris might not have gotten the nuance. She already seems oblivious to the world, machinations taking over her brain as she walks away rubbing her hands together. You feel like you just created a monster, and hope nothing bad comes out of this...
+<</if>>`
     }
 )>>
-
 
