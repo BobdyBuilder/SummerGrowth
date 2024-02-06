@@ -182,6 +182,48 @@ KRIS: You are coming, right?<br><br>
 You ponder how to answer that, <<if $submissiveDominant > 1>>but decide that you can just go there and surprise her should you so desire - not like Kris respect your boundaries either, so you aren’t about to feel guilty about.
 <<else>>and begrudgingly reply that you’ll be there when you have a chance, hoping not to regret that decision.<</if>><br><br>
 And so you go on with your day, wondering what kind of surprises await you at that apartment…<<set $flag.KR26Roleplay = true>>`
+    },
+    {
+        name: 'KR27KrisPervsOverElena',
+        locationTags: ['kris'],
+        conditions: [
+            () => setup.hasEventBeenTriggered('KR26Roleplay')
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'filler',
+        npc: ['kris','Elena'],
+        content: `You feel a bit lacking in motivation, and decide to head over to the Coffee Corner to grab a cup of joe, but end up stopping when you notice... well, not easy to ignore the giant person just walking among the common folk. <<if $elenaOpenedUp>>And you know that figure pretty well, it could only be Elena, probably doing some shopping.<<else>>Who could possibly be that absolute unit of a woman, who is not only considerably taller than all the other shoppers - but GOD DAAAAAMN! She’s wide and muscular, almost impossibly so! We are talking legs that are wider than grown men torsos, and arms that look like they could uproot trees.<</if>> You follow her, making her way into the Coffee Corner, already predicting that Kris is about to make a nuisance of herself. You take a deep breath, and head in after her.<br><br>
+The shy giant makes her way to the counter, looking somewhat confused about the selection of fancy drinks with unusual Italian names. And like clockwork, you hear clanging from the back as Kris whooshes in after the sixth sense tingles.<br><br>
+It is not even a matter of seconds before the little sex goblin just attaches herself to the muscular arm, hanging like fruit as her little fingers just dig into the exposed flesh. <<if $elenaOpenedUp>>Poor Elena <<else>>The scared woman <</if>>simply freezes, like a deer under headlights, her eyes revealing what seems to be like a fight-or-flight response stalling somewhere along the process.<br><br>
+And while you assume this will just develop comically like most Krishaps, it’s with a lot of surprise that you witness something truly unexpected: Kris looks befuddled. Her eyes are closely examining the huge ridges of sinew, tracing each thick vein with her fingertips... the scrutiny is such that you fully expected her to smell or lick the arm like some sort of TV forensic scientist trope. But no, she looks, almost revolted, to the eyes of her victim, half expecting some sort of explanation. But alas, she merely drops from the arm, walking away looking defeated. Her neck turns around, looking at her former target one last time, scoffing and blinking, before returning to the kitchen.<br><br>
+Now liberated, <<if $elenaOpenedUp>>Elena<<else>>the humongous lady<</if>> seems to rethink her need for caffeine and leaves the store. You sit down for your own drink, and it’s not long before Kris comes out to greet you.<br><br>
+<<Dialogue "Kris" "Kris">>"Hey, babe! Nice to see you. Can I get you your... hehe... ‘special’?"<</Dialogue>><br><br>
+You are not even sure you want to ask what the special is. But you can’t help but probe a bit about what just happened.<br><br>
+<<Dialogue "player" "You">>"So, Kris, I couldn’t help but notice what just transpired. Is everything alright?"<</Dialogue>><br><br>
+And right there, even if for just a split second, you witness something you’d never expected: Kris looks ashamed. It’s fleeting but obvious that you touched a sore spot.<br><br>
+<<Dialogue "Kris" "Kris">>"Nah, it’s nothing. What matters right now is my big babe here, and what I can do. Soooooo..."<</Dialogue>><br><br>
+Kris raises her eyebrow suggestively with a sly smile. But you are having none of that right now.<br><br>
+<<Dialogue "player" "You">>"So, Kris, I couldn’t help but notice what just happened. Is everything alright?"<</Dialogue>><br><br>
+Kris deflates like a balloon, sighing and finally admitting to the incident.<br><br>
+<<Dialogue "Kris" "Kris">>"Ah, you saw that. Yeah, you know me, can’t resist a beefy patron! It’s what I do, am I right or am I right?"<</Dialogue>><br><br>
+And she elbows your side comically, winking.<br><br>
+<<Dialogue "player" "You">>"Yeah, but that’s exactly my point. I was certain you were going to be all over the poor woman. But you got all weird, like she had forgotten to put on deodorant or something - which she didn’t, I passed by her and she was actually wearing some very sweet perfume."<</Dialogue>><br><br>
+<<Dialogue "Kris" "Kris">>"Yeah, well, she wasn’t my type, is all, no sweat. Also, literally, I do like that musk, and she had none of that. That’s it. Simple."<</Dialogue>><br><br>
+You squint at Kris, extremely skeptical at her explanation, and it’s obvious she’s not very comfortable with being the target of scrutiny for once.<br><br>
+<<Dialogue "player" "You">>"Wasn’t your type? She was so built you could confuse her with a tank. No, it’s something else..."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wait, no. It can’t be."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"She wasn’t doing it for you, isn’t it? You were there but it just wasn’t turning you on, and now you are confused."<</Dialogue>><br><br>
+Kris goes white as a sheet, eyes wide open. She gulps, and you know you just hit the nail on the head. Holy shit, the lecherous Kris was outmatched? No, it wasn’t that, something else happened.<br><br>
+<<Dialogue "player" "You">>"But, it can’t be that simple. Our little role playing session the other day, there’s no way your tastes changed. No, this is something else."<</Dialogue>><br><br>
+This inversion of the dynamic, with you being the one in control feels inexplicably exhilarating, though Kris seems to be having some trouble getting used to not being the one in charge. And feeling like fucking Sherlock Holmes, the pieces start falling into place and you have your epiphany.<br><br>
+<<if $submissiveDominant > 1 || $shyConfident > 1>><<Dialogue "player" "You">>"Holy shit, Kris. You were turned on, but it just wasn’t the same as last time with me, despite her size. I’m just doing something else for you that she wasn’t. Damn, I knew I was getting hot, but I didn’t think you were just falling for me like that."<</Dialogue>><br><br>
+<<else>><<Dialogue "player" "You">>"Wait, there’s something else. There’s no way you simply weren’t turned on, but is it... that you didn’t feel the same as with me? Do I... make you feel... special somehow?"<</Dialogue>><br><br>
+<</if>>
+And with that, you can see the tension mounting on Kris’s shoulders. You seem to be on to something, but she herself seems to still be in denial.<br><br>
+<<Dialogue "player" "You">>"L-look, you are hot and all, but don’t let that get to your head, okay? You are just a casual fling, that’s all. I can quit you anytime I want. Here, see?"<</Dialogue>><br><br>
+And with that, Kris just stomps away, irritated. You shrug, and decide to leave the café. But as you do, you take a peek backwards, and you spot Kris looking at you dejectedly from the kitchen, quickly turning around when she sees you looking at her.<br><br>
+Well, this was entirely unexpected. Seems like Kris might need some time to figure some of her shit out...`
     }
 )>>
 
