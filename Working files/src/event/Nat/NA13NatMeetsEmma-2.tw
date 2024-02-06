@@ -24,67 +24,103 @@ You can almost HEAR Emma’s hands squeezing hard. There’s a couple new veins 
 Okay, this is OBVIOUSLY getting out of control here. You stand between the two of them, trying your best to deescalate the situation.<br><br>
 <<Dialogue "player" "You">>"Uh, it’s getting a bit heated here! We are all good sports, right?"<</Dialogue>><br><br>
 Both of them glare at you simultaneously. Uh oh, no, you don’t want to have BOTH mad at you!<br><br>
-CHOICE: Sorry, Nat, but I’m with Emma on this one - chill out!
-XX
-CHOICE: Come on, Emma, cut Nat some slack, being a model is harder than you might think.
-<<Dialogue "player" "You">>"First of all, I think everyone needs to chill a bit - that said, I have to admit, I had my own misconceptions about modelling, and as it turns out, it’s a lot more work than you might think."<</Dialogue>><br><br>
-<<if $emmaRelationship>>
-    Emma seems downright hurt that you didn’t take her side. She looks at you with a mix of shock and disdain.<br><br>
-    <<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>..."<</Dialogue>><br><br>
-    <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, you tell her!"<</Dialogue>><br><br>
-    <<Dialogue "player" "You">>"Look, Nat, tone it down a bit. While I do think your work is more demanding than she realizes, respect is a road that goes both ways."<</Dialogue>><br><br>
-    Nat grunts, crossing his arms. <<if $muscle >60 || $height >195>>You make a point of separating both with your considerable mass, pushing them apart from the other.<</if>><br><br>
-    <<Dialogue "player" "You">>"So, you know, you don’t need to be an asshole to Emma. But I also don’t like that you responded with the same disrespect for his profession. Modeling is not just showing up and being pretty - and as it turns out, even that is a lot harder than you might think, and requires talent and hard work."<</Dialogue>><br><br>
-    Emma makes a weird guttural sound, frowning, while Nat smiles and raises an eyebrow.<br><br>
-    <<if $flag.NatWristInjuryRoute === 'comp'>>
-        <<if $shyConfident > 1 || $submissiveDominant > 1>>
-        You poke a finger on Nat’s very solid chest.<br><br>
-        <<Dialogue "player" "You">>"That doesn’t mean you get away with being an asshole. And that includes being so obnoxius, especially to someone as important to me as Emma."<</Dialogue>><br><br>
-        <<else>>
-        You put your hands on your hips and glare at Nat.
-        <<Dialogue "player" "You">>"Though, I hope you understand how much you are hurting me AND Emma, who is very important to me. You shouldn’t be this petty, especially for someone in the entertainment industry."<</Dialogue>><br><br>
-        <</if>>
-        This shakes your childhood friend, who grimaces and rolls his eyes.
-    <<else>>
-        You look pleadingly at Nat.<br><br>
-        <<Dialogue "player" "You">>"Come on, I know you, setup.getRivalName(). You are better than that. While I get that Emma did give some pushback, you had not reason to belittle her as you did. I expected more of you - especially when dealing with someone who is important to me."<</Dialogue>><br><br>
-        setup.getRivalName() sighs, rolls his eyes, but then looks at you, and see that glimpse of warmth you know so well.<br><br>
-        <<Dialogue setup.getRivalName() setup.getRivalName()>>"As usual, you are right. I apologize, Emma, that was out of line."<</Dialogue>><br><br>
-        Emma doesn’t seem much happier, but reluctantly accepts the apology. Given how important these two people are to you, there’s no downplaying how important it is that they stay in good terms.<br><br>
-    <</if>>
-<<else>>
-    Emma scoffs at the situation, but that’s enough to bother you.<br><br>
-    <<Dialogue "player" "You">>"Look, Nat, tone it down a bit. While I do think your work is more demanding than she realizes, respect is a road that goes both ways."<</Dialogue>><br><br>
-    Nat grunts, crossing his arms. <<if $muscle >60 || $height >195>>You make a point of separating both with your considerable mass, pushing them apart from the other.<</if>><br><br>
-    <<Dialogue "player" "You">>"So, you know, you don’t need to be an asshole. But I also don’t like that you responded with the same disrespect for his profession. Modeling is not just showing up and being pretty - and as it turns out, even that is a lot harder than you might think, and requires talent and hard work."<</Dialogue>><br><br>
-    Emma frowns, while Nat smiles and raises an eyebrow.<br><br>
-    <<if $flag.NatWristInjuryRoute === 'comp'>>
-        <<if $shyConfident > 1 || $submissiveDominant > 1>>
-        You poke a finger on Nat’s very solid chest.<br><br>
-        <<Dialogue "player" "You">>"That doesn’t mean you get away with being an asshole."<</Dialogue>><br><br>
-        <<else>>
-        You put your hands on your hips and glare at Nat.
-        <<Dialogue "player" "You">>"Though, I hope you understand how much you are hurting Emma. You shouldn’t be this petty, especially for someone in the entertainment industry."<</Dialogue>><br><br>
-        <</if>>
-        This shakes your childhood friend, who grimaces and rolls his eyes.
-    <<else>>
-        You look pleadingly at Nat.<br><br>
-        <<Dialogue "player" "You">>"Come on, I know you, setup.getRivalName(). You are better than that. While I get that Emma did give some pushback, you had not reason to belittle her as you did. I expected more of you."<</Dialogue>><br><br>
-        setup.getRivalName() sighs, rolls his eyes, but then looks at you, and see that glimpse of warmth you know so well.<br><br>
-        <<Dialogue setup.getRivalName() setup.getRivalName()>>"As usual, you are right. I apologize, Emma, that was out of line."<</Dialogue>><br><br>
-        Emma doesn’t seem much happier, but reluctantly accepts the apology. You are glad to have managed to deescalate the situation.<br><br>
-    <</if>>
-<</if>>
-Finally, as if on cue, the representative from the bodybuilding competition appears, and can clearly pick up on the tense atmosphere.<br><br>
-<<Dialogue "player" "You">>"Phew! Great timing!"<</Dialogue>><br><br>
-You motion Emma to go ahead with her paperwork, and wait with Nat for his turn.<br><br>
-There’s a bit of awkward silence between the two of you. While you briefly consider trying to go for a bit of small talk, the end result is just both sorta looking around and smiling at the other.<br><br>
-After Emma comes back, Nat goes to work on his paperwork. 
-<<if $emmaRelationship === false>>
-    So you just wait there for your turn so you can do your test - and ask about switching categories and finally get out of there, hoping that the actual competition doesn’t bring any more horribly uncomfortable situations. 
-<<else>>
-    <<Dialogue "Emma" "Emma">>"Well, that was fairly simple. Still, I’m very glad to have you here."<</Dialogue>><br><br>
-    <<Dialogue "player" "You">>"And again, it means the world that you trusted me at such an important situation! Though, if you don’t mind, I think I’m gonna need a little bit of time - I want to check about switching classes for the competition!"<</Dialogue>><br><br>
-    And despite being confused, Emma watches as you get a request to change in which category you’ll be competing. And, perhaps surprisingly, you are glad that there’s no judgement on her part as you officialize that you’ll now be part of the mixed bodybuilding competition!
-<</if>>
-<<link "Go home" "Home">><</link>>
+
+<span id="choice">
+	<<link "Sorry, Nat, but I’m with Emma on this one - chill out!">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"Come on, Nat, that was totally uncalled for. You don’t get to be the judge of how dedicated someone is."<</Dialogue>><br><br>
+            <<Dialogue setup.getRivalName() setup.getRivalName()>>"But it is BECAUSE I walk the walk that I can talk about those who only talk the talk!"<</Dialogue>><br><br>
+            <<if $flag.NatWristInjuryRoute === 'comp'>>
+                <<Dialogue "player" "You">>"Look, I don’t know WHAT crawled into your butt, Nat, but you can’t just keep acting childish because of your insecurities, alright? Can’t we all just get along and respect each other, despite their backgrounds? I’m pretty sure there are people who could say the same thing about you based on their personal history."<</Dialogue>><br><br>
+                Nat grunts, crossing his arms and huffs and puff, proving your point about his immaturity. Emma can’t suppress her smirk, which does not help the situation.
+            <<else>>
+                <<Dialogue "player" "You">>"Come on, I know you better than that. Where’s that friend who used to stand up to everyone and defend people in need?"<</Dialogue>><br><br>
+                <<Dialogue "Emma" "Emma">>"Please do not refer to me as some damsel in distress."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"That’s not what I... Argh! You two are going to drive me crazy!"<</Dialogue>><br><br>
+                And at that, both your friends start snorting and giggling a bit. There is still tension, mind you, but at least they aren’t at each other’s throats anymore.
+                <<Dialogue "player" "You">>"See? It isn’t that hard. Let’s just all be enthusiastic about this shared interest in the sport, and act civil, please?"<</Dialogue>><br><br>
+                Both of them roll their eyes a bit, sigh almost simultaneously, and agree to a truce.
+                <<Dialogue "player" "You">>"Now that’s more like it."<</Dialogue>><br><br>
+            <</if>>
+            Finally, as if on cue, the representative from the bodybuilding competition appears, and can clearly pick up on the weird atmosphere.<br><br>
+            <<Dialogue "player" "You">>"Phew! Great timing!"<</Dialogue>><br><br>
+            You motion Emma to go ahead with her paperwork, and wait with Nat for his turn.<br><br>
+            There’s a bit of awkward silence between the two of you. While you briefly consider trying to go for a bit of small talk, the end result is just both sorta looking around and smiling at the other.<br><br>
+            After Emma comes back, Nat goes to work on his paperwork. 
+            <<if $emmaRelationship === false>>
+                So you just wait there for your turn so you can do your test - and ask about switching categories and finally get out of there, hoping that the actual competition doesn’t bring any more horribly uncomfortable situations. 
+            <<else>>
+                <<Dialogue "Emma" "Emma">>"Well, that was fairly simple. Still, I’m very glad to have you here."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"And again, it means the world that you trusted me in such an important situation! Though, if you don’t mind, I think I’m gonna need a little bit of time - I want to check about switching classes for the competition!"<</Dialogue>><br><br>
+                And despite being confused, Emma watches as you get a request to change in which category you’ll be competing. And, perhaps surprisingly, you are glad that there’s no judgment on her part as you officialize that you’ll now be part of the mixed bodybuilding competition!
+            <</if>>
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+
+	<<link "Come on, Emma, cut Nat some slack, being a model is harder than you might think.">>
+		<<replace "#choice">>
+            <<Dialogue "player" "You">>"First of all, I think everyone needs to chill a bit - that said, I have to admit, I had my own misconceptions about modelling, and as it turns out, it’s a lot more work than you might think."<</Dialogue>><br><br>
+            <<if $emmaRelationship>>
+                Emma seems downright hurt that you didn’t take her side. She looks at you with a mix of shock and disdain.<br><br>
+                <<Dialogue "Emma" "Emma">>"<<print $playerFirstName>>..."<</Dialogue>><br><br>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, you tell her!"<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"Look, Nat, tone it down a bit. While I do think your work is more demanding than she realizes, respect is a road that goes both ways."<</Dialogue>><br><br>
+                Nat grunts, crossing his arms. <<if $muscle >60 || $height >195>>You make a point of separating both with your considerable mass, pushing them apart from the other.<</if>><br><br>
+                <<Dialogue "player" "You">>"So, you know, you don’t need to be an asshole to Emma. But I also don’t like that you responded with the same disrespect for his profession. Modeling is not just showing up and being pretty - and as it turns out, even that is a lot harder than you might think, and requires talent and hard work."<</Dialogue>><br><br>
+                Emma makes a weird guttural sound, frowning, while Nat smiles and raises an eyebrow.<br><br>
+                <<if $flag.NatWristInjuryRoute === 'comp'>>
+                    <<if $shyConfident > 1 || $submissiveDominant > 1>>
+                    You poke a finger on Nat’s very solid chest.<br><br>
+                    <<Dialogue "player" "You">>"That doesn’t mean you get away with being an asshole. And that includes being so obnoxius, especially to someone as important to me as Emma."<</Dialogue>><br><br>
+                    <<else>>
+                    You put your hands on your hips and glare at Nat.
+                    <<Dialogue "player" "You">>"Though, I hope you understand how much you are hurting me AND Emma, who is very important to me. You shouldn’t be this petty, especially for someone in the entertainment industry."<</Dialogue>><br><br>
+                    <</if>>
+                    This shakes your childhood friend, who grimaces and rolls his eyes.
+                <<else>>
+                    You look pleadingly at Nat.<br><br>
+                    <<Dialogue "player" "You">>"Come on, I know you, setup.getRivalName(). You are better than that. While I get that Emma did give some pushback, you had not reason to belittle her as you did. I expected more of you - especially when dealing with someone who is important to me."<</Dialogue>><br><br>
+                    setup.getRivalName() sighs, rolls his eyes, but then looks at you, and see that glimpse of warmth you know so well.<br><br>
+                    <<Dialogue setup.getRivalName() setup.getRivalName()>>"As usual, you are right. I apologize, Emma, that was out of line."<</Dialogue>><br><br>
+                    Emma doesn’t seem much happier, but reluctantly accepts the apology. Given how important these two people are to you, there’s no downplaying how important it is that they stay in good terms.<br><br>
+                <</if>>
+            <<else>>
+                Emma scoffs at the situation, but that’s enough to bother you.<br><br>
+                <<Dialogue "player" "You">>"Look, Nat, tone it down a bit. While I do think your work is more demanding than she realizes, respect is a road that goes both ways."<</Dialogue>><br><br>
+                Nat grunts, crossing his arms. <<if $muscle >60 || $height >195>>You make a point of separating both with your considerable mass, pushing them apart from the other.<</if>><br><br>
+                <<Dialogue "player" "You">>"So, you know, you don’t need to be an asshole. But I also don’t like that you responded with the same disrespect for his profession. Modeling is not just showing up and being pretty - and as it turns out, even that is a lot harder than you might think, and requires talent and hard work."<</Dialogue>><br><br>
+                Emma frowns, while Nat smiles and raises an eyebrow.<br><br>
+                <<if $flag.NatWristInjuryRoute === 'comp'>>
+                    <<if $shyConfident > 1 || $submissiveDominant > 1>>
+                    You poke a finger on Nat’s very solid chest.<br><br>
+                    <<Dialogue "player" "You">>"That doesn’t mean you get away with being an asshole."<</Dialogue>><br><br>
+                    <<else>>
+                    You put your hands on your hips and glare at Nat.
+                    <<Dialogue "player" "You">>"Though, I hope you understand how much you are hurting Emma. You shouldn’t be this petty, especially for someone in the entertainment industry."<</Dialogue>><br><br>
+                    <</if>>
+                    This shakes your childhood friend, who grimaces and rolls his eyes.
+                <<else>>
+                    You look pleadingly at Nat.<br><br>
+                    <<Dialogue "player" "You">>"Come on, I know you, setup.getRivalName(). You are better than that. While I get that Emma did give some pushback, you had not reason to belittle her as you did. I expected more of you."<</Dialogue>><br><br>
+                    setup.getRivalName() sighs, rolls his eyes, but then looks at you, and see that glimpse of warmth you know so well.<br><br>
+                    <<Dialogue setup.getRivalName() setup.getRivalName()>>"As usual, you are right. I apologize, Emma, that was out of line."<</Dialogue>><br><br>
+                    Emma doesn’t seem much happier, but reluctantly accepts the apology. You are glad to have managed to deescalate the situation.<br><br>
+                <</if>>
+            <</if>>
+            Finally, as if on cue, the representative from the bodybuilding competition appears, and can clearly pick up on the tense atmosphere.<br><br>
+            <<Dialogue "player" "You">>"Phew! Great timing!"<</Dialogue>><br><br>
+            You motion Emma to go ahead with her paperwork, and wait with Nat for his turn.<br><br>
+            There’s a bit of awkward silence between the two of you. While you briefly consider trying to go for a bit of small talk, the end result is just both sorta looking around and smiling at the other.<br><br>
+            After Emma comes back, Nat goes to work on his paperwork. 
+            <<if $emmaRelationship === false>>
+                So you just wait there for your turn so you can do your test - and ask about switching categories and finally get out of there, hoping that the actual competition doesn’t bring any more horribly uncomfortable situations. 
+            <<else>>
+                <<Dialogue "Emma" "Emma">>"Well, that was fairly simple. Still, I’m very glad to have you here."<</Dialogue>><br><br>
+                <<Dialogue "player" "You">>"And again, it means the world that you trusted me at such an important situation! Though, if you don’t mind, I think I’m gonna need a little bit of time - I want to check about switching classes for the competition!"<</Dialogue>><br><br>
+                And despite being confused, Emma watches as you get a request to change in which category you’ll be competing. And, perhaps surprisingly, you are glad that there’s no judgement on her part as you officialize that you’ll now be part of the mixed bodybuilding competition!
+            <</if>>
+			<<link "Go home" "Home">><</link>>
+		<</replace>>
+	<</link>>
+</span>
