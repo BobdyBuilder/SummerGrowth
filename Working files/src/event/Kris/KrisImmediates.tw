@@ -854,7 +854,7 @@ Wow! So it seems like Kris has been busy - you need to sidestep bottles and more
         locationTags: ['kris'],
         conditions: [
             () => setup.hasEventBeenTriggered('KR28KrisGoesOverTheTop') && State.variables.flag.KR28KrisGoesOverTheTopApproved,
-            () => false /* FIXME meeting Toshi and learning about potion reversal (day 45) */
+            () => false /* FIXME meeting Toshi and learning about potion reversal (day 45) - "https://docs.google.com/document/d/1qkJjsYlL1boT0p_33F2b8aU-62KIAQ_Xto7VbCaxU-U/edit?disco=AAABEbgun9c" */
         ],
         repeatable: false,
         retriggerable: false,
@@ -901,7 +901,7 @@ But before you are done saying this, she’s already gone. You can’t shake the
         locationTags: ['kris'],
         conditions: [
             () => setup.hasEventBeenTriggered('KR28KrisGoesOverTheTop') && State.variables.flag.KR28KrisGoesOverTheTopApproved !== true,
-            () => false /* FIXME meeting Toshi and learning about potion reversal (day 45) */
+            () => false /* FIXME meeting Toshi and learning about potion reversal (day 45) - "https://docs.google.com/document/d/1qkJjsYlL1boT0p_33F2b8aU-62KIAQ_Xto7VbCaxU-U/edit?disco=AAABEbgun9c" */
         ],
         repeatable: false,
         retriggerable: false,
