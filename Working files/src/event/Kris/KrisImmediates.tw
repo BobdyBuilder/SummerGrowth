@@ -936,7 +936,7 @@ You say that half in jest, but Kris might not have gotten the nuance. She alread
         name: 'KR31PlayerConfrontKrisAboutFeelings',
         locationTags: ['kris'],
         conditions: [
-            () => setup.hasEventBeenTriggered('KR29KrisScaredAboutReversal') || setup.hasEventBeenTriggered('KR30KrisFreaksOutAboutReversal')
+            () => setup.hasEventBeenTriggered('KR29KrisScaredAboutReversal')
         ],
         repeatable: false,
         retriggerable: false,
