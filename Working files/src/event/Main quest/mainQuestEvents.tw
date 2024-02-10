@@ -65,6 +65,7 @@ repeatable: false,
         But right now, this idea is too dumb to just do. You need to discuss this with someone, someone you trust... but who to call...
         
         <span id='part1'>
+            <<set $mainQuestMoneyProblems to true>>
             <<if setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary')>>
                 <<link " Nat is a professional model. And a bodybuilder. That’s the person who would never refuse to help me, right?">>
                     <<replace "#part1">>

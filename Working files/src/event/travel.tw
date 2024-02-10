@@ -8,6 +8,10 @@
 
 <<gameLink "Go visit the gym" "gym" time:20>><</gameLink>>
 <br><br>
+<<if $mainQuestMoneyProblems>>
+<<gameLink "Go visit the event center to prep for the bodybuilding show" "EventCenter" time:60>><</gameLink>>
+<br><br>
+<</if>>
 <<gameLink "Go Jogging" "Jogging" time:60 minExhaustion:20 exhaustion:30 motivation:20>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
 <br><br>
 <<gameLink "Go visit the park" "park" time:10>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>>
