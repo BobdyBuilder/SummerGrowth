@@ -57,6 +57,11 @@
 <<if $money > (($muscle - 20) * 2 + ($fat -20) * 2 + ($height - 150) * 2)>>
     <<set $moneyWarningCountDown to 99999>>
 <</if>>
+
+<<if $globalGrowthMod < 1 >>
+    <<set $globalGrowthMod -= 2>>
+<</if>>
+
 <</widget>>
 <</nobr>>
 

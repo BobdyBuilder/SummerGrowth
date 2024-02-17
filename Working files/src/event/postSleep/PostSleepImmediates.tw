@@ -476,6 +476,67 @@
     priority: 'immediate',
     npc: ['elena'],
     content: `<<goto "elenaGardenDate0">>`
-})>>
+}, {
+    name: 'GrowthSlowingDown_1',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => State.variables.globalGrowthMod < 1
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: [],
+    content: `You wake up after having determined to enter the contest. Immediately you decide that today is going to be a good day! Making some money to get that perfect look, or get a bit leaner, or add more mass; whatever you can do, it'll help you! After all, your entire degree is on the line. Yet you can't shake the feeling you're still tired. Odd.<<set $motivation -= 10>>`
+}, {
+    name: 'GrowthSlowingDown_2',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => State.variables.globalGrowthMod < 1,
+        () => setup.hasEventBeenTriggered("GrowthSlowingDown_1")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: [],
+    content: `Once more you wake up, ready to start the day preparing for the big event. Whether it's work, or lifting, you got to get ready! But for some reason you feel lethargic. And when you put on your clothing... is it just your imagination, or do they feel a bit looser? <<set $muscle -= (($muscle - 20) * 0.1)>><<set $height -= (($height - 150) * 0.1)>>`
+}, {
+    name: 'GrowthSlowingDown_3',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => State.variables.globalGrowthMod < 1,
+        () => setup.hasEventBeenTriggered("GrowthSlowingDown_2")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: [],
+    content: `Okay, normally you wake up quite refreshed. Today, not so much. When you wake up you double over with a splitting headache, and your body just feels LIMP. Despite the size of your body, it feels stretched out. Like substance in it is missing, while the form stays there. Even thinking that gives another headache, and limply you get up. Not a great start. And you had this more often lately... <<set $muscle -= (($muscle - 20) * 0.1)>><<set $height -= (($height - 150) * 0.1)>>`
+}, {
+    name: 'GrowthSlowingDown_4',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => State.variables.globalGrowthMod < 1,
+        () => setup.hasEventBeenTriggered("GrowthSlowingDown_3")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: [],
+    content: `Something is WRONG. For the last few days you've felt not great, like a flu hit you. But you also feel like you should've been... bigger right now. The growth has just been trailing off, you feel lathargic, right when you need the size the most for the contest! If this continues for much longer, you need to investigate this. <<set $muscle -= (($muscle - 20) * 0.1)>><<set $height -= (($height - 150) * 0.1)>>`
+}, {
+    name: 'GrowthSlowingDown_5',
+    locationTags: ['postSleep'],
+    conditions: [
+        () => State.variables.globalGrowthMod < 1,
+        () => setup.hasEventBeenTriggered("GrowthSlowingDown_4")
+    ],
+    repeatable: false,
+    retriggerable: false,
+    priority: 'immediate',
+    npc: [],
+    content: `Something is WRONG. For the last few days you've felt not great, like a flu hit you. But you also feel like you should've been... bigger right now. The growth has just been trailing off, you feel lathargic, right when you need the size the most for the contest! If this continues for much longer, you need to investigate this. <<set $muscle -= (($muscle - 20) * 0.1)>><<set $height -= (($height - 150) * 0.1)>>`
+}
+
+)>>
 
 

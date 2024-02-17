@@ -7,7 +7,7 @@ Here we are, the event center. You get off the bus-stop and walk towards it, loo
 Okay, it's time to formulate a plan. You need to get bigger, and you need to get better at posing. Posing is a skill like any other, so books and your PC will be enough for that. As for getting bigger, well you got the potions, and you got the gym and everything! <<if $fat >= 40>> Though, you'd likely have to slim down a bit. Lookin around, none of the other competitoris come close to your level of 'bulk'. And as you pinch some of your love handles... yeah, there is something to loose there.<</if>>
 
 
-<<link "Time to start!" "Home">><<set $globalGrowthMod to 0.9>><<set $posingEnabled to true>><</link>>
+<<link "Time to start!" "Home">><<set $globalGrowthMod to 0.8>><<set $posingEnabled to true>><</link>>
 <</if>>
 
 
