@@ -46,7 +46,12 @@ repeatable: false,
         locationTags: ['home'],
         conditions: [
             () => setup.hasEventBeenTriggered('Main_quest_event_poster'),
-            () => State.variables.fullBrewingUnlockedDay < State.variables.daysPlayed + 3
+            () => State.variables.fullBrewingUnlockedDay < State.variables.daysPlayed + 3,
+            () => setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary')
+                    || $johanOpinion > 40 && setup.hasEventBeenTriggered('johanPinUpArt')
+                    || setup.hasEventBeenTriggered("emmaMealPrep")
+                    || setup.hasEventBeenTriggered('KrisDate1')
+                    || setup.hasEventBeenTriggered("elenaGymIntimacy")
         ],
         repeatable: false,
         retriggerable: false,
