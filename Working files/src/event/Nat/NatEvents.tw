@@ -27,9 +27,9 @@
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Phew, I'm glad… sorry, I didn't realize I left so much stuff on the sidewalk. It was pretty irresponsible of me."<</Dialogue>><br><br>
             Indeed, there's A LOT of stuff, and it does seem to be predominantly sports-related - including a big box of trophies: swimming, martial arts, track and field…<br><br>
             <<Dialogue "player" "You">>"Oh… no, no, no… I'm the klutz. Hehe… Do you… do you want some help carrying the stuff up?"<</Dialogue>><br><br>
-            <<RivalI>> takes a good look at your rather petite frame, and you can't help feeling a bit judged. Not that <<rivalI>>'s wrong… <<rivalI>> looks like <<rivalI>> could lift your entire bodyweight with one arm…<br><br>
+            <<rivalI>> takes a good look at your rather petite frame, and you can't help feeling a bit judged. Not that <<rivalI>>'s wrong… <<rivalI>> looks like <<rivalI>> could lift your entire bodyweight with one arm…<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"No worries, I can use the exercise."<</Dialogue>><br><br>
-            <<RivalI>> seems to look at your face quite a bit, like <<rivalI>> also somehow recognizes you.<br><br>
+            <<rivalI>> seems to look at your face quite a bit, like <<rivalI>> also somehow recognizes you.<br><br>
             <<Dialogue "player" "You">>"Well, huh… I guess… I should be going then… sorry again!"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Again, no worries. Do watch where you step though..."<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"You too! I mean… uh… good luck with your move!"<</Dialogue>><br><br>
@@ -58,46 +58,46 @@
             As you come to, you find yourself surrounded by the fallen boxes, on top of a VERY firm torso.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow, owwwww… my hand!"<</Dialogue>><br><br>
             As <<rivalI>> opens <<rivalMy>> eyes, your noses almost touching, your gazes meet… and the two of you remember something that happened many years ago…
-            <div class="boxShadow">You were 8 years old, having fun with your neighbor in the nearby woods. <<RivalI>> teased you for being a scaredy cat, and you decided to prove <<rivalMy>> wrong by climbing a tall tree. You were doing pretty well, too… but a squirrel ran past your hand… and you just remember the world turning into a blur.<br><br>
-            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<RivalI>> leans on top of you, hugging you and apologizing…
+            <div class="boxShadow">You were 8 years old, having fun with your neighbor in the nearby woods. <<rivalI>> teased you for being a scaredy cat, and you decided to prove <<rivalMy>> wrong by climbing a tall tree. You were doing pretty well, too… but a squirrel ran past your hand… and you just remember the world turning into a blur.<br><br>
+            Next thing you know, you are on the ground, your leg hurting a lot, and your friend, Nat, is trying to pull you… <<rivalI>> has tears streaming down <<rivalMy>> cheek, and <<rivalI>>'s frustrated. <<rivalI>> leans on top of you, hugging you and apologizing…
             <<Dialogue "youngPlayer" "Young you">>"Oh gosh I'm so sorry..."<</Dialogue>><br><br>
             <<Dialogue "youngNat" setup.getRivalName()>>"O-Ow that hurts... M-my hand..."<</Dialogue>>
             </div>
             <<Dialogue "player" "You">>"Nat?!?"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ow… <<print $playerFirstName>>?!?"<</Dialogue>><br><br>
-            You get off Nat's chest, and <<rivalI>>'s still rubbing <<rivalMy>> left wrist. <<RivalI>> seems to have landed awkwardly on it.<br><br>
+            You get off Nat's chest, and <<rivalI>>'s still rubbing <<rivalMy>> left wrist. <<rivalI>> seems to have landed awkwardly on it.<br><br>
             <<Dialogue "player" "You">>"I'm sorry, Nat… you were about to fall on that manhole, and I just… I didn't even think…"<</Dialogue>><br><br>
             You start nervously collecting the stuff on the ground… some of them are some pretty heavy weight plates and dumbbells… how was <<rivalI>> even carrying all of this?!?<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"<<print $playerFirstName>>... wow, it's been so long… I mean, other than last time!"<</Dialogue>><br><br>
             <<Dialogue "player" "You">>"Yeah… you've… grown… since you were 8…"<</Dialogue>><br><br>
             <<if $muscle >= 55 || $height >=185 >>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Huh… I could say the same… in fact… is my memory playing tricks on me? You look HUGE!"<</Dialogue>><br><br>
-                <<RivalI>> shakes <<rivalMy>> head, looking at your body confused, comparing it to the day you bumped on <<rivalMy>>.
+                <<rivalI>> shakes <<rivalMy>> head, looking at your body confused, comparing it to the day you bumped on <<rivalMy>>.
             <<elseif $muscle >= 35 || $height >=170 >>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Huh… I could say the same… in fact… last time we met…?"<</Dialogue>><br><br>
-                <<RivalI>> shakes his head, looking at your body confused, comparing it to the day you bumped on <<rivalMy>>.
+                <<rivalI>> shakes his head, looking at your body confused, comparing it to the day you bumped on <<rivalMy>>.
             <<else>>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"And you… well, you still look as cute as I remember!"<</Dialogue>><br><br>
                 Well, at least <<rivalI>>'s nice about your undeveloped body.
             <</if>>
             <<Dialogue "player" "You">>"Did… did you hurt your hand?"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ah, this? This is nothing… I got plenty of injuries in sports before, and… ARGH!"<</Dialogue>><br><br>
-            <<RivalI>> tries to lift the boxes, and <<rivalMy>> wrist is clearly in pain.<br><br>
+            <<rivalI>> tries to lift the boxes, and <<rivalMy>> wrist is clearly in pain.<br><br>
             <<if $muscle >= 55>>
                 You help <<rivalMy>> with the heavier boxes, and <<rivalI>> grabs the light ones on <<rivalMy>> right arm. Nat seems slightly bothered about how you manage to do so like it weighs nothing.<br><br>
             <<elseif $muscle >= 35>>
                 You help <<rivalMy>> with the heavier boxes, and <<rivalI>> grabs the light ones on <<rivalMy>> right arm. You can't help but notice that Nat seems confused about how you manage to do so.<br><br>
             <<else>>
-                <<RivalI>> somehow manages to load the heavy boxes on <<rivalMy>> right arm, and you help <<rivalMy>> with the light ones. Damn, <<rivalI>> looks incredibly strong - that sleeve looks like it could rip at any second!<br><br>
+                <<rivalI>> somehow manages to load the heavy boxes on <<rivalMy>> right arm, and you help <<rivalMy>> with the light ones. Damn, <<rivalI>> looks incredibly strong - that sleeve looks like it could rip at any second!<br><br>
             <</if>>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I guess now not only have I failed you when we were kids… but now I also owe you my life…"<</Dialogue>><br><br>
             You'd think <<rivalI>>'d look glad… but, this situation feels very awkward for <<rivalMy>>.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"My apartment is just around the corner, why don't you come over, and we can catch up?"<</Dialogue>><br><br>
             You nod, and the two of you make your way there.<br><br>
-            Nat's apartment is… stark, to say the least. It's a small studio, and you could say that 90% of all objects in there are somehow related to some sort of training. <<RivalI>> has a standing rack with lots of very fashionable clothing articles, and a mattress just laying on the ground in the corner.<br><br>
+            Nat's apartment is… stark, to say the least. It's a small studio, and you could say that 90% of all objects in there are somehow related to some sort of training. <<rivalI>> has a standing rack with lots of very fashionable clothing articles, and a mattress just laying on the ground in the corner.<br><br>
             <<Dialogue "player" "You">>"Uh… nice place?"<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Thanks for the lie. Yeah, I must look pretty boring… I am just focusing hard on the upcoming competition - I'm going to be in a documentary about bodybuilding competition that is coming up at the end of summer…"<</Dialogue>><br><br>
-            <<RivalI>> certainly looks like <<rivalI>>'s been putting the work in… and nothing else. There's no TV, no speakers, no books…<br><br>
+            <<rivalI>> certainly looks like <<rivalI>>'s been putting the work in… and nothing else. There's no TV, no speakers, no books…<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Other than that… been making some money on the side as a model… these supplements don't come cheap, you know?"<</Dialogue>><br><br>
             Your eyes just sparkle… you kinda want to see <<rivalMe>> shirtless, get a better idea of whatever that tight shirt is hiding.<br><br>
             <<Dialogue "player" "You">>"Well, you are kind of a tough act to follow - so you basically excelled at a bunch of sports, you are a model and you are in a documentary about bodybuilding. Meanwhile I… basically was living with my parents, slacking a whole bunch, and just transferred here. I have a nice friend who is into modeling… the little metal figures he paints, that is."<</Dialogue>><br><br>
@@ -189,7 +189,7 @@ You tell yourself to stay calm as you figure your next step - trying frantically
         npc: ['nat'],
 		content: `Today is the day! You promised to meet Nat in front of City Hall, where the documentary crew is supposed to meet all participants. You leave, wondering what that is going to be like… a whole film crew and dozens of wannabe bodybuilders? You suppose you could do worse for your day.<br><br>
             As you arrive, you are somewhat surprised at how small the film crew is: one guy with a camera, the director, and her assistant. On the other hand, there are indeed dozens of bodybuilders of all sizes, genders and styles… some came dressed casually, some are trying to look sharp with fancier clothes - and a handful came in swimsuits and full painted-tan regalia - you were not expecting that.<br><br>
-            You quickly spot Nat in the crowd. <<RivalI>>'s not wearing the nice dress shirt from last time, but a very stylish sleeveless hoodie and running shorts, and you have no doubt that <<rivalI>> is taking this very seriously: <<rivalI>> sports rugby ball-sized biceps that are super defined, a chest and abs that stretch the hoodie taut, and <<rivalMy>> legs… damn… <<rivalI>> certainly has NOT been skipping leg day!<br><br>
+            You quickly spot Nat in the crowd. <<rivalI>>'s not wearing the nice dress shirt from last time, but a very stylish sleeveless hoodie and running shorts, and you have no doubt that <<rivalI>> is taking this very seriously: <<rivalI>> sports rugby ball-sized biceps that are super defined, a chest and abs that stretch the hoodie taut, and <<rivalMy>> legs… damn… <<rivalI>> certainly has NOT been skipping leg day!<br><br>
             <<if $carefreeCarefull < -1>>
                 <<Dialogue "player" "You">>"Hey, there, <<if $rivalGender === 'male'>>stud<<else>>babe<</if>>!"<</Dialogue>><br><br>
                 You say, approaching <<rivalMy>> from behind as you give <<rivalMy>> arm a very firm squeeze. It is as hard as it looks.<br><br>
@@ -225,14 +225,14 @@ You tell yourself to stay calm as you figure your next step - trying frantically
             <</if>>
             <<print setup.getRivalName()>> proceeds to explain that the producers invited all participants to come over and sign their respective release forms to be in the documentary, and get everyone's contacts and even possibly start scheduling some filming.<br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"So everyone received a number, and they are going one by one - I'm 45…"<</Dialogue>><br><br>
-            <<RivalI>> shows you the sheet with the large digits on it.<br><br>
+            <<rivalI>> shows you the sheet with the large digits on it.<br><br>
             <<Dialogue "player" "You">>"That's pretty cool… though, if you are a model, I guess this must feel just like any day to you."<</Dialogue>><br><br>
             <<Dialogue setup.getRivalName() setup.getRivalName()>>"Not really, it's usually a lot more intense, tight schedules and all. I'm kinda just hanging out, so… it's cool having a familiar face here to pass the time."<</Dialogue>><br><br>
             You two catch up a bit more - you tell <<rivalMy>> about your antics at the new apartment, <<rivalI>> tells you about <<rivalMy>> demanding coach, until…<br><br>
             <<Dialogue "randomPerson" "Random guy">>"Number 45!"<</Dialogue>><br><br>
             Nat raises <<rivalMy>> hand, and the director comes over.<br><br>
             <<if $muscle < 45>>
-                <<RivalI>> gives a good look at Nat.<br><br>
+                <<rivalI>> gives a good look at Nat.<br><br>
                 <<Dialogue "randomPerson" "Random guy">>"Interesting - not exactly heavy weight material, but what you lack in size and symmetry, you make up in looks - I could see you in a crossfit spread in a heartbeat!"<</Dialogue>><br><br>
                 You'd be glowing with pride at such a comment, but Nat seems almost insulted.<br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"There's still quite a bit of time until the competition, and I've got a solid base, besides, what do you even know about bodybuilding?"<</Dialogue>><br><br>
@@ -245,7 +245,7 @@ You tell yourself to stay calm as you figure your next step - trying frantically
                 <<Dialogue "player" "You">>"Well, you weren't exactly a peach either… but I'm sure that's just the whole reality TV drama vibe, I wouldn't worry about it too much. Besides, I know you are going to shine."<</Dialogue>><br><br>
                 You imagine Nat with the muscle <<rivalI>>'ll probably be putting over the course of the next few months. You need to control yourself not to salivate a bit.<br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"I guess you are right. Still… at least, looking around, the competition isn't TOO bad. I'm confident I will surpass everyone by the time the contest comes."<</Dialogue>><br><br>
-                <<RivalI>> certainly is sure of <<rivalMy>>self.<br><br>
+                <<rivalI>> certainly is sure of <<rivalMy>>self.<br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Anyway, I want to get some more training in today, so I'll be heading home. Thanks for stopping by."<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Oh, believe me, it was my pleasure! I'll see you around!"<</Dialogue>><br><br>
                 And with that, both of you leave. But you can't help but feel something awakening inside of you. Seeing all these muscular people… there was such an energy there… you feel yourself buzzing on the inside - not only from being aroused by these magnificent physiques, but as if your own body is fighting with itself, inspired by all of this.<br><br>
@@ -260,10 +260,10 @@ You tell yourself to stay calm as you figure your next step - trying frantically
                 <<Dialogue "randomPerson" "Random guy">>"I mean, sure, <<rivalI>>'s got that <<if $rivalGender === 'male'>>male<<else>>crossfit<</if>> model thing going, but… let me tell you, I'm a fitness photographer, and you are SIZZLING, girl! Are you sure you are not competing? I can get you a form and we can have you in…"<</Dialogue>><br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey! Um, it's… still my turn, though, right? Aren't we at least going to get my release form and get me processed?"<</Dialogue>><br><br>
                 <<Dialogue "randomPerson" "Random guy">>"Sure, sure… just give me a second, honey… you, have my card, if you are not going to get processed right now, I want you to have it, in case you change your mind later and decide to compete - I MUST have you in the documentary."<</Dialogue>><br><br>
-                She is being incredibly dismissive of Nat, and you can see how irritated <<rivalI>> got with that. <<RivalMy>> whole body language changed, and you are feeling quite awkward. You grab the card and pocket it.<br><br>
+                She is being incredibly dismissive of Nat, and you can see how irritated <<rivalI>> got with that. <<rivalMy>> whole body language changed, and you are feeling quite awkward. You grab the card and pocket it.<br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"So, where's my form?"<</Dialogue>><br><br>
                 Nat says, quite irritated.<br><br>
-                The director just gives <<rivalMy>> the clipboard, but continues just sizing you up while Nat fills it out. <<RivalI>>'s clearly getting more worked up.<br><br>
+                The director just gives <<rivalMy>> the clipboard, but continues just sizing you up while Nat fills it out. <<rivalI>>'s clearly getting more worked up.<br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Here, are you doing some testimonials or any taping today?"<</Dialogue>><br><br>
                 The director grabs the clipboard and gives him a generic answer and goes back to her list.<br><br>
                 <<print setup.getRivalName()>> is visibly uncomfortable now, and trying not to direct <<rivalMy>> frustration at you… but <<rivalI>>'s not really dealing with it well.<br><br>
@@ -344,7 +344,7 @@ You find the door open, and Nat is <<if $rivalGender === 'male'>>shirtless<<else
     <<Dialogue "player" "You">>"No need to…"<</Dialogue>><br><br>
     You mumble under your breath.<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Sorry, didn't catch that!"<</Dialogue>><br><br>
-    <<RivalI>> says, as <<rivalI>> puts a tight T-shirt on.<br><br>
+    <<rivalI>> says, as <<rivalI>> puts a tight T-shirt on.<br><br>
     <<Dialogue "player" "You">>"Oh, nothing…"<</Dialogue>><br><br>
 <<else>>
     You blush and turn around, and just hear Nat laughing.<br><br>
@@ -354,7 +354,7 @@ You find the door open, and Nat is <<if $rivalGender === 'male'>>shirtless<<else
     You squeak an unintelligible answer, and Nat looks amused.<br><br>
 <</if>>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Do you know how to operate a DLSR? "<</Dialogue>><br><br>
-<<RivalI>> asks, handing you a rather daunting camera. You never seen one so close before, but you can at least tell which button takes a picture.<br><br>
+<<rivalI>> asks, handing you a rather daunting camera. You never seen one so close before, but you can at least tell which button takes a picture.<br><br>
 <<Dialogue "player" "You">>"Uh, do I need to focus or measure the light or some other special thing?"<</Dialogue>><br><br>
 Nat laughs.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"I set it to full auto mode, and the lighting is already set up. Just… can you sit there for a second so I do some minor adjustments?"<</Dialogue>><br><br>
@@ -377,7 +377,7 @@ The two of you spend the next ten minutes taking a series of shots in different 
 Nat says, while checking the shots you took on the camera's screen.<br><br>
 <<Dialogue "player" "You">>"You make it look really easy, too."<</Dialogue>><br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Here, let me show you how this works, it's not as hard as you might think…"<</Dialogue>><br><br>
-<<RivalI>> motions for you to sit on the bench as <<rivalI>> handles the camera.<br><br>
+<<rivalI>> motions for you to sit on the bench as <<rivalI>> handles the camera.<br><br>
 <<if $shyConfident > 1 && $muscle > 40>>
     You sit down, and before you know, the spirit of a fierce lioness has taken over your body. That lens trained at you makes you feel sexy and powerful, and you just radiate that energy. Instinctively, you react to Nat's every motion, alternating between sexy smiles and smoldering stares, with some casual displays of your developed physique - you highlight your abs, quads, calves and arms at every opportunity, even though you are barely aware of doing it. Nat is clicking fewer and fewer shots, even though you feel like your posing is actually picking up steam. 
 <<elseif $shyConfident > 1>>
@@ -386,7 +386,7 @@ Nat says, while checking the shots you took on the camera's screen.<br><br>
 <<elseif $shyConfident > -1 && muscle > 40>>
     You sit down, unsure of what <<rivalI>> expects you to do. Nat puts the camera down and looks straight at you, demonstrating as <<rivalI>> speaks.<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"You've got an amazing body, flaunt it! Let's get those shoulders open, reveal all that beautiful torso and the nice core… stretch those toned legs, I want to get all of those… and just remember to smile."<</Dialogue>><br><br>
-    <<RivalMy>> compliments hit you real deep, and you couldn't keep yourself from smiling if you tried to. <<RivalI>> makes you feel very at ease, and soon <<rivalI>>'s giving you more posing tips and you are having so much fun while <<rivalI>> clicks away…<br><br>
+    <<rivalMy>> compliments hit you real deep, and you couldn't keep yourself from smiling if you tried to. <<rivalI>> makes you feel very at ease, and soon <<rivalI>>'s giving you more posing tips and you are having so much fun while <<rivalI>> clicks away…<br><br>
 <<elseif $shyConfident > -1>>
     You sit down, unsure of what <<rivalI>> expects you to do. Nat puts the camera down and looks straight at you, demonstrating as <<rivalI>> speaks.<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Pull back your shoulders, I wanna see that pretty torso. And raise your head a little, so we can get your nice eyes… there… now… just… smile…"<</Dialogue>><br><br>
@@ -906,7 +906,7 @@ You arrive at the Coffee Corner before Nat, and get yourself a table for two. Wh
     Nat seems a bit distracted and unfocused, which you didn't quite expect.<br><br>
     <<Dialogue "player" "You">>"Is everything okay? You seem a little… off?"<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Ah, you know how it goes - I get a little too focused on my goals, and it throws me off-balance. I can get easily irritated or just overly pensive. That's why I invited you for coffee, you tend to help balance me - I don't have many people I would call “friends” here… in fact, I'd say you really are the only one."<</Dialogue>><br><br>
-    Awwww, that's sweet. Part of you just wants to smoosh <<rivalMy>>, but that might be a little forward on your part right now. As you ponder on that, Nat goes ahead and orders a couple of iced coffees. <<RivalI>> proceeds to tell you about how stressed <<rivalI>> is with the upcoming contest:<br><br>
+    Awwww, that's sweet. Part of you just wants to smoosh <<rivalMy>>, but that might be a little forward on your part right now. As you ponder on that, Nat goes ahead and orders a couple of iced coffees. <<rivalI>> proceeds to tell you about how stressed <<rivalI>> is with the upcoming contest:<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"You know, despite all my martial arts training, I've always struggled a bit with anxiety - and that ticking clock for the contest is taking a toll. I feel like I need to squeeze every bit possible from each workout, worry about every single carb I consume… I'm just… constantly policing myself."<</Dialogue>><br><br>
     <<Dialogue "player" "You">>"Well, but do you enjoy the process?"<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"The workouts, for sure. I feel the pressure to perform, but the training itself has always been very therapeutic for me - I'd say even more so the results…"<</Dialogue>><br><br>
@@ -961,11 +961,11 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
     <<rivalName>> is frankly not doing much better. <RrivalI>> lowers <<rivalMy>> face into <<rivalMy>> hands, eyes bugged out.<br><br>
     <<Dialogue "player" "You">>"Nat… I'm glad you apologized and I understand you are under a lot of stress… but you just acted like a little kid. "<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"I… I…"<</Dialogue>><br><br>
-    <<RivalI>> is struggling. You can see <<rivalI>> feels really guilty about it, and is trying to figure out his next step.<br><br>
+    <<rivalI>> is struggling. You can see <<rivalI>> feels really guilty about it, and is trying to figure out his next step.<br><br>
     <<Dialogue "player" "You">>"Nat… I can't pretend to know what you are going through right now. But it seems like you may need some help."<</Dialogue>><br><br>
-    <<RivalI>> takes a deep breath before continuing.<br><br>
+    <<rivalI>> takes a deep breath before continuing.<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"I fought for so many years to earn people's respect… so many people doubted me - and just being a model, I get judged so much on my looks alone."<</Dialogue>><br><br>
-    <<RivalI>> is genuinely regretting the whole thing. You give <<rivalMe>> a hug.<br><br>
+    <<rivalI>> is genuinely regretting the whole thing. You give <<rivalMe>> a hug.<br><br>
     <<Dialogue "player" "You">>"I understand the pressure - but what you did is pretty awful. You talk about respect, and Kris did step over the line, but what you did was just as bad."<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Trust me, I know. I… just need a second to decompress or something."<</Dialogue>><br><br>
     You tell <<rivalMe>> to go home and get some rest. You make sure to check on Kris, but in typical fashion, she seems to already be lusting after someone else. Well, on the bright side, it seems like Nat has gotten a wake-up call about <<rivalMy>> behavior, and learned an important lesson about respect and self-control. The conversation about training with <<rivalMe>> will just have to wait for now.
@@ -976,12 +976,12 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
         <<link "Nat, let her go right this instant or you are going to regret this.">>
             <<replace "#choice">>
                 <<if $submissiveDominant > 1 && $muscle >= 50>>
-                You give Nat's wrist a very firm squeeze, and he winces. You aren't proud of it, but <<rivalI>> crossed a line by splashing her. <<RivalI>> lets go of Kris, and you do the same. Nat rubs <<rivalMy>> wrist.<br><br>
+                You give Nat's wrist a very firm squeeze, and he winces. You aren't proud of it, but <<rivalI>> crossed a line by splashing her. <<rivalI>> lets go of Kris, and you do the same. Nat rubs <<rivalMy>> wrist.<br><br>
                 <<elseif $submissiveDominant > 1>>
                 You look very deeply into Nat's eyes, and no more words are needed - you look so intense that <<rivalI>> lets go of Kris, and you do the same to <<rivalMe>>.<br><br>
                 <<else>>
                 <<Dialogue "player" "You">>"Nat, was I not clear? Do I have to call security?"<</Dialogue>><br><br>
-                <<RivalI>> thinks for a second, anger still in <<rivalMy>> face, then lets go of Kris's wrist.
+                <<rivalI>> thinks for a second, anger still in <<rivalMy>> face, then lets go of Kris's wrist.
                 <</if>>
                 Kris scurries to the back, and the manager starts to approach, but you tell him that you'll deal with this.<br><br>
                 <<Dialogue "player" "You">>"Dude, what the fuck was that? You think tossing your coffee was the adult thing to do?"<</Dialogue>><br><br>
@@ -992,7 +992,7 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Are you really going to take her side, despite of what she did to start the whole thing?"<</Dialogue>><br><br>
                 You find yourself raising your voice considerably.<br><br>
                 <<Dialogue "player" "You">>"<<rivalName>>! This is NOT about whose side I'm on! Do you understand the seriousness of throwing coffee on someone's face?!?"<</Dialogue>><br><br>
-                This is just going in circles. You demand that <<rivalI>> apologizes, and <<rivalI>> very reluctantly agrees. <<RivalI>> stands up, walks up to Kris, who very uncharacteristically looks frozen as Nat approaches. <<rivalI>> blurts out a half-hearted apology, and Kris nods back, hints of contempt and lust adorning her reddened cheek.<br><br>
+                This is just going in circles. You demand that <<rivalI>> apologizes, and <<rivalI>> very reluctantly agrees. <<rivalI>> stands up, walks up to Kris, who very uncharacteristically looks frozen as Nat approaches. <<rivalI>> blurts out a half-hearted apology, and Kris nods back, hints of contempt and lust adorning her reddened cheek.<br><br>
                 You just roll your eyes. You expected more from Nat, and as you come back, you just glare in disbelief.<br><br>
                 <<Dialogue "player" "You">>"You really don't understand the gravity of the situation, do you?"<</Dialogue>><br><br>
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"I just don't get how this is all about me, is everyone really pretending that what that girl did is normal?"<</Dialogue>><br><br>
@@ -1017,10 +1017,10 @@ This has officially gotten out of control. You are unsure how to deal with it. Y
                 <<Dialogue "player" "You">>"What the fuck were you thinking?"<</Dialogue>><br><br> 
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"I… <<print $playerFirstName>>, it's… I don't know what came over me. I felt so utterly disrespected, and it messed with me. It's no excuse, but it's hard being a model, you know? People just rush to judge you on your looks - and it affects you, you know, being objectified… her lack of respect really triggered me."<</Dialogue>><br><br>
                 <<Dialogue "player" "You">>"Look, Nat, at least it looks clear that you understand that this is no excuse… but… you clearly have some issues that need to be worked out - maybe you should seek professional help."<</Dialogue>><br><br>
-                <<RivalI>> sighs and nods, looking defeated but at least not angry anymore.<br><br>
+                <<rivalI>> sighs and nods, looking defeated but at least not angry anymore.<br><br>
                 <<Dialogue "player" "You">>"And for the record: you weren't exactly respectful with her either at the end of the day. "<</Dialogue>><br><br> 
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"You are 100% right. <<print $playerFirstName>>, I'm really feeling the pressure with this upcoming bodybuilding competition… so… thanks for being on my corner."<</Dialogue>><br><br>
-                You give Nat a tight hug, and tell <<rivalMe>> to go back home and think about what <<rivalI>> did. <<RivalI>> leaves, thanking you one last time. You make a mental note to finish that conversation about joining <<rivalMy>> training some other time.
+                You give Nat a tight hug, and tell <<rivalMe>> to go back home and think about what <<rivalI>> did. <<rivalI>> leaves, thanking you one last time. You make a mental note to finish that conversation about joining <<rivalMy>> training some other time.
                 <<link "Continue" $currentScene>><</link>>
             <</replace>>
         <<Failed>>
@@ -1126,7 +1126,7 @@ You both give a good laugh. That's more in line with the kind of talk you used t
 		content: `Today is the day you set with Nat to be <<rivalMy>> workout partner! Looking in your closet, you pick your cutest leotard and prepare your gym back as you leave to meet <<rivalMe>>. The idea of having a training partner is pretty cool, and you are looking forward to spend some time with your old friend.<br><br>
 Once you get to the gym, you see Nat standing by the reception desk, already in <<rivalMy>> workout gear, talking to a small group of people.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"I usually do a push-pull split on my routines, but I've been changing it up lately, trying to stimulate development - and you can't argue with the results."<</Dialogue>><br><br>
-<<RivalI>> says that while <<rivalI>> flexes <<rivalMy>> impressive quads, which makes the crowd go “oooooh!” You don't remember Nat being this much of a show-off, but maybe <<rivalI>> just got approached by people who recognized <<rivalMy>> modeling work? You decide it's better not to start judging without knowing the context.<br><br>
+<<rivalI>> says that while <<rivalI>> flexes <<rivalMy>> impressive quads, which makes the crowd go “oooooh!” You don't remember Nat being this much of a show-off, but maybe <<rivalI>> just got approached by people who recognized <<rivalMy>> modeling work? You decide it's better not to start judging without knowing the context.<br><br>
 <<if $muscle >= 41 && $shyConfident > 1>>
 <<Dialogue "player" "You">>"Nice thighs you got there, Nat, but how do you like these pythons?"<</Dialogue>><br><br>
 You shake your relaxed leg, letting the meat wobble to emphasize its mass - and then you give a massive flex, making it expand and harden into a veritable statuesque display of definition and vascularity - namely, you steal Nat's thunder with your own thunder thighs. The crowd reconvenes around you, prompting you to jokingly flex while you point and say:<br><br>

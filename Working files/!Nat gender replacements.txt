@@ -3,11 +3,7 @@
 Nathan setup.getRivalName()
 
 // check after the replacement. It might not talking about Nat
-He <<RivalI>>
 he <<rivalI>>
-His <<RivalMy>>
 his <<rivalMy>>
-Him <<RivalMe>>
 him <<rivalMe>>
-His <<RivalMine>>
 his <<rivalMine>>
