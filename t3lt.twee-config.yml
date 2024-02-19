@@ -312,20 +312,12 @@ sugarcube-2:
       name: rivalName
     rivalI:
       name: rivalI
-    RivalI:
-      name: RivalI
     rivalMy:
       name: rivalMy
-    RivalMy:
-      name: RivalMy
     rivalMe:
       name: rivalMe
-    RivalMe:
-      name: RivalMe
     rivalMine:
       name: rivalMine
-    RivalMine:
-      name: RivalMine
     playNatEvent:
       name: playNatEvent
       parameters:
