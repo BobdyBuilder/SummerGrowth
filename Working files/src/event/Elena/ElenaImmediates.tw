@@ -201,7 +201,7 @@ You should be able to go pick it up in a couple days, and you can message Elena 
     conditions: [
         () => setup.hasEventBeenTriggered('elenaMakesDinner2'),
         () => State.variables.gameDate >= State.variables.flag.EL32GreenhouseConstructionDateTime,
-        () => State.variables.flag.EL32GreenhouseConstructionDateTime.getDay() = 6 /* Saturday */,
+        () => State.variables.flag.EL32GreenhouseConstructionDateTime.getDay() === 6 /* Saturday */,
         () => State.variables.flag.EL32GreenhouseConstructionDateTime.getHours() >= 4 && State.variables.flag.EL32GreenhouseConstructionDateTime.getHours() < 12 /* Morning */
     ],
     repeatable: false,
