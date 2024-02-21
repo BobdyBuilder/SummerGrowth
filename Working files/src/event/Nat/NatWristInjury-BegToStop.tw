@@ -1,6 +1,6 @@
 :: NatWristInjury-BegToStop [nobr] {"position":"0,0","size":"100,100"}
 <<Dialogue "player" "You">>"Nat, listen to me, please!"<</Dialogue>><br><br>
-<<rivalI>> stops mid-rep, and turns to face you. <<rivalI>> notices that your eyes are starting to get a bit misty, and <<rivalI>> puts the weights down. You grab <<rivalMy>> injured wrist, making <<rivalMe>> wince, as you bring close to your chest and beg:<br><br>
+<<RivalI>> stops mid-rep, and turns to face you. <<RivalI>> notices that your eyes are starting to get a bit misty, and <<rivalI>> puts the weights down. You grab <<rivalMy>> injured wrist, making <<rivalMe>> wince, as you bring close to your chest and beg:<br><br>
 <<Dialogue "player" "You">>"Come on, Nat! I feel bad enough for what I did to your wrist, will you PLEASE have it looked at? For me?"<</Dialogue>><br><br>
 Nat feels downright divided about the whole thing. But before you know, this fire lits inside you, and you grab <<rivalMy>> good hand and start dragging <<rivalMe>>.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>

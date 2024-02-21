@@ -1,7 +1,7 @@
 :: NatWristInjury-NatBlamesProtagonist [nobr] {"position":"0,0","size":"100,100"}
 As Nat lifts the barbell, one of <<rivalMy>> elbows lock and <<rivalMy>> hand bends, letting one side of the barbell fall - it's a split second before the whole thing hits the padded ground with a loud clanging noise, and your friend is squatting and holding <<rivalMy>> wrist with a very painful expression. You rush to <<rivalMy>> side, placing a hand on <<rivalMy>> back.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"GET OFF ME, <<print $playerFirstName.toUpperCase()>>!"<</Dialogue>><br><br>
-<<rivalI>> shouts, as <<rivalI>> slaps you away with <<rivalMy>> good hand.<br><br>
+<<RivalI>> shouts, as <<rivalI>> slaps you away with <<rivalMy>> good hand.<br><br>
 <<Dialogue "player" "You">>"Look, I'll go get someone, I'm sure they have some person here who can help you with…"<</Dialogue>><br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"You've done enough already, OK?"<</Dialogue>><br><br>
 That comment hurts more than you'd like to admit. You know deep inside it's the pain talking - still, <<rivalI>>'s really pushing, and you gotta do something!<br><br>

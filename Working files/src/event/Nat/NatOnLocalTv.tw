@@ -17,7 +17,7 @@ There, you see Nat and the agent, among a few other bodybuilders. You assume fro
 <<Dialogue "player" "You">>"Hey, Nat! This television business is CUH-RAZY! I bet you are used to it, though, eh?"<</Dialogue>><br><br>
 <<if $flag.NatWristInjuryRoute === 'comp'>>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Oh. Who called you here?"<</Dialogue>><br><br>
-<<rivalI>> asks, quite coldly. The agent immediately picks up on that, and very awkwardly explains that she figured a friendly face would be nice. <<rivalI>> scoffs at the word “friendly”, and turns around on <<rivalMy>> seat, arms crossed. I guess <<rivalI>>'s still mad at what happened at the gym the other day…<br><br>
+<<RivalI>> asks, quite coldly. The agent immediately picks up on that, and very awkwardly explains that she figured a friendly face would be nice. <<RivalI>> scoffs at the word “friendly”, and turns around on <<rivalMy>> seat, arms crossed. I guess <<RivalI>>'s still mad at what happened at the gym the other day…<br><br>
 You decide to give <<rivalMe>> some space and go check the buffet - wow! They don't skimp on the food! There's a large table with all kinds of food and drink, and you try to decide which of the many options calls your name.<br><br>
 <<else>>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hey, nice to see you! How did you find out about this?"<</Dialogue>><br><br>

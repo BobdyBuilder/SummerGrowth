@@ -2,7 +2,7 @@
 You find Nat back there, being congratulated by <<rivalMy>> agent. You also come in for a big hug.
 <<if $muscle >=50>>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Damn, girl! You just had to come in out of nowhere and steal my thunder, huh?"<</Dialogue>><br><br>
-    <<rivalI>> says with snark but good humor. You blush and apologize, but add:<br><br>
+    <<RivalI>> says with snark but good humor. You blush and apologize, but add:<br><br>
     <<Dialogue "player" "You">>"Well, not my fault if you bring water pistols to the BAZOOKA SHOW!"<</Dialogue>><br><br>
     Which you punctuate by giving another biceps flex. The three of you laugh.<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"You're going to be the death of me someday, <<print $playerFirstName>>..."<</Dialogue>><br><br>
