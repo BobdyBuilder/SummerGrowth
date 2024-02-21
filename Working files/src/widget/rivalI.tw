@@ -1,4 +1,5 @@
 :: RivalI [widget nobr] {"position":"550,2000","size":"100,100"}
 <<widget "RivalI">><<if $rivalGender === 'male'>>He<<else>>She<</if>><</widget>>
+<<widget "rivalI">><<if $rivalGender === 'male'>>he<<else>>she<</if>><</widget>>
 
 
