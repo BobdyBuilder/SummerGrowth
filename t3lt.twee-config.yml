@@ -310,8 +310,8 @@ sugarcube-2:
       name: outfitDescription
     rivalName:
       name: rivalName
-    rivalI:
-      name: rivalI
+    RivalI:
+      name: RivalI
     RivalI:
       name: RivalI
     rivalMy:

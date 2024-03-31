@@ -1,6 +1,6 @@
 :: NatWristInjury-NatShowOffToOthers [nobr] {"position":"0,0","size":"100,100"}
 <<Dialogue "player" "You">>"Hey, Nat, maybe you should put your shirt back on?"<</Dialogue>><br><br>
-Nat looks at you confused as <<rivalI>> finishes <<rivalMy>> set.
+Nat looks at you confused as <<RivalI>> finishes <<rivalMy>> set.
 <<if $muscle >35>>
     You don't give <<rivalMe>> an opportunity to change the weights as you grab the barbell. You try to anchor your feet as best as you can, and slowly bring the barbell up towards your chest. Huh… you surprise yourself as this feels lighter than you would have expected. You feel weirdly… supercharged… from all the previous effort. 
     <<if $submissiveDominant > 1>>
@@ -8,12 +8,12 @@ Nat looks at you confused as <<rivalI>> finishes <<rivalMy>> set.
         <<Dialogue "player" "You">>"WHOA! Check THIS out!"<</Dialogue>><br><br>
         You raise your arm for a flex, and you surprise yourself as a sizable peak erupts, and you find an irresistible urge to just delineate its contour with your other hand. You find yourself in sheer awe of your own biceps, which feel harder than you thought possible. Distractedly, you just blurt out:<br><br>
         <<Dialogue "player" "You">>"Dang, Nat! I might just catch up with you… here, let's compare, put your arm next to mine."<</Dialogue>><br><br>
-        Nat unwillingly gives you a flex, frowning as <<rivalI>> places <<rivalMy>> arm right next to yours. Your jaw just drops as you notice that, despite lacking the same defined peak as <<rivalMe>>… your arm is just a smidge bigger.<br><br>
+        Nat unwillingly gives you a flex, frowning as <<RivalI>> places <<rivalMy>> arm right next to yours. Your jaw just drops as you notice that, despite lacking the same defined peak as <<rivalMe>>… your arm is just a smidge bigger.<br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, it's just because you still got a pump from having just lifted… and probably it's also fat."<</Dialogue>><br><br>
-        Ouch, sore loser much, Nat? <<RivalI>> grumpily goes and adds another <<if $measurementSystem == 'metric'>>10 kilograms<<else>>20 pounds<</if>> to the bar, loudly announcing how much <<rivalI>>'s going to curl.<br><br>
+        Ouch, sore loser much, Nat? <<RivalI>> grumpily goes and adds another <<if $measurementSystem == 'metric'>>10 kilograms<<else>>20 pounds<</if>> to the bar, loudly announcing how much <<RivalI>>'s going to curl.<br><br>
         <<Dialogue "player" "You">>"Huh… you know, there's no need to show off - this is just a friendly competition."<</Dialogue>><br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I'm just going to friendly blow you out of the water, then!"<</Dialogue>><br><br>
-        You watch as <<rivalI>> struggles to lift the enormous load. <<RivalMy>> injured wrist is shaking a lot as <<rivalI>> grimaces and takes deep breaths that show <<rivalI>>'s obviously in pain - but <<rivalI>> HAS called the attention of the entourage again, as they come and watch <<rivalMe>> do 10 reps.<br><br>
+        You watch as <<RivalI>> struggles to lift the enormous load. <<RivalMy>> injured wrist is shaking a lot as <<RivalI>> grimaces and takes deep breaths that show <<RivalI>>'s obviously in pain - but <<RivalI>> HAS called the attention of the entourage again, as they come and watch <<rivalMe>> do 10 reps.<br><br>
         You don't really want to push <<rivalMe>> that much harder… but you also find yourself incapable of stepping down from the challenge. You walk up to that impossible looking barbell and take a deep breath. Soon, you find yourself in that zone again where the world around you is gone, and you just start lifting.<br><br>
         And just like that, you lift the barbell with perfect form. It's heavy, sure, much heavier than you expected. But it's like your brain is telling your arms that they can do it, and they don't doubt it… and just do. Your biceps are getting so pumped you get a weird awareness of them rubbing against your torso from their engorged volume - and it's almost like in all of these feelings of physical awareness and power, you forgot how heavy the barbell is. Before you know it, you have completed 15 reps without ever really struggling.<br><br>
         The crowd claps and cheers at you, and you just find yourself mesmerized by your arms: you cup your biceps one more time, and they feel gigantic and hard beyond belief. You seriously would not be surprised if you just lifted a whole machine right now - you just FEEL that powerful.<br><br>
@@ -22,33 +22,33 @@ Nat looks at you confused as <<rivalI>> finishes <<rivalMy>> set.
         And so you continue, very surprised at yourself for just cruising through the 15 reps with ease. It feels strangely magical, as you feel your arm after completion and finding a solid ball of muscle you didn't remember being there.<br><br>
         <<Dialogue "player" "You">>"What do you know, maybe on the arms department I might just give you a run for your money!"<</Dialogue>><br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"HA! Fat chance!"<</Dialogue>><br><br>
-        <<RivalI>> says, as <<rivalI>> flexes <<rivalMy>> biceps right in front of your face. You respond in kind, putting your arm side-by-side with <<rivalMy>>… and what do you know… while <<rivalMy>> arm is more defined and peaked, juxtaposing them reveals that it's basically a tie in plain height.<br><br>
+        <<RivalI>> says, as <<RivalI>> flexes <<rivalMy>> biceps right in front of your face. You respond in kind, putting your arm side-by-side with <<rivalMy>>… and what do you know… while <<rivalMy>> arm is more defined and peaked, juxtaposing them reveals that it's basically a tie in plain height.<br><br>
         <<Dialogue "player" "You">>"WHOA! When did I get this buff?!?"<</Dialogue>><br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Nah, it's just a pump…"<</Dialogue>><br><br>
-        Nat says dismissively, as <<rivalI>> increases the load to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>, apparently trying to prove a point. <<RivalI>> proceeds to loudly announcing how much <<rivalI>>'s going to curl.<br><br>
+        Nat says dismissively, as <<RivalI>> increases the load to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>, apparently trying to prove a point. <<RivalI>> proceeds to loudly announcing how much <<RivalI>>'s going to curl.<br><br>
         <<Dialogue "player" "You">>"Huh… you know, there's no need to show off - this is just a friendly competition."<</Dialogue>><br><br>
         <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, I'm just going to friendly blow you out of the water, then!"<</Dialogue>><br><br>
-        <<RivalI>> starts doing <<rivalMy>> set, but you can see one of <<rivalMy>> arms is shaking… <<rivalI>> must really be putting a lot of stress on that injured wrist. Still, even if not using strict form, <<rivalI>> completes <<rivalMy>> 15 reps, as the crowd that gathered to watch <<rivalMe>> appears to be quite impressed. It seems like <<rivalI>> is about to take out the extra weight, but you decide to give it a try.<br><br>
+        <<RivalI>> starts doing <<rivalMy>> set, but you can see one of <<rivalMy>> arms is shaking… <<RivalI>> must really be putting a lot of stress on that injured wrist. Still, even if not using strict form, <<RivalI>> completes <<rivalMy>> 15 reps, as the crowd that gathered to watch <<rivalMe>> appears to be quite impressed. It seems like <<RivalI>> is about to take out the extra weight, but you decide to give it a try.<br><br>
         You anchor your feet firmly once again, and try to use <<rivalMy>> load… it's heavy, but you just repeat the mantra that you can do it - hey, you surprised yourself a lot already today… why not go that extra mile?<br><br>
         And with deep breaths and gritted teeth, you start lifting the barbell. It now feels like a proper challenge, and you derive incredible pleasure from finally feeling that burn on your arms. You make each rep more passionate than the previous one, bringing the metal up decidedly, and lowering it very slowly. Each breath, each motion, all the effort, it sparks something in your brain, and you are extremely aware of your biceps, enjoying the process with a strange sense… it's almost serene.<br><br>
         As you finish your 15th rep, you put the weight down, and the crowd claps as you ignore them and just feel your pumped arms. Damn, you might just be stronger than you realized…<br><br>
-        Nat seems to have come to the same conclusion, but <<rivalI>> has very different feelings about it… and starts adding even more weight to the barbell.
+        Nat seems to have come to the same conclusion, but <<RivalI>> has very different feelings about it… and starts adding even more weight to the barbell.
     <</if>>
 <<elseif $muscle >30>>
     <br><br>
     <<Dialogue "player" "You">>"I mean, don't get me wrong, I like the little show - but it's still about the training… not about the fans, right?"<</Dialogue>><br><br>
-    <<RivalI>> seems almost offended by your insinuation, as <<rivalI>> unloads half the weight from the barbell. You do your reps, struggling a bit, but still happily surprised at how strong you've gotten since you started - as you can now see a clear mound on your arm as you flex. Cool!<br><br>
-    Nat doesn't seem to be so happy that you are more excited about your small puny progress and not giving <<if $rivalGender === 'male'>>HIM<<else>>HER<</if>> more attention, however, as <<rivalI>> piles the weight back on the barbell - this time, increasing it to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>.<br><br>
+    <<RivalI>> seems almost offended by your insinuation, as <<RivalI>> unloads half the weight from the barbell. You do your reps, struggling a bit, but still happily surprised at how strong you've gotten since you started - as you can now see a clear mound on your arm as you flex. Cool!<br><br>
+    Nat doesn't seem to be so happy that you are more excited about your small puny progress and not giving <<if $rivalGender === 'male'>>HIM<<else>>HER<</if>> more attention, however, as <<RivalI>> piles the weight back on the barbell - this time, increasing it to <<if $measurementSystem == 'metric'>>50 kilograms<<else>>110 pounds<</if>>.<br><br>
     <<Dialogue "player" "You">>"You are increasing the weight this time?"<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Gotta throw the fans a bone, am I right?"<</Dialogue>><br><br>
-    <<RivalI>> announces, as <<rivalI>> gives a double-biceps for a passing girl. <<RivalI>> goes back to <<rivalMy>> set, but this time, you can see <<rivalI>> is struggling a bit, one of <<rivalMy>> arms shaking - it seems that <<rivalMy>> injured wrist is not coping quite so well with the bigger load.<br><br>
+    <<RivalI>> announces, as <<RivalI>> gives a double-biceps for a passing girl. <<RivalI>> goes back to <<rivalMy>> set, but this time, you can see <<RivalI>> is struggling a bit, one of <<rivalMy>> arms shaking - it seems that <<rivalMy>> injured wrist is not coping quite so well with the bigger load.<br><br>
 <<else>>
     <<Dialogue "player" "You">>"I mean, don't get me wrong, I like the little show - but it's still about the training… not about the fans, right?"<</Dialogue>><br><br>
-    <<RivalI>> seems almost offended by your insinuation, as <<rivalI>> unloads all the weight from the barbell, leaving you with just the bar. You do your reps, feeling a bit downtrodden, but still there to cheerlead for Nat.<br><br>
-    Nat mostly ignores you now, and it would seem <<rivalI>> was expecting you to be a bit more engaged in <<if $rivalGender === 'male'>>HIM<<else>>HER<</if>> physique, as <<rivalI>> starts crowing about increasing the load again as a girl passes by.<br><br>
+    <<RivalI>> seems almost offended by your insinuation, as <<RivalI>> unloads all the weight from the barbell, leaving you with just the bar. You do your reps, feeling a bit downtrodden, but still there to cheerlead for Nat.<br><br>
+    Nat mostly ignores you now, and it would seem <<RivalI>> was expecting you to be a bit more engaged in <<if $rivalGender === 'male'>>HIM<<else>>HER<</if>> physique, as <<RivalI>> starts crowing about increasing the load again as a girl passes by.<br><br>
     <<Dialogue "player" "You">>"You don't need to broadcast your routine to the whole gym, Nat."<</Dialogue>><br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Come on! I gotta throw the fans a bone too!"<</Dialogue>><br><br>
-    <<RivalI>> announces, as <<rivalI>> gives a double-biceps a guy passes by. <<RivalI>> goes back to <<rivalMy>> set, but this time, you can see <<rivalI>> is struggling a bit, one of <<rivalMy>> arms shaking - it seems that <<rivalMy>> injured wrist is not coping quite so well at this point.<br><br>
+    <<RivalI>> announces, as <<RivalI>> gives a double-biceps a guy passes by. <<RivalI>> goes back to <<rivalMy>> set, but this time, you can see <<RivalI>> is struggling a bit, one of <<rivalMy>> arms shaking - it seems that <<rivalMy>> injured wrist is not coping quite so well at this point.<br><br>
     <br><br>
 <</if>>
 <<Dialogue "player" "You">>"Uh, Nat… I understand what we got going here but… maybe you should think again before continuing."<</Dialogue>><br><br>

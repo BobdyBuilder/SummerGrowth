@@ -3,7 +3,7 @@ Nat pulls <<rivalMy>> arm away from you with a jerk, and shouts:<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"OK, that's enough! Stop treating me like a little kid, you hear?"<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Nat, I'm just concerned about your…"<</Dialogue>><br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"You're jealous of me, that's what you are - that I have my fans and have this amazing physique - and you can't handle that, so you are doing whatever you can to put me down! But it won't work, I'm going to keep pushing my limits like I've done my entire life!"<</Dialogue>><br><br>
-And with that, <<rivalI>> turns away and walks back to the weights, loading an obscene amount of weight on the leg press. You get a very bad feeling about this, and worry how that is going to affect your friendship going forward.
+And with that, <<RivalI>> turns away and walks back to the weights, loading an obscene amount of weight on the leg press. You get a very bad feeling about this, and worry how that is going to affect your friendship going forward.
 
 <<link "Go home" "Home">><<set $flag.NatWristInjuryRoute to 'comp'>><</link>>
 

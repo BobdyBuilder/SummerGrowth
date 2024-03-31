@@ -1,6 +1,6 @@
 :: NatWristInjury-Confrontational2 [nobr] {"position":"0,0","size":"100,100"}
 <<Dialogue "player" "You">>"Alright, that's enough!"<</Dialogue>><br><br>
-You step by <<rivalMy>> side, and force <<rivalMe>> to lower the weights down. You grab <<rivalMy>> wrist, and <<rivalI>> winces. Yup, that's definitely injured.
+You step by <<rivalMy>> side, and force <<rivalMe>> to lower the weights down. You grab <<rivalMy>> wrist, and <<RivalI>> winces. Yup, that's definitely injured.
 <<Dialogue "player" "You">>"Seriously, dude, enough is enough. I can appreciate a big show of testosterone as the next girl, but you don't need to be an asshole just to show off, OK? "<</Dialogue>><br><br>
 Nat grunts, and clearly isn't used to being led like this - especially by a girl. You grab <<rivalMe>> by the arm and start dragging <<rivalMe>> to the reception.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"What do you think you are doing?"<</Dialogue>><br><br>

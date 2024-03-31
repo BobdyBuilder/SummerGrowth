@@ -4,7 +4,7 @@ Nat scoffs, <<rivalMy>> pride clearly hurt - and you feel a bit bad, since you k
 <<Dialogue "player" "You">>"Look, I feel pretty bad for injuring you in the first place… how do you think I'm going to feel if you make it worse?"<</Dialogue>><br><br>
 Nat stops, and <<rivalMy>> demeanor gets very somber all of a sudden. You seem to have reached <<rivalMe>> somehow. But still, it's a sore point.<br><br>
 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, I won't lie… this injury sucks, big time. I'm really concerned it could cost me the competition."<</Dialogue>>
-You grab Nat by the shoulders - damn, <<rivalI>> has some really nice capped shoulders - and look right into <<rivalMy>> face:<br><br>
+You grab Nat by the shoulders - damn, <<RivalI>> has some really nice capped shoulders - and look right into <<rivalMy>> face:<br><br>
 <<Dialogue "player" "You">>"Nat, if there is one thing I learned about you… is that nothing is impossible for you. This will make it harder, sure. But I know for a fact that it's something you can overcome. But that will take a different kind of determination. It's not just throwing yourself with a passion, but having patience and faith in the process. Healing CAN be just as hard as growing, you just need to see it another challenge, not just a hurdle you throw yourself against."<</Dialogue>><br><br>
 
 <<link "Continue" "NatWristInjury-NatInjured">><</link>>

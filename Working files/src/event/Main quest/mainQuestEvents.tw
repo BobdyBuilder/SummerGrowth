@@ -417,5 +417,42 @@ repeatable: false,
                 <</link>>
             <</if>>
         </span>`
+    },
+    {
+        name: 'Main_quest_Toshi_meeting_setup',
+        locationTags: ['home', 'gym'],
+        conditions: [
+            () => setup.hasEventBeenTriggered("GrowthSlowingDown_5")
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You get ready for your workout, but you can’t shake this weird nagging feeling that you can’t quite explain. You shrug it off, eager to start handling the weights in front of you. But the second you grab your first handle, the feeling comes to the forefront – everything feels heavier than it should, movements feel creakier and awkward, and your stamina seems to not quite keep up as it usually does. Frankly, you kind of suspected something was wrong even before, but it’s never been as obvious as this.
+
+        Stretching your shoulders with a wide arm movement, it hits you that there seems to be a film of cold sweat on your forehead, and you feel winded, like there’s a weird weight on your lungs. Everything is just… off, somehow.
+
+        You put the weights down and wipe the sweat with the back of your hand. You give your tense quadriceps a quick poke, and your muscles just feel weirdly deflated, much less firm than you would expect. In fact, deflated also very well describes your psychological state. It’s not like you are not <<if $muscle>60>>infinitely <<elseif  $muscle>40>>considerably <<else>>noticeably <</if>> stronger than when you started, but this whole realization makes you feel a terrible dread. You both want to know what is going on but are also afraid to look more into it and realize that the whole metamorphosis is coming to an end.
+
+        And then it hits you. There IS one person who would know. You look to the side, your gaze reaching the lonely USB drive haunting you from the shelf.
+
+        Toshi.
+
+        Giving up on your workout, you get up and reach for the small plastic device. Somehow, plugging it in feels even harder than handling the dumbells just seconds ago. But plug it you do, and with a deep breath, you reopen the folder where the files were. You stare at those same eight files for a whole minute, as if staring hard enough would somehow reveal some secret. But no, it’s still the same files. You start twiddling the cursor around, until you accidentally right-click one of the files. A dialog menu with a few options appears. Huh. Properties?
+
+        You select the option. There’s a bunch of gobbledygook that you have no idea what it means, but… there’s an author field. It says simply ‘toshigenius’. Subtle, Toshi, subtle.
+
+        Still. You wonder… could that be his email handle? You try shooting an email with the college’s @edu domain – but it immediately comes back as unavailable. Maybe that one uses his last name – or, given that he was probably expelled, would be closed anyway. But what if you tried some of the most popular free email services? And so you write a short message explaining your experience with growth, and that you’d like to get in touch with him. Memories flood in as your summarize your journey, nostalgically reliving the incredible days of summer as you recapitulate your transformation, it almost feels like writing your autobiography. Without giving it a second thought, you wrap it up without any fuss. And finally, the message is sent to some five major email services with the handle toshigenius… but that’s about all you can think of. So, you get up, and feeling defeated, go back to your weights, hoping that maybe you can at least get a crappy workout?
+
+        But as you are halfway through your first depressing set, you hear that recognizable ping of an incoming email. Your heart skips a beat as you look at your phone screen.
+        And there’s the reply. From toshigenius.
+
+        “Meet me tomorrow at the fountain in the park. Noon. We’ll talk there. Don’t send more emails discussing this.”
+
+        Holy shit. It actually worked. Your heart is now racing like crazy, you can’t even bring yourself to go back to your workout. It’s not going to be easy sleeping tonight. All this time, the probable architect of this strange tale is finally coming onstage. Somehow, this feels even more surreal than your entire ordeal so far.
+
+        I guess tomorrow you’ll find out more. Waiting is all you can do now
+
+        [END OF STORY FOR THIS UPDATE]`
     }
 ) >>
