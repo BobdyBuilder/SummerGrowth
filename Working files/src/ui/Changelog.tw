@@ -1,4 +1,16 @@
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.9.1: Dates and story progression ---
+● Added many new dialogs for all NPCs.
+● Added new Dates for Kris
+● Added new dates for Johan
+● Added new Dates for Elena
+● Added new Dates for Emma
+● Reworked early growth rates
+● Rebalanced money and growth speed
+● Added labels to all inputs
+● Remade naming widgets
+● Launched game on april fools
+● Desire to pet Capybara increased by 50%
 --- Version 0.8.6: Dates and story progression ---
 ● Added many new dialogs for all NPCs.
 ● Added new Dates for Kris
