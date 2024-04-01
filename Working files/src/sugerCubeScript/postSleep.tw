@@ -95,7 +95,7 @@ var boxes = $("select#listbox-currentdietname");
 <br><br>
 
 <<if $furniture.includes("Coffee machine")>>
-<label><<checkbox "$morningRoutineCoffee" false true autocheck>> Make coffee - 00:10 🕛</label><br><br>
+<<checkbox "$morningRoutineCoffee" false true autocheck>> Make coffee - 00:10 🕛<br><br>
 <</if>>
 
 <<set _supplies to false>>
@@ -137,12 +137,12 @@ var boxes = $(".macro-limitedNumberbox");
 
 <h3>Get ready activities</h3>
 <<if $shyConfident > 1>>
-<label><<checkbox "$morningRoutineCheckSelf" false true autocheck>> Admire yourself in the mirror for a bit - 00:20 🕛</label><br><br>
+<<checkbox "$morningRoutineCheckSelf" false true autocheck>> Admire yourself in the mirror for a bit - 00:20 🕛<br><br>
 <</if>>
 
 <<if $lactationSetting is true>>
   <<if $lactationMorningRoutine == true>>
-  	<label><<checkbox "$lactationMorningRoutineEmptying" false true autocheck>> Empty your breasts before you go. - 00:20 🕛</label><br><br>
+  	<<checkbox "$lactationMorningRoutineEmptying" false true autocheck>> Empty your breasts before you go. - 00:20 🕛<br><br>
   <</if>>
 
   <<timed 0s>>
