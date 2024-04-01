@@ -422,7 +422,7 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
         <</link>>
     <</if>>
 </span>`
-    },
+    } ,
     {
         name: 'Main_quest_Toshi_meeting_setup',
         locationTags: ['home', 'gym'],
