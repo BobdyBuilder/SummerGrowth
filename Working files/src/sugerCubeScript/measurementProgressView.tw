@@ -129,23 +129,23 @@ You kept track of a lot of things, and with it you can easily check your progres
 
 <table style="width:100%;">
   <tr>
-    <td><<checkbox "$displayHeight" false true autocheck>> Height</td>
-    <td><<checkbox "$displayChest" false true autocheck>> Chest</td>
-    <td><<checkbox "$displayWaist" false true autocheck>> Waist</td>
+    <td><label><<checkbox "$displayHeight" false true autocheck>> Height</label></td>
+    <td><label><<checkbox "$displayChest" false true autocheck>> Chest</label></td>
+    <td><label><<checkbox "$displayWaist" false true autocheck>> Waist</label></td>
   </tr>
   <tr>
-    <td><<checkbox "$displayNeck" false true autocheck>> Neck</td>
-    <td><<checkbox "$displayUpperArm" false true autocheck>> Upper arm</td>
-    <td><<checkbox "$displayLowerArm" false true autocheck>> Lower arm</td>
+    <td><label><<checkbox "$displayNeck" false true autocheck>> Neck</label></td>
+    <td><label><<checkbox "$displayUpperArm" false true autocheck>> Upper arm</label></td>
+    <td><label><<checkbox "$displayLowerArm" false true autocheck>> Lower arm</label></td>
   </tr>
   <tr>
-    <td><<checkbox "$displayThigh" false true autocheck>> Thigh</td>
-    <td><<checkbox "$displayKnee" false true autocheck>> Knee</td>
-    <td><<checkbox "$displayCalve" false true autocheck>> Calve</td>
+    <td><label><<checkbox "$displayThigh" false true autocheck>> Thigh</label></td>
+    <td><label><<checkbox "$displayKnee" false true autocheck>> Knee</label></td>
+    <td><label><<checkbox "$displayCalve" false true autocheck>> Calves</label></td>
   </tr>
   <tr>
-    <td><<checkbox "$displayAnkle" false true autocheck>> Ankle</td>
-    <td><<checkbox "$displayWeight" false true autocheck>> Weight</td>
+    <td><label><<checkbox "$displayAnkle" false true autocheck>> Ankle</label></td>
+    <td><label><<checkbox "$displayWeight" false true autocheck>> Weight</label></td>
     <td></td>
   </tr>
 </table>
