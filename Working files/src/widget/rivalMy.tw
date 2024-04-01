@@ -1,4 +1,3 @@
 :: RivalMy [widget nobr] {"position":"550,2100","size":"100,100"}
 <<widget "RivalMy">><<if $rivalGender === 'male'>>His<<else>>Her<</if>><</widget>>
-
-
+<<widget "rivalMy">><<if $rivalGender === 'male'>>his<<else>>her<</if>><</widget>>

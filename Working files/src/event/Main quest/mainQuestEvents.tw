@@ -46,377 +46,382 @@ repeatable: false,
         locationTags: ['home'],
         conditions: [
             () => setup.hasEventBeenTriggered('Main_quest_event_poster'),
-            () => State.variables.fullBrewingUnlockedDay < State.variables.daysPlayed + 3
+            () => State.variables.fullBrewingUnlockedDay < State.variables.daysPlayed + 3,
+            () => setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary')
+                    || $johanOpinion > 40 && setup.hasEventBeenTriggered('johanPinUpArt')
+                    || setup.hasEventBeenTriggered("emmaMealPrep")
+                    || setup.hasEventBeenTriggered('KrisDate1')
+                    || setup.hasEventBeenTriggered("elenaGymIntimacy")
         ],
         repeatable: false,
         retriggerable: false,
         priority: 'response',
         npc: [],
         content: `You're going about your day at your home when you remember that your post box actually exists. Since you moved in here you haven't given it much thought; besides banks and other really old fashioned institutions, who even uses the post anymore? As you go upstairs, shuffling through the narrow staircase, through the hallway and into the main loby. As you pass Johan's door you hear some loud music playing, surely from some videogame or another. Opening your postbox you find the ussual; trash, spam, some coupons for food delivery. You idly shuffle through them, discarding most to the floor, when you see a much more intricate letter. It has the logo of the university on it, and even the little hologram in the top left corner. Already you can feel some anxiety building, as you did NOT expect such a letter and you can't think of anything you might have done to warrant it.
-        
-        You find yourself 10 minutes later in your bedroom, laying on your bed and staring up at the ceiling. Only one word kept repeating; fuck. FUCK. As you zone out and think on what to do, you can't really focus. Not with that news. The letter is still clutched in your hand, far heavier than it should be for someone of your mass. 
-        
-        The university you go to is the one of your dreams. The one you had picked out years ago, and one where you could do what you dreamed of. However, student loans are a thing; though your family has always been supportive, they simply don't make enough to allow you to go here and escape your small town. You've worked your ass off to get a scholarship; and now, before you even began to study here, you find that due to an 'administrative error' it got retracted. Its hard to not cry over this. With everything that has been going on here you almost forgot you actually are here to study. But not that your scholarship got retracted, you're pretty sure you won't be able to pay for even attending here. You need to pay your fees soon, and you simply don't have that kind of money. Neither does your family.
-        
-        Though...
-        
-        As you lay there your mind drifts to some time ago, when you were just walking around and that flyer hit you. And what Nate has been preparing for. The bodybuilding event. Muscle Mania. The cash prize there would be more than enough to keep you going, replacing your scholarship. And it's soon enough that you can attend, if you want to. It sounds ridiculous, but as you flex your arm you realize that your body body has changed so much, winning such a competition shouldn't be too hard. You're not sure if you want to do this, but you know you have to. You need to.
-        
-        But right now, this idea is too dumb to just do. You need to discuss this with someone, someone you trust... but who to call...
-        
-        <span id='part1'>
-            <<set $mainQuestMoneyProblems to true>>
-            <<if setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary')>>
-                <<link " Nat is a professional model. And a bodybuilder. That’s the person who would never refuse to help me, right?">>
-                    <<replace "#part1">>
-                        You tap the name, and soon the phone is ringing. You almost regret doing it, very concerned about how he’s going to react. But he’s the only person around you’ve known for many years... and who knows you this well.
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hello, who’s this?"<</Dialogue>>
+You find yourself 10 minutes later in your bedroom, laying on your bed and staring up at the ceiling. Only one word kept repeating; fuck. FUCK. As you zone out and think on what to do, you can't really focus. Not with that news. The letter is still clutched in your hand, far heavier than it should be for someone of your mass. 
 
-                        <<Dialogue "player" "You">>"Oh, it’s me, <<print $playerFirstName>>, Nat. Do you have a second?"<</Dialogue>>
+The university you go to is the one of your dreams. The one you had picked out years ago, and one where you could do what you dreamed of. However, student loans are a thing; though your family has always been supportive, they simply don't make enough to allow you to go here and escape your small town. You've worked your ass off to get a scholarship; and now, before you even began to study here, you find that due to an 'administrative error' it got retracted. Its hard to not cry over this. With everything that has been going on here you almost forgot you actually are here to study. But not that your scholarship got retracted, you're pretty sure you won't be able to pay for even attending here. You need to pay your fees soon, and you simply don't have that kind of money. Neither does your family.
 
-                        Silence for a bit. You hear some shuffling in the back.
+Though...
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, if it doesn’t take too long. What’s up?"<</Dialogue>>
+As you lay there your mind drifts to some time ago, when you were just walking around and that flyer hit you. And what Nate has been preparing for. The bodybuilding event. Muscle Mania. The cash prize there would be more than enough to keep you going, replacing your scholarship. And it's soon enough that you can attend, if you want to. It sounds ridiculous, but as you flex your arm you realize that your body body has changed so much, winning such a competition shouldn't be too hard. You're not sure if you want to do this, but you know you have to. You need to.
 
-                        This feels a bit more awkward than you expected. While you have a lot of emotional childhood memories, you can’t help but feel a weird detachment. Nat is weirdly distant, even if respectful.
+But right now, this idea is too dumb to just do. You need to discuss this with someone, someone you trust... but who to call...<br><br>
 
-                        Still, you steel your nerves and explain the whole college tuition drama. You find yourself holding back, trying to present it in a factual manner, somewhat expecting to be judged. But Nat just listens carefully in silence until you are done.
+<span id='part1'>
+    <<set $mainQuestMoneyProblems to true>>
+    <<if $debug || setup.hasEventBeenTriggered('NatFirstTapingBodybuildingDocumentary')>>
+        <<link " Nat is a professional model. And a bodybuilder. That’s the person who would never refuse to help me, right?">>
+            <<replace "#part1">>
+                You tap the name, and soon the phone is ringing. You almost regret doing it, very concerned about how he’s going to react. But he’s the only person around you’ve known for many years... and who knows you this well.
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, that’s quite the predicament, <<print $playerFirstName>>. But the important thing with any problem is to stay calm rational."<</Dialogue>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Hello, who’s this?"<</Dialogue>>
 
-                        <<if if $rivalGender === 'male'>>
-                        He proceeds to break down the issue and laying down problem-solving steps like how to apply for loans, how to search for other scholarship options, but you decide to interject:
+                <<Dialogue "player" "You">>"Oh, it’s me, <<print $playerFirstName>>, Nat. Do you have a second?"<</Dialogue>>
 
-                        <<else>>
-                        She starts to ask questions about what happened to the scholarship and how much she is making, and you decide to just tell her you already have a plan:
+                Silence for a bit. You hear some shuffling in the back.
 
-                        <</if>>
-                        <<Dialogue "player" "You">>"Actually, Nat, I already have a bit of a plan. The first place prize for the bodybuilding competition should be enough to pay for this year’s tuition."<</Dialogue>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Yeah, if it doesn’t take too long. What’s up?"<</Dialogue>>
 
-                        Nat remains silent. Uncomfortably so.
+                This feels a bit more awkward than you expected. While you have a lot of emotional childhood memories, you can’t help but feel a weird detachment. Nat is weirdly distant, even if respectful.
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"You understand that there is no guaranteeing you’d get first place, right? This is a big risk, do you even have a plan B?"<</Dialogue>>
+                Still, you steel your nerves and explain the whole college tuition drama. You find yourself holding back, trying to present it in a factual manner, somewhat expecting to be judged. But Nat just listens carefully in silence until you are done.
 
-                        <<Dialogue "player" "You">>"N-not really?"<</Dialogue>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, that’s quite the predicament, <<print $playerFirstName>>. But the important thing with any problem is to stay calm rational."<</Dialogue>>
 
-                        You can swear you hear the bridge of a nose being pressed somehow through the phone.
+                <<if if $rivalGender === 'male'>>
+                He proceeds to break down the issue and laying down problem-solving steps like how to apply for loans, how to search for other scholarship options, but you decide to interject:
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Competing in bodybuilding, in case I didn’t make that clear before, is very serious business. It requires an amazing amount of dedication, perseverance and resolve."<</Dialogue>>
+                <<else>>
+                She starts to ask questions about what happened to the scholarship and how much she is making, and you decide to just tell her you already have a plan:
 
-                        You can’t help but think those all seem like synonyms, but you aren’t about to bring that up.
+                <</if>>
+                <<Dialogue "player" "You">>"Actually, Nat, I already have a bit of a plan. The first place prize for the bodybuilding competition should be enough to pay for this year’s tuition."<</Dialogue>>
 
-                        <<if $skills[0].level < 3>>
-                        <<Dialogue "player" "You">>"Well, I figure it would also be necessary to have some knowledge on how to properly lift weights?"<</Dialogue>>
+                Nat remains silent. Uncomfortably so.
 
-                        Nat just sighs.
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"You understand that there is no guaranteeing you’d get first place, right? This is a big risk, do you even have a plan B?"<</Dialogue>>
 
-                        <<elseif $skills[1].level <3>>
-                        <<Dialogue "player" "You">>"I’m guessing you also need to have some knowledge on dieting?"<</Dialogue>>
+                <<Dialogue "player" "You">>"N-not really?"<</Dialogue>>
 
-                        Nat just sighs.
+                You can swear you hear the bridge of a nose being pressed somehow through the phone.
 
-                        <<elseif $skills[4].level <3>>
-                        <<Dialogue "player" "You">>"I’m hazarding a guess that knowing how to pose is probably a big part of it as well?"<</Dialogue>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Competing in bodybuilding, in case I didn’t make that clear before, is very serious business. It requires an amazing amount of dedication, perseverance and resolve."<</Dialogue>>
 
-                        Nat just sighs.
+                You can’t help but think those all seem like synonyms, but you aren’t about to bring that up.
 
-                        <</if>>
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"ASSUMING you have the proper knowledge in training, dieting and posing, you still need to put the hours in not only to gain the mass, but also the proper symmetry, and create a decent routine for your presentation. And I’m not even going into picking your bikini, getting a proper tan..."<</Dialogue>>
+                <<if $skills[0].level < 3>>
+                <<Dialogue "player" "You">>"Well, I figure it would also be necessary to have some knowledge on how to properly lift weights?"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"I mean, it sounds really hard - but imagine if I had a great childhood friend who happens to be a professional and could give me some tips, wouldn’t that be amazing."<</Dialogue>>
+                Nat just sighs.
 
-                        You can hear the lips clicking on the other side of the line. Let’s tread carefully here.
+                <<elseif $skills[1].level <3>>
+                <<Dialogue "player" "You">>"I’m guessing you also need to have some knowledge on dieting?"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"I figured I could count on you to give me some help, right? Besides, you seem like the competitive type. It wouldn’t hurt to have someone else in the running, am I right?"<</Dialogue>>
+                Nat just sighs.
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"You know I could never say no to you. I suppose I could give you a hand - IF it doesn’t get in the way of my own training. Deal?"<</Dialogue>>
+                <<elseif $skills[4].level <3>>
+                <<Dialogue "player" "You">>"I’m hazarding a guess that knowing how to pose is probably a big part of it as well?"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Oh, I’d never ask otherwise! Thank you, so much, Nat."<</Dialogue>>
+                Nat just sighs.
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"Look, I just need to say this. It’s going to be hard. It’s going to be challenging. But it is incredibly rewarding. I will help you, but I will be demanding - so don’t complain later."<</Dialogue>>
+                <</if>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"ASSUMING you have the proper knowledge in training, dieting and posing, you still need to put the hours in not only to gain the mass, but also the proper symmetry, and create a decent routine for your presentation. And I’m not even going into picking your bikini, getting a proper tan..."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"You won’t regret this!"<</Dialogue>>
+                <<Dialogue "player" "You">>"I mean, it sounds really hard - but imagine if I had a great childhood friend who happens to be a professional and could give me some tips, wouldn’t that be amazing."<</Dialogue>>
 
-                        <<Dialogue setup.getRivalName() setup.getRivalName()>>"I’m more concerned about YOU, but thanks for the concern."<</Dialogue>>
+                You can hear the lips clicking on the other side of the line. Let’s tread carefully here.
 
-                        And with that, you hang up. You feel a tingling inside - not the nervous one from before, but one from excitement. Wow, you are really doing this. It will take a second for the reality to set in, but I guess now it really is time to start focusing on this show... or this summer will not go as planned. But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
+                <<Dialogue "player" "You">>"I figured I could count on you to give me some help, right? Besides, you seem like the competitive type. It wouldn’t hurt to have someone else in the running, am I right?"<</Dialogue>>
 
-                        <<link "Continue" "Home">><</link>>
-                    <</replace>>
-                <</link>>
-            <</if>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"You know I could never say no to you. I suppose I could give you a hand - IF it doesn’t get in the way of my own training. Deal?"<</Dialogue>>
 
-            <<if $johanOpinion > 40 && setup.hasEventBeenTriggered('johanPinUpArt')>>
-                <<link "Johan is my ride or die. If anything, I can trust him to be totally sincere and supportive.">>
-                    <<replace "#part1">>
-                        You tap the name, and soon the phone is ringing. After a few rings, Johan picks up and immediately fumbles the device, which clatters to the ground, making weird noises on your end as he yelps.
+                <<Dialogue "player" "You">>"Oh, I’d never ask otherwise! Thank you, so much, Nat."<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"Hey there, <<print $playerFirstName>>. Sorry, was priming some miniatures, kinda hard to handle the phone, but I got you on speakerphone now."<</Dialogue>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"Look, I just need to say this. It’s going to be hard. It’s going to be challenging. But it is incredibly rewarding. I will help you, but I will be demanding - so don’t complain later."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Oh, is this a bad time? I don’t want to impose..."<</Dialogue>>
+                <<Dialogue "player" "You">>"You won’t regret this!"<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"Nah, I’m a natural multitasker, no need to..."<</Dialogue>>
+                <<Dialogue setup.getRivalName() setup.getRivalName()>>"I’m more concerned about YOU, but thanks for the concern."<</Dialogue>>
 
-                        You hear the hissing of an aerosol, then some thumping and clanking as Johan goes OH NO!
+                And with that, you hang up. You feel a tingling inside - not the nervous one from before, but one from excitement. Wow, you are really doing this. It will take a second for the reality to set in, but I guess now it really is time to start focusing on this show... or this summer will not go as planned. But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
 
-                        <<Dialogue "Johan" "Johan">>"Sorry. But you do have my full attention now."<</Dialogue>>
+                <<link "Continue" "Home">><</link>>
+            <</replace>>
+        <</link>>
+    <</if>>
 
-                        You proceed to explain the entire thing about your rescinded scholarship, your little freakout... Johan says the occasional interjection, but seems to be mostly very attentively listening.
+    <<if $debug || $johanOpinion > 40 && setup.hasEventBeenTriggered('johanPinUpArt')>>
+        <<link "Johan is my ride or die. If anything, I can trust him to be totally sincere and supportive.">>
+            <<replace "#part1">>
+                You tap the name, and soon the phone is ringing. After a few rings, Johan picks up and immediately fumbles the device, which clatters to the ground, making weird noises on your end as he yelps.
 
-                        <<Dialogue "Johan" "Johan">>"Whoa. That’s quite a lot of money. Can’t your parents get a loan or something?"<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"Hey there, <<print $playerFirstName>>. Sorry, was priming some miniatures, kinda hard to handle the phone, but I got you on speakerphone now."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"I mean, it’s complicated, but, I also had another idea. But before I commit, well, it’s a bit... I just want a second opinion."<</Dialogue>>
+                <<Dialogue "player" "You">>"Oh, is this a bad time? I don’t want to impose..."<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"Of course, I’ll be glad to help in any way I can. If my geek cred can be of any help, you have my sword."<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"Nah, I’m a natural multitasker, no need to..."<</Dialogue>>
 
-                        You wave off the confusing reference, and just blurt it out:
+                You hear the hissing of an aerosol, then some thumping and clanking as Johan goes OH NO!
 
-                        <<Dialogue "player" "You">>"I don’t know if you heard, but there’s going to be a bodybuilding competition in town at the end of summer. And the first prize is enough to cover it."<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"Sorry. But you do have my full attention now."<</Dialogue>>
 
-                        <<if $muscle >= 80>>
-                        Johan just remains silent for a second. You just confirm he’s still there:
+                You proceed to explain the entire thing about your rescinded scholarship, your little freakout... Johan says the occasional interjection, but seems to be mostly very attentively listening.
 
-                        <<Dialogue "player" "You">>"So?"<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"Whoa. That’s quite a lot of money. Can’t your parents get a loan or something?"<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"Uh, I thought you were going to ask to borrow some paint for a fake suntan or something like that. I mean, you got this in the bag already, right?"<</Dialogue>>
+                <<Dialogue "player" "You">>"I mean, it’s complicated, but, I also had another idea. But before I commit, well, it’s a bit... I just want a second opinion."<</Dialogue>>
 
-                        Damn, Johan, you know just what to say.
+                <<Dialogue "Johan" "Johan">>"Of course, I’ll be glad to help in any way I can. If my geek cred can be of any help, you have my sword."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Oh, Johan. You know just what to say."<</Dialogue>>
+                You wave off the confusing reference, and just blurt it out:
 
-                        You just said that out loud. Oops. Thankfully, Johan is oblivious enough not to pick up on it.
+                <<Dialogue "player" "You">>"I don’t know if you heard, but there’s going to be a bodybuilding competition in town at the end of summer. And the first prize is enough to cover it."<</Dialogue>>
 
-                        <<elseif $muscle >= 55>>
-                        <<Dialogue "Johan" "Johan">>"Whoa, that’s an amazing idea! I don’t know much about it, but I know you’ve certainly gotten big enough that it shouldn’t be too hard! That’s so cool! I’m gonna be friends with a bodybuilder! Who would have thought?"<</Dialogue>>
+                <<if $muscle >= 80>>
+                Johan just remains silent for a second. You just confirm he’s still there:
 
-                        Johan pulls another Johan, and just gives you his full support and makes you feel good about it.
+                <<Dialogue "player" "You">>"So?"<</Dialogue>>
 
-                        <<elseif $muscle >= 30>>
-                        <<Dialogue "Johan" "Johan">>"Actually, that’s kind of perfect. I’ve never seen anyone gain muscle so fast as you, might as well bank on that. I have no idea what the competition is like, but if you got this buff this fast, imagine what you can do if you get really serious?"<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"Uh, I thought you were going to ask to borrow some paint for a fake suntan or something like that. I mean, you got this in the bag already, right?"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"But unless I get first place, this will all be for naught! Am I crazy for doing this? Betting it all on a whim?"<</Dialogue>>
+                Damn, Johan, you know just what to say.
 
-                        <<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>, if there’s one thing I learned about you since you moved in, is that you are a professional destroyer of expectations. If you told me you were going to run for president, I’d ask where can I register to vote... and can I get a ride on Marine One? I always wanted to ride in a helicopter!"<</Dialogue>>
+                <<Dialogue "player" "You">>"Oh, Johan. You know just what to say."<</Dialogue>>
 
-                        Johan’s enthusiasm, as usual, is contagious, and you already feel like this is in the bag - even if your brain realizes that it’s not going to be easy.
-                        <<else>>
-                        <<Dialogue "Johan" "Johan">>"Well, that’s a daring plan, <<print $playerFirstName>>..."<</Dialogue>>
+                You just said that out loud. Oops. Thankfully, Johan is oblivious enough not to pick up on it.
 
-                        <<Dialogue "player" "You">>"Yeah, I should’ve known..."<</Dialogue>>
+                <<elseif $muscle >= 55>>
+                <<Dialogue "Johan" "Johan">>"Whoa, that’s an amazing idea! I don’t know much about it, but I know you’ve certainly gotten big enough that it shouldn’t be too hard! That’s so cool! I’m gonna be friends with a bodybuilder! Who would have thought?"<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"... and I’ll be cheering for you on the first line when you win."<</Dialogue>>
+                Johan pulls another Johan, and just gives you his full support and makes you feel good about it.
 
-                        <<Dialogue "player" "You">>"Wait, what?"<</Dialogue>>
+                <<elseif $muscle >= 30>>
+                <<Dialogue "Johan" "Johan">>"Actually, that’s kind of perfect. I’ve never seen anyone gain muscle so fast as you, might as well bank on that. I have no idea what the competition is like, but if you got this buff this fast, imagine what you can do if you get really serious?"<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"They do have seats for people to watch right? I admit I know jack shit about bodybuilding, but I assumed you’d go on a stage with an audience."<</Dialogue>>
+                <<Dialogue "player" "You">>"But unless I get first place, this will all be for naught! Am I crazy for doing this? Betting it all on a whim?"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"But, Johan, that means that I need to, you know, bodybuild. Get in shape, get big muscles, lose fat, have symmetry, learn to pose, all that."<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"<<print $playerFirstName>>, if there’s one thing I learned about you since you moved in, is that you are a professional destroyer of expectations. If you told me you were going to run for president, I’d ask where can I register to vote... and can I get a ride on Marine One? I always wanted to ride in a helicopter!"<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"You kinda lost me there, but I know you well enough to not bet against you. "<</Dialogue>>
+                Johan’s enthusiasm, as usual, is contagious, and you already feel like this is in the bag - even if your brain realizes that it’s not going to be easy.
+                <<else>>
+                <<Dialogue "Johan" "Johan">>"Well, that’s a daring plan, <<print $playerFirstName>>..."<</Dialogue>>
 
-                        <</if>>
-                        It’s a good thing you decided to call, because you just feel like grabbing Johan and giving him a big kiss.
+                <<Dialogue "player" "You">>"Yeah, I should’ve known..."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"It sounded like a plan, but I was worrying about so many things - is it going to affect job interviews? What are people going to think? Am I even cut out for this?"<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"... and I’ll be cheering for you on the first line when you win."<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"But, <<print $playerFirstName>>, how do YOU feel? That’s what matters, right?"<</Dialogue>>
+                <<Dialogue "player" "You">>"Wait, what?"<</Dialogue>>
 
-                        It hits you like a million bricks. You’ve been worrying about what others would think... but Johan is totally right. What does that matter?
+                <<Dialogue "Johan" "Johan">>"They do have seats for people to watch right? I admit I know jack shit about bodybuilding, but I assumed you’d go on a stage with an audience."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"You know what? You are right, Johan. I’m gonna do this! Thank you so much for your support!"<</Dialogue>>
+                <<Dialogue "player" "You">>"But, Johan, that means that I need to, you know, bodybuild. Get in shape, get big muscles, lose fat, have symmetry, learn to pose, all that."<</Dialogue>>
 
-                        <<Dialogue "Johan" "Johan">>"Glad to be of help. So, if you don’t mind, I got quite a few miniatures I gotta prep here so..."<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"You kinda lost me there, but I know you well enough to not bet against you. "<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Ah, of course. Thanks again!"<</Dialogue>>
+                <</if>>
+                It’s a good thing you decided to call, because you just feel like grabbing Johan and giving him a big kiss.
 
-                        <<Dialogue "Johan" "Johan">>"Cool. Have fun. And do let me know when you’ll be competing, I will totally bring a sign. They do that, like in pro wrestling, right? Must be similar, I assume?"<</Dialogue>>
+                <<Dialogue "player" "You">>"It sounded like a plan, but I was worrying about so many things - is it going to affect job interviews? What are people going to think? Am I even cut out for this?"<</Dialogue>>
 
-                        Suppressing a giggle, you hang up. Wow. I guess you are really doing this.
+                <<Dialogue "Johan" "Johan">>"But, <<print $playerFirstName>>, how do YOU feel? That’s what matters, right?"<</Dialogue>>
 
-                        There will be time to work on this, but for now, it’s time to get on with your day. You should do something nice for Johan later, though. He’s always there for you, the perfect cheerleader. But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
+                It hits you like a million bricks. You’ve been worrying about what others would think... but Johan is totally right. What does that matter?
 
-                        <<link "Continue" "Home">><</link>>
-                    <</replace>>
-                <</link>>
-            <</if>>
+                <<Dialogue "player" "You">>"You know what? You are right, Johan. I’m gonna do this! Thank you so much for your support!"<</Dialogue>>
 
-            <<if setup.hasEventBeenTriggered("emmaMealPrep")>>
-                <<link "Emma is probably going to give me some tough love, but maybe that is what I need right now?">>
-                    <<replace "#part1">>
-                        You tap the name, and soon the phone is ringing. Before you know it, Emma has picked up and surprised you with a very direct reply:
+                <<Dialogue "Johan" "Johan">>"Glad to be of help. So, if you don’t mind, I got quite a few miniatures I gotta prep here so..."<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"Hello, Ms. <<print $playerLastName>>, is something the matter for you to call me outside business hours?"<</Dialogue>>
+                <<Dialogue "player" "You">>"Ah, of course. Thanks again!"<</Dialogue>>
 
-                        <<if $shyConfident > 1 || $carefreeCarefull > 1>>
-                        <<Dialogue "player" "You">>"Actually, yes. I apologize for this personal call, but I could use some advice from someone with more experience - if you don’t mind.."<</Dialogue>>
+                <<Dialogue "Johan" "Johan">>"Cool. Have fun. And do let me know when you’ll be competing, I will totally bring a sign. They do that, like in pro wrestling, right? Must be similar, I assume?"<</Dialogue>>
 
-                        <<else>>
-                        <<Dialogue "player" "You">>"Uhhh, well, sorry about bothering you, but I really could use some help, and you were the first person to come to mind."<</Dialogue>>
+                Suppressing a giggle, you hang up. Wow. I guess you are really doing this.
 
-                        <</if>>
-                        <<Dialogue "Emma" "Emma">>"I can certainly try. What is it?"<</Dialogue>>
+                There will be time to work on this, but for now, it’s time to get on with your day. You should do something nice for Johan later, though. He’s always there for you, the perfect cheerleader. But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
 
-                        You proceed to explain the issue with the scholarship, how you need the money, and your plan to compete in the bodybuilding show as a means to solve it. There is a brief, unusual pause before she responds after you are done.
+                <<link "Continue" "Home">><</link>>
+            <</replace>>
+        <</link>>
+    <</if>>
 
-                        <<Dialogue "Emma" "Emma">>"... and why, pray tell, you came to me for advice?"<</Dialogue>>
+    <<if $debug || setup.hasEventBeenTriggered("emmaMealPrep")>>
+        <<link "Emma is probably going to give me some tough love, but maybe that is what I need right now?">>
+            <<replace "#part1">>
+                You tap the name, and soon the phone is ringing. Before you know it, Emma has picked up and surprised you with a very direct reply:
 
-                        <<Dialogue "player" "You">>"Oh, you know! Here I am, barely starting my college life, and already deciding to go into bodybuilding. So I thought someone who is so on top of their professional life could tell me if this is a mistake - is it going to affect job interviews or other things in my education and my life?"<</Dialogue>>
+                <<Dialogue "Emma" "Emma">>"Hello, Ms. <<print $playerLastName>>, is something the matter for you to call me outside business hours?"<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"... Oh, that! Of course. Yes, I’d be glad to offer some support."<</Dialogue>>
+                <<if $shyConfident > 1 || $carefreeCarefull > 1>>
+                <<Dialogue "player" "You">>"Actually, yes. I apologize for this personal call, but I could use some advice from someone with more experience - if you don’t mind.."<</Dialogue>>
 
-                        Weird, she sounds almost... relieved?
+                <<else>>
+                <<Dialogue "player" "You">>"Uhhh, well, sorry about bothering you, but I really could use some help, and you were the first person to come to mind."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"So I’m planning to train hard and get that first place prize, so I can stay here in college. But don’t worry, I’m still 100% committed to my job."<</Dialogue>>
+                <</if>>
+                <<Dialogue "Emma" "Emma">>"I can certainly try. What is it?"<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"Well, having a healthy work/life balance is a very important part of both your professional life and the way you handle your personal matters. <<if $carefreeCarefull > 1>>I know you well enough to say you seem to already have a good grasp on that, which should be very helpful.<</if>> And any workplace with proper ethical HR practices should not discriminate applicants based on sporting activities - though in real life, hiring biases ARE very much an issue. Still, if you were to lead your life worrying so much about other people’s opinions, you might not be able to keep this balance healthy. It’s a catch-22, certainly."<</Dialogue>>
+                You proceed to explain the issue with the scholarship, how you need the money, and your plan to compete in the bodybuilding show as a means to solve it. There is a brief, unusual pause before she responds after you are done.
 
-                        <<Dialogue "player" "You">>"Wow, that makes a lot of sense. I’m glad I asked your opinion!"<</Dialogue>>
+                <<Dialogue "Emma" "Emma">>"... and why, pray tell, you came to me for advice?"<</Dialogue>>
 
-                        <<if $muscle >= 80>>
-                        <<Dialogue "Emma" "Emma">>"I am not going to lie, I’ve seen how much mass you accrued since you started working at the company, and I assumed you were already competing in some form. <<if $emmaOpinion > 35>>If I may be totally frank, I even had concerns you might be taking performance-enhancing drugs.<</if>>"<</Dialogue>>
+                <<Dialogue "player" "You">>"Oh, you know! Here I am, barely starting my college life, and already deciding to go into bodybuilding. So I thought someone who is so on top of their professional life could tell me if this is a mistake - is it going to affect job interviews or other things in my education and my life?"<</Dialogue>>
 
-                        <<elseif $muscle >= 55>>
-                        <<Dialogue "Emma" "Emma">>"You clearly have a very strong base to start with, with a very developed body that should put you well above the competition. So I’d say that already gives you an edge."<</Dialogue>>
+                <<Dialogue "Emma" "Emma">>"... Oh, that! Of course. Yes, I’d be glad to offer some support."<</Dialogue>>
 
-                        <<elseif $muscle >= 32>>
-                        <<Dialogue "Emma" "Emma">>"Your body is already above average, it will take some work, but it will take some work for you to get to the point where you can seriously entertain the idea of placing first."<</Dialogue>>
+                Weird, she sounds almost... relieved?
 
-                        <<else>>
-                        <<Dialogue "Emma" "Emma">>"That said, do you realize what kind of physique would be necessary to place first in such a competition? I must ask, because for this plan to work, you will have to gain considerable mass - just want you to be aware of that."<</Dialogue>>
+                <<Dialogue "player" "You">>"So I’m planning to train hard and get that first place prize, so I can stay here in college. But don’t worry, I’m still 100% committed to my job."<</Dialogue>>
 
-                        <</if>>
-                        <<Dialogue "player" "You">>"Oh, thanks for telling me that..."<</Dialogue>>
+                <<Dialogue "Emma" "Emma">>"Well, having a healthy work/life balance is a very important part of both your professional life and the way you handle your personal matters. <<if $carefreeCarefull > 1>>I know you well enough to say you seem to already have a good grasp on that, which should be very helpful.<</if>> And any workplace with proper ethical HR practices should not discriminate applicants based on sporting activities - though in real life, hiring biases ARE very much an issue. Still, if you were to lead your life worrying so much about other people’s opinions, you might not be able to keep this balance healthy. It’s a catch-22, certainly."<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"And I also hope you know, bodybuilding is so much more than just being big - it’s an art, it’s like painting with your body. Size means nothing without symmetry, proper posing, the perfect tan to bring out every contour of a perfectly sculpted body. Passion and dedication is just the tip of the iceberg for one to seriously get into bodybuilding"<</Dialogue>>
+                <<Dialogue "player" "You">>"Wow, that makes a lot of sense. I’m glad I asked your opinion!"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Wow, Emma, I didn’t realize you were such an expert!"<</Dialogue>>
+                <<if $muscle >= 80>>
+                <<Dialogue "Emma" "Emma">>"I am not going to lie, I’ve seen how much mass you accrued since you started working at the company, and I assumed you were already competing in some form. <<if $emmaOpinion > 35>>If I may be totally frank, I even had concerns you might be taking performance-enhancing drugs.<</if>>"<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"I... uh... just want you to properly balance the risk and reward with your strategy, <<print $playerFirstName>>, that is all."<</Dialogue>>
+                <<elseif $muscle >= 55>>
+                <<Dialogue "Emma" "Emma">>"You clearly have a very strong base to start with, with a very developed body that should put you well above the competition. So I’d say that already gives you an edge."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"I am so happy I came to you for help, Emma!"<</Dialogue>>
+                <<elseif $muscle >= 32>>
+                <<Dialogue "Emma" "Emma">>"Your body is already above average, it will take some work, but it will take some work for you to get to the point where you can seriously entertain the idea of placing first."<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"I am also glad you trust me with this. And I have faith in you. <<if $skills[2].level > 3 && $muscle >= 32>>Your work ethic has impressed me, and I am sure with sufficient effort, you will have a good shot at this.<<elseif $skills[2].level > 3>>Your work ethic has impressed me, though with this timeframe, it’s going to be exceedingly hard. I can’t quite explain why, though, I feel like you should still give this a shot.<</if>>"<</Dialogue>>
+                <<else>>
+                <<Dialogue "Emma" "Emma">>"That said, do you realize what kind of physique would be necessary to place first in such a competition? I must ask, because for this plan to work, you will have to gain considerable mass - just want you to be aware of that."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Well, I don’t have many other options, but with you in my corner, I somehow feel like I can do anything."<</Dialogue>>
+                <</if>>
+                <<Dialogue "player" "You">>"Oh, thanks for telling me that..."<</Dialogue>>
 
-                        <<Dialogue "Emma" "Emma">>"Well, confidence will do you good. But now I really need to get back to work, if you don’t mind."<</Dialogue>>
+                <<Dialogue "Emma" "Emma">>"And I also hope you know, bodybuilding is so much more than just being big - it’s an art, it’s like painting with your body. Size means nothing without symmetry, proper posing, the perfect tan to bring out every contour of a perfectly sculpted body. Passion and dedication is just the tip of the iceberg for one to seriously get into bodybuilding"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Oh, no, no. I’m sorry. Thanks again!"<</Dialogue>>
+                <<Dialogue "player" "You">>"Wow, Emma, I didn’t realize you were such an expert!"<</Dialogue>>
 
-                        And so you hang up the call, feeling really motivated. Who would’ve guessed that your super serious boss, of all people, would be such a great help? But there’s a lot of work ahead, so no use dwelling on that... But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
+                <<Dialogue "Emma" "Emma">>"I... uh... just want you to properly balance the risk and reward with your strategy, <<print $playerFirstName>>, that is all."<</Dialogue>>
 
-                        <<link "Continue" "Home">><</link>>
-                    <</replace>>
-                <</link>>
-            <</if>>
-            
-            <<if setup.hasEventBeenTriggered('KrisDate1')>>
-                <<link "Kris may be a bit insane, but there’s no way she won’t give me full support - and possible break a few laws - to help me.">>
-                    <<replace "#part1">>
-                        You tap the name, and soon the phone is ringing. It rings for quite a long time, then goes to the mailbox. You almost decide to leave a message, but eventually just hang up. It’s okay, you can handle this yourself.
+                <<Dialogue "player" "You">>"I am so happy I came to you for help, Emma!"<</Dialogue>>
 
-                        But as soon as you pocket your phone, it’s ringing again. And it’s Kris.
+                <<Dialogue "Emma" "Emma">>"I am also glad you trust me with this. And I have faith in you. <<if $skills[2].level > 3 && $muscle >= 32>>Your work ethic has impressed me, and I am sure with sufficient effort, you will have a good shot at this.<<elseif $skills[2].level > 3>>Your work ethic has impressed me, though with this timeframe, it’s going to be exceedingly hard. I can’t quite explain why, though, I feel like you should still give this a shot.<</if>>"<</Dialogue>>
 
-                        <<Dialogue "Kris" "Kris">>"Hey, hey, sorry about that. I left my phone on the desk while i was doing something else - but that doesn’t matter: how can I serve my big little friend today?"<</Dialogue>>
+                <<Dialogue "player" "You">>"Well, I don’t have many other options, but with you in my corner, I somehow feel like I can do anything."<</Dialogue>>
 
-                        Well, she certainly gets extra points for enthusiasm. Already slightly dreading the outcome, you tell the barista about your financial disaster and the prospect of a windfall in the form of a bodybuilding competition.
+                <<Dialogue "Emma" "Emma">>"Well, confidence will do you good. But now I really need to get back to work, if you don’t mind."<</Dialogue>>
 
-                        <<Dialogue "Kris" "Kris">>"WHOA, WHOA, WHOA, you had me at bodybuilding. Alright, we need to get on this STAT. What do we need? You have a place to train already. <<if $furniture.includes("light weight set")>>And you have plenty of weights at home, so that’s good. <<else>>We’ll need to get some weights for you at home, though.<</if>><<if PLAYER HAS SUPPLEMENTS>>Your pantry is also stocked with supplements, so that’s a plus.<<else>>We’ll need to stock you up on supplements, because you are out of those. Hmmm, ok.<</if>> I’ll see what I can do about those weird potions, I am sure I can get a bunch. Oh, this is so exciting, we are gonna make you get SO BIG!"<</Dialogue>>
+                <<Dialogue "player" "You">>"Oh, no, no. I’m sorry. Thanks again!"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Uh, so, first of all, thanks for the support, I didn’t quite expect..."<</Dialogue>>
+                And so you hang up the call, feeling really motivated. Who would’ve guessed that your super serious boss, of all people, would be such a great help? But there’s a lot of work ahead, so no use dwelling on that... But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
 
-                        <<Dialogue "Kris" "Kris">>"I wonder if I can also manage to get my hands on some other performance-enhancing stuff? I need to look it up, maybe get in touch with some people I know..."<</Dialogue>>
+                <<link "Continue" "Home">><</link>>
+            <</replace>>
+        <</link>>
+    <</if>>
+    
+    <<if $debug || setup.hasEventBeenTriggered('KrisDate1')>>
+        <<link "Kris may be a bit insane, but there’s no way she won’t give me full support - and possible break a few laws - to help me.">>
+            <<replace "#part1">>
+                You tap the name, and soon the phone is ringing. It rings for quite a long time, then goes to the mailbox. You almost decide to leave a message, but eventually just hang up. It’s okay, you can handle this yourself.
 
-                        <<Dialogue "player" "You">>"I mean, that’s great, but I assume there’s testing and..."<</Dialogue>>
+                But as soon as you pocket your phone, it’s ringing again. And it’s Kris.
 
-                        <<Dialogue "Kris" "Kris">>"Damn, I’m getting all hot here thinking about how buff you are gonna get. And having you onstage on nothing but a bikini, DAAAAAAMN!"<</Dialogue>>
+                <<Dialogue "Kris" "Kris">>"Hey, hey, sorry about that. I left my phone on the desk while i was doing something else - but that doesn’t matter: how can I serve my big little friend today?"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Yeah, it’s also a bit scary if..."<</Dialogue>>
+                Well, she certainly gets extra points for enthusiasm. Already slightly dreading the outcome, you tell the barista about your financial disaster and the prospect of a windfall in the form of a bodybuilding competition.
 
-                        And then all you can hear is Kris hyperventilating on the other end of the call, and once she starts moaning, you find yourself quickly hanging up.
+                <<Dialogue "Kris" "Kris">>"WHOA, WHOA, WHOA, you had me at bodybuilding. Alright, we need to get on this STAT. What do we need? You have a place to train already. <<if $furniture.includes("light weight set")>>And you have plenty of weights at home, so that’s good. <<else>>We’ll need to get some weights for you at home, though.<</if>><<if PLAYER HAS SUPPLEMENTS>>Your pantry is also stocked with supplements, so that’s a plus.<<else>>We’ll need to stock you up on supplements, because you are out of those. Hmmm, ok.<</if>> I’ll see what I can do about those weird potions, I am sure I can get a bunch. Oh, this is so exciting, we are gonna make you get SO BIG!"<</Dialogue>>
 
-                        I mean, it could have gone worse. If anything, it seems like at least you will have a lot of support in this endeavor. And before you even complete your thought, Kris is already spamming you with a ton of messages about her crazy plans.
+                <<Dialogue "player" "You">>"Uh, so, first of all, thanks for the support, I didn’t quite expect..."<</Dialogue>>
 
-                        Let’s just hope she doesn’t break any laws. Still, you can’t help but feel like you might just be able to pull this off with her insane energy, and really get that trophy and prize money. If anything, it’s going to be an exciting few weeks ahead of you!But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
+                <<Dialogue "Kris" "Kris">>"I wonder if I can also manage to get my hands on some other performance-enhancing stuff? I need to look it up, maybe get in touch with some people I know..."<</Dialogue>>
 
-                        <<link "Continue" "Home">><</link>>
+                <<Dialogue "player" "You">>"I mean, that’s great, but I assume there’s testing and..."<</Dialogue>>
 
-                    <</replace>>
-                <</link>>
-            <</if>>
+                <<Dialogue "Kris" "Kris">>"Damn, I’m getting all hot here thinking about how buff you are gonna get. And having you onstage on nothing but a bikini, DAAAAAAMN!"<</Dialogue>>
 
-            <<if setup.hasEventBeenTriggered("elenaGymIntimacy")>>
-                <<link "I really could use a supportive and friendly shoulder. And Elena is very friendly - and has very big shoulders.">>
-                    <<replace "#part1">>
-                        You tap the name, and soon the phone is ringing. You hear the click, and prolonged silence.
+                <<Dialogue "player" "You">>"Yeah, it’s also a bit scary if..."<</Dialogue>>
 
-                        <<Dialogue "Elena" "Elena">>"..."<</Dialogue>>
+                And then all you can hear is Kris hyperventilating on the other end of the call, and once she starts moaning, you find yourself quickly hanging up.
 
-                        <<Dialogue "Elena" "Elena">>"... p-pronto?"<</Dialogue>>
+                I mean, it could have gone worse. If anything, it seems like at least you will have a lot of support in this endeavor. And before you even complete your thought, Kris is already spamming you with a ton of messages about her crazy plans.
 
-                        <<Dialogue "player" "You">>"Hey, Elena, do you have a second? I could use a friend right now..."<</Dialogue>>
+                Let’s just hope she doesn’t break any laws. Still, you can’t help but feel like you might just be able to pull this off with her insane energy, and really get that trophy and prize money. If anything, it’s going to be an exciting few weeks ahead of you!But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
 
-                        <<Dialogue "Elena" "Elena">>"Of course! What is it?"<</Dialogue>>
+                <<link "Continue" "Home">><</link>>
 
-                        You take a deep breath, and start explaining your whole mess with the scholarship, the real and imminent risk of having your tuition revoked, and how you need a lot of money really fast. You can hear Elena gasping and interjecting on the back, and it really tugs at your heart - you don’t want to put any more strain on her emotions, but you figure the context here is important. She constantly asks about how you are feeling, and questions about what she can do to help.
+            <</replace>>
+        <</link>>
+    <</if>>
 
-                        You realize there’s no easy way to break this to her, so you just go and say it.
+    <<if $debug || setup.hasEventBeenTriggered("elenaGymIntimacy")>>
+        <<link "I really could use a supportive and friendly shoulder. And Elena is very friendly - and has very big shoulders.">>
+            <<replace "#part1">>
+                You tap the name, and soon the phone is ringing. You hear the click, and prolonged silence.
 
-                        <<Dialogue "player" "You">>"So, you see, there’s going to be a bodybuilding championship at the end of summer. The first prize would be enough to pay for this year’s tuition."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"..."<</Dialogue>>
 
-                        <<Dialogue "Elena" "Elena">>"Oh!"<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"... p-pronto?"<</Dialogue>>
 
-                        Elena sounds surprised, but also somewhat ambivalent. She offers no further input.
+                <<Dialogue "player" "You">>"Hey, Elena, do you have a second? I could use a friend right now..."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Just to be clear, I’m not calling you because, well, no beating around the bush, you have an impressive physique. Actually, what I could really use right now is some support from a friend I can trust."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"Of course! What is it?"<</Dialogue>>
 
-                        <<Dialogue "Elena" "Elena">>"Ah!"<</Dialogue>>
+                You take a deep breath, and start explaining your whole mess with the scholarship, the real and imminent risk of having your tuition revoked, and how you need a lot of money really fast. You can hear Elena gasping and interjecting on the back, and it really tugs at your heart - you don’t want to put any more strain on her emotions, but you figure the context here is important. She constantly asks about how you are feeling, and questions about what she can do to help.
 
-                        She sounds much happier now that this point was made clear.
+                You realize there’s no easy way to break this to her, so you just go and say it.
 
-                        <<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>, you are such a special person in my life, it would be an honor to give any support I could!"<</Dialogue>>
+                <<Dialogue "player" "You">>"So, you see, there’s going to be a bodybuilding championship at the end of summer. The first prize would be enough to pay for this year’s tuition."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"I mean, just being in the gym by your side already makes my day brighter, <<if $shyConfident < -1>>and I’m not gonna lie, just thinking about going onstage already gives me a bit of a panic attack. But then I think you’d be there in the audience, cheering for me, and it calms me down.<<else>>and when I imagine myself onstage, with all the spotlights on me, there’s nothing I’d like more than you cheering on me from the audience<</if>>."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"Oh!"<</Dialogue>>
 
-                        Elena says nothing, but you bet she’s blushing right now from her breathing alone. It brings a warm smile to your face.
+                Elena sounds surprised, but also somewhat ambivalent. She offers no further input.
 
-                        <<Dialogue "Elena" "Elena">>"A-as long as you don’t expect me to compete //insieme a voi//... up there with you... I’d love to help however I can."<</Dialogue>>
+                <<Dialogue "player" "You">>"Just to be clear, I’m not calling you because, well, no beating around the bush, you have an impressive physique. Actually, what I could really use right now is some support from a friend I can trust."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"And that’s exactly what I need. I feel like I can do anything with you by my side, Elena. This is all so scary, but if I can hold your hand, I can see the light at the end of the tunnel."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"Ah!"<</Dialogue>>
 
-                        Elena gulps.
+                She sounds much happier now that this point was made clear.
 
-                        <<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>..."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>, you are such a special person in my life, it would be an honor to give any support I could!"<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"I’m sorry, I didn’t mean to put so much pressure on you."<</Dialogue>>
+                <<Dialogue "player" "You">>"I mean, just being in the gym by your side already makes my day brighter, <<if $shyConfident < -1>>and I’m not gonna lie, just thinking about going onstage already gives me a bit of a panic attack. But then I think you’d be there in the audience, cheering for me, and it calms me down.<<else>>and when I imagine myself onstage, with all the spotlights on me, there’s nothing I’d like more than you cheering on me from the audience<</if>>."<</Dialogue>>
 
-                        <<Dialogue "Elena" "Elena">>"//No, va bene.// It’s fine. I’d love nothing more than be that person for you."<</Dialogue>>
+                Elena says nothing, but you bet she’s blushing right now from her breathing alone. It brings a warm smile to your face.
 
-                        It’s your heart’s turn to skip a beat. You bite your lower lip before continuing.
+                <<Dialogue "Elena" "Elena">>"A-as long as you don’t expect me to compete //insieme a voi//... up there with you... I’d love to help however I can."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"See? Now I don’t need to be afraid anymore."<</Dialogue>>
+                <<Dialogue "player" "You">>"And that’s exactly what I need. I feel like I can do anything with you by my side, Elena. This is all so scary, but if I can hold your hand, I can see the light at the end of the tunnel."<</Dialogue>>
 
-                        <<Dialogue "Elena" "Elena">>"I don’t know that I can help that much, but... if it does help, I’m more than willing to do what I can."<</Dialogue>>
+                Elena gulps.
 
-                        <<Dialogue "player" "You">>"You do. More than you imagine."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"<<print $playerFirstName>>..."<</Dialogue>>
 
-                        And then the two of you just kind of savor the moment, nothing really to add.
+                <<Dialogue "player" "You">>"I’m sorry, I didn’t mean to put so much pressure on you."<</Dialogue>>
 
-                        <<Dialogue "player" "You">>"Uhhh, I guess that’s it? Thank you again, Elena. And I’ll see you at the gym."<</Dialogue>>
+                <<Dialogue "Elena" "Elena">>"//No, va bene.// It’s fine. I’d love nothing more than be that person for you."<</Dialogue>>
 
-                        She just vocalizes a brief “hm”, and you just hang up. Why do you have butterflies in your stomach and your heart is racing?
+                It’s your heart’s turn to skip a beat. You bite your lower lip before continuing.
 
-                        Phew. Well, I guess that’s it. You are really doing this. You would have never guessed that this was in the cards for you before arriving in town, but having Elena to watch your back makes all the difference. Who knows, maybe some of her muscularity will even rub off on you.
+                <<Dialogue "player" "You">>"See? Now I don’t need to be afraid anymore."<</Dialogue>>
 
-                        Amused, you can’t help but to look forward to your next nightly gym session. But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
+                <<Dialogue "Elena" "Elena">>"I don’t know that I can help that much, but... if it does help, I’m more than willing to do what I can."<</Dialogue>>
 
-                        <<link "Continue" "Home">><</link>>
+                <<Dialogue "player" "You">>"You do. More than you imagine."<</Dialogue>>
 
-                    <</replace>>
-                <</link>>
-            <</if>>
-        </span>`
+                And then the two of you just kind of savor the moment, nothing really to add.
+
+                <<Dialogue "player" "You">>"Uhhh, I guess that’s it? Thank you again, Elena. And I’ll see you at the gym."<</Dialogue>>
+
+                She just vocalizes a brief “hm”, and you just hang up. Why do you have butterflies in your stomach and your heart is racing?
+
+                Phew. Well, I guess that’s it. You are really doing this. You would have never guessed that this was in the cards for you before arriving in town, but having Elena to watch your back makes all the difference. Who knows, maybe some of her muscularity will even rub off on you.
+
+                Amused, you can’t help but to look forward to your next nightly gym session. But for now.... it's time to check out the event hall in the city, to see what you're dealing with!
+
+                <<link "Continue" "Home">><</link>>
+
+            <</replace>>
+        <</link>>
+    <</if>>
+</span>`
     },
     {
         name: 'Main_quest_Toshi_meeting_setup',
