@@ -79,7 +79,7 @@ $(function () {
             }
 
             if (State.variables.displayCalve == true) {
-                addData(yValues, 'calve', element, 'Calve ' + suffix, 'lime');
+                addData(yValues, 'calve', element, 'Calves ' + suffix, 'lime');
             }
 
             if (State.variables.displayAnkle == true) {
