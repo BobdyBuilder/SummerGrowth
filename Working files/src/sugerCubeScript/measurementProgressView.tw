@@ -79,7 +79,7 @@ $(function () {
             }
 
             if (State.variables.displayCalve == true) {
-                addData(yValues, 'calve', element, 'Calves ' + suffix, 'lime');
+                addData(yValues, 'calve', element, 'Calve ' + suffix, 'lime');
             }
 
             if (State.variables.displayAnkle == true) {
@@ -141,7 +141,7 @@ You kept track of a lot of things, and with it you can easily check your progres
   <tr>
     <td><<checkbox "$displayThigh" false true autocheck>> Thigh</td>
     <td><<checkbox "$displayKnee" false true autocheck>> Knee</td>
-    <td><<checkbox "$displayCalve" false true autocheck>> Calves</td>
+    <td><<checkbox "$displayCalve" false true autocheck>> Calve</td>
   </tr>
   <tr>
     <td><<checkbox "$displayAnkle" false true autocheck>> Ankle</td>
