@@ -900,8 +900,8 @@ And so you start a rush to change, go back to your apartment and try to look as 
     name: 'EM35EmmaRegisterContest',
     locationTags: ['emma'],
     conditions: [
-        () => hasEventBeenTriggered('EmmaBurnout'),
-        () => hasEventBeenTriggered('NatWristInjury')
+        () => setup.hasEventBeenTriggered('EmmaBurnout'),
+        () => setup.hasEventBeenTriggered('NatWristInjury')
     ],
     repeatable: false,
     retriggerable: false,
