@@ -59,7 +59,7 @@
 <</if>>
 
 <<if $globalGrowthMod < 1 >>
-    <<set $globalGrowthMod -= 2>>
+    <<set $globalGrowthMod *= 0.8>>
 <</if>>
 
 <</widget>>
