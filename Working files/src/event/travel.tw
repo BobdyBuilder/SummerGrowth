@@ -8,7 +8,7 @@
 
 <<gameLink "Go visit the gym" "gym" time:20>><</gameLink>>
 <br><br>
-<<if $mainQuestMoneyProblems && evenCenterVisited != true>>
+<<if $mainQuestMoneyProblems && $evenCenterVisited != true>>
 <<gameLink "Go visit the event center to prep for the bodybuilding show" "EventCenter" time:60>><</gameLink>>
 <br><br>
 <</if>>
