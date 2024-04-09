@@ -141,13 +141,13 @@
 		  <td></td>
 		  <td></td>
 		</tr>
+		<tr>
         <td>potion crafting</td>
 		  <td><<link "unlock potion crafting" "Cheats">><<set $furniture.push("distilation still")>><</link>></td>
 		  <td><<link "unlock all recipes" "Cheats">><<script>>State.variables.potionIngredientCombinations.forEach(e => e.discovered = true);<</script>><</link>></td>
 		  <td><<link "add 10 of every potion" "Cheats">><<script>>State.variables.consumables.forEach(element => element.amount = 5);<</script>><</link>></td>
 		  <td></td>
 		</tr>
-		<tr>
 </table>
 
 [[Return|$return]]
