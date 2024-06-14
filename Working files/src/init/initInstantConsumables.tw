@@ -485,14 +485,12 @@
         name: "Lact-aid",
         description: "There’s something very milky about this liquid... but somehow it makes you want to fill the container more so than consume it...",
         transform: "instantLactaid",
-        ingredients: [
-            [
+        ingredients: [            
             "FeminineIngredient",
             "Opposium",
             "FatIngredient",
             "LiquidIngredient"
-        ],
-        ],
+            ],
         amount: 0, 
 		FirstTimeDrink: true, 
 		CraftingDescription: "The solution turns opaque and milky as you mix the ingredients in, and before you know, your tongue is making an involuntary sucking motion. You transfer the final product to its container, and resist the urge to fill it to the brim with something else.",
