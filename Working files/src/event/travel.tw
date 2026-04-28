@@ -43,7 +43,7 @@
 
 <<if $daysPlayed == $dayOfEmmaBulkDate>>
 	<<if $gameDate.getHours() >= 9 and $gameDate.getHours() <= 18>>
-		<<link "Visit Elena at her home" "ElenaHouse">><<set $eventCounter to setup.balance.eventTresshold + 1>><</link>><br>
+		<<gameLink "Visit Elena at her home" "ElenaHouse" time:120>><<set $eventCounter to setup.balance.eventTresshold + 1>><</gameLink>><br>
     <<else>>
     Perhaps you could visit Elena at her place during the day! You are awefully close...<br>
 	<</if>>
