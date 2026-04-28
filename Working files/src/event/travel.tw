@@ -35,11 +35,17 @@
 	<</if>>
 <</if>>
 
+<<if $elenaOpenedUp is true && setup.hasEventBeenTriggered('EM33LoveDeclaration') == true>>
+	<<if $gameDate.getHours() >= 16 and $gameDate.getHours() <= 19>>
+		<<link "Go on the date with Elena" "ElenaDateStart">><<set $elenaDate1Finished to true>><</link>><br>
+	<</if>>
+<</if>>
+
 <<if $daysPlayed == $dayOfEmmaBulkDate>>
-	<<if $gameDate.getHours() >= 10 and $gameDate.getHours() <= 22>>
-		<<link "Go mealprep with Emma" "EmmaWork">><<set $eventCounter to setup.balance.eventTresshold + 1>><</link>><br>
+	<<if $gameDate.getHours() >= 9 and $gameDate.getHours() <= 18>>
+		<<link "Visit Elena at her home" "ElenaHouse">><<set $eventCounter to setup.balance.eventTresshold + 1>><</link>><br>
     <<else>>
-    Emma will be expecting you for the mealprep between 10:00 and 22:00.<br>
+    Perhaps you could visit Elena at her place during the day! You are awefully close...<br>
 	<</if>>
 <</if>>
 

@@ -14,6 +14,4 @@ $srcFolder   = Join-Path $scriptPath "src"
 # If Tweego succeeded, open the HTML file
 if (Test-Path $outputFile) {
     Start-Process $outputFile
-} else {
-    Write-Host "Build failed — output file not found." -ForegroundColor Red
-}
+} 
