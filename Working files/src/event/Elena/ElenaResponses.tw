@@ -390,6 +390,9 @@
         name: 'ElenaGenericVisitAfterDeclaration1',
         locationTags: ['ElenaHouse'],
         conditions: [
+            () => State.variables.elenaOpenedUp,
+            () => setup.hasEventBeenTriggered('EM33LoveDeclaration'),
+            () => State.variables.gameDate.getHours() >= 8 && State.variables.gameDate.getHours() <= 18
         ],
         repeatable: false,
         retriggerable: false,
