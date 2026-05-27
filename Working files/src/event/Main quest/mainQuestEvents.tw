@@ -5,8 +5,8 @@
     locationTags: ['secondHandStore'],
     conditions: [
             () => State.variables.mainQuestProgressMade,
-            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction1') /*TODO remove this condition for the next major patch*/,
-            /*() => State.variables.flag.PlayerDreamsPotionReaction3,*/ /*TODO uncomment this condition for the next major patch*/
+            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction1'),
+            () => State.variables.flag.PlayerDreamsPotionReaction3,
             () => State.variables.daysPlayed >= 10,
         ],
 repeatable: false,
@@ -456,8 +456,120 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
 
         Holy shit. It actually worked. Your heart is now racing like crazy, you can’t even bring yourself to go back to your workout. It’s not going to be easy sleeping tonight. All this time, the probable architect of this strange tale is finally coming onstage. Somehow, this feels even more surreal than your entire ordeal so far.
 
-        I guess tomorrow you’ll find out more. Waiting is all you can do now
+        I guess tomorrow you’ll find out more. Waiting is all you can do now.`
+    },
+    {
+        name: 'Main_quest_Toshi_meeting',
+        locationTags: ['park'],
+        conditions: [
+            () => setup.hasEventBeenTriggered("main_quest_Toshi_meeting_setup"),
+            () => State.variables.gameDate.getHours() >= 11,
+            () => State.variables.gameDate.getHours() <= 13
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `As you make your way to the fountain, the anxiety mounts up - the very person who started the chain of events that made this summer so eventful will hopefully get you some answers? The park is unusually empty, but you aren’t afraid of facing the gigantic student from the pictures - on the contrary, it feels strangely reassuring, the idea of finding another person who’s been through the same experience<<if $elenaUnlocked==true>> (other than Elena, but given that it happened to her unwittingly, it doesn’t really feels like it counts)<</if>>. You sit on the rim of the fountain, sun glistening in the water. You start imagining what it’s going to be like - knowing everything about the transformation, why it’s slowing down, how to revert that...<br><br>
+<<Dialogue "randomGuy1" "Random guy 1">>"Hey, you must be the girl who messaged me."<</Dialogue>><br><br>
+You turn around, gasping as you finally see Toshi.<br><br>
+<<Dialogue "player" "You">>"T-toshi?!?"<</Dialogue>><br><br>
+Instead of the gigantic student from the pictures from the thumb drive, what you find is a moderaly fit guy. Sure, he looks like he works out, but other than being in great shape... it’s just this normal dude.<br><br>
+<<Dialogue "player" "You">>"Wait, I thought you had gotten gigantic! I saw the images, read your diary... what happened?"<</Dialogue>><br><br>
+He awkwardly places his hand on the back of his neck with a small laugh. It makes his toned biceps pop and stretch his jacket taut, but <<if $muscle >= 80>>barely a small fraction of the girth of your own,<<elseif $muscle >= 55>>still noticeably smaller than your own,<<elseif $muscle >= 35>>not really much different from your own,<<else>>larger than yours, an improvement from his former body shown in his original picture, and yet<</if>> a considerable contrast from its behemoth version.<br><br>
+<<Dialogue "Toshi" "Toshi">>"Well, that’s a complicated story..."<</Dialogue>><br><br>
+<br><br>
+And so Toshi goes over the entire saga - his breakthrough discovery, the explosive growth, losing the canister, getting in trouble with the university and eventually the police... and eventually, the effects starting to wear off.<br><br>
+<<Dialogue "Toshi" "Toshi">>"I still remember, I completely freaked out, it was like my whole world was collapsing around me."<</Dialogue>><br><br>
+You nod in agreement, feeling your stomach drop as you fear at the realization he had to go through the same process. And indeed, he confirms having dealt with the same affliction you are now experiencing.<br><br>
+<<Dialogue "player" "You">>"And you didn’t do anything to revert it? To keep your growth?!?"<</Dialogue>><br><br>
+Your question brings a bitter smile to his face, a stark contrast to his megalomaniacal energy from the diary.<br><br>
+<<Dialogue "Toshi" "Toshi">>"Oh, God, I did. Like you wouldn’t believe it. And so I was spending all my money and drinking the craziest concoctions you could imagine - until this day one knocked me out for a full day. When I came to, I looked at myself in the mirror, and started reminiscing about the trail of destruction I left behind: having that girl accidentally drink an experiment, being expelled from the college, going bankrupt, risking my health... I loved my growth, but it felt somewhat meaningless as it took over my entire life. And so I threw all the chemicals away, accepted myself and joined a gym where I would earn my transformation the traditional way. Haven’t looked back since."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"So there’s no way to keep the effects from reversing?"<</Dialogue>><br><br>
+Toshi puts a hand on your shoulder.<br><br>
+<<Dialogue "Toshi" "Toshi">>"If there is, you need to ask yourself something: why is this important to you... and what are you willing to give up for it? When I found my answers, it actually made me realize I had a different kind of growing up to do. And I did."<</Dialogue>><br><br>
+You are taken aback by that comment, but he’s right. Toshi certainly has come a long way. And now you can’t help but wonder if perhaps you too need to think about your life.<br><br>
 
-        [END OF STORY FOR THIS UPDATE]`
+CHOICE: I guess... but is it possible to revert the growth?
+<<Dialogue "player" "You">>"Does that mean there’s nothing I can do to keep my body from going back to what it was?"<</Dialogue>><br><br>
+Toshi sighs.<br><br>
+<<Dialogue "Toshi" "Toshi">>"I should warn you - what you seek does come with its own set of risks. Your body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. HOWEVER..."<</Dialogue>><br><br>
+You watch as he raises his arms in an excited movement that betrays his old self.<br><br>
+<<Dialogue "Toshi" "Toshi">>"The theory confirms that one could synthesize a substance that would affect the chemical structure of the catalyst, making it more unstable... and therefore confusing the body and making it impossible for a resistance to settle. In fact, there’s a chance that it could even make the effects even greater and..."<</Dialogue>><br><br>
+Toshi’s breathing gets noticeably deeper, his pupils dilated. He shakes his head, and exhales slowly.<br><br>
+<<Dialogue "Toshi" "Toshi">>"Sorry, got a bit carried away there. Still, the science says it is possible - but it would involve a lot of trial and error, and I have no idea what kind of side effects one might get from an improper formulation. Even if the risk was worth it, it was that realization that became MY personal catalyst to becoming the person I am today."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"What should I do to achieve that substance?"<</Dialogue>><br><br>
+[Placeholder: provide game hint here]
+<<Dialogue "Toshi" "Toshi">>"I hope you appreciate why I can’t help you personally. I am now over that phase of my life."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, totally. I can’t thank you enough. If I do find it, would you like me to share it with you?"<</Dialogue>><br><br>
+His eyes glint and you see him pursing his lips.<br><br>
+<<Dialogue "Toshi" "Toshi">>"Old Toshi would do anything to have that. Thanks for the offer, but I don’t know that I could resist the temptation. Sometimes ignorance is bliss. Besides, as I figured out, working hard for these results is part of who I am now and I’m happier for it. So I’ll pass."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"I owe you big time."<</Dialogue>><br><br>
+<<Dialogue "Toshi" "Toshi">>"Maybe you should wait until this whole thing is behind you to say that. But I suppose we all need to go through our own journeys to figure that out. Still, your thanks are appreciated. That said, I really shouldn’t be hanging out around these parts anymore, so you probably won’t be seeing me anymore. But I wish you good luck on your future endeavors. Take care."<</Dialogue>><br><br>
+Before you can properly respond, he gets up and walks away. There’s something to admire and even envy in his resolution. And now you have a direction as to how to proceed with your alchemic experiments. The road ahead of you is still foggy, but you feel like you have a clearer north now.’
+
+
+<span id="choice">
+	<<link "I guess... but is it possible to stop the reversal?">>
+		<<replace "#choice">>
+			<<Dialogue "player" "You">>"Does that mean there’s nothing I can do to keep my body from going back to what it was?"<</Dialogue>><br><br>
+			Toshi sighs.<br><br>
+			<<Dialogue "Toshi" "Toshi">>"I should warn you - what you seek does come with its own set of risks. Your body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. HOWEVER..."<</Dialogue>><br><br>
+			You watch as he raises his arms in an excited movement that betrays his old self.<br><br>
+			<<Dialogue "Toshi" "Toshi">>"The theory confirms that one could synthesize a substance that would affect the chemical structure of the catalyst, making it more unstable... and therefore confusing the body and making it impossible for a resistance to settle. In fact, there’s a chance that it could even make the effects even greater and..."<</Dialogue>><br><br>
+			Toshi’s breathing gets noticeably deeper, his pupils dilated. He shakes his head, and exhales slowly.<br><br>
+			<<Dialogue "Toshi" "Toshi">>"Sorry, got a bit carried away there. Still, the science says it is possible - but it would involve a lot of trial and error, and I have no idea what kind of side effects one might get from an improper formulation. Even if the risk was worth it, it was that realization that became MY personal catalyst to becoming the person I am today."<</Dialogue>><br><br>
+			<<Dialogue "player" "You">>"What should I do to achieve that substance?"<</Dialogue>><br><br>
+			[Placeholder: provide game hint here]
+			<<Dialogue "Toshi" "Toshi">>"I hope you appreciate why I can’t help you personally. I am now over that phase of my life."<</Dialogue>><br><br>
+			<<Dialogue "player" "You">>"Oh, totally. I can’t thank you enough. If I do find it, would you like me to share it with you?"<</Dialogue>><br><br>
+			His eyes glint and you see him pursing his lips.<br><br>
+			<<Dialogue "Toshi" "Toshi">>"Old Toshi would do anything to have that. Thanks for the offer, but I don’t know that I could resist the temptation. Sometimes ignorance is bliss. Besides, as I figured out, working hard for these results is part of who I am now and I’m happier for it. So I’ll pass."<</Dialogue>><br><br>
+			<<Dialogue "player" "You">>"I owe you big time."<</Dialogue>><br><br>
+			<<Dialogue "Toshi" "Toshi">>"Maybe you should wait until this whole thing is behind you to say that. But I suppose we all need to go through our own journeys to figure that out. Still, your thanks are appreciated. That said, I really shouldn’t be hanging out around these parts anymore, so you probably won’t be seeing me anymore. But I wish you good luck on your future endeavors. Take care."<</Dialogue>><br><br>
+			Before you can properly respond, he gets up and walks away. There’s something to admire and even envy in his resolution. And now you have a direction as to how to proceed with your alchemic experiments. The road ahead of you is still foggy, but you feel like you have a clearer north now.
+			<<link "Continue" "Home">><</link>>
+		<</replace>>
+	<</link>>
+	
+	<<link "I suppose I need to do some soul searching now. Thank you for opening my eyes, Toshi.">>
+		<<replace "#choice">>
+			<<Dialogue "player" "You">>"I was inspired by that one photo when you were huge, Toshi. But I guess now you found another way to stir something in me. Not in a million years I thought moving here would change my life so much - I’ve changed in more ways than just my body, and I suppose I should be looking more towards the future than the present."<</Dialogue>><br><br>
+Toshi smiles broadly.<br><br>
+<<Dialogue "Toshi" "Toshi">>"You may be a better person than I was at that point. It took quite the wake up call for me to accept it as you seem to have already done."<</Dialogue>><br><br>
+Toshi puts his hands in his pockets and sighs.<br><br>
+<<Dialogue "Toshi" "Toshi">>"I suppose I can trust you with this then. Here, let me show what I figure out when I was researching a way to revert the shrinking."<</Dialogue>><br><br>
+He hands you a piece of paper with some of his trademark messy notations.<br><br>
+<<Dialogue "Toshi" "Toshi">>"You see, the body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. But I did come up with a theoretical workaround."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wait, didn’t I just say I was going to do some soul searching? Why are you telling me this?"<</Dialogue>><br><br>
+<<Dialogue "Toshi" "Toshi">>"Because you display the maturity I didn’t have when I was looking for my own Holy Grail. Maybe I still secretly want to know it’s possible, but I could not handle the temptation. But I see in you what I lacked. I guess I was really hoping someone would carry the torch."<</Dialogue>><br><br>
+For someone who seemed so obsessed and oblivious before, Toshi now is surprisingly able to see through you. And it makes you think about everything that happened so far in this fateful summer - as well as the impact <<if $johanOpinion >= $emmaOpinion && $johanOpinion >= $elenaOpinion && $johanOpinion >= $krisOpinnion>>of meeting Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.<br><br>
+<<Dialogue "player" "You">>"Uh, sorry, got distracted there for a second. You were saying?"<</Dialogue>><br><br>
+<<elseif $emmaOpinion >= $johanOpinion && $emmaOpinion >= $elenaOpinion && $emmaOpinion >= $krisOpinionOpinion>>
+of meeting Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.<br><br>
+<<Dialogue "player" "You">>"Uh, sorry, got distracted there for a second. You were saying?"<</Dialogue>><br><br>
+<<elseif $krisOpinion >= $johanOpinion && $krisOpinion >= $elenaOpinion && $krisOpinion >= $emmaOpinion>>
+of meeting Kris. What started like a thriller stalking novel has somehow morphed into an entirely different relationship now. You always thought she only loved you for your size, but little by little you discovered so much more. Her obsession hiding so many feelings, and a much more sensitive person than you might have ever suspected below it all. It also sparked something inside of you, wanting to know more of that other person buried under the sex goblin mask. And share with her the difference between steamy crazy sex and loving intimacy.<br><br>
+<<Dialogue "player" "You">>"Uh, sorry, got distracted there for a second. You were saying?"<</Dialogue>><br><br>
+<<else>>
+of meeting Elena. You still remember when you first saw her, amazed by the gentle giant - and not even suspecting you’d eventually also go through the same process. But it was never her size that you admired, but the shy, caring girl under such an unusual façade. Intimidating as she was, all it took was a sensitive touch to get closer. And now it’s hard to imagine not having her around, all these new emotions flowering between the two of you. Suddenly, the fact that the two of you dwarf everyone else in the gym is not nearly as notable as the fact that when you are near her, you forget the rest of the world is even there.<br><br>
+<<Dialogue "player" "You">>"Uh, sorry, got distracted there for a second. You were saying?"<</Dialogue>><br><br>
+<</if>><br><br>
+<<Dialogue "Toshi" "Toshi">>"The theory confirms that one could synthesize a substance that would affect the chemical structure of the catalyst, making it more unstable... and therefore confusing the body and making it impossible for a resistance to settle. In fact, there’s a chance that it could even make the effects even greater and..."<</Dialogue>><br><br>
+Toshi’s breathing gets noticeably deeper, his pupils dilated. He shakes his head, and exhales slowly.<br><br>
+<<Dialogue "Toshi" "Toshi">>"Sorry, got a bit carried away there. Still, the science says it is possible - but it would involve a lot of trial and error, and I have no idea what kind of side effects one might get from an improper formulation. Even if the risk was worth it, it was that realization that became MY personal catalyst to becoming the person I am today."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Any hints on what I need to do?"<</Dialogue>><br><br>
+[insert game hint here]
+<<Dialogue "Toshi" "Toshi">>"I hope you appreciate why I can’t help you personally. I am now over that phase of my life."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, totally. I can’t thank you enough. If I do find it, would you like me to share it with you?"<</Dialogue>><br><br>
+His eyes glint and you see him pursing his lips.<br><br>
+<<Dialogue "Toshi" "Toshi">>"Old Toshi would do anything to have that. Thanks for the offer, but I don’t know that I could resist the temptation. Sometimes ignorance is bliss. Besides, as I figured out, working hard for these results is part of who I am now and I’m happier for it. So I’ll pass."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Thank you for your trust."<</Dialogue>><br><br>
+<<Dialogue "Toshi" "Toshi">>"No, thank YOU for carrying the torch. I wish you the best of luck. That said, I really shouldn’t be hanging out around these parts anymore, so you probably won’t be seeing me anymore. But I wish you good luck on your future endeavors. Take care."<</Dialogue>><br><br>
+Before you can properly respond, he gets up and walks away. There’s something to admire and even envy in his resolution. And now you have a direction as to how to proceed with your alchemic experiments. The road ahead of you is still foggy, but you feel like you have a clearer north now.
+			<<link "Continue" "Home">><</link>>
+		<</replace>>
+	<</link>>
+</span>`
     }
 ) >>

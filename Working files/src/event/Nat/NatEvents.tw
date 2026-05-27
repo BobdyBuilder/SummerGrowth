@@ -179,8 +179,7 @@ You tell yourself to stay calm as you figure your next step - trying frantically
 		name: 'NatFirstTapingBodybuildingDocumentary',
 		locationTags: ['outside'],
 		conditions: [
-            () => setup.hasEventBeenTriggered('PlayerDreamsPotionReaction1') /*TODO remove this condition for the next major patch*/,
-            /*() => State.variables.flag.PlayerDreamsPotionReaction3,*/ /*TODO uncomment this condition for the next major patch*/
+            () => State.variables.flag.PlayerDreamsPotionReaction3,
 		    () => State.variables.daysPlayed >= 15
 		],
 		repeatable: false,
