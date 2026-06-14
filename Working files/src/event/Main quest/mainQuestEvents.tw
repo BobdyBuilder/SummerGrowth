@@ -462,7 +462,7 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
         name: 'Main_quest_Toshi_meeting',
         locationTags: ['park'],
         conditions: [
-            () => setup.hasEventBeenTriggered("main_quest_Toshi_meeting_setup"),
+            () => setup.hasEventBeenTriggered("Main_quest_Toshi_meeting_setup"),
             () => State.variables.gameDate.getHours() >= 11,
             () => State.variables.gameDate.getHours() <= 13
         ],
