@@ -451,7 +451,7 @@ text-align: left;
 	background-color: #9E2A1C;
 }
 .quest .avatar {
-	background-image: url(https://i.imgur.com/1u5EHUo.png);
+	background-image: url(https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/Icons/achievementIcon.png?raw=true);
 }
 
 .logo { 
