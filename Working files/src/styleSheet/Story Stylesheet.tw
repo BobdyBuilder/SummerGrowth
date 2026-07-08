@@ -1,6 +1,6 @@
 :: Story Stylesheet [stylesheet]
 :root {
-    --mcIcon: URL("https://i.imgur.com/eMD17Rt.png");
+    --mcIcon: URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Skinny.png?raw=true");
     --iconSize: 125px;
   	--randoIcon: URL("https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Random_male.png");
 }
@@ -575,7 +575,7 @@ a.macro-PersonalityCheck.Succes:hover{
 .important{
     background: rgba(50,50,150, 1);
     display: block;
-    background-image: url('https://i.imgur.com/9YZwcRq.png');
+    background-image: url('https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/Icons/infoIcon.png?raw=true');
     background-repeat: no-repeat;
     padding-left: 3em;
     border-radius: 1em;
