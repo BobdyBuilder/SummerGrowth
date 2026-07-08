@@ -33,10 +33,10 @@
     
     <div class="warning"> 
         <<if setup.isOutfitTight()>>
-            <img src="https://i.imgur.com/IIR3hEI.png" @title="_outfitTightWarning">
+            <img src="https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/Icons/outfitTightWarning.png?raw=true" @title="_outfitTightWarning">
         <</if>>
         <<if setup.isOutfitNude()>>
-            <img src="https://i.imgur.com/HmBr1GW.png" @title="_outfitNudeWarning"> 
+            <img src="https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/Icons/outfitNudeWarning.png?raw=true" @title="_outfitNudeWarning"> 
         <</if>>
     </div>
 <</liveblock>>
