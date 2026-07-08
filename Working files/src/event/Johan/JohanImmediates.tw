@@ -784,6 +784,63 @@ Johan blushes, and with a discreet smile, plucks a few chords on the mandolin. H
         <<set $flag.RENFAIRMAIDENCOSTUME>>
     <</if>>
 <</link>>`
+    },
+    {
+        name: 'JohanStandsUpForPlayer',
+        locationTags: ['johan'],
+        conditions: [	
+            () => setup.hasEventBeenTriggered("johanRenFair")
+            /* TODO Add link with bodybuilding event*/
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: ["johan"],
+        content: `<<set $johanFrustration to 0>>
+
+        <span id="content">
+        You can barely wait to hang out with Johan one more time, realizing how much you enjoy his company. The little doofus really made an impression on you these past few weeks, and now every minute away from him chips a bit at your soul. But it’s a good yearning, like his presence is a black hole that tugs at it with incredible gravity. You can’t help but to fall into his orbit, and it’s becoming increasingly obvious that you’ll go past the event horizon threshold sooner or later. And the idea excites you.
+
+        His apartment door is wide open, and you find him scribbling on his notebook with his usual gusto and concentration. You politely knock on the door to grab his attention, and he raises his head with excitement.
+
+        <<Dialogue "Johan" "Johan">>"Hey, <<print $playerFirstName>>, come in. Check this out! I made a drawing of your character from the cosplay that you can use as a portrait for your sheet."<</Dialogue>>
+
+        He pushes the notebook into your hands. He might not be the best illustrator in the world, but he went all out in trying to give your renfaire persona a really dramatic and dynamic pose - the shading particularly stands out, as he tried really hard to give it volume to emphasize your physique.
+
+        <<Dialogue "player" "You">>"Wow, that is... uh... crazy. I didn’t know your line art was so good!"<</Dialogue>>
+
+        Johan beams with pride. Adorable as always.
+
+        <<Dialogue "Johan" "Johan">>"Mayhaps I might interest milady in a walk in the nearby park?"<</Dialogue>>
+
+        <<Dialogue "player" "You">>"Hate to say it, Joe, but your pencil work is better than your accent impressions."<</Dialogue>>
+        He snorts, amused, offering you an arm, as he leads you out of his apartment.
+
+        <<link "Continue">>
+            <<replace "#content">>
+                The park feels very pleasant, though the company certainly helps a lot. <<if $height >= 195>>Your longer stride means Johan needs to walk faster to keep up, and you can tell it’s straining him a bit, so you try to slow your pace a bit, but it’s still a challenge for him.<<set $johanFrustration += 2>><</if>> A soft breeze cools the warm summer air, and your hair blows around your ears. You notice that Johan actually seems to have not only brushed his usually very messy hair, but tries to keep it somewhat neat. He seems more aware of his looks, and you can only assume you might be part of that. <<if $skills[0].level > 2>>As you reach the dedicated jogging track, you instinctively pull Johan by his hand, and start a slow run. It does not take long for Johan to start panting, but he keeps it up, despite his face being drenched in sweat. He tries to occasionally dab it with his trusty handkerchief, but in just a few minutes it’s quite obvious this is not practical, and you go back to a slow stroll on the path.<<set $johanFrustration += 5>><</if>>
+
+                As you reach the water fountain, a popular dating hangout, Johan quickly reserves a park bench for you, while he goes to a nearby cart vendor to secure a snack - candied nuts. He starts looking at the options, which include a variety of nuts he can buy in a paper bag, and he hesitates on what kind of mix to get.
+
+                <span id="choice1">
+                    <<link "Here, I’ll get that for us. (10 dollars)">>
+                        <<replace "#choice1">>
+                            <<set $money -= 10>>
+                            You stand up and walk to the vendor, bill in hand, and while Johan stutters trying to ensure you don’t have any allergies, <<if $shyConfident > 1>>you interrupt him and place a jumbo order, which comes in an extra large bag with all nuts.<<set $johanFrustration += 3>><<else>>and you reassure him that you will eat just about anything, before confirming if there’s anything HE won’t eat, and getting a regular bag with all nuts.<<set $johanFrustration += 1>><</if>> He almost protests, but you can see his shoulders slumping as you offer him some nuts. You return to the bench, sitting by his side.
+                            <<link " Continue" "JohanStandsUpForPlayer-2">><</link>>
+                        <</replace>>
+                    <</link>>
+                     <<link " That is so cute... and I could use a proteic snack! ">>
+                        <<replace "#choice1">>   
+                            You watch as he fumbles his wallet, questions if you have any allergies, and makes a few mistakes before he can secure a small bag of candied almonds. He goes back to the bench, insisting that you get the first one before settling by your side.
+
+                            <<link " Continue" "JohanStandsUpForPlayer-2">><</link>>
+                        <</replace>>
+                    <</link>>
+                </span>
+            <</replace>>
+        <</link>>
+        </span>`
     }
 )>>
 

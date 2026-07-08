@@ -4,125 +4,125 @@
 <<if $muscle <= 20>>
 	<<if $fat <= 20>> <<set $bodyType to "skinny">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/i5qqYTk.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Skinny.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 40>> <<set $bodyType to "average">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/jHO7pC7.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Average.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 60>> <<set $bodyType to "thick">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/It9RIWK.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Thick.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 80>> <<set $bodyType to "fat">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/FabEhol.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Fat.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Obese.png?raw=true")');
 		<</script>>
 	<</if>>
 <<elseif $muscle <= 40>>
 	<<if $fat <= 20>> <<set $bodyType to "thin">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/OakOwTF.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Average.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 40>> <<set $bodyType to "average">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/jHO7pC7.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Average.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 60>> <<set $bodyType to "thick">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/It9RIWK.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Thick.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 80>> <<set $bodyType to "fat">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/FabEhol.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Fat.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Obese.png?raw=true")');
 		<</script>>
 	<</if>>
 <<elseif $muscle <= 60>>
 	<<if $fat <= 20>> <<set $bodyType to "athletic">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/h2XOcnQ.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Athletic.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 40>> <<set $bodyType to "strong">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/VvmFctV.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Strong.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 60>> <<set $bodyType to "heavy">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/sbs0vBc.png)');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Heavy.png?raw=true)');
 		<</script>>
 	<<elseif $fat <= 80>> <<set $bodyType to "fat">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/FabEhol.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Fat.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Obese.png?raw=true")');
 		<</script>>
 	<</if>>
 <<elseif $muscle <= 80>>
 	<<if $fat <= 20>> <<set $bodyType to "bodybuilder">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/3dIVFPP.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Bodybuilder.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 40>> <<set $bodyType to "heroic">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/ucpwIbR.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Heroic.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 60>> <<set $bodyType to "strongman">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/fLgwIgo.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Strongman.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 80>> <<set $bodyType to "sumowrestler">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/3qjvbd8.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/SumoWrestler.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Obese.png?raw=true")');
 		<</script>>
 	<</if>>
 <<elseif $muscle <= 100>>
 	<<if $fat <= 20>> <<set $bodyType to "hulk">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/cwIZIxc.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Hulk.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 40>> <<set $bodyType to "gigantic">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/eAtmGEL.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Gigantic.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 60>> <<set $bodyType to "monstrous">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/KBSc78i.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Monstrous.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 80>> <<set $bodyType to "sumowrestler">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/3qjvbd8.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/SumoWrestler.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 100>> <<set $bodyType to "obese">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/dGY5m1n.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Obese.png?raw=true")');
 		<</script>>
 	<</if>>
 <<else>>
 	<<if $fat <= 20>> <<set $bodyType to "hulk">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/cwIZIxc.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Hulk.png?raw=true")');
 		<</script>>
 	<<elseif $fat <= 40>> <<set $bodyType to "gigantic">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/eAtmGEL.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Gigantic.png?raw=true")');
 		<</script>>
 	<<else>><<set $bodyType to "monstrous">>
 		<<script>>
-			document.documentElement.style.setProperty('--mcIcon', 'URL("https://i.imgur.com/KBSc78i.png")');
+			document.documentElement.style.setProperty('--mcIcon', 'URL("https://github.com/BobdyBuilder/SummerGrowth/blob/main/Art%20assets/PlayerBusts/Monstrous.png?raw=true")');
 		<</script>>
 	<</if>>
 <</if>>

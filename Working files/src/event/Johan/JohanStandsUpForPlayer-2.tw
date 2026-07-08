@@ -1,0 +1,153 @@
+:: JohanStandsUpForPlayer-2 [] {"position":"1300,2225","size":"100,100"}
+
+<<if $muscle >= 65>>You occupy the lion’s share of the rather wide bench, leaving a little less than a third for Johan - which, incidentally, is enough space for him to sit comfortably but just barely reach the nuts on the bag you are holding.<<else>>Johan scooches to sit closer to you, trying to make it easier to share the nuts.<</if>>> He reaches for a whole handful, then proceeds to systematically feed himself one at a time. Johan savors each one, enjoying the sweet coating for a few seconds before munching on the nut. <<if $carefreeCarefull > 1>>That’s not too different from your own method, and you lean your head against his as you two work through the nuts slowly.<<set $johanFrustration -=2>><<else>>You, however, grab big handfuls, chewing as soon as they make it into your mouth. You end up going through the nuts a lot faster, but that does not seem to bother Johan, who is more interested in enjoying your company.<</if>>
+
+Properly rested and fed, <<if $submissiveDominant > 1>>you wrap your <<if $muscle >= 50>>beefy <</if>>arm around Johan, bringing him closer to you. He gulps, sighs, and then sort of melts against you.<<else>>you lean against Johan, who also leans back against you, and the two of you enjoy the peaceful birdsong as you melt on each other.<</if>> But this moment of peace is interrupted as a shout rings out: WATCH OUT!
+
+<<if $skills[3].level > 2 && $muscle >= 40>>With your honed gamer reflexes and trained muscles, you raise your hand with lightning speed and <<if $height >= 170>>easily grab the incoming basketball in the air with your large hand right in front of Johan’s nose<<set $johanFrustration += 7>><<else>>deflect the incoming basketball with grace and ease moments before it hits Johan in the face<<set $johanFrustration += 4>><</if>> while he is still processing what just happened.<<elseif $skills[3].level > 2>>Your quick gamer reflexes allow you to turn around and cover Johan, getting hit on the back. You wince from the pain but fully protecting Johan, who was almost hit on the face by the quickly approaching basketball.<<set $johanFrustration += 9>><<elseif $muscle >= 60>>You barely need to move your Greek column-wide arm to absorb the strong impact of the incoming basketball, the thick wall of muscle dissipating the considerable amount of kinetic energy before it could strike Johan’s face. <<set $johanFrustration += 7>><<else>>With neither of you able to react in time, Johan is struck right in the face by a speeding basketball, cracking his glasses and giving him the mother of all nosebleeds. You grab his handkerchief from his pocket and start trying to stanch the red waterfall.<<set $JoNosebleed to true>><</if>>
+
+A group of very apologetic weekend basketball players rush to not only recover their ball, but make sure that you are both alright. <<if $submissiveDominant > 1>>You get up and chastise them aggressively for their irresponsible behavior as Johan watches in silence, almost as intimidated as they are.<<set $johanFrustration += 5>><<elseif $shyConfident < -1>>You meekly respond, saying it’s okay - but Johan stands up,<<if $JoNosebleed == true>> nose still gushing, but somehow getting his face flush with anger as he reprimands them for being irresponsible - and through his cracked glasses, asking what if they had hit this poor girl instead. <<if $muscle >= 55>>The guys seem confused as you clearly could have taken the hit much better than he did, but his point is made nonetheless.<</if>><<set $johanFrustration -= 3>><<else>>getting red in the face as he reprimands the guys for their irresponsible behavior.<<set $johanFrustration -= 2>><</if>><</if>>
+
+As tensions subside and adrenalin flushes away, you leave the fountain area, hoping the breeze will help calm down all the nerves. <<if $JoNosebleed == true>>You keep asking if Johan is alright, concerned about his cracked glasses, even as you managed to stop the bleeding. He acts cavalier, dismissing your concerns, but he does look rather disheveled. It makes your protective instincts kick in, but you don’t want to hurt his pride, so you accept his answer at face value.<</if>> The path seems to get quieter as you walk deeper into more shaded and less populated areas of the park. The deep foliage of the trees feels strangely romantic, as if you just wandered into some magical forest. You squeeze Johan’s hand a bit tighter, and he squeezes it back. You see a pond in the distance, and suggest it might be a good place to hang out (and perhaps even make out, you hope to yourself!). Johan agrees, and you start making your way there.
+
+However, the path is blocked by a rather large fallen branch. To go around it you’d have to circle the trees and go into the muddy ground, which neither of you is quite excited to do. Joha, however, seems unfazed.
+
+<<Dialogue "Johan" "Johan">>"I got this. Let me just move this branch out of the way."<</Dialogue>>
+
+This immediately sets off your internal alarms. Johan seems to have no idea how heavy all that wood must be, and it’s full of smaller branches, making it very awkward to hold. But he is decided to try and lift it out of the way anyway. This is painfully obvious beyond his ability, as he struggles to even grab it properly, and even his attempts to push it using his legs is frustratingly ineffective. He keeps at it for a solid 30 seconds, with no visible progress, getting increasingly frustrated.
+
+<span id="choice">
+<<link " Let me take care of this">>
+    <<replace "#choice">>
+        <<if $muscle >= 55>>
+            <<if $shyConfident > 1 || $submissiveDominant > 1>>You push Johan aside without saying a word, and rub your hands as you eye the obstacle with unshakeable confidence.<<set $johanFrustration += 3>><<else>><<Dialogue "player" "You">>"Here, allow me."<</Dialogue>><</if>>
+
+            You plant your hands around the thick bark, which is so thick your fingers can barely make it across the entire girth. <<if $muscle >= 85>>But after getting a feel for it, you let go with one hand and just casually lift the entire thing with ease with one hand, your arms exploding in size as you handle God knows how much wood as if it was no more than a toothpick. You toss it aside, causing a bit of stir in the wildlife as all sorts of small creatures run for their lives or take flight.<<set $johanFrustration += 12>><<elseif $muscle >= 70>>With a bit of effort, you lift the bark, using your legs to stand up and carefully place it to the side, opening a passage without too much sweat.<<set $johanFrustration += 7>><<else>>With a grunt and a shove, the bark moves a bit. Not much, but enough to give you hope to complete the task. You take a deep breath, and engaging your back muscles, manage to slide it a bit more to the side. You exhale deeply, close your eyes, and with a last shove, manage to get the branch out of the way, arms really feeling the burn. <<set $johanFrustration += 4>><</if>>
+
+            Johan watches in a mix of awe and embarrassment. He smiles weakly as he thanks you, and you walk to the pond. He looks around for pebbles as you crouch down, and finds a good one, which he tosses on the lake, making it skip a whopping 7 times.
+
+            <<Dialogue "player" "You">>"Wow! That’s pretty cool. Wish I could do that."<</Dialogue>>
+
+            Johan smiles. He scans the lakeside for another flat rock, and grabs your hand, placing it on your palm.
+
+            <<Dialogue "Johan" "Johan">>"It’s not too hard, it’s really all about physics. You want to focus on the flat part, and how to give it some spin as you throw, wrap your finger here like this, and then mind your wrist..."<</Dialogue>>
+
+            Johan goes on in his rambling explanation, very carefully holding your hand to demonstrate all the subtle movements that help the process. <<if $shyConfident < 0>>You blush, enjoying the way he touches your hand so casually, yet so tenderly.<</if>> And before you know it, he’s helping you throw, managing a very nice triple skip.
+            <<Dialogue "Johan" "Johan">>"See? Now all you need is some practice!"<</Dialogue>>
+
+            Excited, you keep at it for a bit, before the two of you decide to head back to the visitor center.
+        <<else>>
+            You walk to the tree branch and try to find a decent way to grab it. This immediately proves a lot harder than you originally thought. Once you put your hands on it, however, you realize this wood is A LOT denser than you thought. <<if $muscle <= 25>>It’s painfully obvious how much you overestimated your own strength as the branch refuses to budge AT ALL. It might as well be nailed down. Your thin arms exert themselves to the point of pain, but it is all pointless. You might as well try to blow it away with your breath and you’d be just as successful.<<elseif $muscle <= 45>>You start having some doubts about your choices, and realize that just because you got significantly stronger lately, this doesn’t really mean you should assume that you can do anything. Case in point: you start engaging your newfound muscles, only to find them quite unable to move the tree. You push and shove, trying to engage your back and legs, but all you accomplish is to shake the tree around, which immediately settles back exactly at its starting point. All you got is some sore muscles and some splinters on your hands.<<else>>Excited to put your new muscles to use, you sink your feet into the ground and stretch your arms, your palms firmly placed against the branch. You feel your muscles flexing and watch them expand with some pride...
+
+            Before you realize that no matter how much effort you put, the tree just slides a tiny bit. You keep at it, but it soon becomes clear it’s a lost cause.<</if>>
+
+            Johan puts a hand on your shoulder and says it’s okay. He insists the pond is overrated anyway, and the two of you might as well go grab something at the visitor center.
+            Disappointed, you turn around, regretting not putting more effort in the gym before.<<set $johanFrustration += 3>>
+
+        <</if>>
+        <<link "Continue" "JohanStandsUpForPlayer-3">><</link>>
+    <</replace>>
+<</link>>
+<<link " You can do it, Johan!">>
+    <<replace "#choice">>
+        You try your best cheerleader voice as you egg Johan on, doing little jumps and saying stuff like “HEAVE HO!” and “YOU CAN DO IT!”
+
+        It does not take long to realize he really can’t. But not before he huffs and puffs a lot, gets a bunch of splinters on his fingers, and generally feels quite pathetic for even assuming he could have done it. Still, you keep the support going until the last second, before starting to hint at some alternatives.
+
+        <<Dialogue "player" "You">>"Man! All this talking sure is getting my throat parched. Maybe we can hit the visitor center and grab a drink?"<</Dialogue>>
+
+        Johan finally admits defeat, but at least he finds some solace on the opportunity to treat you to something cold to drink. And so the two of you turn around, making your way to the visitor center, leaving the unexplored pond behind. <<set $johanFrustration += 1>>
+
+        <<link "Continue" "JohanStandsUpForPlayer-3">><</link>>
+    <</replace>>
+<</link>>
+<<link " Maybe I can discreetly help him from behind some of the foliage?">>
+    <<replace "#choice">>
+        <<if $muscle >= 70>>
+            It’s painfully clear you could wait a decade and he would not move that branch one single iota. So you look around and concoct a little plan.
+
+            <<Dialogue "player" "You">>"Hey, is that a ladybug on that leaf?"<</Dialogue>>
+
+            Feigning interest, you walk into a large leafy smaller set of branches, so Johan can’t really see you too well. You wait for a moment in which he is really squinting with effort and put your powerful hand on the main branch, lifting it up a little bit off the ground. Johan is momentarily surprised as the wood comes off the ground, fooled into thinking that happened due to his own effort.
+
+            <<Dialogue "Johan" "Johan">>"Careful there, I think I got this, maybe you should move away!"<</Dialogue>>
+
+            You acknowledge his request, without letting go of the heavy branch. <<if $carefreeCarefull < 0 && $shyConfident > 1>>However, due to your own confidence and lack of care, you end up helping a bit too much, and actually pushing Johan AND the branch together, and he clearly sees through the ruse. The branch is out of the way, but Johan is now looking at you quite cross.
+
+            <<Dialogue "Johan" "Johan">>"Oh, thanks... for the spot! You could have warned me, though."<</Dialogue>>
+
+            It’s pretty clear he’s holding his tongue, and that his pride is quite hurt. You put on a forced smile, but it’s quite clear that the damage is done, and there’s not much you can say to fix that.
+
+            He walks glumly to the edge of the pond, grabs a rock and awkwardly throws it in the water. It sinks immediately, much like his spirits. You wrap a powerful arm around his shoulder, but he is clearly not very comfortable with the reminder of all the muscle you have on him as he resists the urge to squirm away.
+
+            Trying to break the ice, you attempt any excuse to improve morale.
+
+            <<Dialogue "player" "You">>"You know what? I’m getting quite thirsty. How about we go get a drink at the visitor center?"<</Dialogue>>
+
+            Johan shrugs, and mumbles what you assume to be a ‘sure’ before turning around and slowly making his way to the visitor center. You grab his hand and start pulling him towards the destination.
+            <<set $johanFrustration += 12>>
+            <<else>>Being very careful and discreet, you proceed to add just enough force to give Johan the illusion that he is lifting and moving the branch with his own strength. It’s a slow and very tricky move, but you manage to keep the charade just long enough that his own excitement at succeeding is making him blind to the trick.
+
+            You ease your help a bit as the branch is almost out of the way, making him really work for it. He is getting a bit sweaty and winded, but the smile on his face is absolutely priceless. You wait until he drops the branch, and give it a few more seconds before you start pouting and saying that the ladybug flew away with all the movement.
+
+            <<Dialogue "Johan" "Johan">>"Oh, sorry, I really tried not to shake it too much, but that branch was a lot heavier than I thought."<</Dialogue>>
+
+            <<Dialogue "player" "You">>"I KNOW!!! You must have been working out, I was so impressed. Here, let me see your muscle!"<</Dialogue>>
+
+            Johan blushes, putting one hand on the back of his head as he looks away and flexes his other arm awkwardly. You put a hand on his upper arm and give the softest of squeezes.
+
+            <<Dialogue "player" "You">>"Wow! So firm! No wonder you managed. Next time I need to deal with some trees, I’m definitely calling you!"<</Dialogue>>
+
+            Johan giggles a bit.
+
+            <<Dialogue "Johan" "Johan">>"Heh. Realistically, you could probably have done it with one hand and not even break a sweat. But what kind of gentleman would I be if I let a lady get splinters on her beautiful hand?"<</Dialogue>>
+
+            And with that, he grabs your hand and gives it a little kiss. Right where a splinter dug into your skin. You force a smile and grin through the pain, but it definitely was worth the subterfuge.
+
+            And so, with the branch out of the way, Johan walks to the pond, hand in hand with you. He looks around for pebbles as you crouch down, and finds a good one, which he tosses on the lake, making it skip a whopping 7 times.
+
+            <<Dialogue "player" "You">>"Wow! That’s pretty cool. Wish I could do that."<</Dialogue>>
+
+            Johan smiles. He scans the lakeside for another flat rock, and grabs your hand, placing it on your palm.
+
+            <<Dialogue "Johan" "Johan">>"It’s not too hard, it’s really all about physics. You want to focus on the flat part, and how to give it some spin as you throw, wrap your finger here like this, and then mind your wrist..."<</Dialogue>>
+
+            Johan goes on in his rambling explanation, very carefully holding your hand to demonstrate all the subtle movements that help the process. <<if $shyConfident < 0>>You blush, enjoying the way he touches your hand so casually, yet so tenderly.<</if>> And before you know it, he’s helping you throw, managing a very nice triple skip.
+
+            <<Dialogue "Johan" "Johan">>"See? Now all you need is some practice!"<</Dialogue>>            <<set $johanFrustration -= 8>>            
+
+            Excited, you keep at it for a bit, before the two of you decide to head back to the visitor center.
+
+            <</if>>
+        <<else>>
+            It’s painfully clear you could wait a decade and he would not move that branch one single iota. So you look around and concoct a little plan.
+
+            <<Dialogue "player" "You">>"Hey, is that a ladybug on that leaf?"<</Dialogue>>
+
+            Feigning interest, you walk into a large leafy smaller set of branches, so Johan can’t really see you too well. You wait for a moment in which he is really squinting with effort and put your hand on the main branch, with the intention to help add some strength to his lift.
+
+            But you really miscalculate your own strength, realizing not only that this is a heavy-ass tree, but that you are not nearly as strong to discreetly lift it. You start adding more force, little by little, but it’s pretty clear:
+
+            <<Dialogue "player" "You">>"This place is too humid. And so many bugs! Ugh. Why don’t we just go to the visitor center? I could use a drink, how about you?"<</Dialogue>>
+            Your quick thinking seems to convince Johan, who shrugs at the fallen branch and turns around. You grab his hand so you can lead the way back to the visitor center, where perhaps the two of you can find some other distraction.
+
+            Johan seems more than happy to oblige.
+        <</if>>
+
+        <<link "Continue" "JohanStandsUpForPlayer-3">><</link>>
+    <</replace>>
+<</link>>
+<<link " You know what? Let’s just go back to the visitor center. It’s too damp here anyway.">>
+    <<replace "#choice">>
+        You try your best cheerleader voice as you egg Johan on, doing little jumps and saying stuff like “HEAVE HO!” and “YOU CAN DO IT!”
+
+        It does not take long to realize he really can’t. But not before he huffs and puffs a lot, gets a bunch of splinters on his fingers, and generally feels quite pathetic for even assuming he could have done it. Still, you keep the support going until the last second, before starting to hint at some alternatives.
+
+        <<Dialogue "player" "You">>"Man! All this talking sure is getting my throat parched. Maybe we can hit the visitor center and grab a drink?"<</Dialogue>>
+
+        Johan finally admits defeat, but at least he finds some solace on the opportunity to treat you to something cold to drink. And so the two of you turn around, making your way to the visitor center, leaving the unexplored pond behind. <<set $johanFrustration += 1>>
+
+        <<link "Continue" "JohanStandsUpForPlayer-3">><</link>>
+    <</replace>>
+<</link>>
+</span>
