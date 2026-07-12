@@ -1,4 +1,4 @@
-:: Bathroom [nobr home storage] {"position":"1125,1000","size":"100,100"}
+:: Bathroom [nobr home storage bathroom] {"position":"1125,1000","size":"100,100"}
 Cramped at the best of times, and almost constantly in need of mold remover, it's still your bathroom. Some of your stuff is still in boxes here, since you didn't take the time to pack it all away.
 
 <<set _room to passage()>>

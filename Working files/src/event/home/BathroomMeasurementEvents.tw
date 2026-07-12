@@ -1,0 +1,243 @@
+:: BathroomMeasurementEvents [nobr] {"position":"1125,1150","size":"100,100"}
+<<set setup.events.push(
+    {
+        name: 'bathroomMeasureBiceps',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => State.variables.upperArmSize > 51
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You grab your measuring tape, eager to check your progress. You drape the tape over your cold arms, biting your lips in anticipation. You press your thumb to hold the tape on the side of your upper arm, as you start flexing your biceps.<br><br>
+You can’t help but feel a certain rush as you see the mountain of sleeve-stretching muscle rising and rising, and you unable to resist the temptation of just flexing and relaxing a few times to try and boost that pump of blood, your pupils dilating at the succulent pile of meat just teasing you with its bouncing.<br><br>
+You eventually settle, squeezing your fist powerfully, satisfied with the gentle slope that builds from your elbow and subsides in your equally powerful shoulders. But you can’t hold the anticipation as you fish the rest of the tape from behind it with your fingers, bringing them to meet the starting point with your thumb.<br><br>
+<<if $upperArmSize > 61>>
+You eagerly check the tape… <<getMeasurement "upperArm" true>>... wait, did you read that right? You double… then triple check the measurement. It can’t be - you aren’t even totally pumped from real heavy lifting. You blink in disbelief.<br><br>
+Just to be sure, you go check your phone, doing a search for world records. You see that Ronnie Coleman held the world record for biggest biceps at… <<numeralConversion 61>>…<br><br>
+Did you… did you really just beat the world record? You may actually have the biggest arms in the world!<br><br>
+You look hungrily at your biceps and triceps, and find yourself unable not to give them a kiss… and a small lick, feeling the firmness of the sinew and the texture of the veins downright… erotic.<br><br>
+You shake your head, trying to get a hold of your senses, before switching your phone to Picstagram and posting a picture of your record-holding arms - maybe you should give the World Book of Records a call as well…
+<<elseif $upperArmSize > 51>>
+You eagerly check the tape… <<getMeasurement "upperArm" true>>... whoa! That sounds more than impressive. Out of sheer curiosity, you get your phone and look at some stats online… according to this, Doug Miller holds the record for biggest natural biceps, tied with Renné Toney for biggest female biceps at <<numeralConversion 51>>…<br><br>
+Holy shit… you have the biggest female arms… IN THE ENTIRE WORLD! Your heart starts racing at the thought, which is a bit more exciting than you thought it would be. Your hands tremble a bit, as you check what the world record is… Ronnie Coleman, at 24”/61cm…<br><br>
+<<Dialogue "player" "You">>"Watch out, Ronnie… I’m coming for you."<</Dialogue>><br><br>
+You think to yourself, as you casually grab a dumbbell and start doing some concentration curls while you lick your lips, just admiring your upper arms.
+<<else>>
+You eagerly check the tape… <<getMeasurement "upperArm" true>>... you squint, looking at the small print on the piece of plastic. No, could it be? You vaguely remember that the world record for female biceps was somewhere around <<numeralConversion 51>>…<br><br>
+<</if>>
+Well, I guess you now have a goal. And you aren’t about to let anything stand in your way!`
+    },
+    {
+        name: 'bathroomMeasureThighs',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => State.variables.thighsSize > 76
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You stand by your mirror, measuring tape in hand. You look at your reflection, wobbling your relaxed thigh and watching it flop sideways with gusto - and drooling a little bit at the nice mass you accrued. You repeat this for a few seconds, then suddenly flex your quads - the previously pliable meat suddenly hardens and expands, <<if $fat <= 20>>each muscle clearly separated, creating valleys between each,<</if>> giving you front seat for the show on your mirror.<br><br> 
+You smile, anxious to get a good grasp on just how big you’ve gotten. You rest the measuring tape on the top of your rectus femoris, and find yourself unable not test how hard it is. You find yourself slightly turned on by the sheer power it emanates, and the knowledge of how much it allows you to carry, making you feel almost superhuman. But you can’t dilly-dally any longer, and you wrap the rest of the tape around.<br><br>
+As the two parts of the tape encounter, you start fully flexing your leg, and somehow still awe yourself yet again - but no, you want NUMBERS. You squeeze the tape as much as you can until the lines cross… <<getMeasurement "thigh" true>>.<br><br>
+<<if $thighsSize > 92>>
+You let out a visible puff of warm vapor from your mouth, and feel yourself moisten. No. Way. Could it be?<br><br>
+Without letting go of the tape, you grab your phone with your free hand, and still panting, look up the world record for quads… 36”/91,44cm by Ramy Elssbiay, same as Ronnie Coleman. Your heart skips a beat, and you tense so hard the held tape actually snaps! You can’t resist, and find your fingers slowly drifting up between your legs, only to find your moist nether regions, which you start to stimulate as you bring your other finger to your mouth.<br>
+You squat down and slide onto your back, bringing a now saliva-drenched index finger down your breast, circling the nipple before continuing to squeeze your fully flexed, world record-breaking quads. You squeeze the steel-like muscles with all the strength in your titanic hands, finding virtually no give, as you continue to stimulate your clitoris.<br><br>
+Closing your eyes, you fantasize about squatting a car, your legs exploding with even more muscle, and you could almost swear they are actually getting bigger and harder under the stretched skin. You continue to furiously finger yourself until you climax… arching your back and tensing your whole body as you shudder and shiver…<br><br>
+Finally relaxing, you turn sideways and see the torn measuring tape with a delighted smile… “this is just the beginning”, you tell yourself, sighing, completely content.
+<<elseif $thighsSize >= 84>>
+Your eyes wide as you look at the number… you memorized a couple of numbers, but your heart still skips a beat as the realization hits you that you can forget one of them…<br><br>
+Your legs have just beaten Nataliya Kuznetsova’s <<numeralConversion 84>> - you now probably have the most muscular female thighs… in the whole world… your breath becomes ragged, as you remember the other number you memorized… 36”/91cm… as you steel yourself with the resolve that no man deserves to have bigger quads than you. You grit your teeth, almost with rage, as your vision reddens. You ball your fists, shaking, and take deep breaths. You have an increased awareness of your entire body, feeling it expand and contract with each breath. No, this won’t do at all. You smile menacingly, and if anyone saw you right now, they’d probably experience existential fear. You won’t stop until you are number 1, and not even an atomic bomb could stand on your way, you tell yourself.
+<<elseif $thighsSize > 76>>
+Whoa! You surprise yourself, and do a double take. You pinch your massive upper arm just to make sure you aren’t dreaming, <<if $fat <= 20>>forgetting that it is also pure muscle and can barely give in enough for a proper pinch,<</if>> but no, this is real life.<br><br>
+You drop the tape, stunned, and check your phone. FUCK! You just beat TOM FUCKING PLATZ in your quad measurements. Your breath becomes ragged, and you feel like you are having a panic attack. With your hands shaking, you start looking up stats on world records for thighs…<br><br>
+Nataliya Kuznetsova as the biggest woman with 33”/84cm and Big Ramy and Ronnie Coleman with the biggest ever at… 36”/91cm… those numbers feel scaringly… achievable… given your growth up to date. You start picturing yourself, bigger than all of them, a silly smile melting the whole world around you.<br><br>
+Before you know it, you find yourself doing pistol squats almost absent-mindedly, imagining yourself grow… all the pain from the lactic acid completely forgotten… as you lick your lips.
+<<elseif $thighsSize > 80>> 
+You smile, satisfied. You know enough to know you are seriously getting into record breaking territory there. You put the tape away, and rub your hands. Well, no time like the present, right? You reach for your loaded barbell, and load them on your back for some impromptu squatting, because you most certainly are not about to stop. Not now. Not when you are so close.
+<</if>>`
+    },
+    {
+        name: 'bathroomMeasureForearms',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => State.variables.lowerArmSize > 44
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You give your flexed forearms a good rub. There’s something so… uniquely powerful… about toned forearms, it’s hard to put in words. You rub your hands up and down their length, and then around, appreciating the unique shape and feel of your flexors and extensors. These bad boys deserve a little test, you think to yourself as you grab your measurement tape.<br><br>
+You tense your forearm, unconsciously doing the same to your pecs as you feel incredibly powerful. With impressive dexterity, you pull the tape around, holding the tips as they meet over the sexiest ridge under your grasp.<br><br>
+<<if $lowerArmSize > 49>>
+<<getMeasurement "lowerArm" true>><br><br> You gasp, as you drop the tape to cover your gaping mouth. You start laughing hysterically, and jump with your arms raised before kneeling with an arm pump and a victorious “YES!”<br><br>
+Yup, move over, Jeff Dable. This girl here just beat your world record <<numeralConversion 48>> forearms. You can barely contain yourself, giggling like a… well… saying “like a little girl” sounds almost ironic right now. Jeff Dable wishes he was as big as this little girl. Heh.<br><br>
+You fall backwards into your bed with your arms still raised, and proceed to explore every bit of your forearms, their rock-hard firmness a delight under your probing fingers. You wiggle your feet, and wonder just how strong you are… wait, now is not the time to think small… how strong you are going to get.<br><br>
+The anxiety is unbearable. You are going to show the world what this little girl is capable of.
+<<elseif $lowerArmSize > 44>>
+<<getMeasurement "lowerArm" true>>. You are a bit unsure how good this is… but it FEELS impressive. You check your phone… wait… Frank McGrath is sitting at <<numeralConversion 47>>... and Jeff Dable at <<numeralConversion 48>>… really? You blink at your screen, incredulously. Are you this close to beating some of the biggest forearms… on the ENTIRE PLANET?<br><br>
+You take a second to wake up from this realization. This is big… well, literally, but you mean figuratively. Some might say large forearms are not exactly a feminine trait, but you can’t help but get excited with the prospect of surpassing the most famous ones ever. You start tip-tapping in place, making plans to put special focus on this oft-forgotten muscle group. Yup, you have now made this a very personal mission.
+<</if>>`
+    },
+    {
+        name: 'bathroomMeasureCalves',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => State.variables.calveSize > 55
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `You twirl on the tip of your toes like a ballerina, watching your calves bunch up and explode in a heart-shaped behemoth as you turn in circles. Damn, those balls of muscle look SO GOOD as your lower legs taper into that tear-sculpt spectacle. Enjoying your newfound flexibility, you kick your leg up, hugging your thigh with one arm as your free hand explores the smooth skin over the ridges and separations of your amazing calves. Maybe you should call them BULLS. They certainly feel like they could stop one on its tracks if they had to, you think with a smile.<br><br>
+Ah, yes! You reach for the tape, and encircle that wonderful ball of muscle, like a reverse gift that you get wrap instead of unwrap to fully appreciate. You still amaze yourself as you give it a full flex, watching it expand in all directions, that wonderful middle valley just as beautiful as the protruding mass around. Snap out of it, <<print $playerFirstName>>, or you aren’t getting that number today!<br><br>
+You meet the tape around the flexed calf, and confirm the measure: <<getMeasurement "calve" true>>.<br><br>
+<<if $calveSize > 61>>
+FUCK! You drop the tape and bite your knuckles. Really? You repeat the measurement, expecting a lower number. But no, there it is, clear as day: <<getMeasurement "calve" true>>. FUCK!!!<br><br>
+You fall down on your butt, making the apartment shake a bit. For real? Did your calves just surpass Erik Fankhouser’s record-breaking <<numeralConversion 61>>? You hurriedly check your phone for confirmation. And once again, it’s there, clear as day. FUUUUUUUCK!!!<br><br>
+You squeal loudly with delight, and in an amazing display of strength and coordination, jump up back into a squatting position, before proceeding to turn your back to the mirror and perform repeated one-legged calf raises as you watch that heart-shaped wonder pump itself over and over, giving you life much like its twin inside your chest as it transforms with each cycle of the motion.<br>
+You are downright hypnotized by it… you wish you could just lick every bit of each… and then you remember just how flexible you are, and fall down into a perfect leg split, lowering your torso over your thigh like a professional ballerina, gracefully running your fingertips from your toes all the way to your calves, which you proceed to lustfully lick over and over.<br><br>
+Fuck… you could get used to this, you tell yourself as you sigh with the knowledge of having THE FUCKING BIGGEST CALVES IN THE WORLD!!! 
+<<elseif $calveSize > 55>>
+Eeep! That seems impressive. But it means nothing without a yardstick, right? You grab your phone, hurriedly, and search for “world’s biggest calves”. The search engine says that the query took less than half a second, but it certainly felt like an eternity. And there, at the top of the results, are the two things you can barely believe: some impressive photos to the right… that don’t look that far off from your own… and to the left… your eyes linger on the digits, and yet… it takes a few seconds to dawn on you.<br><br>
+<<numeralConversion 61>>. Are you really that close to Erik Fankhouser? Are you really that close…<br><br>
+…<br><br>
+…<br><br>
+… biggest…<br>
+… calves… <br>
+… in the WORLD!<br><br>
+Your brain is still working overtime, you can’t really concentrate. Damn. Shit. Fuck. You feel that record in your grasp, it doesn’t even feel like it will be that hard to cross. You feel yourself shaking. You want to calf press that bull from earlier. No, a pile of bulls. You imagine yourself on a farm, three bulls piled on top of each other comically over your back, as you tip-toe up and down. You laugh nervously, because this image suddenly doesn’t seem as far-fetched as it would have mere weeks ago.<br><br>
+Fuck.<br><br>
+I guess I need to start doing more calf raises, and increase those weight. Erik Fankhouser won’t even know what cow trampled him, you think to yourself with a smirk. 
+<</if>>`
+    },
+    {
+        name: 'bathroomMeasureHeight',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => State.variables.height > 233
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `It’s a bit weird, feeling so damn TALL! You lost count of the amount of times you felt vertigo getting up in the morning, as if you were literally growing overnight. <<if $dick > 1>>In fact, now that you are properly “equipped” to pee standing up, it sometimes makes you a bit dizzy every time you try to do so, finding that toilet further and further away, in another surreal turnabout that your life has been lately.<</if>> So you do the only thing you know to deal with that - you grab the measuring tape and stand against the wall in front of the mirror for a quick check.<br><br>
+You use a magazine to level off the top of your head, and drop the tape from there, holding it with your finger as you turn around to check where it hits the ground. Aaaaand now you clock at… <<numeralConversion $height>><br><br>
+<<if $height > 272>>
+…<br><br>
+You look in the mirror. Then back at the tape. Then outside. Then at the tape. Then at the dangerously-close ceiling. And back to the tape.<br><br>
+It’s official. It would seem you are now the tallest human ever recorded - beating the previous record of <<numeralConversion 272>>. It hasn’t really sunk in yet. In fact, you are not sure it ever will. It’s just… downright surreal, even given all the craziness you witnessed over the course of the last days.<br><br>
+You sit down, looking at your legs, apparently going forever into the distance. Suddenly, the cramped feeling you get wherever you go starts making so much more sense. Yet… there’s a bit of… existential dread?... as you realize there’s a chance you might still grow… even more?!?<br><br>
+Your lizard brain sort of automatically starts grinding its gears, as your neocortex visualizes yourself as more than a giant… you imagine yourself towering over small buildings… no, bigger… as tall as a high-riser. NO, bigger!!! You visualize yourself literally stepping over cities, putting all those Japanese movie monsters to shame.<br><br>
+When you snap out of it, you find yourself panting, your fingers deep into your wet pussy, and your other hand fondling your breast… maybe you should give the measuring tape a rest… at least for a while… it could use a viking funeral.<br><br>
+That… or maybe get a laser distance measurer, you think with a naughty grin.
+<<elseif $height > 255>>
+You were ready for this - you have the Wackypedia for tallest people bookmarked on your phone just for this. You check the table, but you know before you even look. Yup, you just became the tallest female human ever to step foot on this planet.<br><br>
+It’s… weird. Kinda hard to even wrap your head around the fact. You hold up the tape and look at the numbers, trying to get some perspective, but the thoughts kind of just fail you. It feels like trying to understand how many grains of sand there are on a beach, or how many stars are there in the universe. You could see the number in front of you, but it’s sort of meaningless.<br><br>
+You give the table another quick check, and start making some mental calculations about how much until you are the tallest person who ever lived, and it looks scarily plausible that you might get there in the near future.<br><br>
+Fuck.
+<<elseif $height > 251>>
+You whip out your trusty Wackypedia table of tallest people… and you scroll its contents to find… that you are now the tallest living person on the planet. You giggle, in sheer disbelief. It feels strangely… meaningless? Like, what do you even care? And yet… there’s this uncontained giddiness bubbling inside of you, and the giggle becomes a laughter.<br><br>
+I mean, as far as you know, that’s been the case several <<if $measurementSystem == 'metric'>>centimeters<<else>>inches<</if>> ago. Everywhere you go, you always look down at everyone by a huge margin. What difference does that even make at this point? Except…<br><br>
+You look at the table again. <<numeralConversion 272>>. Yup, I guess you now just need to wait to inevitably become the tallest human ever.
+<<elseif $height > 236>>
+Wait… you have a Wackypedia page saved just for that - you check the list of tallest humans… you start navigating its complicated records, with a mix of living, disputed, gender records… and you try to fit yourself somewhere in there…<br><br>
+After a brief glance, you realize you are now the tallest person without some sort of medical condition. Or are you? I mean, who do you even DEFINE a medical condition in your case?!?<br><br>
+Your stomach churns as you contemplate the implications. Do you HAVE a medical condition? What the fuck did that potion do to you? Are there side effects?<br><br>
+More importantly… just how much are going to grow? Is there an upper limit?<br><br>
+You shake your head and realize you don’t want to think about this anymore.<br><br>
+Well, not until your next height check, at least.
+<<elseif $height > 233>>
+Oh! I know, you think to yourself, as you open the Wackypedia app on your phone. You hope they have some sort of… yes! A list of the tallest recorded humans! Where do you fall on this list?<br><br>
+Whoa, this is complicated… unconfirmed records, male and female, living or dead… you must fit somewhere in there, surely… you scroll down and see more or less where you fall and…<br><br>
+You look at it, then double-check it… yup… apparently, you might just be the tallest living human female. You let out a single incredulous laugh, looking at the distance. I mean, it’s really no surprise - you might not have been bumping on record-holders in your day-to-day life, but it’s been quite a few <<if $measurementSystem == 'metric'>>centimeters<<else>>inches<</if>> of growth ago that you started looking down at basically everyone - let’s not even go into all the door jambs you hit your forehead against, you literally lost count. But… somehow, you seem to make some sense of it.<br><br>
+You sit down, and cross your fingers, leaning your chin against them. No wonder everything feels so small… and every part of your body feels so damn long. Every piece of furniture and construction just feels off, like you are in some kind of carnival attraction. Now, all the pieces of the puzzle have connected, as you see the whole picture.<br><br>
+“And that’s just the beginning”, you muse to yourself.
+<</if>>`
+    },
+    {
+        name: 'bathroomMeasureDick',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => State.variables.dick * State.variables.heightMod > 20
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `<<set $tempDick to $dick * $heightMod>>
+You feel a sophomore laugh erupt as you whip your dick out, feeling literally like a fifth grader about to boast to your friends as you reach for the measuring tape. You watch the phallic snake flop down against your thigh, a strange sense of pride. <<if $tempDickGirth >= 15>>You bite your lips as you envelope the thick meat in your fingers, giving you a sexual thirst you never thought you could awaken with your own body.<</if>> <<if $shyConfident < 0>>You don’t really have that many examples to compare it to, but you kind of intuitively figure it’s pretty significant in its dimensions.<</if>><<if $shyConfident > 0 && $carefreeCarefull > 0>>You’ve seen enough dicks that you just know you got quite the lunker in your hands… well, between your thighs, as the case may be.<</if>><br><br>
+And so you grab the measuring tape, and stretch it alongside your recent acquisition. Let’s see… a nice <<numeralConversion $tempDick>> flaccid. That sounds kind of impressive, actually.<br><br>
+<<if $tempDick > 24>>
+OK, I guess the potion might have actually made your brain kind of like a guy’s as well, because you are sort of curious how well you compare. You check your phone and trip (heh) on the world record for flaccid penis… <<numeralConversion 24>>. Wait. What?<br><br>
+For real? You have the BIGGEST FUCKING DICK?!? Fuck, it’s actually starting to harden as you realize that. You start realizing you might just be a grower as you see that the record is also <<numeralConversion 34>> erect. Well, it would be a fucking pity not to compare that stat as well, right?!?
+You bite your thumb as your start stroking your member. Fuck. This is so much hotter than you expected! You bite your thumb harder as your stroking gets faster, feeling it become harder, thicker, longer… FUCK!!!<br><br>
+Your stroking becomes downright furious as you bite your thumb so hard it starts bleeding. The metallic taste makes every single muscle on your body tense and harden, <<if $muscle >= 50>>as you feel all of yourself grow, expand and harden, a titanic monster waiting to be unleashed,<</if>> and you just NEED to bring both hands to stroke your increasingly enormous dick.<br><br>
+You start swaying your hips up and down, your heartbeat racing and your breath becoming ragged as you instinctively know deep inside you are about to…<br><br>
+BLOW!!!<br><br>
+<br><br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+Cum showers everywhere as the blood starts slowly flowing back to your brain. The world, which faded without you even realizing, materializes back in a fade from black. Man, people say women are lucky to have multiple orgasms, but this… this was fucking next level. Talk about penis envy!<br><br>
+…<br>
+Shit.<br>
+You never measured your erect penis.<br><br>
+Well, I guess you are just going to have to figure out what this “refractory period” is.
+<<elseif $tempDick > 20>>
+OK, I guess the potion might have actually made your brain kind of like a guy’s as well, because you are sort of curious how well you compare. You check your phone and trip (heh) on the world record for flaccid penis… <<numeralConversion 24>>. Hey, that makes your dick pretty impressive, right?<br><br>
+Again, you start giggling like a fifth grader that just found their dad’s secret porn stash. You figure this is cause for celebration… why don’t we take this big boy for a ride? You sit down by your computer, and grab the package of wipes. This could get messy, you think with a smirk as you open a litany of pictures of naked men and women…<br>
+Hey, it’s for scientific reasons, OK? You need to know how each organ responds!<br><br>
+You stroke your member as you fondle your nipples, but soon find yourself moving the second hand to your G-spot. Your eyes dart among the many sexy people on display on your screen.<br><br>
+Yeah, you realize like you might just have to keep experimenting more often, because this sure as hell feels FUCKING GOOD!
+<</if>>`
+    },
+    {
+        name: 'bathroomMeasureTongue',
+        locationTags: ['bathroom'],
+        conditions: [
+            () => {
+                let tempTongueLower = Math.round((State.variables.tongueLenght + 8) * State.variables.heightMod);
+                if (State.variables.measurementSystem === "imperial") tempTongueLower -= 2;
+                return tempTongueLower > 7;
+            }
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: [],
+        content: `<<set $tempTongueLower to Math.round(($tongueLenght + 8 )* $heightMod)>>
+<<if $measurementSystem is "imperial">>
+    <<set $tempTongueLower -= 2>>
+<</if>>
+You lick your lips with your gargantuan tongue, realizing that is almost a waste of your OTHER muscular appendage. Heh. You reach for the measuring tape, as your snake-like moist organ parades down your chin.<br><br>
+You pull the tape, checking just far it goes… <<numeralConversion $tempTongueLower>>...<br><br>
+<<if $tempTongueLower > 12>>
+Out of curiosity, you check what the world record is for a tongue. You are not really surprised to see it’s a paltry 10. I mean, just look at it! You deftly move it around, happy with just how agile it is… and it is making you feel especially naughty!<br><br>
+<<if $muscle >= 40 && $fat < 25>>You start giving yourself a nice show, flexing each muscle, one at a time, and giving them a good tongue-bath: your start at your boulder-like shoulders, then flex your arms as you contour your firm biceps and triceps, before giving your mighty forearms some very deserved attention.<br><br>
+Enjoying your extreme flexibility, you hug your thigh as your leg probes the delta of your flexed calves, making your entire body tingle. But why stop there? You let it play on the valleys and ridges of your quads, giving you shivers with each lash. Hmmmm… time to get creative.<br><br>
+You sit down, and curve yourself to explore your brick-like abs, letting your tongue get softly squeezed between each ultra-defined block of muscle as you flex repeatedly and playfully as you like every bit of it. Suddenly, your entire body trembles and it all tenses up… could this be the fabled coregasm you heard about? Well, it doesn’t matter, because there are still bigger fish to fry, you tell yourself with a naughty smile.<br><br> 
+<</if>>
+But you are not quite over. <<if $breasts >= 50>>You use your palms to raise your prodigious breasts up, basking on their sheer mass.<</if>> You drive your lashing instrument to your nipple as your fondle the base of your breasts, letting your tongue draw slow and deliberate circles around your areola. You are so wet you feel like you could slide off the floor… which reminds you, it’s time for the grand finale.<br><br>
+<<if $dick > 10>>You bend over, letting your fully erect penis meet your tongue halfway. Its tip slowly plays with your foreskin as you pull it to reveal your flowering gland. You let it perform small circles around the head, and feel every muscle in your body tense with anticipation. You pant harder and harder, before you progress further down.<br><br><</if>>
+And there it is. You bend further as you spread your legs, thanking every higher power there could be for your newfound flexibility as your tongue pushes your labia around, digging around for the mistifying…<br><br>
+FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK!!!<br>
+You hug your thighs tighter and tighter, like a human pretzel, just lashing at your clitoris like your life depended on it. Your back heaves with each deep breath, as you approach nirvana, a climax so blindingly bright that it escapes description.<br><br>
+That’s it! Words cannot fucking describe the sheer bliss you gift to yourself. So you don’t even try. This kind of pleasure was not made for human minds to wrap around. All you know is that, by the time you are done, you are basically a completely wet, sweaty, saliva-covered writhing mess on the floor, heaving as you try (rather unsuccessfully) to catch your breath and have some semblance of humanity.<br><br>
+You don’t even care about the moist mess you are right now. It was worth every second of it.
+<<elseif $tempTongueLower > 10>>
+Out of curiosity, you check what the world record is for a tongue. Huh. <<numeralConversion 10>>. Say hello to the world’s longest tongue! I guess this warrants a little celebration, right?<br><br>
+You reach for a jar of peanut butter with about a fourth left. You set a timer on your clock as you start cleaning the whole thing from the rim. You enjoy the added meal, feeling playful like a dog as you really have a go at it. There’s a certain sensuality in enjoying every curve and crevice of the jar, the delicious taste of the peanut butter just a little extra.<br><br>
+Before you know it, the jar is licked completely clean. You look at the timer - just under 2 minutes. You wonder if you should make this into your very own tongue workout - you even get the protein at the same time!
+<<elseif $tempTongueLower > 7>>
+Out of curiosity, you check what the world record is for a tongue. Well, you are not really that far off: <<numeralConversion 10>>. You roll your tongue inside your mouth provocatively, before licking your lips, and then contouring your face as you watch on the mirror.<br><br>
+Fuck, you look really sexy. You’d certainly date yourself in a heartbeat. You are pretty sure that just flashing that tongue would be a dealbreaker for any potential partner who was on the bridge.<br><br>
+You guess you are just going to have to keep giving your tongue some attention until you break that record.
+<</if>>`
+    }
+)>>
