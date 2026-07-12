@@ -5,6 +5,7 @@
 <<set _isOnline to $args[0] == $onlineInventory>>
 <<set _filteredStoreClothes to _storeClothes.slice()>>
 <<set _range to 10>>
+<<set _discountFactor to ($args[1] !== undefined) ? $args[1] : 1>>
 
 <<script>>
 console.log(State.temporary.filteredStoreClothes);
@@ -96,16 +97,17 @@ setup.setClothesTable(clothes);
                 <td>
                     <<print _filteredStoreClothes[_i].name>>                    
                 </td>
-                <td>$<<print setup.getPriceFromClothing(_filteredStoreClothes[_i])>></td>
+                <td>$<<print Math.round(setup.getPriceFromClothing(_filteredStoreClothes[_i]) * _discountFactor)>></td>
                 <td><<listbox "_filteredStoreClothes[_i].size" autoselect>>
                         <<optionsfrom _rowDisplaySizes>>
                     <</listbox>></td>
                 <td><<print setup.getReadableBonusFromClothing(_filteredStoreClothes[_i])>></td>
                 <td><<print  setup.getReadableArchetypesFromClothing(_filteredStoreClothes[_i])>></td>
                 <td>
-                    <<if setup.getPriceFromClothing(_filteredStoreClothes[_i]) <= $money>>
+                    <<set _clothingPrice to Math.round(setup.getPriceFromClothing(_filteredStoreClothes[_i]) * _discountFactor)>>
+                    <<if _clothingPrice <= $money>>
                         <<link 'buy'>>
-                            <<set $money -= setup.getPriceFromClothing(_filteredStoreClothes[_i])>>  
+                            <<set $money -= _clothingPrice>>
                             <<set _filteredStoreClothes[_i].id to Date.now()>>
                             <<if _isOnline == false>>                                    
                                 <<set $wardrobe.push(_filteredStoreClothes[_i])>>

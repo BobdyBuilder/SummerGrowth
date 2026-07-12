@@ -15,6 +15,8 @@
 <</nobr>>The Bulk Barn is almost a legendary spot in town, if only because the owner is so LOUD. Stacked to the ceiling with all kinds of supplements and workout gear, between them roams a man you will hear before you seeing, which is an impressive feat given his size. No matter what you need when it comes to lifting, they have it here by the bulk (no pun intended). And whenever you buy something, you just know the owner will talk your ears off and give you PLENTY of advice. 
 <br>
 <<set _amounts to []>>
+<<set _bulkBarnDiscount to $bulkBarnManager ? 0.5 : 1>>
+<<if $bulkBarnManager>>As store manager, you get half off everything here!<br><</if>>
 
 <table id="store">
   <tr>
@@ -34,17 +36,18 @@
 		<tr id="row" @data-num="_i">
     		<td><<print $gymStoreSupplies[_i].name>></td>
     		<td><<print $gymStoreSupplies[_i].description>></td>
-	    	<td>$<<print $gymStoreSupplies[_i].price>></td>
+	    	<td>$<<print Math.round($gymStoreSupplies[_i].price * _bulkBarnDiscount)>></td>
 			<td>
-				$<span class="selected"><<print $gymStoreSupplies[_i].price>></span>
+				$<span class="selected"><<print Math.round($gymStoreSupplies[_i].price * _bulkBarnDiscount)>></span>
   				<<timed 0s>><<script>>
 				var boxes = $(".macro-numberbox#numberbox--amounts-i");
-    			boxes.on("keyup", function () {	
+    			boxes.on("keyup", function () {
 				var mod = $(this).val();
         		$(this).parents("#row").find(".selected").fadeOut(250, function () {
 				var rowInxed = Number($(this).parents("#row").attr("data-num"));
 				var price = State.variables.gymStoreSupplies[rowInxed].price;
-				var value = Math.round(price * mod);
+				var discount = State.variables.bulkBarnManager ? 0.5 : 1;
+				var value = Math.round(price * mod * discount);
             	$(this).text(value).fadeIn(250);
         });
     });
@@ -60,7 +63,7 @@
 			<<if _amountLocal <= 0>>
 			<<replace _replace>>Please type in a number greater than 0<</replace>>
 			<<else>>
-			<<set _prizebought to $gymStoreSupplies[_i].price * _amountLocal>>
+			<<set _prizebought to Math.round($gymStoreSupplies[_i].price * _amountLocal * _bulkBarnDiscount)>>
 			<<if _prizebought > $money>>
 			<<replace _replace>>You can't afford that.<</replace>>
 			<<else>>
@@ -93,13 +96,14 @@
 		<tr>
     		<td><<print $fitnessStoreInventory[_i].name>></td>
     		<td><<print $fitnessStoreInventory[_i].description>></td>
-	    	<td>$<<print $fitnessStoreInventory[_i].price>></td>
+	    	<td>$<<print Math.round($fitnessStoreInventory[_i].price * _bulkBarnDiscount)>></td>
 			<td><span id="result2"><<link "buy - 00:05 🕛">>
-			<<if $fitnessStoreInventory[_i].price > $money>>
+			<<set _itemPrice to Math.round($fitnessStoreInventory[_i].price * _bulkBarnDiscount)>>
+			<<if _itemPrice > $money>>
 			<<replace "#result2">>You can't afford that.<</replace>>
 			<<else>>
 			<<addMinutes 5>>
-			<<set $money -= $fitnessStoreInventory[_i].price>>
+			<<set $money -= _itemPrice>>
 			<<set $furniture.push($fitnessStoreInventory[_i].name)>>
 			<<run $fitnessStoreInventory.deleteAt(_i)>>
 			<<goto "FitnessStore">>
@@ -113,7 +117,7 @@
 <br>
 
 <<linkreplace "Shop for sports wear">>
-    <<ClothingStoreWidget $bulkBarnInventory>>
+    <<ClothingStoreWidget $bulkBarnInventory _bulkBarnDiscount>>
 <</linkreplace>>
 
 <br>
