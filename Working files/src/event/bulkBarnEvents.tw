@@ -342,7 +342,7 @@
         name: 'EddyOffersToSponsor',
         locationTags: ['fitnessStoreJob'],
         conditions: [			 
-            () => State.variables.muscles >= 35
+            () => State.variables.muscle >= 35
         ],
         repeatable: false,
         retriggerable: false,
@@ -551,14 +551,174 @@ Big Eddy comes back into the store, and looks at you.<br><br>
 You give your pumped muscles a flex, showing off to him. Big Eddy smiles and shows a double thumbs-up. Man, he’s so great at motivation it’s not even funny!”
 <<else>>You blush, and try to explain that you were just messing around with the weights. Eddy winks approvingly, and you slump into the corner, slightly embarrassed... but also weirdly proud!” 
 <</if>>`
-    })>>
+    },
+    {
+       name: 'bulkBarnPromoStreamerFans',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob,
+            () => State.variables.streamingViewers >= 100,
+            () => State.variables.muscle > 50
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy'],
+        content: `It is a very unusual day at the Bulk Barn - a lot of people showing up, much more so than usual. And people linger a lot longer, sticking there and making all kinds of small talk. Their purchases are also a bit off. Huh.<br><br>
+As a pair of young men come in, one of them ends up slipping, and calls you by your streaming handle. Ahhhhhh, now it makes sense - you did mention the other day on the stream that you worked at the Bulk Barn.<br><br>
+Well, it wasn’t your intent, but it most certainly has translated in a lot more movement at the store, and even though they don’t spend quite as much as your regular - it’s definitely paying off financially!<br><br>
+As your shift is coming to an end, you finish adding up the day’s take, and report to Big Eddy.<br><br>
+<<Dialogue "player" "You">>"Here’s the balance for the day, Eddy."<</Dialogue>><br><br>
+Eddy grabs the sales report, and his jaw drops.<br><br>
+<<Dialogue "Eddy" "Eddy">>"Wow, <<print $playerFirstName>>, is there a fitness holiday and nobody told me? We’ve never done this well on a weekday!"<</Dialogue>><br><br>
+<<if $shyConfident > 1>>
+<<Dialogue "player" "You">>"Well, you happen to have a small e-celeb working here, Eddy. And it’s raking in the customers."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"What’s an electric celery? I never heard of anything like that!"<</Dialogue>><br><br>
+You roll your eyes, and explain to him what streaming is. He listens with rapt attention, dumbfounded as you detail what it entails and what you’ve been doing.
+<<else>>
+<<Dialogue "player" "You">>"Well, uh, you see..."<</Dialogue>><br><br>
+You blush, sort of uneasy at explaining what you did.<br><br>
+<<Dialogue "player" "You">>"Lately, I sorta have been moonlighting a bit as a streamer, and I suppose some people think I’m kind of a big deal..."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"Wait, you’re a streaker? This is somewhat concerning, <<print $playerFirstName>>!"<</Dialogue>><br><br>
+You suppress a giggle for his misunderstanding, and explain what streaming is.
+<</if>><br><br>
+<<Dialogue "player" "You">>"And then the other day I accidentally mentioned I worked here... and it seems some people are showing up to see me in person."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"Huh. Wow! Things sure have changed since I was a teen. Well, I can’t argue with the results. And you have made yourself more valuable to the store, so I think it’s only fair that you share on the profit. I’m giving you a raise!"<</Dialogue>><br><br>
+Wow! You weren’t expecting that, but at the same time, it is a very Big Eddy thing to do. He seems equally pleased with the fact you are spreading the fitness gospel as he is with the increased income.<br><br>
+Well, the bottom line is, you are growing the business. Heh, growing. Guess you’re just pretty good at growth in general.<<set $bulkBarnPromoStreamer to true>><<set $bulkBarnPromotionBonus += 0.25>><<set $bulkBarnLastPromotionShift to $bulkBarnShiftsWorked>>`
+    },
+    {
+        name: 'bulkBarnPromoPopularity',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob,
+            () => State.variables.muscle >= 50,
+            () => State.variables.fat <= 25,
+            () => State.variables.shyConfident > 1
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy'],
+        content: `The Bulk Barn has been a lot more lively lately. It’s like the place has become a bit of a hangout for bodybuilders - and every single of one of them knows you by name. Since you’ve been getting bigger and more popular, just about everyone who wants to put on some mass knows where to come. Right now, you are having a lively discussion with three bodybuilders (who have given you plenty of compliments on your gains).<br><br>
+<<Dialogue "Eddy" "Eddy">>"Hey, <<print $playerFirstName>>, can I have a second?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Sure. Guys, give me a second, the boss wants to talk to me."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"Lots of people showing up at the store, and you talk to everyone, huh?"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Oh, I’m sorry. I’ll get back to work, I didn’t mean to slack..."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"No, no, you got this wrong. Since you started working here and, well, getting bigger - there’s a lot more customers, and a lot more sales."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Ah, so it’s not a problem?"<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"Problem? We are on track for a record-breaking month in profits, more people know the Bulk Barn than ever - and I have a lot more people to blab to! I couldn’t be prouder of you!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Ah! I thought for a second you were mad at me for talking so much!"<</Dialogue>><br><br>
+He looks at you with incredible amusement. Yeah, Big Eddy, of all people, mad at someone for yakking too much? Highly unlikely. You feel almost stupid for even thinking of that!<br><br>
+<<Dialogue "Eddy" "Eddy">>"In any case, you once again proved yourself a great asset for the team, and I’m giving you a raise!"<</Dialogue>><br><br>
+You squee with delight, and proceed to go tell the bodybuilders the news. There’s cheering and celebration, and Eddy tosses a few cold sports drinks for everyone. It’s an unusual celebration, but very on-brand for the store! And you get to make some more bucks doing what you love!<<set $bulkBarnPromoPopularity to true>><<set $bulkBarnPromotionBonus += 0.25>><<set $bulkBarnLastPromotionShift to $bulkBarnShiftsWorked>>`
+    },
+    {
+        name: 'bulkBarnPromoOrganization',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob,
+            () => State.variables.skills[1].level > 3,
+            () => State.variables.carefreeCarefull > 1 || State.variables.skills[2].level > 3
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy'],
+        content: `You place the last bottle on the shelf.<br><br>
+<<Dialogue "player" "You">>"Aaaaand, done!"<</Dialogue>><br><br>
+Wow, you can’t believe it, but it’s finally finished! You implement the new organization system you’ve been working for days on. Every single piece product in the store is now neatly organize by type, and anyone who comes in can figure intuitively at a glance where the stuff they are looking for is, with the proper signage everywhere.<br><br>
+And the best part? Everything looks neatly displayed, and properly resting without piles that are about to topple. You take a step back, and look proudly. It may have taken a while, but it was worth every second.<br><br>
+Big Eddy comes back from his errand, and stops cold for a second. He just looks around, jaw hanging.<br><br>
+<<Dialogue "Eddy" "Eddy">>"What... have you done?!?"<</Dialogue>><br><br>
+He looks desolated. His hands flap nervously as he walks the corridors.<br><br>
+<<Dialogue "player" "You">>"I reorganized the store. Now all products are properly classified and separated, as well as indicated by this new system of signs."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"But, but... I had a SYSTEM!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"You did. It was called chaotic entropy. I know you could always find what you were looking for, but you were basically the only one, Eddy. You need to think of the customers too."<</Dialogue>><br><br>
+And as if on cue, a new face walks in. Looks at a sign, scans a shelf for all of three seconds, and grabs a product and goes to the cashier.<br><br>
+<<Dialogue "player" "You">>"QED!"<</Dialogue>><br><br>
+You exclaim proudly, as you grab the cash from the client’s hand, looking accusingly at Eddy. He’s pouting, somewhat resigned in his stubbornness, but he rolls his eyes and admits:<br><br>
+<<Dialogue "Eddy" "Eddy">>"OK, OK, you clearly have a point. But I am not a sore loser. If the next person that walks in also finds their stuff easily, I’ll give you a raise, deal?"<</Dialogue>><br><br>
+You smirk as a woman walks, an old customer. Eddy looks nervous as her eyes widen with surprise. She walks straight to the proper shelf, and immediately grabs what she was looking for, coming to the cashier while making several compliments about how much better and more organized the store is now. You grab her card with a smug expression, looking at Eddy, who is sighing.<br><br>
+<<Dialogue "Eddy" "Eddy">>"Alright, alright, I am a man of my word. You can keep the new system, and I’ll give you a raise. But I’m not promising I’ll manage to keep it like this when you are not around, so you better not bail on me, kiddo!"<</Dialogue>><br><br>
+You nod, proudly, while you finish ringing up the purchase, and already daydreaming with what you will do with the extra income coming your way!<<set $bulkBarnPromoOrganization to true>><<set $bulkBarnPromotionBonus += 0.25>><<set $bulkBarnLastPromotionShift to $bulkBarnShiftsWorked>>`
+    },
+    {
+        name: 'bulkBarnPromoWorkout',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob,
+            () => State.variables.skills[0].level > 3,
+            () => State.variables.shyConfident > 1
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy'],
+        content: `You are showing the proper position on how to do a clean triceps extension to a client, so as to diminish stress on the rest of the body.<br><br>
+<<Dialogue "player" "You">>"That way, you should be able to increase your load without putting too much stress on the rest of your body!"<</Dialogue>><br><br>
+You get a big thank you, and smile proudly back. Lately, with your increased knowledge on exercising, people have been asking for more advice from you, and you sort of been picking up as the honorary personal trainer from Big Eddy - he’s really good at giving advice, but you tend to be more focused, and people appreciate it.<br><br>
+<<Dialogue "Eddy" "Eddy">>"I guess you’ve been making some great progress on your knowledge about exercising, huh?"<</Dialogue>><br><br> 
+<<Dialogue "player" "You">>"What can I say, you’ve really been rubbing off on me!!!"<</Dialogue>><br><br>
+He looks at you with an expression you aren’t quite used to. It seems like a very emotional fatherly pride, you could almost swear his eyes are tearing up a bit?<br><br>
+<<Dialogue "Eddy" "Eddy">>"They grow up so fast!<<if $muscle >= 45 || $height >= 190>> In your case, quite literally, might I add!<</if>>"<</Dialogue>><br><br>
+You smile and give him a hug. He hugs you right back. Big Eddy hugs are the best, there’s something you can’t quite explain, but it just makes you feel warm inside.<br><br>
+<<Dialogue "Eddy" "Eddy">>"So, um, *ahem* yeah, I’ve been giving it some thought, and the truth is, you’ve brought a lot to the table here. I admit sometimes it makes me feel a bit redundant, but the truth is, the store is better for it because of you. Clients are happier than ever, and I am never concerned about leaving you in charge so... I’ve decided that you deserve a raise."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wow, really?!?"<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"What can I say, I’m a bit of a softy. But it’s hard to deny that business has been getting better since you joined, and there’s no way I wouldn’t reward you for that."<</Dialogue>><br><br>
+You thank Big Eddy profusely, and he tries very hard to wave it off, but his personality makes it very hard for him not to get excited with it. Either way, you are now bringing more dough home!<<set $bulkBarnPromoWorkout to true>><<set $bulkBarnPromotionBonus += 0.25>><<set $bulkBarnLastPromotionShift to $bulkBarnShiftsWorked>>`
+    },
+    {
+        name: 'bulkBarnPromoManager',
+        locationTags: ['fitnessStoreJob'],
+        conditions: [
+            () => State.variables.bulkBarnJob,
+            () => State.variables.bulkBarnPromoStreamer,
+            () => State.variables.bulkBarnPromoPopularity,
+            () => State.variables.bulkBarnPromoOrganization,
+            () => State.variables.bulkBarnPromoWorkout,
+            () => State.variables.bulkBarnShiftsWorked - State.variables.bulkBarnLastPromotionShift >= 5
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'response',
+        npc: ['eddy'],
+        content: `You are finishing putting some cash from the last transaction away in the cash register, when Big Eddy comes in looking all serious.<br><br>
+<<Dialogue "Eddy" "Eddy">>"<<print $playerLastName>>, we need to talk, come here."<</Dialogue>><br><br>
+Uh, oh! What did you do, he never calls you by your last name! You get nervous and sweaty, trying to remember if you made some serious mistake, what could possibly be the problem?!? Your head is going a mile a minute, trying to figure it out as you approach him, feeling horrible.<br><br>
+<<Dialogue "player" "You">>"Hey, is everything OK?"<</Dialogue>><br><br> 
+<<Dialogue "Eddy" "Eddy">>"Look, I have some very serious stuff to talk to you about. Maybe you should sit down?"<</Dialogue>><br><br>
+Shit! This is serious. You are probably getting fired. Fuck, what the heck did you do? Is he still pissed at you for reorganizing the store?<br><br>
+<<Dialogue "Eddy" "Eddy">>"Listen, when I first opened the Bulk Barn, it was a labor of love - I’ve literally poured my heart into this store. I have no words to describe how important it is for me. I kinda lead this weird lifestyle, and it’s the closest thing I’ll probably ever have to a daughter."<</Dialogue>><br><br>
+Balls, how bad have you fucked up to get a whole speech? You are starting to feel a bit nauseous from all the worry, and can’t hold your tongue any longer.<br><br>
+<<Dialogue "player" "You">>"Ed, I’m so sorry, I would never do anything that would hurt you on purpose. I... I don’t know what I did, but please give me a chance to make up for it! I will do anything, just let me prove that I can. You owe me at least that?"<</Dialogue>><br><br>
+Big Eddy now looks completely confused.<br><br>
+<<Dialogue "Eddy" "Eddy">>"What are you talking about?"<</Dialogue>><br><br> 
+<<Dialogue "player" "You">>"You can’t fire me! Not now, at least, I do deserve one chance!"<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"Are you insane? Oh, wait, you thought I was going to fire you?"<</Dialogue>><br><br>
+He starts laughing so hard his face goes a dark shade of red, he can barely breath. You feel a mix of shame and revolt.<br><br>
+<<Dialogue "Eddy" "Eddy">>"Ahhhh, sorry, that was... really funny. No, <<print $playerFirstName>>, I’m not firing you. I’m making you store manager. I had this whole speech about how you became almost like a daughter to me, but I... hahaha, I just can’t do it now."<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Wait, WHAT? WHAAAAAT?!?"<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"I’m really not sure how you got to that conclusion. You’ve made the Bulk Barn so much better, and truth be told, I thought I was going to teach you a lot about nutrition and fitness, but I feel like you were the one that taught me all the important lessons. And I’m all the better for it. So, you know, I’m super proud of you, and I feel like you deserve the extra responsibility and power that comes with being a manager. You really earned it."<</Dialogue>><br><br> 
+You eyes are now welling up, your lip quivering. Big Eddy looks at you with adoring eyes, and it’s making it hard to breath. You grab him for a tight hug.<br><br>
+<<if $muscle >= 55 && $height >= 185>>You lift him clear off the ground, and he protests briefly.<br><br>
+<<Dialogue "Eddy" "Eddy">>"Uhhh, I’m all for hugs, but please don’t break anything. Also, can you please put me down back on the ground?"<</Dialogue>><br><br>
+You comply with an emotional laugh, drying your eyes.<br><br><</if>>
+<<Dialogue "Eddy" "Eddy">>"So, listen, this comes with a big raise in pay, but managers also have a few extra perks. Namely, you can now get any product from here for half the price. You’ve earned it, kiddo!"<</Dialogue>><br><br>
+<<Dialogue "player" "You">>"Eddy, I have no words. Thank you."<</Dialogue>><br><br>
+<<Dialogue "Eddy" "Eddy">>"No, I should be the one saying thanks. I never thought that hiring you would be one of the best decisions I made in my life, but here we are. And I hope you stay. You really changed the store, and I guess my life."<</Dialogue>><br><br>
+And it is. That contagious smile of his. Oh, best boss ever!<br><br>
+<<Dialogue "Eddy" "Eddy">>"But enough of that! This calls for a celebration! Do you want to go camping with me one of these days? It would be my honor to take you!"<</Dialogue>><br><br>
+You nod, still emotional. Big Eddy, you truly are the best. Biting your lip, you grab a couple of sports drinks from the small fridge and make a toast with him.<<set $bulkBarnManager to true>><<set $bulkBarnPromotionBonus += 0.5>>`
+    }
+    )>>
 
     <<script>>
         for (let i = 0; i < setup.events.length; i++) {
             if(!setup.events[i].locationTags.includes('fitnessStoreJob')){
                 continue;
             }
-            setup.events[i].content += '<br><br>And that ends your shift! It took a bit of work, but you earned $<<print setup.balance.bulkBarnJobIncome()>> this shift.<<if $skills[0].level > 0>> Your knowledge of lifting certainly helped with this!<</if>> And your cooking skills did give you a suprising aid when it comes to advising people on their diets.<<if $skills[2].level > 0>> That course on bookkeeping certainly wasn\'t wasted either. Maybe Eddy should take one.<</if>><<set $money += setup.balance.bulkBarnJobIncome()>>';
+            setup.events[i].content += '<br><br>And that ends your shift! It took a bit of work, but you earned $<<print setup.balance.bulkBarnJobIncome()>> this shift.<<if $skills[0].level > 0>> Your knowledge of lifting certainly helped with this!<</if>> And your cooking skills did give you a suprising aid when it comes to advising people on their diets.<<if $skills[2].level > 0>> That course on bookkeeping certainly wasn\'t wasted either. Maybe Eddy should take one.<</if>><<set $money += setup.balance.bulkBarnJobIncome()>><<set $bulkBarnShiftsWorked += 1>>';
         }
     <</script>>
 

@@ -175,6 +175,16 @@
 <<set $officePromotionBonus to 1>>
 <<set $streamingMoneyGained to 0>>
 
+<<set $bulkBarnJob to false>>
+<<set $bulkBarnShiftsWorked to 0>>
+<<set $bulkBarnLastPromotionShift to 0>>
+<<set $bulkBarnPromotionBonus to 1>>
+<<set $bulkBarnPromoStreamer to false>>
+<<set $bulkBarnPromoPopularity to false>>
+<<set $bulkBarnPromoOrganization to false>>
+<<set $bulkBarnPromoWorkout to false>>
+<<set $bulkBarnManager to false>>
+
 <<set $log to []>>
 <<set $deletedLog to []>>
 
