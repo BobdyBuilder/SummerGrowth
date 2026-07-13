@@ -469,6 +469,7 @@ Was that a nosebleed?<</if>>
         name: 'JohanLactation',
         locationTags: ['johan'],
         conditions: [
+            () => State.variables.lactationSetting,
             () => State.variables.breastsFullness != null && ['overflowing', 'full'].includes(State.variables.breastsFullness.toLowerCase()),
             () => State.variables.breasts >= 30
         ],

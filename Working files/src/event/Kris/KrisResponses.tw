@@ -120,6 +120,7 @@
         conditions: [
         	() => State.variables.krisInterested,
               () => State.variables.krisObsessedOpinion >= 30,
+              () => State.variables.lactationSetting,
         	 () => State.variables.breastsFullness === 'overflowing'
         ],
         repeatable: false,

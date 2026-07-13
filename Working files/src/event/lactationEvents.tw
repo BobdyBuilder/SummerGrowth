@@ -3,7 +3,8 @@
     {
         name: 'breastsOverflowingAtHome',
         locationTags: ['home'],
-        conditions: [			 
+        conditions: [
+            () => State.variables.lactationSetting,
             () => State.variables.breastsFullness === 'overflowing'
         ],
         repeatable: true,
@@ -16,6 +17,7 @@
         name: 'ifBreastsFullWithJohan_LeakWhileCarrying',
         locationTags: ['home'],
         conditions: [
+            () => State.variables.lactationSetting,
             () => State.variables.breastsFullness === 'overflowing',
             () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
@@ -28,7 +30,8 @@
     {
         name: 'ifBreastsFullWithElena_LeakWhileLifting',
         locationTags: ['elenaGym'],
-        conditions: [				 
+        conditions: [
+            () => State.variables.lactationSetting,
             () => State.variables.breastsFullness === 'overflowing',
             () => State.variables.elenaOpinion >= 20,
             () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
@@ -42,7 +45,8 @@
     {
         name: 'ifBreastsFullWithEmma_LeakWhileWorking',
         locationTags: ['office'],
-        conditions: [			 
+        conditions: [
+            () => State.variables.lactationSetting,
             () => State.variables.breastsFullness === 'overflowing',
             () => State.variables.daysWorkedOffice >= 3,
             () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
@@ -57,6 +61,7 @@
         name: 'ifBreastsTightAtGym_UncomfortableBenchPress',
         locationTags: ['gym'],
         conditions: [
+            () => State.variables.lactationSetting,
             () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
             () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
@@ -69,7 +74,8 @@
     {
         name: 'ifLeakingAndBreasts>60_TooBigTooHandle',
         locationTags: ['apartment'],
-        conditions: [	
+        conditions: [
+            () => State.variables.lactationSetting,
             () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
             () => State.variables.breasts >= 70
         ],
@@ -82,7 +88,8 @@
     {
         name: 'ifLeakingAndBreasts>EmmaWork',
         locationTags: ['office'],
-        conditions: [	
+        conditions: [
+            () => State.variables.lactationSetting,
             () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
             () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
@@ -95,7 +102,8 @@
     {
         name: 'KrisLactation',
         locationTags: ['kris'],
-        conditions: [	
+        conditions: [
+            () => State.variables.lactationSetting,
             () => ['overflowing', 'full'].includes(State.variables.breastsFullness),
             () => !State.variables.outfit.bonuses().map(bonus => bonus.name).includes('LactationProof')
         ],
