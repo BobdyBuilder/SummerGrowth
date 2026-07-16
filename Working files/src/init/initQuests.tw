@@ -43,6 +43,9 @@
 	}
 ] >>
 
+<<set $reversalStoppedResearchCount to 0>>
+<<set $ReversalStoppedResearched to false>>
+
 <<for _i to 0; _i < $quests.length; _i ++>>
 <<capture _i>>
 	<<if $quests[_i].name is "cleanHouse">>

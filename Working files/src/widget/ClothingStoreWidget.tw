@@ -107,7 +107,7 @@ setup.setClothesTable(clothes);
                     <<set _clothingPrice to Math.round(setup.getPriceFromClothing(_filteredStoreClothes[_i]) * _discountFactor)>>
                     <<if _clothingPrice <= $money>>
                         <<link 'buy'>>
-                            <<set $money -= _clothingPrice>>
+                            <<set $money -= Math.round(setup.getPriceFromClothing(_filteredStoreClothes[_i]) * _discountFactor)>>
                             <<set _filteredStoreClothes[_i].id to Date.now()>>
                             <<if _isOnline == false>>                                    
                                 <<set $wardrobe.push(_filteredStoreClothes[_i])>>

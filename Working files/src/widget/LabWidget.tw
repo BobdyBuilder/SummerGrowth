@@ -77,7 +77,8 @@ let effective = false;
 
 let dialog;
 for (let i = 0; i < State.variables.potionIngredientCombinations.length; i++) {
-  if (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
+  if (!State.variables.potionIngredientCombinations[i].locked &&
+    State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[i].ingredientOne) &&
     State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[i].ingredientTwo)
   ) {
     effective = true;
@@ -129,7 +130,7 @@ State.variables.ineffectiveRecipeCount += Math.floor(Math.random() * (3 - 1 + 1)
 if (State.variables.ineffectiveRecipeCount >= 10) {
   const optionsForDiscovery = [];
   for (let j = 0; j < State.variables.potionIngredientCombinations.length; j++) {
-    if (!State.variables.potionIngredientCombinations[j].discovered && (
+    if (!State.variables.potionIngredientCombinations[j].discovered && !State.variables.potionIngredientCombinations[j].locked && (
       (State.variables.selectedIngredientNameOne.includes(State.variables.potionIngredientCombinations[j].ingredientOne)) ||
       (State.variables.selectedIngredientNameTwo.includes(State.variables.potionIngredientCombinations[j].ingredientTwo)))) {
       optionsForDiscovery.push(j);
@@ -245,6 +246,111 @@ State.variables.potionIngredients.splice(secondIngredientIndex, 1);
         <</liveblock>>
     </div>
 </div>
+
+<<if setup.hasEventBeenTriggered("Main_quest_Toshi_meeting") && $ReversalStoppedResearched != true>>
+    <div id="reversalResearch" style="margin-top: 10px; border-top: solid; padding-top: 10px;">
+        <span class="important">Toshi explained that sacrificing potions could help research a way to stop the reversal. Pick exactly 5 potions (any mix of types) to sacrifice. Progress: <<print $reversalStoppedResearchCount>>/5</span><br>
+        <<set _sacrificeCandidates to $consumables.filter(potion => potion.amount > 0)>>
+        <<set _totalPotionCount to _sacrificeCandidates.reduce((sum, potion) => sum + potion.amount, 0)>>
+        <<if _totalPotionCount >= 5>>
+            <<set _sacrificeAmounts to []>>
+            <table id="store">
+                <tr>
+                    <th>Potion</th>
+                    <th>Owned</th>
+                    <th>Sacrifice</th>
+                </tr>
+                <<for _i to 0; _i < _sacrificeCandidates.length; _i ++>>
+                    <<capture _i>>
+                        <<set _sacrificeAmounts.push(0)>>
+                        <tr @data-num="_i">
+                            <td><<print _sacrificeCandidates[_i].name>></td>
+                            <td><<print _sacrificeCandidates[_i].amount>></td>
+                            <td><<numberbox "_sacrificeAmounts[_i]" 0>></td>
+                        </tr>
+                    <</capture>>
+                <</for>>
+            </table>
+            Selected: <span id="sacrificeTotal">0</span>/5<br>
+            <span id="confirmSacrificeWrapper" style="display:none;">
+                <<button "Confirm sacrifice">>
+                    <<script>>
+                        var amounts = [];
+                        var total = 0;
+                        $("#reversalResearch .macro-numberbox").each(function () {
+                            var rowIndex = Number($(this).closest("tr").attr("data-num"));
+                            var value = parseInt($(this).val());
+                            if (isNaN(value) || value < 0) {
+                                value = 0;
+                            }
+                            amounts[rowIndex] = value;
+                            total += value;
+                        });
+
+                        State.temporary.sacrificeConfirmed = (total === 5);
+
+                        if (State.temporary.sacrificeConfirmed) {
+                            for (var i = 0; i < State.temporary.sacrificeCandidates.length; i++) {
+                                var amount = Math.min(amounts[i] || 0, State.temporary.sacrificeCandidates[i].amount);
+                                State.temporary.sacrificeCandidates[i].amount -= amount;
+                            }
+                            State.variables.reversalStoppedResearchCount += 1;
+                            if (State.variables.reversalStoppedResearchCount >= 5) {
+                                State.variables.ReversalStoppedResearched = true;
+                                var reversalRecipeResults = ["reversalStopperIngredientA", "ReversalStopperIngredientB", "UnrefinedReversalPotion", "Reversal stopper potion"];
+                                for (var j = 0; j < State.variables.potionIngredientCombinations.length; j++) {
+                                    if (reversalRecipeResults.includes(State.variables.potionIngredientCombinations[j].resultDesc)) {
+                                        State.variables.potionIngredientCombinations[j].discovered = true;
+                                        State.variables.potionIngredientCombinations[j].locked = false;
+                                    }
+                                }
+                            }
+                        }
+                    <</script>>
+                    <<if _sacrificeConfirmed>>
+                        <<set _eventName to "ReversalResearch_" + $reversalStoppedResearchCount>>
+                        <<playEvent _eventName>>
+                    <</if>>
+                <</button>>
+            </span>
+            <<timed 0s>><<script>>
+                function reversalResearchSync($changedInput) {
+                    var rowIndex = Number($changedInput.closest("tr").attr("data-num"));
+                    var value = parseInt($changedInput.val());
+                    if (isNaN(value) || value < 0) {
+                        value = 0;
+                    }
+
+                    var otherTotal = 0;
+                    $("#reversalResearch .macro-numberbox").not($changedInput).each(function () {
+                        var v = parseInt($(this).val());
+                        if (!isNaN(v) && v > 0) {
+                            otherTotal += v;
+                        }
+                    });
+
+                    var maxAllowed = Math.max(0, 5 - otherTotal);
+                    if (value > maxAllowed) {
+                        value = maxAllowed;
+                    }
+                    $changedInput.val(value);
+                    State.setVar("_sacrificeAmounts[" + rowIndex + "]", value);
+
+                    var total = otherTotal + value;
+                    $("#sacrificeTotal").text(total);
+                    $("#confirmSacrificeWrapper").toggle(total === 5);
+                }
+
+                $("#reversalResearch .macro-numberbox").attr("min", 0).on("input change keyup", function () {
+                    reversalResearchSync($(this));
+                });
+            <</script>><</timed>>
+        <<else>>
+            You don't have enough potions to sacrifice (need 5, have <<print _totalPotionCount>>).
+        <</if>>
+    </div>
+<</if>>
+
 <<if $args[0] == true>>
     <table id="store">
         <tr>

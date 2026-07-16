@@ -1,0 +1,149 @@
+:: ReversalResearchEvents [nobr] {"position":"1800,2350","size":"100,100"}
+<<set setup.events.push(
+    {
+        name: 'ReversalResearch_1',
+        locationTags: ['home'],
+        conditions: [
+            () => false /*manually triggered from LabWidget*/
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `You dump the contents of your chemical receptacle into the glass beaker, marvelling at the unreal colors and patterns. Something about these concoctions always seemed surreal - much like their fantastical qualities. And yet, their mysterious qualities remain locked behind understanding how they interact with your body. How can a few <milliliters/ounces> of liquid hide so much?<br><br>
+
+You sit down, setting the beaker up for the distillation process. As you apply heat to the glass, the liquid inside acts as if it were alive - the complex patterns and colors squirm as if they could feel the warmth, first stirring excitedly, then writhing as if in pain. Slowly, swirls spread through the entire surface, and its color changes right before it starts to bubble. You mess with the heat knob, trying to keep the process as smooth as possible, but your rapid heartbeat makes it hard to concentrate. Not even blinking, you keep perfect eye contact as your hand fine-tunes the temperature.<br><br>
+
+<<if Math.random() < ($skills[5].level * 0.2)>>
+Little by little, the substance starts… separating? It reminds you of boiling milk, as a thick crust forms on the top of the beaker, bubbles releasing a weird vapor of a color you are unable to describe, but it has a weird warm tonality to it, as if it was gaseous lava. And so your out-of-this-world pseudo volcano erupts, with a weird gel left on the beaker, and a strange new byproduct on the test tube at the other end of the still.<br><br>
+
+You take the tube out and move it slowly, having a hard time understanding the exact state of the matter inside. It's not exactly glowing, but it still feels like it has a bizarre warm energy of its own. <<if $carefreeCarefull > 1>>With fear still gripping your soul, you decide to test a drop on your lips.<<else>>Feeling strangely bold, even knowing how insane this thing could be, you take a test swig.<</if>> It's strangely metallic, and reminds you of a time your father taught you how to test a battery by licking it - it makes your mouth tingle, at the same time that it releases some sort of indescribable energy that spreads from your jaw to your neck, then reverberates like an echo through the rest of your entire body, including your hair. The sensation is almost indescribable, but you can't help but feel like you unlocked something there. Your rapidly beating heart somehow slows down, and you feel a wave of energy welling in the very core of your being. It just feels… right. You feel like some sort of superhero getting a new power, even if by all measures you are still the same person. But you just know you are on the right track.<br><br>
+
+Now only time will tell if you can revert whatever is happening to you before this is irreversible…
+<<else>>
+The most putrid taste you could possibly imagine hits your tastebuds like someone just hosed them - no, it's actually worse than what you could possibly imagine. It takes all the effort you can muster not to let your gag reflex get the best of you, and your entire body shakes. The revulsion is so strong that you drop the test tube, which rolls on the ground, spreading what was left of your experiment all over the floor. Thankfully, the glass is still intact, but you rush to grab a cloth and clean the mess you made.<br><br>
+
+Afraid to let whatever ungodly you just unleashed into the sewer, you decide to burn the rag. It turns out to be a horrible idea, as the entire thing almost explodes into a bizarre flash of purple flame, almost burning your hand in the process. It will not be able to find a safe way to dispose of these, you think, as you get back to the drawing board. Your hope to revert the process dwindles, but you are not quite ready to give up just yet.
+<</if>>`
+    },
+    {
+        name: 'ReversalResearch_2',
+        locationTags: ['home'],
+        conditions: [
+            () => false /*manually triggered from LabWidget*/
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `No matter what you do, your new samples do not seem to separate with the distilling process. You realize you might have to get creative, so you grab some pH strips from your kit, and measure the result, finding out that the substance is acidic in nature. <<if $skills[5].level > 3>>Lacking a spectrometer to figure out what you are dealing with, you are left to guess what you have there.<<else>>You have some vague memories of your high school chemistry class and that acids react with bases. That was it, right?<</if>> You remember that you have some alkaline water drink that was given in some promotion for students when you first arrive on campus… perhaps you can further distill some of the components with a mix?<br><br>
+
+In an incredible unscientific display of both hubris and anxiety, you bring both vessels to your mouth, and just chug them both at the same time, assuming SOMETHING has got to happen, right? With your eyes closed, the two liquids intermingle in your mouth, and you hope for the best.<br><br>
+
+<<if Math.random() < ($skills[5].level * 0.2)>>
+The mix bubbles in your mouth, its fizzy nature weirdly pleasant as it goes down tickling your throat. It's almost like it's vibrating every cell in your body from the inside, and you feel yourself trembling - it's like something is awakening inside you… no, not inside you… inside the very formative elements of your body. You feel a shiver, starting from the pit of your stomach and then waving up and down, both getting more subtle and making you feel… liberated? Like disconnecting from the very rules of nature.<br><br>
+
+It's almost as if you were a sticker, being pulled off from the plane of reality and ascending into… something higher. It's impossible to quite explain, but that's the way your brain decided to interpret it. No matter what, you are certain you are in the right track.<br><br>
+
+You feel even closer to your goal of stopping the reversion. But are you close enough?
+<<else>>
+Your mouth start foaming, and the mix burns your tongue, as does your throat as it goes down. Yet the worst part is when the mixture actually gets to your stomach, giving you the mother of all stomachaches. You can see your midsection bloating before your eyes, and before you know it… incessant burping, almost making you gag in the process.<br><br>
+
+You rush to the bathroom and puke, causing the pain to subside… except for the burning, which keeps you making faces for the next few minutes.<br><br>
+
+Well, saying that this was a miss is a hell of an understatement. You will probably be coughing for the rest of the day, feeling a lot less willing to repeat the experiment - but the alternative somehow feels worse. Oh, well. You only live once.
+<</if>>`
+    },
+    {
+        name: 'ReversalResearch_3',
+        locationTags: ['home'],
+        conditions: [
+            () => false /*manually triggered from LabWidget*/
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `Feeling more cautious since the last experiment, you figure it's time to switch approaches again. So you channel your best Dr. Frankenstein and decide to dabble with electrolysis. At first you are tempted to just put some wires into an electrical outlet, but remember that there was a car battery left in the corner of the closet when you first moved. So you use a beaker, a couple of nails and wires and prepare your little solution.<br><br>
+
+With the preparations in place, you add some baking soda to the liquid and connect the wires to the battery. At first, you notice nothing… but then you see some bubbling around the nails, and the semitranslucent solution seems to get out of focus? The more you look at it, the more it looks like some sort of optical illusion or special effect you can't even really describe. Your eyes can't focus properly, even though you can still see through it… it's almost like you have created a window into another dimension.<br><br>
+
+As whatever process seems to subside and settle into… whatever this now is… you remove the cables and nails, disconnecting the battery and lifting the beaker.
+<<if Math.random() < ($skills[5].level * 0.2)>>
+Lifting the vessel feels weird, <<if $muscle >= 50>>much like when you got so strong that everything felt too light.<<else>>as if there was less liquid than actually is inside it.<</if>> You can't really tell how much or what is in there, but instead of giving it more thought, you just down the contents down your gullet as if it were a shot at a bar.<br><br>
+
+It goes down in a state of matter you can't quite explain - it's like a gaseous jelly that feels lighter than air. It goes down tingling, as if you just ate a blanket charged with static electricity. Every hair on your body stands on end, and your skin feels equally charged. And suddenly, a switch flips inside you, and you feel like a little dynamo, as if you were now producing electricity within yourself.<br><br>
+
+The sensation spreads like a zap through your entire body, and your heart beats faster as you feel full of energy and anxious, as if you had to go out running or you would explode.<br><br>
+
+You grab the nearest paper pad and pen and start scribbling your discovery. Things are starting to connect, and you feel like you are more than halfway through figuring this out. But the clock is still ticking…
+<<else>>
+Miscalculating the weight of the vessel, you almost dribble the liquid away, with most of it still going down your gullet - except it does so with a nasty burn. Both your cheek, tongue and trachea feel like they are about to burst in flames, and you remember the lab procedure for a chemical burn, rushing to the shower and just turning the cold water as you open your mouth.<br><br>
+
+You stay there for a bit, body freezing with the cold water as the burning sensation subsides… and feeling a bit pathetic, but at least a quick look at the mirror shows no signs of actual burn except some discoloration to your cheek. The morale and psychic damage seem worse than the physical one, and you just sigh as the water drips, and you try to not discourage yourself to keep trying.
+<</if>>`
+    },
+    {
+        name: 'ReversalResearch_4',
+        locationTags: ['home'],
+        conditions: [
+            () => false /*manually triggered from LabWidget*/
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `Starting to run out of ideas, you go online and start lurking message boards for ideas for separating and decomposing chemicals. And the next option on the list is more physical than chemical - good old filtration. And apparently you can also use magnetism in this process. And so it's time to roll your sleeves and come up with a makeshift filter with a strong magnetic element as a hail mary.<br><br>
+
+Everything tells you that this is a desperate move, but at this point you are willing to try just about anything. And so you pick the substance you will try to filtrate, and set it on top of your rather crude filter. You watch as the sirupy substance comes to the charcoal element, and time seems to freeze. You wait… and wait… and wait some more… and you start wondering if anything will ever come out of the other side.<br><br>
+
+You start distracting yourself with some good old doomscrolling, when you hear a plinking sound. A single drop falls from your filter. You look eagerly expecting another one, and after a few more minutes, another sound reverberates. After the fifth drop falls, you can't wait anymore - and frankly, you aren't sure if anything else is coming out. You shake the entire contraption, only to get one more drip… and then nothing. You discard the filter, and add some water to the tube to try and coax the product out into your mouth.<br><br>
+
+<<if Math.random() < ($skills[5].level * 0.2)>>
+At first, nothing. Seems like just water. You wonder if perhaps it was too little, and maybe you need a better filter. But then, the aftertaste hits you like a locomotive, an entire rainbow of tastes, sensations and emotions washes over you, like you've been bathed with winds of Valhalla. The ecstasy somehow builds up, and your perception of the world is turned up to 11, as if you were opening your eyes to reality for the first time ever… everything before was just a shadow of reality.<br><br>
+
+You don't know how or why, but it's like your brain just intuitively GETS IT, and a conceptual image of the procedure to stop the reversal starts to materialize in your conscience. It's fuzzy, but it's there. You feel SO CLOSE, but just out of reach.<br><br>
+
+You really are going to do this, aren't you? You feel like there is only ONE more piece missing. There's no stopping now!
+<<else>>
+You swish the liquid in your mouth, hoping for SOME signal of something. Your tongue rolls around, and your lips smack. You look around as if it would trigger a reaction… but to no avail. In desperation, you disassemble the filter and try licking the bottom part, but it just scratches your tongue and leaves a nasty sensation of the coal. It's pretty disgusting, and you feel silly for even trying. Well, back to the drawing board - you are so close, there's no point in giving up, you try to convince yourself.
+<</if>>`
+    },
+    {
+        name: 'ReversalResearch_5',
+        locationTags: ['home'],
+        conditions: [
+            () => false /*manually triggered from LabWidget*/
+        ],
+        repeatable: false,
+        retriggerable: false,
+        priority: 'immediate',
+        npc: [],
+        content: `You hold the vessel with the chemical substance. This could very well be the key to stopping the reversal of the process that is taking away your transformation. The mere thought that you can keep… and perhaps even increase… these changes… is it too good to be true? You just have to believe you can do it.<br><br>
+
+You look at the liquid before you. Staring, you half expect some sort of epiphany to hit you like lightning. But then you remember the very transformation you underwent. This has changed your body from its very foundation, and instead of applying science, you realize it would be rather poetic if your new body somehow helped you get to the bottom of this. So you improvise.<br><br>
+
+You hold the canister tight in your fist, and start spinning it. You are decided to somehow centrifuge it in a manner that will distill whatever you need from it - or die trying. And so you swing your arm, faster, and faster, and faster. You get in the zone, and at least in your mind, you feel like you could break the speed of sound, nay, the very speed of light, just churning that damn receptacle until you coax out the missing ingredient.<br><br>
+
+You keep going until your arm hurts. You aren't even sure how long it took. But something feels different. You look through the little window in the canister, and you can clearly see separation - there are now two phases to the substance. You aren't sure which is which, but you set the two aside in different test tubes. The first one seems like a semitranslucid liquid, which tastes slightly bittersweet, but doesn't do anything you can tell. Which leaves the other tube. This one is completely opaque. Maybe that is more meaningful? Right now, it's your last hope for this test so… down the hatch!<br><br>
+
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+BAM!<br><br>
+
+THERE IT IS. The final piece of the puzzle. It feels so simple now, so obvious, you almost feel stupid that it took so much effort to figure it out. The image is so vivid in your head that you feel like you've known it all your life. Despite that, you scribble the exact specifications of the chemical compound, with several little other notes. You feel like you are exploding with anticipation, as the steps to get to it feel so achievable you can only wonder how it never occurred to you before. It's like you just remembered your best friend from childhood you used to see everyday that you had somehow forgotten years ago. It's here, and it's within reach.<br><br>
+
+You almost have to force yourself to stop scribbling notes and comments. You know they are unnecessary. You have everything you need to synthesize this bad boy. And it will change everything. Now it's just a matter of actually doing it.<br><br>
+
+The existential shock that your entire life could change just like that - it's overwhelming. But it is there. And now, you have your destiny handed to you.<br><br>
+
+What are you going to do with it?
+
+<span class="important">You unlocked the recipe for the brew to stop the reversal. Check the lab for it.</span>
+`
+    }
+)>>

@@ -15,6 +15,7 @@
                 State.variables.potionIngredients.push("FatIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'FatIngredient (2x)'
     },
     {
@@ -24,6 +25,7 @@
                 State.variables.potionIngredients.push("MuscleIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'MuscleIngredient (2x)'
     },
     {
@@ -33,6 +35,7 @@
                 State.variables.potionIngredients.push("ConfidentIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'ConfidentIngredient (2x)'
     },
     {
@@ -42,6 +45,7 @@
                 State.variables.potionIngredients.push("ShyIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'ShyIngredient (2x)'
     },
     {
@@ -51,6 +55,7 @@
                 State.variables.potionIngredients.push("DominantIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'DominantIngredient (2x)'
     },
     {
@@ -60,6 +65,7 @@
                 State.variables.potionIngredients.push("SubmissiveIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'SubmissiveIngredient (2x)'
     },
     {
@@ -69,6 +75,7 @@
                 State.variables.potionIngredients.push("CarefulIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'CarefulIngredient (2x)'
     },
     {
@@ -78,6 +85,7 @@
                 State.variables.potionIngredients.push("CarefreeIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'CarefreeIngredient (2x)'
     },
     {
@@ -87,6 +95,7 @@
                 State.variables.potionIngredients.push("InstantIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'InstantIngredient (2x)'
     },
     {
@@ -96,6 +105,7 @@
                 State.variables.potionIngredients.push("SlowIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'SlowIngredient (2x)'
     },
     {
@@ -105,6 +115,7 @@
                 State.variables.potionIngredients.push("MasculineIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'MasculineIngredient (2x)'
     },
     {
@@ -113,6 +124,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Taste-improver").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Taste-improver'
     },
     {
@@ -121,6 +133,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "FA-GAIN 23A").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'FA-GAIN 23A'
     },
     {
@@ -129,6 +142,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "SPHE-GRO-001").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'SPHE-GRO-001'
     },
     {
@@ -137,6 +151,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Girth grow").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Girth grow'
     },
     {
@@ -145,6 +160,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Erecto-10").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Erecto-10'
     },
     {
@@ -153,6 +169,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "B-shrink").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'B-shrink'
     },
     {
@@ -161,6 +178,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "B-gr0w").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'B-gr0w'
     },
     {
@@ -169,6 +187,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Mot-V10").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Mot-V10'
     },
     {
@@ -177,6 +196,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Exhaust-B-g0n3").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Exhaust-B-g0n3'
     },
     {
@@ -185,6 +205,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "BRA-SHRINK-T1").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'BRA-SHRINK-T1'
     },
     {
@@ -193,6 +214,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Milk--").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Milk--'
     },
     {
@@ -201,6 +223,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Milk++").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Milk++'
     },
     {
@@ -209,6 +232,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Ton-shrink/01'
     },
     {
@@ -217,6 +241,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Ton-shrink/01").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Ton-shrink/01'
     },
     {
@@ -225,6 +250,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "lip-shrink//XX").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'lip-shrink//XX'
     },
     {
@@ -233,6 +259,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Temp-Shy").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Temp-shy'
     },
     {
@@ -241,6 +268,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Temp-Con").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Temp-Con'
     },
     {
@@ -249,6 +277,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Temp-Care").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Temp-Care'
     },
     {
@@ -257,6 +286,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Temp-Sub").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Temp-sub'
     },
     {
@@ -265,6 +295,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Dom").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Perm-Dom'
     },
     {
@@ -273,6 +304,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Sub").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Perm-Sub'
     },
     {
@@ -281,6 +313,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Con").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Perm-Con'
     },
     {
@@ -289,6 +322,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Shy").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Perm-Shy'
     },
     {
@@ -297,6 +331,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Carl").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Perm-Carl'
     },
     {
@@ -305,6 +340,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Perm-Care").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Perm-Care'
     },
     {
@@ -313,6 +349,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Insta-muscle").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Insta-muscle'
     },
     {
@@ -321,6 +358,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Insta-height").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Insta-height'
     },
     {
@@ -329,6 +367,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Insta-breasts").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Insta-breasts'
     },
     {
@@ -337,6 +376,7 @@
         effect: () => {State.variables.consumables.find(i => i.name === "Insta-fat").amount += 1},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'Insta-fat'
     },
     {
@@ -346,9 +386,46 @@
                 State.variables.potionIngredients.push("PermanentIngredient");},
         discovered: false,
         pinned: false,
+        locked: false,
         resultDesc: 'PermanentIngredient (2x)'
+    },
+    {
+        ingredientOne: 'ConfidentIngredient',
+        ingredientTwo: 'MuscleIngredient',
+        effect: () => {State.variables.potionIngredients.push("reversalStopperIngredientA");},
+        discovered: false,
+        pinned: false,
+        locked: true,
+        resultDesc: 'reversalStopperIngredientA'
+    },
+    {
+        ingredientOne: 'MuscleIngredient',
+        ingredientTwo: 'FatIngredient',
+        effect: () => {State.variables.potionIngredients.push("ReversalStopperIngredientB");},
+        discovered: false,
+        pinned: false,
+        locked: true,
+        resultDesc: 'ReversalStopperIngredientB'
+    },
+    {
+        ingredientOne: 'reversalStopperIngredientA',
+        ingredientTwo: 'ReversalStopperIngredientB',
+        effect: () => {State.variables.potionIngredients.push("UnrefinedReversalPotion");},
+        discovered: false,
+        pinned: false,
+        locked: true,
+        resultDesc: 'UnrefinedReversalPotion'
+    },
+    {
+        ingredientOne: 'UnrefinedReversalPotion',
+        ingredientTwo: 'PermanentIngredient',
+        effect: () => {State.variables.consumables.find(i => i.name === "Reversal stopper potion").amount += 1},
+        discovered: false,
+        pinned: false,
+        locked: true,
+        resultDesc: 'Reversal stopper potion'
     }
-    
+
 ]>>
 
 <<set $consumables to [
@@ -1561,8 +1638,34 @@
                 discovered: false
             }
         ]
+    },
+    {
+        name: "Reversal stopper potion",
+        description: "It smells deceptively plain, almost like vanilla with a hint of cinnemon. If you didn't know better, it could almost be a simple milky drink.",
+        transform: "",
+        ingredients: [
+
+        ],
+        amount: 0,
+		FirstTimeDrink: true,
+		CraftingDescription: "You worked so hard on this, but here it is; the potion to stop your shrinking, to finally be able to keep this amazing new body. It smells deceptively plain, almost like vanilla with a hint of cinnemon. If you didn't know better, it could almost be a simple milky drink.",
+        uses: 0,
+        price: 100,
+        forSale: 0,
+        settings: [],
+        HideInStores: true,
+        dropRate: 0,
+        effects: [
+            {
+                code: () => "FILL ME IN",
+                description: () => "FILL ME IN",
+                shortDescription: () => "FILL ME IN",
+                chance: 1,
+                discovered: false
+            }
+        ]
     }
-    /* Work from here bob  
+    /* Work from here bob
 Insta-dick
 Insta-balls
 Insta-fat*/

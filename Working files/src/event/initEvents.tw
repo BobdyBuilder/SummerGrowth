@@ -805,6 +805,7 @@
 <<include bulkBarnEvents>>
 <<include parkEvents>>
 <<include mainQuestEvents>>
+<<include "ReversalResearchEvents">>
 <<include "BathroomMeasurementEvents">>
 
 <<include "JohanImmediates">>
