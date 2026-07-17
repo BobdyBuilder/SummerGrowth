@@ -501,7 +501,7 @@ Elena. You still remember when you first saw her, amazed by the gentle giant - a
 Nat. Such an unexpected reencounter. A dormant childhood friendship, rekindled in the weirdest of circumstances. But just as you realized Nat is not the same person you knew, you realized you changed as well... and are still changing. Yet that thread of fate still seems to bind you two together, as you gain a mentor and competitor as you figure out these physical changes and how they might dictate the rest of your life.
 
 <</if>>
-The future is uncertain. But while it certainly feels bleak, you lean on this undeniable hope. Perhaps you were not meant to change so radically, or maybe this was all a lesson you needed to feel in your skin.
+The future is uncertain. But while it certainly feels bleak, you lean on this undeniable hope. Perhaps you were not meant to change so radically, or maybe this was all a lesson you needed to feel in your skin. Or... perhaps it's time to go wild with some alchemy in your lab. There HAS to be a way to reverse it!
 `
     },
     {
@@ -599,7 +599,7 @@ Before you can properly respond, he gets up and walks away. There’s something 
 			You watch as he raises his arms in an excited movement that betrays his old self.<br><br>
 			<<Dialogue "Toshi" "Toshi">>"The theory confirms that one could synthesize a substance that would affect the chemical structure of the catalyst, making it more unstable... and therefore confusing the body and making it impossible for a resistance to settle. In fact, there’s a chance that it could even make the effects even greater and..."<</Dialogue>><br><br>
 			Toshi’s breathing gets noticeably deeper, his pupils dilated. He shakes his head, and exhales slowly.<br><br>
-			<<Dialogue "Toshi" "Toshi">>"Sorry, got a bit carried away there. Still, the science says it is possible - but it would involve a lot of trial and error, and I have no idea what kind of side effects one might get from an improper formulation. Even if the risk was worth it, it was that realization that became MY personal catalyst to becoming the person I am today."<</Dialogue>><br><br>
+			<<Dialogue "Toshi" "Toshi">>"Sorry, got a bit carried away there. Still, the science says it is possible - but it would involve a lot of trial and error, and I have no idea what kind of side effects one might get from an improper formulation. You'd have to work it out in your own lab, sacrificing a lot of my brews to get ahead. Even if the risk was worth it, it was that realization that became MY personal catalyst to becoming the person I am today."<</Dialogue>><br><br>
 			<<Dialogue "player" "You">>"What should I do to achieve that substance?"<</Dialogue>><br><br>
 			[Placeholder: provide game hint here]
 			<<Dialogue "Toshi" "Toshi">>"I hope you appreciate why I can’t help you personally. I am now over that phase of my life."<</Dialogue>><br><br>
@@ -621,7 +621,7 @@ Toshi smiles broadly.<br><br>
 Toshi puts his hands in his pockets and sighs.<br><br>
 <<Dialogue "Toshi" "Toshi">>"I suppose I can trust you with this then. Here, let me show what I figure out when I was researching a way to revert the shrinking."<</Dialogue>><br><br>
 He hands you a piece of paper with some of his trademark messy notations.<br><br>
-<<Dialogue "Toshi" "Toshi">>"You see, the body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. But I did come up with a theoretical workaround."<</Dialogue>><br><br>
+<<Dialogue "Toshi" "Toshi">>"You see, the body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. But I did come up with a theoretical workaround. You'd have to work it out in your own lab, sacrificing a lot of my brews to get ahead."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Wait, didn’t I just say I was going to do some soul searching? Why are you telling me this?"<</Dialogue>><br><br>
 <<Dialogue "Toshi" "Toshi">>"Because you display the maturity I didn’t have when I was looking for my own Holy Grail. Maybe I still secretly want to know it’s possible, but I could not handle the temptation. But I see in you what I lacked. I guess I was really hoping someone would carry the torch."<</Dialogue>><br><br>
 For someone who seemed so obsessed and oblivious before, Toshi now is surprisingly able to see through you. And it makes you think about everything that happened so far in this fateful summer - as well as the impact <<if $johanOpinion >= $emmaOpinion && $johanOpinion >= $elenaOpinion && $johanOpinion >= $krisOpinnion>>of meeting Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.<br><br>

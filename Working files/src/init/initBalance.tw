@@ -16,10 +16,11 @@
 	/* money */
 	baseMoneyPerDay: 100,
     bulkBarnJobIncome: function () {
-           if (State.variables.skills[0] == null) {
+           if (State.variables.skills[0] == null || State.variables.skills[1] == null || State.variables.skills[2] == null) {
                return 0;
            }
-           return Math.round((100 + (100 / 3 * State.variables.skills[0].level) + (100 / 3 * State.variables.skills[1].level) + (100 / 5 * State.variables.skills[2].level)) * State.variables.bulkBarnPromotionBonus);
+           var promotionBonus = State.variables.bulkBarnPromotionBonus == null ? 1 : State.variables.bulkBarnPromotionBonus;
+           return Math.round((100 + (100 / 3 * State.variables.skills[0].level) + (100 / 3 * State.variables.skills[1].level) + (100 / 5 * State.variables.skills[2].level)) * promotionBonus);
        },
 	baseIncomePerStream: 4,
 	moneyPerBoxShifted: 4,

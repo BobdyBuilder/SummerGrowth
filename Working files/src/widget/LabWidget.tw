@@ -247,7 +247,7 @@ State.variables.potionIngredients.splice(secondIngredientIndex, 1);
     </div>
 </div>
 
-<<if setup.hasEventBeenTriggered("Main_quest_Toshi_meeting") && $ReversalStoppedResearched != true>>
+<<if (setup.hasEventBeenTriggered("Main_quest_Toshi_meeting") || setup.hasEventBeenTriggered("Main_quest_Growth_Reversal_No_Help"))  && $ReversalStoppedResearched != true>>
     <div id="reversalResearch" style="margin-top: 10px; border-top: solid; padding-top: 10px;">
         <span class="important">Toshi explained that sacrificing potions could help research a way to stop the reversal. Pick exactly 5 potions (any mix of types) to sacrifice. Progress: <<print $reversalStoppedResearchCount>>/5</span><br>
         <<set _sacrificeCandidates to $consumables.filter(potion => potion.amount > 0)>>
