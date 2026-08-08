@@ -1,10 +1,5 @@
 :: addFatSlow [widget] {"position":"2800,800","size":"100,100"}
-<<nobr>>
 <<widget "addFatSlow">>
-
-<<set $fatStore += parseFloat($args[0]) * $growthMod * $globalGrowthMod>>
-
+<<addBodyStat "fat" $args[0]>>
 <</widget>>
-<</nobr>>
-
 

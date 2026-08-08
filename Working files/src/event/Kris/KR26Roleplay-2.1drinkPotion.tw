@@ -28,5 +28,5 @@ It feels like the entire apartment shook, and Kris curls herself, wincing, as he
 <<Dialogue "player" "You">>"The best."<</Dialogue>><br><br>
 And with that, you two bask in the glow of a magical sexual experience as the world fades and lulls around you.
 <<link "Continue" "KR26Roleplay-3">>
-    <<set $muscle -= 5>>
+    <<addBodyStat "muscle" -5 "instant">>
 <</link>>

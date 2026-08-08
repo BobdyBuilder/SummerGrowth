@@ -1,0 +1,58 @@
+:: initBodyStatConfig {"position":"0,250","size":"100,100"}
+<<script>>
+/* Per-stat config for the addBodyStat entrypoint (widget/addBodyStat.tw).
+   statVar   - the live stat variable that mode "instant" writes to.
+   storeVar  - the accumulator variable that mode "slow" (default) banks into;
+               drained into statVar over sleep by sugerCubeScript/sleepUpdate*.tw.
+   min/max   - hard clamp applied whenever addBodyStat touches statVar directly.
+               Today these just preserve existing behavior (0 to effectively
+               unlimited) - tightening a stat's growth ceiling is now a one-line
+               change here instead of a hunt through every event/widget file.
+   extraMultiplier - optional, stat-specific multiplier beyond $growthMod/$globalGrowthMod.
+   gate            - optional, addBodyStat is a no-op for this stat when this returns false. */
+setup.bodyStatConfig = {
+    muscle: {
+        statVar: "muscle",
+        storeVar: "muscleStore",
+        extraMultiplier: () => setup.getWorkoutOutfitBonus(),
+        min: 0,
+        max: 99999
+    },
+    fat: {
+        statVar: "fat",
+        storeVar: "fatStore",
+        min: 0,
+        max: 99999
+    },
+    breasts: {
+        statVar: "breasts",
+        storeVar: "breastsStore",
+        min: 0,
+        max: 99999
+    },
+    height: {
+        statVar: "height",
+        storeVar: "heightStore",
+        min: 0,
+        max: 99999
+    },
+    dick: {
+        statVar: "dick",
+        storeVar: "dickStore",
+        gate: () => State.variables.futa,
+        min: 0,
+        max: 99999
+    }
+};
+
+setup.getWorkoutOutfitBonus = function () {
+    const bonuses = State.variables.outfit.bonuses();
+    for (let i = 0; i < bonuses.length; i++) {
+        if (bonuses[i].name === setup.clothingBonuses.WorkoutWear.name) {
+            return 1.2;
+        }
+    }
+    return 1;
+};
+<</script>>
+

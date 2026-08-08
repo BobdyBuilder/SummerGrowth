@@ -5,6 +5,12 @@
 	const firstSeenAt = new Map();
 	const duplicateNames = [];
 	const emptyContentNames = [];
+	const directMutationNames = [];
+	// Tracked body-size stats now have a single entrypoint (widget/addBodyStat.tw,
+	// and the addMuscleSlow/addFatSlow/addBreastsSlow/addHeightSlow/addDickSlow
+	// wrappers around it) so growth multipliers and clamps live in one place.
+	// Flag any event that still mutates one of these directly instead.
+	const directMutationRe = /\$(muscle|fat|breasts|height|dick)(?![a-zA-Z])\s*(\+=|-=|\*=|\/=|=(?!=)|to\s)/;
 
 	for (let i = 0; i < events.length; i++) {
 		const event = events[i];
@@ -18,6 +24,10 @@
 		if (event.content === "") {
 			emptyContentNames.push(event.name);
 		}
+
+		if (typeof event.content === "string" && directMutationRe.test(event.content)) {
+			directMutationNames.push(event.name);
+		}
 	}
 
 	if (duplicateNames.length > 0) {
@@ -29,6 +39,10 @@
 
 	if (emptyContentNames.length > 0) {
 		console.log(`eventValidator: ${emptyContentNames.length} event(s) have empty content (stubs): ${emptyContentNames.join(", ")}`);
+	}
+
+	if (directMutationNames.length > 0) {
+		console.warn(`eventValidator: ${directMutationNames.length} event(s) mutate a tracked body stat directly instead of through <<addBodyStat>>/addXSlow: ${directMutationNames.join(", ")}`);
 	}
 })();
 <</script>>

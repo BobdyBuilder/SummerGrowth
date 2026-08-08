@@ -1,0 +1,22 @@
+:: addBodyStat [widget] {"position":"2600,1100","size":"100,100"}
+<<widget "addBodyStat">>
+/* Single entrypoint for all muscle/fat/breasts/height/dick growth - see init/initBodyStatConfig.tw for the per-stat config this reads. */
+/* $args[0]: stat name - "muscle" | "fat" | "breasts" | "height" | "dick" */
+/* $args[1]: amount to add (may be negative) */
+/* $args[2]: "slow" (default) banks the amount into the stat's accumulator for the
+              sleep-time drain (sugerCubeScript/sleepUpdate*.tw), or "instant" to apply
+              directly to the live stat right now, clamped to the configured min/max. */
+<<set _bodyStatConfig to setup.bodyStatConfig[$args[0]]>>
+<<if _bodyStatConfig == undefined>>
+	<<run console.error('addBodyStat: unknown stat "' + $args[0] + '"')>>
+<<elseif _bodyStatConfig.gate == undefined || _bodyStatConfig.gate()>>
+	<<set _extraMultiplier to (_bodyStatConfig.extraMultiplier == undefined) ? 1 : _bodyStatConfig.extraMultiplier()>>
+	<<set _amount to parseFloat($args[1]) * $growthMod * _extraMultiplier * $globalGrowthMod>>
+	<<if $args[2] == "instant">>
+		<<run State.setVar("$" + _bodyStatConfig.statVar, Math.clamp(State.getVar("$" + _bodyStatConfig.statVar) + _amount, _bodyStatConfig.min, _bodyStatConfig.max))>>
+	<<else>>
+		<<run State.setVar("$" + _bodyStatConfig.storeVar, State.getVar("$" + _bodyStatConfig.storeVar) + _amount)>>
+	<</if>>
+<</if>>
+<</widget>>
+

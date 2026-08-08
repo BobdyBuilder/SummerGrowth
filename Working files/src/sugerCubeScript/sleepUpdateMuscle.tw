@@ -32,7 +32,8 @@
 <<else>>
     <<set $muscleChange = Math.clamp($muscleChange, -$muscleGrowthMaxTotal, 0)>>
 <</if>>
-<<set $muscle += ($muscleChange * $growthMod)>>
+/* $growthMod is already applied when $muscleStore is filled (widget/addBodyStat.tw) - don't reapply it here. */
+<<set $muscle += $muscleChange>>
 <<set $muscle to Math.clamp($muscle, 0, 99999)>>
 
 <<set $muscleStore to $muscleStore - $muscleChange>>
