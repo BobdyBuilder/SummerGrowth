@@ -649,7 +649,7 @@ Macro.add(['addTriggerInternal'], {
         var characterNames = [];
         for (let i = 0; i < setup.characters.length; ++i) {
             characterNames.push(setup.characters[i].name);
-            if (triggerToAdd.trigger.toLowerCase().contains(characterNames[i].toLowerCase())) {
+            if (triggerToAdd.trigger.toLowerCase().includes(characterNames[i].toLowerCase())) {
                 triggerTarget = characterNames[i];
             }
         }

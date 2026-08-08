@@ -10,15 +10,14 @@
 <</if>>
 
 <<nobr>>
-<<if $currentEvent.npc.includes('johan')>>
-	<<updateNPCLastSeen 'Johan'>>
-<<elseif $currentEvent.npc.includes('kris')>>
-	<<updateNPCLastSeen 'Kris'>>
-<<elseif $currentEvent.npc.includes('emma')>>
-	<<updateNPCLastSeen 'Emma'>>
-<<elseif $currentEvent.npc.includes('elena')>>
-	<<updateNPCLastSeen 'Elena'>>
-<</if>>
+<<set _trackableNpcs to ["johan", "kris", "emma", "elena", "nat"]>>
+<<for _npcIndex to 0; _npcIndex < _trackableNpcs.length; _npcIndex++>>
+	<<capture _npcIndex>>
+	<<if $currentEvent.npc.includes(_trackableNpcs[_npcIndex])>>
+		<<updateNPCLastSeen _trackableNpcs[_npcIndex]>>
+	<</if>>
+	<</capture>>
+<</for>>
 
 <</nobr>>
 

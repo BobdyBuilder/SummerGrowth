@@ -339,7 +339,7 @@
     retriggerable: false,
     priority: 'immediate',
     npc: [],
-    content: 'Today you wake up with no growing pains, no dizziness, but you definitely grew taller overnight. Standing up from the bed, you stretch and then smile as you take in your new, higher, perspective.  <<if $carefreeCarefull < 0>>Skipping <<else>> Walking<</if>> over to the mirror you admire your new height. <<if $shyConfident > 0>>You even strike some sexy poses, standing on your tiptoes to really accentuate your stretched figure. <</if>> Taking out a tape measure, you quickly find your height to now be <<heightNumeral>>. Hopefully this growth doesn\'t stop any time soon, as you amaze yourself with how great you look now and how easy it has gotten to reach things on shelves that used to be daunting.'
+    content: 'Today you wake up with no growing pains, no dizziness, but you definitely grew taller overnight. Standing up from the bed, you stretch and then smile as you take in your new, higher, perspective.  <<if $carefreeCarefull < 0>>Skipping <<else>> Walking<</if>> over to the mirror you admire your new height. <<if $shyConfident > 0>>You even strike some sexy poses, standing on your tiptoes to really accentuate your stretched figure. <</if>> Taking out a tape measure, you quickly find your height to now be <<heighNumeral>>. Hopefully this growth doesn\'t stop any time soon, as you amaze yourself with how great you look now and how easy it has gotten to reach things on shelves that used to be daunting.'
 }, {
     name: 'PostSleepDickDialog5',
     locationTags: ['postSleep'],

@@ -1,13 +1,36 @@
 :: eventValidator {"position":"225,50","size":"100,100"}
 <<script>>
-var events = setup.events;
+(() => {
+	const events = setup.events;
+	const firstSeenAt = new Map();
+	const duplicateNames = [];
+	const emptyContentNames = [];
 
+	for (let i = 0; i < events.length; i++) {
+		const event = events[i];
 
-for (let i = 0; i < setup.events.length; i++) {
-	event = setup.events[i];
+		if (firstSeenAt.has(event.name)) {
+			duplicateNames.push({ name: event.name, indexes: [firstSeenAt.get(event.name), i] });
+		} else {
+			firstSeenAt.set(event.name, i);
+		}
 
+		if (event.content === "") {
+			emptyContentNames.push(event.name);
+		}
+	}
 
-}
+	if (duplicateNames.length > 0) {
+		console.warn("eventValidator: duplicate event name(s) found - only one definition is ever reachable per name:");
+		duplicateNames.forEach(dup => {
+			console.warn(`  "${dup.name}" defined at setup.events[${dup.indexes[0]}] and setup.events[${dup.indexes[1]}]`);
+		});
+	}
+
+	if (emptyContentNames.length > 0) {
+		console.log(`eventValidator: ${emptyContentNames.length} event(s) have empty content (stubs): ${emptyContentNames.join(", ")}`);
+	}
+})();
 <</script>>
 
 

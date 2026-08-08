@@ -2,6 +2,7 @@
 <<include "InitializeAllClothes">>
 <<include "initBalance">>
 <<include "initEvents">>
+<<include "eventValidator">>
 
 <<set setup.characters to 
 [
