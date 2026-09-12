@@ -156,6 +156,18 @@ Cramped at the best of times, and almost constantly in need of mold remover, it'
 <<link "Check yourself in the mirror" "Mirror">><<addMinutes 1>><</link>>
 <br><br>
 
+<<if $posingEnabled>>
+	<<if $furniture.includes("big mirror")>>
+		<<set _posingTime to $baseWorkoutTime>>
+		<<set _posingExhaustion to $gymExhaustionPerWorkout>>
+		<<set _posingMinExhaustion to $gymMinimumExhaustionPerWorkout>>
+		<<gameLink "Practise some posing for the bodybuilding contest" "PosingPractice" time:_posingTime exhaustion:_posingExhaustion minExhaustion:_posingMinExhaustion>><</gameLink>>
+	<<else>>
+		You could practise your posing, if you bought a big mirror.
+	<</if>>
+	<br><br>
+<</if>>
+
 <<link "Go back" "Home">><</link>>
 
 

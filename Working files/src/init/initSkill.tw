@@ -29,7 +29,7 @@
         "description": "Hey, playing video games is a skill, alright? Shame you can't make money with it... or can you?",
         "unlocks": ["• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet", "• Not Implemented yet"]
     }, {
-        "name": "modelling",
+        "name": "Posing",
         "level": 0,
         "experience": 0,
         "hidden" : true,
