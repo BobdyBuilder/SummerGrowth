@@ -439,6 +439,15 @@ text-align: left;
 	background-image: url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/Develop/Art%20assets/Npc/young_nate.png);
 }
 
+.Toshi {
+	background-color: #4B6584;
+}
+
+.Toshi .avatar {
+	background-color: white;
+	background-image:url(https://raw.githubusercontent.com/BobdyBuilder/SummerGrowth/main/Art%20assets/Npc/Toshi.png);
+}
+
 .\?\?\? {
 	background-color: #4d4d4d;
 }
