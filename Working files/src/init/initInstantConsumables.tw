@@ -1878,7 +1878,14 @@ Insta-fat*/
 	bought: false,
 	time: 2,
 	progress: 0,
-	price: 250}			
+	price: 250},
+	{ name: "The mindfull body",
+	description: "While it appears like a book on sports like ballet or dancing, it's actually about a much broader subject. Namely, how you can move your body in a more mindfull way. It would be very useful to study for dancing, or posing.",
+	skill: "Posing",
+	bought: false,
+	time: 2,
+	progress: 0,
+	price: 250}				
 	
 ] >>
 
