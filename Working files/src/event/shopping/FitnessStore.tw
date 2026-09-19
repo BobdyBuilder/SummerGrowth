@@ -84,6 +84,7 @@
 <</for>>
 </table>
 
+<<liveblock>>
 <table id="store">
   <tr>
     <th>Name</th>
@@ -106,13 +107,14 @@
 			<<set $money -= _itemPrice>>
 			<<set $furniture.push($fitnessStoreInventory[_i].name)>>
 			<<run $fitnessStoreInventory.deleteAt(_i)>>
-			<<goto "FitnessStore">>
-			<</if>>				 
+			<<update>>
+			<</if>>
 			<</link>></span></td>
   		</tr>
 		<</capture>>
 <</for>>
 </table>
+<</liveblock>>
 
 <br>
 

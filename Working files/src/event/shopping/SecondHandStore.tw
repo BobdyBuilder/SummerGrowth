@@ -8,6 +8,7 @@
 <</if>>>>
 
 <<nobr>>
+<<liveblock>>
 <table id="store">
   <tr>
     <th>Name</th>
@@ -28,8 +29,8 @@
 	  <<else>>
 	  <<set $money -= 10>>
 	  <<set $fabric += 10>>
-	  <<goto "SecondHandStore">>
-	  <</if>>              
+	  <<update>>
+	  <</if>>
 	  <</link>></span></td>
 	</tr>
 <</if>>
@@ -47,8 +48,8 @@
 	  <<else>>
         <<set $money -= 300>>
         <<set $furniture.push("distilation still")>>
-        <<goto "SecondHandStore">>
-	  <</if>>              
+        <<update>>
+	  <</if>>
 	  <</link>></span></td>
 	</tr>
 <</if>>
@@ -82,14 +83,15 @@
 			<<if $tashaOpinion <= 59>>
 				<<set $tashaOpinion += 1>>
 			<</if>>
-            <<goto "SecondHandStore">>
-            <</if>>              
+            <<update>>
+            <</if>>
             <</link>></span></td>
         </tr>
 		<</if>>
         <</capture>>
 <</for>>
 </table>
+<</liveblock>>
 <</nobr>>
 
 <<linkreplace "Shop for second hand clothing">>
