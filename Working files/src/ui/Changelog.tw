@@ -1,4 +1,23 @@
 :: Changelog [noReturn noEventTrigger] {"position":"1700,0","size":"100,100"}
+--- Version 0.9.8: Posing, Promotion & finalization before bodybuilding event ---
+● new Johan events
+● new Elena events, including a decleration of love.
+● the main quest continues, and the player can meet Toshi now!
+● Added the semi-final Johan event, leading up to the bodybuilding event
+● added new event to compare muscle sizes
+● Fixed references to the player instead of summer
+● fixed portraits not showing up properly
+● Added new dialog options for not unlocking the USB stick in time
+● Changed hosting to github fully, allowing the british content filters to be bypassed at least.
+● laid the groundwork for totally ofline play
+● You can now get a promotion at the bulk barn, giving you 50% off all items there AND select clothing!
+● added new bulkbarn events for when you get the job there.
+● added new bathroom scenes for when the player reaches a size for a bodypart that is the biggest in the world
+● fixed a bug that caused several events to never fire.
+● unlocked the posing skill.
+● when the bodybuilding event is revealed to the player, and they have the big mirror, they can pose in front of the mirror for posing XP to raise the skill.
+● currently the skill doesn't provide any real benefits yet, but it has plenty of posing descriptions for all body sizes
+● added a skillbook for posing
 --- Version 0.9.1: Dates and story progression ---
 ● Added many new dialogs for all NPCs.
 ● Added new Dates for Kris
