@@ -161,7 +161,11 @@ Cramped at the best of times, and almost constantly in need of mold remover, it'
 		<<set _posingTime to $baseWorkoutTime>>
 		<<set _posingExhaustion to $gymExhaustionPerWorkout>>
 		<<set _posingMinExhaustion to $gymMinimumExhaustionPerWorkout>>
-		<<gameLink "Practise some posing for the bodybuilding contest" "PosingPractice" time:_posingTime exhaustion:_posingExhaustion minExhaustion:_posingMinExhaustion>><</gameLink>>
+		<<if $exhaustionPercentage < $motivationPercentage && $exhaustion + _posingExhaustion < 100>>
+			<<gameLink "Practise some posing for the bodybuilding contest" "PosingPractice" time:_posingTime exhaustion:_posingExhaustion minExhaustion:_posingMinExhaustion>><</gameLink>>
+		<<else>>
+			You just can't bring yourself to practise your posing right now, you're just too exhausted.
+		<</if>>
 	<<else>>
 		You could practise your posing, if you bought a big mirror.
 	<</if>>
