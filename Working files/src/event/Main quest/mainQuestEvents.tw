@@ -446,19 +446,20 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
 
         Except work harder. Increase your efforts. And perhaps… seek the support of some of the people you met since moving. One person immediately comes to mind.
 
-        <<if RELATIONSHIP=JOHAN>>
+        <<set _closest to ["johan", "emma", "kris", "elena", "nat"].reduce((best, npc) => State.variables[npc + "Opinion"] > State.variables[best + "Opinion"] ? npc : best)>>
+        <<if _closest is "johan">>
         Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.
 
-        <<elseif RELATIONSHIP=EMMA>>
+        <<elseif _closest is "emma">>
         Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.
 
-        <<elseif RELATIONSHIP=KRIS>>
+        <<elseif _closest is "kris">>
         Kris. What started like a thriller stalking novel has somehow morphed into an entirely different relationship now. You always thought she only loved you for your size, but little by little you discovered so much more. Her obsession hiding so many feelings, and a much more sensitive person than you might have ever suspected below it all. It also sparked something inside of you, wanting to know more of that other person buried under the sex goblin mask. And share with her the difference between steamy crazy sex and loving intimacy.
 
-        <<elseif RELATIONSHIP=ELENA>>
+        <<elseif _closest is "elena">>
         Elena. You still remember when you first saw her, amazed by the gentle giant - and not even suspecting you’d eventually also go through the same process. But it was never her size that you admired, but the shy, caring girl under such an unusual façade. Intimidating as she was, all it took was a sensitive touch to get closer. And now it’s hard to imagine not having her around, all these new emotions flowering between the two of you. Suddenly, the fact that the two of you dwarf everyone else in the gym is not nearly as notable as the fact that when you are near her, you forget the rest of the world is even there.
 
-        <<elseif RELATIONSHIP=NAT>>
+        <<elseif _closest is "nat">>
         Nat. Such an unexpected reencounter. A dormant childhood friendship, rekindled in the weirdest of circumstances. But just as you realized Nat is not the same person you knew, you realized you changed as well... and are still changing. Yet that thread of fate still seems to bind you two together, as you gain a mentor and competitor as you figure out these physical changes and how they might dictate the rest of your life.
 
         <</if>>
@@ -485,16 +486,17 @@ And the realization comes like a truck. There is no one that can help you naviga
 
 Except work harder. Increase your efforts. And perhaps… seek the support of some of the people you met since moving. One person immediately comes to mind.
 
-<<if $johanOpinion >= $emmaOpinion && $johanOpinion >= $elenaOpinion && $johanOpinion >= $krisOpinnion>>
+<<set _closest to ["johan", "emma", "kris", "elena", "nat"].reduce((best, npc) => State.variables[npc + "Opinion"] > State.variables[best + "Opinion"] ? npc : best)>>
+<<if _closest is "johan">>
 Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.
 
-<<elseif $emmaOpinion >= $johanOpinion && $emmaOpinion >= $elenaOpinion && $emmaOpinion >= $krisOpinnion>>
+<<elseif _closest is "emma">>
 Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.
 
-<<elseif $krisOpinnion >= $johanOpinion && $krisOpinnion >= $elenaOpinion && $krisOpinnion >= $emmaOpinion>>
+<<elseif _closest is "kris">>
 Kris. What started like a thriller stalking novel has somehow morphed into an entirely different relationship now. You always thought she only loved you for your size, but little by little you discovered so much more. Her obsession hiding so many feelings, and a much more sensitive person than you might have ever suspected below it all. It also sparked something inside of you, wanting to know more of that other person buried under the sex goblin mask. And share with her the difference between steamy crazy sex and loving intimacy.
 
-<<elseif $elenaOpinion >= $johanOpinion && $elenaOpinion >= $krisOpinnion && $elenaOpinion >= $emmaOpinion>>
+<<elseif _closest is "elena">>
 Elena. You still remember when you first saw her, amazed by the gentle giant - and not even suspecting you’d eventually also go through the same process. But it was never her size that you admired, but the shy, caring girl under such an unusual façade. Intimidating as she was, all it took was a sensitive touch to get closer. And now it’s hard to imagine not having her around, all these new emotions flowering between the two of you. Suddenly, the fact that the two of you dwarf everyone else in the gym is not nearly as notable as the fact that when you are near her, you forget the rest of the world is even there.
 
 <<else>>
@@ -624,9 +626,9 @@ He hands you a piece of paper with some of his trademark messy notations.<br><br
 <<Dialogue "Toshi" "Toshi">>"You see, the body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. But I did come up with a theoretical workaround. You'd have to work it out in your own lab, sacrificing a lot of my brews to get ahead."<</Dialogue>><br><br>
 <<Dialogue "player" "You">>"Wait, didn’t I just say I was going to do some soul searching? Why are you telling me this?"<</Dialogue>><br><br>
 <<Dialogue "Toshi" "Toshi">>"Because you display the maturity I didn’t have when I was looking for my own Holy Grail. Maybe I still secretly want to know it’s possible, but I could not handle the temptation. But I see in you what I lacked. I guess I was really hoping someone would carry the torch."<</Dialogue>><br><br>
-For someone who seemed so obsessed and oblivious before, Toshi now is surprisingly able to see through you. And it makes you think about everything that happened so far in this fateful summer - as well as the impact <<if $johanOpinion >= $emmaOpinion && $johanOpinion >= $elenaOpinion && $johanOpinion >= $krisOpinnion>>of meeting Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.<br><br>
+For someone who seemed so obsessed and oblivious before, Toshi now is surprisingly able to see through you. And it makes you think about everything that happened so far in this fateful summer - as well as the impact <<if $johanOpinion >= $emmaOpinion && $johanOpinion >= $elenaOpinion && $johanOpinion >= $krisOpinion>>of meeting Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.<br><br>
 <<Dialogue "player" "You">>"Uh, sorry, got distracted there for a second. You were saying?"<</Dialogue>><br><br>
-<<elseif $emmaOpinion >= $johanOpinion && $emmaOpinion >= $elenaOpinion && $emmaOpinion >= $krisOpinionOpinion>>
+<<elseif $emmaOpinion >= $johanOpinion && $emmaOpinion >= $elenaOpinion && $emmaOpinion >= $krisOpinion>>
 of meeting Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.<br><br>
 <<Dialogue "player" "You">>"Uh, sorry, got distracted there for a second. You were saying?"<</Dialogue>><br><br>
 <<elseif $krisOpinion >= $johanOpinion && $krisOpinion >= $elenaOpinion && $krisOpinion >= $emmaOpinion>>

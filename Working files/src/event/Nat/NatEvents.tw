@@ -382,7 +382,7 @@ Nat says, while checking the shots you took on the camera's screen.<br><br>
 <<elseif $shyConfident > 1>>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"Wow, okay, look at you - I don't even have to say anything…"<</Dialogue>><br><br>
     Nat clicks away, and you just find yourself posing without thinking - every time <<RivalI>> moves, you find yourself repositioning instinctively to show all your best assets, never stopping with either radiant smiles or smoldering stares. Nat keeps clicking, but <<RivalI>> seems more and more hesitant as <<RivalI>> keep going.<br><br>
-<<elseif $shyConfident > -1 && muscle > 40>>
+<<elseif $shyConfident > -1 && $muscle > 40>>
     You sit down, unsure of what <<RivalI>> expects you to do. Nat puts the camera down and looks straight at you, demonstrating as <<RivalI>> speaks.<br><br>
     <<Dialogue setup.getRivalName() setup.getRivalName()>>"You've got an amazing body, flaunt it! Let's get those shoulders open, reveal all that beautiful torso and the nice core… stretch those toned legs, I want to get all of those… and just remember to smile."<</Dialogue>><br><br>
     <<RivalMy>> compliments hit you real deep, and you couldn't keep yourself from smiling if you tried to. <<RivalI>> makes you feel very at ease, and soon <<RivalI>>'s giving you more posing tips and you are having so much fun while <<RivalI>> clicks away…<br><br>

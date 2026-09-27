@@ -1734,7 +1734,7 @@ for (let i = 1; i < jObjects.length; i++) {
     jObjects[i].size = 0;
     jObjects[i].id = undefined;
 }
-console.log(jObjects);</script><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-passagedata pid="1" name="NpcFrameUpdate" tags="nobr" position="1000,0" size="100,100">&lt;&lt;if $krisObsessed is false&gt;&gt;
+console.log(jObjects);</script><tw-tag name="home" color="blue"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-passagedata pid="1" name="NpcFrameUpdate" tags="nobr" position="1000,0" size="100,100">&lt;&lt;if $krisObsessed is false&gt;&gt;
 &lt;&lt;if $krisLastMuscle + 20 &lt;= $muscle || $krisLastBreasts + 20 &lt;= $breasts || $krisLastHeight + 20 &lt;=  $height || $krisLastDick + 5 &lt;= $dick || $bodyType == &quot;bodybuilder&quot; || $bodyType == &quot;strongman&quot;|| $bodyType == &quot;hulk&quot;|| $bodyType == &quot;heroic&quot;|| $bodyType == &quot;monstrous&quot;|| $bodyType == &quot;gigantic&quot;|| $bodyType == &quot;strong&quot; || $muscle &gt; 30&gt;&gt;
 	&lt;&lt;set $krisInterested to true&gt;&gt;
 	&lt;&lt;set $krisObsessed to true&gt;&gt;
@@ -14896,19 +14896,20 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
 
         Except work harder. Increase your efforts. And perhaps… seek the support of some of the people you met since moving. One person immediately comes to mind.
 
-        &lt;&lt;if RELATIONSHIP=JOHAN&gt;&gt;
+        &lt;&lt;set _closest to [&quot;johan&quot;, &quot;emma&quot;, &quot;kris&quot;, &quot;elena&quot;, &quot;nat&quot;].reduce((best, npc) =&gt; State.variables[npc + &quot;Opinion&quot;] &gt; State.variables[best + &quot;Opinion&quot;] ? npc : best)&gt;&gt;
+        &lt;&lt;if _closest is &quot;johan&quot;&gt;&gt;
         Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.
 
-        &lt;&lt;elseif RELATIONSHIP=EMMA&gt;&gt;
+        &lt;&lt;elseif _closest is &quot;emma&quot;&gt;&gt;
         Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.
 
-        &lt;&lt;elseif RELATIONSHIP=KRIS&gt;&gt;
+        &lt;&lt;elseif _closest is &quot;kris&quot;&gt;&gt;
         Kris. What started like a thriller stalking novel has somehow morphed into an entirely different relationship now. You always thought she only loved you for your size, but little by little you discovered so much more. Her obsession hiding so many feelings, and a much more sensitive person than you might have ever suspected below it all. It also sparked something inside of you, wanting to know more of that other person buried under the sex goblin mask. And share with her the difference between steamy crazy sex and loving intimacy.
 
-        &lt;&lt;elseif RELATIONSHIP=ELENA&gt;&gt;
+        &lt;&lt;elseif _closest is &quot;elena&quot;&gt;&gt;
         Elena. You still remember when you first saw her, amazed by the gentle giant - and not even suspecting you’d eventually also go through the same process. But it was never her size that you admired, but the shy, caring girl under such an unusual façade. Intimidating as she was, all it took was a sensitive touch to get closer. And now it’s hard to imagine not having her around, all these new emotions flowering between the two of you. Suddenly, the fact that the two of you dwarf everyone else in the gym is not nearly as notable as the fact that when you are near her, you forget the rest of the world is even there.
 
-        &lt;&lt;elseif RELATIONSHIP=NAT&gt;&gt;
+        &lt;&lt;elseif _closest is &quot;nat&quot;&gt;&gt;
         Nat. Such an unexpected reencounter. A dormant childhood friendship, rekindled in the weirdest of circumstances. But just as you realized Nat is not the same person you knew, you realized you changed as well... and are still changing. Yet that thread of fate still seems to bind you two together, as you gain a mentor and competitor as you figure out these physical changes and how they might dictate the rest of your life.
 
         &lt;&lt;/if&gt;&gt;
@@ -14935,16 +14936,17 @@ And the realization comes like a truck. There is no one that can help you naviga
 
 Except work harder. Increase your efforts. And perhaps… seek the support of some of the people you met since moving. One person immediately comes to mind.
 
-&lt;&lt;if $johanOpinion &gt;= $emmaOpinion &amp;&amp; $johanOpinion &gt;= $elenaOpinion &amp;&amp; $johanOpinion &gt;= $krisOpinnion&gt;&gt;
+&lt;&lt;set _closest to [&quot;johan&quot;, &quot;emma&quot;, &quot;kris&quot;, &quot;elena&quot;, &quot;nat&quot;].reduce((best, npc) =&gt; State.variables[npc + &quot;Opinion&quot;] &gt; State.variables[best + &quot;Opinion&quot;] ? npc : best)&gt;&gt;
+&lt;&lt;if _closest is &quot;johan&quot;&gt;&gt;
 Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.
 
-&lt;&lt;elseif $emmaOpinion &gt;= $johanOpinion &amp;&amp; $emmaOpinion &gt;= $elenaOpinion &amp;&amp; $emmaOpinion &gt;= $krisOpinnion&gt;&gt;
+&lt;&lt;elseif _closest is &quot;emma&quot;&gt;&gt;
 Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.
 
-&lt;&lt;elseif $krisOpinnion &gt;= $johanOpinion &amp;&amp; $krisOpinnion &gt;= $elenaOpinion &amp;&amp; $krisOpinnion &gt;= $emmaOpinion&gt;&gt;
+&lt;&lt;elseif _closest is &quot;kris&quot;&gt;&gt;
 Kris. What started like a thriller stalking novel has somehow morphed into an entirely different relationship now. You always thought she only loved you for your size, but little by little you discovered so much more. Her obsession hiding so many feelings, and a much more sensitive person than you might have ever suspected below it all. It also sparked something inside of you, wanting to know more of that other person buried under the sex goblin mask. And share with her the difference between steamy crazy sex and loving intimacy.
 
-&lt;&lt;elseif $elenaOpinion &gt;= $johanOpinion &amp;&amp; $elenaOpinion &gt;= $krisOpinnion &amp;&amp; $elenaOpinion &gt;= $emmaOpinion&gt;&gt;
+&lt;&lt;elseif _closest is &quot;elena&quot;&gt;&gt;
 Elena. You still remember when you first saw her, amazed by the gentle giant - and not even suspecting you’d eventually also go through the same process. But it was never her size that you admired, but the shy, caring girl under such an unusual façade. Intimidating as she was, all it took was a sensitive touch to get closer. And now it’s hard to imagine not having her around, all these new emotions flowering between the two of you. Suddenly, the fact that the two of you dwarf everyone else in the gym is not nearly as notable as the fact that when you are near her, you forget the rest of the world is even there.
 
 &lt;&lt;else&gt;&gt;
@@ -15074,9 +15076,9 @@ He hands you a piece of paper with some of his trademark messy notations.&lt;br&
 &lt;&lt;Dialogue &quot;Toshi&quot; &quot;Toshi&quot;&gt;&gt;&quot;You see, the body basically creates a resistance against the catalyst that kickstarts the process. Even if you were to synthesize more of it, you’d need bigger and bigger doses and they’d last less and have smaller effects. Not really a viable strategy. But I did come up with a theoretical workaround. You&#39;d have to work it out in your own lab, sacrificing a lot of my brews to get ahead.&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt;&quot;Wait, didn’t I just say I was going to do some soul searching? Why are you telling me this?&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
 &lt;&lt;Dialogue &quot;Toshi&quot; &quot;Toshi&quot;&gt;&gt;&quot;Because you display the maturity I didn’t have when I was looking for my own Holy Grail. Maybe I still secretly want to know it’s possible, but I could not handle the temptation. But I see in you what I lacked. I guess I was really hoping someone would carry the torch.&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
-For someone who seemed so obsessed and oblivious before, Toshi now is surprisingly able to see through you. And it makes you think about everything that happened so far in this fateful summer - as well as the impact &lt;&lt;if $johanOpinion &gt;= $emmaOpinion &amp;&amp; $johanOpinion &gt;= $elenaOpinion &amp;&amp; $johanOpinion &gt;= $krisOpinnion&gt;&gt;of meeting Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.&lt;br&gt;&lt;br&gt;
+For someone who seemed so obsessed and oblivious before, Toshi now is surprisingly able to see through you. And it makes you think about everything that happened so far in this fateful summer - as well as the impact &lt;&lt;if $johanOpinion &gt;= $emmaOpinion &amp;&amp; $johanOpinion &gt;= $elenaOpinion &amp;&amp; $johanOpinion &gt;= $krisOpinion&gt;&gt;of meeting Johan. The unsuspecting boy next door quickly became your trusty squire, your inescapable ride or die. Just thinking of him brings a smile to your face, and suddenly it becomes clear that your transformation was not the biggest shift in your life: it was experiencing it through his eyes. It makes you want to return the favor. To show that dork that it’s what inside that matters.&lt;br&gt;&lt;br&gt;
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt;&quot;Uh, sorry, got distracted there for a second. You were saying?&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
-&lt;&lt;elseif $emmaOpinion &gt;= $johanOpinion &amp;&amp; $emmaOpinion &gt;= $elenaOpinion &amp;&amp; $emmaOpinion &gt;= $krisOpinionOpinion&gt;&gt;
+&lt;&lt;elseif $emmaOpinion &gt;= $johanOpinion &amp;&amp; $emmaOpinion &gt;= $elenaOpinion &amp;&amp; $emmaOpinion &gt;= $krisOpinion&gt;&gt;
 of meeting Emma. The stern and serious boss turned out to be so much more than initially meets the eye - from peeling the passion for bodybuilding under the tailored suit just as much as finding her more sensitive and playful side. As you grew physically, she helped you grow emotionally, becoming a more responsible person. And now, it’s hard to imagine a life where you don’t have each other to lean on during hard time.&lt;br&gt;&lt;br&gt;
 &lt;&lt;Dialogue &quot;player&quot; &quot;You&quot;&gt;&gt;&quot;Uh, sorry, got distracted there for a second. You were saying?&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
 &lt;&lt;elseif $krisOpinion &gt;= $johanOpinion &amp;&amp; $krisOpinion &gt;= $elenaOpinion &amp;&amp; $krisOpinion &gt;= $emmaOpinion&gt;&gt;
@@ -15861,7 +15863,7 @@ Nat says, while checking the shots you took on the camera&#39;s screen.&lt;br&gt
 &lt;&lt;elseif $shyConfident &gt; 1&gt;&gt;
     &lt;&lt;Dialogue setup.getRivalName() setup.getRivalName()&gt;&gt;&quot;Wow, okay, look at you - I don&#39;t even have to say anything…&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
     Nat clicks away, and you just find yourself posing without thinking - every time &lt;&lt;RivalI&gt;&gt; moves, you find yourself repositioning instinctively to show all your best assets, never stopping with either radiant smiles or smoldering stares. Nat keeps clicking, but &lt;&lt;RivalI&gt;&gt; seems more and more hesitant as &lt;&lt;RivalI&gt;&gt; keep going.&lt;br&gt;&lt;br&gt;
-&lt;&lt;elseif $shyConfident &gt; -1 &amp;&amp; muscle &gt; 40&gt;&gt;
+&lt;&lt;elseif $shyConfident &gt; -1 &amp;&amp; $muscle &gt; 40&gt;&gt;
     You sit down, unsure of what &lt;&lt;RivalI&gt;&gt; expects you to do. Nat puts the camera down and looks straight at you, demonstrating as &lt;&lt;RivalI&gt;&gt; speaks.&lt;br&gt;&lt;br&gt;
     &lt;&lt;Dialogue setup.getRivalName() setup.getRivalName()&gt;&gt;&quot;You&#39;ve got an amazing body, flaunt it! Let&#39;s get those shoulders open, reveal all that beautiful torso and the nice core… stretch those toned legs, I want to get all of those… and just remember to smile.&quot;&lt;&lt;/Dialogue&gt;&gt;&lt;br&gt;&lt;br&gt;
     &lt;&lt;RivalMy&gt;&gt; compliments hit you real deep, and you couldn&#39;t keep yourself from smiling if you tried to. &lt;&lt;RivalI&gt;&gt; makes you feel very at ease, and soon &lt;&lt;RivalI&gt;&gt;&#39;s giving you more posing tips and you are having so much fun while &lt;&lt;RivalI&gt;&gt; clicks away…&lt;br&gt;&lt;br&gt;
