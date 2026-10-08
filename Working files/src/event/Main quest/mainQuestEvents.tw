@@ -90,7 +90,7 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
 
                 <<Dialogue setup.getRivalName() setup.getRivalName()>>"Well, that’s quite the predicament, <<print $playerFirstName>>. But the important thing with any problem is to stay calm rational."<</Dialogue>>
 
-                <<if if $rivalGender === 'male'>>
+                <<if $rivalGender === 'male'>>
                 He proceeds to break down the issue and laying down problem-solving steps like how to apply for loans, how to search for other scholarship options, but you decide to interject:
 
                 <<else>>

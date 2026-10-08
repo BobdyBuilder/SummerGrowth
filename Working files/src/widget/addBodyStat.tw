@@ -12,7 +12,9 @@
 <<elseif _bodyStatConfig.gate == undefined || _bodyStatConfig.gate()>>
 	<<set _extraMultiplier to (_bodyStatConfig.extraMultiplier == undefined) ? 1 : _bodyStatConfig.extraMultiplier()>>
 	<<set _amount to parseFloat($args[1]) * $growthMod * _extraMultiplier * $globalGrowthMod>>
-	<<if $args[2] == "instant">>
+	<<if Number.isNaN(_amount)>>
+		<<run console.error('addBodyStat: amount for "' + $args[0] + '" is not a number: ' + $args[1])>>
+	<<elseif $args[2] == "instant">>
 		<<run State.setVar("$" + _bodyStatConfig.statVar, Math.clamp(State.getVar("$" + _bodyStatConfig.statVar) + _amount, _bodyStatConfig.min, _bodyStatConfig.max))>>
 	<<else>>
 		<<run State.setVar("$" + _bodyStatConfig.storeVar, State.getVar("$" + _bodyStatConfig.storeVar) + _amount)>>

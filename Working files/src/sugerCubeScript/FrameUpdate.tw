@@ -21,6 +21,11 @@ document.documentElement.style.setProperty('--randoIcon', 'URL("' + randomIcons[
 <<set $motivation to Math.clamp($motivation, 0, $maxMotivation)>>
 <<set $motivationPercentage to $motivation / $maxMotivation>>
 
+/* Skill unlocks: derived from game state so old saves and alternate unlock paths still show the skills */
+<<if $skills[4].name is "modelling">><<set $skills[4].name to "Posing">><</if>>
+<<if $posingEnabled>><<set $skills[4].hidden to false>><</if>>
+<<if $furniture.includes("distilation still")>><<set $skills[5].hidden to false>><</if>>
+
 /* Skill Upgrades */
 <<for _i to 0; _i < $skills.length; _i ++>>
 	<<capture _i>>

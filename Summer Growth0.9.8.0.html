@@ -1734,7 +1734,7 @@ for (let i = 1; i < jObjects.length; i++) {
     jObjects[i].size = 0;
     jObjects[i].id = undefined;
 }
-console.log(jObjects);</script><tw-tag name="home" color="blue"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-passagedata pid="1" name="NpcFrameUpdate" tags="nobr" position="1000,0" size="100,100">&lt;&lt;if $krisObsessed is false&gt;&gt;
+console.log(jObjects);</script><tw-tag name="widget" color="purple"></tw-tag><tw-tag name="home" color="blue"></tw-tag><tw-tag name="intro" color="orange"></tw-tag><tw-tag name="noEventTrigger" color="purple"></tw-tag><tw-tag name="inside" color="green"></tw-tag><tw-tag name="outOfHouse" color="green"></tw-tag><tw-tag name="storage" color="gray"></tw-tag><tw-tag name="Done" color="green"></tw-tag><tw-tag name="TODO" color="red"></tw-tag><tw-tag name="TODO2" color="red"></tw-tag><tw-passagedata pid="1" name="NpcFrameUpdate" tags="nobr" position="1000,0" size="100,100">&lt;&lt;if $krisObsessed is false&gt;&gt;
 &lt;&lt;if $krisLastMuscle + 20 &lt;= $muscle || $krisLastBreasts + 20 &lt;= $breasts || $krisLastHeight + 20 &lt;=  $height || $krisLastDick + 5 &lt;= $dick || $bodyType == &quot;bodybuilder&quot; || $bodyType == &quot;strongman&quot;|| $bodyType == &quot;hulk&quot;|| $bodyType == &quot;heroic&quot;|| $bodyType == &quot;monstrous&quot;|| $bodyType == &quot;gigantic&quot;|| $bodyType == &quot;strong&quot; || $muscle &gt; 30&gt;&gt;
 	&lt;&lt;set $krisInterested to true&gt;&gt;
 	&lt;&lt;set $krisObsessed to true&gt;&gt;
@@ -14540,7 +14540,7 @@ But right now, this idea is too dumb to just do. You need to discuss this with s
 
                 &lt;&lt;Dialogue setup.getRivalName() setup.getRivalName()&gt;&gt;&quot;Well, that’s quite the predicament, &lt;&lt;print $playerFirstName&gt;&gt;. But the important thing with any problem is to stay calm rational.&quot;&lt;&lt;/Dialogue&gt;&gt;
 
-                &lt;&lt;if if $rivalGender === &#39;male&#39;&gt;&gt;
+                &lt;&lt;if $rivalGender === &#39;male&#39;&gt;&gt;
                 He proceeds to break down the issue and laying down problem-solving steps like how to apply for loans, how to search for other scholarship options, but you decide to interject:
 
                 &lt;&lt;else&gt;&gt;
@@ -19088,6 +19088,7 @@ You played some nice, relaxing matches. No real bad games, no real good games, i
 &lt;&lt;nobr&gt;&gt;&lt;span id=&quot;result&quot;&gt;
 &lt;&lt;for _i to 0; _i &lt; $skills.length; _i ++&gt;&gt;
 &lt;&lt;capture _i&gt;&gt;
+&lt;&lt;if $skills[_i].hidden == false&gt;&gt;
 	&lt;&lt;link $skills[_i].name&gt;&gt;
 	&lt;&lt;replace &quot;#result&quot;&gt;&gt;You spend some time reading up on &lt;&lt;print $skills[_i].name&gt;&gt;. You think you picked up quite a bit!
         &lt;br&gt;&lt;br&gt;
@@ -19095,6 +19096,7 @@ You played some nice, relaxing matches. No real bad games, no real good games, i
     &lt;&lt;/replace&gt;&gt;
     
     &lt;&lt;/link&gt;&gt;&lt;br&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/capture&gt;&gt;
 &lt;&lt;/for&gt;&gt;
 &lt;/span&gt;&lt;&lt;/nobr&gt;&gt;
@@ -23062,7 +23064,7 @@ That is A LOT to process!&lt;br&gt;&lt;br&gt;
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: `Once more you wake up, ready to start the day preparing for the big event. Whether it&#39;s work, or lifting, you got to get ready! But for some reason you feel lethargic. And when you put on your clothing... is it just your imagination, or do they feel a bit looser? &lt;&lt;addBodyStat &quot;muscle&quot; (($muscle - 20) * -0.1) &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; (($height - 150) * -0.1) &quot;instant&quot;&gt;&gt;`
+    content: `Once more you wake up, ready to start the day preparing for the big event. Whether it&#39;s work, or lifting, you got to get ready! But for some reason you feel lethargic. And when you put on your clothing... is it just your imagination, or do they feel a bit looser? &lt;&lt;set _muscleLoss to ($muscle - 20) * -0.1&gt;&gt;&lt;&lt;set _heightLoss to ($height - 150) * -0.1&gt;&gt;&lt;&lt;addBodyStat &quot;muscle&quot; _muscleLoss &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; _heightLoss &quot;instant&quot;&gt;&gt;`
 }, {
     name: &#39;GrowthSlowingDown_3&#39;,
     locationTags: [&#39;postSleep&#39;],
@@ -23074,7 +23076,7 @@ That is A LOT to process!&lt;br&gt;&lt;br&gt;
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: `Okay, normally you wake up quite refreshed. Today, not so much. When you wake up you double over with a splitting headache, and your body just feels LIMP. Despite the size of your body, it feels stretched out. Like substance in it is missing, while the form stays there. Even thinking that gives another headache, and limply you get up. Not a great start. And you had this more often lately... &lt;&lt;addBodyStat &quot;muscle&quot; (($muscle - 20) * -0.1) &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; (($height - 150) * -0.1) &quot;instant&quot;&gt;&gt;`
+    content: `Okay, normally you wake up quite refreshed. Today, not so much. When you wake up you double over with a splitting headache, and your body just feels LIMP. Despite the size of your body, it feels stretched out. Like substance in it is missing, while the form stays there. Even thinking that gives another headache, and limply you get up. Not a great start. And you had this more often lately... &lt;&lt;set _muscleLoss to ($muscle - 20) * -0.1&gt;&gt;&lt;&lt;set _heightLoss to ($height - 150) * -0.1&gt;&gt;&lt;&lt;addBodyStat &quot;muscle&quot; _muscleLoss &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; _heightLoss &quot;instant&quot;&gt;&gt;`
 }, {
     name: &#39;GrowthSlowingDown_4&#39;,
     locationTags: [&#39;postSleep&#39;],
@@ -23086,7 +23088,7 @@ That is A LOT to process!&lt;br&gt;&lt;br&gt;
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: `Something is WRONG. For the last few days you&#39;ve felt not great, like a flu hit you. But you also feel like you should&#39;ve been... bigger right now. The growth has just been trailing off, you feel lathargic, right when you need the size the most for the contest! If this continues for much longer, you need to investigate this. &lt;&lt;addBodyStat &quot;muscle&quot; (($muscle - 20) * -0.1) &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; (($height - 150) * -0.1) &quot;instant&quot;&gt;&gt;`
+    content: `Something is WRONG. For the last few days you&#39;ve felt not great, like a flu hit you. But you also feel like you should&#39;ve been... bigger right now. The growth has just been trailing off, you feel lathargic, right when you need the size the most for the contest! If this continues for much longer, you need to investigate this. &lt;&lt;set _muscleLoss to ($muscle - 20) * -0.1&gt;&gt;&lt;&lt;set _heightLoss to ($height - 150) * -0.1&gt;&gt;&lt;&lt;addBodyStat &quot;muscle&quot; _muscleLoss &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; _heightLoss &quot;instant&quot;&gt;&gt;`
 }, {
     name: &#39;GrowthSlowingDown_5&#39;,
     locationTags: [&#39;postSleep&#39;],
@@ -23098,7 +23100,7 @@ That is A LOT to process!&lt;br&gt;&lt;br&gt;
     retriggerable: false,
     priority: &#39;immediate&#39;,
     npc: [],
-    content: `Something is WRONG. For the last few days you&#39;ve felt not great, like a flu hit you. But you also feel like you should&#39;ve been... bigger right now. The growth has just been trailing off, you feel lathargic, right when you need the size the most for the contest! If this continues for much longer, you need to investigate this. &lt;&lt;addBodyStat &quot;muscle&quot; (($muscle - 20) * -0.1) &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; (($height - 150) * -0.1) &quot;instant&quot;&gt;&gt;`
+    content: `Something is WRONG. For the last few days you&#39;ve felt not great, like a flu hit you. But you also feel like you should&#39;ve been... bigger right now. The growth has just been trailing off, you feel lathargic, right when you need the size the most for the contest! If this continues for much longer, you need to investigate this. &lt;&lt;set _muscleLoss to ($muscle - 20) * -0.1&gt;&gt;&lt;&lt;set _heightLoss to ($height - 150) * -0.1&gt;&gt;&lt;&lt;addBodyStat &quot;muscle&quot; _muscleLoss &quot;instant&quot;&gt;&gt;&lt;&lt;addBodyStat &quot;height&quot; _heightLoss &quot;instant&quot;&gt;&gt;`
 }
 
 )&gt;&gt;</tw-passagedata><tw-passagedata pid="243" name="PostSleepResponses" tags="nobr" position="1800,2325" size="100,100">&lt;&lt;set setup.events.push({
@@ -24712,6 +24714,14 @@ Checking your inbox, you suddenly get a red message. SHIT! Seems like what happe
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $daysPlayed == $dayOfEmmaBulkDate&gt;&gt;
+	&lt;&lt;if $gameDate.getHours() &gt;= 10 and $gameDate.getHours() &lt;= 22&gt;&gt;
+		&lt;&lt;link &quot;Go mealprep with Emma&quot; &quot;EmmaWork&quot;&gt;&gt;&lt;&lt;set $eventCounter to setup.balance.eventTresshold + 1&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;br&gt;
+    &lt;&lt;else&gt;&gt;
+    Emma will be expecting you for the mealprep between 10:00 and 22:00.&lt;br&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $elenaOpenedUp is true &amp;&amp; setup.hasEventBeenTriggered(&#39;EM33LoveDeclaration&#39;) == true&gt;&gt;
 	&lt;&lt;if $gameDate.getHours() &gt;= 9 and $gameDate.getHours() &lt;= 18&gt;&gt;
 		&lt;&lt;gameLink &quot;Visit Elena at her home&quot; &quot;ElenaHouse&quot; time:120&gt;&gt;&lt;&lt;set $eventCounter to setup.balance.eventTresshold + 1&gt;&gt;&lt;&lt;/gameLink&gt;&gt;&lt;br&gt;
     &lt;&lt;else&gt;&gt;
@@ -30882,6 +30892,11 @@ document.documentElement.style.setProperty(&#39;--randoIcon&#39;, &#39;URL(&quot
 &lt;&lt;set $motivation to Math.clamp($motivation, 0, $maxMotivation)&gt;&gt;
 &lt;&lt;set $motivationPercentage to $motivation / $maxMotivation&gt;&gt;
 
+/* Skill unlocks: derived from game state so old saves and alternate unlock paths still show the skills */
+&lt;&lt;if $skills[4].name is &quot;modelling&quot;&gt;&gt;&lt;&lt;set $skills[4].name to &quot;Posing&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $posingEnabled&gt;&gt;&lt;&lt;set $skills[4].hidden to false&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $furniture.includes(&quot;distilation still&quot;)&gt;&gt;&lt;&lt;set $skills[5].hidden to false&gt;&gt;&lt;&lt;/if&gt;&gt;
+
 /* Skill Upgrades */
 &lt;&lt;for _i to 0; _i &lt; $skills.length; _i ++&gt;&gt;
 	&lt;&lt;capture _i&gt;&gt;
@@ -35127,7 +35142,9 @@ Your lats push out so much you are forced to rest your arms on them, unable to r
 &lt;&lt;elseif _bodyStatConfig.gate == undefined || _bodyStatConfig.gate()&gt;&gt;
 	&lt;&lt;set _extraMultiplier to (_bodyStatConfig.extraMultiplier == undefined) ? 1 : _bodyStatConfig.extraMultiplier()&gt;&gt;
 	&lt;&lt;set _amount to parseFloat($args[1]) * $growthMod * _extraMultiplier * $globalGrowthMod&gt;&gt;
-	&lt;&lt;if $args[2] == &quot;instant&quot;&gt;&gt;
+	&lt;&lt;if Number.isNaN(_amount)&gt;&gt;
+		&lt;&lt;run console.error(&#39;addBodyStat: amount for &quot;&#39; + $args[0] + &#39;&quot; is not a number: &#39; + $args[1])&gt;&gt;
+	&lt;&lt;elseif $args[2] == &quot;instant&quot;&gt;&gt;
 		&lt;&lt;run State.setVar(&quot;$&quot; + _bodyStatConfig.statVar, Math.clamp(State.getVar(&quot;$&quot; + _bodyStatConfig.statVar) + _amount, _bodyStatConfig.min, _bodyStatConfig.max))&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;run State.setVar(&quot;$&quot; + _bodyStatConfig.storeVar, State.getVar(&quot;$&quot; + _bodyStatConfig.storeVar) + _amount)&gt;&gt;
